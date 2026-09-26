@@ -82,14 +82,14 @@ h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.05;letter-spac
 .btn:active{transform:scale(.96)}
 .btn.acc{background:var(--accent)}
 .btn.ghost{background:var(--bg2);color:var(--ink)}
-.grid{display:grid;gap:8px;padding:16px;flex:1;align-content:center}
+.grid{display:grid;gap:8px;padding:16px;align-content:center}
 .cell{aspect-ratio:1;border-radius:12px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:22px;transition:transform .08s}
 .cell:active{transform:scale(.94)}
 .cell.blk{background:var(--ink);border-color:var(--ink);color:transparent}
 .cell.hit{background:var(--good);border-color:var(--good);color:#fff}
 .cell.miss{background:var(--bad);border-color:var(--bad);color:#fff}
 .cell.lit{background:var(--accent);border-color:var(--accent)}
-.pads{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:20px;flex:1;align-content:center}
+.pads{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:20px;align-content:center}
 .pad{aspect-ratio:1;border-radius:24px;opacity:.55;transition:opacity .08s,transform .08s}
 .pad.lit,.pad:active{opacity:1;transform:scale(1.03)}
 .keys{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:16px;margin-top:auto}
@@ -136,12 +136,12 @@ h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.05;letter-spac
 .zin{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:14px}
 .zone.flip .zin{transform:rotate(180deg)}
 .zin h3{font-size:clamp(22px,7vw,44px);color:#fff}
-.zin p{font-size:14px;opacity:.85;font-weight:500}
+.zin p{font-size:16px;opacity:.9;font-weight:500;max-width:34ch;line-height:1.35}
 .zin .score{position:absolute;top:10px;left:14px;font-family:var(--display);font-weight:800;font-size:18px;opacity:.9}
 .zin .lbl{position:absolute;top:10px;right:14px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;opacity:.75}
 .zbtns{display:grid;gap:8px;width:100%;max-width:360px}
 .zbtns.c2{grid-template-columns:1fr 1fr}.zbtns.c4{grid-template-columns:1fr 1fr}.zbtns.c3{grid-template-columns:repeat(3,1fr)}
-.zbtn{padding:16px 6px;border-radius:14px;background:#ffffff2e;font-family:var(--display);font-weight:800;font-size:22px;color:#fff;border:2px solid #fff4;transition:transform .08s}
+.zbtn{padding:16px 6px;border-radius:14px;background:#ffffff2e;font-family:var(--display);font-weight:800;font-size:22px;color:#fff;border:2px solid #fffa;transition:transform .08s}
 .zbtn:active{transform:scale(.95);background:#ffffff55}
 .zbtn.big{padding:26px;font-size:26px}
 .zgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;width:min(100%,260px)}
@@ -153,6 +153,17 @@ h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.05;letter-spac
 .rank{display:grid;gap:8px;width:min(100%,340px);margin:10px 0 20px}
 .rank div{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;color:#fff;font-weight:600}
 .rank div b{margin-left:auto;font-family:var(--display);font-size:22px}
+/* wide screens: phone-shaped frame */
+@media (min-width:600px){
+  body{background:#14161C}
+  .screen{inset:0 auto 0 50%;width:430px;transform:translateX(-50%);box-shadow:0 0 0 1px #ffffff14}
+  #party{inset:0;width:auto;transform:none;box-shadow:none}
+}
+#stage{container-type:size}
+.grid{--c:4;--r:5;width:min(100%,calc((100cqh - 40px) * var(--c) / var(--r)));margin:auto}
+.pads{width:min(100%,calc(100cqh - 40px));margin:auto}
+.zbtn.ready{background:#ffffff;color:#14161C}
+.zbtn.ready.on{background:#14161C;color:#fff;border-color:#14161C}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -240,7 +251,7 @@ const SOLO=[
   c.hud('0/5');arm()}},
 
 {id:'chimp',name:'Chimp Grid',tag:'Memory',desc:'Numbers appear. Tap 1, then the rest in order from memory. The grid grows every round.',unit:'level',mean:9,sd:3,color:'#8B5CF6',
- run(c){let n=4,lives=3;const g=el('div','grid');g.style.gridTemplateColumns='repeat(5,1fr)';c.root.append(g);
+ run(c){let n=4,lives=3;const g=el('div','grid');g.style.gridTemplateColumns='repeat(5,1fr)';g.style.setProperty('--c',5);g.style.setProperty('--r',8);c.root.append(g);
   const round=()=>{g.innerHTML='';c.hud(`Level ${n-3} · ${'●'.repeat(lives)}`);const cells=[];for(let i=0;i<40;i++){const d=el('div','cell');d.style.visibility='hidden';cells.push(d);g.append(d)}
    const idx=shuffle([...Array(40).keys()]).slice(0,n);let next=1,hidden=false;
    idx.forEach((ci,k)=>{const d=cells[ci];d.style.visibility='visible';d.textContent=k+1;d.dataset.v=k+1;
@@ -290,7 +301,7 @@ const SOLO=[
 
 {id:'odd',name:'Odd One Out',tag:'Perception',desc:'One tile is a slightly different shade. Find it. The difference shrinks every level. 3 lives.',unit:'level',mean:15,sd:5,color:'#8B5CF6',
  run(c){let lvl=1,lives=3;const g=el('div','grid');c.root.append(g);
-  const round=()=>{const n=Math.min(7,2+Math.ceil(lvl/3));const h=rnd(0,359),s=70,l=52;const delta=Math.max(3,22-lvl*1.2);g.innerHTML='';g.style.gridTemplateColumns=`repeat(${n},1fr)`;const odd=rnd(0,n*n-1);c.hud(`Level ${lvl} · ${'●'.repeat(lives)}`);
+  const round=()=>{const n=Math.min(7,2+Math.ceil(lvl/3));const h=rnd(0,359),s=70,l=52;const delta=Math.max(3,22-lvl*1.2);g.innerHTML='';g.style.gridTemplateColumns=`repeat(${n},1fr)`;g.style.setProperty('--c',n);g.style.setProperty('--r',n);const odd=rnd(0,n*n-1);c.hud(`Level ${lvl} · ${'●'.repeat(lives)}`);
    for(let i=0;i<n*n;i++){const d=el('div','cell');d.style.border='0';d.style.background=`hsl(${h} ${s}% ${i===odd?l+delta:l}%)`;d.addEventListener('pointerdown',()=>{if(i===odd){sfx.tap();lvl++;round()}else{sfx.bad();lives--;if(!lives)c.end(lvl-1);else round()}});g.append(d)}};round()}},
 
 {id:'count',name:'Count Flash',tag:'Perception',desc:'Dots flash for a moment. How many were there? Type your answer. 3 lives.',unit:'dots',mean:8,sd:2,color:'#FF7A1A',
@@ -307,13 +318,13 @@ const SOLO=[
 
 {id:'vismem',name:'Tile Recall',tag:'Memory',desc:'Some tiles light up. Tap them all back from memory. The board grows. 3 lives.',unit:'level',mean:9,sd:3,color:'#22C55E',
  run(c){let lvl=1,lives=3;const g=el('div','grid');c.root.append(g);
-  const round=()=>{const n=Math.min(8,2+Math.ceil(lvl/2));const k=lvl+2;g.innerHTML='';g.style.gridTemplateColumns=`repeat(${n},1fr)`;c.hud(`Level ${lvl} · ${'●'.repeat(lives)}`);const lit=new Set(shuffle([...Array(n*n).keys()]).slice(0,k));let found=0,wrong=0,active=false;
+  const round=()=>{const n=Math.min(8,2+Math.ceil(lvl/2));const k=lvl+2;g.innerHTML='';g.style.gridTemplateColumns=`repeat(${n},1fr)`;g.style.setProperty('--c',n);g.style.setProperty('--r',n);c.hud(`Level ${lvl} · ${'●'.repeat(lives)}`);const lit=new Set(shuffle([...Array(n*n).keys()]).slice(0,k));let found=0,wrong=0,active=false;
    for(let i=0;i<n*n;i++){const d=el('div','cell');d.style.background='#14161C';d.style.border='0';if(lit.has(i))d.classList.add('lit');g.append(d);
     d.addEventListener('pointerdown',()=>{if(!active||d.dataset.done)return;d.dataset.done=1;if(lit.has(i)){d.classList.add('hit');sfx.tap();found++;if(found===k){active=false;sfx.good();lvl++;c.timeout(round,500)}}else{d.classList.add('miss');sfx.bad();wrong++;if(wrong>=3){active=false;lives--;c.timeout(()=>lives?round():c.end(lvl-1),700)}}})}
    c.timeout(()=>{g.querySelectorAll('.lit').forEach(x=>x.classList.remove('lit'));active=true},900+k*60)};round()}},
 
 {id:'schulte',name:'Number Hunt',tag:'Speed',desc:'Tap 1 to 20 in order as fast as you can.',unit:'s',lower:true,mean:25,sd:8,color:'#14161C',
- run(c){const g=el('div','grid');g.style.gridTemplateColumns='repeat(4,1fr)';c.root.append(g);let next=1,t0=0;const order=shuffle([...Array(20).keys()].map(i=>i+1));
+ run(c){const g=el('div','grid');g.style.gridTemplateColumns='repeat(4,1fr)';g.style.setProperty('--c',4);g.style.setProperty('--r',5);c.root.append(g);let next=1,t0=0;const order=shuffle([...Array(20).keys()].map(i=>i+1));
   order.forEach(v=>{const d=el('div','cell',v);d.addEventListener('pointerdown',()=>{if(v!==next){sfx.bad();d.classList.add('miss');c.timeout(()=>d.classList.remove('miss'),200);return}if(v===1)t0=now();sfx.tap();d.classList.add('hit');next++;c.hud(`${next-1}/20`);if(next>20)c.end(+((now()-t0)/1000).toFixed(2))});g.append(d)});c.hud('0/20')}},
 
 {id:'rhythm',name:'Rhythm Keeper',tag:'Timing',desc:'Tap along with 4 beats. Then the beat goes silent and you keep it going for 8 more.',unit:'ms off',lower:true,mean:60,sd:30,color:'#FF5A1F',
@@ -446,13 +457,15 @@ function buildZones(){const zc=$('#zones');zc.innerHTML='';zc.className='zones p
 function banner(t,ms=900){const b=el('div','pbar',t);$('#party').append(b);setTimeout(()=>b.remove(),ms);return b}
 function nextRound(){clearTimers();const st=pstate;st.round++;st.live=false;const g=st.g||pick(PARTY);st.cur=g;
   st.zones.forEach(z=>{z.isOut=false;z.el.classList.remove('out','win');z.el.style.background='';z._tap=null;z.set('','');z.el.querySelector('.score').textContent=st.scores[z.i];z.el.querySelectorAll('.fx').forEach(x=>x.remove())});
-  st.zones.forEach(z=>z.set(g.name,g.desc));banner(`Round ${st.round} · ${g.name}`,1800);
-  const t=setTimeout(()=>{st.zones.forEach(z=>z.set('',''));st.live=true;const c={zones:st.zones,timeout(fn,ms){const t=setTimeout(fn,ms);timers.push(t);return t},wait(ms){return new Promise(r=>c.timeout(r,ms))},alive:()=>st.zones.filter(z=>!z.isOut).map(z=>z.i),
+  const ready=st.zones.map(()=>false);
+  st.zones.forEach(z=>{z.set(g.name,g.desc);const b=el('button','zbtn ready',"I'm ready");b.addEventListener('pointerdown',e=>{e.stopPropagation();if(ready[z.i])return;ready[z.i]=true;sfx.tap();b.textContent='Ready ✓';b.classList.add('on');if(ready.every(Boolean))go()});z.body(b)});
+  const go=()=>{banner('GO!',700);sfx.go();st.zones.forEach(z=>z.set('',''));
+  const t=setTimeout(()=>{st.live=true;const c={zones:st.zones,timeout(fn,ms){const t=setTimeout(fn,ms);timers.push(t);return t},wait(ms){return new Promise(r=>c.timeout(r,ms))},alive:()=>st.zones.filter(z=>!z.isOut).map(z=>z.i),
     out(i,msg){const z=st.zones[i];if(z.isOut||!st.live)return;z.isOut=true;z.el.classList.add('out');const fx=el('div','fx',msg||'Out');z.el.append(fx);sfx.bad();if(!c.alive().length)c.nobody()},
     win(i){if(!st.live)return;st.live=false;clearTimers();const z=st.zones[i];st.scores[i]++;z.el.classList.add('win');sfx.good();st.zones.forEach(o=>{if(o.i!==i&&!o.isOut){o.el.classList.add('out')}});const fx=el('div','fx',`${PNAME[i]} wins`);z.el.append(fx);setTimeout(after,1400)},
     winAll(ids,loser){if(!st.live)return;st.live=false;clearTimers();ids.forEach(i=>{st.scores[i]++;st.zones[i].el.classList.add('win')});st.zones[loser].el.classList.add('out');setTimeout(after,1400)},
     nobody(){if(!st.live)return;st.live=false;clearTimers();banner('Nobody scores',1200);setTimeout(after,1300)}};
-   try{g.round(c)}catch(e){console.error(e);c.nobody()}},1900);timers.push(t)}
+   try{g.round(c)}catch(e){console.error(e);c.nobody()}},700);timers.push(t)}}
 function after(){const st=pstate;const m=Math.max(...st.scores);if(m>=target){const w=st.scores.indexOf(m);showPartyResult(w)}else nextRound()}
 function showPartyResult(w){const st=pstate;show('result');$('#rname').textContent=st.g?st.g.name:'Party mix';$('#rscore').innerHTML=`<span style="color:${PCOL[w]}">${PNAME[w]}</span>`;$('#rscore').style.fontSize='64px';$('#rpct').textContent='wins the match';$('#curve').innerHTML='';
   const ch=$('#rchips');ch.innerHTML='';const r=el('div','rank');[...st.zones].sort((a,b)=>st.scores[b.i]-st.scores[a.i]).forEach(z=>{const d=el('div');d.style.background=PCOL[z.i];d.innerHTML=`${PNAME[z.i]} <b>${st.scores[z.i]}</b>`;r.append(d)});ch.append(r);
