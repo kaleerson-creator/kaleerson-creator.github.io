@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>LD Round Timer</title>
+<meta name="description" content="A Lincoln-Douglas debate round timer with speech clocks, prep tracking, and round flow. NSDA 6-3-7-3-4-6-3 format.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#EDEFF2; --panel:#FFFFFF; --ink:#151A22; --muted:#5B6472; --line:#D5D9E0; --soft:#F5F6F8;
+  --aff:#2451C9; --aff-tint:#E6ECFB; --neg:#B8322F; --neg-tint:#F9E7E6;
+  --warn:#B86E00; --over:#D12C2C; --good:#2E7D4F;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0F1319; --panel:#171C24; --ink:#E8ECF2; --muted:#8C95A3; --line:#2A313C; --soft:#1D232D;
+    --aff:#86A3FF; --aff-tint:#1C2640; --neg:#FF8078; --neg-tint:#3A1D1E;
+    --warn:#F2B544; --over:#FF5A52; --good:#5FCB8C;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0F1319; --panel:#171C24; --ink:#E8ECF2; --muted:#8C95A3; --line:#2A313C; --soft:#1D232D;
+  --aff:#86A3FF; --aff-tint:#1C2640; --neg:#FF8078; --neg-tint:#3A1D1E;
+  --warn:#F2B544; --over:#FF5A52; --good:#5FCB8C;
+}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 var(--body);padding:calc(20px + env(safe-area-inset-top,0px)) 16px calc(40px + env(safe-area-inset-bottom,0px))}
+img{max-width:100%}
+[hidden]{display:none!important}
+.wrap{max-width:1040px;margin:0 auto;display:grid;gap:16px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--aff);outline-offset:2px}
+
+header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+h1{margin:0;font:700 26px/1 var(--display);letter-spacing:.02em;text-transform:uppercase}
+h1 small{display:block;font:500 12px/1.3 var(--body);letter-spacing:.08em;color:var(--muted);margin-top:4px}
+.hdr-right{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel)}
+.seg span{padding:7px 10px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-right:1px solid var(--line)}
+.seg button{border:0;background:transparent;padding:7px 14px;font-weight:600}
+.seg button[aria-pressed="true"].aff{background:var(--aff);color:#fff}
+.seg button[aria-pressed="true"].neg{background:var(--neg);color:#fff}
+.ghost{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:7px 12px;font-weight:500}
+.ghost.danger{color:var(--over);border-color:var(--over)}
+
+.grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:820px){.grid{grid-template-columns:1fr}}
+
+.clock{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:14px;position:relative;overflow:hidden}
+.clock::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:var(--side,var(--line))}
+.clock.aff{--side:var(--aff)} .clock.neg{--side:var(--neg)}
+.now{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px}
+.now .code{font:700 30px/1 var(--display);letter-spacing:.03em;color:var(--side)}
+.now .name{font-weight:500;color:var(--muted)}
+.chip{font:600 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:5px 8px;border-radius:99px;background:var(--ink);color:var(--panel)}
+.chip.prep{background:var(--warn);color:#fff}
+.tip{margin:0;padding:10px 12px;border-left:3px solid var(--side,var(--line));background:var(--soft);border-radius:0 8px 8px 0;font-size:14px;max-width:65ch}
+.tip b{font:600 12px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--side);margin-right:6px}
+.digits{font:700 clamp(96px,24vw,210px)/.9 var(--display);font-variant-numeric:tabular-nums;letter-spacing:-.01em;text-align:center;padding-block:6px}
+.digits.warn{color:var(--warn)}
+.digits.over{color:var(--over);animation:pulse 1s steps(2,start) infinite}
+@keyframes pulse{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.digits.over{animation:none}}
+.sub{text-align:center;color:var(--muted);font-size:13px;min-height:1.2em}
+.bar{height:8px;border-radius:99px;background:var(--soft);overflow:hidden;position:relative}
+.bar .mark{position:absolute;top:0;bottom:0;width:3px;margin-left:-1px;background:var(--ink)}
+.bar i{display:block;height:100%;width:0;background:var(--side,var(--ink));transition:width .2s linear}
+.bar.over i{background:var(--over)}
+.ctrls{display:grid;grid-template-columns:1fr 2fr 1fr;gap:10px}
+.ctrls button{border:1px solid var(--line);background:var(--soft);border-radius:10px;padding:14px 8px;font-weight:600}
+.ctrls .go{background:var(--ink);color:var(--panel);border-color:var(--ink);font:700 22px/1 var(--display);letter-spacing:.06em;text-transform:uppercase}
+.ctrls .go.running{background:var(--panel);color:var(--ink)}
+.row2{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.row2 button{border:0;background:transparent;color:var(--muted);font-size:13px;text-decoration:underline;text-underline-offset:3px;padding:4px 6px}
+
+.preps{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.prep{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:8px}
+.prep.aff{--side:var(--aff);--tint:var(--aff-tint)} .prep.neg{--side:var(--neg);--tint:var(--neg-tint)}
+.prep.active{border-color:var(--side);background:var(--tint)}
+.prep .top{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.prep .lbl{font:600 13px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--side)}
+.prep .you{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.prep .t{font:700 44px/1 var(--display);font-variant-numeric:tabular-nums}
+.prep .t.empty{color:var(--over)}
+.prep button{border:1px solid var(--side);color:var(--side);background:transparent;border-radius:8px;padding:9px;font-weight:600}
+.prep.active button{background:var(--side);color:#fff}
+.prep button:disabled{opacity:.4;cursor:not-allowed}
+
+aside{display:grid;gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card h2{margin:0 0 10px;font:600 14px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+ol.flow{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+ol.flow button{width:100%;display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:10px;text-align:left;border:1px solid transparent;background:transparent;border-radius:8px;padding:8px}
+ol.flow button:hover{background:var(--soft)}
+ol.flow li.cur button{border-color:var(--line);background:var(--soft)}
+.fcode{font:700 18px/1 var(--display);letter-spacing:.03em}
+.fcode.aff{color:var(--aff)} .fcode.neg{color:var(--neg)}
+.fname{font-size:13px;line-height:1.25}
+.fname em{display:block;font-style:normal;font-size:11px;color:var(--muted);letter-spacing:.04em}
+.fused{font:600 15px/1 var(--display);font-variant-numeric:tabular-nums;text-align:right;color:var(--muted)}
+.fused b{display:block;font-weight:500;font-size:11px;letter-spacing:.06em;margin-top:3px}
+.fused.done{color:var(--good)} .fused.ot{color:var(--over)}
+
+.keys{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;font-size:13px;color:var(--muted)}
+kbd{font:600 12px/1 var(--body);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:3px 6px;background:var(--soft);color:var(--ink);text-align:center}
+
+.settings{display:grid;gap:10px}
+.settings .f{display:grid;grid-template-columns:1fr 84px;align-items:center;gap:10px;font-size:13px}
+.settings input[type=number]{width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--soft);color:var(--ink);font:600 15px var(--display);font-variant-numeric:tabular-nums;text-align:right}
+.settings .check{display:flex;gap:8px;align-items:center;font-size:13px}
+.note{font-size:12px;color:var(--muted);margin:0}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <h1>LD Round Timer<small>NSDA Lincoln-Douglas · 6-3-7-3-4-6-3</small></h1>
+    <div class="hdr-right">
+      <div class="seg" role="group" aria-label="Your side">
+        <span>I'm</span>
+        <button id="me-aff" class="aff">Aff</button>
+        <button id="me-neg" class="neg">Neg</button>
+      </div>
+      <button id="newRound" class="ghost">New round</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <main style="display:grid;gap:16px">
+      <section class="clock" id="clock" aria-live="off">
+        <div class="now">
+          <span class="code" id="curCode">1AC</span>
+          <span class="name" id="curName"></span>
+          <span class="chip" id="curChip" hidden></span>
+        </div>
+        <p class="tip" id="tip"></p>
+        <div class="digits" id="digits">6:00</div>
+        <div class="bar" id="bar"><i></i><span class="mark" hidden></span></div>
+        <div class="sub" id="sub"></div>
+        <div class="ctrls">
+          <button id="prev" aria-label="Previous speech">◀ Prev</button>
+          <button id="go" class="go">Start</button>
+          <button id="next" aria-label="Next speech">Next ▶</button>
+        </div>
+        <div class="row2">
+          <button id="reset">Reset this speech</button>
+        </div>
+      </section>
+
+      <section class="preps">
+        <div class="prep aff" id="prep-aff">
+          <div class="top"><span class="lbl">Aff prep</span><span class="you" id="you-aff"></span></div>
+          <div class="t" id="pt-aff">4:00</div>
+          <button id="pb-aff">Use prep</button>
+        </div>
+        <div class="prep neg" id="prep-neg">
+          <div class="top"><span class="lbl">Neg prep</span><span class="you" id="you-neg"></span></div>
+          <div class="t" id="pt-neg">4:00</div>
+          <button id="pb-neg">Use prep</button>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <section class="card">
+        <h2>Round flow</h2>
+        <ol class="flow" id="flow"></ol>
+      </section>
+
+      <section class="card">
+        <h2>Times</h2>
+        <div class="settings" id="settings"></div>
+      </section>
+
+      <section class="card">
+        <h2>Keys</h2>
+        <div class="keys">
+          <kbd>Space</kbd><span>Start / pause speech</span>
+          <kbd>← →</kbd><span>Previous / next speech</span>
+          <kbd>A</kbd><span>Toggle Aff prep</span>
+          <kbd>N</kbd><span>Toggle Neg prep</span>
+          <kbd>R</kbd><span>Reset this speech</span>
+        </div>
+      </section>
+    </aside>
+  </div>
+</div>
+
+<script>
+(() => {
+  const SPEECHES = [
+    {code:'1AC', name:'Affirmative Constructive', side:'aff', min:6,
+      tip:'Lay the foundation. Read your value, criterion and contentions clean, and signpost every piece.'},
+    {code:'CX',  name:'Cross-ex', detail:'Neg questions Aff', side:'neg', cx:true, min:3,
+      ask:'Find the cracks. Pin down their framework and set up the weak links your NC will hit.',
+      answer:'Keep answers short and confident. Defend the case and never concede your framework.'},
+    {code:'1NC', name:'Negative Constructive', side:'neg', min:7,
+      tip:'Build up the attack. Read your case, then go line by line on the AC and turn their offense.',
+      parts:[
+        {label:'Your case', tip:'Read the Neg case. Value, criterion and contentions, clean and signposted.'},
+        {label:'Attack the AC', tip:'Build up the attack. Go line by line on the AC, hit their framework, and turn their offense.'},
+      ]},
+    {code:'CX',  name:'Cross-ex', detail:'Aff questions Neg', side:'aff', cx:true, min:3,
+      ask:'Expose gaps in the NC and get admissions you can use in the 1AR.',
+      answer:'Stay concise. Don\'t hand them new ground to use in the 1AR.'},
+    {code:'1AR', name:'First Affirmative Rebuttal', side:'aff', min:4,
+      tip:'Be efficient. Extend your case, answer the NC, and cover everything. Dropped arguments lose rounds.'},
+    {code:'NR',  name:'Negative Rebuttal', side:'neg', min:6,
+      tip:'Collapse to your best arguments. Punish what the 1AR dropped and start weighing.'},
+    {code:'2AR', name:'Second Affirmative Rebuttal', side:'aff', min:3,
+      tip:'Crystallize. Give the judge two or three voting issues and weigh them. No new arguments.'},
+  ];
+  const KEY = 'ld-timer-v1';
+  const $ = id => document.getElementById(id);
+
+  // ---------- state ----------
+  const fresh = cfg => ({
+    idx: 0,
+    remaining: cfg.mins.map(m => m * 60000),
+    touched: cfg.mins.map(() => false),
+    prep: {aff: cfg.prep * 60000, neg: cfg.prep * 60000},
+  });
+  let cfg = {me:'aff', mins: SPEECHES.map(s => s.min), prep: 4, split: 4, sound: true};
+  let R;
+  try {
+    const saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (saved && saved.cfg && saved.round && saved.cfg.mins.length === SPEECHES.length) { cfg = saved.cfg; R = saved.round; }
+  } catch (e) {}
+  if (!R) R = fresh(cfg);
+  if (cfg.split == null) cfg.split = 4;
+
+  let active = null;      // 'speech' | 'aff' | 'neg' | null
+  let last = 0, raf = 0, lastSave = 0, confirmNew = false;
+
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify({cfg, round: R})); } catch (e) {} };
+  const dur = i => cfg.mins[i] * 60000;
+
+  // ---------- sound ----------
+  let ac = null;
+  const audio = () => { if (!ac) { try { ac = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} } if (ac && ac.state === 'suspended') ac.resume(); };
+  function beep(n = 1, freq = 880) {
+    if (!cfg.sound || !ac) return;
+    for (let k = 0; k < n; k++) {
+      const t = ac.currentTime + k * 0.22, o = ac.createOscillator(), g = ac.createGain();
+      o.frequency.value = freq; o.type = 'sine';
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.35, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.16);
+      o.connect(g).connect(ac.destination); o.start(t); o.stop(t + 0.18);
+    }
+  }
+
+  // ---------- wake lock ----------
+  let lock = null;
+  async function wake(on) {
+    try {
+      if (on && !lock && navigator.wakeLock) lock = await navigator.wakeLock.request('screen');
+      if (!on && lock) { await lock.release(); lock = null; }
+    } catch (e) { lock = null; }
+  }
+
+  // ---------- helpers ----------
+  function fmt(ms) {
+    if (ms < 0) { const s = Math.floor(-ms / 1000); return '+' + Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+    const s = Math.ceil(ms / 1000); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+  }
+  const fmtUsed = ms => { const s = Math.floor(Math.max(0, ms) / 1000); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+  const sideName = s => s === 'aff' ? 'Aff' : 'Neg';
+  const other = s => s === 'aff' ? 'neg' : 'aff';
+  function youTag(i) {
+    const s = SPEECHES[i];
+    if (s.cx) return s.side === cfg.me ? 'You ask' : 'You answer';
+    return s.side === cfg.me ? 'You speak' : '';
+  }
+
+  // ---------- timing ----------
+  function start(what) {
+    audio();
+    if (what !== 'speech' && R.prep[what] <= 0) return;
+    active = what; last = performance.now(); R.touched[R.idx] ||= what === 'speech';
+    wake(true);
+    cancelAnimationFrame(raf); raf = requestAnimationFrame(tick);
+    render();
+  }
+  function stop() { active = null; cancelAnimationFrame(raf); wake(false); save(); render(); }
+
+  function tick(now) {
+    const dt = now - last; last = now;
+    if (active === 'speech') {
+      const before = R.remaining[R.idx], after = before - dt;
+      R.remaining[R.idx] = after;
+      if (before > 30000 && after <= 30000 && dur(R.idx) > 30000) beep(1, 660);
+      if (before > 0 && after <= 0) beep(3, 990);
+      const P = partInfo(R.idx);
+      if (P && dur(R.idx) - before < P.split && P.elapsed >= P.split) beep(2, 770);
+    } else if (active) {
+      const before = R.prep[active], after = Math.max(0, before - dt);
+      R.prep[active] = after;
+      if (before > 30000 && after <= 30000) beep(1, 660);
+      if (after <= 0) { beep(3, 990); stop(); return; }
+    }
+    if (now - lastSave > 1000) { save(); lastSave = now; }
+    render();
+    if (active) raf = requestAnimationFrame(tick);
+  }
+
+  function go(i) {
+    if (i < 0 || i >= SPEECHES.length) return;
+    if (active === 'speech') stop();
+    R.idx = i; save(); render();
+  }
+
+  // ---------- render ----------
+  function render() {
+    const i = R.idx, s = SPEECHES[i];
+    const showPrep = active === 'aff' || active === 'neg';
+    const clock = $('clock');
+    const asking = s.cx && s.side === cfg.me;
+    const tipText = showPrep
+      ? (active === cfg.me ? 'Plan your ' + s.code + ': pick what to extend, what to answer, and what to weigh.' : 'Their prep. Flow and plan your next speech.')
+      : s.cx ? (asking ? s.ask : s.answer) : s.tip;
+    let tipLabel = showPrep ? 'Prep' : s.cx ? (asking ? 'Asking' : 'Answering') : s.code;
+    const P = partInfo(i);
+    if (P && !showPrep) tipLabel = 'Part ' + (P.n + 1) + ' · ' + P.part.label;
+    $('tip').innerHTML = '<b>' + tipLabel + '</b>' + (P && !showPrep ? P.part.tip : tipText);
+    const mark = $('bar').querySelector('.mark');
+    mark.hidden = !P || showPrep;
+    if (P) mark.style.left = (P.split / dur(i) * 100) + '%';
+    clock.className = 'clock ' + (showPrep ? active : s.side);
+
+    if (showPrep) {
+      $('curCode').textContent = sideName(active) + ' prep';
+      $('curName').textContent = 'Before ' + s.code;
+      const chip = $('curChip'); chip.hidden = false; chip.className = 'chip prep';
+      chip.textContent = active === cfg.me ? 'Your prep' : 'Their prep';
+      const ms = R.prep[active], d = $('digits');
+      d.textContent = fmt(ms);
+      d.className = 'digits' + (ms <= 30000 ? ' warn' : '');
+      setBar(1 - ms / (cfg.prep * 60000), false);
+      $('sub').textContent = 'Speech clock is paused. Press Space to stop prep and start ' + s.code + '.';
+    } else {
+      $('curCode').textContent = s.code;
+      $('curName').textContent = s.cx ? s.name + ' · ' + s.detail : s.name;
+      const tag = youTag(i), chip = $('curChip');
+      chip.hidden = !tag; chip.className = 'chip'; chip.textContent = tag;
+      const ms = R.remaining[i], d = $('digits');
+      d.textContent = fmt(ms);
+      d.className = 'digits' + (ms <= 0 ? ' over' : ms <= 30000 ? ' warn' : '');
+      setBar(1 - ms / dur(i), ms < 0);
+      const state = active === 'speech' ? 'Running' : (R.touched[i] ? 'Paused' : 'Ready');
+      $('sub').textContent = ms <= 0 ? 'Time. Finish the sentence.' :
+        P ? (P.n === 0
+              ? state + ' · ' + fmt(P.split - P.elapsed) + ' left on your case, switch to the AC at ' + fmt(dur(i) - P.split)
+              : state + ' · Attacking the AC · ' + fmt(ms) + ' left')
+          : state + ' · ' + fmt(dur(i)) + ' allotted';
+    }
+
+    const g = $('go');
+    const speechRunning = active === 'speech';
+    g.textContent = speechRunning ? 'Pause' : (showPrep ? 'Start ' + s.code : (R.touched[i] ? 'Resume' : 'Start'));
+    g.classList.toggle('running', speechRunning);
+    $('prev').disabled = i === 0; $('next').disabled = i === SPEECHES.length - 1;
+
+    for (const side of ['aff', 'neg']) {
+      const ms = R.prep[side];
+      $('pt-' + side).textContent = fmt(ms);
+      $('pt-' + side).classList.toggle('empty', ms <= 0);
+      $('prep-' + side).classList.toggle('active', active === side);
+      $('pb-' + side).textContent = active === side ? 'Stop prep' : (ms <= 0 ? 'No prep left' : 'Use prep');
+      $('pb-' + side).disabled = ms <= 0 && active !== side;
+      $('you-' + side).textContent = side === cfg.me ? 'You' : 'Opponent';
+    }
+    $('me-aff').setAttribute('aria-pressed', cfg.me === 'aff');
+    $('me-neg').setAttribute('aria-pressed', cfg.me === 'neg');
+
+    // flow list
+    [...$('flow').children].forEach((li, k) => {
+      li.classList.toggle('cur', k === i);
+      const used = dur(k) - R.remaining[k];
+      const u = li.querySelector('.fused');
+      const tag = youTag(k);
+      li.querySelector('.fname em').textContent = (SPEECHES[k].detail ? SPEECHES[k].detail + ' · ' : '') +
+        (SPEECHES[k].parts ? fmt(Math.min(cfg.split * 60000, dur(k))) + ' case + ' + fmt(Math.max(0, dur(k) - cfg.split * 60000)) + ' attack · ' : '') +
+        (tag || sideName(SPEECHES[k].side) + ' speaks');
+      if (!R.touched[k]) { u.className = 'fused'; u.innerHTML = fmt(dur(k)) + '<b>ALLOTTED</b>'; }
+      else if (R.remaining[k] < 0) { u.className = 'fused ot'; u.innerHTML = fmtUsed(used) + '<b>' + fmt(R.remaining[k]) + ' OVER</b>'; }
+      else { u.className = 'fused' + (k < i ? ' done' : ''); u.innerHTML = fmtUsed(used) + '<b>USED</b>'; }
+    });
+
+    const nr = $('newRound');
+    nr.textContent = confirmNew ? 'Tap again to reset round' : 'New round';
+    nr.classList.toggle('danger', confirmNew);
+  }
+  function partInfo(i) {
+    const s = SPEECHES[i];
+    if (!s.parts) return null;
+    const split = Math.min(cfg.split * 60000, dur(i)), elapsed = dur(i) - R.remaining[i];
+    const n = elapsed < split ? 0 : 1;
+    return {split, elapsed, n, part: s.parts[n]};
+  }
+  function setBar(frac, over) {
+    $('bar').classList.toggle('over', over);
+    $('bar').firstElementChild.style.width = Math.min(100, Math.max(0, frac * 100)) + '%';
+  }
+
+  // ---------- build flow + settings ----------
+  $('flow').innerHTML = SPEECHES.map((s, k) =>
+    `<li><button data-k="${k}"><span class="fcode ${s.side}">${s.code}</span><span class="fname">${s.cx ? 'Cross-ex' : s.name}<em></em></span><span class="fused"></span></button></li>`).join('');
+  $('flow').addEventListener('click', e => { const b = e.target.closest('button[data-k]'); if (b) go(+b.dataset.k); });
+
+  $('settings').innerHTML =
+    SPEECHES.map((s, k) => `<label class="f" for="min-${k}"><span><b>${s.code}</b> ${s.cx ? '(' + s.detail + ')' : ''}</span><input id="min-${k}" type="number" min="0.5" max="20" step="0.5" value="${cfg.mins[k]}"></label>`).join('') +
+    `<label class="f" for="min-split"><span><b>1NC</b> case part (rest is the attack)</span><input id="min-split" type="number" min="0.5" max="20" step="0.5" value="${cfg.split}"></label>
+     <label class="f" for="min-prep"><span><b>Prep</b> per side</span><input id="min-prep" type="number" min="0" max="20" step="0.5" value="${cfg.prep}"></label>
+     <label class="check" for="snd"><input id="snd" type="checkbox" ${cfg.sound ? 'checked' : ''}> Beep at 30 seconds and at time</label>
+     <p class="note">Minutes. NSDA LD default is 6-3-7-3-4-6-3 with 4 minutes of prep each. Some tournaments use 5 minutes of prep.</p>`;
+  $('settings').addEventListener('change', e => {
+    const t = e.target;
+    if (t.id === 'snd') { cfg.sound = t.checked; audio(); }
+    else if (t.id === 'min-split') cfg.split = Math.max(0.5, parseFloat(t.value) || 4);
+    else if (t.id === 'min-prep') {
+      const v = Math.max(0, parseFloat(t.value) || 0), old = cfg.prep * 60000;
+      for (const s of ['aff', 'neg']) if (R.prep[s] === old) R.prep[s] = v * 60000;
+      cfg.prep = v;
+    } else if (t.id.startsWith('min-')) {
+      const k = +t.id.slice(4), v = Math.max(0.5, parseFloat(t.value) || SPEECHES[k].min);
+      if (!R.touched[k]) R.remaining[k] = v * 60000;
+      else R.remaining[k] += (v - cfg.mins[k]) * 60000;
+      cfg.mins[k] = v;
+    }
+    save(); render();
+  });
+
+  // ---------- controls ----------
+  $('go').onclick = () => active === 'speech' ? stop() : start('speech');
+  $('prev').onclick = () => go(R.idx - 1);
+  $('next').onclick = () => go(R.idx + 1);
+  $('reset').onclick = () => { if (active === 'speech') stop(); R.remaining[R.idx] = dur(R.idx); R.touched[R.idx] = false; save(); render(); };
+  for (const side of ['aff', 'neg']) $('pb-' + side).onclick = () => active === side ? stop() : start(side);
+  $('me-aff').onclick = () => { cfg.me = 'aff'; save(); render(); };
+  $('me-neg').onclick = () => { cfg.me = 'neg'; save(); render(); };
+  $('newRound').onclick = () => {
+    if (!confirmNew) { confirmNew = true; render(); setTimeout(() => { confirmNew = false; render(); }, 3000); return; }
+    confirmNew = false; if (active) stop(); R = fresh(cfg); save(); render();
+  };
+
+  document.addEventListener('keydown', e => {
+    if (e.target.closest('input,select,textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
+    const k = e.key.toLowerCase();
+    if (k === ' ') { e.preventDefault(); active === 'speech' ? stop() : start('speech'); }
+    else if (k === 'arrowright') go(R.idx + 1);
+    else if (k === 'arrowleft') go(R.idx - 1);
+    else if (k === 'a') active === 'aff' ? stop() : start('aff');
+    else if (k === 'n') active === 'neg' ? stop() : start('neg');
+    else if (k === 'r') $('reset').click();
+  });
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && active) wake(true); });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
