@@ -11,9 +11,9 @@ const qr=await QR.toString(URL,{type:'svg',errorCorrectionLevel:'Q',margin:0,col
 // 3.5x2in trim + 0.125in bleed each side = 3.75x2.25in ; 1in = 96px
 const base=`<style>${fonts}
 *{margin:0;padding:0;box-sizing:border-box}
-@page{size:3.75in 2.25in;margin:0}
-html,body{width:3.75in;height:2.25in}
-.card{position:relative;width:3.75in;height:2.25in;overflow:hidden}
+@page{size:3.625in 2.125in;margin:0}
+html,body{width:3.625in;height:2.125in;overflow:hidden}
+.card{position:absolute;left:-.0625in;top:-.0625in;width:3.75in;height:2.25in;overflow:hidden}
 .blob{position:absolute;border-radius:58% 42% 51% 49% / 46% 55% 45% 54%}
 .trim{position:absolute;inset:.125in;outline:.5px dashed #f0f;pointer-events:none}
 .safe{position:absolute;inset:.25in;outline:.5px dashed #0bf;pointer-events:none}
@@ -41,12 +41,13 @@ const back=`${base}<div class="card" style="background:#EEF0EA">
 const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium'});
 for(const [name,html] of [['front',front],['back',back]]){
   for(const guides of [false,true]){
-    const page=await b.newPage({viewport:{width:360,height:216},deviceScaleFactor:600/96});
+    const page=await b.newPage({viewport:{width:348,height:204},deviceScaleFactor:600/96});
     await page.setContent(html.replace('GUIDES',guides?'<div class="trim"></div><div class="safe"></div>':''));await page.evaluate(()=>document.fonts.ready);
-    if(!guides){await page.pdf({path:`kale-card-${name}.pdf`,width:'3.75in',height:'2.25in',printBackground:true});await page.screenshot({path:`kale-card-${name}.png`})}
+    if(!guides){await page.pdf({path:`kale-card-${name}.pdf`,width:'3.625in',height:'2.125in',printBackground:true});await page.screenshot({path:`kale-card-${name}.png`})}
     else await page.screenshot({path:`preview-${name}.png`});
     await page.close()}}
 // combined 2-page PDF for printers
-const page=await b.newPage();await page.setContent(front.replace('GUIDES','')+'<div style="break-before:page"></div>'+back.replace('GUIDES','').replace(base,''));await page.evaluate(()=>document.fonts.ready);
-await page.pdf({path:'kale-business-card.pdf',width:'3.75in',height:'2.25in',printBackground:true});
+const page=await b.newPage();const pg=h=>'<div style="position:relative;width:3.625in;height:2.125in;overflow:hidden;break-after:page">'+h.replace(base,'').replace('GUIDES','')+'</div>';
+await page.setContent(base.replace('html,body{width:3.625in;height:2.125in;overflow:hidden}','')+pg(front)+pg(back));await page.evaluate(()=>document.fonts.ready);
+await page.pdf({path:'kale-business-card.pdf',width:'3.625in',height:'2.125in',printBackground:true});
 await b.close();console.log('done')})();
