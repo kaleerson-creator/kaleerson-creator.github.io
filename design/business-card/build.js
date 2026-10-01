@@ -28,12 +28,14 @@ const front=`${base}<div class="card" style="background:#1E3A2C">
  <div style="position:absolute;left:.32in;bottom:.3in;font:500 7pt G,sans-serif;color:#B9C9AE">Las Vegas, Nevada</div>
  GUIDES</div>`;
 const back=`${base}<div class="card" style="background:#EEF0EA">
- <span class="blob" style="width:1.3in;height:1.3in;left:-.45in;bottom:-.55in;background:#CFE0B4"></span>
- <span class="blob" style="width:.42in;height:.42in;left:.95in;bottom:.2in;background:#F6CDBB;border-radius:41% 59% 39% 61% / 57% 39% 61% 43%"></span>
+ <span class="blob" style="width:1.3in;height:1.3in;left:-.6in;bottom:-.92in;background:#CFE0B4"></span>
+ <span class="blob" style="width:.42in;height:.42in;left:1.5in;bottom:-.14in;background:#F6CDBB;border-radius:41% 59% 39% 61% / 57% 39% 61% 43%"></span>
  <span class="blob" style="width:.7in;height:.7in;right:-.2in;top:-.28in;background:#C4D9F5"></span>
  <div style="position:absolute;left:.32in;top:.3in;font:600 6.5pt G,sans-serif;letter-spacing:.14em;color:#5E645B;text-transform:uppercase">Scan me</div>
  <div style="position:absolute;left:.3in;top:.47in;font:800 17pt/.95 B,sans-serif;letter-spacing:-.04em;color:#141613">Website<br>&amp; contact</div>
  <div style="position:absolute;left:.32in;top:1.14in;font:600 7.5pt G,sans-serif;color:#141613">kaleerson.com</div>
+ <div style="position:absolute;left:.32in;top:1.42in;font:600 5.5pt G,sans-serif;letter-spacing:.14em;color:#5E645B;text-transform:uppercase">Contact code</div>
+ <div style="position:absolute;left:.32in;top:1.8in;width:1.5in;border-top:.9pt solid #141613"></div>
  <div style="position:absolute;right:.3in;top:50%;transform:translateY(-50%);width:1.42in;height:1.42in;background:#fff;border-radius:.2in;padding:.13in">${qr.replace('<svg','<svg style="width:100%;height:100%;display:block"')}</div>
  GUIDES</div>`;
 const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium'});
