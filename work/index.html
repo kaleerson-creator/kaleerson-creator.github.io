@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Work · Kale Erson</title>
+<meta name="description" content="Projects by Kale Erson.">
+<meta name="theme-color" content="#EEF0EA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+.phead .blob{background:var(--peach)}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.filters button{font:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;border:0;background:var(--card);color:var(--ink2);cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--ink);color:#fff}
+.proj{min-height:300px}
+.proj .blob{width:70%;aspect-ratio:1;right:-22%;top:-30%;background:#ffffff66}
+.proj h2{font-size:clamp(30px,3.6vw,44px)}
+.proj .meta{display:flex;gap:6px;flex-wrap:wrap}
+.proj .yr{font-family:var(--display);font-weight:800;font-size:15px;color:var(--ink2)}
+</style>
+</head>
+<body data-page="work">
+<main class="wrap">
+<section class="phead"><span class="blob"></span><h1>Work</h1><p>Projects and ventures.</p></section>
+<div class="filters" role="group" aria-label="Filter by status">
+  <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="live">Active</button><button aria-pressed="false" data-f="dev">In development</button><button aria-pressed="false" data-f="done">Completed</button>
+</div>
+<div class="bento" id="grid"></div>
+</main>
+<script src="/assets/content.js"></script>
+<script src="/assets/site.js"></script>
+<script>
+const C=window.CONTENT,S=window.SITE;
+
+function render(f){document.getElementById('grid').innerHTML=C.projects.filter(p=>f==='all'||p.status===f).map((p,i)=>`<article class="b s3 ${p.color} proj wide-m"><span class="blob ${i%2?'b2':''}"></span><div class="foot" style="margin:0;align-items:center"><span class="lbl">${S.esc(p.area)}</span><span class="yr">${S.esc(p.year)}</span></div><h2>${S.esc(p.name)}</h2><div class="meta">${S.statusChip(p.status)}${p.note?`<span class="chip">${S.esc(p.note)}</span>`:''}</div><div class="foot"><span class="soon">Write-up coming soon</span></div></article>`).join('')||'<p class="muted">Nothing here yet.</p>'}
+document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));render(b.dataset.f)}));
+render('all');
+
+</script>
+</body>
+</html>

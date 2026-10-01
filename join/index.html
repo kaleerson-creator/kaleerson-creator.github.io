@@ -7,53 +7,49 @@
 <meta name="description" content="Sign up to get Snapwit and other tools, plus occasional emails from Kale.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 <style>
-:root{--bg:#fafaf8;--bg2:#f4f3ef;--ink:#0f0f0d;--ink2:#5a5953;--ink3:#a8a69f;--line:#e5e3de;--green:#2d6a4f;--green-bg:#edf4f0;--red:#b42318;--red-bg:#fef3f2;
-  --sans:'Geist',system-ui,sans-serif;--serif:'Instrument Serif',Georgia,serif}
+:root{--bg:var(--paper);--bg2:var(--paper);--red:#b42318;--red-bg:#fef3f2;--green:#24502f;--green-bg:#d7ecc4;--sans:var(--body);--serif:var(--display)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{min-height:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;padding-inline:16px;padding-block:calc(env(safe-area-inset-top,0px) + 24px) calc(env(safe-area-inset-bottom,0px) + 32px)}
+body{background:var(--paper)}
 a{color:inherit}
-.top{max-width:440px;width:100%;margin:0 auto 40px;display:flex;justify-content:space-between;align-items:center}
-.top a{text-decoration:none;font-weight:600}
-.top small{color:var(--ink3)}
-main{max-width:440px;width:100%;margin:auto}
-h1{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
-h1 em{font-style:italic;color:var(--ink2)}
+main.pg{max-width:440px;width:100%;margin:0 auto;padding:32px 16px 56px;flex:1}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,8vw,72px);line-height:.95;letter-spacing:-.04em}
+h1 em{font-style:normal;color:var(--ink2)}
 .lead{color:var(--ink2);margin:14px 0 26px;max-width:38ch}
 .perks{list-style:none;display:grid;gap:10px;margin-bottom:28px}
-.perks li{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.perks li{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:16px}
 .perks b{display:block;font-weight:600}
 .perks small{color:var(--ink2)}
 .perks i{width:28px;height:28px;flex:none;border-radius:8px;background:var(--bg2);display:grid;place-items:center;font-style:normal;font-size:14px}
 form{display:grid;gap:10px}
 label{font-size:13px;font-weight:500;color:var(--ink2)}
-input[type=email]{width:100%;font:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);outline:none;transition:border-color .15s}
+input[type=email]{width:100%;font:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:#fff;color:var(--ink);outline:none;transition:border-color .15s}
 input[type=email]:focus{border-color:var(--ink)}
 .check{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink2);cursor:pointer}
 .check input{margin-top:3px;width:16px;height:16px;accent-color:var(--ink)}
-.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;font:inherit;font-weight:600;font-size:15px;padding:14px 20px;border-radius:12px;border:0;background:var(--ink);color:#fff;cursor:pointer;text-decoration:none;transition:opacity .15s}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;font:inherit;font-weight:600;font-size:15px;padding:14px 20px;border-radius:16px;border:0;background:var(--ink);color:#fff;cursor:pointer;text-decoration:none;transition:opacity .15s}
 .btn:disabled{opacity:.5;cursor:default}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
 .btn:focus-visible,input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .note{font-size:13px;color:var(--ink3)}
-.msg{padding:12px 14px;border-radius:12px;font-size:14px}
+.msg{padding:12px 14px;border-radius:16px;font-size:14px}
 .msg.ok{background:var(--green-bg);color:var(--green)}
 .msg.err{background:var(--red-bg);color:var(--red)}
 .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:14px}
 .row{display:flex;gap:10px;flex-wrap:wrap}
 .apps{display:grid;gap:10px}
-.app{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;text-decoration:none;background:#fff}
+.app{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff}
 .app b{font-weight:600}.app small{display:block;color:var(--ink2)}
 .app span{color:var(--ink3)}
 [hidden]{display:none!important}
 </style>
 </head>
-<body>
-<div class="top"><a href="/">Kale Erson</a><small>Members</small></div>
+<body data-page="join">
 
-<main>
+<main class="pg">
   <!-- not configured -->
   <section id="v-off" hidden>
     <h1>Sign-ups open <em>soon.</em></h1>
@@ -109,6 +105,7 @@ input[type=email]:focus{border-color:var(--ink)}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/config.js"></script>
 <script src="/lib/sb.js"></script>
+<script src="/assets/site.js"></script>
 <script>
 const $=id=>document.getElementById(id);
 const views=['v-off','v-form','v-sent','v-in'];
