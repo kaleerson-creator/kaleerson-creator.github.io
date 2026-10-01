@@ -197,6 +197,44 @@ svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.2;stroke
 .sb .r .pb b{display:block;height:100%;width:0;background:var(--zc);border-radius:99px;transition:width .5s var(--ease)}
 .sb .r em{font-style:normal;font-family:var(--display);font-size:18px;min-width:20px;text-align:right}
 
+/* ── BRAIN ── */
+.ring{cursor:pointer}
+#acct a{color:var(--accent);text-decoration:none;font-weight:600;margin-left:6px}
+.bscroll{flex:1;overflow-y:auto;padding:4px 20px calc(var(--sab) + 32px);display:flex;flex-direction:column;gap:14px}
+.bcard{background:#fff;border-radius:22px;padding:18px;box-shadow:var(--sh)}
+.bhead{display:flex;align-items:center;gap:16px}
+.bnum{font-size:64px;line-height:.9;color:var(--accent)}
+.bhead b{font-family:var(--display);font-size:22px;display:block}
+.bhead small{color:var(--ink2);font-size:13px;display:block;margin-top:2px}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--bg2);color:var(--ink2);margin-top:6px}
+.pill.live{background:#e7f6ee;color:var(--good)}
+.radar{width:100%;max-width:380px;display:block;margin:0 auto}
+.bh{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between}
+.cat{padding:12px 0;border-top:1px solid var(--line)}
+.cat:first-of-type{border-top:0;padding-top:0}
+.cat .ch{display:flex;align-items:center;gap:10px;font-weight:700}
+.cat .ch em{font-style:normal;margin-left:auto;font-family:var(--display);font-size:20px}
+.cat .ch em.na{color:var(--ink3);font-size:14px;font-family:var(--body)}
+.cat .cb{height:6px;border-radius:99px;background:var(--bg2);margin:8px 0 6px;overflow:hidden}
+.cat .cb b{display:block;height:100%;border-radius:99px;background:var(--accent)}
+.gm{display:flex;align-items:center;gap:8px;width:100%;text-align:left;padding:6px 0;font-size:13px;color:var(--ink2)}
+.gm i{font-style:normal;color:var(--ink);font-weight:600;white-space:nowrap}
+.gm span:nth-child(2){min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gm span:last-child{margin-left:auto;font-variant-numeric:tabular-nums}
+.gm .play{color:var(--accent);font-weight:700}
+.how{font-size:13px;color:var(--ink2);line-height:1.5}
+.how b{color:var(--ink)}
+.spark{width:100%;height:60px;display:block}
+.est{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-left:4px}
+/* ── GATE ── */
+#gate{align-items:center;justify-content:center;padding:32px 24px}
+.gatebox{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;max-width:340px}
+.gic{width:76px;height:76px;border-radius:24px;display:grid;place-items:center;font-size:34px;color:#fff;background:linear-gradient(145deg,var(--accent2),var(--accent));box-shadow:0 10px 30px #ff5a1f55}
+.gatebox h2{font-size:32px}
+.gatebox p{color:var(--ink2);font-size:17px}
+.gatebox small{color:var(--ink3);font-size:13px}
+.gatebox .btn{text-decoration:none}
+
 /* wide screens: phone-shaped frame */
 @media (min-width:600px){
   body{background:#14161C}
@@ -211,8 +249,8 @@ svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.2;stroke
 
 <section id="home" class="screen on">
   <header>
-    <div><h1>Snap<span>wit</span></h1><small>30 games · solo & party</small></div>
-    <div class="ring"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#E2E5DC" stroke-width="5"/><circle id="ringc" cx="32" cy="32" r="28" fill="none" stroke="#FF5A1F" stroke-width="5" stroke-linecap="round" stroke-dasharray="176" stroke-dashoffset="176"/></svg><b class="num" id="rating">—</b><small>Rating</small></div>
+    <div><h1>Snap<span>wit</span></h1><small>30 games · solo & party<span id="acct"></span></small></div>
+    <div class="ring" id="ringbtn" role="button" tabindex="0" aria-label="Open brain rating"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#E2E5DC" stroke-width="5"/><circle id="ringc" cx="32" cy="32" r="28" fill="none" stroke="#FF5A1F" stroke-width="5" stroke-linecap="round" stroke-dasharray="176" stroke-dashoffset="176"/></svg><b class="num" id="rating">—</b><small>Rating</small></div>
   </header>
   <div class="tabs">
     <button class="tab on" data-tab="solo">Solo training</button>
@@ -237,11 +275,29 @@ svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.2;stroke
   <div class="row"><button class="btn ghost" id="rhome">Home</button><button class="btn acc" id="ragain">Play again</button></div>
 </section>
 
+<section id="brain" class="screen">
+  <div class="bar"><button class="back" id="bback">‹</button><h2>Brain rating</h2></div>
+  <div class="bscroll" id="bbody"></div>
+</section>
+
+<section id="gate" class="screen">
+  <div class="gatebox">
+    <div class="gic"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+    <h2>Members only</h2>
+    <p>Snapwit is free for members. Sign up with your email to play and see how you rank against everyone else.</p>
+    <a class="btn acc" href="/join/?next=/snapwit/">Sign up or sign in</a>
+    <small>Already signed up? Use the same button. We'll email you a sign-in link.</small>
+  </div>
+</section>
+
 <section id="party" class="screen">
   <button class="pmenu" id="pquit">✕ Quit</button>
   <div class="zones" id="zones"></div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/config.js"></script>
+<script src="/lib/sb.js"></script>
 <script>
 /* ═══════════════════ UTILS ═══════════════════ */
 const $=s=>document.querySelector(s);
@@ -478,18 +534,89 @@ const PARTY=[
   const next=()=>{if(!c.alive().length)return;n++;simon=Math.random()<(n>4?.6:.35);const cmd=pick(['TAP','CLAP','JUMP','SPIN']);const txt=simon?'Simon says TAP':cmd;c.zones.forEach(z=>{if(!z.isOut){z.set(txt,'');pop(z.h)}});c.timeout(next,1400)};c.timeout(next,800)}}
 ];
 
+/* ═══════════════════ ONLINE (Supabase) ═══════════════════ */
+const MIN_RUNS=25;                 // global data takes over from the estimate after this many runs
+let session=null;
+let GP=DB.get('gp',{});            // cached global percentiles: "game|value" -> {p, n}
+function pctInfo(g,v){const r=GP[g.id+'|'+(+v)];if(r&&r.p!=null&&r.n>=MIN_RUNS)return {p:clamp(Math.round(r.p),1,99),n:r.n,live:true};return {p:percentile(g,v),n:r?r.n:0,live:false}}
+const pctOf=(g,v)=>pctInfo(g,v).p;
+async function rankMany(pairs){
+  if(!window.SB||!session||!pairs.length)return false;
+  const {data,error}=await SB.rpc('rank_scores',{items:pairs.map(([g,v])=>({game:g.id,value:v,lower:!!g.lower}))});
+  if(error||!data){console.warn(error);return false}
+  data.forEach(r=>{GP[r.game+'|'+(+r.value)]={p:r.pct==null?null:+r.pct,n:r.players}});DB.set('gp',GP);return true}
+async function syncGlobal(force){
+  if(!window.SB||!session)return;
+  if(!force&&Date.now()-DB.get('gpT',0)<5*60e3)return;
+  const pairs=[];SOLO.forEach(g=>{const s=gameStats(g);if(s){pairs.push([g,s.best]);if(s.avg!==s.best)pairs.push([g,s.avg])}});
+  if(await rankMany(pairs)){DB.set('gpT',Date.now());if($('#home').classList.contains('on'))renderHome();if($('#brain').classList.contains('on'))renderBrain()}}
+
+/* ═══════════════════ BRAIN RATING ═══════════════════ */
+// Per game: half your best run, half your recent form (average of last 5 runs), both as percentiles.
+// Per skill: average of the games in that skill you have played.
+// Overall: average of the skills you have played, so every skill counts equally.
+const CATS=['Reaction','Speed','Memory','Focus','Perception','Timing'];
+function gameStats(g){
+  const best=bestOf(g);if(best==null)return null;
+  const hist=DB.get('hist_'+g.id,[]);const last=hist.slice(-5);
+  let avg=last.length?last.reduce((a,b)=>a+b)/last.length:best;avg=g.unit==='s'?+avg.toFixed(2):Math.round(avg);
+  const pb=pctInfo(g,best),pa=pctInfo(g,avg);
+  return {best,avg,pb:pb.p,pa:pa.p,live:pb.live,skill:Math.round(.5*pb.p+.5*pa.p),runs:hist.length}}
+function brain(){
+  const cats=CATS.map(name=>{const games=SOLO.filter(g=>g.tag===name).map(g=>({g,s:gameStats(g)}));const pl=games.filter(x=>x.s);
+    return {name,games,played:pl.length,score:pl.length?Math.round(pl.reduce((a,x)=>a+x.s.skill,0)/pl.length):null}});
+  const sc=cats.filter(c=>c.score!=null);
+  const overall=sc.length?Math.round(sc.reduce((a,c)=>a+c.score,0)/sc.length):null;
+  const gamesPlayed=cats.reduce((a,c)=>a+c.played,0);
+  const live=cats.some(c=>c.games.some(x=>x.s&&x.s.live));
+  return {cats,overall,gamesPlayed,skills:sc.length,provisional:sc.length<4,live}}
+const tier=s=>s>=90?'Elite':s>=75?'Sharp':s>=60?'Above average':s>=40?'Average':'Warming up';
+function logRating(v){if(v==null)return;const h=DB.get('rhist',[]);const d=new Date().toISOString().slice(0,10);if(h.length&&h[h.length-1].d===d)h[h.length-1].s=v;else h.push({d,s:v});DB.set('rhist',h.slice(-60))}
+
+function renderBrain(){
+  const B=brain();const body=$('#bbody');body.innerHTML='';const ns='http://www.w3.org/2000/svg';
+  const mk=(t,a)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);return e};
+  // headline
+  const head=el('div','bcard bhead');
+  head.innerHTML=`<div class="bnum num">${B.overall??'—'}</div><div><b>${B.overall==null?'Not rated yet':tier(B.overall)}</b><small>${B.gamesPlayed} of ${SOLO.length} games · ${B.skills} of 6 skills</small>${B.provisional?'<span class="pill">Provisional</span> ':''}<span class="pill ${B.live?'live':''}">${B.live?'Ranked vs real players':'Estimated percentiles'}</span></div>`;
+  body.append(head);
+  // radar
+  const rc=el('div','bcard');rc.innerHTML='<div class="bh"><span>Skill profile</span><span>0–100</span></div>';
+  const svg=mk('svg',{viewBox:'-50 0 400 260',class:'radar'});const cx=150,cy=130,R=88;const ang=i=>-Math.PI/2+i*Math.PI/3;
+  [25,50,75,100].forEach(f=>{svg.append(mk('polygon',{points:CATS.map((_,i)=>`${cx+Math.cos(ang(i))*R*f/100},${cy+Math.sin(ang(i))*R*f/100}`).join(' '),fill:f===100?'#F6F7F3':'none',stroke:'#DFE2D9','stroke-width':1}))});
+  CATS.forEach((_,i)=>svg.append(mk('line',{x1:cx,y1:cy,x2:cx+Math.cos(ang(i))*R,y2:cy+Math.sin(ang(i))*R,stroke:'#DFE2D9'})));
+  const pts=B.cats.map((c,i)=>{const f=(c.score??0)/100;return [cx+Math.cos(ang(i))*R*f,cy+Math.sin(ang(i))*R*f]});
+  svg.append(mk('polygon',{points:pts.map(p=>p.join(',')).join(' '),fill:'#FF5A1F',opacity:'.22',stroke:'#FF5A1F','stroke-width':2.5,'stroke-linejoin':'round'}));
+  B.cats.forEach((c,i)=>{if(c.score!=null)svg.append(mk('circle',{cx:pts[i][0],cy:pts[i][1],r:4,fill:'#FF5A1F'}));
+    const lx=cx+Math.cos(ang(i))*(R+24),ly=cy+Math.sin(ang(i))*(R+18);const t=mk('text',{x:lx,y:ly+4,'text-anchor':Math.abs(Math.cos(ang(i)))<.2?'middle':Math.cos(ang(i))>0?'start':'end','font-size':'12','font-weight':'700',fill:c.score==null?'#9AA0B0':'#14161C'});t.textContent=c.name+(c.score!=null?' '+c.score:'');svg.append(t)});
+  rc.append(svg);body.append(rc);
+  // history
+  const h=DB.get('rhist',[]);if(h.length>=2){const hc=el('div','bcard');hc.innerHTML=`<div class="bh"><span>Rating over time</span><span>${h.length} days</span></div>`;const sv=mk('svg',{viewBox:'0 0 300 60',class:'spark',preserveAspectRatio:'none'});const mn=Math.min(...h.map(x=>x.s))-5,mx=Math.max(...h.map(x=>x.s))+5;const P=h.map((x,i)=>[i/(h.length-1)*296+2,56-(x.s-mn)/(mx-mn||1)*52]);sv.append(mk('path',{d:'M'+P.map(p=>p.join(',')).join('L')+`L298,60L2,60Z`,fill:'#FF5A1F',opacity:'.12'}));sv.append(mk('path',{d:'M'+P.map(p=>p.join(',')).join('L'),fill:'none',stroke:'#FF5A1F','stroke-width':2,'vector-effect':'non-scaling-stroke'}));hc.append(sv);body.append(hc)}
+  // categories
+  const cc=el('div','bcard');cc.innerHTML='<div class="bh"><span>By skill</span><span>Percentile</span></div>';
+  B.cats.forEach(c=>{const d=el('div','cat');d.innerHTML=`<div class="ch">${c.name}<em class="${c.score==null?'na':''}">${c.score??'Not played'}</em></div><div class="cb"><b style="width:${c.score??0}%"></b></div>`;
+    c.games.forEach(({g,s})=>{const r=el('button','gm');r.innerHTML=s?`<i>${g.name}</i><span>best ${fmt(g,s.best)} · form ${fmt(g,s.avg)}</span><span>${s.skill}</span>`:`<i>${g.name}</i><span></span><span class="play">Play →</span>`;r.addEventListener('click',()=>openSolo(g));d.append(r)});cc.append(d)});
+  body.append(cc);
+  // explanation
+  const how=el('div','bcard how');how.innerHTML=`<div class="bh"><span>How it's calculated</span></div>Each game scores half on your <b>best run</b> and half on your <b>recent form</b> (average of your last 5 runs), both as percentiles. Games are averaged into 6 skills, and your rating is the average of the skills you've played, so no single skill dominates. It's <b>provisional</b> until you've played 4 skills. ${B.live?'Percentiles come from every run members have played and get more accurate as more people play.':'Percentiles are estimates until enough members have played each game ('+MIN_RUNS+' runs).'}`;
+  body.append(how);
+}
+$('#ringbtn').addEventListener('click',()=>{renderBrain();show('brain');syncGlobal(true)});
+$('#ringbtn').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();$('#ringbtn').click()}});
+$('#bback').addEventListener('click',()=>{show('home');renderHome()});
+
 /* ═══════════════════ HOME ═══════════════════ */
 function fmt(g,v){return g.unit==='s'?v.toFixed(2)+' s':v+' '+g.unit}
 const bestOf=g=>DB.get('best_'+g.id,null);
 function renderHome(){
   const list=$('#list');list.innerHTML='';
-  const played=SOLO.filter(g=>bestOf(g)!=null);const pcts=played.map(g=>percentile(g,bestOf(g)));const rating=pcts.length?Math.round(pcts.reduce((a,b)=>a+b)/pcts.length):0;
-  $('#rating').textContent=pcts.length?rating:'—';$('#ringc').style.strokeDashoffset=176-176*rating/100;
+  const played=SOLO.filter(g=>bestOf(g)!=null);const B=brain();logRating(B.overall);
+  $('#rating').textContent=B.overall??'—';$('#ringc').style.strokeDashoffset=176-176*(B.overall||0)/100;
   if(tab==='solo'){
     const d=el('div','hero');const l=el('div');l.append(el('b','','Daily challenge'),el('small','',`3 games · ${DB.get('streak',0)} day streak`));const go=el('button','go','Start');go.addEventListener('click',startDaily);d.append(l,go);list.append(d);
     const sec=el('div','sec');sec.innerHTML=`<span>${SOLO.length} games</span><span>${played.length}/${SOLO.length} played</span>`;list.append(sec);
     SOLO.forEach(g=>{const c=el('button','card');c.style.setProperty('--c',g.color);const ic=el('div','ic');ic.innerHTML=icon(g.ic);const tg=el('span','tag',g.tag);const b=el('b','',g.name);const be=el('div','best');const bv=bestOf(g);
-      if(bv==null)be.innerHTML='<span>Not played yet</span><div class="mbar"><b style="width:0"></b></div>';else{const p=percentile(g,bv);be.innerHTML=`<span>Best <i>${fmt(g,bv)}</i> · top ${100-p}%</span><div class="mbar"><b style="width:${p}%"></b></div>`}
+      if(bv==null)be.innerHTML='<span>Not played yet</span><div class="mbar"><b style="width:0"></b></div>';else{const p=pctOf(g,bv);be.innerHTML=`<span>Best <i>${fmt(g,bv)}</i> · top ${100-p}%</span><div class="mbar"><b style="width:${p}%"></b></div>`}
       c.append(ic,tg,b,be);c.addEventListener('click',()=>openSolo(g));list.append(c)});
   }else{
     const s=el('div','setup');const seg=el('div','seg');[2,3,4].forEach(n=>{const b=el('button',n===players?'on':'',n);b.addEventListener('click',()=>{players=n;renderHome()});seg.append(b)});
@@ -511,20 +638,27 @@ function makeCtx(root){const c={root,timeout(fn,ms){const t=setTimeout(fn,ms);ti
   async countdown(){const d=el('div','cd');root.append(d);for(const t of ['3','2','1','GO']){d.innerHTML='';const s=el('span','',t);if(t==='GO')s.style.color='var(--good)';d.append(s);t==='GO'?sfx.go():sfx.cd();await c.wait(t==='GO'?500:650)}d.remove()},
   end(v){clearTimers();finish(v)}};return c}
 function openSolo(g){curGame=g;show('game');$('#gtitle').textContent=g.name;$('#ghud').textContent='';$('#gprog').style.width='0';const st=$('#stage');st.innerHTML='';clearTimers();
-  const i=el('div','intro');i.style.setProperty('--c',g.color);const ic=el('div','ic');ic.innerHTML=icon(g.ic);const tg=el('div','tag',g.tag);const h=el('h2','',g.name);const p=el('p','',g.desc);const b=el('button','btn acc','Start');const bv=bestOf(g);const be=el('small','',bv==null?'First run':'Your best: '+fmt(g,bv)+' · top '+(100-percentile(g,bv))+'%');
+  const i=el('div','intro');i.style.setProperty('--c',g.color);const ic=el('div','ic');ic.innerHTML=icon(g.ic);const tg=el('div','tag',g.tag);const h=el('h2','',g.name);const p=el('p','',g.desc);const b=el('button','btn acc','Start');const bv=bestOf(g);const be=el('small','',bv==null?'First run':'Your best: '+fmt(g,bv)+' · top '+(100-pctOf(g,bv))+'%');
   b.addEventListener('click',()=>{i.remove();g.run(makeCtx(st))});i.append(ic,tg,h,p,b,be);st.append(i)}
 $('#gback').addEventListener('click',()=>{clearTimers();daily=null;show('home');renderHome()});
 
 function finish(v){const g=curGame;const prev=bestOf(g);const isBest=prev==null||(g.lower?v<prev:v>prev);if(isBest)DB.set('best_'+g.id,v);const hist=DB.get('hist_'+g.id,[]);hist.push(v);DB.set('hist_'+g.id,hist.slice(-50));
-  const p=percentile(g,v);show('result');$('#rname').textContent=g.name+(daily?` · Daily ${daily.i+1}/3`:'');
+  const pi=pctInfo(g,v);const p=pi.p;show('result');$('#rname').textContent=g.name+(daily?` · Daily ${daily.i+1}/3`:'');
   const sc=$('#rscore');sc.style.fontSize='';const unit=g.unit==='s'?'s':g.unit;const t0=now();const dur=700;const tick=()=>{const k=Math.min(1,(now()-t0)/dur);const e=1-Math.pow(1-k,3);const val=g.unit==='s'?(v*e).toFixed(2):Math.round(v*e);sc.innerHTML=`${val}<sub>${unit}</sub>`;if(k<1)requestAnimationFrame(tick)};tick();
-  $('#rpct').innerHTML=`Better than <b>${p}%</b> of players`;$('#rrib').innerHTML=isBest&&prev!=null?'<span class="ribbon">New personal best</span>':isBest?'<span class="ribbon">First score logged</span>':'';
-  drawCurve(g,v);const ch=$('#rchips');ch.innerHTML='';const avg=hist.reduce((a,b)=>a+b)/hist.length;[['Best',fmt(g,bestOf(g))],['Average',fmt(g,g.unit==='s'?+avg.toFixed(2):Math.round(avg))],['Runs',hist.length]].forEach(([k,val])=>{const c=el('span','chip');c.innerHTML=`${k} <b>${val}</b>`;ch.append(c)});
+  setPct(pi);$('#rrib').innerHTML=isBest&&prev!=null?'<span class="ribbon">New personal best</span>':isBest?'<span class="ribbon">First score logged</span>':'';
+  drawCurve(g,p);const ch=$('#rchips');ch.innerHTML='';const avg=hist.reduce((a,b)=>a+b)/hist.length;[['Best',fmt(g,bestOf(g))],['Average',fmt(g,g.unit==='s'?+avg.toFixed(2):Math.round(avg))],['Runs',hist.length]].forEach(([k,val])=>{const c=el('span','chip');c.innerHTML=`${k} <b>${val}</b>`;ch.append(c)});
   if(isBest&&prev!=null){sfx.win();setTimeout(()=>confetti(innerWidth/2,innerHeight*.3,[g.color,'#FF5A1F','#FFC531','#2E7BFF'],120,1.3),150)}else if(p>=70)sfx.good();
   $('#ragain').textContent=daily?(daily.i<2?'Next game':'Finish'):'Play again';
+  submitScore(g,v);
   if(daily&&daily.i>=2){const s=DB.get('streak',0);const last=DB.get('lastDaily','');const today=new Date().toDateString();if(last!==today){DB.set('streak',s+1);DB.set('lastDaily',today)}}}
-function drawCurve(g,v){const svg=$('#curve');svg.innerHTML='';const W=320,H=110,B=H-22;const xs=i=>g.mean+(i/100-.5)*6*g.sd;const pts=[];for(let i=0;i<=100;i++){const x=xs(i);const y=Math.exp(-.5*((x-g.mean)/g.sd)**2);pts.push([i/100*W,B-y*(B-12)])}
-  const px=clamp(((v-g.mean)/(6*g.sd)+.5)*W,4,W-4);const ns='http://www.w3.org/2000/svg';const mk=(t,a)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);return e};
+function setPct(pi){$('#rpct').innerHTML=pi.live?`Better than <b>${pi.p}%</b> of ${pi.n.toLocaleString()} runs`:`Better than <b>${pi.p}%</b> of players<span class="est">estimate</span>`}
+async function submitScore(g,v){
+  if(!window.SB||!session)return;
+  const {error}=await SB.from('scores').insert({game:g.id,value:v});if(error){console.warn(error);return}
+  if(await rankMany([[g,v],[g,bestOf(g)]])&&curGame===g&&$('#result').classList.contains('on')){const pi=pctInfo(g,v);if(pi.live){setPct(pi);drawCurve(g,pi.p)}}}
+function probit(q){let lo=-6,hi=6;for(let i=0;i<50;i++){const m=(lo+hi)/2;cdf(m,0,1)<q?lo=m:hi=m}return (lo+hi)/2}
+function drawCurve(g,p){const svg=$('#curve');svg.innerHTML='';const W=320,H=110,B=H-22;const xs=i=>g.mean+(i/100-.5)*6*g.sd;const pts=[];for(let i=0;i<=100;i++){const x=xs(i);const y=Math.exp(-.5*((x-g.mean)/g.sd)**2);pts.push([i/100*W,B-y*(B-12)])}
+  const u=probit(g.lower?1-p/100:p/100);const px=clamp((u/6+.5)*W,4,W-4);const ns='http://www.w3.org/2000/svg';const mk=(t,a)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);return e};
   const d=pts.map((p,i)=>(i?'L':'M')+p[0]+','+p[1]).join('');svg.append(mk('path',{d:d+`L${W},${B}L0,${B}Z`,fill:'#E2E5DC'}));
   const cut=pts.filter(p=>g.lower?p[0]>=px:p[0]<=px);if(cut.length>1){const d2=cut.map((p,i)=>(i?'L':'M')+p[0]+','+p[1]).join('');svg.append(mk('path',{d:d2+`L${cut[cut.length-1][0]},${B}L${cut[0][0]},${B}Z`,fill:'#FF5A1F',opacity:'.28'}))}
   svg.append(mk('path',{d,fill:'none',stroke:'#c8ccc0','stroke-width':1.5}));svg.append(mk('line',{x1:px,x2:px,y1:6,y2:B,stroke:'#FF5A1F','stroke-width':3,'stroke-linecap':'round'}));svg.append(mk('circle',{cx:px,cy:6,r:5,fill:'#FF5A1F'}));
@@ -566,7 +700,15 @@ function showPartyResult(w){const st=pstate;show('result');$('#rname').textConte
   sfx.win();setTimeout(()=>confetti(innerWidth/2,innerHeight*.25,PCOL.concat('#fff'),160,1.4),200)}
 $('#pquit').addEventListener('click',()=>{clearTimers();document.querySelectorAll('.sb,.pbar').forEach(x=>x.remove());show('home');renderHome()});
 
-renderHome();
+async function boot(){
+  if(!window.SB){renderHome();return}
+  const {data}=await SB.auth.getSession();session=data.session;
+  if(!session){show('gate');return}
+  $('#acct').innerHTML=' · <a href="/join/">Account</a>';
+  renderHome();syncGlobal();
+}
+if(window.SB)SB.auth.onAuthStateChange((evt,s)=>{session=s;if(evt==='SIGNED_OUT')show('gate')});
+boot();
 </script>
 </body>
 </html>
