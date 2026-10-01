@@ -7,31 +7,28 @@
 <title>Contact · Kale Erson</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 <style>
-:root{--bg:#fafaf8;--bg2:#f4f3ef;--ink:#0f0f0d;--ink2:#5a5953;--ink3:#a8a69f;--line:#e5e3de;--red:#b42318;--red-bg:#fef3f2;
-  --sans:'Geist',system-ui,sans-serif;--serif:'Instrument Serif',Georgia,serif}
+:root{--bg:var(--paper);--bg2:var(--paper);--red:#b42318;--red-bg:#fef3f2;--green:#24502f;--green-bg:#d7ecc4;--sans:var(--body);--serif:var(--display)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;padding-inline:16px;padding-block:calc(env(safe-area-inset-top,0px) + 24px) calc(env(safe-area-inset-bottom,0px) + 32px)}
+body{background:var(--paper)}
 a{color:inherit}
-.top{max-width:520px;width:100%;margin:0 auto 40px;display:flex;justify-content:space-between;align-items:center}
-.top a{text-decoration:none;font-weight:600}
-.top button{font:inherit;font-size:13px;color:var(--ink2);background:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
-main{max-width:520px;width:100%;margin:auto}
-h1{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.05;letter-spacing:-.01em}
-h1 em{font-style:italic;color:var(--ink2)}
+main.pg{max-width:520px;width:100%;margin:0 auto;padding:32px 16px 56px;flex:1}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,8vw,72px);line-height:.95;letter-spacing:-.04em}
+h1 em{font-style:normal;color:var(--ink2)}
 .lead{color:var(--ink2);margin:14px 0 26px;max-width:38ch}
 .lock{width:52px;height:52px;border-radius:14px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;margin-bottom:22px}
 .lock svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 form{display:grid;gap:10px}
 label{font-size:13px;font-weight:500;color:var(--ink2)}
-input{width:100%;font:inherit;font-size:18px;letter-spacing:.06em;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);outline:none}
+input{width:100%;font:inherit;font-size:18px;letter-spacing:.06em;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:#fff;color:var(--ink);outline:none}
 input:focus{border-color:var(--ink)}
-.btn{font:inherit;font-weight:600;font-size:15px;padding:14px 20px;border-radius:12px;border:0;background:var(--ink);color:#fff;cursor:pointer}
+.btn{font:inherit;font-weight:600;font-size:15px;padding:14px 20px;border-radius:16px;border:0;background:var(--ink);color:#fff;cursor:pointer}
 .btn:disabled{opacity:.5}
 .btn:focus-visible,input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .note{font-size:13px;color:var(--ink3)}
-.msg{padding:12px 14px;border-radius:12px;font-size:14px;background:var(--red-bg);color:var(--red)}
+.msg{padding:12px 14px;border-radius:16px;font-size:14px;background:var(--red-bg);color:var(--red)}
 #body{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:12px;overflow-wrap:anywhere}
 #body h2{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1.1}
 #body h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:600;margin-top:8px}
@@ -39,11 +36,12 @@ input:focus{border-color:var(--ink)}
 #body a{text-underline-offset:3px}
 .copy{font:inherit;font-size:12px;margin-left:8px;padding:2px 8px;border:1px solid var(--line);border-radius:999px;background:var(--bg2);cursor:pointer;color:var(--ink2)}
 [hidden]{display:none!important}
+.relock{margin-top:12px;font:inherit;font-size:14px;color:var(--ink2);background:var(--card);border:0;border-radius:999px;padding:10px 16px;cursor:pointer}
+#body{border:0!important;border-radius:28px!important}
 </style>
 </head>
-<body>
-<div class="top"><a href="/">Kale Erson</a><button id="relock" hidden>Lock page</button></div>
-<main>
+<body data-page="contact">
+<main class="pg">
   <section id="v-off" hidden>
     <h1>Contact</h1>
     <p class="lead">This page isn't connected yet. Check back soon.</p>
@@ -62,12 +60,13 @@ input:focus{border-color:var(--ink)}
     </form>
   </section>
 
-  <section id="v-open" hidden><div id="body"></div></section>
+  <section id="v-open" hidden><div id="body"></div><button id="relock" class="relock" hidden>Lock page</button></section>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/config.js"></script>
 <script src="/lib/sb.js"></script>
+<script src="/assets/site.js"></script>
 <script>
 const $=id=>document.getElementById(id);
 const view=v=>['v-off','v-lock','v-open'].forEach(x=>$(x).hidden=x!==v);

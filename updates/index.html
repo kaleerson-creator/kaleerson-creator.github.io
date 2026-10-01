@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Updates · Kale Erson</title>
+<meta name="description" content="What Kale Erson is working on.">
+<meta name="theme-color" content="#EEF0EA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+.phead .blob{background:var(--butter)}
+.year{font-family:var(--display);font-weight:800;font-size:15px;color:var(--ink2);margin:20px 0 10px;letter-spacing:.02em}
+.tl{display:grid;gap:var(--gap)}
+.u{display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:16px;min-height:0;padding:22px 24px;border-radius:24px}
+.u .d{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.02em}
+.u h3{font-size:clamp(20px,2.4vw,28px);line-height:1.1}
+.u .chip{justify-self:start}
+@media (max-width:620px){.u{grid-template-columns:1fr;gap:8px}}
+.join{margin-top:var(--gap);min-height:0}
+</style>
+</head>
+<body data-page="updates">
+<main class="wrap">
+<section class="phead"><span class="blob"></span><h1>Updates</h1><p>A running log.</p></section>
+<div id="tl"></div>
+<a class="b moss join" href="/join/"><div class="foot" style="margin:0;align-items:center"><div><span class="lbl">Get these by email</span><h3 style="margin-top:6px">Join for free</h3></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div></a>
+</main>
+<script src="/assets/content.js"></script>
+<script src="/assets/site.js"></script>
+<script>
+const C=window.CONTENT,S=window.SITE;
+
+const TAGC={Launch:'var(--moss)',Product:'var(--peach)',Venture:'var(--sky)',Research:'var(--lilac)'};
+const by={};C.updates.forEach(u=>(by[u.date.slice(0,4)]=by[u.date.slice(0,4)]||[]).push(u));
+document.getElementById('tl').innerHTML=Object.keys(by).sort().reverse().map(y=>`<div class="year">${y}</div><div class="tl">${by[y].map(u=>`<article class="b u"><span class="d">${new Date(u.date+'-01T12:00:00').toLocaleDateString('en-US',{month:'short'})}</span><h3>${S.esc(u.title)}</h3><span class="chip" style="background:${TAGC[u.tag]||'var(--paper)'}">${S.esc(u.tag)}</span></article>`).join('')}</div>`).join('');
+
+</script>
+</body>
+</html>
