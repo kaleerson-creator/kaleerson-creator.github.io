@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v=20261001">
 <style>
 :root{--bg:var(--paper);--bg2:var(--paper);--red:#b42318;--red-bg:#fef3f2;--green:#24502f;--green-bg:#d7ecc4;--sans:var(--body);--serif:var(--display)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -64,9 +64,9 @@ input:focus{border-color:var(--ink)}
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/config.js"></script>
-<script src="/lib/sb.js"></script>
-<script src="/assets/site.js"></script>
+<script src="/config.js?v=20261001"></script>
+<script src="/lib/sb.js?v=20261001"></script>
+<script src="/assets/site.js?v=20261001"></script>
 <script>
 const $=id=>document.getElementById(id);
 const view=v=>['v-off','v-lock','v-open'].forEach(x=>$(x).hidden=x!==v);
