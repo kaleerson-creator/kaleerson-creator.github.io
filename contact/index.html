@@ -53,7 +53,7 @@ input:focus{border-color:var(--ink)}
     <p class="lead">My direct contact info is private. Enter the code or password I gave you.</p>
     <form id="f">
       <label for="code">Code or password</label>
-      <input id="code" autocomplete="off" autocapitalize="characters" spellcheck="false" required placeholder="XXXX-XXXX">
+      <input id="code" autocomplete="off" autocapitalize="characters" spellcheck="false" required placeholder="XXXX-XXXX or password">
       <button class="btn" id="go" type="submit">Unlock</button>
       <p class="note">One-time codes work once. After unlocking, the page stays open in this tab.</p>
       <div id="err" class="msg" hidden></div>
@@ -104,7 +104,12 @@ $('f').addEventListener('submit',async e=>{
   e.preventDefault();if(!window.SB)return;
   const code=$('code').value.trim();if(!code)return;
   $('err').hidden=true;$('go').disabled=true;$('go').textContent='Checking…';
-  const {data,error}=await SB.rpc('unlock_contact',{code});
+  // One-time codes look like K7QF-2MXR. Also accept them typed without the dash or with spaces.
+  let {data,error}=await SB.rpc('unlock_contact',{code});
+  const bare=code.toUpperCase().replace(/[\s-]/g,'');
+  if(!error&&!data&&/^[A-Z2-9]{8}$/.test(bare)&&code.toUpperCase()!==bare.slice(0,4)+'-'+bare.slice(4)){
+    ({data,error}=await SB.rpc('unlock_contact',{code:bare.slice(0,4)+'-'+bare.slice(4)}));
+  }
   $('go').disabled=false;$('go').textContent='Unlock';
   if(error){$('err').textContent=error.message.includes('Too many')?'Too many wrong codes. Try again in 10 minutes.':'Something went wrong. Try again.';$('err').hidden=false;return}
   if(!data){$('err').textContent='That code is wrong or has already been used.';$('err').hidden=false;return}
