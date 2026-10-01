@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v=20261001">
 <style>
 .phead .blob{background:var(--sky)}
 .tool{min-height:340px}
@@ -25,13 +25,13 @@
 <section class="phead"><span class="blob"></span><h1>Tools</h1><p>Free for members. <a href="/join/" style="text-decoration:underline;text-underline-offset:3px">Join</a> with your email to use them.</p></section>
 <div class="bento" id="grid"></div>
 </main>
-<script src="/assets/content.js"></script>
-<script src="/assets/site.js"></script>
+<script src="/assets/content.js?v=20261001"></script>
+<script src="/assets/site.js?v=20261001"></script>
 <script>
 const C=window.CONTENT,S=window.SITE;
 
 const ICONS={Snapwit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>','LD Timer':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>'};
-document.getElementById('grid').innerHTML=C.tools.map((t,i)=>`<a class="b s3 ${t.color} tool wide-m" href="${t.href}"><span class="blob ${i%2?'b2':''}"></span><div class="icon">${ICONS[t.name]||''}</div><div class="row"><span class="chip">${S.esc(t.tag)}</span><span class="chip">Members</span></div><h2>${S.esc(t.name)}</h2><div class="foot"><span class="muted">${S.esc(t.note)}</span>${S.arrow}</div></a>`).join('')+`<div class="b s6 ghost"><span class="soon">More tools coming soon</span></div>`;
+document.getElementById('grid').innerHTML=C.tools.map((t,i)=>`<a class="b s3 ${t.color} tool wide-m" href="${t.href}"><span class="blob ${i%2?'b2':''}"></span><div class="icon">${ICONS[t.name]||''}</div><div class="row"><span class="chip">${S.esc(t.tag)}</span><span class="chip">Members</span></div><h2>${S.esc(t.name)}</h2><div class="foot"><span class="muted">${S.esc(t.note)}</span>${S.arrow}</div></a>`).join('')+`<div class="b s6 ghost"><span class="lbl">Coming soon</span><span class="soon" style="color:var(--ink)">Palo Verde HS study site</span></div>`;
 
 </script>
 </body>
