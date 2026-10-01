@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Contact · Kale Erson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf8;--bg2:#f4f3ef;--ink:#0f0f0d;--ink2:#5a5953;--ink3:#a8a69f;--line:#e5e3de;--red:#b42318;--red-bg:#fef3f2;
+  --sans:'Geist',system-ui,sans-serif;--serif:'Instrument Serif',Georgia,serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;padding-inline:16px;padding-block:calc(env(safe-area-inset-top,0px) + 24px) calc(env(safe-area-inset-bottom,0px) + 32px)}
+a{color:inherit}
+.top{max-width:520px;width:100%;margin:0 auto 40px;display:flex;justify-content:space-between;align-items:center}
+.top a{text-decoration:none;font-weight:600}
+.top button{font:inherit;font-size:13px;color:var(--ink2);background:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
+main{max-width:520px;width:100%;margin:auto}
+h1{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.05;letter-spacing:-.01em}
+h1 em{font-style:italic;color:var(--ink2)}
+.lead{color:var(--ink2);margin:14px 0 26px;max-width:38ch}
+.lock{width:52px;height:52px;border-radius:14px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;margin-bottom:22px}
+.lock svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+form{display:grid;gap:10px}
+label{font-size:13px;font-weight:500;color:var(--ink2)}
+input{width:100%;font:inherit;font-size:18px;letter-spacing:.06em;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);outline:none}
+input:focus{border-color:var(--ink)}
+.btn{font:inherit;font-weight:600;font-size:15px;padding:14px 20px;border-radius:12px;border:0;background:var(--ink);color:#fff;cursor:pointer}
+.btn:disabled{opacity:.5}
+.btn:focus-visible,input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.note{font-size:13px;color:var(--ink3)}
+.msg{padding:12px 14px;border-radius:12px;font-size:14px;background:var(--red-bg);color:var(--red)}
+#body{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:12px;overflow-wrap:anywhere}
+#body h2{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1.1}
+#body h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:600;margin-top:8px}
+#body p{color:var(--ink)}
+#body a{text-underline-offset:3px}
+.copy{font:inherit;font-size:12px;margin-left:8px;padding:2px 8px;border:1px solid var(--line);border-radius:999px;background:var(--bg2);cursor:pointer;color:var(--ink2)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="top"><a href="/">Kale Erson</a><button id="relock" hidden>Lock page</button></div>
+<main>
+  <section id="v-off" hidden>
+    <h1>Contact</h1>
+    <p class="lead">This page isn't connected yet. Check back soon.</p>
+  </section>
+
+  <section id="v-lock" hidden>
+    <div class="lock"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+    <h1>Contact <em>details.</em></h1>
+    <p class="lead">My direct contact info is private. Enter the code or password I gave you.</p>
+    <form id="f">
+      <label for="code">Code or password</label>
+      <input id="code" autocomplete="off" autocapitalize="characters" spellcheck="false" required placeholder="XXXX-XXXX">
+      <button class="btn" id="go" type="submit">Unlock</button>
+      <p class="note">One-time codes work once. After unlocking, the page stays open in this tab.</p>
+      <div id="err" class="msg" hidden></div>
+    </form>
+  </section>
+
+  <section id="v-open" hidden><div id="body"></div></section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/config.js"></script>
+<script src="/lib/sb.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const view=v=>['v-off','v-lock','v-open'].forEach(x=>$(x).hidden=x!==v);
+const KEY='contact_body';
+
+// Tiny, safe formatter: text is escaped first, then "# " / "## " headings, links and emails are added.
+function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function linkify(s){
+  return s
+    .replace(/\b(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>')
+    .replace(/\b([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})\b/gi,'<a href="mailto:$1">$1</a><button class="copy" data-copy="$1">Copy</button>')
+    .replace(/(\+?\d[\d\s().-]{7,}\d)/g,m=>`<a href="tel:${m.replace(/[^\d+]/g,'')}">${m}</a><button class="copy" data-copy="${m}">Copy</button>`);
+}
+function render(text){
+  const out=text.split('\n').map(line=>{
+    const t=line.trim();if(!t)return'';
+    if(t.startsWith('## '))return`<h3>${esc(t.slice(3))}</h3>`;
+    if(t.startsWith('# '))return`<h2>${esc(t.slice(2))}</h2>`;
+    return`<p>${linkify(esc(t))}</p>`;
+  }).join('');
+  $('body').innerHTML=out;view('v-open');$('relock').hidden=false;
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-copy]');if(!b)return;
+  navigator.clipboard?.writeText(b.dataset.copy).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500)}).catch(()=>{});
+});
+$('relock').addEventListener('click',()=>{try{sessionStorage.removeItem(KEY)}catch(e){}$('relock').hidden=true;$('code').value='';view('v-lock')});
+
+let saved=null;try{saved=sessionStorage.getItem(KEY)}catch(e){}
+if(saved){render(saved)}
+else if(!window.SB){view('v-off')}
+else{view('v-lock')}
+
+$('f').addEventListener('submit',async e=>{
+  e.preventDefault();if(!window.SB)return;
+  const code=$('code').value.trim();if(!code)return;
+  $('err').hidden=true;$('go').disabled=true;$('go').textContent='Checking…';
+  const {data,error}=await SB.rpc('unlock_contact',{code});
+  $('go').disabled=false;$('go').textContent='Unlock';
+  if(error){$('err').textContent=error.message.includes('Too many')?'Too many wrong codes. Try again in 10 minutes.':'Something went wrong. Try again.';$('err').hidden=false;return}
+  if(!data){$('err').textContent='That code is wrong or has already been used.';$('err').hidden=false;return}
+  try{sessionStorage.setItem(KEY,data)}catch(e){}
+  render(data);
+});
+</script>
+</body>
+</html>
