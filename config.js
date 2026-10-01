@@ -1,6 +1,6 @@
-// Site-wide settings. Paste your Supabase values here
-// (Supabase → Project Settings → API). Both are safe to be public.
+// Site-wide settings (Supabase → Project Settings → API Keys).
+// Both values are designed to be public. Never put the secret / service_role key here.
 window.SITE_CONFIG = {
-  supabaseUrl: '',   // e.g. https://abcdefgh.supabase.co
-  supabaseKey: ''    // the "anon" / "publishable" key
+  supabaseUrl: 'https://xkmuakmlrttnyxdddkmd.supabase.co',
+  supabaseKey: 'sb_publishable_0fYR1Q8RJDOs-hhmjid2dQ_vDEPdKHR'
 };
