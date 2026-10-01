@@ -23,6 +23,18 @@ main.c{flex:1;width:100%;max-width:460px;margin:0 auto;padding:calc(env(safe-are
 .c .b h2{font-size:30px}
 .small{color:#B9C9AE;font-size:13px;text-align:center;margin-top:8px}
 .small a{text-decoration:underline;text-underline-offset:3px}
+@media (min-width:820px){
+  main.c{max-width:1100px;grid-template-columns:1.25fr 1fr;grid-template-rows:repeat(3,auto) auto;gap:14px;padding-top:56px;align-content:center;min-height:100vh}
+  .id{grid-row:1/4;min-height:520px;padding:40px;justify-content:flex-end;background:#244633;border-radius:var(--r)}
+  .id h1{font-size:clamp(96px,10vw,148px)}
+  .id .lbl{position:absolute;top:40px;left:40px}
+  .id .blob.a{width:420px;right:-110px;top:-90px}
+  .id .blob.y{width:220px;right:150px;top:150px}
+  .id .blob.s{width:120px;right:40px;top:340px}
+  .c .b:not(.id){padding:30px;min-height:160px;justify-content:center}
+  .c .b h2{font-size:40px}
+  .small{grid-column:1/-1}
+}
 </style>
 </head>
 <body>
