@@ -1,6 +1,6 @@
 # Business card
 
-Standard US size: 3.5 × 2 in, with 0.125 in bleed on every side (files are 3.75 × 2.25 in).
+Standard US size: 3.5 × 2 in, with 1/16 in bleed on every side (files are 3.625 × 2.125 in; PNGs are 2175 × 1275 px at 600 dpi).
 
 | File | Use |
 |---|---|
