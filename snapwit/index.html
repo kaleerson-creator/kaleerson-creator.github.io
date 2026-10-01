@@ -10,14 +10,15 @@
 <meta name="description" content="30 reaction, memory and party games. Train solo or play 2–4 players on one phone.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 <style>
 :root{
-  --bg:#F6F7F3; --bg2:#ECEEE7; --bg3:#E2E5DC; --ink:#14161C; --ink2:#5B6070; --ink3:#9AA0B0; --line:#DFE2D9;
+  --bg:#EEF0EA; --bg2:#E3E7DD; --bg3:#D9DED2; --ink:#141613; --ink2:#5E645B; --ink3:#8F958B; --line:#DCE0D6;
   --accent:#FF5A1F; --accent2:#FF8A5B;
   --good:#1EAA5E; --bad:#E5352B; --warn:#F3B81E;
   --display:'Bricolage Grotesque','DM Sans',system-ui,sans-serif;
-  --body:'DM Sans',system-ui,sans-serif;
+  --body:'Geist',system-ui,-apple-system,sans-serif;
   --sh:0 1px 2px #14161c0a,0 6px 20px #14161c0e;
   --sh2:0 2px 6px #14161c14,0 14px 40px #14161c1a;
   --sat:env(safe-area-inset-top,0px); --sab:env(safe-area-inset-bottom,0px);
@@ -47,7 +48,7 @@ svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.2;stroke
 @keyframes ft{from{opacity:1;transform:translate(-50%,-50%) scale(.6)}30%{transform:translate(-50%,-70%) scale(1.15)}to{opacity:0;transform:translate(-50%,-160%) scale(1)}}
 
 /* ── HOME ── */
-#home header{padding:calc(var(--sat) + 16px) 20px 6px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+#home header{padding:20px 20px 6px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 #home h1{font-size:36px}
 #home h1 span{color:var(--accent)}
 #home header small{display:block;font-size:12px;color:var(--ink2);font-weight:500;margin-top:2px}
@@ -81,7 +82,7 @@ svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.2;stroke
 .seg button.on{background:var(--ink);color:#fff}
 
 /* ── GAME ── */
-.bar{display:flex;align-items:center;gap:10px;padding:calc(var(--sat) + 10px) 14px 8px;position:relative;z-index:5}
+.bar{display:flex;align-items:center;gap:10px;padding:14px 14px 8px;position:relative;z-index:5}
 .bar .back{width:42px;height:42px;border-radius:999px;background:#fff;box-shadow:var(--sh);display:grid;place-items:center;font-size:20px}
 .bar h2{font-size:18px;flex:1}
 .bar .hud{font-size:13px;color:var(--ink);font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap;background:#fff;padding:7px 12px;border-radius:999px;box-shadow:var(--sh);display:flex;align-items:center;gap:6px}
@@ -153,7 +154,7 @@ svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.2;stroke
 
 /* ── PARTY ── */
 #party{background:#0f1118}
-.zones{flex:1;display:grid;gap:6px;padding:6px;padding-top:calc(var(--sat) + 6px);padding-bottom:calc(var(--sab) + 6px)}
+.zones{flex:1;display:grid;gap:6px;padding:6px;padding-top:calc(env(safe-area-inset-top,0px) + 6px);padding-bottom:calc(var(--sab) + 6px)}
 .zones.p2{grid-template-rows:1fr 1fr}
 .zones.p3{grid-template-rows:1fr 1fr;grid-template-columns:1fr 1fr}
 .zones.p3 .zone:first-child{grid-column:1/-1}
@@ -188,7 +189,7 @@ svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.2;stroke
 .rbtn.on{background:#14161C;color:#fff}
 .pbar{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;color:var(--ink);padding:14px 24px;border-radius:999px;font-family:var(--display);font-weight:800;font-size:24px;z-index:10;box-shadow:0 10px 40px #0008;white-space:nowrap;animation:pop .3s var(--ease)}
 .pbar.go{background:var(--good);color:#fff;font-size:34px}
-.pmenu{position:absolute;top:calc(var(--sat) + 10px);left:50%;transform:translateX(-50%);z-index:11;background:#ffffff22;color:#fff;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;backdrop-filter:blur(6px)}
+.pmenu{position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);left:50%;transform:translateX(-50%);z-index:11;background:#ffffff22;color:#fff;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;backdrop-filter:blur(6px)}
 .sb{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;color:var(--ink);border-radius:24px;padding:18px 20px;width:min(86%,340px);z-index:12;box-shadow:0 20px 60px #000a;animation:pop .35s var(--ease)}
 .sb h3{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;text-align:center}
 .sb .r{display:flex;align-items:center;gap:10px;margin:8px 0;font-weight:700}
@@ -235,21 +236,50 @@ svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.2;stroke
 .gatebox small{color:var(--ink3);font-size:13px}
 .gatebox .btn{text-decoration:none}
 
-/* wide screens: phone-shaped frame */
-@media (min-width:600px){
-  body{background:#14161C}
-  .screen{inset:0 auto 0 50%;width:430px;transform:translateX(-50%);box-shadow:0 0 0 1px #ffffff14,0 30px 80px #000a}
-  #party{inset:0;width:auto;transform:none;box-shadow:none}
-}
+/* ── site integration ── */
+html,body{height:100%;overflow:hidden}
+.foot-site{display:none}
+.chip::before{display:none}
+#app{flex:1;position:relative;width:100%;max-width:1180px;margin:0 auto;min-height:0}
+#game,#result,#brain,#gate{max-width:900px;margin-inline:auto}
+#party{position:fixed;inset:0;z-index:60}
+#home header{position:relative;isolation:isolate;padding:20px 16px 8px}
+#home header .blob{width:110px;aspect-ratio:1;left:-20px;top:8px;background:var(--peach);opacity:.9}
+#home h1{font-size:clamp(36px,6vw,56px)}
+.tabs{max-width:440px;margin:10px 16px 0;background:var(--card);box-shadow:0 1px 0 var(--line)}
+.tab.on{background:var(--ink);color:#fff;box-shadow:none}
+.list{padding:14px 16px 40px;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));grid-auto-rows:max-content;gap:12px}
+.bar .hud:empty{display:none}
+.intro .tag{color:var(--ink2)}
+/* cards become soft colour blocks */
+.card{background:var(--tint,#fff);border-radius:24px;box-shadow:none;position:relative;overflow:hidden;isolation:isolate;min-height:150px;padding:16px}
+.card::after{content:'';position:absolute;z-index:-1;width:110px;aspect-ratio:1;right:-34px;top:-34px;background:#ffffff70;border-radius:58% 42% 51% 49% / 46% 55% 45% 54%;animation:morph 14s ease-in-out infinite}
+.card:nth-child(even)::after{animation-direction:reverse;animation-duration:17s}
+.card .ic{background:#ffffffb8;color:var(--ink);box-shadow:none}
+.card .tag{color:var(--ink2)}
+.card b{font-size:18px;letter-spacing:-.02em}
+.mbar{background:#ffffff90}.mbar b{background:var(--ink)}
+.hero{background:var(--forest);color:var(--forest-ink);border-radius:28px;padding:22px;isolation:isolate}
+.hero::after{background:none;width:200px;height:200px;right:-50px;top:-70px;z-index:-1;background:#2E5440;border-radius:58% 42% 51% 49% / 46% 55% 45% 54%;animation:morph 14s ease-in-out infinite}
+.hero small{color:#B9C9AE}
+.hero .go{background:#fff;color:var(--ink);box-shadow:none}
+.setup{box-shadow:none;border-radius:24px}
+.bar .back,.bar .hud,.btn.ghost,.chip,.keys button,.cell,.bcard{box-shadow:none}
+.btn.acc{background:var(--ink);box-shadow:none}
+.intro .ic{background:var(--tint,var(--c));color:var(--ink);box-shadow:none;border-radius:58% 42% 51% 49% / 46% 55% 45% 54%;animation:morph 12s ease-in-out infinite}
+.bcard{border-radius:28px}
+.gic{background:var(--peach);color:var(--ink);box-shadow:none;border-radius:58% 42% 51% 49% / 46% 55% 45% 54%;animation:morph 12s ease-in-out infinite}
+@media (max-width:520px){.card{min-height:140px;padding:14px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
-<body>
+<body data-page="tools">
+<div id="app">
 <canvas id="fx"></canvas>
 
 <section id="home" class="screen on">
   <header>
-    <div><h1>Snap<span>wit</span></h1><small>30 games · solo & party<span id="acct"></span></small></div>
+    <span class="blob"></span><div><h1>Snap<span>wit</span></h1><small>30 games · solo & party<span id="acct"></span></small></div>
     <div class="ring" id="ringbtn" role="button" tabindex="0" aria-label="Open brain rating"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#E2E5DC" stroke-width="5"/><circle id="ringc" cx="32" cy="32" r="28" fill="none" stroke="#FF5A1F" stroke-width="5" stroke-linecap="round" stroke-dasharray="176" stroke-dashoffset="176"/></svg><b class="num" id="rating">—</b><small>Rating</small></div>
   </header>
   <div class="tabs">
@@ -295,9 +325,11 @@ svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.2;stroke
   <div class="zones" id="zones"></div>
 </section>
 
+</div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/config.js"></script>
 <script src="/lib/sb.js"></script>
+<script src="/assets/site.js"></script>
 <script>
 /* ═══════════════════ UTILS ═══════════════════ */
 const $=s=>document.querySelector(s);
@@ -556,6 +588,8 @@ async function syncGlobal(force){
 // Per skill: average of the games in that skill you have played.
 // Overall: average of the skills you have played, so every skill counts equally.
 const CATS=['Reaction','Speed','Memory','Focus','Perception','Timing'];
+const TINT={Reaction:'var(--peach)',Speed:'var(--butter)',Memory:'var(--lilac)',Focus:'var(--sky)',Perception:'var(--moss)',Timing:'#F3D6E4'};
+const PTINT=['var(--peach)','var(--sky)','var(--butter)','var(--moss)','var(--lilac)','#F3D6E4'];
 function gameStats(g){
   const best=bestOf(g);if(best==null)return null;
   const hist=DB.get('hist_'+g.id,[]);const last=hist.slice(-5);
@@ -615,7 +649,7 @@ function renderHome(){
   if(tab==='solo'){
     const d=el('div','hero');const l=el('div');l.append(el('b','','Daily challenge'),el('small','',`3 games · ${DB.get('streak',0)} day streak`));const go=el('button','go','Start');go.addEventListener('click',startDaily);d.append(l,go);list.append(d);
     const sec=el('div','sec');sec.innerHTML=`<span>${SOLO.length} games</span><span>${played.length}/${SOLO.length} played</span>`;list.append(sec);
-    SOLO.forEach(g=>{const c=el('button','card');c.style.setProperty('--c',g.color);const ic=el('div','ic');ic.innerHTML=icon(g.ic);const tg=el('span','tag',g.tag);const b=el('b','',g.name);const be=el('div','best');const bv=bestOf(g);
+    SOLO.forEach(g=>{const c=el('button','card');c.style.setProperty('--c',g.color);c.style.setProperty('--tint',TINT[g.tag]);const ic=el('div','ic');ic.innerHTML=icon(g.ic);const tg=el('span','tag',g.tag);const b=el('b','',g.name);const be=el('div','best');const bv=bestOf(g);
       if(bv==null)be.innerHTML='<span>Not played yet</span><div class="mbar"><b style="width:0"></b></div>';else{const p=pctOf(g,bv);be.innerHTML=`<span>Best <i>${fmt(g,bv)}</i> · top ${100-p}%</span><div class="mbar"><b style="width:${p}%"></b></div>`}
       c.append(ic,tg,b,be);c.addEventListener('click',()=>openSolo(g));list.append(c)});
   }else{
@@ -624,7 +658,7 @@ function renderHome(){
     s.append(el('span','','Players'),seg,el('span','','First to'),seg2);list.append(s);
     const mix=el('div','hero');const l=el('div');l.append(el('b','','Party mix'),el('small','','A different game every round'));const go=el('button','go','Play');go.addEventListener('click',()=>openParty(null));mix.append(l,go);list.append(mix);
     const sec=el('div','sec');sec.innerHTML=`<span>${PARTY.length} games</span><span>one phone · ${players} players</span>`;list.append(sec);
-    PARTY.forEach(g=>{const c=el('button','card');c.style.setProperty('--c',g.color);const ic=el('div','ic');ic.innerHTML=icon(g.ic);const b=el('b','',g.name);const sm=el('div','best');sm.textContent=g.desc.split('.')[0]+'.';c.append(ic,b,sm);c.addEventListener('click',()=>openParty(g));list.append(c)});
+    PARTY.forEach((g,k)=>{const c=el('button','card');c.style.setProperty('--c',g.color);c.style.setProperty('--tint',PTINT[k%PTINT.length]);const ic=el('div','ic');ic.innerHTML=icon(g.ic);const b=el('b','',g.name);const sm=el('div','best');sm.textContent=g.desc.split('.')[0]+'.';c.append(ic,b,sm);c.addEventListener('click',()=>openParty(g));list.append(c)});
   }
 }
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{tab=t.dataset.tab;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));renderHome()}));
@@ -638,7 +672,7 @@ function makeCtx(root){const c={root,timeout(fn,ms){const t=setTimeout(fn,ms);ti
   async countdown(){const d=el('div','cd');root.append(d);for(const t of ['3','2','1','GO']){d.innerHTML='';const s=el('span','',t);if(t==='GO')s.style.color='var(--good)';d.append(s);t==='GO'?sfx.go():sfx.cd();await c.wait(t==='GO'?500:650)}d.remove()},
   end(v){clearTimers();finish(v)}};return c}
 function openSolo(g){curGame=g;show('game');$('#gtitle').textContent=g.name;$('#ghud').textContent='';$('#gprog').style.width='0';const st=$('#stage');st.innerHTML='';clearTimers();
-  const i=el('div','intro');i.style.setProperty('--c',g.color);const ic=el('div','ic');ic.innerHTML=icon(g.ic);const tg=el('div','tag',g.tag);const h=el('h2','',g.name);const p=el('p','',g.desc);const b=el('button','btn acc','Start');const bv=bestOf(g);const be=el('small','',bv==null?'First run':'Your best: '+fmt(g,bv)+' · top '+(100-pctOf(g,bv))+'%');
+  const i=el('div','intro');i.style.setProperty('--c',g.color);i.style.setProperty('--tint',TINT[g.tag]);const ic=el('div','ic');ic.innerHTML=icon(g.ic);const tg=el('div','tag',g.tag);const h=el('h2','',g.name);const p=el('p','',g.desc);const b=el('button','btn acc','Start');const bv=bestOf(g);const be=el('small','',bv==null?'First run':'Your best: '+fmt(g,bv)+' · top '+(100-pctOf(g,bv))+'%');
   b.addEventListener('click',()=>{i.remove();g.run(makeCtx(st))});i.append(ic,tg,h,p,b,be);st.append(i)}
 $('#gback').addEventListener('click',()=>{clearTimers();daily=null;show('home');renderHome()});
 
