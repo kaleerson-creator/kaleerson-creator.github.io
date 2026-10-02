@@ -35,7 +35,7 @@
 <script>
 const C=window.CONTENT,S=window.SITE;
 
-function render(f){document.getElementById('grid').innerHTML=C.projects.filter(p=>f==='all'||p.status===f).map((p,i)=>`<article class="b s3 ${p.color} proj wide-m"><span class="blob ${i%2?'b2':''}"></span><div class="foot" style="margin:0;align-items:center"><span class="lbl">${S.esc(p.area)}</span><span class="yr">${S.esc(p.year)}</span></div><h2>${S.esc(p.name)}</h2><div class="meta">${S.statusChip(p.status)}${p.note?`<span class="chip">${S.esc(p.note)}</span>`:''}</div><div class="foot"><span class="soon">Call of Jury Duty: Modern Inconvenience, just a funny game I\'m working on.</span></div></article>`).join('')||'<p class="muted">Nothing here yet.</p>'}
+function render(f){document.getElementById('grid').innerHTML=C.projects.filter(p=>f==='all'||p.status===f).map((p,i)=>`<article class="b s3 ${p.color} proj wide-m"><span class="blob ${i%2?'b2':''}"></span><div class="foot" style="margin:0;align-items:center"><span class="lbl">${S.esc(p.area)}</span><span class="yr">${S.esc(p.year)}</span></div><h2>${S.esc(p.name)}</h2><div class="meta">${S.statusChip(p.status)}${p.note?`<span class="chip">${S.esc(p.note)}</span>`:''}</div><div class="foot"><span class="soon">Description soon</span></div></article>`).join('')||'<p class="muted">Nothing here yet.</p>'}
 document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));render(b.dataset.f)}));
 render('all');
 
