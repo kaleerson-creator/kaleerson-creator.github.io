@@ -97,6 +97,46 @@ label.f{display:grid;gap:5px;font-size:12px;font-weight:600;color:var(--ink2);le
 .lightbox img{max-width:100%;max-height:86vh;border-radius:16px}
 .lightbox button{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:16px;width:44px;height:44px;border-radius:999px;border:0;background:#fff;font-size:18px;cursor:pointer}
 
+.snav{display:flex;gap:4px;background:var(--card);border-radius:999px;padding:5px;width:max-content;max-width:100%;margin-top:16px}
+.snav a{font-size:14px;font-weight:600;color:var(--ink2);padding:8px 16px;border-radius:999px;white-space:nowrap}
+.snav a[aria-current=page]{background:var(--forest);color:var(--forest-ink)}
+.score{display:inline-grid;place-items:center;min-width:44px;height:40px;padding:0 8px;border-radius:12px;font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.02em}
+.score.good{background:#cfe8b8}.score.ok{background:var(--butter)}.score.bad{background:#f6cdbb}.score.none{background:var(--paper);color:var(--ink3);font-size:14px}
+.trow{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.trow:first-child{border-top:0}
+.trow b{font-family:var(--display);font-size:19px;letter-spacing:-.02em}
+.trow:hover b{text-decoration:underline}
+.brk{display:block}
+.tstats{font-size:13px;color:var(--ink2);text-align:right;line-height:1.35}
+@media (max-width:600px){.trow{grid-template-columns:auto 1fr}.tstats{grid-column:2;text-align:left;margin-top:-6px}.brk{display:inline!important}.brk::before{content:' · '}}
+.thero{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+@media (max-width:600px){.thero{grid-template-columns:1fr}}
+.big{font-family:var(--display);font-weight:800;font-size:76px;letter-spacing:-.05em;line-height:.9}
+.big small{font-size:22px;color:var(--ink3);letter-spacing:0}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{display:grid}
+.stats b{font-family:var(--display);font-size:28px;letter-spacing:-.03em}
+.stats span{font-size:13px;color:var(--ink2)}
+.bars{display:grid;gap:5px;font-size:13px}
+.bars div{display:grid;grid-template-columns:96px 1fr 26px;gap:8px;align-items:center}
+.bars span:first-child{white-space:nowrap}
+.bars i{display:block;height:10px;border-radius:99px;background:var(--paper);overflow:hidden}
+.bars i::after{content:'';display:block;height:100%;width:var(--w);background:var(--forest);border-radius:99px}
+.tagz{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:12px;font-weight:600;padding:5px 11px;border-radius:999px;background:var(--paper);border:0;font-family:inherit;color:var(--ink)}
+button.tag{cursor:pointer}
+button.tag[aria-pressed=true]{background:var(--ink);color:#fff}
+.pick{display:flex;gap:6px;flex-wrap:wrap}
+.pick button{font:inherit;font-size:15px;font-weight:700;width:46px;height:46px;border-radius:14px;border:0;background:var(--paper);cursor:pointer}
+.pick button[aria-pressed=true]{background:var(--forest);color:var(--forest-ink)}
+.pick.yn button{width:auto;padding:0 18px}
+.pickl{font-size:13px;color:var(--ink2);min-height:1.2em}
+.rv{background:var(--card);border-radius:22px;padding:18px 20px;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;min-width:0}
+.rv .sc{display:grid;gap:6px;justify-items:center;text-align:center;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);grid-row:span 3}
+.rv .sc .score{font-size:17px;height:36px;min-width:40px}
+.rv p{overflow-wrap:anywhere;white-space:pre-wrap}
+.rv .acts{grid-column:1/-1}
+.rv.mine{box-shadow:inset 0 0 0 2px var(--forest)}
 .decks{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--gap)}
 .deck{background:var(--card);border-radius:22px;padding:18px;display:grid;gap:6px;min-height:120px;position:relative;overflow:hidden;isolation:isolate}
 .deck:hover{transform:translateY(-2px)}
@@ -144,7 +184,7 @@ label.f{display:grid;gap:5px;font-size:12px;font-weight:600;color:var(--ink2);le
     </div>
   </section>
 
-  <div id="v-app" hidden></div>
+  <div id="v-app" hidden><nav class="snav" id="snav" aria-label="Study"></nav><div id="main"></div></div>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
@@ -157,7 +197,7 @@ label.f{display:grid;gap:5px;font-size:12px;font-weight:600;color:var(--ink2);le
 const $=id=>document.getElementById(id);
 const E=VaultMD.esc, C=Community, me=C.me;
 const view=v=>['v-wait','v-off','v-signin','v-code','v-app'].forEach(x=>$(x).hidden=x!==v);
-const app=()=>$('v-app');
+const app=()=>$('main');
 const TYPES={test:'Test',quiz:'Quiz',assignment:'Assignment',project:'Project'};
 const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 const dparts=s=>{const d=new Date(s+'T12:00:00');return{dow:d.toLocaleDateString('en-US',{weekday:'short'}),day:d.getDate(),mon:d.toLocaleDateString('en-US',{month:'short'}),full:d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}};
@@ -178,7 +218,7 @@ const teacherOf=c=>T.find(t=>t.id===c.teacher_id)||{name:'?'};
 
 /* ── home ─────────────────────────────────────────── */
 async function home(){
-  await loadDir();
+  await Promise.all([loadDir(),loadSum()]);
   const {data:evs}=await SB.from('study_posts').select('id,class_id,title,event_type,event_date').eq('kind','event').gte('event_date',today()).order('event_date').limit(12);
   app().innerHTML=`
     <div class="top"><div><h1>PVHS Study</h1><p class="sub">Palo Verde HS. Find your class or add it.</p></div>
@@ -205,7 +245,7 @@ async function home(){
     const q=$('q').value.trim().toLowerCase();
     const rows=T.map(t=>({t,cs:K.filter(c=>c.teacher_id===t.id&&(!q||t.name.toLowerCase().includes(q)||c.name.toLowerCase().includes(q)))}))
       .filter(r=>r.cs.length||(q&&r.t.name.toLowerCase().includes(q)));
-    $('dir').innerHTML=rows.map(r=>`<div class="teacher"><b>${E(r.t.name)}</b><div class="classes">${r.cs.map(c=>`<a class="cls" href="#/c/${c.id}">${clsLabel(c)}</a>`).join('')||'<span class="empty">No classes yet</span>'}</div></div>`).join('')
+    $('dir').innerHTML=rows.map(r=>`<div class="teacher"><a href="#/t/${r.t.id}" class="row" style="align-items:center"><b>${E(r.t.name)}</b>${SUM[r.t.id]?`<span class="score ${qcls(SUM[r.t.id].quality)}" style="height:28px;min-width:36px;font-size:14px">${(+SUM[r.t.id].quality).toFixed(1)}</span>`:''}</a><div class="classes">${r.cs.map(c=>`<a class="cls" href="#/c/${c.id}">${clsLabel(c)}</a>`).join('')||'<span class="empty">No classes yet</span>'}</div></div>`).join('')
       ||`<p class="empty">${q?'No match. Add it with “+ Add a class”.':'No classes yet. Be the first to add yours.'}</p>`;
   };
   draw();
@@ -237,7 +277,7 @@ async function klass(id,tab){
   tab=TABS.some(t=>t[0]===tab)?tab:'events';
   app().innerHTML=`
     <a class="back" href="#/">← All classes</a>
-    <div class="top"><div><h1>${E(c.name)}</h1><p class="sub">${E(teacherOf(c).name)}${c.period?' · Period '+E(c.period):''}</p></div>
+    <div class="top"><div><h1>${E(c.name)}</h1><p class="sub"><a href="#/t/${c.teacher_id}" style="text-decoration:underline;text-underline-offset:3px">${E(teacherOf(c).name)}</a>${c.period?' · Period '+E(c.period):''}</p></div>
       ${canDel(c)?'<button class="linkbtn" id="delcls">Delete class</button>':''}</div>
     ${RULES}
     <nav class="tabs">${TABS.map(([k,l])=>`<a href="#/c/${id}/${k}" aria-selected="${k===tab}">${l}</a>`).join('')}</nav>
@@ -419,12 +459,110 @@ document.addEventListener('click',async e=>{
   if(dc){const r=await SB.from('study_cards').delete().eq('id',+dc.dataset.delcard);if(r.error)return alert(C.errText(r.error));dc.closest('.cardrow').remove();deckCards=deckCards.filter(k=>k.id!==+dc.dataset.delcard)}
 });
 
+/* ── rate my teacher ──────────────────────────────── */
+const TAGS=['Clear lectures','Helpful','Caring','Inspiring','Fair grader','Tough grader','Lots of homework','Little homework','Gives extra credit','Group projects','Test heavy','Lecture heavy','Hilarious','Respected','Easy to reach'];
+const QL=['','Awful','Not great','OK','Good','Awesome'],DL=['','Very easy','Easy','Average','Hard','Very hard'];
+let SUM={};
+async function loadSum(){const {data}=await SB.rpc('teacher_rating_summary');SUM={};(data||[]).forEach(x=>SUM[x.teacher_id]=x)}
+const qcls=q=>q>=4?'good':q>=3?'ok':'bad';
+const fmt1=n=>(+n).toFixed(1);
+const RRULES=`<div class="rules"><span>⚑</span><span><b>Rate the teaching, not the person.</b> No insults, rumors, or anything about their life outside class. Ratings show as “Anonymous student” to everyone else, but Kale can see who wrote them and will remove ones that cross the line.</span></div>`;
+
+async function teachers(){
+  await Promise.all([loadDir(),loadSum()]);
+  app().innerHTML=`<div class="top"><div><h1>Rate teachers</h1><p class="sub">Palo Verde HS. Ratings from students with Study access.</p></div></div>
+    <div class="box"><div class="search"><input id="tq" placeholder="Search teachers" aria-label="Search teachers"><select id="ts" style="width:auto"><option value="name">A–Z</option><option value="top">Highest rated</option><option value="most">Most ratings</option></select></div><div id="tl"></div>
+    <p class="muted" style="font-size:13px">Don't see a teacher? Add one of their classes on the <a href="#/" style="text-decoration:underline">Classes</a> page.</p></div>`;
+  const draw=()=>{
+    const q=$('tq').value.trim().toLowerCase(),by=$('ts').value;
+    let rows=T.filter(t=>!q||t.name.toLowerCase().includes(q));
+    if(by==='top')rows.sort((a,b)=>((SUM[b.id]||{}).quality||0)-((SUM[a.id]||{}).quality||0));
+    if(by==='most')rows.sort((a,b)=>((SUM[b.id]||{}).n||0)-((SUM[a.id]||{}).n||0));
+    $('tl').innerHTML=rows.map(t=>{const x=SUM[t.id];const cs=K.filter(c=>c.teacher_id===t.id).map(c=>E(c.name)).join(', ');
+      return `<a class="trow" href="#/t/${t.id}">${x?`<span class="score ${qcls(x.quality)}">${fmt1(x.quality)}</span>`:'<span class="score none">–</span>'}<span><b>${E(t.name)}</b><br><span class="muted" style="font-size:13px">${cs||'No classes yet'}</span></span>
+        <span class="tstats">${x?`${x.n} rating${x.n===1?'':'s'}<span class="brk"></span>${x.take_again}% would take again`:'No ratings yet'}</span></a>`}).join('')||'<p class="empty">No teachers match.</p>';
+  };
+  draw();$('tq').addEventListener('input',draw);$('ts').addEventListener('change',draw);
+}
+
+async function teacher(id){
+  if(!T.some(t=>t.id===id))await loadDir();
+  const t=T.find(x=>x.id===id);
+  if(!t){app().innerHTML=`<a class="back" href="#/teachers">← All teachers</a><div class="box" style="margin-top:14px"><h2>Teacher not found</h2></div>`;return}
+  const {data:rs,error}=await SB.rpc('teacher_ratings_for',{t:id});
+  if(error){app().innerHTML=`<div class="msg" style="margin-top:16px">${E(C.errText(error))}</div>`;return}
+  const cs=K.filter(c=>c.teacher_id===id);
+  const n=rs.length,avg=k=>n?rs.reduce((a,r)=>a+r[k],0)/n:0;
+  const again=n?Math.round(100*rs.filter(r=>r.take_again).length/n):0;
+  const tc={};rs.forEach(r=>r.tags.forEach(g=>tc[g]=(tc[g]||0)+1));
+  const top=Object.entries(tc).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const dist=[5,4,3,2,1].map(v=>[v,rs.filter(r=>r.quality===v).length]);
+  const mine=rs.find(r=>r.mine);
+  const clsName=cid=>{const c=K.find(k=>k.id===cid);return c?E(c.name)+(c.period?' · P'+E(c.period):''):''};
+  app().innerHTML=`
+    <a class="back" href="#/teachers">← All teachers</a>
+    <div class="top"><div><h1>${E(t.name)}</h1><p class="sub">${cs.map(c=>`<a href="#/c/${c.id}" style="text-decoration:underline;text-underline-offset:3px">${E(c.name)}</a>`).join(' · ')||'No classes yet'}</p></div></div>
+    ${RRULES}
+    <div class="lay">
+      <div class="box">${n?`<div class="thero"><div class="big">${fmt1(avg('quality'))}<small> / 5</small><div class="muted" style="font-size:13px;font-family:var(--body);letter-spacing:0;font-weight:500;margin-top:6px">Overall · ${n} rating${n===1?'':'s'}</div></div>
+          <div class="stats"><div><b>${again}%</b><span>would take again</span></div><div><b>${fmt1(avg('difficulty'))}</b><span>difficulty</span></div></div></div>
+          <div class="bars">${dist.map(([v,c])=>`<div><span>${v} ${QL[v]}</span><i style="--w:${n?100*c/n:0}%"></i><span>${c}</span></div>`).join('')}</div>
+          ${top.length?`<div class="tagz">${top.map(([g,c])=>`<span class="tag">${E(g)} <span class="muted">${c}</span></span>`).join('')}</div>`:''}`
+        :'<h2>No ratings yet</h2><p class="muted">Be the first to rate this teacher.</p>'}</div>
+      <div class="box" id="rform"></div>
+    </div>
+    <div class="posts" style="margin-top:var(--gap)">${rs.map(r=>`<article class="rv ${r.mine?'mine':''}">
+      <div class="sc">Quality<span class="score ${qcls(r.quality)}">${r.quality}.0</span>Difficulty<span class="score none" style="color:var(--ink);font-size:17px;height:36px;min-width:40px">${r.difficulty}.0</span></div>
+      <div class="meta"><b style="color:var(--ink)">${r.mine?'You':'Anonymous student'}</b>${r.class_id&&clsName(r.class_id)?' · '+clsName(r.class_id):''} · ${C.ago(r.created_at)}${r.updated_at>r.created_at?' (edited)':''}</div>
+      <div class="meta">Would take again: <b style="color:var(--ink)">${r.take_again?'Yes':'No'}</b></div>
+      <div>${r.comment?`<p>${E(r.comment)}</p>`:''}${r.tags.length?`<div class="tagz" style="margin-top:8px">${r.tags.map(g=>`<span class="tag">${E(g)}</span>`).join('')}</div>`:''}</div>
+      <div class="acts">${r.mine?'<button data-editr>Edit</button><button data-delr>Delete</button>':`<button data-rep="teacher_rating:${r.id}">Report</button>`}</div></article>`).join('')}</div>`;
+  const form=edit=>{
+    const v=edit&&mine?{q:mine.quality,d:mine.difficulty,a:mine.take_again,tags:mine.tags.slice(),c:mine.comment,cls:mine.class_id}:{q:0,d:0,a:null,tags:[],c:'',cls:null};
+    if(mine&&!edit){$('rform').innerHTML=`<h2>Your rating</h2><p class="muted">You rated ${E(t.name)} ${mine.quality}/5. Only you can see it's yours.</p><div class="row"><button class="btn sm" id="redit">Edit my rating</button></div>`;$('redit').addEventListener('click',()=>form(true));return}
+    $('rform').innerHTML=`<h2>${mine?'Edit your rating':'Rate '+E(t.name)}</h2>
+      <label class="f">Overall quality</label><div class="pick" data-p="q">${[1,2,3,4,5].map(i=>`<button type="button" data-v="${i}" aria-pressed="${v.q===i}">${i}</button>`).join('')}</div><div class="pickl" id="ql">${QL[v.q]||''}</div>
+      <label class="f">Difficulty</label><div class="pick" data-p="d">${[1,2,3,4,5].map(i=>`<button type="button" data-v="${i}" aria-pressed="${v.d===i}">${i}</button>`).join('')}</div><div class="pickl" id="dl">${DL[v.d]||''}</div>
+      <label class="f">Would you take them again?</label><div class="pick yn" data-p="a"><button type="button" data-v="1" aria-pressed="${v.a===true}">Yes</button><button type="button" data-v="0" aria-pressed="${v.a===false}">No</button></div>
+      ${cs.length?`<label class="f">Which class? (optional)<select id="rc"><option value="">—</option>${cs.map(c=>`<option value="${c.id}"${v.cls===c.id?' selected':''}>${E(c.name)}${c.period?' · P'+E(c.period):''}</option>`).join('')}</select></label>`:''}
+      <label class="f">Tags (up to 3)</label><div class="tagz" id="rt">${TAGS.map(g=>`<button type="button" class="tag" aria-pressed="${v.tags.includes(g)}">${E(g)}</button>`).join('')}</div>
+      <label class="f">Comment (optional)<textarea id="rcm" maxlength="1000" placeholder="How are the lectures, homework and tests? What helps you do well?">${E(v.c)}</textarea></label>
+      <div class="row"><button class="btn sm" id="rgo">${mine?'Save':'Post rating'}</button>${mine?'<button class="btn sm ghost" id="rcancel">Cancel</button>':''}</div><div id="rmsg"></div>`;
+    $('rform').querySelectorAll('[data-p]').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+      g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));const k=g.dataset.p,val=+b.dataset.v;
+      if(k==='q'){v.q=val;$('ql').textContent=QL[val]}if(k==='d'){v.d=val;$('dl').textContent=DL[val]}if(k==='a')v.a=!!val}));
+    $('rt').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const g=b.textContent;
+      if(v.tags.includes(g)){v.tags=v.tags.filter(x=>x!==g);b.setAttribute('aria-pressed','false')}
+      else if(v.tags.length<3){v.tags.push(g);b.setAttribute('aria-pressed','true')}});
+    if($('rcancel'))$('rcancel').addEventListener('click',()=>form(false));
+    $('rgo').addEventListener('click',async()=>{
+      const err=x=>$('rmsg').innerHTML=`<div class="msg">${E(x)}</div>`;
+      if(!v.q)return err('Pick an overall quality score.');if(!v.d)return err('Pick a difficulty.');if(v.a===null)return err('Would you take them again?');
+      $('rgo').disabled=true;
+      const {error}=await SB.rpc('rate_teacher',{t:id,cls:$('rc')&&$('rc').value?+$('rc').value:null,q:v.q,d:v.d,again:v.a,tg:v.tags,note:$('rcm').value});
+      $('rgo').disabled=false;
+      if(error)return err(C.errText(error));
+      teacher(id);
+    });
+  };
+  form(false);
+  app().querySelectorAll('[data-editr]').forEach(b=>b.addEventListener('click',()=>{form(true);$('rform').scrollIntoView({behavior:'smooth',block:'center'})}));
+  app().querySelectorAll('[data-delr]').forEach(b=>b.addEventListener('click',async()=>{
+    if(!b.dataset.armed){b.dataset.armed=1;b.textContent='Click again to delete';return}
+    const {error}=await SB.rpc('delete_my_rating',{t:id});if(error)return alert(C.errText(error));teacher(id);
+  }));
+}
+
 /* ── router + boot ────────────────────────────────── */
 function route(){
   const p=location.hash.replace(/^#\/?/,'').split('/');
   window.scrollTo(0,0);
+  const sec=p[0]==='teachers'||p[0]==='t'?'teachers':'classes';
+  $('snav').innerHTML=`<a href="#/"${sec==='classes'?' aria-current="page"':''}>Classes</a><a href="#/teachers"${sec==='teachers'?' aria-current="page"':''}>Rate teachers</a><a href="/forum/">Forum ↗</a>`;
   if(p[0]==='c'&&+p[1])return klass(+p[1],p[2]);
   if(p[0]==='d'&&+p[1])return deck(+p[1],p[2]);
+  if(p[0]==='t'&&+p[1])return teacher(+p[1]);
+  if(p[0]==='teachers')return teachers();
   return home();
 }
 async function enter(){
