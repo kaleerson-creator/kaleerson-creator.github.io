@@ -11,7 +11,7 @@ window.CONTENT = {
   tools: [
     { name: 'Snapwit',  href: '/snapwit/', color: 'peach', tag: '30 games',       note: 'Reaction, memory and party games' },
     { name: 'LD Timer', href: '/ldtimer/', color: 'sky',   tag: 'Debate',          note: 'Lincoln-Douglas round timer' },
-    { name: 'PVHS Study', href: '',        color: 'lilac', tag: 'Study',           note: 'Palo Verde HS study site', status: 'dev' }
+    { name: 'PVHS Study', href: '/study/', color: 'lilac', tag: 'Study',           note: 'Palo Verde HS study site', status: 'dev' }
   ],
   updates: [
     { date: '2026-10', tag: 'Product', title: 'Snapwit and LD Timer opened to members' },

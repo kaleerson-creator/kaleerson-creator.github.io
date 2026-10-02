@@ -101,3 +101,14 @@ a.b:hover .arrow{transform:translate(3px,-3px)}
 .foot-site a:hover{color:var(--ink)}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ── community modals (study, forum) ── */
+.cm-modal{position:fixed;inset:0;z-index:90;background:#14161399;display:grid;place-items:center;padding:20px}
+.cm-box{background:var(--card);border-radius:var(--r);padding:24px;max-width:440px;width:100%;display:grid;gap:12px;box-shadow:0 30px 80px #14161340}
+.cm-box h2{font-size:28px}
+.cm-box p{color:var(--ink2)}
+.cm-box input,.cm-box textarea{font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;width:100%;background:#fff;color:var(--ink)}
+.cm-box textarea{min-height:100px;resize:vertical}
+.cm-row{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.cm-msg{padding:10px 12px;border-radius:12px;font-size:14px;background:#fef3f2;color:#b42318}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}

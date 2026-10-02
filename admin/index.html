@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261002c">
+<link rel="stylesheet" href="/assets/site.css?v=20261002d">
 <style>
 main.pg{flex:1;padding-block:16px 64px}
 .ahead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding:20px 0 14px}
@@ -69,12 +69,13 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
   <div id="v-no" class="center" hidden><h1 style="font-size:48px">Not allowed</h1><p class="muted">This account isn't an admin.</p><a class="btn ghost" href="/">Home</a></div>
 
   <div id="v-app" hidden>
-    <div class="ahead"><h1>Admin</h1><div class="row"><a class="btn ghost sm" href="/contact/" target="_blank">Open vault ↗</a><button class="btn ghost sm" id="out">Sign out</button></div></div>
+    <div class="ahead"><h1>Admin</h1><div class="row"><a class="btn ghost sm" href="/contact/" target="_blank">Open vault ↗</a><a class="btn ghost sm" href="/study/" target="_blank">Study ↗</a><a class="btn ghost sm" href="/forum/" target="_blank">Forum ↗</a><button class="btn ghost sm" id="out">Sign out</button></div></div>
     <div class="tabs" role="tablist">
       <button role="tab" data-t="sections" aria-selected="true">Sections</button>
       <button role="tab" data-t="files">Files</button>
       <button role="tab" data-t="codes">Codes</button>
       <button role="tab" data-t="devices">Devices</button>
+      <button role="tab" data-t="study">Study &amp; forum</button>
     </div>
 
     <!-- SECTIONS -->
@@ -99,7 +100,7 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
         <div class="grid2">
           <label class="f">How many<input id="cn" type="number" min="1" max="200" value="10"></label>
           <label class="f">Level<select id="ct"><option value="basic">Basic</option><option value="vip">VIP</option></select></label>
-          <label class="f" style="grid-column:span 2">Label (for you)<input id="cl" placeholder="e.g. Business cards, Oct"></label>
+          <label class="f">Unlocks<select id="cu"><option value="vault">Vault</option><option value="study">Study</option><option value="both">Both</option></select></label><label class="f">Label (for you)<input id="cl" placeholder="e.g. Business cards, Oct"></label>
         </div>
         <div class="row"><button class="btn" id="mk">Make codes</button></div>
         <div id="made" hidden class="box" style="background:var(--paper);padding:14px">
@@ -113,12 +114,12 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
         <div class="grid2">
           <label class="f" style="grid-column:span 2">Password (8+ characters)<input id="pw" autocomplete="off"></label>
           <label class="f">Level<select id="pt"><option value="basic">Basic</option><option value="vip">VIP</option></select></label>
-          <label class="f">Label<input id="pl" value="Shared password"></label>
+          <label class="f">Label<input id="pl" value="Shared password"></label><label class="f" style="grid-column:span 2">Unlocks<select id="pu"><option value="vault">Vault</option><option value="study">Study</option><option value="both">Both</option></select></label>
         </div>
         <div class="row"><button class="btn" id="setpw">Save password</button></div>
       </div>
       <div id="codemsg"></div>
-      <div class="box"><h2>All codes</h2><div class="tablewrap"><table><thead><tr><th>Label</th><th>Level</th><th>Type</th><th>Status</th><th>Devices</th><th>Made</th><th></th></tr></thead><tbody id="codetable"></tbody></table></div><p class="help">Deleting a code also locks every device that used it.</p></div>
+      <div class="box"><h2>All codes</h2><div class="tablewrap"><table><thead><tr><th>Label</th><th>Level</th><th>Unlocks</th><th>Type</th><th>Status</th><th>Devices</th><th>Made</th><th></th></tr></thead><tbody id="codetable"></tbody></table></div><p class="help">Deleting a code also locks every device that used it.</p></div>
     </div>
 
     <!-- DEVICES -->
@@ -127,6 +128,15 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
         <div class="tablewrap"><table><thead><tr><th>Code label</th><th>Level</th><th>Device</th><th>Unlocked</th><th>Last opened</th><th></th></tr></thead><tbody id="devtable"></tbody></table></div>
       </div>
     </div>
+
+    <!-- STUDY -->
+    <div class="panel" id="p-study" hidden>
+      <div class="box"><h2>Reports</h2><p class="help">Things people flagged on Study and the forum. <b>Remove</b> deletes the post. <b>Dismiss</b> keeps it.</p>
+        <label class="row help"><input type="checkbox" id="showres" style="width:auto"> Show dismissed and handled</label>
+        <div id="replist" class="panel"></div></div>
+      <div class="box"><h2>Study members</h2><p class="help">People who redeemed a Study code. Removing someone cuts their access; their posts stay unless you delete them.</p>
+        <div class="tablewrap"><table><thead><tr><th>Name</th><th>Code label</th><th>Joined</th><th></th></tr></thead><tbody id="memtable"></tbody></table></div></div>
+    </div>
   </div>
 </main>
 
@@ -134,7 +144,7 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
 <script src="/lib/vault-md.js?v=20261002"></script>
-<script src="/assets/site.js?v=20261002c"></script>
+<script src="/assets/site.js?v=20261002d"></script>
 <script>
 const $=id=>document.getElementById(id);
 const E=VaultMD.esc;
@@ -149,8 +159,8 @@ function confirmBtn(b,label){if(b.dataset.armed){return true}b.dataset.armed=1;c
 /* tabs */
 document.querySelectorAll('[data-t]').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('[data-t]').forEach(x=>x.setAttribute('aria-selected',x===b));
-  ['sections','files','codes','devices'].forEach(t=>$('p-'+t).hidden=t!==b.dataset.t);
-  ({sections:loadSections,files:loadFiles,codes:loadCodes,devices:loadDevices})[b.dataset.t]();
+  ['sections','files','codes','devices','study'].forEach(t=>$('p-'+t).hidden=t!==b.dataset.t);
+  ({sections:loadSections,files:loadFiles,codes:loadCodes,devices:loadDevices,study:loadStudy})[b.dataset.t]();
 }));
 
 /* SECTIONS */
@@ -244,32 +254,35 @@ $('filelist').addEventListener('click',async e=>{
 });
 
 /* CODES */
+const unl=id=>({vault:$(id).value!=='study',study:$(id).value!=='vault'});
+const unlocks=c=>c.for_vault&&c.for_study?'Vault + Study':c.for_study?'Study':'Vault';
 async function loadCodes(){
   const [{data:codes,error},{data:sess}]=await Promise.all([
-    SB.from('contact_codes').select('id,label,tier,single_use,used_at,expires_at,created_at').order('created_at',{ascending:false}),
+    SB.from('contact_codes').select('id,label,tier,single_use,used_at,study_used_at,for_vault,for_study,expires_at,created_at').order('created_at',{ascending:false}),
     SB.from('vault_sessions').select('code_id')]);
-  if(error){$('codetable').innerHTML=`<tr><td colspan="7">${E(error.message)}</td></tr>`;return}
+  if(error){$('codetable').innerHTML=`<tr><td colspan="8">${E(error.message)}</td></tr>`;return}
   const count={};(sess||[]).forEach(s=>count[s.code_id]=(count[s.code_id]||0)+1);
   $('codetable').innerHTML=codes.map(c=>`<tr>
     <td>${E(c.label||'—')}</td>
     <td><select data-tier="${c.id}"><option value="basic"${c.tier==='basic'?' selected':''}>Basic</option><option value="vip"${c.tier==='vip'?' selected':''}>VIP</option></select></td>
+    <td>${unlocks(c)}</td>
     <td>${c.single_use?'One-time':'Password'}</td>
-    <td>${c.single_use?(c.used_at?`<span class="pill used">Used ${fmtDate(c.used_at)}</span>`:'<span class="pill live">Unused</span>'):'<span class="pill live">Active</span>'}</td>
+    <td>${c.single_use?((c.used_at||c.study_used_at)?`<span class="pill used">Used ${fmtDate(c.used_at||c.study_used_at)}</span>`:'<span class="pill live">Unused</span>'):'<span class="pill live">Active</span>'}</td>
     <td>${count[c.id]||0}</td>
     <td>${fmtDate(c.created_at)}</td>
-    <td><button class="btn sm danger" data-delcode="${c.id}">Delete</button></td></tr>`).join('')||'<tr><td colspan="7" class="muted">No codes yet.</td></tr>';
+    <td><button class="btn sm danger" data-delcode="${c.id}">Delete</button></td></tr>`).join('')||'<tr><td colspan="8" class="muted">No codes yet.</td></tr>';
 }
 $('mk').addEventListener('click',async()=>{
   const n=Math.max(1,Math.min(200,+$('cn').value||1));
   $('mk').disabled=true;
-  const {data,error}=await SB.rpc('admin_make_codes',{n,tier:$('ct').value,label:$('cl').value.trim()||null});
+  const {data,error}=await SB.rpc('admin_make_codes_for',{n,tier:$('ct').value,label:$('cl').value.trim()||null,...unl('cu')});
   $('mk').disabled=false;
   if(error){flash($('codemsg'),error.message,false);return}
   $('madelist').innerHTML=data.map(c=>`<span>${E(c)}</span>`).join('');$('made').hidden=false;$('made').dataset.codes=data.join('\n');loadCodes();
 });
 $('copyall').addEventListener('click',()=>{navigator.clipboard&&navigator.clipboard.writeText($('made').dataset.codes).then(()=>{$('copyall').textContent='Copied ✓';setTimeout(()=>$('copyall').textContent='Copy all',1500)})});
 $('setpw').addEventListener('click',async()=>{
-  const {error}=await SB.rpc('admin_set_password',{phrase:$('pw').value,tier:$('pt').value,label:$('pl').value.trim()||'Shared password'});
+  const {error}=await SB.rpc('admin_set_password_for',{phrase:$('pw').value,tier:$('pt').value,label:$('pl').value.trim()||'Shared password',...unl('pu')});
   if(error){flash($('codemsg'),error.message,false);return}
   $('pw').value='';flash($('codemsg'),'Password saved ✓',true);loadCodes();
 });
@@ -293,6 +306,47 @@ async function loadDevices(){
 $('devtable').addEventListener('click',async e=>{
   const b=e.target.closest('[data-lock]');if(!b)return;if(!confirmBtn(b))return;
   const {error}=await SB.from('vault_sessions').delete().eq('id',+b.dataset.lock);if(error){alert(error.message);return}loadDevices();
+});
+
+/* STUDY & FORUM */
+const TGT={study_post:['study_posts','Study post'],study_card:['study_cards','Flashcard'],study_deck:['study_decks','Flashcard deck'],forum_thread:['forum_threads','Forum thread'],forum_reply:['forum_replies','Forum reply']};
+async function names(ids){ids=[...new Set(ids.filter(Boolean))];if(!ids.length)return{};const {data}=await SB.from('profiles').select('user_id,display_name').in('user_id',ids);const m={};(data||[]).forEach(p=>m[p.user_id]=p.display_name);return m}
+async function loadStudy(){
+  let q=SB.from('reports').select('*').order('created_at',{ascending:false}).limit(200);
+  if(!$('showres').checked)q=q.is('resolved_at',null);
+  const {data:reps,error}=await q;
+  if(error){$('replist').innerHTML=`<div class="msg err">${E(error.message)}</div>`;return}
+  // fetch each reported item
+  const items={};
+  await Promise.all(Object.keys(TGT).map(async t=>{const ids=reps.filter(r=>r.target_type===t).map(r=>r.target_id);if(!ids.length)return;const {data}=await SB.from(TGT[t][0]).select('*').in('id',ids);(data||[]).forEach(x=>items[t+':'+x.id]=x)}));
+  const nm=await names([...reps.map(r=>r.created_by),...Object.values(items).map(x=>x.created_by)]);
+  const link=(t,x)=>!x?'':t==='study_post'?`/study/#/c/${x.class_id}`:t==='study_card'?`/study/#/d/${x.deck_id}`:t==='study_deck'?`/study/#/d/${x.id}`:t==='forum_thread'?`/forum/#/t/${x.id}`:`/forum/#/t/${x.thread_id}`;
+  const text=x=>x?[x.title,x.front&&('Q: '+x.front),x.back&&('A: '+x.back),x.body].filter(Boolean).join('\n').slice(0,600):'';
+  $('replist').innerHTML=reps.map(r=>{const x=items[r.target_type+':'+r.target_id];return `<div class="box" style="background:var(--paper)" data-rep="${r.id}" data-tt="${r.target_type}" data-tid="${r.target_id}">
+    <div class="row" style="justify-content:space-between"><b>${TGT[r.target_type][1]}${x?' by '+E(nm[x.created_by]||'?'):''}</b><span class="help">${fmtDate(r.created_at)}${r.resolved_at?' · handled':''}</span></div>
+    <p><b>Reason:</b> ${E(r.reason)} <span class="help">(from ${E(nm[r.created_by]||'a member')})</span></p>
+    ${x?`<div class="help" style="white-space:pre-wrap;background:#fff;border-radius:12px;padding:10px 12px;color:var(--ink)">${E(text(x))}</div>`:'<p class="help">Already deleted.</p>'}
+    <div class="row">${x?`<a class="btn sm ghost" href="${link(r.target_type,x)}" target="_blank">View ↗</a><button class="btn sm danger" data-remove>Remove</button>`:''}${r.resolved_at?'':'<button class="btn sm ghost" data-dismiss>Dismiss</button>'}</div></div>`}).join('')||'<p class="help">Nothing reported. 🎉</p>';
+  const {data:mem}=await SB.from('study_members').select('*').order('granted_at',{ascending:false});
+  const mn=await names((mem||[]).map(m=>m.user_id));
+  $('memtable').innerHTML=(mem||[]).map(m=>`<tr><td>${E(mn[m.user_id]||'(no name yet)')}</td><td>${E(m.code_label||'—')}</td><td>${fmtDate(m.granted_at)}</td><td><button class="btn sm danger" data-unmem="${m.user_id}">Remove</button></td></tr>`).join('')||'<tr><td colspan="4" class="muted">No members yet.</td></tr>';
+}
+$('showres').addEventListener('change',loadStudy);
+$('replist').addEventListener('click',async e=>{
+  const box=e.target.closest('[data-rep]');if(!box)return;const id=+box.dataset.rep;
+  if(e.target.matches('[data-remove]')){
+    if(!confirmBtn(e.target,'Click again to delete it'))return;
+    const t=box.dataset.tt,tid=+box.dataset.tid;
+    if(t==='study_post'){const {data:fs}=await SB.storage.from('study').list(String(tid),{limit:100});if(fs&&fs.length)await SB.storage.from('study').remove(fs.map(f=>tid+'/'+f.name))}
+    const {error}=await SB.from(TGT[t][0]).delete().eq('id',tid);if(error){alert(error.message);return}
+    await SB.from('reports').update({resolved_at:new Date().toISOString()}).eq('target_type',t).eq('target_id',tid).is('resolved_at',null);
+    loadStudy();
+  }
+  if(e.target.matches('[data-dismiss]')){const {error}=await SB.from('reports').update({resolved_at:new Date().toISOString()}).eq('id',id);if(error){alert(error.message);return}loadStudy()}
+});
+$('memtable').addEventListener('click',async e=>{
+  const b=e.target.closest('[data-unmem]');if(!b)return;if(!confirmBtn(b))return;
+  const {error}=await SB.from('study_members').delete().eq('user_id',b.dataset.unmem);if(error){alert(error.message);return}loadStudy();
 });
 
 $('out').addEventListener('click',async()=>{await SB.auth.signOut();location.href='/'});
