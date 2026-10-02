@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261001">
+<link rel="stylesheet" href="/assets/site.css?v=20261002c">
 <style>
 .hero{min-height:440px;padding:32px;justify-content:flex-end}
 .hero h1{font-size:clamp(64px,11vw,148px);line-height:.86}
@@ -89,8 +89,8 @@
   </div>
 </main>
 
-<script src="/assets/content.js?v=20261001"></script>
-<script src="/assets/site.js?v=20261001"></script>
+<script src="/assets/content.js?v=20261002c"></script>
+<script src="/assets/site.js?v=20261002c"></script>
 <script>
 const C=window.CONTENT,S=window.SITE;
 document.querySelectorAll('.arrow:empty').forEach(a=>a.outerHTML=S.arrow);
@@ -102,10 +102,10 @@ function tick(){const now=new Date();const o={timeZone:'America/Los_Angeles'};
 tick();setInterval(tick,10000);
 
 // tools
-const ICONS={
+const ICONS={'PVHS Study':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg>',
   Snapwit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>',
   'LD Timer':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>'};
-document.getElementById('tools').outerHTML=C.tools.map(t=>`<a class="b s3 ${t.color} tool wide-m" href="${t.href}"><span class="blob"></span><div class="icon">${ICONS[t.name]||''}</div><span class="lbl">Tool · ${S.esc(t.tag)}</span><h2>${S.esc(t.name)}</h2><div class="foot"><span class="muted">${S.esc(t.note)}</span>${S.arrow}</div></a>`).join('');
+document.getElementById('tools').outerHTML=C.tools.map(t=>{const tag=t.href?'a':'div',open=t.href?`a href="${t.href}"`:'div';return `<${open} class="b ${C.tools.length%3===0?'s2':'s3'} ${t.color} tool wide-m"><span class="blob"></span><div class="icon">${ICONS[t.name]||''}</div><span class="lbl">Tool · ${S.esc(t.tag)}</span><h2>${S.esc(t.name)}</h2><div class="foot"><span class="muted">${S.esc(t.note)}</span>${t.href?S.arrow:S.statusChip(t.status||'dev')}</div></${tag}>`}).join('');
 
 // projects
 const COL={peach:'var(--peach)',sky:'var(--sky)',butter:'var(--butter)',moss:'var(--moss)',lilac:'var(--lilac)'};
