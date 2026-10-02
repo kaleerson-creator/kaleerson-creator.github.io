@@ -1,0 +1,79 @@
+@@ meta
+dir: 2048
+title: 2048 · Kale's Games
+desc: Slide tiles, merge numbers, reach 2048.
+page: 2048
+game: 2048
+@@ css
+.board{--n:4;--gap:10px;position:relative;width:min(100%,460px);aspect-ratio:1;background:#d9dccf;border-radius:20px;padding:var(--gap);touch-action:none;user-select:none}
+.cells,.tiles{position:absolute;inset:var(--gap);display:grid;grid-template-columns:repeat(var(--n),1fr);gap:var(--gap)}
+.cells i{background:#eceee6;border-radius:12px}
+.tiles{display:block}
+.t{position:absolute;width:calc((100% - 3*var(--gap))/4);height:calc((100% - 3*var(--gap))/4);border-radius:12px;display:grid;place-items:center;font:800 clamp(20px,6vw,40px)/1 var(--display);letter-spacing:-.03em;transition:transform .11s ease;will-change:transform}
+.t.new{animation:pop .16s ease}
+.t.merged{animation:bump .18s ease}
+@keyframes pop{from{opacity:0;scale:.4}}
+@keyframes bump{50%{scale:1.14}}
+.v2{background:#fff;color:var(--ink)}.v4{background:var(--moss)}.v8{background:var(--butter)}.v16{background:var(--peach)}.v32{background:#f2a98a}.v64{background:#ea7c5b;color:#fff}
+.v128{background:var(--sky);font-size:clamp(18px,5vw,34px)}.v256{background:#9dbdea;font-size:clamp(18px,5vw,34px)}.v512{background:var(--lilac);font-size:clamp(18px,5vw,34px)}
+.v1024{background:#b59ce6;color:#fff;font-size:clamp(15px,4.2vw,28px)}.v2048{background:var(--forest);color:var(--butter);font-size:clamp(15px,4.2vw,28px)}.vbig{background:var(--ink);color:#fff;font-size:clamp(13px,3.6vw,24px)}
+@@ body
+<div class="ghead"><div><h1>2048</h1><p>Use arrow keys or swipe. Merge tiles to reach 2048.</p></div><button class="btn sm ghost" id="restart">New game</button></div>
+<div class="glay">
+  <div class="stage">
+    <div class="stats"><div><b id="score">0</b><span>Score</span></div><div><b id="best">0</b><span>Best</span></div></div>
+    <div class="board" id="board"><div class="cells"></div><div class="tiles" id="tiles"></div></div>
+  </div>
+  <div class="side"><div class="box" id="lb"></div></div>
+</div>
+@@ js
+document.querySelector('.cells').innerHTML='<i></i>'.repeat(16);
+const N=4;let grid,score,over,nextId=1,won=false;
+const tilesEl=document.getElementById('tiles');
+function empty(){const e=[];for(let r=0;r<N;r++)for(let c=0;c<N;c++)if(!grid[r][c])e.push([r,c]);return e}
+function add(){const e=empty();if(!e.length)return;const [r,c]=e[Math.floor(Math.random()*e.length)];grid[r][c]={id:nextId++,v:Math.random()<.9?2:4,isNew:true}}
+function start(){grid=[...Array(N)].map(()=>Array(N).fill(null));score=0;over=false;won=false;add();add();draw();G.local.set('2048:save',null)}
+function draw(){
+  const seen=new Set();
+  for(let r=0;r<N;r++)for(let c=0;c<N;c++){const t=grid[r][c];if(!t)continue;seen.add(t.id);
+    let el=tilesEl.querySelector('[data-id="'+t.id+'"]');
+    if(!el){el=document.createElement('div');el.dataset.id=t.id;tilesEl.append(el)}
+    el.className='t v'+(t.v>2048?'big':t.v)+(t.isNew?' new':'')+(t.merged?' merged':'');
+    el.textContent=t.v;
+    el.style.transform=`translate(calc(${c} * (100% + var(--gap))),calc(${r} * (100% + var(--gap))))`;
+    t.isNew=false;t.merged=false}
+  tilesEl.querySelectorAll('.t').forEach(el=>{if(!seen.has(+el.dataset.id))el.remove()});
+  document.getElementById('score').textContent=score.toLocaleString();
+  const best=Math.max(G.local.get('best:2048',0)||0,score);document.getElementById('best').textContent=best.toLocaleString();
+  if(!over)G.local.set('2048:save',{grid,score,nextId,won});
+}
+function slide(dir){ // 0 left 1 right 2 up 3 down
+  if(over)return;let moved=false;
+  for(let i=0;i<N;i++){
+    let line=[];for(let j=0;j<N;j++){const [r,c]=dir<2?[i,dir===0?j:N-1-j]:[dir===2?j:N-1-j,i];line.push(grid[r][c])}
+    const tiles=line.filter(Boolean),out=[];
+    for(let k=0;k<tiles.length;k++){
+      if(k+1<tiles.length&&tiles[k].v===tiles[k+1].v){const v=tiles[k].v*2;out.push({id:tiles[k].id,v,merged:true});score+=v;
+        const gone=tilesEl.querySelector('[data-id="'+tiles[k+1].id+'"]');if(gone)gone.dataset.id='x'+tiles[k+1].id;k++;if(v===2048&&!won){won=true;setTimeout(()=>msg('You made 2048!','Keep going for a higher score.',true),250)}}
+      else out.push(tiles[k])}
+    while(out.length<N)out.push(null);
+    for(let j=0;j<N;j++){const [r,c]=dir<2?[i,dir===0?j:N-1-j]:[dir===2?j:N-1-j,i];if(grid[r][c]!==out[j])moved=moved||(grid[r][c]?.id!==out[j]?.id);grid[r][c]=out[j]}
+  }
+  if(!moved)return;
+  // let merged-away tiles slide under before removal
+  setTimeout(()=>tilesEl.querySelectorAll('[data-id^="x"]').forEach(e=>e.remove()),110);
+  add();draw();
+  if(!canMove()){over=true;G.local.set('2048:save',null);setTimeout(gameOver,250)}
+}
+function canMove(){if(empty().length)return true;for(let r=0;r<N;r++)for(let c=0;c<N;c++){const v=grid[r][c].v;if(c<N-1&&grid[r][c+1].v===v||r<N-1&&grid[r+1][c].v===v)return true}return false}
+function msg(t,s,cont){const b=document.getElementById('board');const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>${t}</h2><p class="muted" id="omsg">${s}</p><div class="row"><button class="btn" id="oagain">${cont?'Keep going':'Play again'}</button></div></div>`;b.append(o);
+  o.querySelector('#oagain').onclick=()=>{o.remove();if(!cont)start()};return o}
+async function gameOver(){const o=msg('Game over','Score '+score.toLocaleString()+' · saving…');o.querySelector('#omsg').innerHTML='Score '+score.toLocaleString()+'<br>'+await G.submit('2048',score,{max:Math.max(...grid.flat().map(t=>t.v))});draw()}
+document.addEventListener('keydown',e=>{const k={ArrowLeft:0,ArrowRight:1,ArrowUp:2,ArrowDown:3,a:0,d:1,w:2,s:3}[e.key];if(k===undefined||e.target.matches('input'))return;e.preventDefault();slide(k)});
+let sx,sy;const bd=document.getElementById('board');
+bd.addEventListener('pointerdown',e=>{sx=e.clientX;sy=e.clientY});
+bd.addEventListener('pointerup',e=>{if(sx==null)return;const dx=e.clientX-sx,dy=e.clientY-sy;sx=null;if(Math.max(Math.abs(dx),Math.abs(dy))<24)return;slide(Math.abs(dx)>Math.abs(dy)?(dx<0?0:1):(dy<0?2:3))});
+document.getElementById('restart').onclick=()=>{document.querySelectorAll('.over').forEach(o=>o.remove());tilesEl.innerHTML='';start()};
+const saved=G.local.get('2048:save',null);
+if(saved&&saved.grid){grid=saved.grid;score=saved.score;nextId=saved.nextId;won=saved.won;over=false;draw()}else start();
+G.boardBox(document.getElementById('lb'),'2048');

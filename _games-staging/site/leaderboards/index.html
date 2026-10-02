@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Leaderboards · Kale's Games</title>
+<meta name="description" content="Top scores for every game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/games.css?v=1">
+<style>
+.boards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--gap)}
+.box h2 a:hover{text-decoration:underline}
+</style>
+</head>
+<body data-page="boards">
+<main class="wrap">
+<div class="ghead"><div><h1>Leaderboards</h1><p>Each person's best score. Times count when lower is better.</p></div>
+  <div class="seg" id="per"><button data-p="day">Today</button><button data-p="week" aria-pressed="true">This week</button><button data-p="all">All time</button></div></div>
+<div class="boards" id="boards"></div>
+<p class="small" style="margin-top:var(--gap)" id="who"></p>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/assets/common.js?v=1"></script>
+<script>
+const GAMES=[['word','Daily Word'],['2048','2048'],['snake','Snake'],['minesweeper','Minesweeper (Medium)'],['sudoku','Sudoku (Medium)'],['typing','Typing (60s)'],['trivia','Trivia']];
+let period='week';
+function load(){document.getElementById('boards').innerHTML=GAMES.map(([g,n])=>`<div class="box"><h2><a href="/${g}/">${n}</a></h2><div data-b="${g}"></div></div>`).join('');
+  GAMES.forEach(([g])=>G.board(document.querySelector(`[data-b="${g}"]`),g,period))}
+document.querySelectorAll('#per [data-p]').forEach(b=>b.onclick=()=>{period=b.dataset.p;document.querySelectorAll('#per [data-p]').forEach(x=>x.setAttribute('aria-pressed',x===b));load()});
+load();
+G.me.ready.then(m=>{document.getElementById('who').innerHTML=m.uid?'You\'re signed in as <b>'+G.esc(m.name||'(no name yet)')+'</b>.':'<a href="/signin/" style="text-decoration:underline">Sign in</a> so your scores count.'});
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Minesweeper · Kale's Games</title>
+<meta name="description" content="Clear the board without hitting a mine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/games.css?v=1">
+<style>
+.mgrid{display:grid;gap:3px;background:#d9dccf;padding:8px;border-radius:16px;user-select:none;touch-action:manipulation;width:min(100%,var(--w));position:relative}
+.mgrid button{aspect-ratio:1;border:0;border-radius:6px;background:var(--moss);font:800 clamp(11px,2.6vw,17px)/1 var(--display);cursor:pointer;padding:0;display:grid;place-items:center;min-width:0}
+.mgrid button:hover{filter:brightness(1.05)}
+.mgrid button.open{background:#f6f7f2;cursor:default}
+.mgrid button.boom{background:#f3a08c}
+.n1{color:#2451C9}.n2{color:#2E7D4F}.n3{color:#B8322F}.n4{color:#5b3aa8}.n5{color:#8a2c1c}.n6{color:#11766f}.n7{color:#141613}.n8{color:#5E645B}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+.flagmode[aria-pressed=true]{background:var(--peach);box-shadow:none}
+</style>
+</head>
+<body data-page="minesweeper" data-game="minesweeper">
+<main class="wrap">
+<div class="ghead"><div><h1>Minesweeper</h1><p>Tap to dig. Right-click, long-press or Flag mode to flag. Medium times go on the leaderboard.</p></div>
+  <div class="seg" id="lvl"><button data-l="easy">Easy</button><button data-l="medium" aria-pressed="true">Medium</button></div></div>
+<div class="glay">
+  <div class="stage">
+    <div class="bar"><div class="stats"><div><b id="time">0:00</b><span>Time</span></div><div><b id="left">40</b><span>Mines left</span></div><div><b id="best">–</b><span>Best</span></div></div>
+      <button class="btn sm ghost flagmode" id="flag" aria-pressed="false">🚩 Flag mode</button><button class="btn sm ghost" id="new">New game</button></div>
+    <div class="mgrid" id="g"></div>
+  </div>
+  <div class="side"><div class="box" id="lb"></div></div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/assets/common.js?v=1"></script>
+<script>
+const LV={easy:{w:9,h:9,m:10},medium:{w:16,h:16,m:40}};
+let lv='medium',W,H,M,cells,first,over,flags,t0,tick,opened,flagMode=false;
+const g=document.getElementById('g');
+const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+function newGame(){({w:W,h:H,m:M}=LV[lv]);cells=[...Array(W*H)].map(()=>({mine:false,n:0,open:false,flag:false}));first=true;over=false;flags=0;opened=0;clearInterval(tick);t0=null;
+  g.style.setProperty('--w',(W*34+16)+'px');g.style.gridTemplateColumns=`repeat(${W},1fr)`;
+  g.innerHTML=cells.map((_,i)=>`<button data-i="${i}" aria-label="Cell"></button>`).join('');
+  document.getElementById('time').textContent='0:00';document.getElementById('left').textContent=M;
+  const b=G.local.get('best:minesweeper'+(lv==='easy'?':easy':''),null);document.getElementById('best').textContent=b?fmt(b):'–';
+  document.querySelectorAll('.over').forEach(o=>o.remove())}
+const nb=i=>{const x=i%W,y=Math.floor(i/W),r=[];for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){if(!dx&&!dy)continue;const X=x+dx,Y=y+dy;if(X>=0&&Y>=0&&X<W&&Y<H)r.push(Y*W+X)}return r};
+function lay(safe){const no=new Set([safe,...nb(safe)]);let k=0;while(k<M){const i=Math.floor(Math.random()*W*H);if(no.has(i)||cells[i].mine)continue;cells[i].mine=true;k++}
+  cells.forEach((c,i)=>c.n=nb(i).filter(j=>cells[j].mine).length)}
+function open(i){const c=cells[i];if(c.open||c.flag)return;
+  if(first){first=false;lay(i);t0=Date.now();tick=setInterval(()=>document.getElementById('time').textContent=fmt(Math.floor((Date.now()-t0)/1000)),250)}
+  if(c.mine){c.open=true;return lose(i)}
+  const st=[i];while(st.length){const j=st.pop(),d=cells[j];if(d.open||d.flag)continue;d.open=true;opened++;if(!d.n)nb(j).forEach(k=>{if(!cells[k].open&&!cells[k].mine)st.push(k)})}
+  if(opened===W*H-M)win()}
+function chord(i){const c=cells[i];if(!c.open||!c.n)return;const ns=nb(i);if(ns.filter(j=>cells[j].flag).length!==c.n)return;ns.forEach(j=>{if(!over)open(j)})}
+function flag(i){const c=cells[i];if(c.open||over||first)return;c.flag=!c.flag;flags+=c.flag?1:-1;document.getElementById('left').textContent=M-flags}
+function draw(){g.querySelectorAll('button').forEach((b,i)=>{const c=cells[i];b.className=c.open?'open'+(c.mine?' boom':'')+(c.n&&!c.mine?' n'+c.n:''):'';b.textContent=c.open?(c.mine?'💣':c.n||''):c.flag?'🚩':(over&&c.mine?'💣':'')})}
+function lose(){over=true;clearInterval(tick);draw();msg('Boom','You hit a mine.')}
+async function win(){over=true;clearInterval(tick);const s=Math.max(1,Math.round((Date.now()-t0)/1000));draw();
+  const o=msg('Cleared!',fmt(s)+(lv==='medium'?' · saving…':''));
+  if(lv==='medium')o.querySelector('#omsg').innerHTML=fmt(s)+'<br>'+await G.submit('minesweeper',Math.max(3,s),{level:lv});
+  else{const k='best:minesweeper:easy',b=G.local.get(k,null);if(b===null||s<b){G.local.set(k,s);o.querySelector('#omsg').innerHTML=fmt(s)+'<br>New Easy best!'}}
+  newBestLabel()}
+function newBestLabel(){const b=G.local.get('best:minesweeper'+(lv==='easy'?':easy':''),null);document.getElementById('best').textContent=b?fmt(b):'–'}
+function msg(t,s){const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>${t}</h2><p class="muted" id="omsg">${s}</p><button class="btn" id="oagain">Play again</button></div>`;g.append(o);o.querySelector('#oagain').onclick=()=>{newGame()};return o}
+let pressT=null,longFired=false;
+g.addEventListener('pointerdown',e=>{const b=e.target.closest('[data-i]');if(!b||over)return;longFired=false;clearTimeout(pressT);if(e.pointerType!=='mouse')pressT=setTimeout(()=>{longFired=true;flag(+b.dataset.i);draw();navigator.vibrate&&navigator.vibrate(20)},380)});
+['pointerup','pointerleave','pointercancel'].forEach(ev=>g.addEventListener(ev,()=>clearTimeout(pressT)));
+g.addEventListener('click',e=>{const b=e.target.closest('[data-i]');if(!b||over||longFired)return;const i=+b.dataset.i;
+  if(flagMode&&!cells[i].open)flag(i);else if(cells[i].open)chord(i);else open(i);if(!over)draw()});
+g.addEventListener('contextmenu',e=>{const b=e.target.closest('[data-i]');if(!b)return;e.preventDefault();if(!longFired){flag(+b.dataset.i);draw()}});
+document.getElementById('flag').onclick=e=>{flagMode=!flagMode;e.currentTarget.setAttribute('aria-pressed',flagMode)};
+document.getElementById('new').onclick=newGame;
+document.querySelectorAll('#lvl [data-l]').forEach(b=>b.onclick=()=>{lv=b.dataset.l;document.querySelectorAll('#lvl [data-l]').forEach(x=>x.setAttribute('aria-pressed',x===b));newGame()});
+newGame();
+G.boardBox(document.getElementById('lb'),'minesweeper');
+</script>
+</body>
+</html>
