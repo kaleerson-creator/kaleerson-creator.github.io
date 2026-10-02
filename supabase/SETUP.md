@@ -102,3 +102,9 @@ To send emails from your own domain and raise the sending limit, create a free [
 | One-time codes | Stored as hashes, so even you can't read old codes back. Each code is marked used the moment it works. |
 | Scores | Members can only add their own scores and read their own. Percentiles are calculated by the database. |
 | Snapwit | The page asks for sign-in before you can play. The game code itself is public on GitHub, so this keeps casual visitors out but won't stop someone technical from copying it. |
+
+## PVHS Study + forum
+
+`study.sql` adds Study (invite-only, members redeem a code once on their account) and the public forum.
+Already applied. In /admin → Codes, pick **Unlocks: Vault / Study / Both** when making codes.
+Reports and Study members are under /admin → Study & forum.

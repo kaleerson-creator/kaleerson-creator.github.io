@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>PVHS Study · Kale Erson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261002d">
+<style>
+main.pg{flex:1;padding-block:8px 64px}
+.center{max-width:520px;margin:24px auto}
+.gate{position:relative;isolation:isolate;overflow:hidden;background:var(--lilac);border-radius:var(--r);padding:32px 24px;display:grid;gap:14px}
+.gate .blob{width:220px;aspect-ratio:1;right:-70px;top:-80px;background:#ffffff66}
+.gate h1{font-size:clamp(44px,10vw,64px);position:relative}
+.gate p{color:var(--ink2);max-width:36ch;position:relative}
+.gate form{display:grid;gap:10px;position:relative}
+.gate input{width:100%;font:inherit;font-size:20px;letter-spacing:.08em;padding:15px 18px;border:0;border-radius:18px;background:#fff;color:var(--ink)}
+.gate .btn{justify-content:center}
+.msg{padding:11px 14px;border-radius:14px;font-size:14px;background:#fef3f2;color:#b42318}
+.msg.ok{background:#d7ecc4;color:#24502f}
+
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding:24px 0 14px}
+.top h1{font-size:clamp(44px,8vw,84px)}
+.top .sub{color:var(--ink2);margin-top:8px}
+.who{font-size:14px;color:var(--ink2);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.who button,.linkbtn{font:inherit;font-size:13px;background:var(--card);border:0;border-radius:999px;padding:7px 12px;cursor:pointer;color:var(--ink)}
+.rules{display:flex;gap:12px;align-items:flex-start;background:var(--butter);border-radius:20px;padding:14px 18px;font-size:14px;margin-bottom:var(--gap)}
+.rules b{font-weight:700}
+.rules span:first-child{font-size:20px;line-height:1}
+
+.lay{display:grid;grid-template-columns:1.4fr 1fr;gap:var(--gap);align-items:start}
+@media (max-width:860px){.lay{grid-template-columns:1fr}}
+.box{background:var(--card);border-radius:24px;padding:20px;display:grid;gap:12px;min-width:0}
+.box h2{font-size:26px;letter-spacing:-.03em}
+.box.forest{background:var(--forest);color:var(--forest-ink)}
+.search{display:flex;gap:8px;flex-wrap:wrap}
+.search input{flex:1;min-width:0}
+input,select,textarea{font:inherit;font-size:16px;padding:11px 13px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);min-width:0;width:100%}
+textarea{min-height:120px;resize:vertical;line-height:1.5}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-offset:1px}
+label.f{display:grid;gap:5px;font-size:12px;font-weight:600;color:var(--ink2);letter-spacing:.04em}
+.g3{display:grid;grid-template-columns:2fr 2fr 1fr;gap:10px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:600px){.g3,.g2{grid-template-columns:1fr}}
+.btn.sm{padding:9px 14px;font-size:14px}
+.btn:disabled{opacity:.6}
+.teacher{display:grid;gap:8px;padding:14px 0;border-top:1px solid var(--line)}
+.teacher:first-child{border-top:0;padding-top:0}
+.teacher b{font-family:var(--display);font-size:19px;letter-spacing:-.02em}
+.classes{display:flex;gap:6px;flex-wrap:wrap}
+.cls{display:inline-flex;gap:6px;align-items:center;padding:8px 13px;border-radius:999px;background:var(--paper);font-size:14px;font-weight:500}
+.cls:hover{background:var(--moss)}
+.cls small{color:var(--ink2);font-size:12px}
+.muted{color:var(--ink2)}
+.empty{color:var(--ink2);font-size:14px;padding:6px 0}
+
+.ev{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:10px 0;border-top:1px solid #ffffff22}
+.ev:first-of-type{border-top:0}
+.day{width:52px;height:56px;border-radius:16px;background:#ffffff1f;display:grid;place-items:center;text-align:center;line-height:1}
+.day b{font-family:var(--display);font-size:22px}
+.day small{font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.ev .t{font-weight:600}
+.ev .m{font-size:13px;opacity:.75}
+.box:not(.forest) .ev{border-top-color:var(--line)}
+.box:not(.forest) .day{background:var(--paper)}
+
+.back{display:inline-flex;gap:6px;align-items:center;font-size:14px;color:var(--ink2);padding:16px 0 0}
+.back:hover{color:var(--ink)}
+.tabs{display:flex;gap:4px;background:var(--card);border-radius:999px;padding:5px;width:max-content;max-width:100%;overflow-x:auto;margin-bottom:var(--gap)}
+.tabs a{font-size:14px;font-weight:600;color:var(--ink2);padding:9px 16px;border-radius:999px;white-space:nowrap}
+.tabs a[aria-selected=true]{background:var(--ink);color:#fff}
+@media (max-width:560px){.tabs{display:grid;grid-template-columns:1fr 1fr;width:100%;border-radius:22px}.tabs a{text-align:center}}
+.posts{display:grid;gap:var(--gap)}
+.post{background:var(--card);border-radius:22px;padding:18px 20px;display:grid;gap:8px;min-width:0}
+.post h3{font-family:var(--display);font-size:22px;letter-spacing:-.03em;line-height:1.1}
+.meta{font-size:13px;color:var(--ink2);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.tchip{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--paper);color:var(--ink)}
+.tchip.test{background:var(--peach)}.tchip.quiz{background:var(--sky)}.tchip.assignment{background:var(--moss)}.tchip.project{background:var(--lilac)}
+.past{opacity:.6}
+.md{display:grid;gap:6px;overflow-wrap:anywhere}
+.md h3{font-size:19px}.md h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);font-family:var(--body)}
+.md ul{padding-left:18px}
+.md a{text-decoration:underline}
+.md .copy{display:none}
+.acts{display:flex;gap:12px;justify-content:flex-end}
+.acts button{font:inherit;font-size:13px;color:var(--ink2);background:none;border:0;cursor:pointer;padding:2px 0}
+.acts button:hover{color:var(--ink);text-decoration:underline}
+.att{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
+.att button,.att a{border:0;padding:0;background:var(--paper);border-radius:14px;overflow:hidden;aspect-ratio:1;cursor:pointer;display:grid;place-items:center;font-size:13px;font-weight:600;color:var(--ink);text-align:center}
+.att img{width:100%;height:100%;object-fit:cover}
+.adder{display:grid;gap:10px}
+.drop{border:2px dashed var(--line);border-radius:16px;padding:14px;text-align:center;color:var(--ink2);cursor:pointer;font-size:14px}
+.lightbox{position:fixed;inset:0;z-index:100;background:#141613e6;display:grid;place-items:center;padding:20px}
+.lightbox img{max-width:100%;max-height:86vh;border-radius:16px}
+.lightbox button{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:16px;width:44px;height:44px;border-radius:999px;border:0;background:#fff;font-size:18px;cursor:pointer}
+
+.decks{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--gap)}
+.deck{background:var(--card);border-radius:22px;padding:18px;display:grid;gap:6px;min-height:120px;position:relative;overflow:hidden;isolation:isolate}
+.deck:hover{transform:translateY(-2px)}
+.deck b{font-family:var(--display);font-size:21px;letter-spacing:-.02em;line-height:1.1}
+.deck .blob{width:110px;aspect-ratio:1;right:-30px;bottom:-40px;background:var(--lilac)}
+
+.flip{perspective:1200px;cursor:pointer;min-height:260px}
+.flip .in{position:relative;min-height:260px;transition:transform .5s var(--ease);transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r);padding:28px;display:grid;place-items:center;text-align:center;font-family:var(--display);font-size:clamp(22px,4vw,34px);font-weight:700;letter-spacing:-.02em;line-height:1.2;overflow-wrap:anywhere;white-space:pre-wrap}
+.flip .front{background:var(--card)}
+.flip .backf{background:var(--forest);color:var(--forest-ink);transform:rotateY(180deg)}
+.ctl{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap}
+.opts{display:grid;gap:8px}
+.opts button{font:inherit;text-align:left;font-size:16px;padding:14px 16px;border-radius:16px;border:0;background:var(--card);cursor:pointer;white-space:pre-wrap;overflow-wrap:anywhere}
+.opts button.right{background:#d7ecc4}.opts button.wrong{background:#f3dcd6}
+.qhead{display:flex;justify-content:space-between;color:var(--ink2);font-size:14px}
+.cardrow{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px;align-items:start;overflow-wrap:anywhere}
+.cardrow:first-child{border-top:0}
+@media (max-width:600px){.cardrow{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="tools">
+<main class="wrap pg">
+  <div id="v-wait" class="center"><p class="muted">Loading…</p></div>
+  <section id="v-off" class="center" hidden><div class="gate"><h1>PVHS Study</h1><p>This page isn't connected yet. Check back soon.</p></div></section>
+
+  <section id="v-signin" class="center" hidden>
+    <div class="gate"><span class="blob"></span>
+      <h1>PVHS Study</h1>
+      <p>Notes, test dates and study tips for Palo Verde classes. You need an account and an invite code from Kale.</p>
+      <a class="btn" href="/join/?next=/study/">Sign up or sign in</a>
+    </div>
+  </section>
+
+  <section id="v-code" class="center" hidden>
+    <div class="gate"><span class="blob"></span>
+      <h1>Got a code?</h1>
+      <p>Study is invite only. Enter the code Kale gave you. You only need to do this once.</p>
+      <form id="codef">
+        <input id="code" autocomplete="off" autocapitalize="characters" spellcheck="false" required placeholder="XXXX-XXXX" aria-label="Invite code">
+        <button class="btn" id="codego">Unlock Study</button>
+        <div id="codeerr" class="msg" hidden></div>
+      </form>
+    </div>
+  </section>
+
+  <div id="v-app" hidden></div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/config.js?v=20261001"></script>
+<script src="/lib/sb.js?v=20261001"></script>
+<script src="/lib/vault-md.js?v=20261002"></script>
+<script src="/lib/community.js?v=20261002"></script>
+<script src="/assets/site.js?v=20261002d"></script>
+<script>
+const $=id=>document.getElementById(id);
+const E=VaultMD.esc, C=Community, me=C.me;
+const view=v=>['v-wait','v-off','v-signin','v-code','v-app'].forEach(x=>$(x).hidden=x!==v);
+const app=()=>$('v-app');
+const TYPES={test:'Test',quiz:'Quiz',assignment:'Assignment',project:'Project'};
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const dparts=s=>{const d=new Date(s+'T12:00:00');return{dow:d.toLocaleDateString('en-US',{weekday:'short'}),day:d.getDate(),mon:d.toLocaleDateString('en-US',{month:'short'}),full:d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}};
+const until=s=>{const n=Math.round((new Date(s+'T12:00:00')-new Date(today()+'T12:00:00'))/864e5);return n===0?'today':n===1?'tomorrow':n>1?'in '+n+' days':n===-1?'yesterday':-n+' days ago'};
+const clsLabel=c=>E(c.name)+(c.period?` <small>P${E(c.period)}</small>`:'');
+const author=r=>E(r.author&&r.author.display_name||'Someone');
+const canDel=r=>r.created_by===me.uid||me.admin;
+const RULES=`<div class="rules"><span>⚑</span><span><b>No test or assignment answers, before or after.</b> Share notes, dates and what to study. Posts with answers get removed, and so does access.</span></div>`;
+const safeName=n=>n.normalize('NFKD').replace(/[^\w.\- ]+/g,'').replace(/\s+/g,'-').replace(/-+/g,'-').slice(-80)||'file';
+
+/* ── data ─────────────────────────────────────────── */
+let T=[],K=[];  // teachers, classes
+async function loadDir(){
+  const [t,k]=await Promise.all([SB.from('study_teachers').select('id,name').order('name'),SB.from('study_classes').select('id,teacher_id,name,period,created_by').order('name')]);
+  T=t.data||[];K=k.data||[];
+}
+const teacherOf=c=>T.find(t=>t.id===c.teacher_id)||{name:'?'};
+
+/* ── home ─────────────────────────────────────────── */
+async function home(){
+  await loadDir();
+  const {data:evs}=await SB.from('study_posts').select('id,class_id,title,event_type,event_date').eq('kind','event').gte('event_date',today()).order('event_date').limit(12);
+  app().innerHTML=`
+    <div class="top"><div><h1>PVHS Study</h1><p class="sub">Palo Verde HS. Find your class or add it.</p></div>
+      <div class="who">Posting as <b>${E(me.name)}</b><button id="rename">Change</button></div></div>
+    ${RULES}
+    <div class="lay">
+      <div class="box">
+        <div class="search"><input id="q" placeholder="Search teacher or class" aria-label="Search"><button class="btn sm" id="addtog">+ Add a class</button></div>
+        <div id="addcls" class="adder" hidden>
+          <div class="g3">
+            <label class="f">Teacher<input id="nt" list="tlist" maxlength="60" placeholder="e.g. Mr. Smith"></label>
+            <label class="f">Class<input id="nc" maxlength="60" placeholder="e.g. AP Biology"></label>
+            <label class="f">Period<input id="np" maxlength="12" placeholder="3"></label>
+          </div>
+          <datalist id="tlist">${T.map(t=>`<option value="${E(t.name)}">`).join('')}</datalist>
+          <div class="row"><button class="btn sm" id="addgo">Add class</button><span id="addmsg"></span></div>
+        </div>
+        <div id="dir"></div>
+      </div>
+      <div class="box forest"><h2>Coming up</h2><div>${(evs||[]).map(ev=>{const c=K.find(k=>k.id===ev.class_id);const d=dparts(ev.event_date);
+        return `<a class="ev" href="#/c/${ev.class_id}"><span class="day"><small>${d.mon}</small><b>${d.day}</b></span><span><span class="t">${E(ev.title)}</span><br><span class="m">${TYPES[ev.event_type]||'Due'} · ${c?E(c.name)+' · '+E(teacherOf(c).name):''} · ${until(ev.event_date)}</span></span></a>`}).join('')||'<p class="empty" style="color:#B9C9AE">Nothing on the calendar yet. Add tests and due dates on a class page.</p>'}</div></div>
+    </div>`;
+  const draw=()=>{
+    const q=$('q').value.trim().toLowerCase();
+    const rows=T.map(t=>({t,cs:K.filter(c=>c.teacher_id===t.id&&(!q||t.name.toLowerCase().includes(q)||c.name.toLowerCase().includes(q)))}))
+      .filter(r=>r.cs.length||(q&&r.t.name.toLowerCase().includes(q)));
+    $('dir').innerHTML=rows.map(r=>`<div class="teacher"><b>${E(r.t.name)}</b><div class="classes">${r.cs.map(c=>`<a class="cls" href="#/c/${c.id}">${clsLabel(c)}</a>`).join('')||'<span class="empty">No classes yet</span>'}</div></div>`).join('')
+      ||`<p class="empty">${q?'No match. Add it with “+ Add a class”.':'No classes yet. Be the first to add yours.'}</p>`;
+  };
+  draw();
+  $('q').addEventListener('input',draw);
+  $('rename').addEventListener('click',async()=>{if(await C.askName())home()});
+  $('addtog').addEventListener('click',()=>{$('addcls').hidden=!$('addcls').hidden;if(!$('addcls').hidden){$('nt').value=$('q').value;$('nt').focus()}});
+  $('addgo').addEventListener('click',async()=>{
+    const tn=$('nt').value.trim(),cn=$('nc').value.trim(),p=$('np').value.trim().replace(/^p(eriod)?\s*/i,'');
+    const say=t=>$('addmsg').innerHTML=`<span style="color:#b42318;font-size:14px">${E(t)}</span>`;
+    if(tn.length<2||cn.length<2)return say('Add the teacher and class name.');
+    $('addgo').disabled=true;
+    let t=T.find(x=>x.name.trim().toLowerCase()===tn.toLowerCase());
+    if(!t){const r=await SB.from('study_teachers').insert({name:tn}).select('id,name').single();if(r.error){$('addgo').disabled=false;return say(C.errText(r.error))}t=r.data}
+    const dup=K.find(c=>c.teacher_id===t.id&&c.name.trim().toLowerCase()===cn.toLowerCase()&&(c.period||'').toLowerCase()===p.toLowerCase());
+    if(dup){location.hash='#/c/'+dup.id;return}
+    const r=await SB.from('study_classes').insert({teacher_id:t.id,name:cn,period:p||null}).select('id').single();
+    $('addgo').disabled=false;
+    if(r.error)return say(C.errText(r.error));
+    location.hash='#/c/'+r.data.id;
+  });
+}
+
+/* ── class page ───────────────────────────────────── */
+const TABS=[['events','Upcoming'],['notes','Notes'],['tips','What to study'],['cards','Flashcards']];
+async function klass(id,tab){
+  if(!K.some(k=>k.id===id))await loadDir();
+  const c=K.find(k=>k.id===id);
+  if(!c){app().innerHTML=`<a class="back" href="#/">← All classes</a><div class="box" style="margin-top:14px"><h2>Class not found</h2><p class="muted">It may have been removed.</p></div>`;return}
+  tab=TABS.some(t=>t[0]===tab)?tab:'events';
+  app().innerHTML=`
+    <a class="back" href="#/">← All classes</a>
+    <div class="top"><div><h1>${E(c.name)}</h1><p class="sub">${E(teacherOf(c).name)}${c.period?' · Period '+E(c.period):''}</p></div>
+      ${canDel(c)?'<button class="linkbtn" id="delcls">Delete class</button>':''}</div>
+    ${RULES}
+    <nav class="tabs">${TABS.map(([k,l])=>`<a href="#/c/${id}/${k}" aria-selected="${k===tab}">${l}</a>`).join('')}</nav>
+    <div id="pane"></div>`;
+  if($('delcls'))$('delcls').addEventListener('click',async e=>{
+    if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Delete class and all its posts?';return}
+    const r=await SB.from('study_classes').delete().eq('id',id);if(r.error){alert(C.errText(r.error));return}
+    K=K.filter(k=>k.id!==id);location.hash='#/';
+  });
+  if(tab==='cards')return decks(c);
+  return posts(c,{events:'event',notes:'note',tips:'tips'}[tab]);
+}
+
+const FORMS={
+  event:`<div class="g3"><label class="f">What<input data-k="title" maxlength="140" placeholder="e.g. Unit 3 test"></label><label class="f">Type<select data-k="event_type">${Object.entries(TYPES).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select></label><label class="f">Date<input data-k="event_date" type="date"></label></div>
+    <label class="f">Details (optional)<textarea data-k="body" maxlength="8000" placeholder="What it covers, what to bring, if notes are allowed…"></textarea></label>`,
+  note:`<label class="f">Title<input data-k="title" maxlength="140" placeholder="e.g. Ch. 5 notes – cell transport"></label>
+    <label class="f">Notes<textarea data-k="body" maxlength="8000" placeholder="Type notes, or just add photos below"></textarea></label>
+    <label class="drop">Add photos or PDFs (10 MB max each)<input type="file" data-files multiple accept="image/*,application/pdf" hidden></label><div data-picked class="muted" style="font-size:13px"></div>`,
+  tips:`<label class="f">Topic<input data-k="title" maxlength="140" placeholder="e.g. Know these for the Unit 3 test"></label>
+    <label class="f">What to study<textarea data-k="body" maxlength="8000" placeholder="- Topics, vocab, which slides or pages to review&#10;- Tips that helped you&#10;No answers."></textarea></label>
+    <label class="drop">Add a photo of the study guide (blank, not filled in)<input type="file" data-files multiple accept="image/*,application/pdf" hidden></label><div data-picked class="muted" style="font-size:13px"></div>`
+};
+const ADDLBL={event:'+ Add a test or due date',note:'+ Add notes',tips:'+ Add what to study'};
+
+async function posts(c,kind){
+  const pane=$('pane');
+  pane.innerHTML=`<div class="posts"><div class="box"><button class="btn sm" id="tog" style="justify-self:start">${ADDLBL[kind]}</button><div id="form" class="adder" hidden>${FORMS[kind]}<div class="row"><button class="btn sm" id="post">Post</button><button class="btn sm ghost" id="cancel">Cancel</button></div><div id="pmsg"></div></div></div><div id="list" class="posts"><p class="empty">Loading…</p></div></div>`;
+  $('tog').addEventListener('click',()=>{$('form').hidden=false;$('tog').hidden=true;pane.querySelector('[data-k=title]').focus()});
+  $('cancel').addEventListener('click',()=>{$('form').hidden=true;$('tog').hidden=false});
+  const fi=pane.querySelector('[data-files]');
+  if(fi)fi.addEventListener('change',()=>{pane.querySelector('[data-picked]').textContent=[...fi.files].map(f=>f.name).join(', ')});
+  $('post').addEventListener('click',async()=>{
+    const v={class_id:c.id,kind};pane.querySelectorAll('#form [data-k]').forEach(i=>v[i.dataset.k]=i.value.trim()||null);
+    v.body=v.body||'';
+    const err=t=>$('pmsg').innerHTML=`<div class="msg">${E(t)}</div>`;
+    if(!v.title||v.title.length<2)return err('Add a title.');
+    if(kind==='event'&&!v.event_date)return err('Pick a date.');
+    const files=fi?[...fi.files]:[];
+    if(files.some(f=>f.size>10485760))return err('Each file has to be under 10 MB.');
+    $('post').disabled=true;$('post').textContent='Posting…';
+    const r=await SB.from('study_posts').insert(v).select('id').single();
+    if(r.error){$('post').disabled=false;$('post').textContent='Post';return err(C.errText(r.error))}
+    for(const f of files){
+      const up=await SB.storage.from('study').upload(`${r.data.id}/${Date.now().toString(36)}-${safeName(f.name)}`,f,{contentType:f.type||undefined});
+      if(up.error){err(f.name+': '+C.errText(up.error));break}
+    }
+    posts(c,kind);
+  });
+  let q=SB.from('study_posts').select('*,author:profiles(display_name)').eq('class_id',c.id).eq('kind',kind);
+  q=kind==='event'?q.order('event_date',{ascending:true}):q.order('created_at',{ascending:false});
+  const {data,error}=await q.limit(200);
+  if(error){$('list').innerHTML=`<div class="msg">${E(C.errText(error))}</div>`;return}
+  let rows=data;
+  if(kind==='event'){const t=today();rows=[...data.filter(p=>p.event_date>=t),...data.filter(p=>p.event_date<t).reverse()]}
+  $('list').innerHTML=rows.map(p=>{
+    const past=kind==='event'&&p.event_date<today();
+    const head=kind==='event'?`<div class="meta"><span class="tchip ${E(p.event_type||'')}">${TYPES[p.event_type]||'Due'}</span><b>${dparts(p.event_date).full}</b> · ${until(p.event_date)}</div>`:'';
+    return `<article class="post ${past?'past':''}" data-id="${p.id}">${head}<h3>${E(p.title)}</h3>${p.body?`<div class="md">${VaultMD.render(p.body)}</div>`:''}<div class="att" data-att="${p.id}"></div>
+      <div class="meta"><span>${author(p)} · ${C.ago(p.created_at)}</span></div>
+      <div class="acts"><button data-rep="study_post:${p.id}">Report</button>${canDel(p)?`<button data-del="${p.id}">Delete</button>`:''}</div></article>`;
+  }).join('')||`<p class="empty">${{event:'No dates yet. Add the next test or due date.',note:'No notes yet.',tips:'Nothing yet. What should people review?'}[kind]}</p>`;
+  rows.forEach(p=>attachments(p.id));
+}
+
+async function attachments(pid){
+  const box=document.querySelector(`[data-att="${pid}"]`);if(!box)return;
+  const {data}=await SB.storage.from('study').list(String(pid),{limit:50,sortBy:{column:'name',order:'asc'}});
+  const items=(data||[]).filter(f=>f.name!=='.emptyFolderPlaceholder');if(!items.length)return;
+  const paths=items.map(f=>pid+'/'+f.name);
+  const {data:urls}=await SB.storage.from('study').createSignedUrls(paths,3600);
+  box.innerHTML=(urls||[]).map((u,i)=>{if(!u.signedUrl)return'';const n=items[i].name.replace(/^[a-z0-9]+-/,'');
+    return /\.pdf$/i.test(n)?`<a href="${u.signedUrl}" target="_blank" rel="noopener">PDF<br>${E(n.slice(0,18))}</a>`:`<button data-big="${u.signedUrl}" aria-label="${E(n)}"><img src="${u.signedUrl}" alt="" loading="lazy"></button>`}).join('');
+}
+
+/* ── flashcards ───────────────────────────────────── */
+async function decks(c){
+  const pane=$('pane');
+  const {data,error}=await SB.from('study_decks').select('id,title,created_by,created_at,author:profiles(display_name),study_cards(count)').eq('class_id',c.id).order('created_at',{ascending:false});
+  if(error){pane.innerHTML=`<div class="msg">${E(C.errText(error))}</div>`;return}
+  pane.innerHTML=`<div class="posts"><div class="box"><div class="search"><input id="dt" maxlength="100" placeholder="New deck name, e.g. Unit 3 vocab"><button class="btn sm" id="dgo">+ New deck</button></div><div id="dmsg"></div></div>
+    <div class="decks">${data.map(d=>`<a class="deck" href="#/d/${d.id}"><span class="blob"></span><b>${E(d.title)}</b><span class="meta">${(d.study_cards[0]||{}).count||0} cards · ${author(d)}</span></a>`).join('')||'<p class="empty">No decks yet. Make one for vocab or key terms.</p>'}</div></div>`;
+  $('dgo').addEventListener('click',async()=>{
+    const t=$('dt').value.trim();if(t.length<2)return;
+    const r=await SB.from('study_decks').insert({class_id:c.id,title:t}).select('id').single();
+    if(r.error){$('dmsg').innerHTML=`<div class="msg">${E(C.errText(r.error))}</div>`;return}
+    location.hash='#/d/'+r.data.id;
+  });
+}
+
+let deckCards=[];
+async function deck(id,mode){
+  const {data:d}=await SB.from('study_decks').select('id,title,class_id,created_by,author:profiles(display_name)').eq('id',id).maybeSingle();
+  if(!d){app().innerHTML=`<a class="back" href="#/">← All classes</a><div class="box" style="margin-top:14px"><h2>Deck not found</h2></div>`;return}
+  if(!K.some(k=>k.id===d.class_id))await loadDir();
+  const c=K.find(k=>k.id===d.class_id);
+  const {data:cards}=await SB.from('study_cards').select('*,author:profiles(display_name)').eq('deck_id',id).order('id');
+  deckCards=cards||[];
+  app().innerHTML=`
+    <a class="back" href="#/c/${d.class_id}/cards">← ${c?E(c.name):'Class'}</a>
+    <div class="top"><div><h1>${E(d.title)}</h1><p class="sub">${deckCards.length} cards · made by ${author(d)}</p></div>
+      <div class="row"><a class="btn sm ${mode==='study'?'':'ghost'}" href="#/d/${id}/study">Study</a><a class="btn sm ${mode==='quiz'?'':'ghost'}" href="#/d/${id}/quiz">Quiz</a><a class="btn sm ${!mode?'':'ghost'}" href="#/d/${id}">Cards</a></div></div>
+    <div id="pane"></div>`;
+  if(mode==='study')return studyMode();
+  if(mode==='quiz')return quizMode();
+  const pane=$('pane');
+  pane.innerHTML=`<div class="posts">
+    <div class="box"><h2>Add a card</h2><div class="g2"><label class="f">Front (term or question)<textarea id="cf" maxlength="500" style="min-height:80px"></textarea></label><label class="f">Back (definition)<textarea id="cb" maxlength="500" style="min-height:80px"></textarea></label></div>
+      <div class="row"><button class="btn sm" id="cadd">Add card</button><span class="muted" style="font-size:13px">Terms and definitions from class, not test questions.</span></div><div id="cmsg"></div></div>
+    <div class="box"><div>${deckCards.map(k=>`<div class="cardrow"><b>${E(k.front)}</b><span>${E(k.back)}</span><span class="acts"><button data-rep="study_card:${k.id}">Report</button>${canDel(k)?`<button data-delcard="${k.id}">Delete</button>`:''}</span></div>`).join('')||'<p class="empty">No cards yet.</p>'}</div></div>
+    <div class="acts"><button data-rep="study_deck:${d.id}">Report deck</button>${canDel(d)?`<button id="deldeck">Delete deck</button>`:''}</div></div>`;
+  $('cadd').addEventListener('click',async()=>{
+    const front=$('cf').value.trim(),back=$('cb').value.trim();if(!front||!back)return;
+    $('cadd').disabled=true;
+    const r=await SB.from('study_cards').insert({deck_id:id,front,back});
+    $('cadd').disabled=false;
+    if(r.error){$('cmsg').innerHTML=`<div class="msg">${E(C.errText(r.error))}</div>`;return}
+    await deck(id);$('cf').focus();
+  });
+  if($('deldeck'))$('deldeck').addEventListener('click',async e=>{
+    if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to delete the deck';return}
+    const r=await SB.from('study_decks').delete().eq('id',id);if(r.error)return alert(C.errText(r.error));
+    location.hash='#/c/'+d.class_id+'/cards';
+  });
+}
+
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function studyMode(){
+  const pane=$('pane');
+  if(!deckCards.length){pane.innerHTML='<p class="empty">Add some cards first.</p>';return}
+  let order=deckCards.slice(),i=0;
+  const draw=()=>{const k=order[i];pane.innerHTML=`<div class="posts" style="max-width:640px;margin:0 auto">
+    <div class="flip" id="fl" role="button" tabindex="0" aria-label="Flip card"><div class="in"><div class="face front">${E(k.front)}</div><div class="face backf">${E(k.back)}</div></div></div>
+    <div class="ctl"><button class="btn sm ghost" id="pv">←</button><span class="muted">${i+1} / ${order.length} · tap to flip</span><button class="btn sm ghost" id="nx">→</button><button class="btn sm ghost" id="sh">Shuffle</button></div></div>`;
+    const fl=$('fl');const flip=()=>fl.classList.toggle('on');fl.addEventListener('click',flip);fl.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();flip()}});
+    $('pv').addEventListener('click',()=>{i=(i-1+order.length)%order.length;draw()});
+    $('nx').addEventListener('click',()=>{i=(i+1)%order.length;draw()});
+    $('sh').addEventListener('click',()=>{order=shuffle(order);i=0;draw()});};
+  draw();
+}
+function quizMode(){
+  const pane=$('pane');
+  const backs=[...new Set(deckCards.map(k=>k.back))];
+  if(backs.length<4){pane.innerHTML='<p class="empty">A quiz needs at least 4 cards with different answers. Add a few more.</p>';return}
+  const qs=shuffle(deckCards).slice(0,20);let i=0,score=0;
+  const draw=()=>{
+    if(i>=qs.length){pane.innerHTML=`<div class="box" style="max-width:640px;margin:0 auto;text-align:center"><h2>${score} / ${qs.length}</h2><p class="muted">${score===qs.length?'Perfect.':score/qs.length>=.7?'Nice work.':'Keep going. Study mode helps.'}</p><div class="ctl"><button class="btn sm" id="again">Try again</button><a class="btn sm ghost" href="#/d/${location.hash.split('/')[2]}/study">Study mode</a></div></div>`;$('again').addEventListener('click',quizMode);return}
+    const k=qs[i];const opts=shuffle([k.back,...shuffle(backs.filter(b=>b!==k.back)).slice(0,3)]);
+    pane.innerHTML=`<div class="posts" style="max-width:640px;margin:0 auto"><div class="qhead"><span>Question ${i+1} of ${qs.length}</span><span>Score ${score}</span></div>
+      <div class="flip" style="cursor:default;min-height:0"><div class="in" style="min-height:0"><div class="face front" style="position:static;min-height:180px">${E(k.front)}</div></div></div>
+      <div class="opts">${opts.map((o,n)=>`<button data-o="${n}">${E(o)}</button>`).join('')}</div></div>`;
+    pane.querySelectorAll('[data-o]').forEach(b=>b.addEventListener('click',()=>{
+      const pick=opts[+b.dataset.o];const ok=pick===k.back;if(ok)score++;
+      pane.querySelectorAll('[data-o]').forEach(x=>{x.disabled=true;if(opts[+x.dataset.o]===k.back)x.classList.add('right')});
+      if(!ok)b.classList.add('wrong');
+      setTimeout(()=>{i++;draw()},ok?700:1500);
+    }));
+  };
+  draw();
+}
+
+/* ── shared clicks ────────────────────────────────── */
+document.addEventListener('click',async e=>{
+  const rep=e.target.closest('[data-rep]');
+  if(rep){const [t,id]=rep.dataset.rep.split(':');C.report(t,+id);return}
+  const big=e.target.closest('[data-big]');
+  if(big){const lb=document.createElement('div');lb.className='lightbox';lb.innerHTML=`<img src="${big.dataset.big}" alt=""><button aria-label="Close">✕</button>`;lb.addEventListener('click',()=>lb.remove());document.body.append(lb);return}
+  const del=e.target.closest('[data-del]');
+  if(del){
+    if(!del.dataset.armed){del.dataset.armed=1;del.textContent='Click again to delete';setTimeout(()=>{delete del.dataset.armed;del.textContent='Delete'},3000);return}
+    const pid=+del.dataset.del;
+    const {data:fs}=await SB.storage.from('study').list(String(pid),{limit:50});
+    if(fs&&fs.length)await SB.storage.from('study').remove(fs.map(f=>pid+'/'+f.name));
+    const r=await SB.from('study_posts').delete().eq('id',pid);
+    if(r.error)return alert(C.errText(r.error));
+    del.closest('.post').remove();return;
+  }
+  const dc=e.target.closest('[data-delcard]');
+  if(dc){const r=await SB.from('study_cards').delete().eq('id',+dc.dataset.delcard);if(r.error)return alert(C.errText(r.error));dc.closest('.cardrow').remove();deckCards=deckCards.filter(k=>k.id!==+dc.dataset.delcard)}
+});
+
+/* ── router + boot ────────────────────────────────── */
+function route(){
+  const p=location.hash.replace(/^#\/?/,'').split('/');
+  window.scrollTo(0,0);
+  if(p[0]==='c'&&+p[1])return klass(+p[1],p[2]);
+  if(p[0]==='d'&&+p[1])return deck(+p[1],p[2]);
+  return home();
+}
+async function enter(){
+  if(!me.name){const ok=await C.askName('Pick the name people will see on your posts. Your email stays private.');if(!ok){view('v-app');app().innerHTML=`<div class="center"><div class="gate"><h1>One more step</h1><p>You need a display name to use Study.</p><button class="btn" id="pick">Pick a name</button></div></div>`;$('pick').addEventListener('click',enter);return}}
+  view('v-app');addEventListener('hashchange',route);route();
+}
+$('codef').addEventListener('submit',async e=>{
+  e.preventDefault();
+  $('codeerr').hidden=true;$('codego').disabled=true;$('codego').textContent='Checking…';
+  const {data,error}=await SB.rpc('study_redeem',{code:$('code').value});
+  $('codego').disabled=false;$('codego').textContent='Unlock Study';
+  if(error||!data){$('codeerr').textContent=error&&/Too many/.test(error.message)?'Too many wrong codes. Try again in 10 minutes.':'That code is wrong, already used, or not a Study code.';$('codeerr').hidden=false;return}
+  enter();
+});
+(async()=>{
+  if(!window.SB){view('v-off');return}
+  await C.load();
+  if(!me.uid){view('v-signin');return}
+  const {data:ok}=await SB.rpc('is_study');
+  if(!ok){view('v-code');return}
+  enter();
+})();
+</script>
+</body>
+</html>
