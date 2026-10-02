@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy · Kale Erson</title>
+<!-- meta -->
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<meta name="theme-color" content="#EEF0EA">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Privacy · Kale Erson">
+<meta property="og:description" content="What kaleerson.com stores, why, and how to get it removed.">
+<meta property="og:url" content="https://kaleerson.com/privacy/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="What kaleerson.com stores, why, and how to get it removed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261003">
+<style>
+.phead .blob{background:var(--moss)}
+.doc{max-width:720px;display:grid;gap:var(--gap)}
+.doc .b{min-height:0;gap:8px}
+.doc h2{font-size:26px}
+.doc p,.doc li{color:var(--ink2)}
+.doc ul{padding-left:20px;display:grid;gap:6px}
+.doc b{color:var(--ink)}
+.choice{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.choice button{font:inherit;font-size:14px;font-weight:600;border:0;border-radius:999px;padding:9px 16px;cursor:pointer;background:var(--paper);color:var(--ink)}
+.choice button[aria-pressed=true]{background:var(--ink);color:#fff}
+</style>
+</head>
+<body data-page="">
+<main class="wrap">
+<section class="phead"><span class="blob"></span><h1>Privacy</h1><p>What this site keeps, why, and how to get it removed. Short version: no ads, no selling data, nothing shared with advertisers.</p></section>
+<div class="doc">
+  <section class="b">
+    <h2>Visit counter and cookie</h2>
+    <p>Each page view is counted in this site's own database: the page, the day, whether it came from a phone, and which website linked to it. That's how I know which pages people use.</p>
+    <p>If you choose <b>OK</b> on the notice, the site sets one cookie called <b>kv</b> with a random ID, so returning visitors aren't counted twice. It doesn't contain your name or email and isn't shared with anyone. If you choose <b>No thanks</b>, there's no cookie. Browsers that send a "do not track" or Global Privacy Control signal never get the cookie.</p>
+    <div class="choice"><span class="small muted">Your choice on this device:</span><button data-c="yes">Allow the cookie</button><button data-c="no">No cookie</button></div>
+  </section>
+  <section class="b">
+    <h2>If you make an account</h2>
+    <ul>
+      <li><b>Email address</b>, to sign you in. If you tick the box, also to send the occasional update. You can turn that off on the Join page anytime.</li>
+      <li><b>Display name</b>, shown next to things you post and on game leaderboards. Your email is never shown to other people.</li>
+      <li><b>What you post</b>: forum posts, Study notes, flashcards, teacher ratings and game scores. Teacher ratings show as "Anonymous student" to other students.</li>
+      <li><b>Password</b>, only if you set one. It's stored scrambled, so not even I can read it.</li>
+    </ul>
+  </section>
+  <section class="b">
+    <h2>Where it's kept</h2>
+    <p>The site is hosted on GitHub Pages. Accounts and posts are stored with Supabase, and sign-in emails are sent through Resend. They store the data for this site and don't use it for ads.</p>
+  </section>
+  <section class="b">
+    <h2>Getting something removed</h2>
+    <p>You can delete your own posts anytime. To delete your whole account or anything else, ask me and I'll remove it. You can reach me through the <a href="/contact/" style="text-decoration:underline">contact page</a> or in person.</p>
+    <p class="small muted">Last updated October 2026.</p>
+  </section>
+</div>
+</main>
+<script src="/assets/site.js?v=20261003c"></script>
+<script>
+const btns=document.querySelectorAll('[data-c]');
+const get=()=>{try{return localStorage.getItem('kv_choice')}catch(e){return null}};
+const draw=()=>btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===get()));
+btns.forEach(b=>b.addEventListener('click',()=>{
+  try{localStorage.setItem('kv_choice',b.dataset.c)}catch(e){}
+  if(b.dataset.c==='no')document.cookie='kv=; Max-Age=0; Path=/; SameSite=Lax';
+  else if(!/(?:^|; )kv=/.test(document.cookie)){const a=new Uint8Array(16);crypto.getRandomValues(a);document.cookie='kv='+btoa(String.fromCharCode(...a)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')+'; Max-Age=31536000; Path=/; SameSite=Lax'+(location.protocol==='https:'?'; Secure':'')}
+  document.querySelector('[aria-label="Cookie notice"]')?.remove();draw();
+}));
+draw();
+</script>
+</body>
+</html>
