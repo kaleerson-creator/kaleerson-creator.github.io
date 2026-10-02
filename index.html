@@ -89,7 +89,7 @@
   </div>
 </main>
 
-<script src="/assets/content.js?v=20261002b"></script>
+<script src="/assets/content.js?v=20261001"></script>
 <script src="/assets/site.js?v=20261001"></script>
 <script>
 const C=window.CONTENT,S=window.SITE;
@@ -109,7 +109,7 @@ document.getElementById('tools').outerHTML=C.tools.map(t=>`<a class="b s3 ${t.co
 
 // projects
 const COL={peach:'var(--peach)',sky:'var(--sky)',butter:'var(--butter)',moss:'var(--moss)',lilac:'var(--lilac)'};
-document.getElementById('plist').innerHTML=C.projects.map(p=>`<a href="${p.href||'/work/'}"><span class="l"><span class="dot blob" style="position:static;animation-duration:${8+Math.random()*6}s;background:${COL[p.color]}"></span><span><b>${S.esc(p.name)}</b><small>${S.esc(p.area)}</small></span></span>${S.statusChip(p.status)}</a>`).join('');
+document.getElementById('plist').innerHTML=C.projects.map(p=>`<a href="/work/"><span class="l"><span class="dot blob" style="position:static;animation-duration:${8+Math.random()*6}s;background:${COL[p.color]}"></span><span><b>${S.esc(p.name)}</b><small>${S.esc(p.area)}</small></span></span>${S.statusChip(p.status)}</a>`).join('');
 
 // latest update
 const u=C.updates[0];
