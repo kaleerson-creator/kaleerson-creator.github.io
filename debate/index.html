@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Speech &amp; Debate · Kale Erson</title>
 <!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <meta name="theme-color" content="#EEF0EA">
@@ -22,9 +23,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261003b">
+<link rel="stylesheet" href="/assets/site.css?v=20261004">
 <style>
 :root{--a:#2451C9;--a-t:#DCE8FB;--b:#B8322F;--b-t:#FBE2DA;--n:#1E3A2C;--n-t:#DCEBD0;--warn:#B86E00;--over:#D12C2C}
+html[data-theme=dark]{--a:#7FA4F0;--a-t:#1F2F4A;--b:#F08B7E;--b-t:#43261F;--n:#9FCB8E;--n-t:#22382A;--warn:#E5A33A;--over:#F0695F}
 main.pg{flex:1;padding-block:0 64px}
 .top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding:24px 0 14px}
 .top h1{font-size:clamp(40px,7vw,76px)}
@@ -141,7 +143,7 @@ tr.next td{background:#fbf3cf}
 </head>
 <body data-page="tools">
 <main class="wrap pg" id="app"></main>
-<script src="/assets/site.js?v=20261003d"></script>
+<script src="/assets/site.js?v=20261004"></script>
 <script>
 const $=id=>document.getElementById(id);
 const E=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

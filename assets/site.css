@@ -114,3 +114,32 @@ a.b:hover .arrow{transform:translate(3px,-3px)}
 .cm-row{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
 .cm-msg{padding:10px 12px;border-radius:12px;font-size:14px;background:#fef3f2;color:#b42318}
 .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+
+/* ── dark mode ──────────────────────────────────────────────────
+   html[data-theme=dark] is set before paint by the small script in each page's <head>
+   (follows the device setting unless the visitor picks Light or Dark in the footer). */
+html[data-theme=dark]{
+  color-scheme:dark;
+  --paper:#111310; --card:#1B1E1A; --ink:#E9ECE4; --ink2:#A7AEA2; --ink3:#7C8378; --line:#30352D;
+  --moss:#2B3A23; --sky:#1F2F45; --peach:#45291F; --butter:#3F3716; --lilac:#31284A;
+  --forest:#22402F; --forest-ink:#E3EED6; --field:#23271F; --on-ink:#111310;
+}
+html[data-theme=dark] body{background:var(--paper)}
+html[data-theme=dark] .btn:not(.ghost):not(.light):not(.forest):not(.danger){color:var(--on-ink)}
+html[data-theme=dark] .btn.light{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink2)}
+html[data-theme=dark] .links a[aria-current=page],html[data-theme=dark] .arrow{color:var(--on-ink)}
+html[data-theme=dark] .forest .arrow,html[data-theme=dark] .ink .arrow{background:var(--forest-ink);color:#111310}
+html[data-theme=dark] .chip{background:#ffffff14;color:var(--ink)}
+html[data-theme=dark] .chip.live{background:#2f4a2a;color:#cfe8b8}
+html[data-theme=dark] .chip.dev{background:#4a3d12;color:#f3e39b}
+html[data-theme=dark] .chip.done{background:#33372f;color:#c9cec3}
+html[data-theme=dark] .chip.dropped{background:#4a2620;color:#f3c1b4}
+html[data-theme=dark] .blob{opacity:.55}
+html[data-theme=dark] input:not([type=checkbox]):not([type=radio]):not([type=range]),
+html[data-theme=dark] select,html[data-theme=dark] textarea{background:var(--field)!important;color:var(--ink)!important;border-color:var(--line)!important}
+html[data-theme=dark] .msg{filter:brightness(.92)}
+html[data-theme=dark] .msg.err,html[data-theme=dark] .msg:not(.ok){background:#3d1d1a;color:#f6b6ab}
+html[data-theme=dark] .msg.ok{background:#22351f;color:#c4e3ad}
+html[data-theme=dark] .ink{background:#E9ECE4;color:#111310}
+.themebtn{font:inherit;font-size:14px;color:var(--ink2);background:none;border:0;padding:0;cursor:pointer}
+.themebtn:hover{color:var(--ink)}
