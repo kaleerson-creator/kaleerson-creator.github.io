@@ -25,6 +25,28 @@ const randToken = () => {
   return btoa(String.fromCharCode(...b)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 };
 
+// Same as in the notify function (kept in sync by hand): email every admin, at most once a minute per kind.
+async function alertAdmins(admin: ReturnType<typeof createClient>, kind: string, subject: string, text: string) {
+  const key = Deno.env.get("RESEND_API_KEY");
+  if (!key) return false;
+  const { data: last } = await admin.from("alert_log").select("sent_at").eq("kind", kind).order("sent_at", { ascending: false }).limit(1).maybeSingle();
+  if (last && Date.now() - Date.parse(last.sent_at) < 60_000) return false;
+  const { data: admins } = await admin.from("admins").select("user_id");
+  const to: string[] = [];
+  for (const a of admins ?? []) {
+    const { data } = await admin.auth.admin.getUserById(a.user_id);
+    if (data?.user?.email) to.push(data.user.email);
+  }
+  if (!to.length) return false;
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ from: "kaleerson.com <hello@kaleerson.com>", to, subject, text }),
+  });
+  if (res.ok) await admin.from("alert_log").insert({ kind });
+  return res.ok;
+}
+
 Deno.serve(async (req: Request) => {
   const headers = { ...cors(req.headers.get("Origin")), "Content-Type": "application/json" };
   const out = (data: unknown, status = 200) => new Response(JSON.stringify(data), { status, headers });
@@ -49,6 +71,9 @@ Deno.serve(async (req: Request) => {
         .insert({ email, token_hash: await sha256(token), code, device: String(body.device ?? "").slice(0, 160) })
         .select("id").single();
       if (error) throw error;
+      // Let the admins know someone is waiting (best effort; never blocks the request).
+      await alertAdmins(admin, "login_request", `${email} wants to get in (code ${code})`,
+        `${email} pressed "Ask Kale to let me in" on kaleerson.com.\n\nTheir code: ${code}\nOnly let them in if they tell you this code.\n\nOpen https://kaleerson.com/admin/ → People → Let in.\nThe request expires in 30 minutes.`).catch(() => false);
       return out({ id: data.id, token, code });
     }
 

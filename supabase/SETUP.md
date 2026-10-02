@@ -126,3 +126,5 @@ It needs one secret, set in Supabase → Edge Functions → Secrets:
 - "Ask Kale to let me in": `login-request` edge function (public) + `login_requests` table (service role only).
   The waiting device holds a secret token (hash stored) and shows a 4-digit code; the admin approves in
   /admin → People → Waiting to get in, and the device's next poll gets a one-time sign-in link.
+- Email alerts to admins: `notify` edge function (reports) and `login-request` (sign-in requests) send through
+  Resend when the `RESEND_API_KEY` Edge Function secret is set. `alert_log` limits it to one email a minute per kind.

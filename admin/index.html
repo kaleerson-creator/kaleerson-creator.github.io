@@ -179,6 +179,12 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
 
     <!-- PEOPLE -->
     <div class="panel" id="p-people" hidden>
+      <div class="box" id="alertsetup" hidden><h2>Get an email when someone needs you</h2>
+        <p class="help">Turn on email alerts for "Ask Kale to let me in" requests and reported posts. One-time setup:</p>
+        <ol class="help" style="padding-left:18px;display:grid;gap:6px">
+          <li>Resend → <b>API Keys</b> → <b>Create API key</b>. Name it <code>site alerts</code>, permission <b>Sending access</b>, domain <b>kaleerson.com</b>. Copy it.</li>
+          <li>Supabase → your project → <b>Edge Functions → Secrets</b> → add <code>RESEND_API_KEY</code> with the key as the value. Don't paste it anywhere else.</li>
+          <li>Reload this page. This box disappears once it's working.</li></ol></div>
       <div class="box" id="reqbox" hidden style="background:var(--butter)"><h2>Waiting to get in</h2>
         <p class="help" style="color:var(--ink)">These people pressed <b>Ask Kale to let me in</b> on the Join page. Their screen shows a 4-digit code. <b>Only let someone in if they tell you the same code</b>, so nobody can get into another person's account. Their page signs in by itself a few seconds after you press Let in.</p>
         <div class="tablewrap"><table><thead><tr><th>Email</th><th>Code</th><th>Device</th><th>Asked</th><th></th></tr></thead><tbody id="reqtable"></tbody></table></div><div id="reqmsg"></div></div>
@@ -471,7 +477,9 @@ $('out').addEventListener('click',async()=>{SITE.setName&&SITE.setName(null);awa
 
 /* PEOPLE: sign-in requests (polled while admin is open) */
 let reqTimer=null;
+let alertChecked=false;
 async function loadRequests(){
+  if(!alertChecked){alertChecked=true;peopleCall({action:'alert_status'}).then(r=>{if(r&&r.email_alerts===false)$('alertsetup').hidden=false})}
   const r=await peopleCall({action:'requests'});if(r.error)return;
   const rq=r.requests||[];
   $('reqcount').hidden=!rq.length;$('reqcount').textContent=rq.length;

@@ -94,6 +94,8 @@ Deno.serve(async (req: Request) => {
       return out({ ok: true });
     }
 
+    if (body.action === "alert_status") return out({ email_alerts: !!Deno.env.get("RESEND_API_KEY") });
+
     // "Ask Kale to let me in" requests from the Join page (see login-request function).
     if (body.action === "requests") {
       const since = new Date(Date.now() - 30 * 60 * 1000).toISOString();
