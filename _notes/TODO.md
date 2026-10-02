@@ -27,7 +27,8 @@ Last updated: Oct 2, 2026. Folders starting with `_` aren't published, so this n
 ## Claude is working on (in order)
 
 - [x] Usernames (permanent), name colors + tags set in /admin, account Settings tab
-- [ ] Speech & Debate extras: speech drills (record + filler-word count), judge ballot helper, private case library + evidence cards, team page
+- [x] Speech & Debate extras: speech drill (filler-word count), ballot helper, private case + evidence library
+- [ ] Debate team page (shared cards for a team, joined with a code) — later, once people use the library
 - [ ] Study upgrades: search notes, email reminders before tests, share decks between classes
 - [ ] More games: daily challenge, more trivia, online word race / Battleship, admin tool to delete bad scores
 

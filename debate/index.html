@@ -44,7 +44,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
 .btn:disabled{opacity:.45;cursor:default}
 .seg{display:inline-flex;gap:4px;background:var(--card);border-radius:999px;padding:4px;flex-wrap:wrap}
 .seg button{font:inherit;font-size:14px;font-weight:600;border:0;background:none;color:var(--ink2);padding:8px 14px;border-radius:999px;cursor:pointer}
-.seg button[aria-pressed=true]{background:var(--ink);color:#fff}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
 
 /* hub */
 .hub{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--gap)}
@@ -135,6 +135,51 @@ tr.next td{background:#fbf3cf}
 .prompt .blob{width:200px;aspect-ratio:1;right:-60px;top:-70px;background:#2E5440}
 .prompt q{font:800 clamp(26px,4vw,42px)/1.12 var(--display);letter-spacing:-.025em;quotes:none}
 .prompt .lbl{color:#B9C9AE}
+
+/* speech drill */
+.dr{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:var(--gap);align-items:start}
+.drmain,.drside{display:grid;gap:var(--gap);min-width:0}
+@media (max-width:860px){.dr{grid-template-columns:1fr}}
+.dr .prompt{min-height:0}
+.digits.over{color:var(--over)}
+.transcript{font-size:17px;line-height:1.6;max-height:300px;overflow:auto;overflow-wrap:anywhere}
+.transcript mark{background:var(--butter);color:var(--ink);border-radius:5px;padding:0 3px;font-weight:600}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.stats div{background:var(--paper);border-radius:14px;padding:12px;display:grid}
+.stats b{font-family:var(--display);font-size:32px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.stats span{font-size:12px;color:var(--ink2)}
+.fl{display:flex;gap:6px;flex-wrap:wrap}
+.fl span{background:var(--butter);border-radius:999px;padding:4px 10px;font-size:13px}
+.hist{display:grid;gap:6px;font-size:13px}
+.hist div{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;background:var(--paper);border-radius:10px;padding:8px 10px}
+#tap b{margin-left:4px;font-variant-numeric:tabular-nums}
+/* ballot */
+.bal{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
+.bal .w{grid-column:1/-1}
+@media (max-width:760px){.bal{grid-template-columns:1fr}}
+.sidebox.sd0{box-shadow:inset 0 5px 0 var(--a)}.sidebox.sd1{box-shadow:inset 0 5px 0 var(--b)}
+.deb{display:grid;gap:6px;background:var(--paper);border-radius:14px;padding:10px}
+.deb textarea,.bal textarea{width:100%;resize:vertical}
+.bal input{width:100%}.deb .row input{width:auto}
+.btn.win[aria-pressed=true]{background:var(--n);color:var(--card)}
+.btn.win[aria-pressed=false]{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+/* cases */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--gap)}
+.card{background:var(--card);border-radius:20px;padding:16px;display:grid;gap:6px;align-content:start;min-width:0}
+.card:hover{box-shadow:inset 0 0 0 1.5px var(--ink3)}
+.card b{font-size:17px;line-height:1.3;overflow-wrap:anywhere}
+.ctag{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2)}
+.cite{font-size:13px;color:var(--ink2);overflow-wrap:anywhere}
+.cbody{font-size:13px;color:var(--ink2);overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.ced{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--gap);align-items:start}
+@media (max-width:860px){.ced{grid-template-columns:1fr}}
+.ced input,.ced textarea{width:100%}.ced textarea{resize:vertical;min-height:260px}
+.cardview{display:grid;gap:6px;font-size:14px;line-height:1.55;overflow-wrap:anywhere}
+.cardview .ptag{font-size:18px}
+.cardview mark{background:#f6e27a;color:#141613;padding:0 2px}
+.cbody2{color:var(--ink2)}.cbody2 u{color:var(--ink);font-size:15px}
+.btn.danger{background:#fef3f2;color:#b42318}
+code{background:var(--paper);padding:1px 6px;border-radius:6px;font-size:.9em}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/config.js?v=20261001"></script>
@@ -187,7 +232,7 @@ function wakeLock(on){try{if(on&&navigator.wakeLock&&!window.__wl)navigator.wake
 /* ── hub ──────────────────────────────────────────── */
 function hub(){
   app.innerHTML=`
-    <section class="phead"><span class="blob" style="background:var(--sky)"></span><h1>Speech &amp; Debate</h1><p>Round timers, speech timers, a flow sheet and practice topics.</p></section>
+    <section class="phead"><span class="blob" style="background:var(--sky)"></span><h1>Speech &amp; Debate</h1><p>Round timers, speech timers, a flow sheet, practice drills and your own evidence library.</p></section>
     <div class="hub">
       <a class="b sky" href="#/round/ld"><span class="blob"></span><span class="fmt">LD</span><h2>Lincoln-Douglas</h2><div class="foot"><span class="muted">6-3-7-3-4-6-3 · 4 min prep</span><span class="arrow"></span></div></a>
       <a class="b peach" href="#/round/pf"><span class="blob"></span><span class="fmt">PF</span><h2>Public Forum</h2><div class="foot"><span class="muted">Crossfires · 3 min prep</span><span class="arrow"></span></div></a>
@@ -196,6 +241,9 @@ function hub(){
       <a class="b butter w" href="#/speech"><span class="blob"></span><span class="fmt">SPEECH</span><h2>Speech events</h2><div class="foot"><span class="muted">Extemp, Impromptu, Oratory, Info, Interp · grace + hand signals</span><span class="arrow"></span></div></a>
       <a class="b moss w" href="#/flow"><span class="blob"></span><span class="fmt">PRACTICE</span><h2>Flow sheet</h2><div class="foot"><span class="muted">Take notes column by column, saved on this device</span><span class="arrow"></span></div></a>
       <a class="b w" href="#/topics"><span class="blob" style="background:var(--paper)"></span><span class="fmt">PRACTICE</span><h2>Practice topics</h2><div class="foot"><span class="muted">Resolutions, impromptu prompts, extemp questions</span><span class="arrow"></span></div></a>
+      <a class="b peach" href="#/drill"><span class="blob"></span><span class="fmt">NEW · PRACTICE</span><h2>Speech drill</h2><div class="foot"><span class="muted">Counts your "um"s and "like"s live</span><span class="arrow"></span></div></a>
+      <a class="b sky" href="#/cases"><span class="blob"></span><span class="fmt">NEW · PREP</span><h2>Cases &amp; evidence</h2><div class="foot"><span class="muted">Your private card library, on every device</span><span class="arrow"></span></div></a>
+      <a class="b lilac" href="#/ballot"><span class="blob"></span><span class="fmt">NEW · JUDGING</span><h2>Ballot helper</h2><div class="foot"><span class="muted">Points, RFD, copy to Tabroom</span><span class="arrow"></span></div></a>
     </div>`;
   app.querySelectorAll('.arrow:empty').forEach(a=>a.outerHTML=SITE.arrow);
 }
@@ -470,10 +518,230 @@ function topics(kind){
   keys=null;
 }
 
+/* ── speech drill: record, live transcript, filler words ── */
+const FILLERS=['um','uh','er','erm','like','you know','basically','actually','literally','i mean','kind of','sort of','so yeah','right'];
+const FILLER_RE=new RegExp('\\b('+FILLERS.map(f=>f.replace(/ /g,'\\s+')).join('|')+'|u+m+|u+h+)\\b','gi');
+function drill(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  const kinds={impromptu:'Impromptu',extemp:'Extemp',ld:'LD',pf:'PF',free:'Free talk'};
+  let kind=store.get('drillKind','impromptu'),target=store.get('drillTarget',120);
+  let rec=null,media=null,stream=null,chunks=[],sr=null,running=false,t0=0,elapsed=0,finalText='',interim='',taps=0,audioURL=null;
+  const pickPrompt=()=>kind==='free'?'Talk about anything: your weekend, a movie, why your favorite food is the best.':TOPICS[kind][Math.floor(Math.random()*TOPICS[kind].length)];
+  let prompt=pickPrompt();
+  app.innerHTML=`
+    <a class="back" href="#/">← Speech &amp; Debate</a>
+    <div class="top"><div><h1>Speech drill</h1><p class="sub">Talk, and see your pace and filler words ("um", "like", "you know") as you go.</p></div></div>
+    <div class="seg" style="margin-bottom:var(--gap)" id="kinds">${Object.entries(kinds).map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===kind}">${v}</button>`).join('')}</div>
+    <div class="dr">
+      <div class="drmain">
+        <div class="prompt"><span class="blob"></span><span class="lbl">Your prompt</span><q id="q"></q>
+          <div class="row"><button class="btn sm" style="background:var(--forest-ink);color:var(--ink)" id="newq">New prompt</button></div></div>
+        <div class="clock sd2">
+          <div class="now"><span class="code" id="state">Ready</span><span class="name" id="tgt"></span></div>
+          <div class="digits" id="digits">0:00</div>
+          <div class="ctl"><button class="btn go" id="go">Start talking</button><button class="btn sm ghost" id="tap" title="Tap when you hear a filler (or press F)">+1 filler <b id="taps">0</b></button></div>
+          <div class="small" id="note"></div>
+        </div>
+        <div class="box"><h2>What you said</h2><div class="transcript" id="tx"><span class="muted">Your words show up here while you talk.</span></div><audio id="play" controls hidden></audio></div>
+      </div>
+      <div class="drside">
+        <div class="box"><h2>Live</h2>
+          <div class="stats"><div><b id="wpm">0</b><span>words / min</span></div><div><b id="fc">0</b><span>fillers</span></div><div><b id="fpm">0</b><span>fillers / min</span></div><div><b id="wc">0</b><span>words</span></div></div>
+          <div class="fl" id="fl"></div>
+          <p class="small">A good pace is about 130–170 words a minute. Aim for under 2 fillers a minute.</p></div>
+        <div class="box"><h2>Settings</h2>
+          <label class="setrow">Target time<select id="target">${[60,90,120,180,300,420].map(s=>`<option value="${s}"${s===target?' selected':''}>${fmtT(s)}</option>`).join('')}</select></label>
+          <label class="check"><input type="checkbox" id="snd" ${store.get('sound',true)?'checked':''}> Beep at the target time</label></div>
+        <div class="box"><h2>Your last drills</h2><div class="hist" id="hist"></div></div>
+      </div>
+    </div>`;
+  const showPrompt=()=>{$('q').textContent=prompt};showPrompt();
+  $('newq').onclick=()=>{prompt=pickPrompt();showPrompt()};
+  $('kinds').onclick=e=>{const b=e.target.closest('[data-k]');if(!b||running)return;kind=b.dataset.k;store.set('drillKind',kind);
+    $('kinds').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));prompt=pickPrompt();showPrompt()};
+  $('target').onchange=e=>{target=+e.target.value;store.set('drillTarget',target);draw()};
+  $('snd').onchange=e=>store.set('sound',e.target.checked);
+  $('note').textContent=SR?'Uses your microphone. The recording stays on this device.':'Live word counting works in Chrome, Edge and Safari. You can still record yourself and tap +1 for each filler.';
+
+  const counts=()=>{const all=(finalText+' '+interim).toLowerCase();const m=all.match(FILLER_RE)||[];const by={};
+    m.forEach(w=>{w=w.replace(/\s+/g,' ').replace(/^u+m+$/,'um').replace(/^u+h+$/,'uh');by[w]=(by[w]||0)+1});
+    const words=(all.match(/[a-z0-9']+/g)||[]).length;return{n:m.length+taps,by,words}};
+  function draw(){
+    $('digits').textContent=fmtTc(elapsed);$('tgt').textContent='Target '+fmtT(target)+(elapsed>target?' · over':'');
+    $('digits').classList.toggle('over',elapsed>target);
+    const c=counts(),min=Math.max(elapsed,1)/60;
+    $('wpm').textContent=elapsed>5?Math.round(c.words/min):0;$('fc').textContent=c.n;$('fpm').textContent=elapsed>5?(c.n/min).toFixed(1):0;$('wc').textContent=c.words;$('taps').textContent=taps;
+    $('fl').innerHTML=Object.entries(c.by).sort((a,b)=>b[1]-a[1]).map(([w,n])=>`<span>${E(w)} <b>${n}</b></span>`).join('')+(taps?`<span>tapped <b>${taps}</b></span>`:'');
+    if(finalText||interim)$('tx').innerHTML=E(finalText).replace(FILLER_RE,'<mark>$&</mark>')+(interim?` <span class="muted">${E(interim)}</span>`:'');
+  }
+  function drawHist(){const h=store.get('drills',[]);
+    $('hist').innerHTML=h.length?h.map(d=>`<div><span>${new Date(d.at).toLocaleDateString('en-US',{month:'short',day:'numeric'})} · ${E(kinds[d.kind]||'')}</span><span>${fmtT(d.secs)} · ${d.wpm} wpm · ${d.fpm} fillers/min</span></div>`).join(''):'<span class="small">Nothing yet.</span>'}
+  drawHist();
+  async function start(){
+    finalText='';interim='';taps=0;elapsed=0;chunks=[];$('play').hidden=true;if(audioURL)URL.revokeObjectURL(audioURL);
+    $('tx').innerHTML='<span class="muted">Listening…</span>';
+    try{stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      if(window.MediaRecorder){media=new MediaRecorder(stream);media.ondataavailable=e=>e.data.size&&chunks.push(e.data);
+        media.onstop=()=>{if(!chunks.length)return;audioURL=URL.createObjectURL(new Blob(chunks,{type:media.mimeType||'audio/webm'}));$('play').src=audioURL;$('play').hidden=false};media.start()}}
+    catch(e){$('note').textContent='No microphone access, so nothing is recorded. The timer and +1 button still work.'}
+    if(SR){sr=new SR();sr.lang='en-US';sr.continuous=true;sr.interimResults=true;
+      sr.onresult=e=>{interim='';for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;if(e.results[i].isFinal)finalText+=(finalText?' ':'')+t.trim();else interim+=t}draw()};
+      sr.onend=()=>{if(running)try{sr.start()}catch(e){}};sr.onerror=e=>{if(e.error==='not-allowed'){$('note').textContent='Microphone blocked, so words can\'t be counted. Tap +1 instead.'}};
+      try{sr.start()}catch(e){}}
+    running=true;t0=performance.now();wakeLock(true);$('go').textContent='Stop';$('state').textContent='Talking';
+    let beeped=false;tick(()=>{elapsed=(performance.now()-t0)/1000;if(!beeped&&elapsed>=target){beeped=true;beep(2)}draw()});
+  }
+  function stop(){
+    running=false;clearInterval(ticker);wakeLock(false);
+    try{sr&&sr.stop()}catch(e){}try{media&&media.state!=='inactive'&&media.stop()}catch(e){}stream&&stream.getTracks().forEach(t=>t.stop());
+    $('go').textContent='Go again';$('state').textContent='Done';interim='';draw();
+    if(elapsed>=10){const c=counts(),min=elapsed/60,h=store.get('drills',[]);
+      h.unshift({at:Date.now(),kind,secs:Math.round(elapsed),wpm:Math.round(c.words/min),fpm:+(c.n/min).toFixed(1)});store.set('drills',h.slice(0,12));drawHist()}
+  }
+  $('go').onclick=()=>running?stop():start();
+  $('tap').onclick=()=>{taps++;draw()};
+  keys=e=>{if(e.target.matches('input,textarea,select'))return;if(e.key==='f'||e.key==='F'){taps++;draw()}};
+  draw();
+  return ()=>{if(running)stop()};
+}
+
+/* ── judge ballot helper ─────────────────────────── */
+function ballot(){
+  const B=store.get('ballot',null)||{fmt:'ld',round:'',a:'',b:'',deb:[{n:'',p:'',c:''},{n:'',p:'',c:''},{n:'',p:'',c:''},{n:'',p:'',c:''}],win:null,rfd:''};
+  const save=()=>store.set('ballot',B);
+  const per=()=>B.fmt==='ld'?1:2;
+  const F=()=>FORMATS[B.fmt];
+  function render(){
+    const sides=F().sides;
+    const debRow=(i,side)=>`<div class="deb"><div class="row"><input data-d="${i}" data-f="n" placeholder="${sides[side]} speaker ${per()>1?(i%2)+1:''}" value="${E(B.deb[i].n)}" maxlength="40" style="flex:1">
+      <input data-d="${i}" data-f="p" type="number" inputmode="decimal" min="20" max="30" step="0.1" placeholder="Points" value="${E(B.deb[i].p)}" style="width:96px" aria-label="Speaker points"></div>
+      <textarea data-d="${i}" data-f="c" rows="2" placeholder="Comments for this speaker">${E(B.deb[i].c)}</textarea></div>`;
+    const idx=side=>per()===1?[side*2]:[side*2,side*2+1];
+    app.innerHTML=`
+      <a class="back" href="#/">← Speech &amp; Debate</a>
+      <div class="top"><div><h1>Ballot helper</h1><p class="sub">For judges and practice rounds. Fill it in, then copy it into Tabroom or a text. Saved on this device.</p></div>
+        <div class="row"><button class="btn sm" id="copy">Copy ballot</button><button class="btn sm ghost" id="clear">New ballot</button></div></div>
+      <div class="seg" style="margin-bottom:var(--gap)" id="fmts">${Object.entries(FORMATS).map(([k,f])=>`<button data-k="${k}" aria-pressed="${k===B.fmt}">${f.name}</button>`).join('')}</div>
+      <div class="bal">
+        ${[0,1].map(s=>`<div class="box sidebox sd${s}"><div class="row" style="justify-content:space-between"><h2>${sides[s]}</h2><button class="btn sm win" data-win="${s}" aria-pressed="${B.win===s}">${B.win===s?'✓ Winner':'Pick as winner'}</button></div>
+          <input data-side="${s?'b':'a'}" placeholder="${sides[s]} team or code (e.g. PV AB)" value="${E(B[s?'b':'a'])}" maxlength="60">
+          ${idx(s).map(i=>debRow(i,s)).join('')}</div>`).join('')}
+        <div class="box w"><h2>Reason for decision</h2>
+          <input id="round" placeholder="Round (e.g. Round 3, Flight A)" value="${E(B.round)}" maxlength="60">
+          <textarea id="rfd" rows="6" placeholder="Why did this side win? Name the arguments that decided it and how you weighed them.">${E(B.rfd)}</textarea>
+          <div id="warn"></div></div>
+      </div>`;
+    wire();check();
+  }
+  function check(){
+    const pts=B.deb.slice(0,per()*2).map(d=>parseFloat(d.p));const msgs=[];
+    if(pts.some(p=>!isNaN(p)&&(p<20||p>30)))msgs.push('Speaker points are usually between 25 and 30.');
+    if(B.win!==null&&pts.every(p=>!isNaN(p))){const sum=s=>pts.slice(s*per(),(s+1)*per()).reduce((a,b)=>a+b,0);
+      if(sum(B.win)<sum(1-B.win))msgs.push('This is a low-point win (the winner has fewer points). That\'s allowed, but many tournaments ask you to explain it in the RFD.')}
+    if(B.win===null)msgs.push('Pick a winner.');
+    $('warn').innerHTML=msgs.map(m=>`<div class="small">• ${E(m)}</div>`).join('');
+  }
+  function text(){
+    const sides=F().sides,L=[];
+    L.push(`${F().name} ballot${B.round?' · '+B.round:''}`);
+    L.push(`${sides[0]}: ${B.a||'—'}   vs   ${sides[1]}: ${B.b||'—'}`);
+    L.push(`Decision: ${B.win===null?'(not picked)':sides[B.win]+(B[B.win?'b':'a']?' ('+B[B.win?'b':'a']+')':'')}`,'');
+    for(let s=0;s<2;s++)for(let k=0;k<per();k++){const d=B.deb[s*2+k];L.push(`${sides[s]}${per()>1?' '+(k+1):''}: ${d.n||'—'}${d.p?' · '+d.p+' points':''}`);if(d.c.trim())L.push('  '+d.c.trim().replace(/\n/g,'\n  '))}
+    L.push('','Reason for decision:',B.rfd.trim()||'—');return L.join('\n');
+  }
+  function wire(){
+    app.querySelectorAll('[data-d]').forEach(el=>el.oninput=()=>{B.deb[+el.dataset.d][el.dataset.f]=el.value;save();check()});
+    app.querySelectorAll('[data-side]').forEach(el=>el.oninput=()=>{B[el.dataset.side]=el.value;save()});
+    $('rfd').oninput=e=>{B.rfd=e.target.value;save()};$('round').oninput=e=>{B.round=e.target.value;save()};
+    app.querySelectorAll('[data-win]').forEach(b=>b.onclick=()=>{B.win=+b.dataset.win;save();render()});
+    $('fmts').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;B.fmt=b.dataset.k;save();render()};
+    $('copy').onclick=async()=>{try{await navigator.clipboard.writeText(text());$('copy').textContent='Copied ✓'}catch(e){prompt('Copy this:',text())}setTimeout(()=>{const c=$('copy');if(c)c.textContent='Copy ballot'},1800)};
+    $('clear').onclick=e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to clear';return}
+      store.set('ballot',null);ballot()};
+  }
+  render();
+}
+
+/* ── case + evidence library (private, needs an account) ── */
+function loadSB(){
+  if(window.SB!==undefined)return Promise.resolve(window.SB);
+  const add=src=>new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=no;document.head.append(s)});
+  return add('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js').then(()=>add('/config.js?v=20261001')).then(()=>add('/lib/sb.js?v=20261001')).then(()=>window.SB).catch(()=>null);
+}
+// **read this** = underlined/bold (what you read aloud), ==this== = highlighted
+const cardHTML=s=>E(s).replace(/==([^=\n]+)==/g,'<mark>$1</mark>').replace(/\*\*([^*\n]+)\*\*/g,'<u><b>$1</b></u>').replace(/\n/g,'<br>');
+async function cases(id){
+  app.innerHTML=`<a class="back" href="#/">← Speech &amp; Debate</a><div class="top"><div><h1>Cases &amp; evidence</h1><p class="sub">Loading…</p></div></div>`;
+  const SB=await loadSB();
+  const sess=SB?(await SB.auth.getSession()).data.session:null;
+  if(!sess){app.querySelector('.sub').innerHTML=`Your own library of cases and evidence cards, saved to your account so it's on every device. Only you can see it.`;
+    app.insertAdjacentHTML('beforeend',`<div class="box" style="max-width:520px"><h2>Sign in to use it</h2><p class="muted">It's free. Your cards are private to you.</p><div class="row"><a class="btn" href="/join/?next=${encodeURIComponent('/debate/#/cases')}">Sign in or join</a></div></div>`);return}
+  const {data,error}=await SB.from('debate_cards').select('*').order('updated_at',{ascending:false}).limit(1000);
+  if(error){app.querySelector('.sub').textContent='Couldn\'t load your library. Try again in a minute.';return}
+  let items=data||[],q='',kind='all',side='all';
+  const SIDES={both:'Both',aff:'Aff / Pro',neg:'Neg / Con'};
+  if(id==='new'||(id&&items.some(x=>String(x.id)===id)))return editor(id==='new'?null:items.find(x=>String(x.id)===id));
+  function list(){
+    app.innerHTML=`<a class="back" href="#/">← Speech &amp; Debate</a>
+      <div class="top"><div><h1>Cases &amp; evidence</h1><p class="sub">Only you can see these. ${items.length} saved.</p></div>
+        <div class="row"><a class="btn sm" href="#/cases/new">New card or case</a><button class="btn sm ghost" id="dl"${items.length?'':' disabled'}>Download all</button></div></div>
+      <div class="flowbar"><input id="q" placeholder="Search tags, cites, text, topics" value="${E(q)}" style="flex:1;min-width:200px">
+        <div class="seg" id="kind">${[['all','All'],['card','Cards'],['case','Cases']].map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===kind}">${v}</button>`).join('')}</div>
+        <div class="seg" id="side">${[['all','Any side'],['aff','Aff'],['neg','Neg']].map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===side}">${v}</button>`).join('')}</div></div>
+      <div class="cards" id="cards"></div>`;
+    const draw=()=>{const t=q.toLowerCase();
+      const L=items.filter(x=>(kind==='all'||x.kind===kind)&&(side==='all'||x.side===side||x.side==='both')&&(!t||(x.title+' '+x.cite+' '+x.body+' '+x.topic).toLowerCase().includes(t)));
+      $('cards').innerHTML=L.map(x=>`<a class="card" href="#/cases/${x.id}"><span class="ctag">${x.kind==='case'?'Case':'Card'} · ${SIDES[x.side]}${x.topic?' · '+E(x.topic):''}</span><b>${E(x.title)}</b>${x.cite?`<span class="cite">${E(x.cite)}</span>`:''}<span class="cbody">${E(x.body.slice(0,180))}${x.body.length>180?'…':''}</span></a>`).join('')
+        ||`<div class="box"><p class="muted">${items.length?'Nothing matches.':'Nothing saved yet. Press <b>New card or case</b> to add your first one.'}</p></div>`};
+    $('q').oninput=e=>{q=e.target.value;draw()};
+    $('kind').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;kind=b.dataset.k;$('kind').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};
+    $('side').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;side=b.dataset.k;$('side').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};
+    $('dl').onclick=()=>{const txt=items.map(x=>`${x.kind==='case'?'CASE':'CARD'} · ${SIDES[x.side]}${x.topic?' · '+x.topic:''}\n${x.title}\n${x.cite?x.cite+'\n':''}\n${x.body}`).join('\n\n----------------------------------------\n\n');
+      const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'text/plain'}));a.download='debate-library.txt';a.click()};
+    draw();
+  }
+  function editor(x){
+    const isNew=!x;x=x||{kind:'card',title:'',cite:'',body:'',topic:store.get('lastTopic',''),side:'both'};
+    app.innerHTML=`<a class="back" href="#/cases">← All cards &amp; cases</a>
+      <div class="top"><div><h1>${isNew?'New':'Edit'} ${x.kind==='case'?'case':'card'}</h1><p class="sub">Put <code>**double stars**</code> around the words you read out loud and <code>==equals==</code> around anything to highlight.</p></div></div>
+      <div class="ced">
+        <div class="box">
+          <div class="row"><div class="seg" id="ek">${[['card','Evidence card'],['case','Case']].map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===x.kind}">${v}</button>`).join('')}</div>
+            <select id="eside" aria-label="Side">${Object.entries(SIDES).map(([k,v])=>`<option value="${k}"${k===x.side?' selected':''}>${v}</option>`).join('')}</select></div>
+          <input id="etitle" maxlength="200" placeholder="Tag (the claim this proves) or case name" value="${E(x.title)}">
+          <input id="ecite" maxlength="600" placeholder="Cite: author, year, credentials, source, link" value="${E(x.cite)}">
+          <input id="etopic" maxlength="80" placeholder="Topic (e.g. Nov–Dec LD)" value="${E(x.topic)}">
+          <textarea id="ebody" rows="14" maxlength="40000" placeholder="Paste the card text or write your case">${E(x.body)}</textarea>
+          <div class="row"><button class="btn" id="esave">Save</button>${isNew?'':'<button class="btn sm ghost" id="ecopy">Copy</button><button class="btn sm danger" id="edel">Delete</button>'}</div><div id="emsg"></div>
+        </div>
+        <div class="box"><h2>Preview</h2><div class="cardview" id="eprev"></div></div>
+      </div>`;
+    let kindNow=x.kind;
+    const prev=()=>{$('eprev').innerHTML=`<b class="ptag">${E($('etitle').value||'Tag')}</b>${$('ecite').value?`<div class="cite">${E($('ecite').value)}</div>`:''}<div class="cbody2">${cardHTML($('ebody').value)}</div>`};
+    ['etitle','ecite','ebody'].forEach(i=>$(i).oninput=prev);prev();
+    $('ek').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;kindNow=b.dataset.k;$('ek').querySelectorAll('button').forEach(z=>z.setAttribute('aria-pressed',z===b))};
+    $('esave').onclick=async()=>{const row={kind:kindNow,side:$('eside').value,title:$('etitle').value.trim(),cite:$('ecite').value.trim(),topic:$('etopic').value.trim(),body:$('ebody').value};
+      if(!row.title){$('emsg').innerHTML='<div class="small" style="color:var(--over)">Add a tag or name first.</div>';return}
+      $('esave').disabled=true;store.set('lastTopic',row.topic);
+      const r=isNew?await SB.from('debate_cards').insert(row).select().single():await SB.from('debate_cards').update(row).eq('id',x.id).select().single();
+      $('esave').disabled=false;
+      if(r.error){$('emsg').innerHTML=`<div class="small" style="color:var(--over)">${E(r.error.message)}</div>`;return}
+      if(isNew)items.unshift(r.data);else Object.assign(x,r.data);location.hash='#/cases'};
+    if(!isNew){
+      $('ecopy').onclick=async()=>{const t=`${x.title}\n${x.cite}\n\n${x.body.replace(/\*\*|==/g,'')}`;try{await navigator.clipboard.writeText(t);$('ecopy').textContent='Copied ✓'}catch(e){}};
+      $('edel').onclick=async e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to delete';return}
+        const r=await SB.from('debate_cards').delete().eq('id',x.id);if(r.error){$('emsg').innerHTML=`<div class="small">${E(r.error.message)}</div>`;return}
+        items=items.filter(z=>z!==x);location.hash='#/cases'};
+    }
+  }
+  list();
+}
+
 /* ── router ───────────────────────────────────────── */
-let keys=null;
+let keys=null,cleanup=null;
 document.addEventListener('keydown',e=>{if(keys)keys(e)});
 function route(){
+  if(cleanup){cleanup();cleanup=null}
   clearInterval(ticker);wakeLock(false);keys=null;document.querySelector('.signal')?.remove();
   const p=location.hash.replace(/^#\/?/,'').split('/');window.scrollTo(0,0);
   if(p[0]==='round')return round(p[1]);
@@ -481,6 +749,9 @@ function route(){
   if(p[0]==='congress')return congress();
   if(p[0]==='flow')return flow();
   if(p[0]==='topics')return topics(p[1]);
+  if(p[0]==='drill')return cleanup=drill();
+  if(p[0]==='ballot')return ballot();
+  if(p[0]==='cases')return cases(p[1]);
   return hub();
 }
 addEventListener('hashchange',route);route();
