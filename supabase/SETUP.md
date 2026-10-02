@@ -123,3 +123,6 @@ It needs one secret, set in Supabase → Edge Functions → Secrets:
 - `key-signin` edge function (public): trades a personal key from `kaleerson.com/join/#key=…` for a fresh one-time sign-in link.
 - `access_keys` table stores only a SHA-256 hash of each personal key; no API access (service role only).
 - Members can also set a password on /join/ and sign in with email + password.
+- "Ask Kale to let me in": `login-request` edge function (public) + `login_requests` table (service role only).
+  The waiting device holds a secret token (hash stored) and shows a 4-digit code; the admin approves in
+  /admin → People → Waiting to get in, and the device's next poll gets a one-time sign-in link.
