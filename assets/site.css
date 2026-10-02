@@ -65,6 +65,7 @@ a.b:hover .arrow{transform:translate(3px,-3px)}
 .chip.live{background:#d7ecc4;color:#24502f}
 .chip.dev{background:#fbe7a6;color:#6a4b00}
 .chip.done{background:#e3e6df;color:#4a5048}
+.chip.dropped{background:#f3dcd6;color:#8a2c1c}
 .soon{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.02em;color:var(--ink3)}
 .forest .soon{color:#8FA88A}
 
