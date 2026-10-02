@@ -6,6 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Admin · Kale Erson</title>
 <!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <meta name="theme-color" content="#EEF0EA">
@@ -22,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261003b">
+<link rel="stylesheet" href="/assets/site.css?v=20261004">
 <style>
 main.pg{flex:1;padding-block:16px 64px}
 .ahead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding:20px 0 14px}
@@ -262,7 +263,7 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
 <script src="/lib/vault-md.js?v=20261002"></script>
-<script src="/assets/site.js?v=20261003d"></script>
+<script src="/assets/site.js?v=20261004"></script>
 <script>
 const $=id=>document.getElementById(id);
 const E=VaultMD.esc;
@@ -554,17 +555,18 @@ async function loadStats(){
 const fmtDay=d=>new Date(d+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
 function niceMax(v){if(v<=5)return 5;const p=Math.pow(10,Math.floor(Math.log10(v))),m=v/p;return (m<=1?1:m<=2?2:m<=5?5:10)*p}
 function drawChart(rows){
+  const dark=document.documentElement.dataset.theme==='dark',C={bar:dark?'#5f9e57':'#4f8a4a',grid:dark?'#30352D':'#DCE0D6',text:dark?'#A7AEA2':'#5E645B',base:dark?'#7C8378':'#8F958B'};
   const el=$('schart'),W=Math.max(el.clientWidth,300),H=240,L=40,R=8,T=10,B=26;
   const max=niceMax(Math.max(1,...rows.map(r=>+r.views))),iw=W-L-R,ih=H-T-B,band=iw/rows.length,bw=Math.min(24,Math.max(2,band-2));
   const y=v=>T+ih-(v/max)*ih,ticks=[0,max/2,max];
   const step=rows.length>40?14:rows.length>14?7:1;
   let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Views per day">`;
-  ticks.forEach(v=>{svg+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#DCE0D6" stroke-width="1"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="#5E645B">${Number(v).toLocaleString()}</text>`});
+  ticks.forEach(v=>{svg+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="${C.grid}" stroke-width="1"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="${C.text}">${Number(v).toLocaleString()}</text>`});
   rows.forEach((r,i)=>{const v=+r.views,x=L+i*band+(band-bw)/2,h=Math.max(0,(v/max)*ih),rad=Math.min(4,bw/2,h);
-    if(h>0)svg+=`<path d="M${x},${T+ih} V${T+ih-h+rad} Q${x},${T+ih-h} ${x+rad},${T+ih-h} H${x+bw-rad} Q${x+bw},${T+ih-h} ${x+bw},${T+ih-h+rad} V${T+ih} Z" fill="#4f8a4a"/>`;
-    if((rows.length-1-i)%step===0)svg+=`<text x="${L+i*band+band/2}" y="${H-6}" text-anchor="middle" font-size="11" fill="#5E645B">${new Date(r.day+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'})}</text>`;
+    if(h>0)svg+=`<path d="M${x},${T+ih} V${T+ih-h+rad} Q${x},${T+ih-h} ${x+rad},${T+ih-h} H${x+bw-rad} Q${x+bw},${T+ih-h} ${x+bw},${T+ih-h+rad} V${T+ih} Z" fill="${C.bar}"/>`;
+    if((rows.length-1-i)%step===0)svg+=`<text x="${L+i*band+band/2}" y="${H-6}" text-anchor="middle" font-size="11" fill="${C.text}">${new Date(r.day+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'})}</text>`;
     svg+=`<rect x="${L+i*band}" y="${T}" width="${band}" height="${ih}" fill="transparent" data-i="${i}"/>`});
-  svg+=`<line x1="${L}" x2="${W-R}" y1="${T+ih}" y2="${T+ih}" stroke="#8F958B" stroke-width="1"/></svg>`;
+  svg+=`<line x1="${L}" x2="${W-R}" y1="${T+ih}" y2="${T+ih}" stroke="${C.base}" stroke-width="1"/></svg>`;
   el.innerHTML=svg+'<div class="tip" hidden></div>';
   const tip=el.querySelector('.tip');
   el.querySelectorAll('[data-i]').forEach(rc=>{
@@ -576,6 +578,7 @@ function drawChart(rows){
 $('sdays').addEventListener('change',loadStats);
 $('stable').addEventListener('click',()=>{const v=$('stablev');v.hidden=!v.hidden;$('stable').textContent=v.hidden?'Show table':'Hide table'});
 addEventListener('resize',()=>{if(STATS&&!$('p-stats').hidden)drawChart(STATS.daily)});
+document.addEventListener('themechange',()=>{if(STATS&&!$('p-stats').hidden)drawChart(STATS.daily)});
 try{$('signore').checked=!!localStorage.getItem('kv_ignore')}catch(e){}
 $('signore').addEventListener('change',e=>{try{e.target.checked?localStorage.setItem('kv_ignore','1'):localStorage.removeItem('kv_ignore')}catch(err){}});
 

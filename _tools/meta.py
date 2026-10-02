@@ -23,6 +23,10 @@ for f in sorted(glob.glob('**/index.html', recursive=True)):
     path = '/' + f[:-len('index.html')]
     e = lambda v: html.escape(v, quote=True)
     block = ('<!-- meta -->\n'
+             # Theme before first paint: saved choice, else the device setting. Snapwit, LD Timer and
+             # the business card keep their own light look.
+             '<script>try{var t=localStorage.getItem("theme");if(!/^\\/(snapwit|ldtimer|card)\\//.test(location.pathname)){'
+             'if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>\n'
              '<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">\n'
              '<link rel="apple-touch-icon" href="/assets/icon-180.png">\n'
              '<meta name="theme-color" content="#EEF0EA">\n'

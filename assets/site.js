@@ -29,6 +29,28 @@
     links.map(function (l) { return '<a href="' + l[2] + '">' + l[1] + '</a>'; }).join('') + '<a href="' + me[2] + '">' + (signedIn ? 'Account' : 'Join') + '</a><a href="/privacy/">Privacy</a></nav></div>';
   document.body.append(foot);
 
+  // Theme toggle in the footer: Auto (device setting) → Dark → Light.
+  var fixedLight = /^\/(snapwit|ldtimer|card)\//.test(location.pathname);
+  if (!fixedLight) {
+    var tb = document.createElement('button');
+    tb.className = 'themebtn';
+    var themeNow = function () { try { return localStorage.getItem('theme') || 'auto'; } catch (e) { return 'auto'; } };
+    var applyTheme = function (t) {
+      var dark = t === 'dark' || (t === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches);
+      if (dark) document.documentElement.dataset.theme = 'dark'; else delete document.documentElement.dataset.theme;
+      tb.textContent = 'Theme: ' + t.charAt(0).toUpperCase() + t.slice(1);
+      document.dispatchEvent(new CustomEvent('themechange'));
+    };
+    tb.addEventListener('click', function () {
+      var next = { auto: 'dark', dark: 'light', light: 'auto' }[themeNow()];
+      try { next === 'auto' ? localStorage.removeItem('theme') : localStorage.setItem('theme', next); } catch (e) {}
+      applyTheme(next);
+    });
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () { if (themeNow() === 'auto') applyTheme('auto'); });
+    tb.textContent = 'Theme: ' + themeNow().charAt(0).toUpperCase() + themeNow().slice(1);
+    foot.querySelector('nav').append(tb);
+  }
+
   var st = document.createElement('script');
   st.src = '/assets/stats.js?v=20261003';
   st.defer = true;

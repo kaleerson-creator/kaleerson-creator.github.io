@@ -9,7 +9,7 @@ game: 2048
 .cells,.tiles{position:absolute;inset:var(--gap);display:grid;grid-template-columns:repeat(var(--n),1fr);gap:var(--gap)}
 .cells i{background:#eceee6;border-radius:12px}
 .tiles{display:block}
-.t{position:absolute;width:calc((100% - 3*var(--gap))/4);height:calc((100% - 3*var(--gap))/4);border-radius:12px;display:grid;place-items:center;font:800 clamp(20px,6vw,40px)/1 var(--display);letter-spacing:-.03em;transition:transform .11s ease;will-change:transform}
+.t{color:#141613;position:absolute;width:calc((100% - 3*var(--gap))/4);height:calc((100% - 3*var(--gap))/4);border-radius:12px;display:grid;place-items:center;font:800 clamp(20px,6vw,40px)/1 var(--display);letter-spacing:-.03em;transition:transform .11s ease;will-change:transform}
 .t.new{animation:pop .16s ease}
 .t.merged{animation:bump .18s ease}
 @keyframes pop{from{opacity:0;scale:.4}}
@@ -17,6 +17,8 @@ game: 2048
 .v2{background:#fff;color:var(--ink)}.v4{background:var(--moss)}.v8{background:var(--butter)}.v16{background:var(--peach)}.v32{background:#f2a98a}.v64{background:#ea7c5b;color:#fff}
 .v128{background:var(--sky);font-size:clamp(18px,5vw,34px)}.v256{background:#9dbdea;font-size:clamp(18px,5vw,34px)}.v512{background:var(--lilac);font-size:clamp(18px,5vw,34px)}
 .v1024{background:#b59ce6;color:#fff;font-size:clamp(15px,4.2vw,28px)}.v2048{background:var(--forest);color:var(--butter);font-size:clamp(15px,4.2vw,28px)}.vbig{background:var(--ink);color:#fff;font-size:clamp(13px,3.6vw,24px)}
+html[data-theme=dark] .board{background:#2a2e27}
+html[data-theme=dark] .cells i{background:#1f231d}
 @@ body
 <div class="ghead"><div><h1>2048</h1><p>Use arrow keys or swipe. Merge tiles to reach 2048.</p></div><button class="btn sm ghost" id="restart">New game</button></div>
 <div class="glay">
