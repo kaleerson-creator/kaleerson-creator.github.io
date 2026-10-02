@@ -96,6 +96,7 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
       <button role="tab" data-t="files">Files</button>
       <button role="tab" data-t="codes">Codes</button>
       <button role="tab" data-t="devices">Devices</button>
+      <button role="tab" data-t="people">People</button>
       <button role="tab" data-t="study">Study &amp; forum</button>
       <button role="tab" data-t="site">Site editor</button>
     </div>
@@ -148,6 +149,16 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
     <div class="panel" id="p-devices" hidden>
       <div class="box"><h2>Unlocked devices</h2><p class="help">Every browser that has opened the vault. Lock one to cut its access; it will need a new code.</p>
         <div class="tablewrap"><table><thead><tr><th>Code label</th><th>Level</th><th>Device</th><th>Unlocked</th><th>Last opened</th><th></th></tr></thead><tbody id="devtable"></tbody></table></div>
+      </div>
+    </div>
+
+    <!-- PEOPLE -->
+    <div class="panel" id="p-people" hidden>
+      <div class="box"><h2>People</h2>
+        <p class="help">Everyone who has signed up. If someone's email blocks the sign-in message (school emails often do), press <b>Sign-in link</b> and send them the link yourself by text or DM. Opening it signs them in and verifies their email. Each link works once and expires in about an hour.</p>
+        <div class="row"><input id="pfind" placeholder="Search email or name" style="flex:1;min-width:180px"><label class="row help"><input type="checkbox" id="punv" style="width:auto"> Only unverified</label></div>
+        <div id="plink"></div>
+        <div class="tablewrap"><table><thead><tr><th>Email</th><th>Name</th><th>Joined</th><th>Status</th><th>Last sign-in</th><th></th></tr></thead><tbody id="ptable"><tr><td colspan="6" class="muted">Loading…</td></tr></tbody></table></div>
       </div>
     </div>
 
@@ -210,8 +221,8 @@ function confirmBtn(b,label){if(b.dataset.armed){return true}b.dataset.armed=1;c
 /* tabs */
 document.querySelectorAll('[data-t]').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('[data-t]').forEach(x=>x.setAttribute('aria-selected',x===b));
-  ['sections','files','codes','devices','study','site'].forEach(t=>$('p-'+t).hidden=t!==b.dataset.t);
-  ({sections:loadSections,files:loadFiles,codes:loadCodes,devices:loadDevices,study:loadStudy,site:loadSite})[b.dataset.t]();
+  ['sections','files','codes','devices','people','study','site'].forEach(t=>$('p-'+t).hidden=t!==b.dataset.t);
+  ({sections:loadSections,files:loadFiles,codes:loadCodes,devices:loadDevices,people:loadPeople,study:loadStudy,site:loadSite})[b.dataset.t]();
 }));
 
 /* SECTIONS */
@@ -407,6 +418,35 @@ $('memtable').addEventListener('click',async e=>{
 });
 
 $('out').addEventListener('click',async()=>{await SB.auth.signOut();location.href='/'});
+
+/* PEOPLE */
+let PEOPLE=[];
+async function peopleCall(body){const {data,error}=await SB.functions.invoke('admin-users',{body});if(error){let m=error.message;try{const j=await error.context.json();m=j.error||m}catch(e){}return{error:m}}return data}
+async function loadPeople(){
+  const r=await peopleCall({action:'list'});
+  if(r.error){$('ptable').innerHTML=`<tr><td colspan="6"><div class="msg err">${E(r.error)}</div></td></tr>`;return}
+  PEOPLE=r.users.sort((a,b)=>(b.created_at||'').localeCompare(a.created_at||''));drawPeople();
+}
+function drawPeople(){
+  const q=$('pfind').value.trim().toLowerCase(),unv=$('punv').checked;
+  const rows=PEOPLE.filter(u=>(!q||(u.email||'').toLowerCase().includes(q)||(u.name||'').toLowerCase().includes(q))&&(!unv||!u.confirmed));
+  $('ptable').innerHTML=rows.map(u=>`<tr><td style="overflow-wrap:anywhere">${E(u.email||'')}</td><td>${E(u.name||'—')}</td><td>${fmtDate(u.created_at)}</td>
+    <td>${u.confirmed?'<span class="pill live">Verified</span>':'<span class="pill used">Not verified</span>'}${u.study?' <span class="pill">Study</span>':''}</td>
+    <td>${u.last_sign_in_at?fmtDate(u.last_sign_in_at):'Never'}</td><td><button class="btn sm ${u.confirmed?'ghost':''}" data-link="${E(u.email||'')}">Sign-in link</button></td></tr>`).join('')||'<tr><td colspan="6" class="muted">No one matches.</td></tr>';
+}
+$('pfind').addEventListener('input',drawPeople);$('punv').addEventListener('change',drawPeople);
+$('ptable').addEventListener('click',async e=>{
+  const b=e.target.closest('[data-link]');if(!b)return;
+  b.disabled=true;const t=b.textContent;b.textContent='Making…';
+  const r=await peopleCall({action:'link',email:b.dataset.link});
+  b.disabled=false;b.textContent=t;
+  if(r.error){$('plink').innerHTML=`<div class="msg err">${E(r.error)}</div>`;return}
+  $('plink').innerHTML=`<div class="box" style="background:var(--butter)"><b>Sign-in link for ${E(b.dataset.link)}</b>
+    <p class="help" style="color:var(--ink)">Send this only to them. Anyone who opens it is signed in as them. It works once and expires in about an hour.</p>
+    <div class="row"><input id="plinkv" readonly value="${E(r.link)}" style="flex:1;min-width:200px;font-size:13px"><button class="btn sm" id="plinkc">Copy</button></div></div>`;
+  $('plinkc').onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(r.link).then(()=>{$('plinkc').textContent='Copied ✓'})};
+  $('plinkv').onclick=()=>$('plinkv').select();
+});
 
 /* SITE EDITOR */
 const SRC={};           // repo path -> current file text
