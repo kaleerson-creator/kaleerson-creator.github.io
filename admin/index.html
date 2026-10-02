@@ -60,6 +60,26 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
 .drop.on{border-color:var(--ink);background:var(--paper)}
 .center{max-width:480px;margin:40px auto;text-align:center;display:grid;gap:14px;justify-items:center}
 .muted{color:var(--ink2)}
+.se-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.se-bar select{width:auto}
+.se-mode{display:flex;gap:4px;background:var(--paper);border-radius:999px;padding:4px}
+.se-mode button{font:inherit;font-size:13px;font-weight:600;border:0;background:none;color:var(--ink2);padding:7px 12px;border-radius:999px;cursor:pointer}
+.se-mode button[aria-pressed=true]{background:var(--ink);color:#fff}
+.se-wrap{display:grid;grid-template-columns:1fr 300px;gap:var(--gap);align-items:start}
+@media (max-width:900px){.se-wrap{grid-template-columns:1fr}}
+.se-frame{width:100%;height:78vh;border:0;border-radius:20px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line)}
+.se-side{position:sticky;top:84px;display:grid;gap:var(--gap)}
+.se-side textarea{min-height:110px;font-family:var(--body);font-size:15px}
+.se-orig{background:var(--paper);border-radius:12px;padding:10px 12px;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.se-hit{display:flex;gap:8px;align-items:flex-start;font-size:13px;padding:8px 10px;border-radius:12px;background:var(--paper);cursor:pointer}
+.se-hit input{width:auto;margin-top:3px}
+.se-hit code{font-size:12px;color:var(--ink2);display:block}
+.se-hit span{overflow-wrap:anywhere}
+.se-hit mark{background:var(--butter);border-radius:4px;padding:0 2px}
+.se-pend{display:grid;gap:6px;max-height:260px;overflow:auto}
+.se-pend div{font-size:13px;background:var(--paper);border-radius:12px;padding:8px 10px;display:grid;grid-template-columns:1fr auto;gap:6px;overflow-wrap:anywhere}
+.se-pend s{color:var(--ink3)}
+.se-pend button{border:0;background:none;cursor:pointer;color:var(--ink2);font-size:16px}
 </style>
 </head>
 <body data-page="">
@@ -76,6 +96,7 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
       <button role="tab" data-t="codes">Codes</button>
       <button role="tab" data-t="devices">Devices</button>
       <button role="tab" data-t="study">Study &amp; forum</button>
+      <button role="tab" data-t="site">Site editor</button>
     </div>
 
     <!-- SECTIONS -->
@@ -129,6 +150,33 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
       </div>
     </div>
 
+    <!-- SITE EDITOR -->
+    <div class="panel" id="p-site" hidden>
+      <div class="box" id="se-setup" hidden></div>
+      <div class="box">
+        <div class="se-bar">
+          <select id="se-page" aria-label="Page">
+            <option value="/">Home</option><option value="/work/">Work</option><option value="/tools/">Tools</option><option value="/updates/">Updates</option>
+            <option value="/forum/">Forum</option><option value="/about/">About</option><option value="/contact/">Contact (lock screen)</option><option value="/join/">Join</option>
+            <option value="/card/">Card</option><option value="/study/">PVHS Study</option><option value="/snapwit/">Snapwit</option><option value="/ldtimer/">LD Timer</option>
+          </select>
+          <div class="se-mode" role="group" aria-label="Mode"><button id="se-edit" aria-pressed="true">✎ Edit</button><button id="se-browse" aria-pressed="false">Browse</button></div>
+          <span class="help" id="se-hint">Click any text on the page to change it.</span>
+        </div>
+      </div>
+      <div class="se-wrap">
+        <iframe class="se-frame" id="se-frame" title="Page preview"></iframe>
+        <div class="se-side">
+          <div class="box" id="se-ed"><h2>Edit text</h2><p class="help">Pick a page, then click the words you want to change. Use <b>Browse</b> to click links and tabs without editing.</p></div>
+          <div class="box"><div class="row" style="justify-content:space-between"><h2>Changes</h2><span class="pill" id="se-count">0</span></div>
+            <div class="se-pend" id="se-pend"><p class="help">Nothing yet.</p></div>
+            <div class="row"><button class="btn" id="se-save" disabled>Save &amp; publish</button><button class="btn sm ghost" id="se-discard" disabled>Discard all</button></div>
+            <div id="se-msg"></div>
+            <p class="help">Saving commits to the main branch on GitHub. The live site updates in about a minute. Every save can be undone from the repo's history.</p></div>
+        </div>
+      </div>
+    </div>
+
     <!-- STUDY -->
     <div class="panel" id="p-study" hidden>
       <div class="box"><h2>Reports</h2><p class="help">Things people flagged on Study and the forum. <b>Remove</b> deletes the post. <b>Dismiss</b> keeps it.</p>
@@ -161,8 +209,8 @@ function confirmBtn(b,label){if(b.dataset.armed){return true}b.dataset.armed=1;c
 /* tabs */
 document.querySelectorAll('[data-t]').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('[data-t]').forEach(x=>x.setAttribute('aria-selected',x===b));
-  ['sections','files','codes','devices','study'].forEach(t=>$('p-'+t).hidden=t!==b.dataset.t);
-  ({sections:loadSections,files:loadFiles,codes:loadCodes,devices:loadDevices,study:loadStudy})[b.dataset.t]();
+  ['sections','files','codes','devices','study','site'].forEach(t=>$('p-'+t).hidden=t!==b.dataset.t);
+  ({sections:loadSections,files:loadFiles,codes:loadCodes,devices:loadDevices,study:loadStudy,site:loadSite})[b.dataset.t]();
 }));
 
 /* SECTIONS */
@@ -358,6 +406,145 @@ $('memtable').addEventListener('click',async e=>{
 });
 
 $('out').addEventListener('click',async()=>{await SB.auth.signOut();location.href='/'});
+
+/* SITE EDITOR */
+const SRC={};           // repo path -> current file text
+let PEND=[];            // queued edits
+let seMode='edit', seReady=false, seCur=null;
+const seOrig=new WeakMap(); // text node -> original wording, so an edited node can be reopened
+const seCall=async body=>{const {data,error}=await SB.functions.invoke('site-edit',{body});
+  if(error){let msg=error.message;try{const j=await error.context.json();msg=j.error||msg}catch(e){}return{error:msg}}return data};
+const repoPath=u=>{u=u.split(/[?#]/)[0].replace(/^\//,'');return !u||u.endsWith('/')?u+'index.html':u};
+const reEsc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+function seRegex(text){
+  const MAP={'&':"(?:&|&amp;)",'<':"(?:<|&lt;)",'>':"(?:>|&gt;)",'"':'(?:"|&quot;|\\\\")',"'":"(?:'|&#39;|&apos;|\\\\')",'\u00a0':'(?:\u00a0|&nbsp;|\\s)'};
+  let src='';for(const ch of text){if(/\s/.test(ch)&&ch!=='\u00a0'){if(!src.endsWith('\\s+'))src+='\\s+'}else src+=MAP[ch]||reEsc(ch)}
+  if(/^\w/.test(text))src='(?<![A-Za-z0-9])'+src;if(/\w$/.test(text))src+='(?![A-Za-z0-9])';
+  return new RegExp(src,'g');
+}
+function ctxAt(path,content,i){
+  const inJs=path.endsWith('.js')||content.lastIndexOf('<script',i)>content.lastIndexOf('</script',i);
+  if(inJs){ // markup inside a JS string: skip attribute values like placeholder="…"
+    const line=content.slice(content.lastIndexOf('\n',i)+1,i);
+    return line.lastIndexOf('<')>line.lastIndexOf('>')&&/=["']?[^"']*$/.test(line)?'tag':'js';
+  }
+  const yo=content.lastIndexOf('<style',i),yc=content.lastIndexOf('</style',i);
+  if(yo>yc)return 'style';
+  const lt=content.lastIndexOf('<',i),gt=content.lastIndexOf('>',i);
+  return lt>gt?'tag':'html';
+}
+function encodeFor(ctx,text){
+  if(ctx==='html')return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  return text.replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'\\"').replace(/`/g,'\\`').replace(/\$\{/g,'\\${').replace(/\n/g,'\\n');
+}
+async function seEnsure(paths){
+  const need=paths.filter(p=>!(p in SRC));if(!need.length)return true;
+  const r=await seCall({action:'read',paths:need});
+  if(r.error){seSetup(r.error);return false}
+  Object.assign(SRC,r.files);need.forEach(p=>{if(!(p in SRC))SRC[p]=''});return true;
+}
+function seSetup(err){
+  const box=$('se-setup');box.hidden=false;
+  box.innerHTML=err==='not_configured'||/not found|404|Failed to send/i.test(err)
+    ?`<h2>One-time setup</h2><p class="help">The editor needs permission to save to your GitHub repo. Do this once:</p>
+      <ol class="help" style="padding-left:18px;display:grid;gap:6px">
+      <li>GitHub → your profile picture → <b>Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token</b>.</li>
+      <li>Name it <code>site editor</code>. Expiration: up to 1 year. <b>Repository access → Only select repositories →</b> <code>kaleerson-creator.github.io</code>.</li>
+      <li><b>Permissions → Repository permissions → Contents → Read and write.</b> Nothing else. Generate and copy it.</li>
+      <li>Supabase → your project → <b>Edge Functions → Secrets</b> → add <code>GITHUB_TOKEN</code> with the token as the value. Don't paste it anywhere else.</li>
+      <li>Come back here and reload.</li></ol>`
+    :`<div class="msg err">${E(err)}</div>`;
+}
+function seLoad(){seReady=false;$('se-frame').src=$('se-page').value}
+function seFrameReady(){
+  const f=$('se-frame'),d=f.contentDocument,w=f.contentWindow;if(!d)return;
+  seReady=true;
+  const st=d.createElement('style');st.textContent='[data-se-hover]{outline:2px dashed #1E3A2C!important;outline-offset:2px;cursor:text!important}.se-on a,.se-on button,.se-on [role=button]{cursor:text!important}';d.head.append(st);
+  d.documentElement.classList.toggle('se-on',seMode==='edit');
+  let last=null;
+  const textNodeAt=e=>{let n=null;
+    if(d.caretPositionFromPoint){const c=d.caretPositionFromPoint(e.clientX,e.clientY);n=c&&c.offsetNode}
+    else if(d.caretRangeFromPoint){const r=d.caretRangeFromPoint(e.clientX,e.clientY);n=r&&r.startContainer}
+    if(!n||n.nodeType!==3||!n.nodeValue.trim()){const el=e.target;n=[...el.childNodes].find(x=>x.nodeType===3&&x.nodeValue.trim())||null;
+      if(!n){const tw=d.createTreeWalker(el,NodeFilter.SHOW_TEXT,{acceptNode:x=>x.nodeValue.trim()?1:3});n=tw.nextNode()}}
+    return n&&n.nodeValue.trim()?n:null};
+  d.addEventListener('mouseover',e=>{if(seMode!=='edit')return;if(last)last.removeAttribute('data-se-hover');last=e.target;if(last.closest&&!last.closest('script,style'))last.setAttribute('data-se-hover','')},true);
+  d.addEventListener('mouseout',()=>{if(last)last.removeAttribute('data-se-hover')},true);
+  d.addEventListener('click',e=>{if(seMode!=='edit')return;e.preventDefault();e.stopPropagation();
+    const n=textNodeAt(e);if(n)seOpen(n);else seMsgEd('No text there. Try clicking right on the words.')},true);
+  ['submit','keydown'].forEach(ev=>d.addEventListener(ev,e=>{if(seMode==='edit'&&(ev==='submit'||e.key==='Enter'&&e.target.tagName!=='TEXTAREA'))e.preventDefault()},true));
+}
+const seMsgEd=t=>{$('se-ed').innerHTML=`<h2>Edit text</h2><p class="help">${E(t)}</p>`};
+async function seOpen(node){
+  const d=$('se-frame').contentDocument;
+  const page=repoPath($('se-frame').contentWindow.location.pathname);
+  const scripts=[...d.querySelectorAll('script[src]')].map(s=>s.getAttribute('src')).filter(s=>s.startsWith('/')&&!s.startsWith('//')).map(repoPath);
+  const paths=[...new Set([page,...scripts])].filter(p=>!/^(config\.js|lib\/sb\.js)$/.test(p));
+  const text=(seOrig.get(node)||node.nodeValue).trim().replace(/\s+/g,' ');
+  const shown=node.nodeValue.trim();
+  $('se-ed').innerHTML=`<h2>Edit text</h2><p class="help">Looking for it in the site files…</p>`;
+  if(!await seEnsure(paths))return;
+  const re=seRegex(text),hits=[];
+  for(const p of paths){const c=SRC[p]||'';let m;re.lastIndex=0;
+    while((m=re.exec(c))){const ctx=ctxAt(p,c,m.index);if(ctx!=='style'&&ctx!=='tag')hits.push({path:p,start:m.index,end:m.index+m[0].length,expect:m[0],ctx});if(hits.length>40)break}}
+  // Guess which match was clicked: compare nearby words on the page with nearby words in each file.
+  const words=t=>new Set((t||'').toLowerCase().match(/[a-z0-9]{3,}/g)||[]);
+  const scope=node.parentElement&&(node.parentElement.parentElement||node.parentElement);
+  const scopeText=scope?(()=>{const tw=d.createTreeWalker(scope,NodeFilter.SHOW_TEXT);let t='',n;while((n=tw.nextNode()))t+=' '+n.nodeValue;return t})():'';
+  const own=words(text),near=[...words(scopeText)].filter(w=>!own.has(w));
+  hits.forEach(h=>{const win=SRC[h.path].slice(Math.max(0,h.start-400),h.end+400).replace(/<[^>]*>/g,' ').toLowerCase();h.score=near.filter(w=>win.includes(w)).length});
+  const best=[...hits].sort((a,b)=>b.score-a.score);
+  if(best.length>1&&best[0].score>0&&best[0].score>best[1].score)best[0].guess=true;
+  seCur={node,text,hits};
+  const ctxSnip=h=>{const c=SRC[h.path];const a=c.slice(Math.max(0,h.start-50),h.start),b=c.slice(h.end,h.end+50);return `…${E(a.replace(/\s+/g,' '))}<mark>${E(h.expect)}</mark>${E(b.replace(/\s+/g,' '))}…`};
+  if(!hits.length){$('se-ed').innerHTML=`<h2>Edit text</h2><div class="se-orig">${E(text)}</div><p class="help">This text isn't written in the site's files. It comes from the database (vault sections, Study posts, forum posts, names) or is put together by code from smaller pieces. Edit vault text in the <b>Sections</b> tab; edit posts where they were made. If it's a longer sentence, try clicking a shorter piece of it.</p>`;return}
+  $('se-ed').innerHTML=`<h2>Edit text</h2>
+    <label class="f">Was<div class="se-orig">${E(text)}</div></label>
+    <label class="f">Change to<textarea id="se-new">${E(shown)}</textarea></label>
+    ${hits.length>1?`<p class="help"><b>This text appears ${hits.length} times.</b> Tick the one(s) to change${hits.some(h=>h.guess)?' (best guess is ticked)':''}:</p><div class="panel" style="gap:6px">${hits.map((h,i)=>`<label class="se-hit"><input type="checkbox" data-hit="${i}"${h.guess?' checked':''}><span><code>${E(h.path)}</code>${ctxSnip(h)}</span></label>`).join('')}</div><button class="btn sm ghost" id="se-all" style="justify-self:start">Tick all</button>`
+      :`<p class="help">In <code>${E(hits[0].path)}</code></p>`}
+    <div class="row"><button class="btn sm" id="se-apply">Add change</button><button class="btn sm ghost" id="se-cancel">Cancel</button></div><div id="se-emsg"></div>`;
+  const ta=$('se-new');ta.focus();ta.setSelectionRange(0,ta.value.length);
+  if($('se-all'))$('se-all').addEventListener('click',()=>$('se-ed').querySelectorAll('[data-hit]').forEach(c=>c.checked=true));
+  $('se-cancel').addEventListener('click',()=>seMsgEd('Click any text on the page to change it.'));
+  $('se-apply').addEventListener('click',()=>{
+    const nv=ta.value.trim();
+    if(!nv){$('se-emsg').innerHTML='<div class="msg err">Text can\'t be empty. To remove something, ask Claude.</div>';return}
+    const picked=hits.length===1?[hits[0]]:[...$('se-ed').querySelectorAll('[data-hit]:checked')].map(c=>hits[+c.dataset.hit]);
+    if(!picked.length){$('se-emsg').innerHTML='<div class="msg err">Tick at least one place to change.</div>';return}
+    if(nv===text){PEND=PEND.filter(x=>!picked.some(h=>x.path===h.path&&x.start===h.start));node.nodeValue=node.nodeValue.replace(shown,nv);seMsgEd('Back to the original.');sePend();return}
+    picked.forEach(h=>{
+      PEND=PEND.filter(x=>!(x.path===h.path&&x.start<h.end&&h.start<x.end));
+      PEND.push({path:h.path,start:h.start,end:h.end,expect:h.expect,text:encodeFor(h.ctx,nv),before:text,after:nv});
+    });
+    if(!seOrig.has(node))seOrig.set(node,node.nodeValue);
+    node.nodeValue=node.nodeValue.replace(shown,nv);
+    seMsgEd('Added. Click more text, or hit Save & publish.');sePend();
+  });
+}
+function sePend(){
+  $('se-count').textContent=PEND.length;$('se-save').disabled=$('se-discard').disabled=!PEND.length;
+  $('se-pend').innerHTML=PEND.map((x,i)=>`<div><span><s>${E(x.before)}</s><br>${E(x.after)}<br><code class="help">${E(x.path)}</code></span><button data-unp="${i}" aria-label="Remove">✕</button></div>`).join('')||'<p class="help">Nothing yet.</p>';
+}
+$('se-pend').addEventListener('click',e=>{const b=e.target.closest('[data-unp]');if(!b)return;PEND.splice(+b.dataset.unp,1);sePend();});
+$('se-discard').addEventListener('click',e=>{if(!confirmBtn(e.target,'Click again to discard'))return;PEND=[];sePend();seLoad()});
+$('se-save').addEventListener('click',async()=>{
+  const by={};PEND.forEach(x=>(by[x.path]=by[x.path]||[]).push({start:x.start,end:x.end,expect:x.expect,text:x.text}));
+  $('se-save').disabled=true;$('se-save').textContent='Publishing…';
+  const r=await seCall({action:'save',page:$('se-page').selectedOptions[0].textContent,files:Object.entries(by).map(([path,edits])=>({path,edits}))});
+  $('se-save').textContent='Save & publish';
+  if(r.error){$('se-save').disabled=false;$('se-msg').innerHTML=`<div class="msg err">${E(r.error)}</div>`;return}
+  r.saved.forEach(s=>SRC[s.path]=s.content);
+  PEND=[];sePend();
+  $('se-msg').innerHTML=`<div class="msg ok">Published ✓ The live site updates in about a minute.${r.saved.map(s=>s.commit?` <a href="${E(s.commit)}" target="_blank" style="text-decoration:underline">View change</a>`:'').join('')}</div>`;
+});
+$('se-page').addEventListener('change',()=>{if(PEND.length&&!confirm('You have unsaved changes. Switch page anyway? They stay in the list.'))return;seLoad()});
+$('se-frame').addEventListener('load',seFrameReady);
+const setMode=m=>{seMode=m;$('se-edit').setAttribute('aria-pressed',m==='edit');$('se-browse').setAttribute('aria-pressed',m!=='edit');$('se-hint').textContent=m==='edit'?'Click any text on the page to change it.':'Browse mode: links and tabs work. Switch back to Edit to change text.';
+  const d=$('se-frame').contentDocument;if(d)d.documentElement.classList.toggle('se-on',m==='edit')};
+$('se-edit').addEventListener('click',()=>setMode('edit'));$('se-browse').addEventListener('click',()=>setMode('browse'));
+let seLoaded=false;
+async function loadSite(){if(seLoaded)return;seLoaded=true;seLoad();const r=await seCall({action:'read',paths:['index.html']});if(r.error)seSetup(r.error);else Object.assign(SRC,r.files)}
 
 /* boot */
 (async()=>{
