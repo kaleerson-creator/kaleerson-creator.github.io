@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261002d">
+<link rel="stylesheet" href="/assets/site.css?v=20261003">
 <style>
 .phead .blob{background:var(--sky)}
 .tool{min-height:340px}
@@ -25,13 +25,13 @@
 <section class="phead"><span class="blob"></span><h1>Tools</h1><p>Free for members. <a href="/join/" style="text-decoration:underline;text-underline-offset:3px">Join</a> with your email to use them.</p></section>
 <div class="bento" id="grid"></div>
 </main>
-<script src="/assets/content.js?v=20261003"></script>
-<script src="/assets/site.js?v=20261002d"></script>
+<script src="/assets/content.js?v=20261003c"></script>
+<script src="/assets/site.js?v=20261003"></script>
 <script>
 const C=window.CONTENT,S=window.SITE;
 
-const ICONS={'PVHS Study':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg>',Snapwit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>','Speech & Debate':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5M8 22h8"/></svg>','LD Timer':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>'};
-document.getElementById('grid').innerHTML=C.tools.map((t,i)=>{const tag=t.href?'a':'div',open=t.href?`a href="${t.href}"`:'div';return `<${open} class="b s3 ${t.color} tool wide-m"><span class="blob ${i%2?'b2':''}"></span><div class="icon">${ICONS[t.name]||''}</div><div class="row"><span class="chip">${S.esc(t.tag)}</span>${t.status?S.statusChip(t.status):'<span class="chip">Members</span>'}</div><h2>${S.esc(t.name)}</h2><div class="foot"><span class="muted">${S.esc(t.note)}</span>${t.href?S.arrow:'<span class="soon">Coming soon</span>'}</div></${tag}>`}).join('')+`<div class="b ${C.tools.length%2?'s3':'s6'} ghost"><span class="soon">More tools coming soon</span></div>`;
+const ICONS={'PVHS Study':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg>',Snapwit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>','Speech & Debate':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5M8 22h8"/></svg>','Games':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M7 10v4M5 12h4"/><circle cx="15.5" cy="11" r="1"/><circle cx="18" cy="13.5" r="1"/></svg>','LD Timer':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>'};
+document.getElementById('grid').innerHTML=C.tools.map((t,i)=>{const tag=t.href?'a':'div',open=t.href?`a href="${t.href}"`:'div';return `<${open} class="b s3 ${t.color} tool wide-m"><span class="blob ${i%2?'b2':''}"></span><div class="icon">${ICONS[t.name]||''}</div><div class="row"><span class="chip">${S.esc(t.tag)}</span>${t.status?S.statusChip(t.status):t.open?'<span class="chip live">Open to all</span>':'<span class="chip">Members</span>'}</div><h2>${S.esc(t.name)}</h2><div class="foot"><span class="muted">${S.esc(t.note)}</span>${t.href?S.arrow:'<span class="soon">Coming soon</span>'}</div></${tag}>`}).join('')+`<div class="b ${C.tools.length%2?'s3':'s6'} ghost"><span class="soon">More tools coming soon</span></div>`;
 
 </script>
 </body>

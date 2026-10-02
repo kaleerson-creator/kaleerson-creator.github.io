@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sudoku · Kale's Games</title>
+<meta name="description" content="Fill the grid so every row, column and box has 1 to 9.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261003">
+<link rel="stylesheet" href="/games/assets/games.css?v=1">
+<style>
+.sgrid{display:grid;grid-template-columns:repeat(9,1fr);width:min(100%,460px);aspect-ratio:1;background:var(--ink);gap:1px;border:2px solid var(--ink);border-radius:14px;overflow:hidden;user-select:none;position:relative}
+.sgrid button{border:0;background:#fff;font:700 clamp(16px,4.6vw,26px)/1 var(--display);cursor:pointer;padding:0;color:#2451C9;display:grid;place-items:center;position:relative;min-width:0}
+.sgrid button.given{color:var(--ink);font-weight:800}
+.sgrid button.br{margin-right:1px}.sgrid button.bb{margin-bottom:1px}
+.sgrid button.peer{background:#f1f3ec}.sgrid button.same{background:var(--butter)}.sgrid button.sel{background:var(--sky)}
+.sgrid button.bad{color:#D12C2C}
+.notes{position:absolute;inset:2px;display:grid;grid-template-columns:repeat(3,1fr);font:600 clamp(7px,1.6vw,10px)/1 var(--body);color:var(--ink2)}
+.notes span{display:grid;place-items:center}
+.pad{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;width:min(100%,460px)}
+.pad button{border:0;border-radius:12px;background:var(--paper);font:800 clamp(16px,4.6vw,22px)/1 var(--display);padding:12px 0;cursor:pointer}
+.pad button.done{opacity:.3}
+.tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+#pencil[aria-pressed=true]{background:var(--butter);box-shadow:none}
+</style>
+</head>
+<body data-page="games" data-sub="sudoku" data-game="sudoku">
+<main class="wrap">
+<div class="ghead"><div><h1>Sudoku</h1><p>Every row, column and 3×3 box gets 1–9 once. Medium times go on the leaderboard.</p></div>
+  <div class="seg" id="lvl"><button data-l="easy">Easy</button><button data-l="medium" aria-pressed="true">Medium</button><button data-l="hard">Hard</button></div></div>
+<div class="glay">
+  <div class="stage">
+    <div class="stats"><div><b id="time">0:00</b><span>Time</span></div><div><b id="mist">0</b><span>Mistakes</span></div><div><b id="best">–</b><span>Best</span></div></div>
+    <div class="sgrid" id="g"></div>
+    <div class="pad" id="pad"></div>
+    <div class="tools"><button class="btn sm ghost" id="pencil" aria-pressed="false">✏️ Notes</button><button class="btn sm ghost" id="erase">Erase</button><button class="btn sm ghost" id="new">New puzzle</button></div>
+  </div>
+  <div class="side"><div class="box" id="lb"></div></div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/games/assets/common.js?v=1"></script>
+<script src="/assets/site.js?v=20261003"></script>
+<script>
+const HOLES={easy:38,medium:48,hard:54};
+let lv='medium',sol,puz,cur,notes,sel=-1,pencil=false,mist=0,t0,tick,done=false;
+const g=document.getElementById('g'),fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+const row=i=>Math.floor(i/9),col=i=>i%9,box=i=>Math.floor(row(i)/3)*3+Math.floor(col(i)/3);
+const peers=i=>{const r=[];for(let j=0;j<81;j++)if(j!==i&&(row(j)===row(i)||col(j)===col(i)||box(j)===box(i)))r.push(j);return r};
+const PEERS=[...Array(81)].map((_,i)=>peers(i));
+const ok=(a,i,v)=>PEERS[i].every(j=>a[j]!==v);
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function fill(a){const i=a.indexOf(0);if(i<0)return true;for(const v of shuffle([1,2,3,4,5,6,7,8,9]))if(ok(a,i,v)){a[i]=v;if(fill(a))return true;a[i]=0}return false}
+function count(a,limit){ // number of solutions, stops at limit
+  let best=-1,bestN=10;for(let i=0;i<81;i++)if(!a[i]){let n=0;for(let v=1;v<=9;v++)if(ok(a,i,v))n++;if(n<bestN){bestN=n;best=i;if(n<=1)break}}
+  if(best<0)return 1;let c=0;for(let v=1;v<=9&&c<limit;v++)if(ok(a,best,v)){a[best]=v;c+=count(a,limit-c);a[best]=0}return c}
+function generate(){
+  sol=Array(81).fill(0);fill(sol);puz=sol.slice();
+  let holes=0;for(const i of shuffle([...Array(81).keys()])){if(holes>=HOLES[lv])break;const v=puz[i];puz[i]=0;if(count(puz.slice(),2)!==1)puz[i]=v;else holes++}
+}
+function newGame(){generate();cur=puz.slice();notes=[...Array(81)].map(()=>new Set());sel=-1;mist=0;done=false;clearInterval(tick);t0=Date.now();
+  tick=setInterval(()=>{if(!done)document.getElementById('time').textContent=fmt(Math.floor((Date.now()-t0)/1000))},500);
+  document.querySelectorAll('.over').forEach(o=>o.remove());const b=G.local.get('best:sudoku'+(lv==='medium'?'':':'+lv),null);document.getElementById('best').textContent=b?fmt(b):'–';draw()}
+function draw(){
+  const sv=sel>=0?cur[sel]:0;
+  g.innerHTML=cur.map((v,i)=>{const cls=[puz[i]?'given':'',col(i)%3===2&&col(i)<8?'br':'',row(i)%3===2&&row(i)<8?'bb':'',i===sel?'sel':sel>=0&&PEERS[sel].includes(i)?'peer':'',sv&&v===sv&&i!==sel?'same':'',v&&!puz[i]&&v!==sol[i]?'bad':''].join(' ');
+    return `<button class="${cls}" data-i="${i}" aria-label="Row ${row(i)+1} column ${col(i)+1}${v?', '+v:''}">${v||(notes[i].size?`<span class="notes">${[1,2,3,4,5,6,7,8,9].map(n=>`<span>${notes[i].has(n)?n:''}</span>`).join('')}</span>`:'')}</button>`}).join('');
+  const counts=Array(10).fill(0);cur.forEach(v=>counts[v]++);
+  document.getElementById('pad').innerHTML=[1,2,3,4,5,6,7,8,9].map(n=>`<button data-n="${n}" class="${counts[n]>=9?'done':''}">${n}</button>`).join('');
+  document.getElementById('mist').textContent=mist;
+}
+function put(v){if(sel<0||puz[sel]||done)return;
+  if(pencil&&v){cur[sel]=0;notes[sel].has(v)?notes[sel].delete(v):notes[sel].add(v);return draw()}
+  cur[sel]=v;notes[sel].clear();if(v&&v!==sol[sel])mist++;
+  if(v===sol[sel])PEERS[sel].forEach(j=>notes[j].delete(v));
+  draw();if(cur.every((x,i)=>x===sol[i]))win()}
+async function win(){done=true;clearInterval(tick);const s=Math.max(30,Math.round((Date.now()-t0)/1000));
+  const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>Solved!</h2><p class="muted" id="omsg">${fmt(s)} · ${mist} mistake${mist===1?'':'s'}</p><button class="btn" id="oagain">New puzzle</button></div>`;g.append(o);
+  o.querySelector('#oagain').onclick=newGame;
+  if(lv==='medium')o.querySelector('#omsg').innerHTML+=`<br>${await G.submit('sudoku',s,{mistakes:mist})}`;
+  else{const k='best:sudoku:'+lv,b=G.local.get(k,null);if(b===null||s<b){G.local.set(k,s);o.querySelector('#omsg').innerHTML+='<br>New best!'}}
+  const b=G.local.get('best:sudoku'+(lv==='medium'?'':':'+lv),null);document.getElementById('best').textContent=b?fmt(b):'–'}
+g.addEventListener('click',e=>{const b=e.target.closest('[data-i]');if(!b)return;sel=+b.dataset.i;draw()});
+document.getElementById('pad').addEventListener('click',e=>{const b=e.target.closest('[data-n]');if(b)put(+b.dataset.n)});
+document.addEventListener('keydown',e=>{if(e.target.matches('input'))return;
+  if(/^[1-9]$/.test(e.key))return put(+e.key);if(e.key==='Backspace'||e.key==='Delete'||e.key==='0')return put(0);
+  if(e.key.toLowerCase()==='n'){document.getElementById('pencil').click();return}
+  const mv={ArrowUp:-9,ArrowDown:9,ArrowLeft:-1,ArrowRight:1}[e.key];if(mv&&sel>=0){e.preventDefault();const n=sel+mv;if(n>=0&&n<81&&!(mv===1&&col(sel)===8)&&!(mv===-1&&col(sel)===0)){sel=n;draw()}}});
+document.getElementById('pencil').onclick=e=>{pencil=!pencil;e.currentTarget.setAttribute('aria-pressed',pencil)};
+document.getElementById('erase').onclick=()=>{if(sel>=0&&!puz[sel]){cur[sel]=0;notes[sel].clear();draw()}};
+document.getElementById('new').onclick=newGame;
+document.querySelectorAll('#lvl [data-l]').forEach(b=>b.onclick=()=>{lv=b.dataset.l;document.querySelectorAll('#lvl [data-l]').forEach(x=>x.setAttribute('aria-pressed',x===b));newGame()});
+newGame();
+G.boardBox(document.getElementById('lb'),'sudoku');
+</script>
+</body>
+</html>
