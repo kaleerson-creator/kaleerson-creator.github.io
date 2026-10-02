@@ -31,7 +31,7 @@ const b64enc = (s: string) => {
 const b64dec = (s: string) => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g, "")), (c) => c.charCodeAt(0)));
 
 async function gh(path: string, init: RequestInit = {}) {
-  const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/${path}`, {
+  const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}${path ? "/" + path : ""}`, {
     ...init,
     headers: {
       "Authorization": `Bearer ${Deno.env.get("GITHUB_TOKEN")}`,
@@ -42,8 +42,13 @@ async function gh(path: string, init: RequestInit = {}) {
     },
   });
   const body = await res.json().catch(() => ({}));
+  // Fine-grained tokens report their expiry on every response, e.g. "2026-10-31 00:00:00 UTC".
+  const exp = res.headers.get("github-authentication-token-expiration");
+  if (exp) tokenExpires = exp;
+  if (res.status === 401) throw new Error("token_expired");
   return { status: res.status, body };
 }
+let tokenExpires: string | null = null;
 
 async function readFile(path: string) {
   const r = await gh(`contents/${path}?ref=${BRANCH}`);
@@ -72,11 +77,16 @@ Deno.serve(async (req: Request) => {
   try { body = await req.json(); } catch { return out({ error: "Bad request" }, 400); }
 
   try {
+    if (body.action === "status") {
+      await gh("");
+      return out({ tokenExpires });
+    }
+
     if (body.action === "read") {
       const paths = (body.paths ?? []).filter(okPath).slice(0, 20);
       const files: Record<string, string> = {};
-      await Promise.all(paths.map(async (p) => { try { files[p] = (await readFile(p)).content; } catch { /* missing file */ } }));
-      return out({ files });
+      await Promise.all(paths.map(async (p) => { try { files[p] = (await readFile(p)).content; } catch (e) { if ((e as Error).message === "token_expired") throw e; /* else: missing file */ } }));
+      return out({ files, tokenExpires });
     }
 
     if (body.action === "save") {
@@ -119,6 +129,7 @@ Deno.serve(async (req: Request) => {
 
     return out({ error: "Unknown action" }, 400);
   } catch (err) {
-    return out({ error: String((err as Error).message ?? err) }, 500);
+    const msg = String((err as Error).message ?? err);
+    return out({ error: msg }, msg === "token_expired" ? 503 : 500);
   }
 });
