@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Speech &amp; Debate · Kale Erson</title>
+<meta name="description" content="Round timers for LD, Public Forum, Policy and Congress, speech event timers, a flow sheet and practice topics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261002d">
+<style>
+:root{--a:#2451C9;--a-t:#DCE8FB;--b:#B8322F;--b-t:#FBE2DA;--n:#1E3A2C;--n-t:#DCEBD0;--warn:#B86E00;--over:#D12C2C}
+main.pg{flex:1;padding-block:0 64px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding:24px 0 14px}
+.top h1{font-size:clamp(40px,7vw,76px)}
+.top .sub{color:var(--ink2);margin-top:8px}
+.back{display:inline-flex;gap:6px;align-items:center;font-size:14px;color:var(--ink2);padding:16px 0 0}
+.back:hover{color:var(--ink)}
+.box{background:var(--card);border-radius:24px;padding:20px;display:grid;gap:12px;min-width:0}
+.box h2{font-size:24px;letter-spacing:-.03em}
+.muted{color:var(--ink2)}
+.small{font-size:13px;color:var(--ink2)}
+input,select,textarea{font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);min-width:0}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-offset:1px}
+.btn.sm{padding:9px 14px;font-size:14px}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn:disabled{opacity:.45;cursor:default}
+.seg{display:inline-flex;gap:4px;background:var(--card);border-radius:999px;padding:4px;flex-wrap:wrap}
+.seg button{font:inherit;font-size:14px;font-weight:600;border:0;background:none;color:var(--ink2);padding:8px 14px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);color:#fff}
+
+/* hub */
+.hub{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--gap)}
+.hub .b{grid-column:span 2;min-height:170px}
+.hub .b.w{grid-column:span 3}
+@media (max-width:900px){.hub{grid-template-columns:repeat(2,1fr)}.hub .b,.hub .b.w{grid-column:span 1}}
+@media (max-width:520px){.hub .b,.hub .b.w{grid-column:span 2}}
+.hub .b .blob{width:140px;aspect-ratio:1;right:-40px;bottom:-50px;background:#ffffff66}
+.hub .b h2{font-size:clamp(26px,3vw,34px)}
+.hub .fmt{font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.06em}
+
+/* round timer */
+.rt{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:var(--gap);align-items:start}
+@media (max-width:860px){.rt{grid-template-columns:1fr}}
+.clock{background:var(--card);border-radius:28px;padding:22px;display:grid;gap:12px;position:relative;overflow:hidden;isolation:isolate}
+.clock::before{content:"";position:absolute;z-index:-1;width:300px;aspect-ratio:1;right:-90px;top:-120px;background:var(--side-t,var(--paper));border-radius:58% 42% 51% 49% / 46% 55% 45% 54%;animation:morph 14s ease-in-out infinite}
+.clock.sd0{--side:var(--a);--side-t:var(--a-t)}.clock.sd1{--side:var(--b);--side-t:var(--b-t)}.clock.sd2{--side:var(--n);--side-t:var(--n-t)}
+.now{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.now .code{font:800 30px/1 var(--display);color:var(--side)}
+.now .name{color:var(--ink2);font-weight:500}
+.pchip{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:var(--warn);color:#fff;align-self:center}
+.digits{font:700 clamp(88px,22vw,190px)/.9 var(--display);font-variant-numeric:tabular-nums;text-align:center;padding-block:4px;letter-spacing:-.01em}
+.digits.warn{color:var(--warn)}
+.digits.over{color:var(--over);animation:pulse 1s steps(2,start) infinite}
+.digits.grace{color:var(--warn)}
+@keyframes pulse{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.digits.over{animation:none}}
+.csub{text-align:center;color:var(--ink2);font-size:13px;min-height:1.2em}
+.ctl{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.ctl .btn{min-width:110px;justify-content:center}
+#prev,#next{min-width:64px;font-size:20px}
+.btn.go{background:var(--side,var(--ink));font-size:17px;padding:15px 26px;min-width:150px}
+.preps{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.prep{border:0;border-radius:20px;padding:12px 14px;display:grid;gap:2px;text-align:left;cursor:pointer;font:inherit;color:var(--ink)}
+.prep.sd0{background:var(--a-t)}.prep.sd1{background:var(--b-t)}
+.prep b{font:700 28px/1 var(--display);font-variant-numeric:tabular-nums}
+.prep span{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.prep.on{outline:3px solid var(--warn);outline-offset:-3px}
+.prep.out b{color:var(--over)}
+.list{display:grid;gap:4px}
+.sp{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;padding:9px 12px;border-radius:14px;border:0;background:none;text-align:left;font:inherit;color:var(--ink);cursor:pointer}
+.sp:hover{background:var(--paper)}
+.sp.cur{background:var(--paper);box-shadow:inset 3px 0 0 var(--sc)}
+.sp.done{color:var(--ink3)}
+.sp code{font:800 14px/1 var(--display);color:var(--sc)}
+.sp.sd0{--sc:var(--a)}.sp.sd1{--sc:var(--b)}.sp.sd2{--sc:var(--n)}
+.sp small{font-variant-numeric:tabular-nums;color:var(--ink2)}
+.names{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center}
+.names input{width:100%}
+.names button{font:inherit;border:0;background:var(--paper);border-radius:999px;width:38px;height:38px;cursor:pointer}
+.setrow{display:grid;grid-template-columns:1fr 90px;gap:10px;align-items:center;font-size:14px}
+.setrow input{width:100%;text-align:right}
+.check{display:flex;gap:8px;align-items:center;font-size:14px}
+.check input{width:auto}
+
+/* speech events */
+.signal{position:fixed;inset:0;z-index:95;display:grid;place-items:center;background:var(--ink);color:#fff;cursor:pointer}
+.signal b{font:800 min(70vw,70vh)/1 var(--display);font-variant-numeric:tabular-nums}
+.signal.grace{background:var(--warn)}.signal.over{background:var(--over)}
+.signal small{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 20px);font-size:14px;opacity:.7}
+
+/* congress */
+.cg{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--gap);align-items:start}
+@media (max-width:860px){.cg{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);font-weight:600;padding:6px}
+td{padding:7px 6px;border-top:1px solid var(--line);vertical-align:middle}
+td.n{font-variant-numeric:tabular-nums;text-align:center}
+tr.next td{background:#fbf3cf}
+.mini{font:inherit;font-size:12px;font-weight:600;border:0;border-radius:999px;padding:6px 10px;cursor:pointer;background:var(--paper)}
+.mini.af{background:var(--a-t)}.mini.ng{background:var(--b-t)}
+.docket{display:grid;gap:6px}
+.bill{display:flex;gap:8px;align-items:center;padding:8px 10px;border-radius:12px;background:var(--paper);font-size:14px}
+.bill.cur{background:var(--n-t);font-weight:600}
+.bill span{flex:1;min-width:0;overflow-wrap:anywhere}
+.log{font-size:13px;color:var(--ink2);display:grid;gap:3px;max-height:220px;overflow:auto}
+
+/* flow */
+.flowbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:var(--gap)}
+.flow{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,1fr);gap:8px;overflow-x:auto;padding-bottom:8px}
+.col{background:var(--card);border-radius:18px;padding:10px;display:grid;grid-template-rows:auto 1fr;gap:6px;min-height:62vh}
+.col h3{font:800 15px/1.1 var(--display);letter-spacing:-.01em;display:flex;justify-content:space-between;gap:6px}
+.col.sd0 h3{color:var(--a)}.col.sd1 h3{color:var(--b)}
+.col textarea{border:0;background:var(--paper);border-radius:12px;resize:none;font-size:14px;line-height:1.45;padding:10px;height:100%;min-height:52vh}
+
+/* topics */
+.prompt{background:var(--forest);color:var(--forest-ink);border-radius:var(--r);padding:28px;display:grid;gap:14px;min-height:220px;align-content:center;position:relative;overflow:hidden;isolation:isolate}
+.prompt .blob{width:200px;aspect-ratio:1;right:-60px;top:-70px;background:#2E5440}
+.prompt q{font:800 clamp(26px,4vw,42px)/1.12 var(--display);letter-spacing:-.025em;quotes:none}
+.prompt .lbl{color:#B9C9AE}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/config.js?v=20261001"></script>
+<script src="/lib/sb.js?v=20261001"></script>
+<script src="/lib/gate.js?v=20261001"></script>
+</head>
+<body data-page="tools">
+<main class="wrap pg" id="app"></main>
+<script src="/assets/site.js?v=20261002d"></script>
+<script>
+const $=id=>document.getElementById(id);
+const E=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const app=$('app');
+const store={get(k,d){try{const v=localStorage.getItem('debate:'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('debate:'+k,JSON.stringify(v))}catch(e){}}};
+const fmtT=s=>{const neg=s<0;s=Math.abs(Math.round(s));return (neg?'+':'')+Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+const fmtTc=s=>{s=Math.max(0,Math.ceil(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+
+/* ── formats ─────────────────────────────────────────
+   speech: [code, name, side (0 first side, 1 second side, 2 both), seconds] */
+const FORMATS={
+  ld:{name:'Lincoln-Douglas',short:'LD',sides:['Aff','Neg'],prep:240,note:'NSDA 6-3-7-3-4-6-3',speeches:[
+    ['AC','Affirmative constructive',0,360],['CX','Cross-ex (Neg asks)',1,180],['NC','Negative constructive',1,420],['CX','Cross-ex (Aff asks)',0,180],
+    ['1AR','First affirmative rebuttal',0,240],['NR','Negative rebuttal',1,360],['2AR','Second affirmative rebuttal',0,180]]},
+  pf:{name:'Public Forum',short:'PF',sides:['Pro','Con'],prep:180,swap:true,note:'4-4-3-4-4-3-3-3-3-2-2',speeches:[
+    ['A1','First speaker constructive',0,240],['B1','First speaker constructive',1,240],['CF','Crossfire (first speakers)',2,180],
+    ['A2','Second speaker rebuttal',0,240],['B2','Second speaker rebuttal',1,240],['CF','Crossfire (second speakers)',2,180],
+    ['AS','First speaker summary',0,180],['BS','First speaker summary',1,180],['GCF','Grand crossfire',2,180],
+    ['AFF','Second speaker final focus',0,120],['BFF','Second speaker final focus',1,120]]},
+  policy:{name:'Policy (CX)',short:'CX',sides:['Aff','Neg'],prep:480,note:'8-3 constructives, 5-minute rebuttals',speeches:[
+    ['1AC','First affirmative constructive',0,480],['CX','Cross-ex (2N asks 1A)',1,180],['1NC','First negative constructive',1,480],['CX','Cross-ex (1A asks 1N)',0,180],
+    ['2AC','Second affirmative constructive',0,480],['CX','Cross-ex (1N asks 2A)',1,180],['2NC','Second negative constructive',1,480],['CX','Cross-ex (2A asks 2N)',0,180],
+    ['1NR','First negative rebuttal',1,300],['1AR','First affirmative rebuttal',0,300],['2NR','Second negative rebuttal',1,300],['2AR','Second affirmative rebuttal',0,300]]}
+};
+const EVENTS={
+  extemp:{name:'Extemp',full:'Extemporaneous Speaking',prep:1800,speak:420,grace:30,note:'30 min prep, 7 min speech'},
+  impromptu:{name:'Impromptu',full:'Impromptu',shared:420,grace:30,note:'7 minutes total, split between prep and speaking'},
+  oo:{name:'Oratory',full:'Original Oratory',speak:600,grace:30,note:'10 minutes, memorized'},
+  info:{name:'Info',full:'Informative Speaking',speak:600,grace:30,note:'10 minutes, visual aids allowed'},
+  interp:{name:'Interp',full:'DI · HI · Duo · POI · Prose · Poetry',speak:600,grace:30,note:'10 minutes including intro'},
+  story:{name:'Storytelling',full:'Storytelling',speak:300,grace:30,note:'5 minutes'},
+  custom:{name:'Custom',full:'Custom speech timer',speak:300,grace:30,note:'Set your own time'}
+};
+
+/* ── shared ticking clock ─────────────────────────── */
+let ticker=null;const tick=fn=>{clearInterval(ticker);ticker=setInterval(fn,200)};
+let audioCtx=null;
+function beep(n=1){if(!store.get('sound',true))return;try{audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();for(let i=0;i<n;i++){const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=880;o.connect(g);g.connect(audioCtx.destination);const t=audioCtx.currentTime+i*.28;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.25,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+.22);o.start(t);o.stop(t+.25)}}catch(e){}}
+function wakeLock(on){try{if(on&&navigator.wakeLock&&!window.__wl)navigator.wakeLock.request('screen').then(l=>{window.__wl=l;l.addEventListener('release',()=>window.__wl=null)}).catch(()=>{});if(!on&&window.__wl){window.__wl.release();window.__wl=null}}catch(e){}}
+
+/* ── hub ──────────────────────────────────────────── */
+function hub(){
+  app.innerHTML=`
+    <section class="phead"><span class="blob" style="background:var(--sky)"></span><h1>Speech &amp; Debate</h1><p>Round timers, speech timers, a flow sheet and practice topics.</p></section>
+    <div class="hub">
+      <a class="b sky" href="#/round/ld"><span class="blob"></span><span class="fmt">LD</span><h2>Lincoln-Douglas</h2><div class="foot"><span class="muted">6-3-7-3-4-6-3 · 4 min prep</span><span class="arrow"></span></div></a>
+      <a class="b peach" href="#/round/pf"><span class="blob"></span><span class="fmt">PF</span><h2>Public Forum</h2><div class="foot"><span class="muted">Crossfires · 3 min prep</span><span class="arrow"></span></div></a>
+      <a class="b lilac" href="#/round/policy"><span class="blob"></span><span class="fmt">CX</span><h2>Policy</h2><div class="foot"><span class="muted">8-3 / 5 · 8 min prep</span><span class="arrow"></span></div></a>
+      <a class="b forest w" href="#/congress"><span class="blob" style="background:#2E5440"></span><span class="fmt" style="color:#B9C9AE">CONGRESS</span><h2>Congress</h2><div class="foot"><span class="muted">Speech + questioning timer, precedence tracker, docket</span><span class="arrow"></span></div></a>
+      <a class="b butter w" href="#/speech"><span class="blob"></span><span class="fmt">SPEECH</span><h2>Speech events</h2><div class="foot"><span class="muted">Extemp, Impromptu, Oratory, Info, Interp · grace + hand signals</span><span class="arrow"></span></div></a>
+      <a class="b moss w" href="#/flow"><span class="blob"></span><span class="fmt">PRACTICE</span><h2>Flow sheet</h2><div class="foot"><span class="muted">Take notes column by column, saved on this device</span><span class="arrow"></span></div></a>
+      <a class="b w" href="#/topics"><span class="blob" style="background:var(--paper)"></span><span class="fmt">PRACTICE</span><h2>Practice topics</h2><div class="foot"><span class="muted">Resolutions, impromptu prompts, extemp questions</span><span class="arrow"></span></div></a>
+    </div>`;
+  app.querySelectorAll('.arrow:empty').forEach(a=>a.outerHTML=SITE.arrow);
+}
+
+/* ── round timer (LD / PF / Policy) ───────────────── */
+function round(key){
+  const F=FORMATS[key];if(!F)return hub();
+  const saved=store.get('round:'+key,null);
+  const S=saved||{idx:0,left:F.speeches.map(s=>s[3]),prep:[F.prep,F.prep],prepMin:F.prep/60,names:F.sides.slice()};
+  if(!S.names)S.names=F.sides.slice();
+  let run=null,last=0;  // run: 'speech' | 0 | 1 (prep side)
+  const save=()=>store.set('round:'+key,S);
+  const sideName=i=>i===2?'Both':E(S.names[i]);
+  app.innerHTML=`
+    <a class="back" href="#/">← Speech &amp; Debate</a>
+    <div class="top"><div><h1>${F.name}</h1><p class="sub">${F.note}${key==='ld'?' · <a href="/ldtimer/" style="text-decoration:underline">Classic LD Timer</a>':''}</p></div>
+      <div class="row"><button class="btn sm ghost" id="newround">New round</button></div></div>
+    <div class="rt">
+      <div class="clock" id="clock">
+        <div class="now"><span class="code" id="code"></span><span class="name" id="name"></span><span class="pchip" id="pchip" hidden>Prep</span></div>
+        <div class="digits" id="digits">0:00</div><div class="csub" id="csub"></div>
+        <div class="ctl"><button class="btn sm ghost" id="prev" aria-label="Previous speech">←</button><button class="btn go" id="go">Start</button><button class="btn sm ghost" id="reset">Reset</button><button class="btn sm ghost" id="next" aria-label="Next speech">→</button></div>
+        <div class="preps"><button class="prep sd0" id="prep0"><span>${sideName(0)} prep</span><b>0:00</b></button><button class="prep sd1" id="prep1"><span>${sideName(1)} prep</span><b>0:00</b></button></div>
+        <p class="small" style="text-align:center">Space: start/pause · ← →: speeches · A / B: prep</p>
+      </div>
+      <div class="panel" style="display:grid;gap:var(--gap)">
+        <div class="box"><h2>Round</h2><div class="list" id="list"></div></div>
+        <div class="box"><h2>Settings</h2>
+          <div class="names"><input id="n0" value="${E(S.names[0])}" aria-label="First side name" maxlength="20">${F.swap?'<button id="swap" title="Swap who speaks first">⇄</button>':'<span class="small">vs</span>'}<input id="n1" value="${E(S.names[1])}" aria-label="Second side name" maxlength="20"></div>
+          ${F.swap?'<p class="small">The left team speaks first. Use ⇄ after the coin flip.</p>':''}
+          <label class="setrow">Prep per side (minutes)<input id="pm" type="number" min="0" max="20" step="0.5" value="${S.prepMin}"></label>
+          <label class="check"><input type="checkbox" id="snd" ${store.get('sound',true)?'checked':''}> Beep at 30 seconds and at time</label>
+        </div>
+      </div>
+    </div>`;
+  const sp=()=>F.speeches[S.idx];
+  function draw(){
+    const s=sp(),side=s[2];
+    $('clock').className='clock sd'+(run===0||run===1?run:side);
+    $('code').textContent=run===0||run===1?S.names[run]:s[0];
+    $('name').textContent=run===0||run===1?'Prep time':(side===2?s[1]:S.names[side]+' · '+s[1]);
+    $('pchip').hidden=!(run===0||run===1);
+    const t=run===0||run===1?S.prep[run]:S.left[S.idx];
+    const d=$('digits');d.textContent=run===0||run===1?fmtTc(t):(t<0?fmtT(t):fmtTc(t));
+    d.className='digits'+(t<=0&&run==='speech'?' over':t<=0&&!run?' over':t<=30&&t>0?' warn':'');
+    $('csub').textContent=run==='speech'?'Speaking':run===0||run===1?'Prep running · speech clock paused':S.left[S.idx]<s[3]?'Paused':'Ready';
+    $('go').textContent=run?'Pause':'Start';
+    [0,1].forEach(i=>{const b=$('prep'+i);b.querySelector('b').textContent=fmtTc(S.prep[i]);b.classList.toggle('on',run===i);b.classList.toggle('out',S.prep[i]<=0)});
+    $('list').innerHTML=F.speeches.map((x,i)=>`<button class="sp sd${x[2]} ${i===S.idx?'cur':''} ${S.left[i]<=0||i<S.idx&&S.left[i]<x[3]?'done':''}" data-i="${i}"><code>${x[0]}</code><span>${x[2]===2?E(x[1]):sideName(x[2])+' · '+E(x[1])}</span><small>${S.left[i]===x[3]?fmtTc(x[3]):fmtT(S.left[i])}</small></button>`).join('');
+    $('prev').disabled=S.idx===0;$('next').disabled=S.idx===F.speeches.length-1;
+  }
+  function loop(){
+    const now=performance.now(),dt=(now-last)/1000;last=now;
+    if(run==='speech'){const b=S.left[S.idx];S.left[S.idx]-=dt;if(b>30&&S.left[S.idx]<=30)beep(1);if(b>0&&S.left[S.idx]<=0)beep(3)}
+    else if(run===0||run===1){const b=S.prep[run];S.prep[run]=Math.max(0,S.prep[run]-dt);if(b>0&&S.prep[run]<=0){beep(2);stop()}}
+    save();draw();
+  }
+  function start(what){run=what;last=performance.now();tick(loop);wakeLock(true);draw()}
+  function stop(){run=null;clearInterval(ticker);wakeLock(false);save();draw()}
+  $('go').onclick=()=>run?stop():start('speech');
+  $('reset').onclick=()=>{stop();S.left[S.idx]=sp()[3];save();draw()};
+  $('prev').onclick=()=>{stop();S.idx=Math.max(0,S.idx-1);save();draw()};
+  $('next').onclick=()=>{stop();S.idx=Math.min(F.speeches.length-1,S.idx+1);save();draw()};
+  [0,1].forEach(i=>$('prep'+i).onclick=()=>{if(run===i)return stop();if(S.prep[i]<=0)return;stop();start(i)});
+  $('list').onclick=e=>{const b=e.target.closest('[data-i]');if(!b)return;stop();S.idx=+b.dataset.i;save();draw()};
+  $('newround').onclick=e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to reset all clocks';setTimeout(()=>{delete e.target.dataset.armed;e.target.textContent='New round'},3000);return}
+    stop();S.idx=0;S.left=F.speeches.map(s=>s[3]);S.prep=[S.prepMin*60,S.prepMin*60];save();round(key)};
+  $('pm').onchange=()=>{const m=Math.max(0,Math.min(20,+$('pm').value||0));const d=m*60-S.prepMin*60;S.prepMin=m;S.prep=S.prep.map(p=>Math.max(0,p+d));save();draw()};
+  ['n0','n1'].forEach((id,i)=>$(id).oninput=()=>{S.names[i]=$(id).value.trim()||F.sides[i];save();draw();$('prep'+i).querySelector('span').textContent=S.names[i]+' prep'});
+  if($('swap'))$('swap').onclick=()=>{S.names.reverse();$('n0').value=S.names[0];$('n1').value=S.names[1];[0,1].forEach(i=>$('prep'+i).querySelector('span').textContent=S.names[i]+' prep');save();draw()};
+  $('snd').onchange=()=>store.set('sound',$('snd').checked);
+  keys=e=>{if(e.target.matches('input,textarea,select'))return;
+    if(e.code==='Space'){e.preventDefault();$('go').click()}else if(e.key==='ArrowRight')$('next').click();else if(e.key==='ArrowLeft')$('prev').click();
+    else if(/^[aA]$/.test(e.key))$('prep0').click();else if(/^[bB]$/.test(e.key))$('prep1').click()};
+  draw();
+}
+
+/* ── speech events ────────────────────────────────── */
+function speech(key){
+  if(!key||!EVENTS[key]){
+    app.innerHTML=`<a class="back" href="#/">← Speech &amp; Debate</a><div class="top"><div><h1>Speech events</h1><p class="sub">Pick an event. Every timer has a 30-second grace period and full-screen hand signals.</p></div></div>
+      <div class="hub">${Object.entries(EVENTS).map(([k,v],i)=>`<a class="b ${['butter','sky','peach','lilac','moss','','butter'][i]}" href="#/speech/${k}"><span class="blob"></span><span class="fmt">${E(v.name.toUpperCase())}</span><h2>${E(v.full)}</h2><div class="foot"><span class="muted">${E(v.note)}</span><span class="arrow"></span></div></a>`).join('')}</div>`;
+    app.querySelectorAll('.arrow:empty').forEach(a=>a.outerHTML=SITE.arrow);return;
+  }
+  const V=EVENTS[key];
+  const cfg=store.get('ev:'+key,{speak:V.speak||V.shared,prep:V.prep||0,grace:V.grace});
+  let phase=V.prep?'prep':V.shared?'prep':'speak';   // prep | speak
+  let left=V.shared?cfg.speak:phase==='prep'?cfg.prep:cfg.speak, run=false, last=0, used=0;
+  app.innerHTML=`
+    <a class="back" href="#/speech">← Speech events</a>
+    <div class="top"><div><h1>${E(V.name)}</h1><p class="sub">${E(V.full)} · ${E(V.note)}</p></div></div>
+    <div class="rt">
+      <div class="clock sd2" id="clock">
+        <div class="now"><span class="code" id="code"></span><span class="name" id="name"></span></div>
+        <div class="digits" id="digits"></div><div class="csub" id="csub"></div>
+        <div class="ctl"><button class="btn go" id="go">Start</button>${V.prep||V.shared?'<button class="btn sm ghost" id="phase">Start speech now</button>':''}<button class="btn sm ghost" id="reset">Reset</button><button class="btn sm ghost" id="sig">Hand signals ⛶</button></div>
+        <p class="small" style="text-align:center">Space: start/pause · F: hand signals</p>
+      </div>
+      <div class="box"><h2>Settings</h2>
+        ${V.prep?`<label class="setrow">Prep (minutes)<input id="cp" type="number" min="0" max="60" value="${cfg.prep/60}"></label>`:''}
+        <label class="setrow">${V.shared?'Total time':'Speech'} (minutes)<input id="cs" type="number" min="1" max="30" step="0.5" value="${cfg.speak/60}"></label>
+        <label class="setrow">Grace period (seconds)<input id="cg" type="number" min="0" max="120" step="5" value="${cfg.grace}"></label>
+        <label class="check"><input type="checkbox" id="snd" ${store.get('sound',true)?'checked':''}> Beep at each minute signal and at time</label>
+        <p class="small">Hand signals show whole minutes left, then “30”, then GRACE and STOP. Tap the full-screen card to close it.</p>
+      </div>
+    </div>`;
+  const total=()=>V.shared?cfg.speak:phase==='prep'?cfg.prep:cfg.speak;
+  function signalText(){
+    if(left>0){if(left<=30)return '30';return String(Math.ceil(left/60))}
+    return -left<=cfg.grace?'GRACE':'STOP';
+  }
+  function draw(){
+    const d=$('digits');
+    $('code').textContent=phase==='prep'?'Prep':'Speech';
+    $('name').textContent=V.shared?(phase==='prep'?'Clock keeps running into your speech':'Speaking · '+fmtTc(used)+' used on prep'):'';
+    d.textContent=left>=0?fmtTc(left):fmtT(left);
+    d.className='digits'+(left<0&&-left<=cfg.grace&&phase==='speak'?' grace':left<0?' over':left<=60?' warn':'');
+    $('csub').textContent=left<0&&phase==='speak'?(-left<=cfg.grace?'Grace period':'Over time'):run?(phase==='prep'?'Prepping':'Speaking'):'Ready';
+    $('go').textContent=run?'Pause':'Start';
+    if($('phase'))$('phase').hidden=phase!=='prep';
+    const sg=document.querySelector('.signal');if(sg){const t=signalText();sg.querySelector('b').textContent=t;sg.className='signal'+(t==='GRACE'?' grace':t==='STOP'?' over':'')}
+  }
+  function loop(){
+    const now=performance.now(),dt=(now-last)/1000;last=now;const b=left;left-=dt;if(phase==='prep'&&V.shared)used+=dt;
+    if(phase==='speak'){if(Math.ceil(b/60)!==Math.ceil(left/60)&&left>0)beep(1);if(b>30&&left<=30)beep(1);if(b>0&&left<=0)beep(2);if(b>-cfg.grace&&left<=-cfg.grace)beep(3)}
+    if(phase==='prep'&&left<=0){if(V.shared){phase='speak';beep(2)}else{beep(2);phase='speak';left=cfg.speak;stop()}}
+    draw();
+  }
+  function start(){run=true;last=performance.now();tick(loop);wakeLock(true);draw()}
+  function stop(){run=false;clearInterval(ticker);wakeLock(false);draw()}
+  function reset(){stop();phase=V.prep||V.shared?'prep':'speak';left=total();used=0;draw()}
+  $('go').onclick=()=>run?stop():start();
+  $('reset').onclick=reset;
+  if($('phase'))$('phase').onclick=()=>{if(V.shared){phase='speak'}else{phase='speak';left=cfg.speak}if(!run)start();draw()};
+  const openSig=()=>{if(document.querySelector('.signal'))return;const s=document.createElement('div');s.className='signal';s.innerHTML='<b></b><small>Tap to close</small>';s.onclick=()=>{s.remove();try{document.fullscreenElement&&document.exitFullscreen()}catch(e){}};document.body.append(s);try{s.requestFullscreen&&s.requestFullscreen().catch(()=>{})}catch(e){}draw()};
+  $('sig').onclick=openSig;
+  const upd=()=>{if($('cp'))cfg.prep=Math.max(0,+$('cp').value||0)*60;cfg.speak=Math.max(30,(+$('cs').value||1)*60);cfg.grace=Math.max(0,+$('cg').value||0);store.set('ev:'+key,cfg);if(!run)reset()};
+  ['cp','cs','cg'].forEach(id=>$(id)&&($(id).onchange=upd));
+  $('snd').onchange=()=>store.set('sound',$('snd').checked);
+  keys=e=>{if(e.target.matches('input,textarea,select'))return;if(e.code==='Space'){e.preventDefault();$('go').click()}else if(/^[fF]$/.test(e.key))openSig()};
+  reset();
+}
+
+/* ── congress ─────────────────────────────────────── */
+function congress(){
+  const C=store.get('congress',{people:[],bills:[],cur:0,log:[],order:0});
+  let mode=null,left=0,run=false,last=0,qLeft=0,phase='speech';
+  const save=()=>store.set('congress',C);
+  app.innerHTML=`
+    <a class="back" href="#/">← Speech &amp; Debate</a>
+    <div class="top"><div><h1>Congress</h1><p class="sub">Speech and questioning timer, precedence and recency, and the docket.</p></div></div>
+    <div class="cg">
+      <div style="display:grid;gap:var(--gap)">
+        <div class="clock sd2" id="clock">
+          <div class="now"><span class="code" id="code">Ready</span><span class="name" id="name">Pick a speech type</span></div>
+          <div class="digits" id="digits">3:00</div><div class="csub" id="csub"></div>
+          <div class="ctl"><button class="btn sm ghost" id="auth">Authorship / sponsorship<br><small>3:00 + 2:00 Q</small></button><button class="btn sm ghost" id="reg">Speech<br><small>3:00 + 1:00 Q</small></button></div>
+          <div class="ctl"><button class="btn go" id="go" disabled>Start</button><button class="btn sm ghost" id="toq" hidden>Start questioning</button><button class="btn sm ghost" id="reset">Reset</button></div>
+        </div>
+        <div class="box"><div class="row" style="justify-content:space-between"><h2>Docket</h2></div>
+          <div class="row"><input id="bill" placeholder="Add a bill or resolution" maxlength="120" style="flex:1"><button class="btn sm" id="addbill">Add</button></div>
+          <div class="docket" id="docket"></div>
+          <div><b style="font-size:13px">Speeches on this bill</b><div class="log" id="log"></div></div>
+        </div>
+      </div>
+      <div class="box"><div class="row" style="justify-content:space-between"><h2>Precedence</h2><button class="btn sm ghost" id="clear">Reset session</button></div>
+        <p class="small">Add everyone in the chamber. The highlighted row has priority: fewest speeches first, then whoever spoke longest ago. Tap Aff or Neg when someone gives a speech, Q when they ask a question.</p>
+        <div class="row"><textarea id="ppl" rows="2" placeholder="Names, one per line" style="flex:1;min-height:0"></textarea><button class="btn sm" id="addppl">Add</button></div>
+        <div style="overflow-x:auto"><table><thead><tr><th>Name</th><th>Sp.</th><th>Q</th><th>Last</th><th></th></tr></thead><tbody id="ptable"></tbody></table></div>
+      </div>
+    </div>`;
+  function drawClock(){
+    const d=$('digits');
+    $('code').textContent=mode?(phase==='speech'?'Speech':'Questioning'):'Ready';
+    $('name').textContent=mode?(mode==='auth'?'Authorship / sponsorship':'Speech'):'Pick a speech type';
+    d.textContent=left>=0?fmtTc(left):fmtT(left);
+    d.className='digits'+(left<0?' over':left<=30&&mode?' warn':'');
+    $('csub').textContent=left<0?'Over time':run?'Running':mode?'Paused':'';
+    $('go').disabled=!mode;$('go').textContent=run?'Pause':'Start';
+    $('toq').hidden=!(mode&&phase==='speech');
+  }
+  function loop(){const now=performance.now(),dt=(now-last)/1000;last=now;const b=left;left-=dt;if(b>30&&left<=30)beep(1);if(b>0&&left<=0)beep(2);drawClock()}
+  const start=()=>{run=true;last=performance.now();tick(loop);wakeLock(true);drawClock()};
+  const stop=()=>{run=false;clearInterval(ticker);wakeLock(false);drawClock()};
+  const setMode=m=>{stop();mode=m;phase='speech';left=180;qLeft=m==='auth'?120:60;drawClock()};
+  $('auth').onclick=()=>setMode('auth');$('reg').onclick=()=>setMode('reg');
+  $('go').onclick=()=>run?stop():start();
+  $('toq').onclick=()=>{phase='questioning';left=qLeft;start()};
+  $('reset').onclick=()=>{stop();if(mode){phase='speech';left=180}drawClock()};
+  function drawPeople(){
+    const ranked=C.people.map((p,i)=>({...p,i})).sort((a,b)=>a.sp-b.sp||(a.last||0)-(b.last||0)||a.i-b.i);
+    const nextI=ranked.length?ranked[0].i:-1;
+    $('ptable').innerHTML=C.people.map((p,i)=>`<tr class="${i===nextI?'next':''}"><td>${E(p.name)}</td><td class="n">${p.sp}</td><td class="n">${p.q}</td><td class="n">${p.last?'#'+p.last:'–'}</td>
+      <td style="white-space:nowrap"><button class="mini af" data-sp="${i}" data-side="Aff">Aff</button> <button class="mini ng" data-sp="${i}" data-side="Neg">Neg</button> <button class="mini" data-q="${i}">Q</button> <button class="mini" data-rm="${i}" aria-label="Remove">✕</button></td></tr>`).join('')||'<tr><td colspan="5" class="small">No one added yet.</td></tr>';
+  }
+  function drawDocket(){
+    $('docket').innerHTML=C.bills.map((b,i)=>`<div class="bill ${i===C.cur?'cur':''}"><span>${i+1}. ${E(b)}</span>${i===C.cur?'<small>On the floor</small>':`<button class="mini" data-cur="${i}">Bring up</button>`}<button class="mini" data-rmb="${i}" aria-label="Remove">✕</button></div>`).join('')||'<p class="small">No bills yet.</p>';
+    const L=C.log.filter(l=>l.bill===C.cur);
+    const nextSide=L.length?(L[L.length-1].side==='Aff'?'Neg':'Aff'):'Aff (authorship)';
+    $('log').innerHTML=(L.map((l,i)=>`<span>${i+1}. ${E(l.name)} · ${l.side}</span>`).join('')||'<span>No speeches yet.</span>')+`<span style="color:var(--ink)"><b>Next:</b> ${nextSide}</span>`;
+  }
+  $('addppl').onclick=()=>{$('ppl').value.split(/\n|,/).map(s=>s.trim()).filter(Boolean).forEach(n=>C.people.push({name:n.slice(0,40),sp:0,q:0,last:0}));$('ppl').value='';save();drawPeople()};
+  $('addbill').onclick=()=>{const v=$('bill').value.trim();if(!v)return;C.bills.push(v.slice(0,120));$('bill').value='';save();drawDocket()};
+  $('bill').onkeydown=e=>{if(e.key==='Enter')$('addbill').click()};
+  $('ptable').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+    if(b.dataset.sp!==undefined){const p=C.people[+b.dataset.sp];p.sp++;p.last=++C.order;C.log.push({bill:C.cur,name:p.name,side:b.dataset.side});}
+    if(b.dataset.q!==undefined)C.people[+b.dataset.q].q++;
+    if(b.dataset.rm!==undefined)C.people.splice(+b.dataset.rm,1);
+    save();drawPeople();drawDocket()};
+  $('docket').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.cur!==undefined)C.cur=+b.dataset.cur;if(b.dataset.rmb!==undefined){const i=+b.dataset.rmb;C.bills.splice(i,1);C.log=C.log.filter(l=>l.bill!==i).map(l=>({...l,bill:l.bill>i?l.bill-1:l.bill}));if(C.cur>=C.bills.length)C.cur=Math.max(0,C.bills.length-1)}save();drawDocket()};
+  $('clear').onclick=e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to clear everything';setTimeout(()=>{delete e.target.dataset.armed;e.target.textContent='Reset session'},3000);return}
+    Object.assign(C,{people:[],bills:[],cur:0,log:[],order:0});save();congress()};
+  keys=e=>{if(e.target.matches('input,textarea,select'))return;if(e.code==='Space'&&mode){e.preventDefault();$('go').click()}};
+  drawClock();drawPeople();drawDocket();
+}
+
+/* ── flow sheet ───────────────────────────────────── */
+function flow(){
+  const sheets=store.get('flows',[]);
+  let curId=store.get('flowCur',null);
+  if(!sheets.find(s=>s.id===curId))curId=null;
+  const make=fmt=>{const F=FORMATS[fmt];const s={id:Date.now().toString(36),fmt,name:F.short+' round · '+new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'}),cols:{}};sheets.unshift(s);curId=s.id;persist();return s};
+  const persist=()=>{store.set('flows',sheets.slice(0,30));store.set('flowCur',curId)};
+  let S=sheets.find(s=>s.id===curId)||make('ld');
+  function draw(){
+    const F=FORMATS[S.fmt];
+    const cols=F.speeches.filter(x=>x[2]!==2&&!/^CX$/.test(x[0]));
+    app.innerHTML=`
+      <a class="back" href="#/">← Speech &amp; Debate</a>
+      <div class="top"><div><h1>Flow</h1><p class="sub">Saved on this device as you type.</p></div></div>
+      <div class="flowbar">
+        <select id="pick" aria-label="Saved flows">${sheets.map(s=>`<option value="${s.id}"${s.id===S.id?' selected':''}>${E(s.name)}</option>`).join('')}</select>
+        <input id="fname" value="${E(S.name)}" maxlength="60" aria-label="Flow name" style="flex:1;min-width:160px">
+        <div class="seg">${Object.entries(FORMATS).map(([k,v])=>`<button data-new="${k}">+ ${v.short}</button>`).join('')}</div>
+        <button class="btn sm ghost" id="dl">Download</button><button class="btn sm ghost" id="del">Delete</button>
+      </div>
+      <div class="flow">${cols.map(c=>`<div class="col sd${c[2]}"><h3><span>${E(c[0])}</span><small class="small">${E(F.sides[c[2]])}</small></h3><textarea data-c="${E(c[0])}" placeholder="${E(c[1])}">${E(S.cols[c[0]]||'')}</textarea></div>`).join('')}</div>`;
+    app.querySelectorAll('[data-c]').forEach(t=>t.oninput=()=>{S.cols[t.dataset.c]=t.value;persist()});
+    $('fname').oninput=()=>{S.name=$('fname').value||'Untitled';persist();const o=$('pick').selectedOptions[0];if(o)o.textContent=S.name};
+    $('pick').onchange=()=>{S=sheets.find(s=>s.id===$('pick').value);curId=S.id;persist();draw()};
+    app.querySelectorAll('[data-new]').forEach(b=>b.onclick=()=>{S=make(b.dataset.new);draw()});
+    $('dl').onclick=()=>{const txt=S.name+'\n\n'+cols.map(c=>`== ${c[0]} (${F.sides[c[2]]}) ==\n${S.cols[c[0]]||''}`).join('\n\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'text/plain'}));a.download=S.name.replace(/[^\w\- ]+/g,'')+'.txt';a.click()};
+    $('del').onclick=e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again';setTimeout(()=>{delete e.target.dataset.armed;e.target.textContent='Delete'},3000);return}
+      sheets.splice(sheets.indexOf(S),1);S=sheets[0]||make('ld');curId=S.id;persist();draw()};
+  }
+  keys=null;draw();
+}
+
+/* ── practice topics ──────────────────────────────── */
+const TOPICS={
+  ld:['Resolved: Civil disobedience in a democracy is morally justified.','Resolved: The right to privacy ought to be valued above national security.','Resolved: A just government ought to provide a universal basic income.','Resolved: Individuals have a moral obligation to assist people in need.','Resolved: The illegal is never moral.','Resolved: In a democracy, voting ought to be compulsory.','Resolved: Developing countries ought to prioritize environmental protection over resource extraction.','Resolved: Plea bargaining ought to be abolished.','Resolved: Jury nullification is a legitimate check on government.','Resolved: States ought to eliminate their nuclear arsenals.','Resolved: The pursuit of scientific knowledge ought to be limited by ethical concerns.','Resolved: A just society ought to guarantee housing to all its members.','Resolved: Public colleges and universities ought not restrict any constitutionally protected speech.','Resolved: The death penalty is unjust.','Resolved: Wealthy nations have a moral obligation to accept refugees.'],
+  pf:['Resolved: The United States should ban the sale of single-use plastics.','Resolved: Social media platforms do more harm than good for teenagers.','Resolved: Schools should ban smartphones during the school day.','Resolved: The benefits of artificial intelligence in education outweigh the harms.','Resolved: The United States should adopt a four-day school week.','Resolved: High schools should require a personal finance course to graduate.','Resolved: The benefits of remote work outweigh the harms.','Resolved: The United States should significantly expand nuclear power.','Resolved: College athletes should be paid as employees.','Resolved: The United States should lower the voting age to 16.','Resolved: Standardized testing does more harm than good.','Resolved: Cities should make public transit free.','Resolved: The benefits of space exploration outweigh the costs.','Resolved: Homework should be abolished in high school.','Resolved: The United States should implement a carbon tax.'],
+  policy:['Resolved: The United States federal government should substantially increase its investment in high-speed rail.','Resolved: The United States federal government should substantially reform its criminal justice system.','Resolved: The United States federal government should substantially increase its protection of water resources.','Resolved: The United States federal government should substantially increase fiscal redistribution.','Resolved: The United States federal government should substantially increase its exploration and development of the oceans.'],
+  impromptu:['“The only way out is through.”','A broken umbrella','“Comparison is the thief of joy.”','Silence','A map with no names on it','“Not all those who wander are lost.”','The last page of a book','Patience','“Fall seven times, stand up eight.”','A key with no lock','Homework','“What we do in life echoes in eternity.”','Courage','A paper airplane','“Simplicity is the ultimate sophistication.”','Second chances','An empty classroom','“You miss 100% of the shots you don’t take.”','Ladders','Shadows','“The best way to predict the future is to create it.”','A compass','Trust','A traffic light','“Be the change you wish to see.”','Rainy days','A blank canvas','Bridges','“Done is better than perfect.”','The snooze button'],
+  extemp:['Should the U.S. raise the federal minimum wage?','How should schools respond to AI tools like chatbots?','Is the U.S. doing enough to prepare for extreme weather?','Should social media companies be held liable for harmful content?','What is the biggest challenge facing public education today?','Should college be tuition-free at public universities?','How can cities reduce homelessness?','Is space exploration worth the cost?','What should be done about the youth mental health crisis?','Should the U.S. invest more in nuclear energy?','How should governments regulate artificial intelligence?','Is the electoral college still the right system for the U.S.?','How can the U.S. make housing more affordable?','Should voting be made easier, and how?','What role should the U.S. play in global climate agreements?','Should the school day start later for teenagers?','Is remote work good for the economy?','How should the U.S. address rising healthcare costs?','Should there be term limits for members of Congress?','What can be done to reduce food waste?']
+};
+function topics(kind){
+  kind=TOPICS[kind]?kind:'ld';
+  const names={ld:'LD resolution',pf:'PF resolution',policy:'Policy resolution',impromptu:'Impromptu prompt',extemp:'Extemp question'};
+  let last=-1;
+  const pick=()=>{const L=TOPICS[kind];let i;do{i=Math.floor(Math.random()*L.length)}while(L.length>1&&i===last);last=i;return L[i]};
+  app.innerHTML=`
+    <a class="back" href="#/">← Speech &amp; Debate</a>
+    <div class="top"><div><h1>Practice topics</h1><p class="sub">Practice prompts for drills. Not this year's official topics.</p></div></div>
+    <div class="seg" style="margin-bottom:var(--gap)">${Object.entries(names).map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===kind}">${v.replace(/ (resolution|prompt|question)$/,'')}</button>`).join('')}</div>
+    <div class="prompt"><span class="blob"></span><span class="lbl">${names[kind]}</span><q id="q"></q>
+      <div class="row"><button class="btn" style="background:var(--forest-ink);color:var(--ink)" id="again">New ${names[kind].split(' ').pop()}</button>
+      ${kind==='impromptu'?'<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/speech/impromptu">Start Impromptu timer</a>':kind==='extemp'?'<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/speech/extemp">Start Extemp timer</a>':`<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/round/${kind}">Open ${kind.toUpperCase()==='POLICY'?'Policy':kind.toUpperCase()} timer</a>`}</div></div>`;
+  const show=()=>{$('q').textContent=pick()};show();
+  $('again').onclick=show;
+  app.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{location.hash='#/topics/'+b.dataset.k});
+  keys=null;
+}
+
+/* ── router ───────────────────────────────────────── */
+let keys=null;
+document.addEventListener('keydown',e=>{if(keys)keys(e)});
+function route(){
+  clearInterval(ticker);wakeLock(false);keys=null;document.querySelector('.signal')?.remove();
+  const p=location.hash.replace(/^#\/?/,'').split('/');window.scrollTo(0,0);
+  if(p[0]==='round')return round(p[1]);
+  if(p[0]==='speech')return speech(p[1]);
+  if(p[0]==='congress')return congress();
+  if(p[0]==='flow')return flow();
+  if(p[0]==='topics')return topics(p[1]);
+  return hub();
+}
+addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
