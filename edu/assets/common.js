@@ -19,21 +19,22 @@
   if (main) main.prepend(bar);
 
   var E = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
-  var me = { uid: null, name: null, ready: null };
+  var me = { uid: null, name: null, username: null, ready: null };
   me.ready = (async function () {
     if (!SB) return me;
     var r = await SB.auth.getSession();
     if (r.data.session) {
       me.uid = r.data.session.user.id;
-      var p = await SB.from('profiles').select('display_name').eq('user_id', me.uid).maybeSingle();
+      var p = await SB.from('profiles').select('display_name,username').eq('user_id', me.uid).maybeSingle();
       me.name = p.data ? p.data.display_name : null;
+      me.username = p.data ? p.data.username : null;
       if (me.name && window.SITE && SITE.setName) SITE.setName(me.name);
     }
     var a = document.getElementById('gacct');
     if (a && me.uid) {
-      a.textContent = me.name ? 'Playing as ' + me.name : 'Pick a display name';
-      a.href = '#';
-      a.onclick = function (e) { e.preventDefault(); if (!me.name) askName(); };
+      a.textContent = !me.name ? 'Pick a display name' : me.username ? 'Playing as ' + me.name : 'Pick a username';
+      a.href = me.username ? '/account/' : '#';
+      a.onclick = function (e) { if (me.username) return; e.preventDefault(); askName(); };
     }
     return me;
   })();
@@ -60,20 +61,38 @@
     return m;
   }
 
+  // New members pick a username (permanent) and a display name; older members only add the username.
   async function askName() {
     return new Promise(function (resolve) {
-      var m = modal('<h2>Pick a display name</h2><p>It shows on leaderboards. Your email stays private. It\'s the same name you use on the forum and Study.</p>' +
-        '<input maxlength="30" placeholder="e.g. Kale E."><div class="msg" hidden></div><div class="row" style="justify-content:flex-end"><button class="btn ghost" data-close>Cancel</button><button class="btn" data-save>Save</button></div>');
-      var input = m.querySelector('input'); input.focus();
+      var needName = !me.name;
+      var m = modal('<h2>' + (needName ? 'Pick a name' : 'Pick a username') + '</h2><p>It shows on leaderboards. Your email stays private. It\'s the same name you use on the forum and Study.</p>' +
+        '<label class="cm-lbl">Username <small>can\'t be changed later</small><input data-u maxlength="21" placeholder="e.g. kale_e" autocapitalize="off" spellcheck="false"></label>' +
+        (needName ? '<label class="cm-lbl">Display name <small>you can change this anytime</small><input data-n maxlength="30" placeholder="e.g. Kale E."></label>' : '') +
+        '<div class="msg" hidden></div><div class="row" style="justify-content:flex-end"><button class="btn ghost" data-close>Cancel</button><button class="btn" data-save>Save</button></div>');
+      m.querySelector('input').focus();
       m.querySelector('[data-save]').onclick = async function () {
-        var n = input.value.trim(), msg = m.querySelector('.msg');
-        if (n.length < 2) { msg.textContent = 'At least 2 characters.'; msg.hidden = false; return; }
-        var r = await SB.from('profiles').insert({ display_name: n });
-        if (r.error) { msg.textContent = r.error.code === '23505' ? 'That name is taken. Try another.' : r.error.message; msg.hidden = false; return; }
-        me.name = n; if (window.SITE && SITE.setName) SITE.setName(n); var a = document.getElementById('gacct'); if (a) a.textContent = 'Playing as ' + n; m.remove(); resolve(true);
+        var msg = m.querySelector('.msg'), fail = function (t) { msg.textContent = t; msg.hidden = false; };
+        var u = m.querySelector('[data-u]').value.trim().replace(/^@/, '').toLowerCase();
+        var n = needName ? m.querySelector('[data-n]').value.trim() : me.name;
+        if (!/^[a-z0-9_]{3,20}$/.test(u)) return fail('Usernames are 3 to 20 letters, numbers or _ (no spaces).');
+        if (n.length < 2 || n.length > 30) return fail('Display names are 2 to 30 characters.');
+        var r = needName ? await SB.from('profiles').insert({ display_name: n, username: u })
+          : await SB.from('profiles').update({ username: u }).eq('user_id', me.uid);
+        if (r.error) return fail(r.error.code === '23505' ? (/username/.test(r.error.message) ? 'That username is taken.' : 'That display name is taken.') + ' Try another.' : r.error.message);
+        me.name = n; me.username = u;
+        if (window.SITE && SITE.setName) SITE.setName(n);
+        var a = document.getElementById('gacct'); if (a) { a.textContent = 'Playing as ' + n; a.href = '/account/'; }
+        m.remove(); resolve(true);
       };
       new MutationObserver(function (_, o) { if (!m.isConnected) { o.disconnect(); resolve(!!me.name); } }).observe(document.body, { childList: true });
     });
+  }
+
+  // Name with Kale's color and tags (same look as the forum).
+  function nameHTML(x) {
+    var c = /^#[0-9a-fA-F]{6}$/.test(x.color || '') ? ' style="--nc:' + x.color + '"' : '';
+    return '<span class="cm-name"' + c + (x.username ? ' title="@' + E(x.username) + '"' : '') + '>' + E(x.name) + '</span>' +
+      (x.tags || []).map(function (t) { return ' <span class="cm-tag">' + E(t) + '</span>'; }).join('');
   }
 
   // Save a score. Returns a short message for the game-over screen.
@@ -96,10 +115,10 @@
   async function board(el, game, period) {
     el.innerHTML = '<div class="lb"><span class="empty">Loading…</span></div>';
     if (!SB) { el.innerHTML = '<div class="lb"><span class="empty">Leaderboards are offline.</span></div>'; return; }
-    var r = await SB.rpc('game_leaderboard', { g: game, period: period || 'week', lim: 10 });
+    var r = await SB.rpc('game_board', { g: game, period: period || 'week', lim: 10 });
     var rows = r.data || [];
     el.innerHTML = '<div class="lb">' + (rows.map(function (x) {
-      return '<div class="' + (x.mine ? 'me' : '') + '"><i>' + x.rank + '</i><span>' + E(x.name) + '</span><b>' + fmt(game, x.score) + '</b></div>';
+      return '<div class="' + (x.mine ? 'me' : '') + '"><i>' + x.rank + '</i><span>' + nameHTML(x) + '</span><b>' + fmt(game, x.score) + '</b></div>';
     }).join('') || '<span class="empty">No scores yet. Be the first!</span>') + '</div>';
   }
   function boardBox(container, game) {

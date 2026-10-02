@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261004">
+<link rel="stylesheet" href="/assets/site.css?v=20261005">
 <style>
 main.pg{flex:1;padding-block:16px 64px}
 .ahead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding:20px 0 14px}
@@ -60,6 +60,8 @@ th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
 td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
 .tablewrap{overflow-x:auto}
 .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--paper)}
+.swatch{width:30px;height:30px;border-radius:50%;border:0;cursor:pointer;box-shadow:inset 0 0 0 2px #ffffff60}
+.swatch[aria-pressed=true]{outline:3px solid var(--ink);outline-offset:2px}
 .pill.vip{background:var(--forest);color:var(--forest-ink)}
 .pill.used{background:#e3e6df;color:#4a5048}
 .pill.live{background:#d7ecc4;color:#24502f}
@@ -195,10 +197,11 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
           <li><b>Give access</b> makes a personal link that signs them in every time, on any device. Send it to them; they can bookmark it. <b>Turn off</b> stops it. Making a new one turns off the old one.</li>
           <li><b>One-time link</b> works once and expires in about an hour.</li>
           <li>Once they're in, they can also set a password on the Join page and sign in with email + password.</li>
+          <li><b>Style</b> sets the color of someone's name and up to 5 tags (like <i>Debate</i> or <i>Mod</i>). Everyone sees them on the forum, Study and leaderboards. Usernames can't be changed by members; you can fix one in Supabase if you have to.</li>
         </ul>
         <div class="row"><input id="pfind" placeholder="Search email or name" style="flex:1;min-width:180px"><label class="row help"><input type="checkbox" id="punv" style="width:auto"> Only unverified</label></div>
         <div id="plink"></div>
-        <div class="tablewrap"><table><thead><tr><th>Email</th><th>Name</th><th>Joined</th><th>Status</th><th>Last sign-in</th><th>Personal link</th><th></th></tr></thead><tbody id="ptable"><tr><td colspan="7" class="muted">Loading…</td></tr></tbody></table></div>
+        <div class="tablewrap"><table><thead><tr><th>Email</th><th>Name</th><th>Look</th><th>Joined</th><th>Status</th><th>Last sign-in</th><th>Personal link</th><th></th></tr></thead><tbody id="ptable"><tr><td colspan="8" class="muted">Loading…</td></tr></tbody></table></div>
       </div>
     </div>
 
@@ -263,7 +266,7 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
 <script src="/lib/vault-md.js?v=20261002"></script>
-<script src="/assets/site.js?v=20261004"></script>
+<script src="/assets/site.js?v=20261005"></script>
 <script>
 const $=id=>document.getElementById(id);
 const E=VaultMD.esc;
@@ -501,17 +504,43 @@ let PEOPLE=[];
 async function peopleCall(body){const {data,error}=await SB.functions.invoke('admin-users',{body});if(error){let m=error.message;try{const j=await error.context.json();m=j.error||m}catch(e){}return{error:m}}return data}
 async function loadPeople(){
   const r=await peopleCall({action:'list'});
-  if(r.error){$('ptable').innerHTML=`<tr><td colspan="7"><div class="msg err">${E(r.error)}</div></td></tr>`;return}
+  if(r.error){$('ptable').innerHTML=`<tr><td colspan="8"><div class="msg err">${E(r.error)}</div></td></tr>`;return}
   PEOPLE=r.users.sort((a,b)=>(b.created_at||'').localeCompare(a.created_at||''));drawPeople();
 }
 function drawPeople(){
   const q=$('pfind').value.trim().toLowerCase(),unv=$('punv').checked;
-  const rows=PEOPLE.filter(u=>(!q||(u.email||'').toLowerCase().includes(q)||(u.name||'').toLowerCase().includes(q))&&(!unv||!u.confirmed));
-  $('ptable').innerHTML=rows.map(u=>`<tr><td style="overflow-wrap:anywhere">${E(u.email||'')}</td><td>${E(u.name||'—')}</td><td>${fmtDate(u.created_at)}</td>
+  const rows=PEOPLE.filter(u=>(!q||(u.email||'').toLowerCase().includes(q)||(u.name||'').toLowerCase().includes(q)||(u.username||'').includes(q.replace(/^@/,'')))&&(!unv||!u.confirmed));
+  $('ptable').innerHTML=rows.map(u=>`<tr><td style="overflow-wrap:anywhere">${E(u.email||'')}</td><td>${E(u.name||'—')}${u.username?`<br><span class="help">@${E(u.username)}</span>`:''}</td>
+    <td>${u.name?`${styledName(u)} <button class="btn sm ghost" data-style="${u.id}" style="padding:5px 10px;font-size:12px">Style</button>`:'<span class="help">No profile yet</span>'}</td><td>${fmtDate(u.created_at)}</td>
     <td>${u.confirmed?'<span class="pill live">Verified</span>':'<span class="pill used">Not verified</span>'}${u.study?' <span class="pill">Study</span>':''}</td>
     <td>${u.last_sign_in_at?fmtDate(u.last_sign_in_at):'Never'}</td>
     <td>${u.key?`<span class="pill live">On</span> <span class="help">${u.key.uses?'used '+u.key.uses+'×':'not used yet'}</span>`:'<span class="help">Off</span>'}</td>
-    <td style="white-space:nowrap"><button class="btn sm" data-key="${u.id}" data-email="${E(u.email||'')}">${u.key?'New link':'Give access'}</button>${u.key?` <button class="btn sm danger" data-revoke="${u.id}">Turn off</button>`:''} <button class="btn sm ghost" data-link="${E(u.email||'')}">One-time link</button></td></tr>`).join('')||'<tr><td colspan="7" class="muted">No one matches.</td></tr>';
+    <td style="white-space:nowrap"><button class="btn sm" data-key="${u.id}" data-email="${E(u.email||'')}">${u.key?'New link':'Give access'}</button>${u.key?` <button class="btn sm danger" data-revoke="${u.id}">Turn off</button>`:''} <button class="btn sm ghost" data-link="${E(u.email||'')}">One-time link</button></td></tr>`).join('')||'<tr><td colspan="8" class="muted">No one matches.</td></tr>';
+}
+const styledName=u=>`<span class="cm-name"${/^#[0-9a-fA-F]{6}$/.test(u.color||'')?` style="--nc:${u.color}"`:''}>${E(u.name)}</span>${(u.tags||[]).map(t=>` <span class="cm-tag">${E(t)}</span>`).join('')}`;
+const NAME_COLORS=['#D12C2C','#C2410C','#B7791F','#1F7A3A','#0E7490','#2451C9','#6D3FD1','#B8327A'];
+function styleEditor(u){
+  let color=u.color||'';
+  $('plink').innerHTML=`<div class="box" style="background:var(--paper)"><b>Style for ${E(u.name)}${u.username?' (@'+E(u.username)+')':''}</b>
+    <div class="help">Name color</div>
+    <div class="row" id="stc">${NAME_COLORS.map(c=>`<button class="swatch" data-c="${c}" aria-label="${c}" style="background:${c}"></button>`).join('')}
+      <label class="row help">Custom <input type="color" id="stcustom" value="${color||'#2451C9'}" style="width:44px;height:34px;padding:2px"></label>
+      <button class="btn sm ghost" data-c="">No color</button></div>
+    <label class="help" style="display:grid;gap:6px">Tags, separated by commas (up to 5)<input id="sttags" value="${E((u.tags||[]).join(', '))}" placeholder="e.g. Debate, Mod, Class of 2027"></label>
+    <div class="help">Preview: <span id="stprev" style="font-size:16px"></span></div>
+    <div class="row"><button class="btn sm" id="stsave">Save style</button><button class="btn sm ghost" id="stcancel">Close</button></div><div id="stmsg"></div></div>`;
+  const tags=()=>$('sttags').value.split(',').map(t=>t.trim()).filter(Boolean).slice(0,5).map(t=>t.slice(0,20));
+  const prev=()=>{$('stprev').innerHTML=styledName({name:u.name,color,tags:tags()});
+    document.querySelectorAll('#stc [data-c]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===color))};
+  $('stc').onclick=e=>{const b=e.target.closest('[data-c]');if(!b)return;color=b.dataset.c;prev()};
+  $('stcustom').oninput=e=>{color=e.target.value;prev()};
+  $('sttags').oninput=prev;prev();
+  $('stcancel').onclick=()=>$('plink').innerHTML='';
+  $('stsave').onclick=async()=>{$('stsave').disabled=true;
+    const {error}=await SB.rpc('admin_set_style',{uid:u.id,color:color||'',tg:tags()});$('stsave').disabled=false;
+    if(error){$('stmsg').innerHTML=`<div class="msg err">${E(error.message)}</div>`;return}
+    u.color=color||null;u.tags=tags();drawPeople();$('stmsg').innerHTML='<div class="msg ok">Saved. It shows everywhere right away.</div>'};
+  $('plink').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 $('pfind').addEventListener('input',drawPeople);$('punv').addEventListener('change',drawPeople);
 function showLink(title,link,note){
@@ -521,6 +550,7 @@ function showLink(title,link,note){
   $('plinkv').onclick=()=>$('plinkv').select();$('plink').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 $('ptable').addEventListener('click',async e=>{
+  const st=e.target.closest('[data-style]');if(st){styleEditor(PEOPLE.find(u=>u.id===st.dataset.style));return}
   const k=e.target.closest('[data-key]');
   if(k){const had=k.textContent==='New link';if(had&&!confirmBtn(k,'Old link stops working. Click again'))return;
     k.disabled=true;const r=await peopleCall({action:'key',user_id:k.dataset.key});k.disabled=false;
