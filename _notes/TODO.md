@@ -32,4 +32,5 @@ Last updated: Oct 2, 2026. Folders starting with `_` aren't published, so this n
 - Leaderboard scores come from the player's browser, so they can't be made cheat-proof. Impossible scores are blocked, and the Daily Word allows one result per day.
 - Study's answer filter only catches obvious answer lists. The Report button and admin removal are the real safeguard.
 - "Not secure" showing on some of Kale's Chrome profiles is local browser state. The site's certificate is valid.
-- Games source: `_edu-src/` (`.page` files). Run `python3 _edu-src/build.py` to rebuild `edu/`.
+- Games source: `_edu-src/` (`.page` files). Run `python3 _edu-src/build.py` to rebuild `edu/` (it also re-runs `_tools/meta.py`).
+- Link previews and icon: `_tools/meta.py` adds them to every page. Re-run it after adding a new page.
