@@ -31,13 +31,15 @@ main{flex:1;padding-block:8px 48px}
 .links a{padding:8px 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--ink2);transition:background .2s,color .2s}
 .links a:hover{color:var(--ink)}
 .links a[aria-current=page]{background:var(--ink);color:#fff}
-.navcta{padding:10px 16px;border-radius:999px;background:var(--forest);color:var(--forest-ink);font-size:14px;font-weight:600}
+.navcta{padding:10px 16px;border-radius:999px;background:var(--forest);color:var(--forest-ink);font-size:14px;font-weight:600;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.links .mob{display:none}
 .menubtn{display:none;width:44px;height:44px;border-radius:999px;background:var(--card);border:0;font-size:20px;cursor:pointer}
 @media (max-width:820px){
   .links,.navcta{display:none}
   .menubtn{display:grid;place-items:center}
   .nav.open .links{display:flex;flex-direction:column;position:absolute;left:16px;right:16px;top:68px;border-radius:24px;padding:8px;box-shadow:0 20px 50px #14161322}
   .nav.open .links a{padding:14px 16px;font-size:17px}
+  .nav.open .links .mob{display:block}
 }
 
 /* ── blocks ── */

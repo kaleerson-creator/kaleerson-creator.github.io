@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261003">
+<link rel="stylesheet" href="/assets/site.css?v=20261003b">
 <style>
 :root{--bg:var(--paper);--bg2:var(--paper);--red:#b42318;--red-bg:#fef3f2;--green:#24502f;--green-bg:#d7ecc4;--sans:var(--body);--serif:var(--display)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -136,20 +136,13 @@ input[type=email]:focus{border-color:var(--ink)}
       <div id="pmsg" class="msg ok" hidden>Saved.</div>
       <div class="row"><button class="btn ghost" id="out">Sign out</button></div>
     </div>
-    <div class="card" style="margin-top:16px">
-      <b>Password (optional)</b>
-      <p class="note">Set one so you can sign in with your email and password, without waiting for an email. Handy if your school email blocks the sign-in link.</p>
-      <input id="newpw" type="password" autocomplete="new-password" placeholder="At least 8 characters">
-      <div class="row"><button class="btn ghost" id="setpw">Save password</button></div>
-      <div id="pwmsg" class="msg" hidden></div>
-    </div>
   </section>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
-<script src="/assets/site.js?v=20261003c"></script>
+<script src="/assets/site.js?v=20261003d"></script>
 <script>
 const $=id=>document.getElementById(id);
 const views=['v-off','v-form','v-key','v-wait','v-sent','v-in'];
@@ -168,7 +161,7 @@ async function showMember(session){
   }catch(e){}
   const {data}=await SB.from('members').select('email_opt_in').eq('id',session.user.id).maybeSingle();
   $('pref').checked=data?data.email_opt_in:true;
-  if(next){location.replace(next)}
+  location.replace(next||'/account/');
 }
 
 async function sendLink(email){
@@ -218,7 +211,7 @@ if(!window.SB){view('v-off')}else if(keyMatch){
     const {error}=await SB.from('members').update({email_opt_in:e.target.checked}).eq('id',data.session.user.id);
     const m=$('pmsg');m.hidden=false;m.className='msg '+(error?'err':'ok');m.textContent=error?'Could not save. Try again.':'Saved.';setTimeout(()=>m.hidden=true,1800);
   });
-  $('out').addEventListener('click',()=>SB.auth.signOut());
+  $('out').addEventListener('click',()=>{SITE.setName&&SITE.setName(null);SB.auth.signOut()});
   // Ask Kale to let me in: make a request, show the code, poll until approved.
   let waitTimer=null;
   const stopWait=()=>{clearInterval(waitTimer);waitTimer=null;try{sessionStorage.removeItem('login_req')}catch(e){}};
@@ -248,13 +241,6 @@ if(!window.SB){view('v-off')}else if(keyMatch){
   try{const saved=JSON.parse(sessionStorage.getItem('login_req')||'null');if(saved&&saved.id)SB.auth.getSession().then(({data})=>{if(!data.session)waitFor(saved);else sessionStorage.removeItem('login_req')})}catch(e){}
   $('pwtoggle').addEventListener('click',()=>{pwMode=!pwMode;$('pwrap').hidden=!pwMode;$('pw').required=pwMode;
     $('send').textContent=pwMode?'Sign in':'Email me a sign-in link';$('pwtoggle').textContent=pwMode?'Email me a link instead':'I have a password';$('ferr').hidden=true;if(pwMode)$('pw').focus()});
-  $('setpw').addEventListener('click',async()=>{
-    const pw=$('newpw').value,m=$('pwmsg');m.hidden=false;
-    if(pw.length<8){m.className='msg err';m.textContent='Use at least 8 characters.';return}
-    $('setpw').disabled=true;const {error}=await SB.auth.updateUser({password:pw});$('setpw').disabled=false;
-    m.className='msg '+(error?'err':'ok');m.textContent=error?(/weak|short/i.test(error.message)?'Pick a stronger password.':error.message):'Saved. You can now sign in with your email and this password.';
-    if(!error)$('newpw').value='';
-  });
 }
 </script>
 </body>

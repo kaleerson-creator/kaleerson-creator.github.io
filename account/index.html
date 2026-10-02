@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Account · Kale Erson</title>
+<!-- meta -->
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<meta name="theme-color" content="#EEF0EA">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Account · Kale Erson">
+<meta property="og:description" content="Your kaleerson.com account.">
+<meta property="og:url" content="https://kaleerson.com/account/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Your kaleerson.com account.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261003b">
+<style>
+.phead .blob{background:var(--butter);width:clamp(90px,14vw,170px);top:30px}
+.acc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);align-items:start}
+@media (max-width:820px){.acc{grid-template-columns:1fr}}
+.box{background:var(--card);border-radius:24px;padding:22px;display:grid;gap:12px;min-width:0}
+.box h2{font-size:24px;letter-spacing:-.03em}
+.box p{color:var(--ink2);font-size:15px}
+input{font:inherit;font-size:16px;padding:11px 13px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);width:100%}
+input:focus{outline:2px solid var(--ink);outline-offset:1px}
+.btn.sm{padding:9px 14px;font-size:14px}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn:disabled{opacity:.5}
+.msg{padding:10px 14px;border-radius:14px;font-size:14px}
+.msg.ok{background:#d7ecc4;color:#24502f}.msg.err{background:#fef3f2;color:#b42318}
+.access{display:grid;gap:8px}
+.access div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-radius:14px;background:var(--paper);font-weight:600}
+.access a{text-decoration:underline;text-underline-offset:3px;font-weight:500;font-size:14px}
+.yes{color:#24502f}.no{color:var(--ink3);font-weight:500}
+.check{display:flex;gap:10px;align-items:center;font-size:15px}
+.check input{width:auto}
+.email{font-weight:600;overflow-wrap:anywhere}
+</style>
+</head>
+<body data-page="account">
+<main class="wrap">
+  <section class="phead"><span class="blob"></span><h1>Account</h1><p id="hello">Loading…</p></section>
+  <div class="acc" id="acc" hidden>
+    <div class="box">
+      <h2>Display name</h2>
+      <p>Shown on your posts, Study notes and game leaderboards. Your email is never shown.</p>
+      <input id="name" maxlength="30" placeholder="e.g. Kale E.">
+      <div class="row"><button class="btn sm" id="savename">Save name</button></div><div id="namemsg"></div>
+    </div>
+    <div class="box">
+      <h2>What you can use</h2>
+      <div class="access" id="access"></div>
+    </div>
+    <div class="box">
+      <h2>Password</h2>
+      <p>Optional. Lets you sign in with your email and password instead of waiting for an email link.</p>
+      <input id="pw" type="password" autocomplete="new-password" placeholder="At least 8 characters">
+      <div class="row"><button class="btn sm ghost" id="savepw">Save password</button></div><div id="pwmsg"></div>
+    </div>
+    <div class="box">
+      <h2>Email</h2>
+      <p>Signed in as <span class="email" id="email"></span></p>
+      <label class="check"><input type="checkbox" id="optin"> Email me when Kale ships something new</label><div id="optmsg"></div>
+    </div>
+    <div class="box">
+      <h2>Sign out</h2>
+      <p>Signs you out on this device. "Everywhere" also signs out your other phones and computers.</p>
+      <div class="row"><button class="btn sm ghost" id="out">Sign out</button><button class="btn sm ghost" id="outall">Sign out everywhere</button></div>
+    </div>
+    <div class="box">
+      <h2>Your data</h2>
+      <p>You can delete your own posts anytime. To delete your whole account, ask Kale. See the <a href="/privacy/" style="text-decoration:underline">privacy page</a> for what's stored.</p>
+    </div>
+  </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/config.js?v=20261001"></script>
+<script src="/lib/sb.js?v=20261001"></script>
+<script src="/assets/site.js?v=20261003d"></script>
+<script>
+const $=id=>document.getElementById(id);
+const E=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const flash=(id,ok,text)=>{$(id).innerHTML=`<div class="msg ${ok?'ok':'err'}">${E(text)}</div>`;if(ok)setTimeout(()=>$(id).innerHTML='',2500)};
+let uid=null,hasName=false;
+(async()=>{
+  if(!window.SB){$('hello').textContent='Accounts are offline right now.';return}
+  const {data}=await SB.auth.getSession();
+  if(!data.session){location.replace('/join/?next=/account/');return}
+  const u=data.session.user;uid=u.id;$('email').textContent=u.email;
+  const [p,m,study,admin]=await Promise.all([
+    SB.from('profiles').select('display_name').eq('user_id',uid).maybeSingle(),
+    SB.from('members').select('email_opt_in').eq('id',uid).maybeSingle(),
+    SB.rpc('is_study'),SB.rpc('is_admin')]);
+  const name=p.data?.display_name||'';hasName=!!name;$('name').value=name;SITE.setName&&SITE.setName(name);
+  const hi=n=>`Hi, ${n}${/[.!?]$/.test(n)?'':'.'}`;
+  $('hello').textContent=name?hi(name):'Pick a display name so people know who posted.';
+  $('optin').checked=m.data?m.data.email_opt_in:true;
+  let vault=false;try{vault=!!localStorage.getItem('vault_token')}catch(e){}
+  const row=(label,on,link,linkText)=>`<div><span>${label}</span>${on?`<a href="${link}">${linkText||'Open'} →</a>`:`<span class="no">${linkText||'Not yet'}</span>`}</div>`;
+  $('access').innerHTML=
+    row('Members tools (Snapwit, timers, games)',true,'/tools/','Open')+
+    (study.data?row('PVHS Study',true,'/study/'):`<div><span>PVHS Study</span><a href="/study/">Have a code? →</a></div>`)+
+    row('Forum',true,'/forum/')+
+    (vault?row('Vault (on this device)',true,'/contact/'):'<div><span>Vault</span><a href="/contact/">Have a code? →</a></div>')+
+    (admin.data?row('Admin',true,'/admin/'):'');
+  $('acc').hidden=false;
+})();
+$('savename').onclick=async()=>{
+  const n=$('name').value.trim();if(n.length<2||n.length>30)return flash('namemsg',false,'Use 2 to 30 characters.');
+  $('savename').disabled=true;
+  const r=hasName?await SB.from('profiles').update({display_name:n}).eq('user_id',uid):await SB.from('profiles').insert({display_name:n});
+  $('savename').disabled=false;
+  if(r.error)return flash('namemsg',false,r.error.code==='23505'?'Someone already has that name. Try another.':r.error.message);
+  hasName=true;SITE.setName&&SITE.setName(n);$('hello').textContent=`Hi, ${n}${/[.!?]$/.test(n)?'':'.'}`;flash('namemsg',true,'Saved.');
+};
+$('savepw').onclick=async()=>{
+  const pw=$('pw').value;if(pw.length<8)return flash('pwmsg',false,'Use at least 8 characters.');
+  $('savepw').disabled=true;const {error}=await SB.auth.updateUser({password:pw});$('savepw').disabled=false;
+  if(error)return flash('pwmsg',false,/weak|short/i.test(error.message)?'Pick a stronger password.':error.message);
+  $('pw').value='';flash('pwmsg',true,'Saved. You can now sign in with your email and this password.');
+};
+$('optin').onchange=async e=>{const {error}=await SB.from('members').update({email_opt_in:e.target.checked}).eq('id',uid);flash('optmsg',!error,error?'Could not save.':'Saved.')};
+$('out').onclick=async()=>{await SB.auth.signOut();SITE.setName&&SITE.setName(null);location.href='/'};
+$('outall').onclick=async e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to sign out everywhere';return}
+  await SB.auth.signOut({scope:'global'});SITE.setName&&SITE.setName(null);location.href='/'};
+</script>
+</body>
+</html>
