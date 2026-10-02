@@ -6,6 +6,7 @@ Last updated: Oct 2, 2026. Folders starting with `_` aren't published, so this n
 
 - [ ] **Test the games with a friend.** Open kaleerson.com/edu/play on two devices, make a room on one, join with the code on the other. This is the first real run of online rooms.
 - [ ] **Try a leaderboard.** Sign in (Join), play any game on kaleerson.com/edu, and check that your score shows up.
+- [ ] **Turn on email alerts.** Resend → API Keys → Create (Sending access, kaleerson.com) → Supabase → Edge Functions → Secrets → add `RESEND_API_KEY`. /admin → People shows the steps until it works.
 - [ ] **Hand out Study codes.** /admin → Codes → set *Unlocks* to **Study** (or **Both**) → Make codes.
 - [ ] **Fill in the vault.** /admin → Sections and Files (contact, socials, resume, projects, photos).
 - [ ] **Renew the Site editor's GitHub token before Oct 31.** Calendar reminder on Oct 24; /admin shows a banner from Oct 17. Steps are in the calendar event.
