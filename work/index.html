@@ -30,12 +30,12 @@
 </div>
 <div class="bento" id="grid"></div>
 </main>
-<script src="/assets/content.js?v=20261001"></script>
+<script src="/assets/content.js?v=20261002b"></script>
 <script src="/assets/site.js?v=20261001"></script>
 <script>
 const C=window.CONTENT,S=window.SITE;
 
-function render(f){document.getElementById('grid').innerHTML=C.projects.filter(p=>f==='all'||p.status===f).map((p,i)=>`<article class="b s3 ${p.color} proj wide-m"><span class="blob ${i%2?'b2':''}"></span><div class="foot" style="margin:0;align-items:center"><span class="lbl">${S.esc(p.area)}</span><span class="yr">${S.esc(p.year)}</span></div><h2>${S.esc(p.name)}</h2><div class="meta">${S.statusChip(p.status)}${p.note?`<span class="chip">${S.esc(p.note)}</span>`:''}</div><div class="foot"><span class="soon">Write-up coming soon</span></div></article>`).join('')||'<p class="muted">Nothing here yet.</p>'}
+function render(f){document.getElementById('grid').innerHTML=C.projects.filter(p=>f==='all'||p.status===f).map((p,i,arr)=>`<${p.href?`a href="${p.href}"`:'article'} class="b ${arr.length%2&&i===arr.length-1?'s6':'s3'} ${p.color} proj wide-m"><span class="blob ${i%2?'b2':''}"></span><div class="foot" style="margin:0;align-items:center"><span class="lbl">${S.esc(p.area)}</span><span class="yr">${S.esc(p.year)}</span></div><h2>${S.esc(p.name)}</h2><div class="meta">${S.statusChip(p.status)}${p.note?`<span class="chip">${S.esc(p.note)}</span>`:''}</div><div class="foot">${p.href?`<span class="muted">Open ${S.esc(p.name)}</span>${S.arrow}`:'<span class="soon">Write-up coming soon</span>'}</div></${p.href?'a':'article'}>`).join('')||'<p class="muted">Nothing here yet.</p>'}
 document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));render(b.dataset.f)}));
 render('all');
 
