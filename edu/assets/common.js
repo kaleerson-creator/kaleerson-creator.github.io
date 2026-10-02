@@ -1,4 +1,4 @@
-// Games sub-nav, sign-in state, score saving and leaderboards for kaleerson.com/games.
+// Games sub-nav, sign-in state, score saving and leaderboards for kaleerson.com/edu.
 // Pages use <body data-page="games" data-sub="2048">. Sign-in is the main site's /join/ page.
 (function () {
   var SUPABASE_URL = 'https://xkmuakmlrttnyxdddkmd.supabase.co';
@@ -7,7 +7,7 @@
 
   // Games sub-nav under the main site header (site.js adds the header and footer).
   var sub = document.body.dataset.sub || '';
-  var links = [['home', 'All games', '/games/'], ['play', 'Play online', '/games/play/'], ['boards', 'Leaderboards', '/games/leaderboards/']];
+  var links = [['home', 'All games', '/edu/'], ['play', 'Play online', '/edu/play/'], ['boards', 'Leaderboards', '/edu/leaderboards/']];
   var join = '/join/?next=' + encodeURIComponent(location.pathname);
   var bar = document.createElement('nav');
   bar.className = 'gsub';

@@ -1,8 +1,8 @@
-# Assembles _games-src/*.page into games/<dir>/index.html with the shared layout.
+# Assembles _edu-src/*.page into edu/<dir>/index.html with the shared layout.
 # A .page file has sections separated by lines "@@ name": meta (key: value), css, body, js.
 import os, re, glob
 SRC = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(SRC, '..', 'games')
+OUT = os.path.join(SRC, '..', 'edu')
 HEAD = '''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +14,7 @@ HEAD = '''<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20261003">
-<link rel="stylesheet" href="/games/assets/games.css?v={v}">
+<link rel="stylesheet" href="/edu/assets/games.css?v={v}">
 <style>
 {css}
 </style>
@@ -24,8 +24,8 @@ HEAD = '''<!DOCTYPE html>
 {body}
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/games/assets/common.js?v={v}"></script>
-<script src="/assets/site.js?v=20261003"></script>
+<script src="/edu/assets/common.js?v={v}"></script>
+<script src="/assets/site.js?v=20261003b"></script>
 {extra}<script>
 {js}
 </script>
@@ -38,7 +38,7 @@ for f in sorted(glob.glob(os.path.join(SRC, '*.page'))):
     meta = dict(l.split(': ', 1) for l in parts.get('meta', '').strip().splitlines() if l.strip())
     out_dir = os.path.join(OUT, meta.get('dir', ''))
     os.makedirs(out_dir, exist_ok=True)
-    extra = ''.join(f'<script src="/games{s.strip()}?v={V}"></script>\n' for s in meta.get('scripts', '').split(',') if s.strip())
+    extra = ''.join(f'<script src="/edu{s.strip()}?v={V}"></script>\n' for s in meta.get('scripts', '').split(',') if s.strip())
     html = HEAD.format(title=meta['title'], desc=meta.get('desc', ''), v=V, css=parts.get('css', '').strip(),
                        page=meta.get('page', ''), gameattr=f' data-game="{meta["game"]}"' if meta.get('game') else '',
                        body=parts.get('body', '').strip(), extra=extra, js=parts.get('js', '').strip())

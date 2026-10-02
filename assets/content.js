@@ -12,7 +12,7 @@ window.CONTENT = {
     { name: 'Snapwit',  href: '/snapwit/', color: 'peach', tag: '30 games',       note: 'Reaction, memory and party games' },
     { name: 'LD Timer', href: '/ldtimer/', color: 'sky',   tag: 'Debate',          note: 'Lincoln-Douglas round timer' },
     { name: 'Speech & Debate', href: '/debate/', color: 'butter', tag: 'Debate',       note: 'PF, Policy, Congress and speech timers, flow, topics' },
-    { name: 'Games', href: '/games/', color: 'moss', tag: 'Play', note: '2048, Snake, Daily Word, trivia and online rooms', open: true },
+    { name: 'Games', href: '/edu/', color: 'moss', tag: 'Play', note: '2048, Snake, Daily Word, trivia and online rooms', open: true },
     { name: 'PVHS Study', href: '/study/', color: 'lilac', tag: 'Study',           note: 'Palo Verde HS study site', status: 'dev' }
   ],
   updates: [

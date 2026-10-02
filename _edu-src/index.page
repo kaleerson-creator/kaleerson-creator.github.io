@@ -23,15 +23,15 @@ page: home
 @@ body
 <section class="hero"><span class="blob"></span><h1>Kale's Games</h1><p>Quick games for a few spare minutes. Play friends online, and get on the PVHS leaderboards.</p></section>
 <div class="grid">
-  <a class="b forest w2" href="/games/word/"><span class="blob"></span><span class="lbl">Daily · <span id="dword">today</span></span><h2>Daily Word</h2><span class="muted" id="wstat">Guess the five-letter word in six tries.</span><div class="foot"><span></span><span class="go">→</span></div></a>
-  <a class="b sky w2" href="/games/play/"><span class="blob"></span><span class="lbl">Online</span><h2>Play friends</h2><span class="muted">Tic-tac-toe, Connect Four and a trivia race. Share a 4-letter code.</span><div class="foot"><span></span><span class="go">→</span></div></a>
-  <a class="b butter" href="/games/2048/"><span class="blob"></span><span class="ico">🔢</span><h2>2048</h2><div class="foot"><span class="muted" data-best="2048"></span><span class="go">→</span></div></a>
-  <a class="b moss" href="/games/snake/"><span class="blob"></span><span class="ico">🐍</span><h2>Snake</h2><div class="foot"><span class="muted" data-best="snake"></span><span class="go">→</span></div></a>
-  <a class="b peach" href="/games/minesweeper/"><span class="blob"></span><span class="ico">💣</span><h2>Minesweeper</h2><div class="foot"><span class="muted" data-best="minesweeper"></span><span class="go">→</span></div></a>
-  <a class="b lilac" href="/games/sudoku/"><span class="blob"></span><span class="ico">🧩</span><h2>Sudoku</h2><div class="foot"><span class="muted" data-best="sudoku"></span><span class="go">→</span></div></a>
-  <a class="b w2" href="/games/typing/"><span class="blob" style="background:var(--paper)"></span><span class="ico">⌨️</span><h2>Typing Test</h2><div class="foot"><span class="muted" data-best="typing">How fast can you type?</span><span class="go">→</span></div></a>
-  <a class="b sky w2" href="/games/trivia/"><span class="blob"></span><span class="ico">❓</span><h2>Trivia</h2><div class="foot"><span class="muted" data-best="trivia">Ten quick questions.</span><span class="go">→</span></div></a>
-  <a class="b butter w2" href="/games/leaderboards/"><span class="blob"></span><span class="lbl">This week</span><h2>Leaderboards</h2><div class="foot"><span class="muted">Sign in to get your name up there.</span><span class="go">→</span></div></a>
+  <a class="b forest w2" href="/edu/word/"><span class="blob"></span><span class="lbl">Daily · <span id="dword">today</span></span><h2>Daily Word</h2><span class="muted" id="wstat">Guess the five-letter word in six tries.</span><div class="foot"><span></span><span class="go">→</span></div></a>
+  <a class="b sky w2" href="/edu/play/"><span class="blob"></span><span class="lbl">Online</span><h2>Play friends</h2><span class="muted">Tic-tac-toe, Connect Four and a trivia race. Share a 4-letter code.</span><div class="foot"><span></span><span class="go">→</span></div></a>
+  <a class="b butter" href="/edu/2048/"><span class="blob"></span><span class="ico">🔢</span><h2>2048</h2><div class="foot"><span class="muted" data-best="2048"></span><span class="go">→</span></div></a>
+  <a class="b moss" href="/edu/snake/"><span class="blob"></span><span class="ico">🐍</span><h2>Snake</h2><div class="foot"><span class="muted" data-best="snake"></span><span class="go">→</span></div></a>
+  <a class="b peach" href="/edu/minesweeper/"><span class="blob"></span><span class="ico">💣</span><h2>Minesweeper</h2><div class="foot"><span class="muted" data-best="minesweeper"></span><span class="go">→</span></div></a>
+  <a class="b lilac" href="/edu/sudoku/"><span class="blob"></span><span class="ico">🧩</span><h2>Sudoku</h2><div class="foot"><span class="muted" data-best="sudoku"></span><span class="go">→</span></div></a>
+  <a class="b w2" href="/edu/typing/"><span class="blob" style="background:var(--paper)"></span><span class="ico">⌨️</span><h2>Typing Test</h2><div class="foot"><span class="muted" data-best="typing">How fast can you type?</span><span class="go">→</span></div></a>
+  <a class="b sky w2" href="/edu/trivia/"><span class="blob"></span><span class="ico">❓</span><h2>Trivia</h2><div class="foot"><span class="muted" data-best="trivia">Ten quick questions.</span><span class="go">→</span></div></a>
+  <a class="b butter w2" href="/edu/leaderboards/"><span class="blob"></span><span class="lbl">This week</span><h2>Leaderboards</h2><div class="foot"><span class="muted">Sign in to get your name up there.</span><span class="go">→</span></div></a>
   <a class="b w2" href="/study/"><span class="blob" style="background:var(--lilac)"></span><span class="lbl">Palo Verde HS</span><h2>PVHS Study</h2><div class="foot"><span class="muted">Notes, test dates and study tips.</span><span class="go">→</span></div></a>
 </div>
 @@ js

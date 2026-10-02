@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20261003">
-<link rel="stylesheet" href="/games/assets/games.css?v=1">
+<link rel="stylesheet" href="/edu/assets/games.css?v=1">
 <style>
 .tq{width:100%;max-width:640px;display:grid;gap:14px;position:relative;min-height:380px;align-content:start}
 .tbar{height:8px;background:var(--paper);border-radius:99px;overflow:hidden}
@@ -27,16 +27,16 @@
 </head>
 <body data-page="games" data-sub="trivia" data-game="trivia">
 <main class="wrap">
-<div class="ghead"><div><h1>Trivia</h1><p>Ten questions, 15 seconds each. Correct answers score 100 plus a speed bonus.</p></div><a class="btn sm ghost" href="/games/play/">Race friends online →</a></div>
+<div class="ghead"><div><h1>Trivia</h1><p>Ten questions, 15 seconds each. Correct answers score 100 plus a speed bonus.</p></div><a class="btn sm ghost" href="/edu/play/">Race friends online →</a></div>
 <div class="glay">
   <div class="stage"><div class="tq" id="tq"></div></div>
   <div class="side"><div class="box" id="lb"></div></div>
 </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/games/assets/common.js?v=1"></script>
-<script src="/assets/site.js?v=20261003"></script>
-<script src="/games/assets/trivia.js?v=1"></script>
+<script src="/edu/assets/common.js?v=1"></script>
+<script src="/assets/site.js?v=20261003b"></script>
+<script src="/edu/assets/trivia.js?v=1"></script>
 <script>
 const Q=10,T=15;let qs,i,score,streak,timer,t0,locked;
 const el=document.getElementById('tq');
@@ -52,7 +52,7 @@ function answer(btn){if(locked)return;locked=true;clearInterval(timer);const q=q
   if(right){streak++;score+=100+Math.round(100*Math.max(0,T-(Date.now()-t0)/1000)/T)+(streak>=3?25:0)}else streak=0;
   el.querySelectorAll('[data-o]').forEach(b=>{b.disabled=true;if(b.dataset.o===q[2])b.classList.add('right');else if(b===btn)b.classList.add('wrong');else b.classList.add('dim')});
   setTimeout(()=>{i++;i<Q?ask():end()},right?900:1700)}
-async function end(){el.innerHTML=`<div class="intro"><span class="qcat">Final score</span><div class="big">${score}</div><p class="muted" id="omsg">Saving…</p><div class="row"><button class="btn" id="go">Play again</button><a class="btn ghost" href="/games/play/">Race friends</a></div></div>`;
+async function end(){el.innerHTML=`<div class="intro"><span class="qcat">Final score</span><div class="big">${score}</div><p class="muted" id="omsg">Saving…</p><div class="row"><button class="btn" id="go">Play again</button><a class="btn ghost" href="/edu/play/">Race friends</a></div></div>`;
   document.getElementById('go').onclick=start;document.getElementById('omsg').innerHTML=score>0?await G.submit('trivia',score):'Better luck next time.'}
 intro();
 G.boardBox(document.getElementById('lb'),'trivia');
