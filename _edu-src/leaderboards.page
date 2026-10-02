@@ -14,8 +14,8 @@ page: boards
 @@ js
 const GAMES=[['word','Daily Word'],['2048','2048'],['snake','Snake'],['minesweeper','Minesweeper (Medium)'],['sudoku','Sudoku (Medium)'],['typing','Typing (60s)'],['trivia','Trivia']];
 let period='week';
-function load(){document.getElementById('boards').innerHTML=GAMES.map(([g,n])=>`<div class="box"><h2><a href="/games/${g}/">${n}</a></h2><div data-b="${g}"></div></div>`).join('');
+function load(){document.getElementById('boards').innerHTML=GAMES.map(([g,n])=>`<div class="box"><h2><a href="/edu/${g}/">${n}</a></h2><div data-b="${g}"></div></div>`).join('');
   GAMES.forEach(([g])=>G.board(document.querySelector(`[data-b="${g}"]`),g,period))}
 document.querySelectorAll('#per [data-p]').forEach(b=>b.onclick=()=>{period=b.dataset.p;document.querySelectorAll('#per [data-p]').forEach(x=>x.setAttribute('aria-pressed',x===b));load()});
 load();
-G.me.ready.then(m=>{document.getElementById('who').innerHTML=m.uid?'You\'re signed in as <b>'+G.esc(m.name||'(no name yet)')+'</b>.':'<a href="/join/?next=/games/leaderboards/" style="text-decoration:underline">Sign in</a> so your scores count.'});
+G.me.ready.then(m=>{document.getElementById('who').innerHTML=m.uid?'You\'re signed in as <b>'+G.esc(m.name||'(no name yet)')+'</b>.':'<a href="/join/?next=/edu/leaderboards/" style="text-decoration:underline">Sign in</a> so your scores count.'});

@@ -1,11 +1,16 @@
-@@ meta
-dir: word
-title: Daily Word · Kale's Games
-desc: Guess the five-letter word in six tries. New word every day.
-page: word
-game: word
-scripts: /assets/words.js
-@@ css
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daily Word · Kale's Games</title>
+<meta name="description" content="Guess the five-letter word in six tries. New word every day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261003">
+<link rel="stylesheet" href="/edu/assets/games.css?v=1">
+<style>
 .wgrid{display:grid;grid-template-rows:repeat(6,1fr);gap:6px;width:min(100%,330px)}
 .wrow{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .wrow.shake{animation:shake .35s}
@@ -21,7 +26,10 @@ scripts: /assets/words.js
 .kr button.wide{max-width:68px;flex:1.5;font-size:11px;letter-spacing:-.02em}
 .kr button.g{background:#4f8a4a;color:#fff}.kr button.y{background:#d8b43a;color:#fff}.kr button.x{background:#8f958b;color:#fff}
 .toast{position:fixed;left:50%;top:90px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:12px;font-weight:600;z-index:60}
-@@ body
+</style>
+</head>
+<body data-page="games" data-sub="word" data-game="word">
+<main class="wrap">
 <div class="ghead"><div><h1>Daily Word</h1><p>Guess the five-letter word in six tries. A new word every day at midnight (Las Vegas time).</p></div><span class="lbl" id="dayno"></span></div>
 <div class="glay">
   <div class="stage" style="position:relative">
@@ -34,7 +42,12 @@ scripts: /assets/words.js
     <div class="box" id="lb"></div>
   </div>
 </div>
-@@ js
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/edu/assets/common.js?v=1"></script>
+<script src="/assets/site.js?v=20261003b"></script>
+<script src="/edu/assets/words.js?v=1"></script>
+<script>
 const EPOCH=Date.UTC(2026,9,1);
 const today=new Date().toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'});  // YYYY-MM-DD
 const dayNo=Math.round((Date.parse(today+'T00:00:00Z')-EPOCH)/864e5);
@@ -68,7 +81,7 @@ async function finish(){
   const a=document.getElementById('after');a.hidden=false;
   a.innerHTML=`<span><b>${st.won?['Genius!','Magnificent!','Impressive!','Splendid!','Great!','Phew!'][n-1]:'The word was '+answer.toUpperCase()}</b> <span class="muted" id="wmsg"></span></span>${practice?'':'<button class="btn sm" id="share">Share</button>'}<button class="btn sm ghost" id="prac">Practice word</button>`;
   if(!practice&&st.won&&!st.saved){document.getElementById('wmsg').innerHTML=await G.submit('word',n,{day:today});st.saved=true;G.local.set('word:'+today,st)}
-  if(document.getElementById('share'))document.getElementById('share').onclick=()=>{const t=`Daily Word #${dayNo+1} ${st.won?n:'X'}/6\n`+st.guesses.map(g=>score(g,answer).map(s=>({g:'🟩',y:'🟨',x:'⬜'})[s]).join('')).join('\n')+'\nkaleerson.com/games/word';
+  if(document.getElementById('share'))document.getElementById('share').onclick=()=>{const t=`Daily Word #${dayNo+1} ${st.won?n:'X'}/6\n`+st.guesses.map(g=>score(g,answer).map(s=>({g:'🟩',y:'🟨',x:'⬜'})[s]).join('')).join('\n')+'\nkaleerson.com/edu/word';
     (navigator.share?navigator.share({text:t}).catch(()=>{}):navigator.clipboard.writeText(t).then(()=>toast('Copied to clipboard')))};
   document.getElementById('prac').onclick=()=>{practice=true;answer=A[Math.floor(Math.random()*A.length)];st={guesses:[],done:false};typed='';a.hidden=true;toast('Practice word. Not saved.');draw()};
 }
@@ -79,3 +92,6 @@ document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.tar
 document.getElementById('kb').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(b)key(b.dataset.k)});
 draw();if(st.done)finish();
 G.boardBox(document.getElementById('lb'),'word');
+</script>
+</body>
+</html>

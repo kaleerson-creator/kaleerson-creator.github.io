@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20261003">
-<link rel="stylesheet" href="/games/assets/games.css?v=1">
+<link rel="stylesheet" href="/edu/assets/games.css?v=1">
 <style>
 .lobby{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
 @media (max-width:760px){.lobby{grid-template-columns:1fr}}
@@ -69,9 +69,9 @@
 </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/games/assets/common.js?v=1"></script>
-<script src="/assets/site.js?v=20261003"></script>
-<script src="/games/assets/trivia.js?v=1"></script>
+<script src="/edu/assets/common.js?v=1"></script>
+<script src="/assets/site.js?v=20261003b"></script>
+<script src="/edu/assets/trivia.js?v=1"></script>
 <script>
 const ID=(G.local.get('play:id',null)||(()=>{const v=Math.random().toString(36).slice(2,10);G.local.set('play:id',v);return v})());
 const NAMES={ttt:'Tic-tac-toe',c4:'Connect Four',trivia:'Trivia race'};
@@ -186,7 +186,7 @@ function draw(){
 $('create').onclick=()=>enter(newCode(),document.querySelector('[name=g]:checked').value);
 $('join').onclick=()=>{const c=$('joincode').value.trim().toUpperCase();if(!/^[A-Z]{4}$/.test(c)){$('lmsg').innerHTML='<div class="msg">Codes are 4 letters.</div>';return}enter(c)};
 $('joincode').onkeydown=e=>{if(e.key==='Enter')$('join').click()};
-$('copy').onclick=()=>{const u=location.origin+'/games/play/#'+code;(navigator.share?navigator.share({text:'Play '+(NAMES[gameType]||'a game')+' with me: '+u}).catch(()=>{}):navigator.clipboard.writeText(u).then(()=>{$('copy').textContent='Copied ✓';setTimeout(()=>$('copy').textContent='Copy invite link',1500)}))};
+$('copy').onclick=()=>{const u=location.origin+'/edu/play/#'+code;(navigator.share?navigator.share({text:'Play '+(NAMES[gameType]||'a game')+' with me: '+u}).catch(()=>{}):navigator.clipboard.writeText(u).then(()=>{$('copy').textContent='Copied ✓';setTimeout(()=>$('copy').textContent='Copy invite link',1500)}))};
 $('leave').onclick=()=>{if(ch)SB.removeChannel(ch);ch=null;S=null;people={};location.hash='';$('room').hidden=true;$('lobby').hidden=false};
 const fromHash=location.hash.replace('#','').toUpperCase();
 if(/^[A-Z]{4}$/.test(fromHash)){$('joincode').value=fromHash;if(nick.value)enter(fromHash);else{nick.focus();$('lmsg').innerHTML='<div class="msg ok">Type your name, then press Join.</div>'}}

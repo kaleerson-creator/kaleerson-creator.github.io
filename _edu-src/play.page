@@ -172,7 +172,7 @@ function draw(){
 $('create').onclick=()=>enter(newCode(),document.querySelector('[name=g]:checked').value);
 $('join').onclick=()=>{const c=$('joincode').value.trim().toUpperCase();if(!/^[A-Z]{4}$/.test(c)){$('lmsg').innerHTML='<div class="msg">Codes are 4 letters.</div>';return}enter(c)};
 $('joincode').onkeydown=e=>{if(e.key==='Enter')$('join').click()};
-$('copy').onclick=()=>{const u=location.origin+'/games/play/#'+code;(navigator.share?navigator.share({text:'Play '+(NAMES[gameType]||'a game')+' with me: '+u}).catch(()=>{}):navigator.clipboard.writeText(u).then(()=>{$('copy').textContent='Copied ✓';setTimeout(()=>$('copy').textContent='Copy invite link',1500)}))};
+$('copy').onclick=()=>{const u=location.origin+'/edu/play/#'+code;(navigator.share?navigator.share({text:'Play '+(NAMES[gameType]||'a game')+' with me: '+u}).catch(()=>{}):navigator.clipboard.writeText(u).then(()=>{$('copy').textContent='Copied ✓';setTimeout(()=>$('copy').textContent='Copy invite link',1500)}))};
 $('leave').onclick=()=>{if(ch)SB.removeChannel(ch);ch=null;S=null;people={};location.hash='';$('room').hidden=true;$('lobby').hidden=false};
 const fromHash=location.hash.replace('#','').toUpperCase();
 if(/^[A-Z]{4}$/.test(fromHash)){$('joincode').value=fromHash;if(nick.value)enter(fromHash);else{nick.focus();$('lmsg').innerHTML='<div class="msg ok">Type your name, then press Join.</div>'}}
