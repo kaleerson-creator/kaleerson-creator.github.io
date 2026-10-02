@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Play online · Kale's Games</title>
+<meta name="description" content="Make a room, share the code, play friends on any device.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261003">
+<link rel="stylesheet" href="/games/assets/games.css?v=1">
+<style>
+.lobby{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+@media (max-width:760px){.lobby{grid-template-columns:1fr}}
+.gpick{display:grid;gap:8px}
+.gpick label{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:16px;background:var(--paper);cursor:pointer;font-weight:600}
+.gpick input{width:auto}
+.gpick small{display:block;font-weight:400;color:var(--ink2);font-size:13px}
+.code{font:800 44px/1 var(--display);letter-spacing:.12em}
+.rhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.players{display:flex;gap:6px;flex-wrap:wrap}
+.pl{display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:999px;background:var(--paper);font-size:13px;font-weight:600}
+.pl i{width:10px;height:10px;border-radius:50%;background:var(--ink3)}
+.pl.me{background:var(--moss)}
+.status{font:800 clamp(22px,3vw,30px)/1.1 var(--display);letter-spacing:-.02em;text-align:center}
+.ttt{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:min(100%,330px)}
+.ttt button{aspect-ratio:1;border:0;border-radius:18px;background:var(--paper);font:800 56px/1 var(--display);cursor:pointer}
+.ttt button.X{color:#2451C9}.ttt button.O{color:#B8322F}.ttt button.win{background:var(--butter)}
+.c4{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;width:min(100%,460px);background:#2451C9;padding:10px;border-radius:20px}
+.c4 button{aspect-ratio:1;border:0;border-radius:50%;background:#eef0ea;cursor:pointer;padding:0}
+.c4 button.R{background:#D12C2C}.c4 button.Y{background:#F3C93B}.c4 button.win{box-shadow:0 0 0 4px #fff inset}
+.tq{width:100%;max-width:640px;display:grid;gap:14px}
+.qtext{font:800 clamp(22px,3.4vw,30px)/1.15 var(--display);letter-spacing:-.025em}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){.opts{grid-template-columns:1fr}}
+.opts button{border:0;border-radius:16px;padding:16px;font:600 16px/1.3 var(--body);text-align:left;cursor:pointer}
+.opts button:nth-child(1){background:var(--sky)}.opts button:nth-child(2){background:var(--peach)}.opts button:nth-child(3){background:var(--moss)}.opts button:nth-child(4){background:var(--lilac)}
+.opts button.picked{outline:3px solid var(--ink)}.opts button.wrong{background:#D12C2C;color:#fff}.opts button.right{background:#4f8a4a;color:#fff}.opts button.dim{opacity:.4}
+.tbar{height:8px;background:var(--paper);border-radius:99px;overflow:hidden}.tbar i{display:block;height:100%;background:var(--forest)}
+.score{display:grid;gap:4px;width:100%;max-width:420px}
+.score div{display:grid;grid-template-columns:1fr auto;padding:8px 12px;border-radius:12px;background:var(--paper);font-weight:600}
+.score div.me{background:var(--moss)}
+</style>
+</head>
+<body data-page="games" data-sub="play">
+<main class="wrap">
+<div class="ghead"><div><h1>Play online</h1><p>Make a room, share the code, and play friends on any device. No sign-in needed.</p></div></div>
+<div id="lobby">
+  <div class="box" style="margin-bottom:var(--gap)"><label class="small" for="nick">Your name</label><input id="nick" maxlength="20" placeholder="Name friends will see" style="max-width:320px"></div>
+  <div class="lobby">
+    <div class="box"><h2>Make a room</h2>
+      <div class="gpick">
+        <label><input type="radio" name="g" value="ttt" checked><span>Tic-tac-toe<small>2 players</small></span></label>
+        <label><input type="radio" name="g" value="c4"><span>Connect Four<small>2 players</small></span></label>
+        <label><input type="radio" name="g" value="trivia"><span>Trivia race<small>2–20 players · 10 questions</small></span></label>
+      </div>
+      <button class="btn" id="create">Create room</button></div>
+    <div class="box"><h2>Join a room</h2><p class="small">Type the 4-letter code your friend shared.</p>
+      <input id="joincode" maxlength="4" placeholder="ABCD" autocapitalize="characters" autocomplete="off" style="font:800 28px/1 var(--display);letter-spacing:.15em;text-transform:uppercase;max-width:220px">
+      <button class="btn" id="join">Join</button><div id="lmsg"></div></div>
+  </div>
+</div>
+<div id="room" hidden>
+  <div class="box" style="margin-bottom:var(--gap)"><div class="rhead"><div><span class="lbl" id="gname"></span><div class="code" id="rcode"></div></div>
+    <div class="row"><button class="btn sm ghost" id="copy">Copy invite link</button><button class="btn sm ghost" id="leave">Leave</button></div></div>
+    <div class="players" id="players"></div></div>
+  <div class="stage" id="stage"></div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/games/assets/common.js?v=1"></script>
+<script src="/assets/site.js?v=20261003"></script>
+<script src="/games/assets/trivia.js?v=1"></script>
+<script>
+const ID=(G.local.get('play:id',null)||(()=>{const v=Math.random().toString(36).slice(2,10);G.local.set('play:id',v);return v})());
+const NAMES={ttt:'Tic-tac-toe',c4:'Connect Four',trivia:'Trivia race'};
+const nick=document.getElementById('nick');nick.value=G.local.get('play:nick','');
+G.me.ready.then(m=>{if(!nick.value&&m.name)nick.value=m.name});
+let myPick=null,ch=null,code=null,people={},isHost=false,S=null,gameType=null,tickT=null,recvAt=0;
+const $=id=>document.getElementById(id);
+const E=G.esc;
+function shuffle(a){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+const name=id=>people[id]?.name||'Player';
+function newCode(){const A='ABCDEFGHJKLMNPQRSTUVWXYZ';return [...Array(4)].map(()=>A[Math.floor(Math.random()*A.length)]).join('')}
+
+/* ── connection ── */
+async function enter(c,type){
+  const n=nick.value.trim();if(!n){nick.focus();$('lmsg').innerHTML='<div class="msg">Type your name first.</div>';return}
+  G.local.set('play:nick',n);code=c;gameType=type||null;
+  if(!SB){$('lmsg').innerHTML='<div class="msg">Online play is offline right now.</div>';return}
+  ch=SB.channel('kgroom:'+code,{config:{broadcast:{self:true},presence:{key:ID}}});
+  ch.on('presence',{event:'sync'},()=>{people={};const st=ch.presenceState();for(const k in st){const p=st[k][0];people[k]=p}
+    const ids=Object.keys(people).sort((a,b)=>people[a].t-people[b].t||a.localeCompare(b));
+    const wasHost=isHost;isHost=ids[0]===ID;
+    if(isHost&&!S&&gameType)S=init(gameType);
+    if(isHost&&!wasHost&&S)resumeHost();
+    if(isHost&&S){seat();push()}
+    draw()});
+  ch.on('broadcast',{event:'state'},({payload})=>{S=payload;recvAt=Date.now();gameType=S.game;draw()});
+  ch.on('broadcast',{event:'act'},({payload})=>{if(isHost&&S)act(payload)});
+  ch.subscribe(async st=>{if(st==='SUBSCRIBED'){await ch.track({name:n.slice(0,20),t:Date.now()});show()}
+    else if(st==='CHANNEL_ERROR'||st==='TIMED_OUT'){$('lmsg').innerHTML='<div class="msg">Couldn\'t connect. Check your internet and try again.</div>'}});
+  location.hash=code;
+}
+function show(){$('lobby').hidden=true;$('room').hidden=false;$('rcode').textContent=code;$('gname').textContent=gameType?NAMES[gameType]:'Joining…';draw()}
+function push(){if(!ch||!isHost)return;if(S.game==='trivia'&&S.phase==='question')S.left=Math.max(0,15000-(Date.now()-tqStart));ch.send({type:'broadcast',event:'state',payload:S})}
+function send(a){if(!ch)return;a.from=ID;if(isHost)act(a);else ch.send({type:'broadcast',event:'act',payload:a})}
+function drawPeople(){const ids=Object.keys(people).sort((a,b)=>people[a].t-people[b].t);
+  $('players').innerHTML=ids.map((id,i)=>`<span class="pl ${id===ID?'me':''}"><i style="background:${S&&S.seats&&(S.seats.X===id||S.seats.R===id)?(gameType==='c4'?'#D12C2C':'#2451C9'):S&&S.seats&&(S.seats.O===id||S.seats.Y===id)?(gameType==='c4'?'#F3C93B':'#B8322F'):'var(--ink3)'}"></i>${E(people[id].name)}${i===0?' · host':''}${id===ID?' (you)':''}</span>`).join('')}
+
+/* ── host logic ── */
+function init(type){
+  if(type==='ttt')return {game:'ttt',board:Array(9).fill(''),turn:'X',seats:{},win:null,line:[],starter:'X',round:1};
+  if(type==='c4')return {game:'c4',board:Array(42).fill(''),turn:'R',seats:{},win:null,line:[],starter:'R',round:1};
+  return {game:'trivia',phase:'lobby',qi:0,total:10,scores:{},answers:{},q:null,left:0,reveal:null,order:[]};
+}
+function seat(){if(!S.seats)return;const ids=Object.keys(people).sort((a,b)=>people[a].t-people[b].t);const keys=S.game==='ttt'?['X','O']:['R','Y'];
+  keys.forEach(k=>{if(S.seats[k]&&!people[S.seats[k]])delete S.seats[k]});
+  keys.forEach(k=>{if(!S.seats[k]){const free=ids.find(id=>!Object.values(S.seats).includes(id));if(free)S.seats[k]=free}})}
+const LINES3=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+function c4win(b){for(let r=0;r<6;r++)for(let c=0;c<7;c++){const v=b[r*7+c];if(!v)continue;for(const [dr,dc] of [[0,1],[1,0],[1,1],[1,-1]]){const cells=[0,1,2,3].map(k=>[r+dr*k,c+dc*k]);if(cells.every(([R,C])=>R>=0&&R<6&&C>=0&&C<7&&b[R*7+C]===v))return {v,line:cells.map(([R,C])=>R*7+C)}}}return null}
+let tq=null;
+function act(a){
+  if(S.game==='ttt'||S.game==='c4'){
+    if(a.type==='again'&&S.win){const keys=S.game==='ttt'?['X','O']:['R','Y'];S.starter=S.starter===keys[0]?keys[1]:keys[0];Object.assign(S,{board:Array(S.game==='ttt'?9:42).fill(''),turn:S.starter,win:null,line:[],round:S.round+1});return push()}
+    if(a.type!=='move'||S.win||S.seats[S.turn]!==a.from)return;
+    if(S.game==='ttt'){const i=a.i|0;if(i<0||i>8||S.board[i])return;S.board[i]=S.turn;const L=LINES3.find(l=>l.every(k=>S.board[k]===S.turn));if(L){S.win=S.turn;S.line=L}else if(S.board.every(Boolean))S.win='draw';else S.turn=S.turn==='X'?'O':'X'}
+    else{const c=a.c|0;if(c<0||c>6)return;let r=5;while(r>=0&&S.board[r*7+c])r--;if(r<0)return;S.board[r*7+c]=S.turn;const w=c4win(S.board);if(w){S.win=w.v;S.line=w.line}else if(S.board.every(Boolean))S.win='draw';else S.turn=S.turn==='R'?'Y':'R'}
+    return push();
+  }
+  // trivia
+  if(a.type==='start'&&a.from===ID&&(S.phase==='lobby'||S.phase==='end')){S.order=shuffle([...TRIVIA.keys()]).slice(0,S.total);S.qi=0;S.scores={};nextQ();return}
+  if(a.type==='answer'&&S.phase==='question'&&!S.answers[a.from]){const q=TRIVIA[S.order[S.qi]];const ms=Date.now()-tqStart;
+    S.answers[a.from]={c:a.c,ok:a.c===q[2],ms};if(S.answers[a.from].ok)S.scores[a.from]=(S.scores[a.from]||0)+100+Math.round(100*Math.max(0,15000-ms)/15000);
+    if(Object.keys(people).every(id=>S.answers[id]))reveal();else push()}
+}
+let tqStart=0;
+// A new host picks up a trivia game where the old host left off.
+function resumeHost(){if(S.game!=='trivia')return;clearTimeout(tq);
+  if(S.phase==='question'){tqStart=Date.now()-(15000-Math.max(0,S.left-(Date.now()-recvAt)));tq=setTimeout(reveal,Math.max(1000,15000-(Date.now()-tqStart)))}
+  else if(S.phase==='reveal')tq=setTimeout(()=>{S.qi++;if(S.qi>=S.total){S.phase='end';push()}else nextQ()},2000)}
+function nextQ(){const q=TRIVIA[S.order[S.qi]];S.phase='question';S.answers={};S.reveal=null;S.q={cat:q[0],text:q[1],opts:shuffle(q.slice(2))};S.left=15000;tqStart=Date.now();push();
+  clearTimeout(tq);tq=setTimeout(reveal,15000)}
+function reveal(){clearTimeout(tq);if(S.phase!=='question')return;S.phase='reveal';S.reveal=TRIVIA[S.order[S.qi]][2];S.left=0;push();
+  tq=setTimeout(()=>{S.qi++;if(S.qi>=S.total){S.phase='end';push()}else nextQ()},3500)}
+
+/* ── drawing ── */
+function draw(){
+  $('gname').textContent=gameType?NAMES[gameType]:'Joining…';drawPeople();
+  const st=$('stage');clearInterval(tickT);
+  if(!S){st.innerHTML='<p class="muted">Waiting for the host…</p>';return}
+  if(S.game==='ttt'||S.game==='c4'){
+    const keys=S.game==='ttt'?['X','O']:['R','Y'];const mine=keys.find(k=>S.seats[k]===ID);
+    const label=k=>S.game==='ttt'?k:(k==='R'?'Red':'Yellow');
+    let status;
+    if(!S.seats[keys[1]])status='Waiting for a second player. Share the code!';
+    else if(S.win==='draw')status='Draw!';
+    else if(S.win)status=(S.seats[S.win]===ID?'You win! 🎉':E(name(S.seats[S.win]))+' wins');
+    else status=S.seats[S.turn]===ID?'Your turn ('+label(S.turn)+')':E(name(S.seats[S.turn]))+'\'s turn';
+    const spect=!mine?'<p class="small">You\'re watching. Players: '+keys.map(k=>S.seats[k]?E(name(S.seats[k]))+' ('+label(k)+')':'').filter(Boolean).join(' vs ')+'</p>':'';
+    const board=S.game==='ttt'
+      ?`<div class="ttt">${S.board.map((v,i)=>`<button data-i="${i}" class="${v} ${S.line.includes(i)?'win':''}" aria-label="Square ${i+1} ${v}">${v}</button>`).join('')}</div>`
+      :`<div class="c4">${S.board.map((v,i)=>`<button data-c="${i%7}" class="${v} ${S.line.includes(i)?'win':''}" aria-label="Column ${i%7+1}"></button>`).join('')}</div>`;
+    st.innerHTML=`<div class="status">${status}</div>${spect}${board}${S.win&&mine?'<button class="btn" id="again">Play again</button>':''}`;
+    st.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>send({type:'move',i:+b.dataset.i}));
+    st.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>send({type:'move',c:+b.dataset.c}));
+    if($('again'))$('again').onclick=()=>send({type:'again'});
+    return;
+  }
+  // trivia race
+  const board=()=>{const ids=Object.keys(people).sort((a,b)=>(S.scores[b]||0)-(S.scores[a]||0));return `<div class="score">${ids.map(id=>`<div class="${id===ID?'me':''}"><span>${E(name(id))}</span><span>${S.scores[id]||0}</span></div>`).join('')}</div>`};
+  if(S.phase==='lobby'||S.phase==='end'){
+    st.innerHTML=`<div class="status">${S.phase==='end'?'Final scores':'Trivia race'}</div>${S.phase==='end'?board():`<p class="muted">${Object.keys(people).length} in the room. ${isHost?'Start when everyone has joined.':'The host will start soon.'}</p>`}${isHost?`<button class="btn" id="start">${S.phase==='end'?'Play again':'Start game'}</button>`:''}`;
+    if($('start'))$('start').onclick=()=>send({type:'start'});return}
+  if(myPick&&myPick.qi!==S.qi)myPick=null;
+  const mineAns=S.answers[ID]||(myPick&&{c:myPick.c});
+  st.innerHTML=`<div class="tq"><div class="row" style="justify-content:space-between"><span class="lbl">${E(S.q.cat)} · ${S.qi+1}/${S.total}</span><b>${S.scores[ID]||0} pts</b></div><div class="tbar"><i id="bar" style="width:100%"></i></div>
+    <div class="qtext">${E(S.q.text)}</div><div class="opts">${S.q.opts.map(o=>{const cls=S.reveal?(o===S.reveal?'right':mineAns&&mineAns.c===o?'wrong':'dim'):mineAns&&mineAns.c===o?'picked':'';return `<button data-o="${E(o)}" class="${cls}" ${mineAns||S.reveal?'disabled':''}>${E(o)}</button>`}).join('')}</div>
+    <p class="small">${S.reveal?(mineAns?.ok?'Correct!':'Answer: '+E(S.reveal)):mineAns?'Locked in. Waiting for others…':Object.keys(S.answers).length+' of '+Object.keys(people).length+' answered'}</p>${S.reveal?board():''}</div>`;
+  st.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>{if(!S.answers[ID]&&!myPick){myPick={qi:S.qi,c:b.dataset.o};send({type:'answer',c:b.dataset.o});draw()}});
+  if(S.phase==='question'){const end=recvAt+S.left-(isHost?0:150);tickT=setInterval(()=>{const l=Math.max(0,end-Date.now());const bar=$('bar');if(bar)bar.style.width=(100*l/15000)+'%'},100)}
+}
+
+/* ── lobby buttons ── */
+$('create').onclick=()=>enter(newCode(),document.querySelector('[name=g]:checked').value);
+$('join').onclick=()=>{const c=$('joincode').value.trim().toUpperCase();if(!/^[A-Z]{4}$/.test(c)){$('lmsg').innerHTML='<div class="msg">Codes are 4 letters.</div>';return}enter(c)};
+$('joincode').onkeydown=e=>{if(e.key==='Enter')$('join').click()};
+$('copy').onclick=()=>{const u=location.origin+'/games/play/#'+code;(navigator.share?navigator.share({text:'Play '+(NAMES[gameType]||'a game')+' with me: '+u}).catch(()=>{}):navigator.clipboard.writeText(u).then(()=>{$('copy').textContent='Copied ✓';setTimeout(()=>$('copy').textContent='Copy invite link',1500)}))};
+$('leave').onclick=()=>{if(ch)SB.removeChannel(ch);ch=null;S=null;people={};location.hash='';$('room').hidden=true;$('lobby').hidden=false};
+const fromHash=location.hash.replace('#','').toUpperCase();
+if(/^[A-Z]{4}$/.test(fromHash)){$('joincode').value=fromHash;if(nick.value)enter(fromHash);else{nick.focus();$('lmsg').innerHTML='<div class="msg ok">Type your name, then press Join.</div>'}}
+</script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 // Shared header and footer. Mark the current page with <body data-page="work">.
 (function () {
   var page = document.body.dataset.page || '';
-  var links = [['work', 'Work', '/work/'], ['tools', 'Tools', '/tools/'], ['updates', 'Updates', '/updates/'], ['forum', 'Forum', '/forum/'], ['about', 'About', '/about/'], ['contact', 'Contact', '/contact/']];
+  var links = [['work', 'Work', '/work/'], ['tools', 'Tools', '/tools/'], ['updates', 'Updates', '/updates/'], ['games', 'Games', '/games/'], ['forum', 'Forum', '/forum/'], ['about', 'About', '/about/'], ['contact', 'Contact', '/contact/']];
   var nav = document.createElement('header');
   nav.className = 'nav';
   nav.innerHTML =

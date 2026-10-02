@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Snake · Kale's Games</title>
+<meta name="description" content="Eat, grow, don't hit yourself.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261003">
+<link rel="stylesheet" href="/games/assets/games.css?v=1">
+<style>
+.sbox{position:relative;width:min(100%,480px)}
+canvas{width:100%;aspect-ratio:1;background:#1E3A2C;border-radius:20px;display:block;touch-action:none}
+.pad{display:none;grid-template-columns:repeat(3,64px);grid-template-rows:repeat(2,56px);gap:8px;justify-content:center}
+.pad button{border:0;border-radius:16px;background:var(--paper);font-size:22px;cursor:pointer}
+.pad .u{grid-column:2}.pad .l{grid-column:1;grid-row:2}.pad .d{grid-column:2;grid-row:2}.pad .r{grid-column:3;grid-row:2}
+@media (pointer:coarse){.pad{display:grid}}
+</style>
+</head>
+<body data-page="games" data-sub="snake" data-game="snake">
+<main class="wrap">
+<div class="ghead"><div><h1>Snake</h1><p>Arrow keys, WASD, swipe or the pad. Each apple speeds you up.</p></div></div>
+<div class="glay">
+  <div class="stage">
+    <div class="stats"><div><b id="score">0</b><span>Apples</span></div><div><b id="best">0</b><span>Best</span></div></div>
+    <div class="sbox" id="sbox"><canvas id="c" width="480" height="480"></canvas></div>
+    <div class="pad"><button class="u" data-d="0,-1" aria-label="Up">▲</button><button class="l" data-d="-1,0" aria-label="Left">◀</button><button class="d" data-d="0,1" aria-label="Down">▼</button><button class="r" data-d="1,0" aria-label="Right">▶</button></div>
+  </div>
+  <div class="side"><div class="box" id="lb"></div></div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/games/assets/common.js?v=1"></script>
+<script src="/assets/site.js?v=20261003"></script>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d'),N=20,C=cv.width/N;
+let snake,dir,queue,food,score,alive,speed,timer,started;
+function place(){do{food=[Math.floor(Math.random()*N),Math.floor(Math.random()*N)]}while(snake.some(p=>p[0]===food[0]&&p[1]===food[1]))}
+function reset(){snake=[[9,10],[8,10],[7,10]];dir=[1,0];queue=[];score=0;alive=true;started=false;speed=140;place();draw();overlay('Snake','Press any arrow key or swipe to start.','Start')}
+function overlay(t,s,btn){document.querySelectorAll('.over').forEach(o=>o.remove());const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>${t}</h2><p class="muted" id="omsg">${s}</p><button class="btn" id="ogo">${btn}</button></div>`;document.getElementById('sbox').append(o);o.querySelector('#ogo').onclick=()=>{if(!alive)reset();else go()};return o}
+function go(){document.querySelectorAll('.over').forEach(o=>o.remove());if(started)return;started=true;loop()}
+function loop(){clearTimeout(timer);step();if(alive)timer=setTimeout(loop,speed)}
+function step(){
+  if(queue.length)dir=queue.shift();
+  const h=[snake[0][0]+dir[0],snake[0][1]+dir[1]];
+  if(h[0]<0||h[1]<0||h[0]>=N||h[1]>=N||snake.some((p,i)=>i<snake.length-1&&p[0]===h[0]&&p[1]===h[1]))return die();
+  snake.unshift(h);
+  if(h[0]===food[0]&&h[1]===food[1]){score++;speed=Math.max(55,speed-4);place()}else snake.pop();
+  draw();
+}
+function draw(){
+  ctx.fillStyle='#1E3A2C';ctx.fillRect(0,0,cv.width,cv.height);
+  ctx.fillStyle='#24432F';for(let x=0;x<N;x++)for(let y=0;y<N;y++)if((x+y)%2)ctx.fillRect(x*C,y*C,C,C);
+  ctx.fillStyle='#F6CDBB';ctx.beginPath();ctx.arc(food[0]*C+C/2,food[1]*C+C/2,C*.38,0,7);ctx.fill();
+  snake.forEach((p,i)=>{ctx.fillStyle=i===0?'#F3E39B':'#CFE0B4';const m=i===0?1:2;ctx.beginPath();ctx.roundRect(p[0]*C+m,p[1]*C+m,C-2*m,C-2*m,6);ctx.fill()});
+  document.getElementById('score').textContent=score;
+  document.getElementById('best').textContent=Math.max(G.local.get('best:snake',0)||0,score);
+}
+async function die(){alive=false;clearTimeout(timer);const o=overlay('Game over',score+' apples · saving…','Play again');o.querySelector('#omsg').innerHTML=score+' apple'+(score===1?'':'s')+'<br>'+(score>0?await G.submit('snake',score):'');draw()}
+function turn(d){if(!alive)return;const last=queue.length?queue[queue.length-1]:dir;if(d[0]===-last[0]&&d[1]===-last[1]||d[0]===last[0]&&d[1]===last[1])return;if(queue.length<3)queue.push(d);if(!started)go()}
+document.addEventListener('keydown',e=>{const d={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0],w:[0,-1],s:[0,1],a:[-1,0],d:[1,0]}[e.key];if(!d)return;e.preventDefault();turn(d)});
+document.querySelectorAll('.pad button').forEach(b=>b.addEventListener('pointerdown',e=>{e.preventDefault();turn(b.dataset.d.split(',').map(Number))}));
+let sx,sy;cv.addEventListener('pointerdown',e=>{sx=e.clientX;sy=e.clientY});
+cv.addEventListener('pointerup',e=>{if(sx==null)return;const dx=e.clientX-sx,dy=e.clientY-sy;sx=null;if(Math.max(Math.abs(dx),Math.abs(dy))<20)return;turn(Math.abs(dx)>Math.abs(dy)?[Math.sign(dx),0]:[0,Math.sign(dy)])});
+reset();
+G.boardBox(document.getElementById('lb'),'snake');
+</script>
+</body>
+</html>

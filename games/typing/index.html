@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Typing Test · Kale's Games</title>
+<meta name="description" content="How fast can you type? One-minute test.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261003">
+<link rel="stylesheet" href="/games/assets/games.css?v=1">
+<style>
+.tt{width:100%;max-width:760px;position:relative}
+.words{font:500 clamp(20px,3vw,26px)/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink3);height:calc(1.7em * 3);overflow:hidden;user-select:none;cursor:text;word-break:normal;overflow-wrap:normal}
+.words .w{display:inline-block;margin-right:.6em;white-space:nowrap}
+.words .ok{color:var(--ink)}.words .no{color:#D12C2C;text-decoration:underline}
+.words .cur{background:var(--butter);border-radius:6px}
+.words .cur .c{border-left:2px solid var(--ink);margin-left:-2px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{border-color:transparent}}
+#in{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.big{font:800 64px/1 var(--display);letter-spacing:-.04em}
+</style>
+</head>
+<body data-page="games" data-sub="typing" data-game="typing">
+<main class="wrap">
+<div class="ghead"><div><h1>Typing Test</h1><p>Start typing to begin. 60-second scores go on the leaderboard.</p></div>
+  <div class="seg" id="len"><button data-s="15">15s</button><button data-s="30">30s</button><button data-s="60" aria-pressed="true">60s</button></div></div>
+<div class="glay">
+  <div class="stage">
+    <div class="stats"><div><b id="time">60</b><span>Seconds</span></div><div><b id="wpm">0</b><span>WPM</span></div><div><b id="acc">100%</b><span>Accuracy</span></div><div><b id="best">–</b><span>Best (60s)</span></div></div>
+    <div class="tt" id="tt"><div class="words" id="words"></div><input id="in" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Type here"></div>
+    <div class="row"><button class="btn sm ghost" id="restart">Restart (Tab)</button></div>
+  </div>
+  <div class="side"><div class="box" id="lb"></div></div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/games/assets/common.js?v=1"></script>
+<script src="/assets/site.js?v=20261003"></script>
+<script src="/games/assets/words.js?v=1"></script>
+<script>
+let secs=60,words,idx,typed,correctChars,wrongChars,t0,timer,done,results;
+const wEl=document.getElementById('words'),inp=document.getElementById('in');
+function gen(){const W=WORDS.typing;return [...Array(300)].map(()=>W[Math.floor(Math.random()*W.length)])}
+function reset(){words=gen();idx=0;typed='';correctChars=0;wrongChars=0;t0=null;done=false;results=[];clearInterval(timer);
+  document.getElementById('time').textContent=secs;document.getElementById('wpm').textContent=0;document.getElementById('acc').textContent='100%';
+  const b=G.local.get('best:typing',null);document.getElementById('best').textContent=b?b:'–';
+  document.querySelectorAll('.over').forEach(o=>o.remove());inp.value='';render();inp.focus()}
+function render(){
+  wEl.innerHTML=words.slice(0,idx+60).map((w,i)=>{if(i<idx)return `<span class="w ${results[i]?'ok':'no'}">${w}</span>`;
+    if(i===idx){let h='';for(let k=0;k<Math.max(w.length,typed.length);k++){const c=typed[k],e=w[k];const cls=c==null?'':c===e?'ok':'no';h+=`<span class="${cls}${k===typed.length?' c':''}">${G.esc(e??c)}</span>`}if(typed.length>=w.length)h+='<span class="c">&nbsp;</span>';return `<span class="w cur">${h}</span>`}
+    return `<span class="w">${w}</span>`}).join('');
+  // keep the current line on the first row once we move past it
+  const cur=wEl.querySelector('.cur');if(cur){const top=cur.offsetTop-wEl.querySelector('.w').offsetTop;if(top>0){const lh=parseFloat(getComputedStyle(wEl).lineHeight);const lines=Math.round(top/lh);if(lines>=1){const drop=[...wEl.querySelectorAll('.w')].filter(x=>x.offsetTop<cur.offsetTop).length;if(drop){words.splice(0,drop);results.splice(0,drop);idx-=drop;render()}}}}}
+function stats(){const el=(Date.now()-t0)/60000;const wpm=el>2/60?Math.round(correctChars/5/el):0;const acc=correctChars+wrongChars?Math.round(100*correctChars/(correctChars+wrongChars)):100;return {wpm,acc}}
+function start(){t0=Date.now();timer=setInterval(()=>{const left=Math.max(0,secs-Math.floor((Date.now()-t0)/1000));document.getElementById('time').textContent=left;const s=stats();document.getElementById('wpm').textContent=s.wpm;document.getElementById('acc').textContent=s.acc+'%';if(left<=0)finish()},200)}
+async function finish(){done=true;clearInterval(timer);const s={wpm:Math.round(correctChars/5/(secs/60)),acc:correctChars+wrongChars?Math.round(100*correctChars/(correctChars+wrongChars)):100};
+  document.getElementById('wpm').textContent=s.wpm;
+  const o=document.createElement('div');o.className='over';o.innerHTML=`<div><span class="lbl">${secs}-second test</span><div class="big">${s.wpm} wpm</div><p class="muted" id="omsg">${s.acc}% accuracy</p><button class="btn" id="oagain">Try again</button></div>`;
+  document.getElementById('tt').append(o);o.querySelector('#oagain').onclick=reset;
+  if(secs===60&&s.wpm>0&&s.acc>=80)o.querySelector('#omsg').innerHTML+=`<br>${await G.submit('typing',Math.min(250,s.wpm),{acc:s.acc})}`;
+  else if(secs===60&&s.acc<80)o.querySelector('#omsg').innerHTML+='<br>Needs 80% accuracy to count.';
+  const b=G.local.get('best:typing',null);document.getElementById('best').textContent=b?b:'–'}
+inp.addEventListener('input',()=>{if(done)return;if(!t0)start();const v=inp.value;
+  if(v.endsWith(' ')){const w=words[idx],t=v.trim();if(!t){inp.value='';return}
+    const ok=t===w;results[idx]=ok;if(ok)correctChars+=w.length+1;else{for(let k=0;k<Math.max(w.length,t.length);k++)(t[k]===w[k]?correctChars++:wrongChars++)}
+    idx++;typed='';inp.value='';render();return}
+  typed=v;render()});
+inp.addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();reset()}});
+document.getElementById('tt').addEventListener('click',()=>inp.focus());
+document.addEventListener('keydown',e=>{if(document.activeElement!==inp&&!done&&e.key.length===1&&!e.ctrlKey&&!e.metaKey&&!e.target.matches('input,textarea')){inp.focus()}});
+document.getElementById('restart').onclick=reset;
+document.querySelectorAll('#len [data-s]').forEach(b=>b.onclick=()=>{secs=+b.dataset.s;document.querySelectorAll('#len [data-s]').forEach(x=>x.setAttribute('aria-pressed',x===b));reset()});
+reset();
+G.boardBox(document.getElementById('lb'),'typing');
+</script>
+</body>
+</html>
