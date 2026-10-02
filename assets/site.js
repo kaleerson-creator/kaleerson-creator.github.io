@@ -21,8 +21,13 @@
   var foot = document.createElement('footer');
   foot.className = 'foot-site';
   foot.innerHTML = '<div class="wrap"><span>© ' + new Date().getFullYear() + ' Kale Erson · Las Vegas</span><nav>' +
-    links.map(function (l) { return '<a href="' + l[2] + '">' + l[1] + '</a>'; }).join('') + '<a href="/join/">Join</a></nav></div>';
+    links.map(function (l) { return '<a href="' + l[2] + '">' + l[1] + '</a>'; }).join('') + '<a href="/join/">Join</a><a href="/privacy/">Privacy</a></nav></div>';
   document.body.append(foot);
+
+  var st = document.createElement('script');
+  st.src = '/assets/stats.js?v=20261003';
+  st.defer = true;
+  document.head.append(st);
 })();
 
 window.SITE = {
