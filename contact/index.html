@@ -8,114 +8,183 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261001">
+<link rel="stylesheet" href="/assets/site.css?v=20261002">
 <style>
-:root{--bg:var(--paper);--bg2:var(--paper);--red:#b42318;--red-bg:#fef3f2;--green:#24502f;--green-bg:#d7ecc4;--sans:var(--body);--serif:var(--display)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--paper)}
-a{color:inherit}
-main.pg{max-width:520px;width:100%;margin:0 auto;padding:32px 16px 56px;flex:1}
-h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,8vw,72px);line-height:.95;letter-spacing:-.04em}
-h1 em{font-style:normal;color:var(--ink2)}
-.lead{color:var(--ink2);margin:14px 0 26px;max-width:38ch}
-.lock{width:52px;height:52px;border-radius:14px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;margin-bottom:22px}
-.lock svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-form{display:grid;gap:10px}
-label{font-size:13px;font-weight:500;color:var(--ink2)}
-input{width:100%;font:inherit;font-size:18px;letter-spacing:.06em;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:#fff;color:var(--ink);outline:none}
-input:focus{border-color:var(--ink)}
-.btn{font:inherit;font-weight:600;font-size:15px;padding:14px 20px;border-radius:16px;border:0;background:var(--ink);color:#fff;cursor:pointer}
-.btn:disabled{opacity:.5}
-.btn:focus-visible,input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-.note{font-size:13px;color:var(--ink3)}
-.msg{padding:12px 14px;border-radius:16px;font-size:14px;background:var(--red-bg);color:var(--red)}
-#body{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:12px;overflow-wrap:anywhere}
-#body h2{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1.1}
-#body h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:600;margin-top:8px}
-#body p{color:var(--ink)}
-#body a{text-underline-offset:3px}
-.copy{font:inherit;font-size:12px;margin-left:8px;padding:2px 8px;border:1px solid var(--line);border-radius:999px;background:var(--bg2);cursor:pointer;color:var(--ink2)}
-[hidden]{display:none!important}
-.relock{margin-top:12px;font:inherit;font-size:14px;color:var(--ink2);background:var(--card);border:0;border-radius:999px;padding:10px 16px;cursor:pointer}
-#body{border:0!important;border-radius:28px!important}
+main.pg{flex:1;padding-block:16px 56px}
+.red{--r-bg:#fef3f2;--r-ink:#b42318}
+
+/* lock */
+.lockwrap{max-width:520px;margin:0 auto}
+.lockcard{position:relative;isolation:isolate;overflow:hidden;background:var(--forest);color:var(--forest-ink);border-radius:var(--r);padding:32px 24px;display:grid;gap:14px}
+.lockcard .blob.a{width:220px;aspect-ratio:1;right:-70px;top:-80px;background:#2E5440}
+.lockcard .blob.y{width:64px;aspect-ratio:1;right:28px;top:28px;background:var(--butter);opacity:.9}
+.lockcard h1{font-size:clamp(44px,10vw,64px);position:relative}
+.lockcard p{color:#B9C9AE;max-width:34ch;position:relative}
+.lockico{width:52px;height:52px;border-radius:16px;background:#ffffff1f;display:grid;place-items:center}
+.lockico svg{width:22px;height:22px}
+form{display:grid;gap:10px;margin-top:6px;position:relative}
+input{width:100%;font:inherit;font-size:20px;letter-spacing:.08em;padding:15px 18px;border:0;border-radius:18px;background:#fff;color:var(--ink);outline:none}
+input:focus-visible{outline:3px solid var(--butter)}
+.btn.go{justify-content:center;background:var(--butter);color:var(--ink);font-size:16px;padding:15px}
+.btn:disabled{opacity:.6}
+.small{font-size:13px;color:#B9C9AE}
+.msg{padding:12px 14px;border-radius:16px;font-size:14px;background:#fef3f2;color:#b42318}
+.whatsin{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:14px}
+.whatsin div{background:var(--card);border-radius:20px;padding:16px;display:grid;gap:6px}
+.whatsin b{font-family:var(--display);font-size:17px;letter-spacing:-.02em}
+.whatsin small{color:var(--ink2);font-size:12px}
+
+/* vault */
+.vhead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding:24px 0 16px}
+.vhead h1{font-size:clamp(44px,8vw,84px)}
+.tierchip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:var(--card)}
+.tierchip.vip{background:var(--forest);color:var(--forest-ink)}
+.vgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--gap)}
+.sec{grid-column:span 3;min-height:0;padding:26px}
+.sec.wide{grid-column:span 6}
+@media (max-width:820px){.sec,.sec.wide{grid-column:span 6}}
+.sec .blob{width:180px;aspect-ratio:1;right:-60px;top:-70px;background:#ffffff55}
+.sec.forest .blob{background:#2E5440}
+.sec h2{font-size:clamp(26px,3vw,34px);position:relative}
+.md{display:grid;gap:8px;overflow-wrap:anywhere;position:relative}
+.md h3{font-size:24px;letter-spacing:-.03em}
+.md h4{font-family:var(--body);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);font-weight:600;margin-top:6px}
+.forest .md h4{color:#B9C9AE}
+.md ul{padding-left:18px;display:grid;gap:4px}
+.md a{text-decoration:underline;text-underline-offset:3px}
+.copy{font:inherit;font-size:12px;margin-left:8px;padding:3px 9px;border:0;border-radius:999px;background:#ffffffb3;color:var(--ink);cursor:pointer;vertical-align:1px}
+.files{display:grid;gap:6px;position:relative}
+.file{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;background:#ffffffa6;color:var(--ink)}
+.forest .file{background:#ffffff1a;color:var(--forest-ink)}
+.file b{font-weight:600;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.file small{opacity:.7;font-size:12px;white-space:nowrap}
+.file button{font:inherit;font-size:13px;font-weight:600;border:0;border-radius:999px;padding:7px 12px;background:var(--ink);color:#fff;cursor:pointer}
+.forest .file button{background:var(--forest-ink);color:var(--ink)}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;position:relative}
+.thumbs button{border:0;padding:0;background:#ffffff22;border-radius:14px;overflow:hidden;aspect-ratio:1;cursor:pointer}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.empty{opacity:.65;font-size:14px}
+.vfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px;color:var(--ink2);font-size:13px}
+.vfoot button{font:inherit;font-size:13px;color:var(--ink2);background:var(--card);border:0;border-radius:999px;padding:9px 14px;cursor:pointer}
+.lightbox{position:fixed;inset:0;z-index:100;background:#141613e6;display:grid;place-items:center;padding:20px}
+.lightbox img{max-width:100%;max-height:86vh;border-radius:16px}
+.lightbox button{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:16px;width:44px;height:44px;border-radius:999px;border:0;background:#fff;font-size:18px;cursor:pointer}
 </style>
 </head>
 <body data-page="contact">
-<main class="pg">
-  <section id="v-off" hidden>
-    <h1>Contact</h1>
-    <p class="lead">This page isn't connected yet. Check back soon.</p>
+<main class="wrap pg">
+  <section id="v-off" class="lockwrap" hidden><div class="lockcard"><h1>Contact</h1><p>This page isn't connected yet. Check back soon.</p></div></section>
+
+  <section id="v-lock" class="lockwrap" hidden>
+    <div class="lockcard">
+      <span class="blob a"></span><span class="blob b2 y"></span>
+      <div class="lockico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+      <h1>The vault</h1>
+      <p>My contact details and private stuff. Enter the code or password I gave you.</p>
+      <form id="f">
+        <label for="code" class="small">Code or password</label>
+        <input id="code" autocomplete="off" autocapitalize="characters" spellcheck="false" required placeholder="XXXX-XXXX">
+        <button class="btn go" id="go" type="submit">Unlock</button>
+        <div id="err" class="msg" hidden></div>
+        <p class="small">Codes work once. After that, this device stays unlocked.</p>
+      </form>
+    </div>
+    <div class="whatsin">
+      <div><b>Contact</b><small>Email and phone</small></div>
+      <div><b>Socials</b><small>Where to find me</small></div>
+      <div><b>VIP</b><small>Resume, projects, files</small></div>
+    </div>
   </section>
 
-  <section id="v-lock" hidden>
-    <div class="lock"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
-    <h1>Contact <em>details.</em></h1>
-    <p class="lead">My direct contact info is private. Enter the code or password I gave you.</p>
-    <form id="f">
-      <label for="code">Code or password</label>
-      <input id="code" autocomplete="off" autocapitalize="characters" spellcheck="false" required placeholder="XXXX-XXXX or password">
-      <button class="btn" id="go" type="submit">Unlock</button>
-      <p class="note">One-time codes work once. After unlocking, the page stays open in this tab.</p>
-      <div id="err" class="msg" hidden></div>
-    </form>
+  <section id="v-open" hidden>
+    <div class="vhead"><h1>The vault</h1><span id="tier" class="tierchip"></span></div>
+    <div id="grid" class="vgrid"></div>
+    <div class="vfoot"><span id="note"></span><button id="forget">Lock this device</button></div>
   </section>
-
-  <section id="v-open" hidden><div id="body"></div><button id="relock" class="relock" hidden>Lock page</button></section>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
-<script src="/assets/site.js?v=20261001"></script>
+<script src="/lib/vault-md.js?v=20261002"></script>
+<script src="/assets/site.js?v=20261002"></script>
 <script>
 const $=id=>document.getElementById(id);
 const view=v=>['v-off','v-lock','v-open'].forEach(x=>$(x).hidden=x!==v);
-const KEY='contact_body';
+const TK='vault_token';
+const store={get(){try{return localStorage.getItem(TK)}catch(e){return null}},set(v){try{localStorage.setItem(TK,v)}catch(e){}},del(){try{localStorage.removeItem(TK);sessionStorage.removeItem('contact_body')}catch(e){}}};
+const E=VaultMD.esc;
+const isImg=f=>/^image\//.test(f.type||'')||/\.(jpe?g|png|gif|webp|avif)$/i.test(f.path);
+const fname=p=>p.split('/').slice(1).join('/');
 
-// Tiny, safe formatter: text is escaped first, then "# " / "## " headings, links and emails are added.
-function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function linkify(s){
-  return s
-    .replace(/\b(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>')
-    .replace(/\b([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})\b/gi,'<a href="mailto:$1">$1</a><button class="copy" data-copy="$1">Copy</button>')
-    .replace(/(\+?\d[\d\s().-]{7,}\d)/g,m=>`<a href="tel:${m.replace(/[^\d+]/g,'')}">${m}</a><button class="copy" data-copy="${m}">Copy</button>`);
+function showError(t){$('err').textContent=t;$('err').hidden=false}
+
+async function fileUrl(path,download){
+  const {data,error}=await SB.functions.invoke('vault-files',{body:{token:store.get(),path,download:!!download}});
+  if(error||!data||!data.url){
+    if(error&&error.context&&error.context.status===401){store.del();view('v-lock');showError('Your access to the vault was removed.')}
+    return null}
+  return data.url;
 }
-function render(text){
-  const out=text.split('\n').map(line=>{
-    const t=line.trim();if(!t)return'';
-    if(t.startsWith('## '))return`<h3>${esc(t.slice(3))}</h3>`;
-    if(t.startsWith('# '))return`<h2>${esc(t.slice(2))}</h2>`;
-    return`<p>${linkify(esc(t))}</p>`;
-  }).join('');
-  $('body').innerHTML=out;view('v-open');$('relock').hidden=false;
+
+function render(p){
+  $('tier').className='tierchip '+(p.tier==='vip'?'vip':'');
+  $('tier').textContent=p.tier==='vip'?'★ VIP access':'Basic access';
+  $('note').textContent=p.tier==='vip'?'You can see everything.':'Some sections are VIP only.';
+  const g=$('grid');g.innerHTML='';
+  p.sections.forEach((s,i)=>{
+    const el=document.createElement('article');
+    const files=s.kind==='files'?(s.files||[]):[];
+    const wide=s.kind==='files'&&files.some(isImg)||((s.body||'').length>420);
+    el.className=`b sec ${s.color==='card'?'':s.color} ${wide?'wide':''}`;
+    let html=`<span class="blob ${i%2?'b2':''}"></span>${s.tier==='vip'?'<span class="lbl">★ VIP</span>':''}<h2>${E(s.title)}</h2>`;
+    if(s.body)html+=`<div class="md">${VaultMD.render(s.body)}</div>`;
+    if(s.kind==='files'){
+      const imgs=files.filter(isImg),docs=files.filter(f=>!isImg(f));
+      if(docs.length)html+=`<div class="files">${docs.map(f=>`<div class="file"><b title="${E(fname(f.path))}">${E(fname(f.path))}</b><small>${VaultMD.size(f.size)}</small><button data-open="${E(f.path)}">Open</button><button data-dl="${E(f.path)}">Save</button></div>`).join('')}</div>`;
+      if(imgs.length)html+=`<div class="thumbs">${imgs.map(f=>`<button data-img="${E(f.path)}" aria-label="${E(fname(f.path))}"></button>`).join('')}</div>`;
+      if(!files.length&&!s.body)html+=`<p class="empty">Nothing here yet.</p>`;
+    }
+    el.innerHTML=html;g.append(el);
+  });
+  // load thumbnails
+  g.querySelectorAll('[data-img]').forEach(async b=>{const u=await fileUrl(b.dataset.img);if(u)b.innerHTML=`<img src="${u}" alt="" loading="lazy">`});
+  view('v-open');
 }
-document.addEventListener('click',e=>{
-  const b=e.target.closest('[data-copy]');if(!b)return;
-  navigator.clipboard?.writeText(b.dataset.copy).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500)}).catch(()=>{});
+
+document.addEventListener('click',async e=>{
+  const o=e.target.closest('[data-open],[data-dl],[data-img]');if(!o)return;
+  const path=o.dataset.open||o.dataset.dl||o.dataset.img;
+  if(o.dataset.img){const img=o.querySelector('img');if(!img)return;const lb=document.createElement('div');lb.className='lightbox';lb.innerHTML=`<img src="${img.src}" alt=""><button aria-label="Close">✕</button>`;lb.addEventListener('click',()=>lb.remove());document.body.append(lb);return}
+  const w=o.dataset.open?window.open('','_blank'):null;
+  const t=o.textContent;o.textContent='…';
+  const u=await fileUrl(path,!!o.dataset.dl);o.textContent=t;
+  if(!u){if(w)w.close();return}
+  if(w)w.location=u;else location.href=u;
 });
-$('relock').addEventListener('click',()=>{try{sessionStorage.removeItem(KEY)}catch(e){}$('relock').hidden=true;$('code').value='';view('v-lock')});
 
-let saved=null;try{saved=sessionStorage.getItem(KEY)}catch(e){}
-if(saved){render(saved)}
-else if(!window.SB){view('v-off')}
-else{view('v-lock')}
+$('forget').addEventListener('click',()=>{store.del();$('code').value='';$('err').hidden=true;view('v-lock')});
 
 $('f').addEventListener('submit',async e=>{
   e.preventDefault();if(!window.SB)return;
   const code=$('code').value.trim();if(!code)return;
   $('err').hidden=true;$('go').disabled=true;$('go').textContent='Checking…';
-  // One-time codes look like K7QF-2MXR. Also accept them typed without the dash or with spaces.
-  let {data,error}=await SB.rpc('unlock_contact',{code});
-  const bare=code.toUpperCase().replace(/[\s-]/g,'');
-  if(!error&&!data&&/^[A-Z2-9]{8}$/.test(bare)&&code.toUpperCase()!==bare.slice(0,4)+'-'+bare.slice(4)){
-    ({data,error}=await SB.rpc('unlock_contact',{code:bare.slice(0,4)+'-'+bare.slice(4)}));
-  }
+  const {data,error}=await SB.rpc('vault_unlock',{code,device:navigator.userAgent.slice(0,160)});
   $('go').disabled=false;$('go').textContent='Unlock';
-  if(error){$('err').textContent=error.message.includes('Too many')?'Too many wrong codes. Try again in 10 minutes.':'Something went wrong. Try again.';$('err').hidden=false;return}
-  if(!data){$('err').textContent='That code is wrong or has already been used.';$('err').hidden=false;return}
-  try{sessionStorage.setItem(KEY,data)}catch(e){}
-  render(data);
+  if(error){showError(error.message.includes('Too many')?'Too many wrong codes. Try again in 10 minutes.':'Something went wrong. Try again.');return}
+  if(!data){showError('That code is wrong or has already been used.');return}
+  store.set(data.token);render(data);
 });
+
+(async()=>{
+  if(!window.SB){view('v-off');return}
+  const tok=store.get();
+  if(!tok){view('v-lock');return}
+  const {data,error}=await SB.rpc('vault_open',{token:tok});
+  if(error){view('v-lock');showError('Could not open the vault. Try again.');return}
+  if(!data){store.del();view('v-lock');showError('Your access to the vault was removed. Ask me for a new code.');return}
+  render(data);
+})();
 </script>
 </body>
 </html>

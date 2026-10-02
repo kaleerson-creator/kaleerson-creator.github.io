@@ -97,12 +97,19 @@ returns jsonb language plpgsql security definer set search_path = public, extens
 declare
   c public.contact_codes;
   tok text;
+  norm text;
+  bare text;
 begin
   if (select count(*) from public.contact_attempts where at > now() - interval '10 minutes' and not ok) > 30 then
     raise exception 'Too many wrong codes. Try again in 10 minutes.';
   end if;
+  -- accept codes typed without the dash (K7QF2MXR = K7QF-2MXR)
+  norm := upper(trim(code));
+  bare := regexp_replace(norm, '[\s-]', '', 'g');
   select * into c from public.contact_codes
-    where code_hash = encode(digest(upper(trim(code)), 'sha256'), 'hex') for update;
+    where code_hash in (encode(digest(norm, 'sha256'), 'hex'),
+                        case when bare ~ '^[A-Z2-9]{8}$' then encode(digest(left(bare,4) || '-' || right(bare,4), 'sha256'), 'hex') end)
+    order by id limit 1 for update;
   if not found or (c.expires_at is not null and c.expires_at < now()) or (c.single_use and c.used_at is not null) then
     insert into public.contact_attempts (ok) values (false);
     return null;
