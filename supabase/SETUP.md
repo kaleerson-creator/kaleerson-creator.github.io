@@ -108,3 +108,11 @@ To send emails from your own domain and raise the sending limit, create a free [
 `study.sql` adds Study (invite-only, members redeem a code once on their account) and the public forum.
 Already applied. In /admin → Codes, pick **Unlocks: Vault / Study / Both** when making codes.
 Reports and Study members are under /admin → Study & forum.
+
+## Site editor (/admin → Site editor)
+
+Edge function `site-edit` (in `functions/site-edit/`) commits text edits to `main`. Only admins can call it.
+It needs one secret, set in Supabase → Edge Functions → Secrets:
+
+- `GITHUB_TOKEN`: a GitHub fine-grained token with access to only `kaleerson-creator.github.io`,
+  permission **Contents: Read and write**, nothing else. Renew it when it expires.
