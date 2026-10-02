@@ -155,10 +155,15 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
     <!-- PEOPLE -->
     <div class="panel" id="p-people" hidden>
       <div class="box"><h2>People</h2>
-        <p class="help">Everyone who has signed up. If someone's email blocks the sign-in message (school emails often do), press <b>Sign-in link</b> and send them the link yourself by text or DM. Opening it signs them in and verifies their email. Each link works once and expires in about an hour.</p>
+        <p class="help">Everyone who has signed up. If someone's email blocks the sign-in message (school emails often do):</p>
+        <ul class="help" style="padding-left:18px;display:grid;gap:4px">
+          <li><b>Give access</b> makes a personal link that signs them in every time, on any device. Send it to them; they can bookmark it. <b>Turn off</b> stops it. Making a new one turns off the old one.</li>
+          <li><b>One-time link</b> works once and expires in about an hour.</li>
+          <li>Once they're in, they can also set a password on the Join page and sign in with email + password.</li>
+        </ul>
         <div class="row"><input id="pfind" placeholder="Search email or name" style="flex:1;min-width:180px"><label class="row help"><input type="checkbox" id="punv" style="width:auto"> Only unverified</label></div>
         <div id="plink"></div>
-        <div class="tablewrap"><table><thead><tr><th>Email</th><th>Name</th><th>Joined</th><th>Status</th><th>Last sign-in</th><th></th></tr></thead><tbody id="ptable"><tr><td colspan="6" class="muted">Loading…</td></tr></tbody></table></div>
+        <div class="tablewrap"><table><thead><tr><th>Email</th><th>Name</th><th>Joined</th><th>Status</th><th>Last sign-in</th><th>Personal link</th><th></th></tr></thead><tbody id="ptable"><tr><td colspan="7" class="muted">Loading…</td></tr></tbody></table></div>
       </div>
     </div>
 
@@ -424,7 +429,7 @@ let PEOPLE=[];
 async function peopleCall(body){const {data,error}=await SB.functions.invoke('admin-users',{body});if(error){let m=error.message;try{const j=await error.context.json();m=j.error||m}catch(e){}return{error:m}}return data}
 async function loadPeople(){
   const r=await peopleCall({action:'list'});
-  if(r.error){$('ptable').innerHTML=`<tr><td colspan="6"><div class="msg err">${E(r.error)}</div></td></tr>`;return}
+  if(r.error){$('ptable').innerHTML=`<tr><td colspan="7"><div class="msg err">${E(r.error)}</div></td></tr>`;return}
   PEOPLE=r.users.sort((a,b)=>(b.created_at||'').localeCompare(a.created_at||''));drawPeople();
 }
 function drawPeople(){
@@ -432,20 +437,32 @@ function drawPeople(){
   const rows=PEOPLE.filter(u=>(!q||(u.email||'').toLowerCase().includes(q)||(u.name||'').toLowerCase().includes(q))&&(!unv||!u.confirmed));
   $('ptable').innerHTML=rows.map(u=>`<tr><td style="overflow-wrap:anywhere">${E(u.email||'')}</td><td>${E(u.name||'—')}</td><td>${fmtDate(u.created_at)}</td>
     <td>${u.confirmed?'<span class="pill live">Verified</span>':'<span class="pill used">Not verified</span>'}${u.study?' <span class="pill">Study</span>':''}</td>
-    <td>${u.last_sign_in_at?fmtDate(u.last_sign_in_at):'Never'}</td><td><button class="btn sm ${u.confirmed?'ghost':''}" data-link="${E(u.email||'')}">Sign-in link</button></td></tr>`).join('')||'<tr><td colspan="6" class="muted">No one matches.</td></tr>';
+    <td>${u.last_sign_in_at?fmtDate(u.last_sign_in_at):'Never'}</td>
+    <td>${u.key?`<span class="pill live">On</span> <span class="help">${u.key.uses?'used '+u.key.uses+'×':'not used yet'}</span>`:'<span class="help">Off</span>'}</td>
+    <td style="white-space:nowrap"><button class="btn sm" data-key="${u.id}" data-email="${E(u.email||'')}">${u.key?'New link':'Give access'}</button>${u.key?` <button class="btn sm danger" data-revoke="${u.id}">Turn off</button>`:''} <button class="btn sm ghost" data-link="${E(u.email||'')}">One-time link</button></td></tr>`).join('')||'<tr><td colspan="7" class="muted">No one matches.</td></tr>';
 }
 $('pfind').addEventListener('input',drawPeople);$('punv').addEventListener('change',drawPeople);
+function showLink(title,link,note){
+  $('plink').innerHTML=`<div class="box" style="background:var(--butter)"><b>${E(title)}</b><p class="help" style="color:var(--ink)">${note}</p>
+    <div class="row"><input id="plinkv" readonly value="${E(link)}" style="flex:1;min-width:200px;font-size:13px"><button class="btn sm" id="plinkc">Copy</button></div></div>`;
+  $('plinkc').onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(link).then(()=>{$('plinkc').textContent='Copied ✓'})};
+  $('plinkv').onclick=()=>$('plinkv').select();$('plink').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
 $('ptable').addEventListener('click',async e=>{
+  const k=e.target.closest('[data-key]');
+  if(k){const had=k.textContent==='New link';if(had&&!confirmBtn(k,'Old link stops working. Click again'))return;
+    k.disabled=true;const r=await peopleCall({action:'key',user_id:k.dataset.key});k.disabled=false;
+    if(r.error){$('plink').innerHTML=`<div class="msg err">${E(r.error)}</div>`;return}
+    showLink('Personal link for '+k.dataset.email,r.link,'Send this only to them. It signs them in every time, on any device, so they can bookmark it. Anyone who has it can sign in as them. Use <b>Turn off</b> if it gets shared.');
+    loadPeople();return}
+  const rv=e.target.closest('[data-revoke]');
+  if(rv){if(!confirmBtn(rv,'Click again'))return;const r=await peopleCall({action:'revoke',user_id:rv.dataset.revoke});if(r.error){$('plink').innerHTML=`<div class="msg err">${E(r.error)}</div>`;return}$('plink').innerHTML='<div class="msg ok">Personal link turned off.</div>';loadPeople();return}
   const b=e.target.closest('[data-link]');if(!b)return;
   b.disabled=true;const t=b.textContent;b.textContent='Making…';
   const r=await peopleCall({action:'link',email:b.dataset.link});
   b.disabled=false;b.textContent=t;
   if(r.error){$('plink').innerHTML=`<div class="msg err">${E(r.error)}</div>`;return}
-  $('plink').innerHTML=`<div class="box" style="background:var(--butter)"><b>Sign-in link for ${E(b.dataset.link)}</b>
-    <p class="help" style="color:var(--ink)">Send this only to them. Anyone who opens it is signed in as them. It works once and expires in about an hour.</p>
-    <div class="row"><input id="plinkv" readonly value="${E(r.link)}" style="flex:1;min-width:200px;font-size:13px"><button class="btn sm" id="plinkc">Copy</button></div></div>`;
-  $('plinkc').onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(r.link).then(()=>{$('plinkc').textContent='Copied ✓'})};
-  $('plinkv').onclick=()=>$('plinkv').select();
+  showLink('One-time link for '+b.dataset.link,r.link,'Send this only to them. Anyone who opens it is signed in as them. It works once and expires in about an hour.');
 });
 
 /* SITE EDITOR */

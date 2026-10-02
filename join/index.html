@@ -69,10 +69,18 @@ input[type=email]:focus{border-color:var(--ink)}
       <label for="email">Email</label>
       <input id="email" type="email" required autocomplete="email" placeholder="you@example.com">
       <label class="check"><input id="optin" type="checkbox" checked> Email me when Kale ships something new</label>
+      <div id="pwrap" hidden style="display:grid;gap:10px"><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password"></div>
       <button class="btn" id="send" type="submit">Email me a sign-in link</button>
+      <button class="btn ghost" id="pwtoggle" type="button">I have a password</button>
       <p class="note">We'll send a link to verify your email. No password needed. School emails sometimes block it, so a personal email works best.</p>
       <div id="ferr" class="msg err" hidden></div>
     </form>
+  </section>
+
+  <!-- personal link -->
+  <section id="v-key" hidden>
+    <h1>Signing you <em>in…</em></h1>
+    <p class="lead" id="keymsg">One moment.</p>
   </section>
 
   <!-- link sent -->
@@ -99,6 +107,13 @@ input[type=email]:focus{border-color:var(--ink)}
       <div id="pmsg" class="msg ok" hidden>Saved.</div>
       <div class="row"><button class="btn ghost" id="out">Sign out</button></div>
     </div>
+    <div class="card" style="margin-top:16px">
+      <b>Password (optional)</b>
+      <p class="note">Set one so you can sign in with your email and password, without waiting for an email. Handy if your school email blocks the sign-in link.</p>
+      <input id="newpw" type="password" autocomplete="new-password" placeholder="At least 8 characters">
+      <div class="row"><button class="btn ghost" id="setpw">Save password</button></div>
+      <div id="pwmsg" class="msg" hidden></div>
+    </div>
   </section>
 </main>
 
@@ -108,7 +123,7 @@ input[type=email]:focus{border-color:var(--ink)}
 <script src="/assets/site.js?v=20261003b"></script>
 <script>
 const $=id=>document.getElementById(id);
-const views=['v-off','v-form','v-sent','v-in'];
+const views=['v-off','v-form','v-key','v-sent','v-in'];
 const view=v=>views.forEach(x=>$(x).hidden=x!==v);
 const params=new URLSearchParams(location.search);
 const next=(params.get('next')||'').startsWith('/')&&!params.get('next').startsWith('//')?params.get('next'):null;
@@ -133,13 +148,29 @@ async function sendLink(email){
   return error;
 }
 
-if(!window.SB){view('v-off')}else{
+const keyMatch=location.hash.match(/^#key=([A-Za-z0-9_-]{20,64})$/);
+let pwMode=false;
+if(!window.SB){view('v-off')}else if(keyMatch){
+  // Personal link from Kale: trade the key for a fresh one-time sign-in link and follow it.
+  view('v-key');history.replaceState(null,'',location.pathname+location.search);
+  SB.functions.invoke('key-signin',{body:{key:keyMatch[1]}}).then(({data,error})=>{
+    if(data&&data.link){location.replace(data.link);return}
+    $('keymsg').textContent='This sign-in link was turned off or isn\'t right. Ask Kale for a new one.';
+  });
+}else{
   SB.auth.getSession().then(({data})=>data.session?showMember(data.session):view('v-form'));
   SB.auth.onAuthStateChange((evt,session)=>{if(evt==='SIGNED_IN'&&session)showMember(session);if(evt==='SIGNED_OUT')view('v-form')});
 
   $('f').addEventListener('submit',async e=>{
     e.preventDefault();$('ferr').hidden=true;
     const email=$('email').value.trim();if(!email)return;
+    if(pwMode){
+      $('send').disabled=true;$('send').textContent='Signing in…';
+      const {error}=await SB.auth.signInWithPassword({email,password:$('pw').value});
+      $('send').disabled=false;$('send').textContent='Sign in';
+      if(error){$('ferr').textContent=/invalid/i.test(error.message)?'Wrong email or password. No password yet? Use the email link, or ask Kale for a sign-in link.':error.message;$('ferr').hidden=false}
+      return;
+    }
     $('send').disabled=true;$('send').textContent='Sending…';
     try{localStorage.setItem('join_optin',$('optin').checked?'1':'0')}catch(e){}
     const err=await sendLink(email);
@@ -159,6 +190,15 @@ if(!window.SB){view('v-off')}else{
     const m=$('pmsg');m.hidden=false;m.className='msg '+(error?'err':'ok');m.textContent=error?'Could not save. Try again.':'Saved.';setTimeout(()=>m.hidden=true,1800);
   });
   $('out').addEventListener('click',()=>SB.auth.signOut());
+  $('pwtoggle').addEventListener('click',()=>{pwMode=!pwMode;$('pwrap').hidden=!pwMode;$('pw').required=pwMode;
+    $('send').textContent=pwMode?'Sign in':'Email me a sign-in link';$('pwtoggle').textContent=pwMode?'Email me a link instead':'I have a password';$('ferr').hidden=true;if(pwMode)$('pw').focus()});
+  $('setpw').addEventListener('click',async()=>{
+    const pw=$('newpw').value,m=$('pwmsg');m.hidden=false;
+    if(pw.length<8){m.className='msg err';m.textContent='Use at least 8 characters.';return}
+    $('setpw').disabled=true;const {error}=await SB.auth.updateUser({password:pw});$('setpw').disabled=false;
+    m.className='msg '+(error?'err':'ok');m.textContent=error?(/weak|short/i.test(error.message)?'Pick a stronger password.':error.message):'Saved. You can now sign in with your email and this password.';
+    if(!error)$('newpw').value='';
+  });
 }
 </script>
 </body>

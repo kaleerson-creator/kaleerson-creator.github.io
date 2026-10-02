@@ -116,3 +116,10 @@ It needs one secret, set in Supabase → Edge Functions → Secrets:
 
 - `GITHUB_TOKEN`: a GitHub fine-grained token with access to only `kaleerson-creator.github.io`,
   permission **Contents: Read and write**, nothing else. Renew it when it expires.
+
+## Sign-in help for blocked emails (/admin → People)
+
+- `admin-users` edge function (admin-only): lists members, makes one-time sign-in links, gives/revokes personal links.
+- `key-signin` edge function (public): trades a personal key from `kaleerson.com/join/#key=…` for a fresh one-time sign-in link.
+- `access_keys` table stores only a SHA-256 hash of each personal key; no API access (service role only).
+- Members can also set a password on /join/ and sign in with email + password.
