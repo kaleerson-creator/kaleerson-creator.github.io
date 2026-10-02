@@ -44,3 +44,7 @@ for f in sorted(glob.glob(os.path.join(SRC, '*.page'))):
                        body=parts.get('body', '').strip(), extra=extra, js=parts.get('js', '').strip())
     open(os.path.join(out_dir, 'index.html'), 'w').write(html)
     print('built', meta.get('dir') or '/', len(html))
+
+# Re-add the site icon and link-preview tags (see _tools/meta.py).
+import subprocess
+subprocess.run(['python3', os.path.join(SRC, '..', '_tools', 'meta.py')], check=True, stdout=subprocess.DEVNULL)
