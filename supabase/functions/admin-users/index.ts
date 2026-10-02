@@ -94,6 +94,23 @@ Deno.serve(async (req: Request) => {
       return out({ ok: true });
     }
 
+    // "Ask Kale to let me in" requests from the Join page (see login-request function).
+    if (body.action === "requests") {
+      const since = new Date(Date.now() - 30 * 60 * 1000).toISOString();
+      const { data, error } = await admin.from("login_requests").select("id, email, code, device, created_at")
+        .is("used_at", null).is("denied_at", null).is("approved_at", null).gte("created_at", since).order("created_at", { ascending: false });
+      if (error) throw error;
+      return out({ requests: data });
+    }
+    if (body.action === "approve" || body.action === "deny") {
+      const id = String(body.user_id ?? "");
+      if (!/^[0-9a-f-]{36}$/.test(id)) return out({ error: "Bad request" }, 400);
+      const col = body.action === "approve" ? "approved_at" : "denied_at";
+      const { error } = await admin.from("login_requests").update({ [col]: new Date().toISOString() }).eq("id", id).is("used_at", null);
+      if (error) throw error;
+      return out({ ok: true });
+    }
+
     return out({ error: "Unknown action" }, 400);
   } catch (err) {
     return out({ error: String((err as Error).message ?? err) }, 500);

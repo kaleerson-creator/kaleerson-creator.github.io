@@ -72,6 +72,7 @@ input[type=email]:focus{border-color:var(--ink)}
       <div id="pwrap" hidden style="display:grid;gap:10px"><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password"></div>
       <button class="btn" id="send" type="submit">Email me a sign-in link</button>
       <button class="btn ghost" id="pwtoggle" type="button">I have a password</button>
+      <button class="btn ghost" id="askkale" type="button">School email? Ask Kale to let me in</button>
       <p class="note">We'll send a link to verify your email. No password needed. School emails sometimes block it, so a personal email works best.</p>
       <div id="ferr" class="msg err" hidden></div>
     </form>
@@ -83,6 +84,19 @@ input[type=email]:focus{border-color:var(--ink)}
     <p class="lead" id="keymsg">One moment.</p>
   </section>
 
+  <!-- waiting for Kale -->
+  <section id="v-wait" hidden>
+    <h1>Waiting for <em>Kale.</em></h1>
+    <p class="lead">Tell Kale this code. Once Kale lets you in, this page signs you in by itself. Keep it open.</p>
+    <div class="card" style="text-align:center">
+      <p class="note">Your code</p>
+      <div id="wcode" style="font:800 64px/1 var(--display,system-ui);letter-spacing:.12em"></div>
+      <p class="note" id="wemail"></p>
+      <p class="note" id="wstatus">Waiting…</p>
+      <div class="row" style="justify-content:center"><button class="btn ghost" id="wcancel">Cancel</button></div>
+    </div>
+  </section>
+
   <!-- link sent -->
   <section id="v-sent" hidden>
     <h1>Check your <em>inbox.</em></h1>
@@ -90,6 +104,7 @@ input[type=email]:focus{border-color:var(--ink)}
     <div class="card">
       <p class="note">Can't find it? Check spam or promotions, and note that school email often blocks outside mail. The link expires in 1 hour.</p>
       <div class="row"><button class="btn ghost" id="resend">Send again</button><button class="btn ghost" id="other">Use a different email</button></div>
+      <button class="btn" id="askkale2" type="button">Email not coming? Ask Kale to let me in</button>
       <div id="smsg" class="msg" hidden></div>
     </div>
   </section>
@@ -123,7 +138,7 @@ input[type=email]:focus{border-color:var(--ink)}
 <script src="/assets/site.js?v=20261003b"></script>
 <script>
 const $=id=>document.getElementById(id);
-const views=['v-off','v-form','v-key','v-sent','v-in'];
+const views=['v-off','v-form','v-key','v-wait','v-sent','v-in'];
 const view=v=>views.forEach(x=>$(x).hidden=x!==v);
 const params=new URLSearchParams(location.search);
 const next=(params.get('next')||'').startsWith('/')&&!params.get('next').startsWith('//')?params.get('next'):null;
@@ -190,6 +205,33 @@ if(!window.SB){view('v-off')}else if(keyMatch){
     const m=$('pmsg');m.hidden=false;m.className='msg '+(error?'err':'ok');m.textContent=error?'Could not save. Try again.':'Saved.';setTimeout(()=>m.hidden=true,1800);
   });
   $('out').addEventListener('click',()=>SB.auth.signOut());
+  // Ask Kale to let me in: make a request, show the code, poll until approved.
+  let waitTimer=null;
+  const stopWait=()=>{clearInterval(waitTimer);waitTimer=null;try{sessionStorage.removeItem('login_req')}catch(e){}};
+  async function askKale(email){
+    $('ferr').hidden=true;
+    if(!/^\S+@\S+\.\S+$/.test(email)){view('v-form');$('ferr').textContent='Type your email first.';$('ferr').hidden=false;$('email').focus();return}
+    const {data,error}=await SB.functions.invoke('login-request',{body:{action:'create',email,device:navigator.userAgent.slice(0,160)}});
+    if(error||!data||!data.id){let m='Couldn\'t send the request. Try again.';try{const j=await error.context.json();m=j.error||m}catch(e){}view('v-form');$('ferr').textContent=m;$('ferr').hidden=false;return}
+    const req={id:data.id,token:data.token,code:data.code,email};
+    try{sessionStorage.setItem('login_req',JSON.stringify(req))}catch(e){}
+    waitFor(req);
+  }
+  function waitFor(req){
+    $('wcode').textContent=req.code;$('wemail').textContent=req.email;$('wstatus').textContent='Waiting…';view('v-wait');
+    const poll=async()=>{
+      const {data}=await SB.functions.invoke('login-request',{body:{action:'poll',id:req.id,token:req.token}});
+      const st=data&&data.status;
+      if(st==='approved'&&data.link){stopWait();$('wstatus').textContent='You\'re in! Signing in…';location.replace(data.link);return}
+      if(st==='denied'){stopWait();$('wstatus').textContent='Kale didn\'t approve this request.';return}
+      if(st==='expired'){stopWait();$('wstatus').textContent='This request expired. Go back and ask again.';return}
+    };
+    clearInterval(waitTimer);waitTimer=setInterval(poll,3000);poll();
+  }
+  $('askkale').addEventListener('click',()=>askKale($('email').value.trim()));
+  $('askkale2').addEventListener('click',()=>askKale(lastEmail));
+  $('wcancel').addEventListener('click',()=>{stopWait();view('v-form')});
+  try{const saved=JSON.parse(sessionStorage.getItem('login_req')||'null');if(saved&&saved.id)SB.auth.getSession().then(({data})=>{if(!data.session)waitFor(saved);else sessionStorage.removeItem('login_req')})}catch(e){}
   $('pwtoggle').addEventListener('click',()=>{pwMode=!pwMode;$('pwrap').hidden=!pwMode;$('pw').required=pwMode;
     $('send').textContent=pwMode?'Sign in':'Email me a sign-in link';$('pwtoggle').textContent=pwMode?'Email me a link instead':'I have a password';$('ferr').hidden=true;if(pwMode)$('pw').focus()});
   $('setpw').addEventListener('click',async()=>{

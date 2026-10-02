@@ -96,7 +96,7 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
       <button role="tab" data-t="files">Files</button>
       <button role="tab" data-t="codes">Codes</button>
       <button role="tab" data-t="devices">Devices</button>
-      <button role="tab" data-t="people">People</button>
+      <button role="tab" data-t="people">People <span class="pill" id="reqcount" hidden style="background:#D12C2C;color:#fff;margin-left:4px"></span></button>
       <button role="tab" data-t="study">Study &amp; forum</button>
       <button role="tab" data-t="site">Site editor</button>
     </div>
@@ -154,6 +154,9 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
 
     <!-- PEOPLE -->
     <div class="panel" id="p-people" hidden>
+      <div class="box" id="reqbox" hidden style="background:var(--butter)"><h2>Waiting to get in</h2>
+        <p class="help" style="color:var(--ink)">These people pressed <b>Ask Kale to let me in</b> on the Join page. Their screen shows a 4-digit code. <b>Only let someone in if they tell you the same code</b>, so nobody can get into another person's account. Their page signs in by itself a few seconds after you press Let in.</p>
+        <div class="tablewrap"><table><thead><tr><th>Email</th><th>Code</th><th>Device</th><th>Asked</th><th></th></tr></thead><tbody id="reqtable"></tbody></table></div><div id="reqmsg"></div></div>
       <div class="box"><h2>People</h2>
         <p class="help">Everyone who has signed up. If someone's email blocks the sign-in message (school emails often do):</p>
         <ul class="help" style="padding-left:18px;display:grid;gap:4px">
@@ -218,7 +221,7 @@ const E=VaultMD.esc;
 const views=['v-wait','v-signin','v-no','v-app'];const view=v=>views.forEach(x=>$(x).hidden=x!==v);
 const COLORS=['card','moss','sky','peach','butter','lilac','forest'];
 const fmtDate=d=>d?new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'';
-const device=ua=>{if(!ua)return'Unknown';const os=/iPhone|iPad/.test(ua)?'iPhone/iPad':/Android/.test(ua)?'Android':/Mac OS/.test(ua)?'Mac':/Windows/.test(ua)?'Windows':/CrOS/.test(ua)?'Chromebook':'Other';const br=/Edg\//.test(ua)?'Edge':/Chrome\//.test(ua)?'Chrome':/Firefox\//.test(ua)?'Firefox':/Safari\//.test(ua)?'Safari':'';return os+(br?' · '+br:'')};
+const device=ua=>{if(!ua)return'Unknown';const os=/iPhone|iPad/.test(ua)?'iPhone/iPad':/Android/.test(ua)?'Android':/Mac OS/.test(ua)?'Mac':/Windows/.test(ua)?'Windows':/CrOS/.test(ua)?'Chromebook':/Linux/.test(ua)?'Linux':'Other';const br=/Edg\//.test(ua)?'Edge':/Chrome\//.test(ua)?'Chrome':/Firefox\//.test(ua)?'Firefox':/Safari\//.test(ua)?'Safari':'';return os+(br?' · '+br:'')};
 function flash(el,text,ok){el.innerHTML=`<div class="msg ${ok?'ok':'err'}">${E(text)}</div>`;setTimeout(()=>{el.innerHTML=''},4000)}
 // two-click confirm for destructive buttons
 function confirmBtn(b,label){if(b.dataset.armed){return true}b.dataset.armed=1;const t=b.textContent;b.textContent=label||'Sure?';setTimeout(()=>{delete b.dataset.armed;b.textContent=t},3000);return false}
@@ -424,6 +427,24 @@ $('memtable').addEventListener('click',async e=>{
 
 $('out').addEventListener('click',async()=>{await SB.auth.signOut();location.href='/'});
 
+/* PEOPLE: sign-in requests (polled while admin is open) */
+let reqTimer=null;
+async function loadRequests(){
+  const r=await peopleCall({action:'requests'});if(r.error)return;
+  const rq=r.requests||[];
+  $('reqcount').hidden=!rq.length;$('reqcount').textContent=rq.length;
+  $('reqbox').hidden=!rq.length;
+  $('reqtable').innerHTML=rq.map(q=>`<tr><td style="overflow-wrap:anywhere">${E(q.email)}</td><td><b style="font:800 22px/1 var(--display);letter-spacing:.08em">${E(q.code)}</b></td><td>${E(device(q.device))}</td><td>${new Date(q.created_at).toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}</td>
+    <td style="white-space:nowrap"><button class="btn sm" data-approve="${q.id}">Let in</button> <button class="btn sm ghost" data-deny="${q.id}">Deny</button></td></tr>`).join('');
+}
+$('reqtable').addEventListener('click',async e=>{
+  const a=e.target.closest('[data-approve]'),d=e.target.closest('[data-deny]');if(!a&&!d)return;
+  const b=a||d;b.disabled=true;
+  const r=await peopleCall({action:a?'approve':'deny',user_id:(a||d).dataset[a?'approve':'deny']});
+  $('reqmsg').innerHTML=r.error?`<div class="msg err">${E(r.error)}</div>`:`<div class="msg ok">${a?'Let in. Their page will sign in within a few seconds.':'Denied.'}</div>`;
+  setTimeout(()=>$('reqmsg').innerHTML='',4000);loadRequests();if(a)setTimeout(loadPeople,6000);
+});
+
 /* PEOPLE */
 let PEOPLE=[];
 async function peopleCall(body){const {data,error}=await SB.functions.invoke('admin-users',{body});if(error){let m=error.message;try{const j=await error.context.json();m=j.error||m}catch(e){}return{error:m}}return data}
@@ -625,7 +646,7 @@ async function checkToken(){
   if(!data.session){view('v-signin');return}
   const {data:ok}=await SB.rpc('is_admin');
   if(!ok){view('v-no');return}
-  view('v-app');loadSections();checkToken();
+  view('v-app');loadSections();checkToken();loadRequests();reqTimer=setInterval(()=>{if(!document.hidden)loadRequests()},5000);
 })();
 </script>
 </body>
