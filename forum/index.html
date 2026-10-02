@@ -74,6 +74,7 @@ label.f{display:grid;gap:5px;font-size:12px;font-weight:600;color:var(--ink2);le
 <script>
 const $=id=>document.getElementById(id);
 const E=VaultMD.esc, C=Community, me=C.me;
+let STUDY=false;
 const CATS={general:'General',classes:'Classes',clubs:'Clubs',help:'Help',ideas:'Ideas'};
 const author=r=>E(r.author&&r.author.display_name||'Someone');
 const canDel=r=>me.uid&&(r.created_by===me.uid||me.admin);
@@ -85,7 +86,7 @@ async function needName(){if(me.name)return true;return C.askName('This shows ne
 async function list(cat){
   cat=CATS[cat]?cat:'';
   $('app').innerHTML=`
-    <section class="phead"><span class="blob b2"></span><h1>Forum</h1><p>Talk about classes, clubs, projects, anything. Anyone can read. Members can post.</p></section>
+    <section class="phead"><span class="blob b2"></span><h1>Forum</h1><p>Talk about classes, clubs, projects, anything. Anyone can read. Members can post.</p>${STUDY?'<a class="btn sm forest" href="/study/" style="margin-top:14px">← Back to PVHS Study</a>':''}</section>
     <div class="bar"><nav class="cats"><a href="#/" aria-selected="${!cat}">All</a>${Object.entries(CATS).map(([k,v])=>`<a href="#/cat/${k}" aria-selected="${cat===k}">${v}</a>`).join('')}</nav>
       ${me.uid?`<div class="who">${me.name?`Posting as <b>${E(me.name)}</b><button class="linkbtn" id="rename">Change</button>`:''}<button class="btn sm" id="newtog">+ New thread</button></div>`:''}</div>
     ${me.uid?'':signinBox('start a thread or reply')}
@@ -169,6 +170,7 @@ function route(){
 (async()=>{
   if(!window.SB){$('app').innerHTML='<section class="phead"><h1>Forum</h1><p>Coming soon.</p></section>';return}
   await C.load();
+  if(me.uid){const r=await SB.rpc('is_study');STUDY=!!r.data}
   addEventListener('hashchange',route);route();
 })();
 </script>
