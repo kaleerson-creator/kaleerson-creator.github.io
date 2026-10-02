@@ -226,13 +226,14 @@ async function home(){
     ${RULES}
     <div class="lay">
       <div class="box">
-        <div class="search"><input id="q" placeholder="Search teacher or class" aria-label="Search"><button class="btn sm" id="addtog">+ Add a class</button></div>
+        <div class="search"><input id="q" placeholder="Search class or teacher" aria-label="Search"><button class="btn sm" id="addtog">+ Add a class</button></div>
         <div id="addcls" class="adder" hidden>
           <div class="g3">
+            <label class="f">Class<input id="nc" list="clist" maxlength="60" placeholder="e.g. AP Biology"></label>
             <label class="f">Teacher<input id="nt" list="tlist" maxlength="60" placeholder="e.g. Mr. Smith"></label>
-            <label class="f">Class<input id="nc" maxlength="60" placeholder="e.g. AP Biology"></label>
             <label class="f">Period<input id="np" maxlength="12" placeholder="3"></label>
           </div>
+          <datalist id="clist">${[...new Set(K.map(c=>c.name.trim()))].sort().map(n=>`<option value="${E(n)}">`).join('')}</datalist>
           <datalist id="tlist">${T.map(t=>`<option value="${E(t.name)}">`).join('')}</datalist>
           <div class="row"><button class="btn sm" id="addgo">Add class</button><span id="addmsg"></span></div>
         </div>
@@ -243,15 +244,20 @@ async function home(){
     </div>`;
   const draw=()=>{
     const q=$('q').value.trim().toLowerCase();
-    const rows=T.map(t=>({t,cs:K.filter(c=>c.teacher_id===t.id&&(!q||t.name.toLowerCase().includes(q)||c.name.toLowerCase().includes(q)))}))
-      .filter(r=>r.cs.length||(q&&r.t.name.toLowerCase().includes(q)));
-    $('dir').innerHTML=rows.map(r=>`<div class="teacher"><a href="#/t/${r.t.id}" class="row" style="align-items:center"><b>${E(r.t.name)}</b>${SUM[r.t.id]?`<span class="score ${qcls(SUM[r.t.id].quality)}" style="height:28px;min-width:36px;font-size:14px">${(+SUM[r.t.id].quality).toFixed(1)}</span>`:''}</a><div class="classes">${r.cs.map(c=>`<a class="cls" href="#/c/${c.id}">${clsLabel(c)}</a>`).join('')||'<span class="empty">No classes yet</span>'}</div></div>`).join('')
+    // group by class name, then list each teacher (and period) teaching it
+    const groups={};
+    K.filter(c=>!q||c.name.toLowerCase().includes(q)||teacherOf(c).name.toLowerCase().includes(q))
+      .forEach(c=>{const k=c.name.trim().toLowerCase();(groups[k]=groups[k]||{name:c.name.trim(),cs:[]}).cs.push(c)});
+    const rows=Object.values(groups).sort((a,b)=>a.name.localeCompare(b.name));
+    rows.forEach(g=>g.cs.sort((a,b)=>teacherOf(a).name.localeCompare(teacherOf(b).name)||String(a.period||'').localeCompare(String(b.period||''),undefined,{numeric:true})));
+    $('dir').innerHTML=rows.map(g=>`<div class="teacher"><b>${E(g.name)}</b><div class="classes">${g.cs.map(c=>{const x=SUM[c.teacher_id];
+      return `<a class="cls" href="#/c/${c.id}">${E(teacherOf(c).name)}${c.period?` <small>P${E(c.period)}</small>`:''}${x?` <small class="score ${qcls(x.quality)}" style="height:22px;min-width:30px;font-size:12px;color:var(--ink)">${fmt1(x.quality)}</small>`:''}</a>`}).join('')}</div></div>`).join('')
       ||`<p class="empty">${q?'No match. Add it with “+ Add a class”.':'No classes yet. Be the first to add yours.'}</p>`;
   };
   draw();
   $('q').addEventListener('input',draw);
   $('rename').addEventListener('click',async()=>{if(await C.askName())home()});
-  $('addtog').addEventListener('click',()=>{$('addcls').hidden=!$('addcls').hidden;if(!$('addcls').hidden){$('nt').value=$('q').value;$('nt').focus()}});
+  $('addtog').addEventListener('click',()=>{$('addcls').hidden=!$('addcls').hidden;if(!$('addcls').hidden){$('nc').value=$('q').value;$('nc').focus()}});
   $('addgo').addEventListener('click',async()=>{
     const tn=$('nt').value.trim(),cn=$('nc').value.trim(),p=$('np').value.trim().replace(/^p(eriod)?\s*/i,'');
     const say=t=>$('addmsg').innerHTML=`<span style="color:#b42318;font-size:14px">${E(t)}</span>`;
@@ -466,7 +472,7 @@ let SUM={};
 async function loadSum(){const {data}=await SB.rpc('teacher_rating_summary');SUM={};(data||[]).forEach(x=>SUM[x.teacher_id]=x)}
 const qcls=q=>q>=4?'good':q>=3?'ok':'bad';
 const fmt1=n=>(+n).toFixed(1);
-const RRULES=`<div class="rules"><span>⚑</span><span><b>Rate the teaching, not the person.</b> No insults, rumors, or anything about their life outside class. Ratings show as “Anonymous student” to everyone else, but Kale can see who wrote them and will remove ones that cross the line.</span></div>`;
+const RRULES=`<div class="rules"><span>⚑</span><span><b>Rate the teaching, not the person.</b> No insults, rumors, or anything about their life outside class. Ratings show as “Anonymous student” to other students.</span></div>`;
 
 async function teachers(){
   await Promise.all([loadDir(),loadSum()]);
@@ -519,7 +525,7 @@ async function teacher(id){
       <div class="acts">${r.mine?'<button data-editr>Edit</button><button data-delr>Delete</button>':`<button data-rep="teacher_rating:${r.id}">Report</button>`}</div></article>`).join('')}</div>`;
   const form=edit=>{
     const v=edit&&mine?{q:mine.quality,d:mine.difficulty,a:mine.take_again,tags:mine.tags.slice(),c:mine.comment,cls:mine.class_id}:{q:0,d:0,a:null,tags:[],c:'',cls:null};
-    if(mine&&!edit){$('rform').innerHTML=`<h2>Your rating</h2><p class="muted">You rated ${E(t.name)} ${mine.quality}/5. Only you can see it's yours.</p><div class="row"><button class="btn sm" id="redit">Edit my rating</button></div>`;$('redit').addEventListener('click',()=>form(true));return}
+    if(mine&&!edit){$('rform').innerHTML=`<h2>Your rating</h2><p class="muted">You rated ${E(t.name)} ${mine.quality}/5. Other students see it as anonymous.</p><div class="row"><button class="btn sm" id="redit">Edit my rating</button></div>`;$('redit').addEventListener('click',()=>form(true));return}
     $('rform').innerHTML=`<h2>${mine?'Edit your rating':'Rate '+E(t.name)}</h2>
       <label class="f">Overall quality</label><div class="pick" data-p="q">${[1,2,3,4,5].map(i=>`<button type="button" data-v="${i}" aria-pressed="${v.q===i}">${i}</button>`).join('')}</div><div class="pickl" id="ql">${QL[v.q]||''}</div>
       <label class="f">Difficulty</label><div class="pick" data-p="d">${[1,2,3,4,5].map(i=>`<button type="button" data-v="${i}" aria-pressed="${v.d===i}">${i}</button>`).join('')}</div><div class="pickl" id="dl">${DL[v.d]||''}</div>
