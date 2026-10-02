@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261004">
+<link rel="stylesheet" href="/assets/site.css?v=20261005">
 <style>
 main.pg{flex:1;padding-block:0 64px}
 .phead .blob{background:var(--sky)}
@@ -84,14 +84,14 @@ label.f{display:grid;gap:5px;font-size:12px;font-weight:600;color:var(--ink2);le
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
 <script src="/lib/vault-md.js?v=20261002"></script>
-<script src="/lib/community.js?v=20261003b"></script>
-<script src="/assets/site.js?v=20261004"></script>
+<script src="/lib/community.js?v=20261005"></script>
+<script src="/assets/site.js?v=20261005"></script>
 <script>
 const $=id=>document.getElementById(id);
 const E=VaultMD.esc, C=Community, me=C.me;
 let STUDY=false;
 const CATS={general:'General',classes:'Classes',clubs:'Clubs',help:'Help',ideas:'Ideas'};
-const author=r=>E(r.author&&r.author.display_name||'Someone');
+const author=r=>Community.nameHTML(r.author);
 const canDel=r=>me.uid&&(r.created_by===me.uid||me.admin);
 const signinBox=what=>`<div class="signin"><span>Sign in to ${what}. Anyone can read.</span><a class="btn sm" href="/join/?next=${encodeURIComponent('/forum/'+location.hash)}">Sign up or sign in</a></div>`;
 const RULES='<p class="rules">Be decent. No test answers, no personal info about other people, no spam. Reported posts get reviewed and removed.</p>';
@@ -130,7 +130,7 @@ async function list(cat){
       location.hash='#/t/'+r.data.id;
     });
   }
-  let q=SB.from('forum_threads').select('id,category,title,reply_count,last_post_at,created_at,locked,author:profiles(display_name)').order('last_post_at',{ascending:false}).limit(100);
+  let q=SB.from('forum_threads').select('id,category,title,reply_count,last_post_at,created_at,locked,author:profiles(display_name,username,name_color,tags)').order('last_post_at',{ascending:false}).limit(100);
   if(cat)q=q.eq('category',cat);
   const {data,error}=await q;
   if(error){$('threads').innerHTML=`<div class="msg">${E(C.errText(error))}</div>`;return}
@@ -140,9 +140,9 @@ async function list(cat){
 }
 
 async function thread(id){
-  const {data:t,error}=await SB.from('forum_threads').select('*,author:profiles(display_name)').eq('id',id).maybeSingle();
+  const {data:t,error}=await SB.from('forum_threads').select('*,author:profiles(display_name,username,name_color,tags)').eq('id',id).maybeSingle();
   if(error||!t){$('app').innerHTML=`<a class="back" href="#/">← Forum</a><div class="box"><h2>Thread not found</h2><p class="rules">It may have been removed.</p></div>`;return}
-  const {data:rs}=await SB.from('forum_replies').select('*,author:profiles(display_name)').eq('thread_id',id).order('created_at').limit(500);
+  const {data:rs}=await SB.from('forum_replies').select('*,author:profiles(display_name,username,name_color,tags)').eq('thread_id',id).order('created_at').limit(500);
   $('app').innerHTML=`
     <a class="back" href="#/cat/${t.category}">← ${CATS[t.category]}</a>
     <article class="op"><span class="blob"></span>

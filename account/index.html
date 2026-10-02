@@ -24,15 +24,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261004">
+<link rel="stylesheet" href="/assets/site.css?v=20261005">
 <style>
 .phead .blob{background:var(--butter);width:clamp(90px,14vw,170px);top:30px}
+.atabs{display:flex;gap:4px;background:var(--card);border-radius:999px;padding:5px;width:max-content;max-width:100%;margin-bottom:var(--gap)}
+.atabs button{font:inherit;font-size:15px;font-weight:600;border:0;background:none;color:var(--ink2);padding:9px 18px;border-radius:999px;cursor:pointer}
+.atabs button[aria-selected=true]{background:var(--ink);color:var(--paper)}
 .acc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);align-items:start}
 @media (max-width:820px){.acc{grid-template-columns:1fr}}
 .box{background:var(--card);border-radius:24px;padding:22px;display:grid;gap:12px;min-width:0}
 .box h2{font-size:24px;letter-spacing:-.03em}
 .box p{color:var(--ink2);font-size:15px}
+label.f{display:grid;gap:6px;font-weight:600;font-size:14px}
+label.f small{font-weight:400;color:var(--ink2)}
 input{font:inherit;font-size:16px;padding:11px 13px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);width:100%}
+html[data-theme=dark] input:not([type=checkbox]){background:var(--field)}
 input:focus{outline:2px solid var(--ink);outline-offset:1px}
 .btn.sm{padding:9px 14px;font-size:14px}
 .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
@@ -42,88 +48,157 @@ input:focus{outline:2px solid var(--ink);outline-offset:1px}
 .access{display:grid;gap:8px}
 .access div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-radius:14px;background:var(--paper);font-weight:600}
 .access a{text-decoration:underline;text-underline-offset:3px;font-weight:500;font-size:14px}
-.yes{color:#24502f}.no{color:var(--ink3);font-weight:500}
+.no{color:var(--ink3);font-weight:500}
 .check{display:flex;gap:10px;align-items:center;font-size:15px}
 .check input{width:auto}
 .email{font-weight:600;overflow-wrap:anywhere}
+.uname{font-family:ui-monospace,Menlo,monospace;font-size:17px;font-weight:600;background:var(--paper);border-radius:12px;padding:10px 13px;overflow-wrap:anywhere}
+.preview{background:var(--paper);border-radius:14px;padding:12px 14px;font-size:16px}
+.seg{display:flex;gap:4px;background:var(--paper);border-radius:999px;padding:4px;width:max-content;max-width:100%}
+.seg button{font:inherit;font-size:14px;font-weight:600;border:0;background:none;color:var(--ink2);padding:8px 16px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
 </style>
 </head>
 <body data-page="account">
 <main class="wrap">
   <section class="phead"><span class="blob"></span><h1>Account</h1><p id="hello">Loading…</p></section>
-  <div class="acc" id="acc" hidden>
-    <div class="box">
-      <h2>Display name</h2>
-      <p>Shown on your posts, Study notes and game leaderboards. Your email is never shown.</p>
-      <input id="name" maxlength="30" placeholder="e.g. Kale E.">
-      <div class="row"><button class="btn sm" id="savename">Save name</button></div><div id="namemsg"></div>
+  <div id="acc" hidden>
+    <div class="atabs" role="tablist"><button role="tab" data-tab="profile" aria-selected="true">Profile</button><button role="tab" data-tab="settings" aria-selected="false">Settings</button></div>
+    <div class="acc" id="t-profile">
+      <div class="box">
+        <h2>Your name</h2>
+        <p>Shown on your posts, Study notes and game leaderboards. Your email is never shown.</p>
+        <div id="ubox"></div>
+        <label class="f">Display name <small>you can change this anytime</small><input id="name" maxlength="30" placeholder="e.g. Kale E."></label>
+        <div class="row"><button class="btn sm" id="savename">Save</button></div><div id="namemsg"></div>
+      </div>
+      <div class="box">
+        <h2>How you look</h2>
+        <p>This is how your name shows up to everyone. Name colors and tags are given out by Kale.</p>
+        <div class="preview" id="look"></div>
+      </div>
+      <div class="box">
+        <h2>What you can use</h2>
+        <div class="access" id="access"></div>
+      </div>
     </div>
-    <div class="box">
-      <h2>What you can use</h2>
-      <div class="access" id="access"></div>
-    </div>
-    <div class="box">
-      <h2>Password</h2>
-      <p>Optional. Lets you sign in with your email and password instead of waiting for an email link.</p>
-      <input id="pw" type="password" autocomplete="new-password" placeholder="At least 8 characters">
-      <div class="row"><button class="btn sm ghost" id="savepw">Save password</button></div><div id="pwmsg"></div>
-    </div>
-    <div class="box">
-      <h2>Email</h2>
-      <p>Signed in as <span class="email" id="email"></span></p>
-      <label class="check"><input type="checkbox" id="optin"> Email me when Kale ships something new</label><div id="optmsg"></div>
-    </div>
-    <div class="box">
-      <h2>Sign out</h2>
-      <p>Signs you out on this device. "Everywhere" also signs out your other phones and computers.</p>
-      <div class="row"><button class="btn sm ghost" id="out">Sign out</button><button class="btn sm ghost" id="outall">Sign out everywhere</button></div>
-    </div>
-    <div class="box">
-      <h2>Your data</h2>
-      <p>You can delete your own posts anytime. To delete your whole account, ask Kale. See the <a href="/privacy/" style="text-decoration:underline">privacy page</a> for what's stored.</p>
+    <div class="acc" id="t-settings" hidden>
+      <div class="box">
+        <h2>Theme</h2>
+        <p>Auto follows your phone or computer. Saved on this device.</p>
+        <div class="seg" id="theme" role="group" aria-label="Theme"><button data-v="auto">Auto</button><button data-v="dark">Dark</button><button data-v="light">Light</button></div>
+      </div>
+      <div class="box">
+        <h2>Visit counting</h2>
+        <p>One first-party cookie that lets the site count returning visitors. No ads, no tracking across sites. <a href="/privacy/" style="text-decoration:underline">Privacy</a></p>
+        <label class="check"><input type="checkbox" id="kv"> Allow the visit-counting cookie on this device</label><div id="kvmsg"></div>
+      </div>
+      <div class="box">
+        <h2>Email</h2>
+        <p>Signed in as <span class="email" id="email"></span></p>
+        <label class="check"><input type="checkbox" id="optin"> Email me when Kale ships something new</label><div id="optmsg"></div>
+      </div>
+      <div class="box">
+        <h2>Password</h2>
+        <p>Optional. Lets you sign in with your email and password instead of waiting for an email link.</p>
+        <input id="pw" type="password" autocomplete="new-password" placeholder="At least 8 characters">
+        <div class="row"><button class="btn sm ghost" id="savepw">Save password</button></div><div id="pwmsg"></div>
+      </div>
+      <div class="box">
+        <h2>Sign out</h2>
+        <p>Signs you out on this device. "Everywhere" also signs out your other phones and computers.</p>
+        <div class="row"><button class="btn sm ghost" id="out">Sign out</button><button class="btn sm ghost" id="outall">Sign out everywhere</button></div>
+      </div>
+      <div class="box">
+        <h2>Your data</h2>
+        <p>You can delete your own posts anytime. To delete your whole account, ask Kale. See the <a href="/privacy/" style="text-decoration:underline">privacy page</a> for what's stored.</p>
+      </div>
     </div>
   </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
-<script src="/assets/site.js?v=20261004"></script>
+<script src="/assets/site.js?v=20261005"></script>
 <script>
 const $=id=>document.getElementById(id);
 const E=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const flash=(id,ok,text)=>{$(id).innerHTML=`<div class="msg ${ok?'ok':'err'}">${E(text)}</div>`;if(ok)setTimeout(()=>$(id).innerHTML='',2500)};
-let uid=null,hasName=false;
+const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);v===null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){return null}};
+let uid=null,prof=null;
+
+// Tabs (remembered in the URL hash so links like /account/#settings work)
+function tab(t){document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));
+  $('t-profile').hidden=t!=='profile';$('t-settings').hidden=t!=='settings';history.replaceState(null,'',t==='settings'?'#settings':location.pathname)}
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>tab(b.dataset.tab));
+if(location.hash==='#settings')tab('settings');
+
+const hi=n=>`Hi, ${n}${/[.!?]$/.test(n)?'':'.'}`;
+function nameHTML(p){if(!p||!p.display_name)return'<span class="no">No name yet</span>';
+  const c=/^#[0-9a-fA-F]{6}$/.test(p.name_color||'')?` style="--nc:${p.name_color}"`:'';
+  return `<span class="cm-name"${c}>${E(p.display_name)}</span>${(p.tags||[]).map(t=>` <span class="cm-tag">${E(t)}</span>`).join('')}${p.username?` <span class="no" style="font-size:14px">@${E(p.username)}</span>`:''}`}
+function drawProfile(){
+  $('ubox').innerHTML=prof&&prof.username
+    ?`<div class="f" style="display:grid;gap:6px;font-weight:600;font-size:14px">Username <div class="uname">@${E(prof.username)}</div></div>`
+    :`<label class="f">Username <small>pick carefully, it can't be changed later</small><input id="uname" maxlength="21" placeholder="e.g. kale_e" autocapitalize="off" spellcheck="false"></label>`;
+  $('look').innerHTML=nameHTML(prof);
+}
+
 (async()=>{
   if(!window.SB){$('hello').textContent='Accounts are offline right now.';return}
   const {data}=await SB.auth.getSession();
   if(!data.session){location.replace('/join/?next=/account/');return}
   const u=data.session.user;uid=u.id;$('email').textContent=u.email;
   const [p,m,study,admin]=await Promise.all([
-    SB.from('profiles').select('display_name').eq('user_id',uid).maybeSingle(),
+    SB.from('profiles').select('display_name,username,name_color,tags').eq('user_id',uid).maybeSingle(),
     SB.from('members').select('email_opt_in').eq('id',uid).maybeSingle(),
     SB.rpc('is_study'),SB.rpc('is_admin')]);
-  const name=p.data?.display_name||'';hasName=!!name;$('name').value=name;SITE.setName&&SITE.setName(name);
-  const hi=n=>`Hi, ${n}${/[.!?]$/.test(n)?'':'.'}`;
-  $('hello').textContent=name?hi(name):'Pick a display name so people know who posted.';
+  prof=p.data||null;const name=prof?.display_name||'';$('name').value=name;SITE.setName&&SITE.setName(name);
+  $('hello').textContent=name?hi(name)+(prof.username?'':' Pick a username below.'):'Pick a username and display name so people know who posted.';
+  drawProfile();
   $('optin').checked=m.data?m.data.email_opt_in:true;
   let vault=false;try{vault=!!localStorage.getItem('vault_token')}catch(e){}
   const row=(label,on,link,linkText)=>`<div><span>${label}</span>${on?`<a href="${link}">${linkText||'Open'} →</a>`:`<span class="no">${linkText||'Not yet'}</span>`}</div>`;
   $('access').innerHTML=
-    row('Members tools (Snapwit, timers, games)',true,'/tools/','Open')+
+    row('Members tools (Snapwit, timers)',true,'/tools/','Open')+
+    row('Games & leaderboards',true,'/edu/')+
     (study.data?row('PVHS Study',true,'/study/'):`<div><span>PVHS Study</span><a href="/study/">Have a code? →</a></div>`)+
     row('Forum',true,'/forum/')+
     (vault?row('Vault (on this device)',true,'/contact/'):'<div><span>Vault</span><a href="/contact/">Have a code? →</a></div>')+
     (admin.data?row('Admin',true,'/admin/'):'');
   $('acc').hidden=false;
 })();
+
 $('savename').onclick=async()=>{
-  const n=$('name').value.trim();if(n.length<2||n.length>30)return flash('namemsg',false,'Use 2 to 30 characters.');
+  const n=$('name').value.trim();if(n.length<2||n.length>30)return flash('namemsg',false,'Display names are 2 to 30 characters.');
+  const row={display_name:n};
+  if(!prof||!prof.username){const u=($('uname').value||'').trim().replace(/^@/,'').toLowerCase();
+    if(!/^[a-z0-9_]{3,20}$/.test(u))return flash('namemsg',false,'Usernames are 3 to 20 letters, numbers or _ (no spaces).');
+    row.username=u}
   $('savename').disabled=true;
-  const r=hasName?await SB.from('profiles').update({display_name:n}).eq('user_id',uid):await SB.from('profiles').insert({display_name:n});
+  const r=prof?await SB.from('profiles').update(row).eq('user_id',uid):await SB.from('profiles').insert(row);
   $('savename').disabled=false;
-  if(r.error)return flash('namemsg',false,r.error.code==='23505'?'Someone already has that name. Try another.':r.error.message);
-  hasName=true;SITE.setName&&SITE.setName(n);$('hello').textContent=`Hi, ${n}${/[.!?]$/.test(n)?'':'.'}`;flash('namemsg',true,'Saved.');
+  if(r.error)return flash('namemsg',false,r.error.code==='23505'?(/username/.test(r.error.message)?'That username is taken. Try another.':'Someone already has that display name. Try another.'):r.error.message);
+  prof={...(prof||{tags:[]}),...row};drawProfile();
+  SITE.setName&&SITE.setName(n);$('hello').textContent=hi(n);flash('namemsg',true,'Saved.');
 };
+
+// Settings
+const drawTheme=()=>{const t=SITE.theme();document.querySelectorAll('#theme button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===t))};
+document.querySelectorAll('#theme button').forEach(b=>b.onclick=()=>{SITE.setTheme(b.dataset.v);drawTheme()});
+document.addEventListener('themechange',drawTheme);drawTheme();
+
+const gpc=navigator.globalPrivacyControl===true||navigator.doNotTrack==='1'||window.doNotTrack==='1';
+$('kv').checked=!gpc&&ls('kv_choice')==='yes';
+if(gpc){$('kv').disabled=true;$('kvmsg').innerHTML='<p class="help" style="font-size:13px;color:var(--ink2)">Your browser asks sites not to track you, so this stays off.</p>'}
+$('kv').onchange=e=>{
+  if(e.target.checked){ls('kv_choice','yes');if(!/(?:^|; )kv=/.test(document.cookie)){const b=new Uint8Array(16);crypto.getRandomValues(b);
+    const id=btoa(String.fromCharCode(...b)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    document.cookie='kv='+id+'; Max-Age=31536000; Path=/; SameSite=Lax'+(location.protocol==='https:'?'; Secure':'')}}
+  else{ls('kv_choice','no');document.cookie='kv=; Max-Age=0; Path=/; SameSite=Lax'}
+  flash('kvmsg',true,e.target.checked?'On. Thanks!':'Off. The cookie was removed.');
+};
+
 $('savepw').onclick=async()=>{
   const pw=$('pw').value;if(pw.length<8)return flash('pwmsg',false,'Use at least 8 characters.');
   $('savepw').disabled=true;const {error}=await SB.auth.updateUser({password:pw});$('savepw').disabled=false;

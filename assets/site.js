@@ -30,6 +30,7 @@
   document.body.append(foot);
 
   // Theme toggle in the footer: Auto (device setting) → Dark → Light.
+  var themeApi = null;
   var fixedLight = /^\/(snapwit|ldtimer|card)\//.test(location.pathname);
   if (!fixedLight) {
     var tb = document.createElement('button');
@@ -41,11 +42,12 @@
       tb.textContent = 'Theme: ' + t.charAt(0).toUpperCase() + t.slice(1);
       document.dispatchEvent(new CustomEvent('themechange'));
     };
-    tb.addEventListener('click', function () {
-      var next = { auto: 'dark', dark: 'light', light: 'auto' }[themeNow()];
-      try { next === 'auto' ? localStorage.removeItem('theme') : localStorage.setItem('theme', next); } catch (e) {}
-      applyTheme(next);
-    });
+    var setTheme = function (t) {
+      try { t === 'auto' ? localStorage.removeItem('theme') : localStorage.setItem('theme', t); } catch (e) {}
+      applyTheme(t);
+    };
+    tb.addEventListener('click', function () { setTheme({ auto: 'dark', dark: 'light', light: 'auto' }[themeNow()]); });
+    themeApi = { get: themeNow, set: setTheme };
     matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () { if (themeNow() === 'auto') applyTheme('auto'); });
     tb.textContent = 'Theme: ' + themeNow().charAt(0).toUpperCase() + themeNow().slice(1);
     foot.querySelector('nav').append(tb);
@@ -55,6 +57,7 @@
   st.src = '/assets/stats.js?v=20261003';
   st.defer = true;
   document.head.append(st);
+  window.SITE_THEME = themeApi;
 })();
 
 window.SITE = {
@@ -62,6 +65,9 @@ window.SITE = {
   statusChip: function (s) { return '<span class="chip ' + s + '">' + ({ live: 'Active', dev: 'In development', done: 'Completed', dropped: 'Dropped' }[s] || s) + '</span>'; },
   month: function (ym) { var d = new Date(ym + '-01T12:00:00'); return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }); },
   // Remember the display name for the header (null = signed out).
+  // Theme for the account settings page: SITE.theme() -> 'auto' | 'dark' | 'light'; SITE.setTheme(t).
+  theme: function () { return window.SITE_THEME ? SITE_THEME.get() : 'auto'; },
+  setTheme: function (t) { if (window.SITE_THEME) SITE_THEME.set(t); },
   setName: function (n) {
     try { n ? localStorage.setItem('site_name', n) : localStorage.removeItem('site_name'); } catch (e) {}
     var a = document.querySelector('.navcta'); if (a && n) a.textContent = n;

@@ -53,13 +53,14 @@ Deno.serve(async (req: Request) => {
         })));
         if (data.users.length < 200) break;
       }
-      const { data: profiles } = await admin.from("profiles").select("user_id, display_name");
+      const { data: profiles } = await admin.from("profiles").select("user_id, display_name, username, name_color, tags");
       const { data: study } = await admin.from("study_members").select("user_id");
       const { data: keys } = await admin.from("access_keys").select("user_id, last_used_at, uses");
       const keyOf = Object.fromEntries((keys ?? []).map((k) => [k.user_id, k]));
-      const names = Object.fromEntries((profiles ?? []).map((p) => [p.user_id, p.display_name]));
+      const prof = Object.fromEntries((profiles ?? []).map((p) => [p.user_id, p]));
       const inStudy = new Set((study ?? []).map((s) => s.user_id));
-      return out({ users: users.map((u) => ({ ...u, name: names[u.id as string] ?? null, study: inStudy.has(u.id as string), key: keyOf[u.id as string] ?? null })) });
+      return out({ users: users.map((u) => ({ ...u, name: prof[u.id as string]?.display_name ?? null, username: prof[u.id as string]?.username ?? null,
+        color: prof[u.id as string]?.name_color ?? null, tags: prof[u.id as string]?.tags ?? [], study: inStudy.has(u.id as string), key: keyOf[u.id as string] ?? null })) });
     }
 
     if (body.action === "link") {

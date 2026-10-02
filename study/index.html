@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261004">
+<link rel="stylesheet" href="/assets/site.css?v=20261005">
 <style>
 main.pg{flex:1;padding-block:8px 64px}
 .center{max-width:520px;margin:24px auto}
@@ -206,8 +206,8 @@ button.tag[aria-pressed=true]{background:var(--ink);color:#fff}
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
 <script src="/lib/vault-md.js?v=20261002"></script>
-<script src="/lib/community.js?v=20261003b"></script>
-<script src="/assets/site.js?v=20261004"></script>
+<script src="/lib/community.js?v=20261005"></script>
+<script src="/assets/site.js?v=20261005"></script>
 <script>
 const $=id=>document.getElementById(id);
 const E=VaultMD.esc, C=Community, me=C.me;
@@ -218,7 +218,7 @@ const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth
 const dparts=s=>{const d=new Date(s+'T12:00:00');return{dow:d.toLocaleDateString('en-US',{weekday:'short'}),day:d.getDate(),mon:d.toLocaleDateString('en-US',{month:'short'}),full:d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}};
 const until=s=>{const n=Math.round((new Date(s+'T12:00:00')-new Date(today()+'T12:00:00'))/864e5);return n===0?'today':n===1?'tomorrow':n>1?'in '+n+' days':n===-1?'yesterday':-n+' days ago'};
 const clsLabel=c=>E(c.name)+(c.period?` <small>P${E(c.period)}</small>`:'');
-const author=r=>E(r.author&&r.author.display_name||'Someone');
+const author=r=>Community.nameHTML(r.author);
 const canDel=r=>r.created_by===me.uid||me.admin;
 const RULES=`<div class="rules"><span>⚑</span><span><b>No test or assignment answers, before or after.</b> Share notes, dates and what to study. Posts with answers get removed, and so does access.</span></div>`;
 const safeName=n=>n.normalize('NFKD').replace(/[^\w.\- ]+/g,'').replace(/\s+/g,'-').replace(/-+/g,'-').slice(-80)||'file';
@@ -348,7 +348,7 @@ async function posts(c,kind){
     }
     posts(c,kind);
   });
-  let q=SB.from('study_posts').select('*,author:profiles(display_name)').eq('class_id',c.id).eq('kind',kind);
+  let q=SB.from('study_posts').select('*,author:profiles(display_name,username,name_color,tags)').eq('class_id',c.id).eq('kind',kind);
   q=kind==='event'?q.order('event_date',{ascending:true}):q.order('created_at',{ascending:false});
   const {data,error}=await q.limit(200);
   if(error){$('list').innerHTML=`<div class="msg">${E(C.errText(error))}</div>`;return}
@@ -377,7 +377,7 @@ async function attachments(pid){
 /* ── flashcards ───────────────────────────────────── */
 async function decks(c){
   const pane=$('pane');
-  const {data,error}=await SB.from('study_decks').select('id,title,created_by,created_at,author:profiles(display_name),study_cards(count)').eq('class_id',c.id).order('created_at',{ascending:false});
+  const {data,error}=await SB.from('study_decks').select('id,title,created_by,created_at,author:profiles(display_name,username,name_color,tags),study_cards(count)').eq('class_id',c.id).order('created_at',{ascending:false});
   if(error){pane.innerHTML=`<div class="msg">${E(C.errText(error))}</div>`;return}
   pane.innerHTML=`<div class="posts"><div class="box"><div class="search"><input id="dt" maxlength="100" placeholder="New deck name, e.g. Unit 3 vocab"><button class="btn sm" id="dgo">+ New deck</button></div><div id="dmsg"></div></div>
     <div class="decks">${data.map(d=>`<a class="deck" href="#/d/${d.id}"><span class="blob"></span><b>${E(d.title)}</b><span class="meta">${(d.study_cards[0]||{}).count||0} cards · ${author(d)}</span></a>`).join('')||'<p class="empty">No decks yet. Make one for vocab or key terms.</p>'}</div></div>`;
@@ -391,11 +391,11 @@ async function decks(c){
 
 let deckCards=[];
 async function deck(id,mode){
-  const {data:d}=await SB.from('study_decks').select('id,title,class_id,created_by,author:profiles(display_name)').eq('id',id).maybeSingle();
+  const {data:d}=await SB.from('study_decks').select('id,title,class_id,created_by,author:profiles(display_name,username,name_color,tags)').eq('id',id).maybeSingle();
   if(!d){app().innerHTML=`<a class="back" href="#/">← All classes</a><div class="box" style="margin-top:14px"><h2>Deck not found</h2></div>`;return}
   if(!K.some(k=>k.id===d.class_id))await loadDir();
   const c=K.find(k=>k.id===d.class_id);
-  const {data:cards}=await SB.from('study_cards').select('*,author:profiles(display_name)').eq('deck_id',id).order('id');
+  const {data:cards}=await SB.from('study_cards').select('*,author:profiles(display_name,username,name_color,tags)').eq('deck_id',id).order('id');
   deckCards=cards||[];
   app().innerHTML=`
     <a class="back" href="#/c/${d.class_id}/cards">← ${c?E(c.name):'Class'}</a>

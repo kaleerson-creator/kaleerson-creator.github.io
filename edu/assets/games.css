@@ -86,3 +86,4 @@ input:focus,select:focus{outline:2px solid var(--ink);outline-offset:1px}
 .cm-box p{color:var(--ink2)}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.lb div>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
