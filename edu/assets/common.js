@@ -27,6 +27,7 @@
       me.uid = r.data.session.user.id;
       var p = await SB.from('profiles').select('display_name').eq('user_id', me.uid).maybeSingle();
       me.name = p.data ? p.data.display_name : null;
+      if (me.name && window.SITE && SITE.setName) SITE.setName(me.name);
     }
     var a = document.getElementById('gacct');
     if (a && me.uid) {
@@ -69,7 +70,7 @@
         if (n.length < 2) { msg.textContent = 'At least 2 characters.'; msg.hidden = false; return; }
         var r = await SB.from('profiles').insert({ display_name: n });
         if (r.error) { msg.textContent = r.error.code === '23505' ? 'That name is taken. Try another.' : r.error.message; msg.hidden = false; return; }
-        me.name = n; var a = document.getElementById('gacct'); if (a) a.textContent = 'Playing as ' + n; m.remove(); resolve(true);
+        me.name = n; if (window.SITE && SITE.setName) SITE.setName(n); var a = document.getElementById('gacct'); if (a) a.textContent = 'Playing as ' + n; m.remove(); resolve(true);
       };
       new MutationObserver(function (_, o) { if (!m.isConnected) { o.disconnect(); resolve(!!me.name); } }).observe(document.body, { childList: true });
     });
