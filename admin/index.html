@@ -90,6 +90,7 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
 
   <div id="v-app" hidden>
     <div class="ahead"><h1>Admin</h1><div class="row"><a class="btn ghost sm" href="/contact/" target="_blank">Open vault ↗</a><a class="btn ghost sm" href="/study/" target="_blank">Study ↗</a><a class="btn ghost sm" href="/forum/" target="_blank">Forum ↗</a><button class="btn ghost sm" id="out">Sign out</button></div></div>
+    <div id="tokwarn" hidden style="margin-bottom:12px"></div>
     <div class="tabs" role="tablist">
       <button role="tab" data-t="sections" aria-selected="true">Sections</button>
       <button role="tab" data-t="files">Files</button>
@@ -445,13 +446,14 @@ async function seEnsure(paths){
 }
 function seSetup(err){
   const box=$('se-setup');box.hidden=false;
-  box.innerHTML=err==='not_configured'||/not found|404|Failed to send/i.test(err)
-    ?`<h2>One-time setup</h2><p class="help">The editor needs permission to save to your GitHub repo. Do this once:</p>
+  const expired=err==='token_expired';
+  box.innerHTML=expired||err==='not_configured'||/not found|404|Failed to send/i.test(err)
+    ?`<h2>${expired?'Your GitHub token expired':'One-time setup'}</h2><p class="help">${expired?'The Site editor can\'t save until you make a new token and replace <code>GITHUB_TOKEN</code> in Supabase:':'The editor needs permission to save to your GitHub repo. Do this once:'}</p>
       <ol class="help" style="padding-left:18px;display:grid;gap:6px">
       <li>GitHub → your profile picture → <b>Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token</b>.</li>
       <li>Name it <code>site editor</code>. Expiration: up to 1 year. <b>Repository access → Only select repositories →</b> <code>kaleerson-creator.github.io</code>.</li>
       <li><b>Permissions → Repository permissions → Contents → Read and write.</b> Nothing else. Generate and copy it.</li>
-      <li>Supabase → your project → <b>Edge Functions → Secrets</b> → add <code>GITHUB_TOKEN</code> with the token as the value. Don't paste it anywhere else.</li>
+      <li>Supabase → your project → <b>Edge Functions → Secrets</b> → add (or edit) <code>GITHUB_TOKEN</code> with the token as the value. Don't paste it anywhere else.</li>
       <li>Come back here and reload.</li></ol>`
     :`<div class="msg err">${E(err)}</div>`;
 }
@@ -546,6 +548,19 @@ $('se-edit').addEventListener('click',()=>setMode('edit'));$('se-browse').addEve
 let seLoaded=false;
 async function loadSite(){if(seLoaded)return;seLoaded=true;seLoad();const r=await seCall({action:'read',paths:['index.html']});if(r.error)seSetup(r.error);else Object.assign(SRC,r.files)}
 
+/* GitHub token expiry warning (shown from 14 days out) */
+async function checkToken(){
+  const r=await seCall({action:'status'});
+  const w=$('tokwarn');
+  if(r.error==='token_expired'){w.hidden=false;w.innerHTML='<div class="msg err"><b>The Site editor\'s GitHub token has expired.</b> Open the Site editor tab for the steps to renew it.</div>';return}
+  if(!r.tokenExpires)return;
+  const exp=new Date(r.tokenExpires.replace(' UTC','Z').replace(' ','T'));
+  const days=Math.ceil((exp-Date.now())/864e5);
+  if(isNaN(days)||days>14)return;
+  w.hidden=false;
+  w.innerHTML=`<div class="msg ${days<=3?'err':'ok'}" style="${days>3?'background:var(--butter);color:var(--ink)':''}"><b>The Site editor's GitHub token expires ${days<=0?'today':days===1?'tomorrow':'in '+days+' days'} (${exp.toLocaleDateString('en-US',{month:'short',day:'numeric'})}).</b> Make a new fine-grained token (only this repo, Contents: Read and write) and replace <code>GITHUB_TOKEN</code> in Supabase → Edge Functions → Secrets.</div>`;
+}
+
 /* boot */
 (async()=>{
   if(!window.SB){$('v-wait').innerHTML='<p class="muted">Not connected.</p>';return}
@@ -553,7 +568,7 @@ async function loadSite(){if(seLoaded)return;seLoaded=true;seLoad();const r=awai
   if(!data.session){view('v-signin');return}
   const {data:ok}=await SB.rpc('is_admin');
   if(!ok){view('v-no');return}
-  view('v-app');loadSections();
+  view('v-app');loadSections();checkToken();
 })();
 </script>
 </body>
