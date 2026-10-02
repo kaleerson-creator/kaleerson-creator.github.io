@@ -70,7 +70,7 @@ input[type=email]:focus{border-color:var(--ink)}
       <input id="email" type="email" required autocomplete="email" placeholder="you@example.com">
       <label class="check"><input id="optin" type="checkbox" checked> Email me when Kale ships something new</label>
       <button class="btn" id="send" type="submit">Email me a sign-in link</button>
-      <p class="note">We'll send a link to verify your email. No password needed.</p>
+      <p class="note">We'll send a link to verify your email. No password needed. School emails sometimes block it, so a personal email works best.</p>
       <div id="ferr" class="msg err" hidden></div>
     </form>
   </section>
@@ -80,7 +80,7 @@ input[type=email]:focus{border-color:var(--ink)}
     <h1>Check your <em>inbox.</em></h1>
     <p class="lead">We sent a sign-in link to <b id="sent-to"></b>. Open it on this device to verify your email and finish signing in.</p>
     <div class="card">
-      <p class="note">Can't find it? Check spam or promotions. The link expires in 1 hour.</p>
+      <p class="note">Can't find it? Check spam or promotions, and note that school email often blocks outside mail. The link expires in 1 hour.</p>
       <div class="row"><button class="btn ghost" id="resend">Send again</button><button class="btn ghost" id="other">Use a different email</button></div>
       <div id="smsg" class="msg" hidden></div>
     </div>
