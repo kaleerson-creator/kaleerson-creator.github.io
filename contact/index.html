@@ -66,6 +66,14 @@ input:focus-visible{outline:3px solid var(--butter)}
 .empty{opacity:.65;font-size:14px}
 .vfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px;color:var(--ink2);font-size:13px}
 .vfoot button{font:inherit;font-size:13px;color:var(--ink2);background:var(--card);border:0;border-radius:999px;padding:9px 14px;cursor:pointer}
+.confirm{position:fixed;inset:0;z-index:90;background:#14161399;display:grid;place-items:center;padding:20px}
+.confirm .box{background:var(--card);border-radius:var(--r);padding:26px;max-width:420px;width:100%;display:grid;gap:12px;box-shadow:0 30px 80px #14161340}
+.confirm h2{font-size:30px}
+.confirm p{color:var(--ink2)}
+.confirm ul{color:var(--ink2);padding-left:18px;display:grid;gap:6px;font-size:15px}
+.confirm .row{justify-content:flex-end;margin-top:6px}
+.confirm .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.confirm .btn.danger{background:#b42318;color:#fff}
 .lightbox{position:fixed;inset:0;z-index:100;background:#141613e6;display:grid;place-items:center;padding:20px}
 .lightbox img{max-width:100%;max-height:86vh;border-radius:16px}
 .lightbox button{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:16px;width:44px;height:44px;border-radius:999px;border:0;background:#fff;font-size:18px;cursor:pointer}
@@ -102,6 +110,19 @@ input:focus-visible{outline:3px solid var(--butter)}
     <div class="vfoot"><span id="note"></span><button id="forget">Lock this device</button></div>
   </section>
 </main>
+
+<div class="confirm" id="confirm" role="dialog" aria-modal="true" aria-labelledby="ctitle" hidden>
+  <div class="box">
+    <h2 id="ctitle">Lock this device?</h2>
+    <p>The vault will close on this device and you'll see the code screen again.</p>
+    <ul>
+      <li>Your one-time code is already used, so it <b>won't work again</b>.</li>
+      <li>To get back in, you'll need <b>a new code from Kale</b>, or the shared password if you were given one.</li>
+      <li>Other devices you've unlocked stay unlocked.</li>
+    </ul>
+    <div class="row"><button class="btn ghost" id="cno">Keep it unlocked</button><button class="btn danger" id="cyes">Lock this device</button></div>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/config.js?v=20261001"></script>
@@ -163,7 +184,12 @@ document.addEventListener('click',async e=>{
   if(w)w.location=u;else location.href=u;
 });
 
-$('forget').addEventListener('click',()=>{store.del();$('code').value='';$('err').hidden=true;view('v-lock')});
+const closeConfirm=()=>{$('confirm').hidden=true;$('forget').focus()};
+$('forget').addEventListener('click',()=>{$('confirm').hidden=false;$('cno').focus()});
+$('cno').addEventListener('click',closeConfirm);
+$('confirm').addEventListener('click',e=>{if(e.target.id==='confirm')closeConfirm()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('confirm').hidden)closeConfirm()});
+$('cyes').addEventListener('click',()=>{$('confirm').hidden=true;store.del();$('code').value='';$('err').hidden=true;view('v-lock')});
 
 $('f').addEventListener('submit',async e=>{
   e.preventDefault();if(!window.SB)return;
