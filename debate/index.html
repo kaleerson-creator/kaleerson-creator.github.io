@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261005">
+<link rel="stylesheet" href="/assets/site.css?v=20261006">
 <style>
 :root{--a:#2451C9;--a-t:#DCE8FB;--b:#B8322F;--b-t:#FBE2DA;--n:#1E3A2C;--n-t:#DCEBD0;--warn:#B86E00;--over:#D12C2C}
 html[data-theme=dark]{--a:#7FA4F0;--a-t:#1F2F4A;--b:#F08B7E;--b-t:#43261F;--n:#9FCB8E;--n-t:#22382A;--warn:#E5A33A;--over:#F0695F}
@@ -162,7 +162,7 @@ tr.next td{background:#fbf3cf}
 .deb textarea,.bal textarea{width:100%;resize:vertical}
 .bal input{width:100%}.deb .row input{width:auto}
 .btn.win[aria-pressed=true]{background:var(--n);color:var(--card)}
-.btn.win[aria-pressed=false]{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.win[aria-pressed=false]{background:transparent;color:var(--ink)!important;box-shadow:inset 0 0 0 1.5px var(--line)}
 /* cases */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--gap)}
 .card{background:var(--card);border-radius:20px;padding:16px;display:grid;gap:6px;align-content:start;min-width:0}
@@ -177,6 +177,10 @@ tr.next td{background:#fbf3cf}
 .cardview{display:grid;gap:6px;font-size:14px;line-height:1.55;overflow-wrap:anywhere}
 .cardview .ptag{font-size:18px}
 .cardview mark{background:#f6e27a;color:#141613;padding:0 2px}
+.tshare{color:var(--a)}
+.team{display:grid;gap:8px;background:var(--paper);border-radius:16px;padding:14px;margin-top:8px}
+.tcode{font:800 22px/1 var(--display);letter-spacing:.14em;background:var(--card);border-radius:10px;padding:8px 12px}
+.roster{display:flex;flex-wrap:wrap;gap:6px}.roster span{background:var(--card);border-radius:999px;padding:4px 10px;font-size:13px;font-weight:600}.roster small{color:var(--ink2);font-weight:500}
 .cbody2{color:var(--ink2)}.cbody2 u{color:var(--ink);font-size:15px}
 .btn.danger{background:#fef3f2;color:#b42318}
 code{background:var(--paper);padding:1px 6px;border-radius:6px;font-size:.9em}
@@ -188,7 +192,7 @@ code{background:var(--paper);padding:1px 6px;border-radius:6px;font-size:.9em}
 </head>
 <body data-page="tools">
 <main class="wrap pg" id="app"></main>
-<script src="/assets/site.js?v=20261005"></script>
+<script src="/assets/site.js?v=20261006"></script>
 <script>
 const $=id=>document.getElementById(id);
 const E=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -234,16 +238,16 @@ function hub(){
   app.innerHTML=`
     <section class="phead"><span class="blob" style="background:var(--sky)"></span><h1>Speech &amp; Debate</h1><p>Round timers, speech timers, a flow sheet, practice drills and your own evidence library.</p></section>
     <div class="hub">
-      <a class="b sky" href="#/round/ld"><span class="blob"></span><span class="fmt">LD</span><h2>Lincoln-Douglas</h2><div class="foot"><span class="muted">6-3-7-3-4-6-3 · 4 min prep</span><span class="arrow"></span></div></a>
-      <a class="b peach" href="#/round/pf"><span class="blob"></span><span class="fmt">PF</span><h2>Public Forum</h2><div class="foot"><span class="muted">Crossfires · 3 min prep</span><span class="arrow"></span></div></a>
-      <a class="b lilac" href="#/round/policy"><span class="blob"></span><span class="fmt">CX</span><h2>Policy</h2><div class="foot"><span class="muted">8-3 / 5 · 8 min prep</span><span class="arrow"></span></div></a>
-      <a class="b forest w" href="#/congress"><span class="blob" style="background:#2E5440"></span><span class="fmt" style="color:#B9C9AE">CONGRESS</span><h2>Congress</h2><div class="foot"><span class="muted">Speech + questioning timer, precedence tracker, docket</span><span class="arrow"></span></div></a>
-      <a class="b butter w" href="#/speech"><span class="blob"></span><span class="fmt">SPEECH</span><h2>Speech events</h2><div class="foot"><span class="muted">Extemp, Impromptu, Oratory, Info, Interp · grace + hand signals</span><span class="arrow"></span></div></a>
-      <a class="b moss w" href="#/flow"><span class="blob"></span><span class="fmt">PRACTICE</span><h2>Flow sheet</h2><div class="foot"><span class="muted">Take notes column by column, saved on this device</span><span class="arrow"></span></div></a>
-      <a class="b w" href="#/topics"><span class="blob" style="background:var(--paper)"></span><span class="fmt">PRACTICE</span><h2>Practice topics</h2><div class="foot"><span class="muted">Resolutions, impromptu prompts, extemp questions</span><span class="arrow"></span></div></a>
-      <a class="b peach" href="#/drill"><span class="blob"></span><span class="fmt">NEW · PRACTICE</span><h2>Speech drill</h2><div class="foot"><span class="muted">Counts your "um"s and "like"s live</span><span class="arrow"></span></div></a>
-      <a class="b sky" href="#/cases"><span class="blob"></span><span class="fmt">NEW · PREP</span><h2>Cases &amp; evidence</h2><div class="foot"><span class="muted">Your private card library, on every device</span><span class="arrow"></span></div></a>
-      <a class="b lilac" href="#/ballot"><span class="blob"></span><span class="fmt">NEW · JUDGING</span><h2>Ballot helper</h2><div class="foot"><span class="muted">Points, RFD, copy to Tabroom</span><span class="arrow"></span></div></a>
+      <a class="b sky" href="#/round/ld"><span class="art" data-art="ld"></span><span class="fmt">LD</span><h2>Lincoln-Douglas</h2><div class="foot"><span class="muted">6-3-7-3-4-6-3 · 4 min prep</span><span class="arrow"></span></div></a>
+      <a class="b peach" href="#/round/pf"><span class="art" data-art="pf"></span><span class="fmt">PF</span><h2>Public Forum</h2><div class="foot"><span class="muted">Crossfires · 3 min prep</span><span class="arrow"></span></div></a>
+      <a class="b lilac" href="#/round/policy"><span class="art" data-art="policy"></span><span class="fmt">CX</span><h2>Policy</h2><div class="foot"><span class="muted">8-3 / 5 · 8 min prep</span><span class="arrow"></span></div></a>
+      <a class="b forest w" href="#/congress"><span class="art" data-art="congress"></span><span class="fmt" style="color:#B9C9AE">CONGRESS</span><h2>Congress</h2><div class="foot"><span class="muted">Speech + questioning timer, precedence tracker, docket</span><span class="arrow"></span></div></a>
+      <a class="b butter w" href="#/speech"><span class="art" data-art="speech"></span><span class="fmt">SPEECH</span><h2>Speech events</h2><div class="foot"><span class="muted">Extemp, Impromptu, Oratory, Info, Interp · grace + hand signals</span><span class="arrow"></span></div></a>
+      <a class="b moss w" href="#/flow"><span class="art" data-art="flow"></span><span class="fmt">PRACTICE</span><h2>Flow sheet</h2><div class="foot"><span class="muted">Take notes column by column, saved on this device</span><span class="arrow"></span></div></a>
+      <a class="b w" href="#/topics"><span class="art" data-art="topics"></span><span class="fmt">PRACTICE</span><h2>Practice topics</h2><div class="foot"><span class="muted">Resolutions, impromptu prompts, extemp questions</span><span class="arrow"></span></div></a>
+      <a class="b peach" href="#/drill"><span class="art" data-art="drill"></span><span class="fmt">NEW · PRACTICE</span><h2>Speech drill</h2><div class="foot"><span class="muted">Counts your "um"s and "like"s live</span><span class="arrow"></span></div></a>
+      <a class="b sky" href="#/cases"><span class="art" data-art="cases"></span><span class="fmt">NEW · PREP</span><h2>Cases &amp; evidence</h2><div class="foot"><span class="muted">Your private card library, on every device</span><span class="arrow"></span></div></a>
+      <a class="b lilac" href="#/ballot"><span class="art" data-art="ballot"></span><span class="fmt">NEW · JUDGING</span><h2>Ballot helper</h2><div class="foot"><span class="muted">Points, RFD, copy to Tabroom</span><span class="arrow"></span></div></a>
     </div>`;
   app.querySelectorAll('.arrow:empty').forEach(a=>a.outerHTML=SITE.arrow);
 }
@@ -325,7 +329,7 @@ function round(key){
 function speech(key){
   if(!key||!EVENTS[key]){
     app.innerHTML=`<a class="back" href="#/">← Speech &amp; Debate</a><div class="top"><div><h1>Speech events</h1><p class="sub">Pick an event. Every timer has a 30-second grace period and full-screen hand signals.</p></div></div>
-      <div class="hub">${Object.entries(EVENTS).map(([k,v],i)=>`<a class="b ${['butter','sky','peach','lilac','moss','','butter'][i]}" href="#/speech/${k}"><span class="blob"></span><span class="fmt">${E(v.name.toUpperCase())}</span><h2>${E(v.full)}</h2><div class="foot"><span class="muted">${E(v.note)}</span><span class="arrow"></span></div></a>`).join('')}</div>`;
+      <div class="hub">${Object.entries(EVENTS).map(([k,v],i)=>`<a class="b ${['butter','sky','peach','lilac','moss','','butter'][i]}" href="#/speech/${k}"><span class="art" data-art="speech"></span><span class="fmt">${E(v.name.toUpperCase())}</span><h2>${E(v.full)}</h2><div class="foot"><span class="muted">${E(v.note)}</span><span class="arrow"></span></div></a>`).join('')}</div>`;
     app.querySelectorAll('.arrow:empty').forEach(a=>a.outerHTML=SITE.arrow);return;
   }
   const V=EVENTS[key];
@@ -510,7 +514,7 @@ function topics(kind){
     <div class="top"><div><h1>Practice topics</h1><p class="sub">Practice prompts for drills. Not this year's official topics.</p></div></div>
     <div class="seg" style="margin-bottom:var(--gap)">${Object.entries(names).map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===kind}">${v.replace(/ (resolution|prompt|question)$/,'')}</button>`).join('')}</div>
     <div class="prompt"><span class="blob"></span><span class="lbl">${names[kind]}</span><q id="q"></q>
-      <div class="row"><button class="btn" style="background:var(--forest-ink);color:var(--ink)" id="again">New ${names[kind].split(' ').pop()}</button>
+      <div class="row"><button class="btn" style="background:var(--forest-ink);color:var(--forest)" id="again">New ${names[kind].split(' ').pop()}</button>
       ${kind==='impromptu'?'<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/speech/impromptu">Start Impromptu timer</a>':kind==='extemp'?'<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/speech/extemp">Start Extemp timer</a>':`<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/round/${kind}">Open ${kind.toUpperCase()==='POLICY'?'Policy':kind.toUpperCase()} timer</a>`}</div></div>`;
   const show=()=>{$('q').textContent=pick()};show();
   $('again').onclick=show;
@@ -535,7 +539,7 @@ function drill(){
     <div class="dr">
       <div class="drmain">
         <div class="prompt"><span class="blob"></span><span class="lbl">Your prompt</span><q id="q"></q>
-          <div class="row"><button class="btn sm" style="background:var(--forest-ink);color:var(--ink)" id="newq">New prompt</button></div></div>
+          <div class="row"><button class="btn sm" style="background:var(--forest-ink);color:var(--forest)" id="newq">New prompt</button></div></div>
         <div class="clock sd2">
           <div class="now"><span class="code" id="state">Ready</span><span class="name" id="tgt"></span></div>
           <div class="digits" id="digits">0:00</div>
@@ -678,36 +682,44 @@ async function cases(id){
     app.insertAdjacentHTML('beforeend',`<div class="box" style="max-width:520px"><h2>Sign in to use it</h2><p class="muted">It's free. Your cards are private to you.</p><div class="row"><a class="btn" href="/join/?next=${encodeURIComponent('/debate/#/cases')}">Sign in or join</a></div></div>`);return}
   const {data,error}=await SB.from('debate_cards').select('*').order('updated_at',{ascending:false}).limit(1000);
   if(error){app.querySelector('.sub').textContent='Couldn\'t load your library. Try again in a minute.';return}
-  let items=data||[],q='',kind='all',side='all';
+  const tr=await SB.rpc('my_teams');const TEAMS=tr.data||[];const me=sess.user.id;
+  const teamName=t=>(TEAMS.find(x=>x.id===t)||{}).name||'Team';
+  let items=data||[],q='',kind='all',side='all',whose='all';
   const SIDES={both:'Both',aff:'Aff / Pro',neg:'Neg / Con'};
+  if(id==='team')return teams();
   if(id==='new'||(id&&items.some(x=>String(x.id)===id)))return editor(id==='new'?null:items.find(x=>String(x.id)===id));
   function list(){
     app.innerHTML=`<a class="back" href="#/">← Speech &amp; Debate</a>
-      <div class="top"><div><h1>Cases &amp; evidence</h1><p class="sub">Only you can see these. ${items.length} saved.</p></div>
-        <div class="row"><a class="btn sm" href="#/cases/new">New card or case</a><button class="btn sm ghost" id="dl"${items.length?'':' disabled'}>Download all</button></div></div>
+      <div class="top"><div><h1>Cases &amp; evidence</h1><p class="sub">${TEAMS.length?`Your cards plus the ones your team shares. ${items.length} in all.`:`Only you can see these unless you share them with a team. ${items.length} saved.`}</p></div>
+        <div class="row"><a class="btn sm" href="#/cases/new">New card or case</a><a class="btn sm ghost" href="#/cases/team">${TEAMS.length?'Team':'Make or join a team'}</a><button class="btn sm ghost" id="dl"${items.length?'':' disabled'}>Download all</button></div></div>
       <div class="flowbar"><input id="q" placeholder="Search tags, cites, text, topics" value="${E(q)}" style="flex:1;min-width:200px">
         <div class="seg" id="kind">${[['all','All'],['card','Cards'],['case','Cases']].map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===kind}">${v}</button>`).join('')}</div>
-        <div class="seg" id="side">${[['all','Any side'],['aff','Aff'],['neg','Neg']].map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===side}">${v}</button>`).join('')}</div></div>
+        <div class="seg" id="side">${[['all','Any side'],['aff','Aff'],['neg','Neg']].map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===side}">${v}</button>`).join('')}</div>
+        ${TEAMS.length?`<div class="seg" id="whose">${[['all','Everyone'],['mine','Mine'],...TEAMS.map(t=>['t'+t.id,t.name])].map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===whose}">${E(v)}</button>`).join('')}</div>`:''}</div>
       <div class="cards" id="cards"></div>`;
     const draw=()=>{const t=q.toLowerCase();
-      const L=items.filter(x=>(kind==='all'||x.kind===kind)&&(side==='all'||x.side===side||x.side==='both')&&(!t||(x.title+' '+x.cite+' '+x.body+' '+x.topic).toLowerCase().includes(t)));
-      $('cards').innerHTML=L.map(x=>`<a class="card" href="#/cases/${x.id}"><span class="ctag">${x.kind==='case'?'Case':'Card'} · ${SIDES[x.side]}${x.topic?' · '+E(x.topic):''}</span><b>${E(x.title)}</b>${x.cite?`<span class="cite">${E(x.cite)}</span>`:''}<span class="cbody">${E(x.body.slice(0,180))}${x.body.length>180?'…':''}</span></a>`).join('')
+      const L=items.filter(x=>(whose==='all'||(whose==='mine'?x.user_id===me:'t'+x.team_id===whose))&&(kind==='all'||x.kind===kind)&&(side==='all'||x.side===side||x.side==='both')&&(!t||(x.title+' '+x.cite+' '+x.body+' '+x.topic).toLowerCase().includes(t)));
+      $('cards').innerHTML=L.map(x=>`<a class="card" href="#/cases/${x.id}"><span class="ctag">${x.kind==='case'?'Case':'Card'} · ${SIDES[x.side]}${x.topic?' · '+E(x.topic):''}${x.team_id?` · <span class="tshare">${x.user_id===me?'Shared':'From'} ${E(teamName(x.team_id))}</span>`:''}</span><b>${E(x.title)}</b>${x.cite?`<span class="cite">${E(x.cite)}</span>`:''}<span class="cbody">${E(x.body.slice(0,180))}${x.body.length>180?'…':''}</span></a>`).join('')
         ||`<div class="box"><p class="muted">${items.length?'Nothing matches.':'Nothing saved yet. Press <b>New card or case</b> to add your first one.'}</p></div>`};
     $('q').oninput=e=>{q=e.target.value;draw()};
     $('kind').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;kind=b.dataset.k;$('kind').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};
     $('side').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;side=b.dataset.k;$('side').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};
+    if($('whose'))$('whose').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;whose=b.dataset.k;$('whose').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};
     $('dl').onclick=()=>{const txt=items.map(x=>`${x.kind==='case'?'CASE':'CARD'} · ${SIDES[x.side]}${x.topic?' · '+x.topic:''}\n${x.title}\n${x.cite?x.cite+'\n':''}\n${x.body}`).join('\n\n----------------------------------------\n\n');
       const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'text/plain'}));a.download='debate-library.txt';a.click()};
     draw();
   }
   function editor(x){
-    const isNew=!x;x=x||{kind:'card',title:'',cite:'',body:'',topic:store.get('lastTopic',''),side:'both'};
+    if(x&&x.user_id!==me)return viewOnly(x);
+    const isNew=!x;x=x||{kind:'card',title:'',cite:'',body:'',topic:store.get('lastTopic',''),side:'both',team_id:store.get('lastTeam',null)};
+    if(x.team_id&&!TEAMS.some(t=>t.id===x.team_id))x.team_id=null;
     app.innerHTML=`<a class="back" href="#/cases">← All cards &amp; cases</a>
       <div class="top"><div><h1>${isNew?'New':'Edit'} ${x.kind==='case'?'case':'card'}</h1><p class="sub">Put <code>**double stars**</code> around the words you read out loud and <code>==equals==</code> around anything to highlight.</p></div></div>
       <div class="ced">
         <div class="box">
           <div class="row"><div class="seg" id="ek">${[['card','Evidence card'],['case','Case']].map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===x.kind}">${v}</button>`).join('')}</div>
-            <select id="eside" aria-label="Side">${Object.entries(SIDES).map(([k,v])=>`<option value="${k}"${k===x.side?' selected':''}>${v}</option>`).join('')}</select></div>
+            <select id="eside" aria-label="Side">${Object.entries(SIDES).map(([k,v])=>`<option value="${k}"${k===x.side?' selected':''}>${v}</option>`).join('')}</select>
+            ${TEAMS.length?`<select id="eteam" aria-label="Who can see it"><option value="">Only me</option>${TEAMS.map(t=>`<option value="${t.id}"${t.id===x.team_id?' selected':''}>Share with ${E(t.name)}</option>`).join('')}</select>`:''}</div>
           <input id="etitle" maxlength="200" placeholder="Tag (the claim this proves) or case name" value="${E(x.title)}">
           <input id="ecite" maxlength="600" placeholder="Cite: author, year, credentials, source, link" value="${E(x.cite)}">
           <input id="etopic" maxlength="80" placeholder="Topic (e.g. Nov–Dec LD)" value="${E(x.topic)}">
@@ -720,9 +732,9 @@ async function cases(id){
     const prev=()=>{$('eprev').innerHTML=`<b class="ptag">${E($('etitle').value||'Tag')}</b>${$('ecite').value?`<div class="cite">${E($('ecite').value)}</div>`:''}<div class="cbody2">${cardHTML($('ebody').value)}</div>`};
     ['etitle','ecite','ebody'].forEach(i=>$(i).oninput=prev);prev();
     $('ek').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;kindNow=b.dataset.k;$('ek').querySelectorAll('button').forEach(z=>z.setAttribute('aria-pressed',z===b))};
-    $('esave').onclick=async()=>{const row={kind:kindNow,side:$('eside').value,title:$('etitle').value.trim(),cite:$('ecite').value.trim(),topic:$('etopic').value.trim(),body:$('ebody').value};
+    $('esave').onclick=async()=>{const row={kind:kindNow,team_id:$('eteam')&&+$('eteam').value||null,side:$('eside').value,title:$('etitle').value.trim(),cite:$('ecite').value.trim(),topic:$('etopic').value.trim(),body:$('ebody').value};
       if(!row.title){$('emsg').innerHTML='<div class="small" style="color:var(--over)">Add a tag or name first.</div>';return}
-      $('esave').disabled=true;store.set('lastTopic',row.topic);
+      $('esave').disabled=true;store.set('lastTopic',row.topic);store.set('lastTeam',row.team_id);
       const r=isNew?await SB.from('debate_cards').insert(row).select().single():await SB.from('debate_cards').update(row).eq('id',x.id).select().single();
       $('esave').disabled=false;
       if(r.error){$('emsg').innerHTML=`<div class="small" style="color:var(--over)">${E(r.error.message)}</div>`;return}
@@ -733,6 +745,38 @@ async function cases(id){
         const r=await SB.from('debate_cards').delete().eq('id',x.id);if(r.error){$('emsg').innerHTML=`<div class="small">${E(r.error.message)}</div>`;return}
         items=items.filter(z=>z!==x);location.hash='#/cases'};
     }
+  }
+  function viewOnly(x){
+    app.innerHTML=`<a class="back" href="#/cases">← All cards &amp; cases</a>
+      <div class="top"><div><h1>${x.kind==='case'?'Case':'Card'}</h1><p class="sub">Shared with ${E(teamName(x.team_id))} · ${SIDES[x.side]}${x.topic?' · '+E(x.topic):''}</p></div>
+        <div class="row"><button class="btn sm" id="vcopy">Copy text</button><button class="btn sm ghost" id="vsave">Save my own copy</button></div></div>
+      <div class="box" style="max-width:820px"><div class="cardview"><b class="ptag">${E(x.title)}</b>${x.cite?`<div class="cite">${E(x.cite)}</div>`:''}<div class="cbody2">${cardHTML(x.body)}</div></div><div id="vmsg"></div></div>`;
+    $('vcopy').onclick=async()=>{try{await navigator.clipboard.writeText(`${x.title}\n${x.cite}\n\n${x.body.replace(/\*\*|==/g,'')}`);$('vcopy').textContent='Copied ✓'}catch(e){}};
+    $('vsave').onclick=async()=>{$('vsave').disabled=true;const r=await SB.from('debate_cards').insert({kind:x.kind,side:x.side,title:x.title,cite:x.cite,topic:x.topic,body:x.body}).select().single();
+      if(r.error){$('vsave').disabled=false;$('vmsg').innerHTML=`<div class="small">${E(r.error.message)}</div>`;return}location.hash='#/cases/'+r.data.id};
+  }
+  async function teams(){
+    app.innerHTML=`<a class="back" href="#/cases">← All cards &amp; cases</a>
+      <div class="top"><div><h1>Team</h1><p class="sub">Share cards with your debate team. Everyone on a team can read the cards shared to it; only the person who wrote a card can change it.</p></div></div>
+      <div class="ced">
+        <div class="box"><h2>Your teams</h2><div id="tlist">${TEAMS.length?'':'<p class="muted">You\'re not on a team yet.</p>'}</div></div>
+        <div style="display:grid;gap:var(--gap)">
+          <div class="box"><h2>Join a team</h2><p class="small">Ask your captain or coach for the 6-character code.</p><div class="row"><input id="jcode" maxlength="8" placeholder="ABC123" autocapitalize="characters" style="flex:1;min-width:0;text-transform:uppercase;font-weight:700;letter-spacing:.1em"><button class="btn sm" id="jgo">Join</button></div><div id="jmsg"></div></div>
+          <div class="box"><h2>Make a team</h2><p class="small">You'll get a code to share with teammates.</p><div class="row"><input id="tname" maxlength="60" placeholder="e.g. PV Debate" style="flex:1;min-width:0"><button class="btn sm" id="tgo">Create</button></div><div id="tmsg"></div></div>
+        </div>
+      </div>`;
+    const err=(id,e)=>{$(id).innerHTML=`<div class="small" style="color:var(--over);margin-top:6px">${E(e.message.replace(/^.*?: /,''))}</div>`};
+    const drawT=async()=>{for(const t of TEAMS){const r=await SB.rpc('team_roster',{t:t.id});t.roster=r.data||[]}
+      $('tlist').innerHTML=TEAMS.map(t=>`<div class="team"><div class="row" style="justify-content:space-between"><b>${E(t.name)}</b><span class="small">${t.members} member${t.members===1?'':'s'}${t.role==='owner'?' · you run it':''}</span></div>
+        ${t.code?`<div class="row"><span class="small">Join code</span><span class="tcode">${E(t.code)}</span><button class="btn sm ghost" data-newcode="${t.id}">New code</button></div>`:''}
+        <div class="roster">${t.roster.map(m=>`<span>${E(m.name||'Member')}${m.username?` <small>@${E(m.username)}</small>`:''}${m.role==='owner'?' <small>· captain</small>':''}</span>`).join('')}</div>
+        <div><button class="btn sm danger" data-leave="${t.id}">${t.role==='owner'?'Delete team':'Leave team'}</button></div></div>`).join('')||'<p class="muted">You\'re not on a team yet.</p>';
+      $('tlist').querySelectorAll('[data-newcode]').forEach(b=>b.onclick=async()=>{const r=await SB.rpc('new_team_code',{t:+b.dataset.newcode});if(!r.error){TEAMS.find(t=>t.id===+b.dataset.newcode).code=r.data;drawT()}});
+      $('tlist').querySelectorAll('[data-leave]').forEach(b=>b.onclick=async()=>{if(!b.dataset.armed){b.dataset.armed=1;b.textContent=b.textContent.startsWith('Delete')?'Click again: shared cards go back to private':'Click again to leave';return}
+        const r=await SB.rpc('leave_team',{t:+b.dataset.leave});if(r.error)return alert(r.error.message);cases('team')})};
+    drawT();
+    $('jgo').onclick=async()=>{const r=await SB.rpc('join_team',{c:$('jcode').value});if(r.error)return err('jmsg',r.error);location.hash='#/cases';};
+    $('tgo').onclick=async()=>{const n=$('tname').value.trim();if(n.length<2)return;const r=await SB.rpc('create_team',{n});if(r.error)return err('tmsg',r.error);cases('team')};
   }
   list();
 }

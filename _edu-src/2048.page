@@ -14,7 +14,7 @@ game: 2048
 .t.merged{animation:bump .18s ease}
 @keyframes pop{from{opacity:0;scale:.4}}
 @keyframes bump{50%{scale:1.14}}
-.v2{background:#fff;color:var(--ink)}.v4{background:var(--moss)}.v8{background:var(--butter)}.v16{background:var(--peach)}.v32{background:#f2a98a}.v64{background:#ea7c5b;color:#fff}
+.v2{background:var(--card);color:var(--ink)}.v4{background:var(--moss)}.v8{background:var(--butter)}.v16{background:var(--peach)}.v32{background:#f2a98a}.v64{background:#ea7c5b;color:#fff}
 .v128{background:var(--sky);font-size:clamp(18px,5vw,34px)}.v256{background:#9dbdea;font-size:clamp(18px,5vw,34px)}.v512{background:var(--lilac);font-size:clamp(18px,5vw,34px)}
 .v1024{background:#b59ce6;color:#fff;font-size:clamp(15px,4.2vw,28px)}.v2048{background:var(--forest);color:var(--butter);font-size:clamp(15px,4.2vw,28px)}.vbig{background:var(--ink);color:var(--on-ink);font-size:clamp(13px,3.6vw,24px)}
 html[data-theme=dark] .board{background:#2a2e27}

@@ -58,6 +58,12 @@
   st.defer = true;
   document.head.append(st);
   window.SITE_THEME = themeApi;
+
+  // Pictures for the clickable boxes (elements with data-art="…"); see /assets/art.js.
+  var art = document.createElement('script');
+  art.src = '/assets/art.js?v=1';
+  art.defer = true;
+  document.head.append(art);
 })();
 
 window.SITE = {

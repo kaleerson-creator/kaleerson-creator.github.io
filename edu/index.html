@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261005">
+<link rel="stylesheet" href="/assets/site.css?v=20261006">
 <link rel="stylesheet" href="/edu/assets/games.css?v=2">
 <style>
 .hero{position:relative;isolation:isolate;padding:36px 0 26px}
@@ -33,6 +33,11 @@
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
 .grid .b{min-height:190px}
 .grid .w2{grid-column:span 2}
+.grid .b:not(.w2){justify-content:flex-end}
+.grid .b:not(.w2) .foot{margin-top:0}
+.grid .b:not(.w2){min-height:210px}
+.grid .b:not(.w2)>h2{padding-right:0;font-size:clamp(24px,2.4vw,32px)}
+.grid .b:not(.w2)>.art{width:clamp(70px,36%,104px)}
 @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.grid{grid-template-columns:1fr}.grid .w2{grid-column:span 1}}
 .b h2{font-size:clamp(26px,3vw,34px)}
@@ -41,30 +46,30 @@
 .ico{font-size:30px;line-height:1}
 .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
 .go{width:40px;height:40px;border-radius:999px;background:var(--ink);color:var(--on-ink);display:grid;place-items:center;flex:none;font-size:18px}
-.forest .go{background:#fff;color:var(--ink)}
+.forest .go{background:#fff;color:#141613}
 </style>
 </head>
 <body data-page="games" data-sub="home">
 <main class="wrap">
 <section class="hero"><span class="blob"></span><h1>Kale's Games</h1><p>Quick games for a few spare minutes. Play friends online, and get on the PVHS leaderboards.</p></section>
 <div class="grid">
-  <a class="b forest w2" href="/edu/word/"><span class="blob"></span><span class="lbl">Daily · <span id="dword">today</span></span><h2>Daily Word</h2><span class="muted" id="wstat">Guess the five-letter word in six tries.</span><div class="foot"><span></span><span class="go">→</span></div></a>
-  <a class="b peach w2" href="/edu/daily/"><span class="blob"></span><span class="lbl">Daily · same for everyone</span><h2>Daily Challenge</h2><span class="muted" id="dstat">10 trivia questions, one try. Beat your friends today.</span></a>
-  <a class="b sky w2" href="/edu/play/"><span class="blob"></span><span class="lbl">Online</span><h2>Play friends</h2><span class="muted">Tic-tac-toe, Connect Four, a trivia race and Letter Rush. Share a 4-letter code.</span><div class="foot"><span></span><span class="go">→</span></div></a>
-  <a class="b butter" href="/edu/2048/"><span class="blob"></span><span class="ico">🔢</span><h2>2048</h2><div class="foot"><span class="muted" data-best="2048"></span><span class="go">→</span></div></a>
-  <a class="b moss" href="/edu/snake/"><span class="blob"></span><span class="ico">🐍</span><h2>Snake</h2><div class="foot"><span class="muted" data-best="snake"></span><span class="go">→</span></div></a>
-  <a class="b peach" href="/edu/minesweeper/"><span class="blob"></span><span class="ico">💣</span><h2>Minesweeper</h2><div class="foot"><span class="muted" data-best="minesweeper"></span><span class="go">→</span></div></a>
-  <a class="b lilac" href="/edu/sudoku/"><span class="blob"></span><span class="ico">🧩</span><h2>Sudoku</h2><div class="foot"><span class="muted" data-best="sudoku"></span><span class="go">→</span></div></a>
-  <a class="b w2" href="/edu/typing/"><span class="blob" style="background:var(--paper)"></span><span class="ico">⌨️</span><h2>Typing Test</h2><div class="foot"><span class="muted" data-best="typing">How fast can you type?</span><span class="go">→</span></div></a>
-  <a class="b moss w2" href="/edu/letters/"><span class="blob"></span><span class="ico">🔤</span><h2>Letter Rush</h2><div class="foot"><span class="muted" data-best="letters">Make words from 7 letters in 90 seconds.</span><span class="go">→</span></div></a>
-  <a class="b sky w2" href="/edu/trivia/"><span class="blob"></span><span class="ico">❓</span><h2>Trivia</h2><div class="foot"><span class="muted" data-best="trivia">Ten quick questions.</span><span class="go">→</span></div></a>
-  <a class="b butter w2" href="/edu/leaderboards/"><span class="blob"></span><span class="lbl">This week</span><h2>Leaderboards</h2><div class="foot"><span class="muted">Sign in to get your name up there.</span><span class="go">→</span></div></a>
-  <a class="b w2" href="/study/"><span class="blob" style="background:var(--lilac)"></span><span class="lbl">Palo Verde HS</span><h2>PVHS Study</h2><div class="foot"><span class="muted">Notes, test dates and study tips.</span><span class="go">→</span></div></a>
+  <a class="b forest w2" href="/edu/word/"><span class="art" data-art="word"></span><span class="lbl">Daily · <span id="dword">today</span></span><h2>Daily Word</h2><span class="muted" id="wstat">Guess the five-letter word in six tries.</span><div class="foot"><span></span><span class="go">→</span></div></a>
+  <a class="b peach w2" href="/edu/daily/"><span class="art" data-art="daily"></span><span class="lbl">Daily · same for everyone</span><h2>Daily Challenge</h2><span class="muted" id="dstat">10 trivia questions, one try. Beat your friends today.</span></a>
+  <a class="b sky w2" href="/edu/play/"><span class="art" data-art="play"></span><span class="lbl">Online</span><h2>Play friends</h2><span class="muted">Tic-tac-toe, Connect Four, a trivia race and Letter Rush. Share a 4-letter code.</span><div class="foot"><span></span><span class="go">→</span></div></a>
+  <a class="b butter" href="/edu/2048/"><span class="art" data-art="2048"></span><h2>2048</h2><div class="foot"><span class="muted" data-best="2048"></span><span class="go">→</span></div></a>
+  <a class="b moss" href="/edu/snake/"><span class="art" data-art="snake"></span><h2>Snake</h2><div class="foot"><span class="muted" data-best="snake"></span><span class="go">→</span></div></a>
+  <a class="b peach" href="/edu/minesweeper/"><span class="art" data-art="minesweeper"></span><h2>Minesweeper</h2><div class="foot"><span class="muted" data-best="minesweeper"></span><span class="go">→</span></div></a>
+  <a class="b lilac" href="/edu/sudoku/"><span class="art" data-art="sudoku"></span><h2>Sudoku</h2><div class="foot"><span class="muted" data-best="sudoku"></span><span class="go">→</span></div></a>
+  <a class="b w2" href="/edu/typing/"><span class="art" data-art="typing"></span><h2>Typing Test</h2><div class="foot"><span class="muted" data-best="typing">How fast can you type?</span><span class="go">→</span></div></a>
+  <a class="b moss w2" href="/edu/letters/"><span class="art" data-art="letters"></span><h2>Letter Rush</h2><div class="foot"><span class="muted" data-best="letters">Make words from 7 letters in 90 seconds.</span><span class="go">→</span></div></a>
+  <a class="b sky w2" href="/edu/trivia/"><span class="art" data-art="trivia"></span><h2>Trivia</h2><div class="foot"><span class="muted" data-best="trivia">Ten quick questions.</span><span class="go">→</span></div></a>
+  <a class="b butter w2" href="/edu/leaderboards/"><span class="art" data-art="leaderboards"></span><span class="lbl">This week</span><h2>Leaderboards</h2><div class="foot"><span class="muted">Sign in to get your name up there.</span><span class="go">→</span></div></a>
+  <a class="b w2" href="/study/"><span class="art" data-art="study"></span><span class="lbl">Palo Verde HS</span><h2>PVHS Study</h2><div class="foot"><span class="muted">Notes, test dates and study tips.</span><span class="go">→</span></div></a>
 </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/edu/assets/common.js?v=2c"></script>
-<script src="/assets/site.js?v=20261005"></script>
+<script src="/assets/site.js?v=20261006"></script>
 <script>
 document.querySelectorAll('[data-best]').forEach(el=>{const g=el.dataset.best,b=G.local.get('best:'+g,null);if(b!==null)el.textContent='Your best: '+G.fmt(g,b)});
 const today=new Date().toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'});

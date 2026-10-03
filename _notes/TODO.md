@@ -4,6 +4,9 @@ Last updated: Oct 2, 2026. Folders starting with `_` aren't published, so this n
 
 ## For Kale to do
 
+- [ ] **Run one SQL snippet** for the debate Team page: open Supabase → SQL Editor, paste everything in `supabase/teams_leave.sql`, Run. (Lets people leave or delete a team. It deletes rows, so it needs your OK.)
+- [ ] **Turn on email alerts first** (below): Study reminder emails also use it.
+
 - [ ] **Test the games with a friend.** Open kaleerson.com/edu/play on two devices, make a room on one, join with the code on the other. This is the first real run of online rooms.
 - [ ] **Try a leaderboard.** Sign in (Join), play any game on kaleerson.com/edu, and check that your score shows up.
 - [ ] **Turn on email alerts.** Resend → API Keys → Create (Sending access, kaleerson.com) → Supabase → Edge Functions → Secrets → add `RESEND_API_KEY`. /admin → People shows the steps until it works.
@@ -24,13 +27,19 @@ Last updated: Oct 2, 2026. Folders starting with `_` aren't published, so this n
 
 - **Move games to games.kaleerson.com later** if school filters start blocking kaleerson.com. The site is built so this is a quick move.
 
-## Claude is working on (in order)
+## Done in this round
 
 - [x] Usernames (permanent), name colors + tags set in /admin, account Settings tab
-- [x] Speech & Debate extras: speech drill (filler-word count), ballot helper, private case + evidence library
-- [ ] Debate team page (shared cards for a team, joined with a code) — later, once people use the library
-- [ ] Study upgrades: search notes, email reminders before tests, share decks between classes
-- [ ] More games: daily challenge, more trivia, online word race / Battleship, admin tool to delete bad scores
+- [x] Speech & Debate: speech drill, ballot helper, private case + evidence library, team sharing with join codes
+- [x] Study: follow classes ("My classes"), reminder emails the evening before tests, search all posts, copy decks to another class
+- [x] Games: Daily Challenge, Letter Rush (solo + online race), more trivia, admin Games tab to delete bad scores
+- [x] Pictures on every clickable box (assets/art.js), full light/dark check of every page
+
+## Ideas for later
+
+- Speech drill: save recordings to your account
+- Team page: coach view of everyone's drill stats
+- More online games (Battleship, Pictionary)
 
 ## Notes
 
@@ -39,4 +48,6 @@ Last updated: Oct 2, 2026. Folders starting with `_` aren't published, so this n
 - "Not secure" showing on some of Kale's Chrome profiles is local browser state. The site's certificate is valid.
 - Games source: `_edu-src/` (`.page` files). Run `python3 _edu-src/build.py` to rebuild `edu/` (it also re-runs `_tools/meta.py`).
 - Usernames: lowercase letters, numbers and `_`, 3–20 long. A database trigger blocks changes once set (admins can change one in the Supabase table editor). Name colors and tags are only writable through `admin_set_style`.
+- Box pictures: `assets/art.js` draws them from `data-art="name"`. Add a new drawing there to use it on a new box.
+- Study reminders: pg_cron job `study-reminders` runs 01:30 UTC daily and calls the `study-reminders` edge function (needs RESEND_API_KEY).
 - Link previews and icon: `_tools/meta.py` adds them to every page. Re-run it after adding a new page.

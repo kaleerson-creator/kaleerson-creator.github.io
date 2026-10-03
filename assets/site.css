@@ -57,6 +57,13 @@ a.b:hover .arrow{transform:translate(3px,-3px)}
 .lbl{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2)}
 .muted{color:var(--ink2)}
 .b h2{font-size:clamp(28px,3.4vw,40px)}
+/* picture in the corner of a clickable box (assets/art.js) */
+.b>.art{position:absolute;z-index:-1;top:12px;right:12px;width:clamp(76px,28%,128px);aspect-ratio:1;max-height:calc(100% - 78px);pointer-events:none;transform:rotate(4deg);transition:transform .35s var(--ease)}
+.b>.art svg{width:100%;height:100%;display:block}
+.b:has(>.art)>h2,.b:has(>.art)>b,.b:has(>.art)>.lbl,.b:has(>.art)>.muted,.b:has(>.art)>.fmt,.b:has(>.art)>.foot>.muted{padding-right:clamp(70px,27%,128px)}
+.b:has(>.art)>.foot>.muted{padding-right:0;max-width:calc(100% - 60px)}
+.b:hover>.art{transform:rotate(-2deg) scale(1.06)}
+@media (prefers-reduced-motion:reduce){.b:hover>.art{transform:rotate(4deg)}}
 .b h3{font-size:24px;letter-spacing:-.03em}
 .b .foot{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
 .arrow{width:42px;height:42px;border-radius:999px;background:var(--ink);color:var(--on-ink);display:grid;place-items:center;flex:none;transition:transform .3s var(--ease)}

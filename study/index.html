@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261005">
+<link rel="stylesheet" href="/assets/site.css?v=20261006">
 <style>
 main.pg{flex:1;padding-block:8px 64px}
 .center{max-width:520px;margin:24px auto}
@@ -168,7 +168,7 @@ html[data-theme=dark] .score.good{background:#2f4a2a;color:#cfe8b8!important}htm
 .deck{background:var(--card);border-radius:22px;padding:18px;display:grid;gap:6px;min-height:120px;position:relative;overflow:hidden;isolation:isolate}
 .deck:hover{transform:translateY(-2px)}
 .deck b{font-family:var(--display);font-size:21px;letter-spacing:-.02em;line-height:1.1}
-.deck .blob{width:110px;aspect-ratio:1;right:-30px;bottom:-40px;background:var(--lilac)}
+.deck .art{position:absolute;z-index:-1;right:10px;top:10px;width:64px;aspect-ratio:1;transform:rotate(6deg)}.deck .art svg{width:100%;height:100%}.deck b{padding-right:70px}
 
 .flip{perspective:1200px;cursor:pointer;min-height:260px}
 .flip .in{position:relative;min-height:260px;transition:transform .5s var(--ease);transform-style:preserve-3d}
@@ -219,7 +219,7 @@ html[data-theme=dark] .score.good{background:#2f4a2a;color:#cfe8b8!important}htm
 <script src="/lib/sb.js?v=20261001"></script>
 <script src="/lib/vault-md.js?v=20261002"></script>
 <script src="/lib/community.js?v=20261005"></script>
-<script src="/assets/site.js?v=20261005"></script>
+<script src="/assets/site.js?v=20261006"></script>
 <script>
 const $=id=>document.getElementById(id);
 const E=VaultMD.esc, C=Community, me=C.me;
@@ -413,7 +413,7 @@ async function decks(c){
   const {data,error}=await SB.from('study_decks').select('id,title,created_by,created_at,author:profiles(display_name,username,name_color,tags),study_cards(count)').eq('class_id',c.id).order('created_at',{ascending:false});
   if(error){pane.innerHTML=`<div class="msg">${E(C.errText(error))}</div>`;return}
   pane.innerHTML=`<div class="posts"><div class="box"><div class="search"><input id="dt" maxlength="100" placeholder="New deck name, e.g. Unit 3 vocab"><button class="btn sm" id="dgo">+ New deck</button></div><div id="dmsg"></div></div>
-    <div class="decks">${data.map(d=>`<a class="deck" href="#/d/${d.id}"><span class="blob"></span><b>${E(d.title)}</b><span class="meta">${(d.study_cards[0]||{}).count||0} cards · ${author(d)}</span></a>`).join('')||'<p class="empty">No decks yet. Make one for vocab or key terms.</p>'}</div></div>`;
+    <div class="decks">${data.map(d=>`<a class="deck" href="#/d/${d.id}"><span class="art" data-art="cards"></span><b>${E(d.title)}</b><span class="meta">${(d.study_cards[0]||{}).count||0} cards · ${author(d)}</span></a>`).join('')||'<p class="empty">No decks yet. Make one for vocab or key terms.</p>'}</div></div>`;
   $('dgo').addEventListener('click',async()=>{
     const t=$('dt').value.trim();if(t.length<2)return;
     const r=await SB.from('study_decks').insert({class_id:c.id,title:t}).select('id').single();
@@ -427,6 +427,7 @@ async function deck(id,mode){
   const {data:d}=await SB.from('study_decks').select('id,title,class_id,created_by,author:profiles(display_name,username,name_color,tags)').eq('id',id).maybeSingle();
   if(!d){app().innerHTML=`<a class="back" href="#/">← All classes</a><div class="box" style="margin-top:14px"><h2>Deck not found</h2></div>`;return}
   if(!K.some(k=>k.id===d.class_id))await loadDir();
+  await loadFollows();
   const c=K.find(k=>k.id===d.class_id);
   const {data:cards}=await SB.from('study_cards').select('*,author:profiles(display_name,username,name_color,tags)').eq('deck_id',id).order('id');
   deckCards=cards||[];
