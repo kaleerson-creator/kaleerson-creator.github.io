@@ -52,6 +52,17 @@ main.pg{flex:1;padding-block:8px 64px}
 .box h2{font-size:26px;letter-spacing:-.03em}
 .box.forest{background:var(--forest);color:var(--forest-ink)}
 .search{display:flex;gap:8px;flex-wrap:wrap}
+.sall{margin-bottom:var(--gap)}
+.mine{display:grid;gap:8px;padding-bottom:14px;margin-bottom:4px;border-bottom:1px solid var(--line)}
+.seg2{display:flex;gap:3px;background:#ffffff1a;border-radius:999px;padding:3px}
+.seg2 button{font:inherit;font-size:13px;font-weight:600;border:0;background:none;color:var(--forest-ink);padding:6px 11px;border-radius:999px;cursor:pointer;opacity:.8}
+.seg2 button[aria-pressed=true]{background:var(--forest-ink);color:var(--forest);opacity:1}
+.remind{display:flex;gap:10px;align-items:flex-start;font-size:14px;padding-top:12px;border-top:1px solid #ffffff22}
+.remind input{width:auto;margin-top:3px}
+.hit{display:grid;gap:6px}.hit:hover{box-shadow:inset 0 0 0 1.5px var(--ink3)}
+.hit .m{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink2)}
+.hit .muted{font-size:14px}
+.hit mark{background:var(--butter);color:var(--ink);border-radius:4px;padding:0 2px}
 .search input{flex:1;min-width:0}
 input,select,textarea{font:inherit;font-size:16px;padding:11px 13px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);min-width:0;width:100%}
 textarea{min-height:120px;resize:vertical;line-height:1.5}
@@ -116,7 +127,7 @@ label.f{display:grid;gap:5px;font-size:12px;font-weight:600;color:var(--ink2);le
 .snav a{font-size:14px;font-weight:600;color:var(--ink2);padding:8px 16px;border-radius:999px;white-space:nowrap}
 .snav a[aria-current=page]{background:var(--forest);color:var(--forest-ink)}
 .score{display:inline-grid;place-items:center;min-width:44px;height:40px;padding:0 8px;border-radius:12px;font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.02em}
-.score.good{background:#cfe8b8}.score.ok{background:var(--butter)}.score.bad{background:#f6cdbb}.score.none{background:var(--paper);color:var(--ink3);font-size:14px}
+.score.good{background:#cfe8b8;color:#1b3a14}.score.ok{background:var(--butter)}.score.bad{background:#f6cdbb}.score.none{background:var(--paper);color:var(--ink3);font-size:14px}
 .trow{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
 .trow:first-child{border-top:0}
 .trow b{font-family:var(--display);font-size:19px;letter-spacing:-.02em}
@@ -148,6 +159,7 @@ button.tag[aria-pressed=true]{background:var(--ink);color:#fff}
 .pickl{font-size:13px;color:var(--ink2);min-height:1.2em}
 .rv{background:var(--card);border-radius:22px;padding:18px 20px;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;min-width:0}
 .rv .sc{display:grid;gap:6px;justify-items:center;text-align:center;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);grid-row:span 3}
+html[data-theme=dark] .score.good{background:#2f4a2a;color:#cfe8b8!important}html[data-theme=dark] .score.ok{color:#f3e39b!important}html[data-theme=dark] .score.bad{background:#4a2a20;color:#f6cdbb!important}
 .rv .sc .score{font-size:17px;height:36px;min-width:40px}
 .rv p{overflow-wrap:anywhere;white-space:pre-wrap}
 .rv .acts{grid-column:1/-1}
@@ -225,6 +237,8 @@ const safeName=n=>n.normalize('NFKD').replace(/[^\w.\- ]+/g,'').replace(/\s+/g,'
 
 /* ── data ─────────────────────────────────────────── */
 let T=[],K=[];  // teachers, classes
+let FOL=null;   // ids of classes I follow ("My classes")
+async function loadFollows(){if(FOL)return FOL;const {data}=await SB.from('study_follows').select('class_id');FOL=new Set((data||[]).map(f=>f.class_id));return FOL}
 async function loadDir(){
   const [t,k]=await Promise.all([SB.from('study_teachers').select('id,name').order('name'),SB.from('study_classes').select('id,teacher_id,name,period,created_by').order('name')]);
   T=t.data||[];K=k.data||[];
@@ -233,14 +247,19 @@ const teacherOf=c=>T.find(t=>t.id===c.teacher_id)||{name:'?'};
 
 /* ── home ─────────────────────────────────────────── */
 async function home(){
-  await Promise.all([loadDir(),loadSum()]);
-  const {data:evs}=await SB.from('study_posts').select('id,class_id,title,event_type,event_date').eq('kind','event').gte('event_date',today()).order('event_date').limit(12);
+  const [,,,mem]=await Promise.all([loadDir(),loadSum(),loadFollows(),SB.from('members').select('study_reminders').eq('id',me.uid).maybeSingle()]);
+  const {data:evRows}=await SB.from('study_posts').select('id,class_id,title,event_type,event_date').eq('kind','event').gte('event_date',today()).order('event_date').limit(60);
+  const evAll=evRows||[];
+  const myCls=K.filter(c=>FOL.has(c.id));
+  let onlyMine=myCls.length>0;
   app().innerHTML=`
     <div class="top"><div><h1>PVHS Study</h1><p class="sub">Palo Verde HS. Find your class or add it.</p></div>
       <div class="who">Posting as <b>${E(me.name)}</b><button id="rename">Change</button></div></div>
     ${RULES}
+    <form class="box sall" id="sall"><div class="search"><input id="sq" maxlength="80" placeholder="Search notes and tests" aria-label="Search posts"><button class="btn sm">Search</button></div></form>
     <div class="lay">
       <div class="box">
+        ${myCls.length?`<div class="mine"><b>My classes</b><div class="classes">${myCls.map(c=>`<a class="cls" href="#/c/${c.id}">${E(c.name)} <small>${E(teacherOf(c).name)}${c.period?' · P'+E(c.period):''}</small></a>`).join('')}</div></div>`:''}
         <div class="search"><input id="q" placeholder="Search class or teacher" aria-label="Search"><button class="btn sm" id="addtog">+ Add a class</button></div>
         <div id="addcls" class="adder" hidden>
           <div class="g3">
@@ -254,9 +273,18 @@ async function home(){
         </div>
         <div id="dir"></div>
       </div>
-      <div class="box forest"><h2>Coming up</h2><div>${(evs||[]).map(ev=>{const c=K.find(k=>k.id===ev.class_id);const d=dparts(ev.event_date);
-        return `<a class="ev" href="#/c/${ev.class_id}"><span class="day"><small>${d.mon}</small><b>${d.day}</b></span><span><span class="t">${E(ev.title)}</span><br><span class="m">${TYPES[ev.event_type]||'Due'} · ${c?E(c.name)+' · '+E(teacherOf(c).name):''} · ${until(ev.event_date)}</span></span></a>`}).join('')||'<p class="empty" style="color:#B9C9AE">Nothing on the calendar yet. Add tests and due dates on a class page.</p>'}</div></div>
+      <div class="box forest"><div class="row" style="justify-content:space-between"><h2>Coming up</h2>${myCls.length?`<div class="seg2" id="evseg"><button data-m="1" aria-pressed="true">My classes</button><button data-m="0" aria-pressed="false">All</button></div>`:''}</div>
+        <div id="evs"></div>
+        ${myCls.length?`<label class="remind"><input type="checkbox" id="remind" ${mem.data&&mem.data.study_reminders?'checked':''}> Email me the evening before tests and due dates in my classes</label><div id="remmsg"></div>`:'<p class="m" style="font-size:13px;opacity:.75">Tip: press <b>☆ Follow</b> on your classes to see just their dates here and get reminder emails.</p>'}</div>
     </div>`;
+  const drawEv=()=>{const evs=(onlyMine?evAll.filter(e=>FOL.has(e.class_id)):evAll).slice(0,12);
+    $('evs').innerHTML=evs.map(ev=>{const c=K.find(k=>k.id===ev.class_id);const d=dparts(ev.event_date);
+        return `<a class="ev" href="#/c/${ev.class_id}"><span class="day"><small>${d.mon}</small><b>${d.day}</b></span><span><span class="t">${E(ev.title)}</span><br><span class="m">${TYPES[ev.event_type]||'Due'} · ${c?E(c.name)+' · '+E(teacherOf(c).name):''} · ${until(ev.event_date)}</span></span></a>`}).join('')||`<p class="empty" style="color:#B9C9AE">${onlyMine?'Nothing coming up in your classes.':'Nothing on the calendar yet. Add tests and due dates on a class page.'}</p>`};
+  drawEv();
+  if($('evseg'))$('evseg').onclick=e=>{const b=e.target.closest('[data-m]');if(!b)return;onlyMine=b.dataset.m==='1';$('evseg').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));drawEv()};
+  if($('remind'))$('remind').onchange=async e=>{const {error}=await SB.from('members').update({study_reminders:e.target.checked}).eq('id',me.uid);
+    $('remmsg').innerHTML=`<p class="m" style="font-size:13px">${error?'Couldn\'t save. Try again.':e.target.checked?'On. You\'ll get an email the evening before.':'Off.'}</p>`};
+  $('sall').onsubmit=e=>{e.preventDefault();const q=$('sq').value.trim();if(q.length>=2)location.hash='#/search/'+encodeURIComponent(q)};
   const draw=()=>{
     const q=$('q').value.trim().toLowerCase();
     // group by class name, then list each teacher (and period) teaching it
@@ -293,16 +321,21 @@ async function home(){
 const TABS=[['events','Upcoming'],['notes','Notes'],['tips','What to study'],['cards','Flashcards']];
 async function klass(id,tab){
   if(!K.some(k=>k.id===id))await loadDir();
+  await loadFollows();
   const c=K.find(k=>k.id===id);
   if(!c){app().innerHTML=`<a class="back" href="#/">← All classes</a><div class="box" style="margin-top:14px"><h2>Class not found</h2><p class="muted">It may have been removed.</p></div>`;return}
   tab=TABS.some(t=>t[0]===tab)?tab:'events';
   app().innerHTML=`
     <a class="back" href="#/">← All classes</a>
     <div class="top"><div><h1>${E(c.name)}</h1><p class="sub"><a href="#/t/${c.teacher_id}" style="text-decoration:underline;text-underline-offset:3px">${E(teacherOf(c).name)}</a>${c.period?' · Period '+E(c.period):''}</p></div>
-      ${canDel(c)?'<button class="linkbtn" id="delcls">Delete class</button>':''}</div>
+      <div class="row"><button class="btn sm ${FOL.has(id)?'':'ghost'}" id="follow">${FOL.has(id)?'★ Following':'☆ Follow'}</button>${canDel(c)?'<button class="linkbtn" id="delcls">Delete class</button>':''}</div></div>
     ${RULES}
     <nav class="tabs">${TABS.map(([k,l])=>`<a href="#/c/${id}/${k}" aria-selected="${k===tab}">${l}</a>`).join('')}</nav>
     <div id="pane"></div>`;
+  $('follow').onclick=async()=>{const b=$('follow'),on=FOL.has(id);b.disabled=true;
+    const r=on?await SB.from('study_follows').delete().eq('class_id',id):await SB.from('study_follows').insert({class_id:id});b.disabled=false;
+    if(r.error)return alert(C.errText(r.error));on?FOL.delete(id):FOL.add(id);
+    b.textContent=on?'☆ Follow':'★ Following';b.classList.toggle('ghost',on)};
   if($('delcls'))$('delcls').addEventListener('click',async e=>{
     if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Delete class and all its posts?';return}
     const r=await SB.from('study_classes').delete().eq('id',id);if(r.error){alert(C.errText(r.error));return}
@@ -409,7 +442,14 @@ async function deck(id,mode){
     <div class="box"><h2>Add a card</h2><div class="g2"><label class="f">Front (term or question)<textarea id="cf" maxlength="500" style="min-height:80px"></textarea></label><label class="f">Back (definition)<textarea id="cb" maxlength="500" style="min-height:80px"></textarea></label></div>
       <div class="row"><button class="btn sm" id="cadd">Add card</button><span class="muted" style="font-size:13px">Terms and definitions from class, not test questions.</span></div><div id="cmsg"></div></div>
     <div class="box"><div>${deckCards.map(k=>`<div class="cardrow"><b>${E(k.front)}</b><span>${E(k.back)}</span><span class="acts"><button data-rep="study_card:${k.id}">Report</button>${canDel(k)?`<button data-delcard="${k.id}">Delete</button>`:''}</span></div>`).join('')||'<p class="empty">No cards yet.</p>'}</div></div>
+    ${deckCards.length?`<div class="box"><h2>Copy to another class</h2><p class="muted" style="font-size:14px">Same unit in another period or teacher? Make your own copy of these ${deckCards.length} cards there.</p>
+      <div class="search"><select id="cpto" aria-label="Class to copy to"><option value="">Pick a class…</option>${K.filter(k=>k.id!==d.class_id).sort((a,b)=>(FOL.has(b.id)-FOL.has(a.id))||a.name.localeCompare(b.name)).map(k=>`<option value="${k.id}">${FOL.has(k.id)?'★ ':''}${E(k.name)} · ${E(teacherOf(k).name)}${k.period?' · P'+E(k.period):''}</option>`).join('')}</select><button class="btn sm" id="cpgo">Copy deck</button></div><div id="cpmsg"></div></div>`:''}
     <div class="acts"><button data-rep="study_deck:${d.id}">Report deck</button>${canDel(d)?`<button id="deldeck">Delete deck</button>`:''}</div></div>`;
+  if($('cpgo'))$('cpgo').onclick=async()=>{const to=+$('cpto').value;if(!to)return;$('cpgo').disabled=true;
+    const say=t=>{$('cpgo').disabled=false;$('cpmsg').innerHTML=`<div class="msg">${E(t)}</div>`};
+    const nd=await SB.from('study_decks').insert({class_id:to,title:d.title}).select('id').single();if(nd.error)return say(C.errText(nd.error));
+    const r=await SB.from('study_cards').insert(deckCards.map(k=>({deck_id:nd.data.id,front:k.front,back:k.back})));if(r.error)return say(C.errText(r.error));
+    location.hash='#/d/'+nd.data.id};
   $('cadd').addEventListener('click',async()=>{
     const front=$('cf').value.trim(),back=$('cb').value.trim();if(!front||!back)return;
     $('cadd').disabled=true;
@@ -574,6 +614,28 @@ async function teacher(id){
   }));
 }
 
+/* ── search all posts ─────────────────────────────── */
+const KINDS={event:'Test / due date',note:'Notes',tips:'What to study'};
+const KTAB={event:'events',note:'notes',tips:'tips'};
+async function search(q){
+  if(!K.length)await loadDir();
+  const clean=q.replace(/[%_,()"\\]/g,' ').trim().slice(0,80);
+  app().innerHTML=`<a class="back" href="#/">← All classes</a>
+    <div class="top"><div><h1>Search</h1><p class="sub">Notes, study guides and tests in every class.</p></div></div>
+    <form class="box sall" id="sall"><div class="search"><input id="sq" maxlength="80" value="${E(q)}" aria-label="Search posts"><button class="btn sm">Search</button></div></form>
+    <div class="posts" id="res"><p class="empty">Searching…</p></div>`;
+  $('sall').onsubmit=e=>{e.preventDefault();const v=$('sq').value.trim();if(v.length>=2)location.hash='#/search/'+encodeURIComponent(v)};
+  if(clean.length<2){$('res').innerHTML='<p class="empty">Type at least 2 letters.</p>';return}
+  const {data,error}=await SB.from('study_posts').select('id,class_id,kind,title,body,event_date,created_at').or(`title.ilike.%${clean}%,body.ilike.%${clean}%`).order('created_at',{ascending:false}).limit(50);
+  if(error){$('res').innerHTML=`<div class="msg">${E(C.errText(error))}</div>`;return}
+  const words=clean.split(/\s+/).filter(Boolean).map(w=>w.replace(/[.*+?^${}|[\]\\]/g,'\\$&'));
+  const hl=t=>words.length?E(t).replace(new RegExp('('+words.map(w=>E(w)).join('|')+')','gi'),'<mark>$1</mark>'):E(t);
+  const snip=b=>{b=String(b||'').replace(/[#*>`_-]+/g,' ').replace(/\s+/g,' ').trim();const i=b.toLowerCase().indexOf(clean.toLowerCase());const st=Math.max(0,i-60);return (st?'…':'')+b.slice(st,st+180)+(b.length>st+180?'…':'')};
+  $('res').innerHTML=(data||[]).map(r=>{const c=K.find(k=>k.id===r.class_id);
+    return `<a class="box hit" href="#/c/${r.class_id}/${KTAB[r.kind]}"><span class="m">${KINDS[r.kind]}${c?' · '+E(c.name)+' · '+E(teacherOf(c).name):''}${r.event_date?' · '+E(r.event_date):''}</span><b>${hl(r.title)}</b>${r.body?`<span class="muted">${hl(snip(r.body))}</span>`:''}</a>`}).join('')
+    ||`<div class="box"><p class="empty">Nothing found for “${E(q)}”.</p></div>`;
+}
+
 /* ── router + boot ────────────────────────────────── */
 function route(){
   const p=location.hash.replace(/^#\/?/,'').split('/');
@@ -584,6 +646,7 @@ function route(){
   if(p[0]==='d'&&+p[1])return deck(+p[1],p[2]);
   if(p[0]==='t'&&+p[1])return teacher(+p[1]);
   if(p[0]==='teachers')return teachers();
+  if(p[0]==='search')return search(decodeURIComponent(p.slice(1).join('/')||''));
   return home();
 }
 async function enter(){
