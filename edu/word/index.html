@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20261005">
-<link rel="stylesheet" href="/edu/assets/games.css?v=1">
+<link rel="stylesheet" href="/edu/assets/games.css?v=2">
 <style>
 .wgrid{display:grid;grid-template-rows:repeat(6,1fr);gap:6px;width:min(100%,330px)}
 .wrow{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
@@ -40,7 +40,7 @@
 .kr button{flex:1;max-width:44px;height:54px;border:0;border-radius:8px;background:#dfe2d8;color:#141613;font:700 15px/1 var(--body);text-transform:uppercase;cursor:pointer;padding:0}
 .kr button.wide{max-width:68px;flex:1.5;font-size:11px;letter-spacing:-.02em}
 .kr button.g{background:#4f8a4a;color:#fff}.kr button.y{background:#d8b43a;color:#fff}.kr button.x{background:#8f958b;color:#fff}
-.toast{position:fixed;left:50%;top:90px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:12px;font-weight:600;z-index:60}
+.toast{position:fixed;left:50%;top:90px;transform:translateX(-50%);background:var(--ink);color:var(--on-ink);padding:10px 16px;border-radius:12px;font-weight:600;z-index:60}
 html[data-theme=dark] .kr button:not(.g):not(.y):not(.x){background:#30352d;color:var(--ink)}
 </style>
 </head>
@@ -60,9 +60,9 @@ html[data-theme=dark] .kr button:not(.g):not(.y):not(.x){background:#30352d;colo
 </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/edu/assets/common.js?v=1c"></script>
+<script src="/edu/assets/common.js?v=2c"></script>
 <script src="/assets/site.js?v=20261005"></script>
-<script src="/edu/assets/words.js?v=1"></script>
+<script src="/edu/assets/words.js?v=2"></script>
 <script>
 const EPOCH=Date.UTC(2026,9,1);
 const today=new Date().toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'});  // YYYY-MM-DD

@@ -96,7 +96,8 @@ input:focus{outline:2px solid var(--ink);outline-offset:1px}
       <div class="box">
         <h2>Email</h2>
         <p>Signed in as <span class="email" id="email"></span></p>
-        <label class="check"><input type="checkbox" id="optin"> Email me when Kale ships something new</label><div id="optmsg"></div>
+        <label class="check"><input type="checkbox" id="optin"> Email me when Kale ships something new</label>
+        <label class="check" id="remrow" hidden><input type="checkbox" id="studyrem"> Study reminders: email me the evening before tests in classes I follow</label><div id="optmsg"></div>
       </div>
       <div class="box">
         <h2>Password</h2>
@@ -151,12 +152,13 @@ function drawProfile(){
   const u=data.session.user;uid=u.id;$('email').textContent=u.email;
   const [p,m,study,admin]=await Promise.all([
     SB.from('profiles').select('display_name,username,name_color,tags').eq('user_id',uid).maybeSingle(),
-    SB.from('members').select('email_opt_in').eq('id',uid).maybeSingle(),
+    SB.from('members').select('email_opt_in,study_reminders').eq('id',uid).maybeSingle(),
     SB.rpc('is_study'),SB.rpc('is_admin')]);
   prof=p.data||null;const name=prof?.display_name||'';$('name').value=name;SITE.setName&&SITE.setName(name);
   $('hello').textContent=name?hi(name)+(prof.username?'':' Pick a username below.'):'Pick a username and display name so people know who posted.';
   drawProfile();
   $('optin').checked=m.data?m.data.email_opt_in:true;
+  if(study.data){$('remrow').hidden=false;$('studyrem').checked=!!(m.data&&m.data.study_reminders)}
   let vault=false;try{vault=!!localStorage.getItem('vault_token')}catch(e){}
   const row=(label,on,link,linkText)=>`<div><span>${label}</span>${on?`<a href="${link}">${linkText||'Open'} →</a>`:`<span class="no">${linkText||'Not yet'}</span>`}</div>`;
   $('access').innerHTML=
@@ -205,6 +207,7 @@ $('savepw').onclick=async()=>{
   if(error)return flash('pwmsg',false,/weak|short/i.test(error.message)?'Pick a stronger password.':error.message);
   $('pw').value='';flash('pwmsg',true,'Saved. You can now sign in with your email and this password.');
 };
+$('studyrem').onchange=async e=>{const {error}=await SB.from('members').update({study_reminders:e.target.checked}).eq('id',uid);flash('optmsg',!error,error?'Could not save.':'Saved.')};
 $('optin').onchange=async e=>{const {error}=await SB.from('members').update({email_opt_in:e.target.checked}).eq('id',uid);flash('optmsg',!error,error?'Could not save.':'Saved.')};
 $('out').onclick=async()=>{await SB.auth.signOut();SITE.setName&&SITE.setName(null);location.href='/'};
 $('outall').onclick=async e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to sign out everywhere';return}

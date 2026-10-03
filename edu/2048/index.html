@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20261005">
-<link rel="stylesheet" href="/edu/assets/games.css?v=1">
+<link rel="stylesheet" href="/edu/assets/games.css?v=2">
 <style>
 .board{--n:4;--gap:10px;position:relative;width:min(100%,460px);aspect-ratio:1;background:#d9dccf;border-radius:20px;padding:var(--gap);touch-action:none;user-select:none}
 .cells,.tiles{position:absolute;inset:var(--gap);display:grid;grid-template-columns:repeat(var(--n),1fr);gap:var(--gap)}
@@ -37,7 +37,7 @@
 @keyframes bump{50%{scale:1.14}}
 .v2{background:#fff;color:var(--ink)}.v4{background:var(--moss)}.v8{background:var(--butter)}.v16{background:var(--peach)}.v32{background:#f2a98a}.v64{background:#ea7c5b;color:#fff}
 .v128{background:var(--sky);font-size:clamp(18px,5vw,34px)}.v256{background:#9dbdea;font-size:clamp(18px,5vw,34px)}.v512{background:var(--lilac);font-size:clamp(18px,5vw,34px)}
-.v1024{background:#b59ce6;color:#fff;font-size:clamp(15px,4.2vw,28px)}.v2048{background:var(--forest);color:var(--butter);font-size:clamp(15px,4.2vw,28px)}.vbig{background:var(--ink);color:#fff;font-size:clamp(13px,3.6vw,24px)}
+.v1024{background:#b59ce6;color:#fff;font-size:clamp(15px,4.2vw,28px)}.v2048{background:var(--forest);color:var(--butter);font-size:clamp(15px,4.2vw,28px)}.vbig{background:var(--ink);color:var(--on-ink);font-size:clamp(13px,3.6vw,24px)}
 html[data-theme=dark] .board{background:#2a2e27}
 html[data-theme=dark] .cells i{background:#1f231d}
 </style>
@@ -54,7 +54,7 @@ html[data-theme=dark] .cells i{background:#1f231d}
 </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/edu/assets/common.js?v=1c"></script>
+<script src="/edu/assets/common.js?v=2c"></script>
 <script src="/assets/site.js?v=20261005"></script>
 <script>
 document.querySelector('.cells').innerHTML='<i></i>'.repeat(16);

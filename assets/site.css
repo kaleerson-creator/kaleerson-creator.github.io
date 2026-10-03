@@ -3,7 +3,7 @@
   color-scheme:light;
   --paper:#EEF0EA; --card:#FFFFFF; --ink:#141613; --ink2:#5E645B; --ink3:#8F958B; --line:#DCE0D6;
   --moss:#CFE0B4; --sky:#C4D9F5; --peach:#F6CDBB; --butter:#F3E39B; --lilac:#DCCFF3;
-  --forest:#1E3A2C; --forest-ink:#EAF2DA;
+  --forest:#1E3A2C; --forest-ink:#EAF2DA; --on-ink:#FFFFFF;
   --display:'Bricolage Grotesque','Geist',system-ui,sans-serif;
   --body:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;
   --r:28px; --r-sm:16px;
@@ -30,7 +30,7 @@ main{flex:1;padding-block:8px 48px}
 .links{display:flex;gap:4px;background:var(--card);border-radius:999px;padding:5px;box-shadow:0 1px 0 var(--line)}
 .links a{padding:8px 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--ink2);transition:background .2s,color .2s}
 .links a:hover{color:var(--ink)}
-.links a[aria-current=page]{background:var(--ink);color:#fff}
+.links a[aria-current=page]{background:var(--ink);color:var(--on-ink)}
 .navcta{padding:10px 16px;border-radius:999px;background:var(--forest);color:var(--forest-ink);font-size:14px;font-weight:600;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .links .mob{display:none}
 .menubtn{display:none;width:44px;height:44px;border-radius:999px;background:var(--card);border:0;font-size:20px;cursor:pointer}
@@ -59,7 +59,7 @@ a.b:hover .arrow{transform:translate(3px,-3px)}
 .b h2{font-size:clamp(28px,3.4vw,40px)}
 .b h3{font-size:24px;letter-spacing:-.03em}
 .b .foot{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
-.arrow{width:42px;height:42px;border-radius:999px;background:var(--ink);color:#fff;display:grid;place-items:center;flex:none;transition:transform .3s var(--ease)}
+.arrow{width:42px;height:42px;border-radius:999px;background:var(--ink);color:var(--on-ink);display:grid;place-items:center;flex:none;transition:transform .3s var(--ease)}
 .forest .arrow,.ink .arrow{background:#fff;color:var(--ink)}
 .arrow svg{width:18px;height:18px}
 .chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;background:#ffffffa6;color:var(--ink);white-space:nowrap}
@@ -90,7 +90,7 @@ a.b:hover .arrow{transform:translate(3px,-3px)}
 @media (max-width:620px){.phead .blob{width:110px;top:30px;right:0}}
 
 /* ── buttons ── */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:999px;background:var(--ink);color:#fff;font-weight:600;font-size:15px;border:0;cursor:pointer;transition:transform .2s var(--ease)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:999px;background:var(--ink);color:var(--on-ink);font-weight:600;font-size:15px;border:0;cursor:pointer;transition:transform .2s var(--ease)}
 .btn:hover{transform:translateY(-1px)}
 .btn.light{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
 .btn.forest{background:var(--forest);color:var(--forest-ink)}

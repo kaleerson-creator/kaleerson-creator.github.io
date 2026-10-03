@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20261005">
-<link rel="stylesheet" href="/edu/assets/games.css?v=1">
+<link rel="stylesheet" href="/edu/assets/games.css?v=2">
 <style>
 .boards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--gap)}
 .box h2 a:hover{text-decoration:underline}
@@ -38,10 +38,10 @@
 <p class="small" style="margin-top:var(--gap)" id="who"></p>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/edu/assets/common.js?v=1c"></script>
+<script src="/edu/assets/common.js?v=2c"></script>
 <script src="/assets/site.js?v=20261005"></script>
 <script>
-const GAMES=[['word','Daily Word'],['2048','2048'],['snake','Snake'],['minesweeper','Minesweeper (Medium)'],['sudoku','Sudoku (Medium)'],['typing','Typing (60s)'],['trivia','Trivia']];
+const GAMES=[['word','Daily Word'],['daily','Daily Challenge'],['2048','2048'],['snake','Snake'],['minesweeper','Minesweeper (Medium)'],['sudoku','Sudoku (Medium)'],['typing','Typing (60s)'],['trivia','Trivia'],['letters','Letter Rush']];
 let period='week';
 function load(){document.getElementById('boards').innerHTML=GAMES.map(([g,n])=>`<div class="box"><h2><a href="/edu/${g}/">${n}</a></h2><div data-b="${g}"></div></div>`).join('');
   GAMES.forEach(([g])=>G.board(document.querySelector(`[data-b="${g}"]`),g,period))}

@@ -48,7 +48,9 @@
     minesweeper: function (s) { return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); },
     sudoku: function (s) { return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); },
     word: function (s) { return s + '/6'; },
-    typing: function (s) { return s + ' wpm'; }
+    typing: function (s) { return s + ' wpm'; },
+    daily: function (s) { return s + ' pts'; },
+    letters: function (s) { return s + ' pts'; }
   };
   var fmt = function (g, s) { return FMT[g] ? FMT[g](s) : Number(s).toLocaleString(); };
 
@@ -121,9 +123,12 @@
       return '<div class="' + (x.mine ? 'me' : '') + '"><i>' + x.rank + '</i><span>' + nameHTML(x) + '</span><b>' + fmt(game, x.score) + '</b></div>';
     }).join('') || '<span class="empty">No scores yet. Be the first!</span>') + '</div>';
   }
-  function boardBox(container, game) {
-    container.innerHTML = '<div class="row" style="justify-content:space-between"><h2>Leaderboard</h2><div class="seg"><button data-p="day">Today</button><button data-p="week" aria-pressed="true">Week</button><button data-p="all">All</button></div></div><div data-lb></div>';
-    var period = 'week', target = container.querySelector('[data-lb]');
+  function boardBox(container, game, period) {
+    period = period || 'week';
+    container.innerHTML = '<div class="row" style="justify-content:space-between"><h2>Leaderboard</h2><div class="seg">' +
+      [['day', 'Today'], ['week', 'Week'], ['all', 'All']].map(function (p) { return '<button data-p="' + p[0] + '" aria-pressed="' + (p[0] === period) + '">' + p[1] + '</button>'; }).join('') +
+      '</div></div><div data-lb></div>';
+    var target = container.querySelector('[data-lb]');
     var load = function () { board(target, game, period); };
     container.querySelectorAll('[data-p]').forEach(function (b) {
       b.onclick = function () { period = b.dataset.p; container.querySelectorAll('[data-p]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); load(); };
