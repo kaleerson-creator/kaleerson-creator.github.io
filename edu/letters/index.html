@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Letter Rush · Kale's Games</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<meta name="theme-color" content="#EEF0EA">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Letter Rush · Kale&#x27;s Games">
+<meta property="og:description" content="Make as many words as you can from 7 letters in 90 seconds.">
+<meta property="og:url" content="https://kaleerson.com/edu/letters/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Make as many words as you can from 7 letters in 90 seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261006">
+<link rel="stylesheet" href="/edu/assets/games.css?v=2">
+<style>
+.lr{width:100%;max-width:620px;display:grid;gap:16px;justify-items:center}
+.lhead{display:flex;justify-content:space-between;width:100%;align-items:center;font-weight:600}
+.lclock{font:800 34px/1 var(--display);font-variant-numeric:tabular-nums}
+.lclock.low{color:#D12C2C}
+.tiles{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.tile{width:clamp(40px,11vw,58px);aspect-ratio:1;border:0;border-radius:14px;background:var(--butter);color:var(--ink);font:800 clamp(22px,6vw,30px)/1 var(--display);text-transform:uppercase;cursor:pointer;box-shadow:0 3px 0 #00000022}
+.tile:disabled{opacity:.3;cursor:default}
+.guess{min-height:58px;font:800 clamp(28px,7vw,40px)/1 var(--display);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;border-bottom:3px solid var(--line);width:100%;max-width:420px}
+.lmsg{min-height:22px;font-size:14px;font-weight:600}
+.lmsg.ok{color:#2f7a2a}.lmsg.no{color:#D12C2C}
+html[data-theme=dark] .lmsg.ok{color:#8fd07f}html[data-theme=dark] .lmsg.no{color:#F0695F}
+.found{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-height:150px;overflow:auto}
+.found span{background:var(--paper);border-radius:999px;padding:4px 10px;font-size:14px;font-weight:600;text-transform:lowercase}
+.found span.miss{opacity:.5;font-weight:500}
+.found span.big{background:var(--moss)}
+.big{font:800 64px/1 var(--display);letter-spacing:-.04em}
+</style>
+</head>
+<body data-page="games" data-sub="letters" data-game="letters">
+<main class="wrap">
+<div class="ghead"><div><h1>Letter Rush</h1><p>Make words from the 7 letters. 3+ letters each. 90 seconds. Longer words score more, and one word uses all 7.</p></div><a class="btn sm ghost" href="/edu/play/">Race friends online →</a></div>
+<div class="glay">
+  <div class="stage"><div class="lr" id="lr"></div></div>
+  <div class="side"><div class="box"><h2>Points</h2><p class="muted" style="font-size:14px">3 letters: 30 · 4: 60 · 5: 100 · 6: 150 · all 7: 300</p></div><div class="box" id="lb"></div></div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/edu/assets/common.js?v=2c"></script>
+<script src="/assets/site.js?v=20261006"></script>
+<script src="/edu/assets/letters.js?v=2"></script>
+<script>
+const PTS={3:30,4:60,5:100,6:150,7:300},TIME=90;
+const el=document.getElementById('lr');
+let rack,seed,valid,found,guess,used,score,end,timer,running=false;
+const keyOf=w=>{const c={};for(const ch of w)c[ch]=(c[ch]||0)+1;return c};
+const fits=(w,k)=>{const c={};for(const ch of w){c[ch]=(c[ch]||0)+1;if(c[ch]>(k[ch]||0))return false}return true};
+function mix(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function intro(){const b=G.local.get('best:letters',null);
+  el.innerHTML=`<div class="tiles">${'LETTERS'.split('').map(c=>`<span class="tile" style="display:grid;place-items:center">${c}</span>`).join('')}</div>
+    <p class="muted">Type on your keyboard or tap the letters. Enter to submit, Space to shuffle.</p><p class="muted">Best: ${b??'–'}</p><button class="btn" id="go">Start</button>`;
+  document.getElementById('go').onclick=start}
+function start(){
+  seed=LETTERS.seeds[Math.floor(Math.random()*LETTERS.seeds.length)];rack=mix(seed.split(''));const k=keyOf(seed);
+  valid=[...LETTERS.words].filter(w=>fits(w,k));found=[];guess=[];score=0;running=true;end=Date.now()+TIME*1000;
+  el.innerHTML=`<div class="lhead"><span id="sc">0 pts</span><span class="lclock" id="clock">1:30</span><span id="ct">0/${valid.length}</span></div>
+    <div class="guess" id="guess"></div><div class="lmsg" id="msg"></div>
+    <div class="tiles" id="tiles"></div>
+    <div class="row" style="justify-content:center"><button class="btn sm ghost" id="del">⌫ Delete</button><button class="btn sm ghost" id="mix">Shuffle</button><button class="btn sm" id="enter">Enter</button></div>
+    <div class="found" id="found"></div>`;
+  document.getElementById('del').onclick=back;document.getElementById('mix').onclick=()=>{rack=mix(rack);guess=[];draw()};document.getElementById('enter').onclick=submit;
+  clearInterval(timer);timer=setInterval(tick,200);draw();
+}
+function tick(){const left=Math.max(0,(end-Date.now())/1000),c=document.getElementById('clock');if(!c)return;
+  c.textContent=Math.floor(Math.ceil(left)/60)+':'+String(Math.ceil(left)%60).padStart(2,'0');c.classList.toggle('low',left<=10);if(left<=0)finish()}
+function draw(){
+  document.getElementById('tiles').innerHTML=rack.map((c,i)=>`<button class="tile" data-i="${i}"${guess.includes(i)?' disabled':''}>${c}</button>`).join('');
+  document.getElementById('tiles').querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{guess.push(+b.dataset.i);draw()});
+  document.getElementById('guess').textContent=guess.map(i=>rack[i]).join('');
+  document.getElementById('sc').textContent=score+' pts';document.getElementById('ct').textContent=found.length+'/'+valid.length;
+  document.getElementById('found').innerHTML=found.slice().sort((a,b)=>b.length-a.length||a.localeCompare(b)).map(w=>`<span class="${w.length===7?'big':''}">${w}</span>`).join('');
+}
+function say(t,ok){const m=document.getElementById('msg');m.textContent=t;m.className='lmsg '+(ok?'ok':'no')}
+function back(){guess.pop();draw()}
+function submit(){if(!running)return;const w=guess.map(i=>rack[i]).join('');guess=[];
+  if(w.length<3)say('3 letters or more.');else if(found.includes(w))say('Already found.');else if(!LETTERS.words.has(w))say('Not in the word list.');
+  else{found.push(w);score+=PTS[w.length];say(w.length===7?'All seven! +300':'+'+PTS[w.length],true)}
+  draw()}
+document.addEventListener('keydown',e=>{if(!running||e.target.matches('input,textarea'))return;const k=e.key.toLowerCase();
+  if(k==='enter'){e.preventDefault();submit()}else if(k==='backspace'){e.preventDefault();back()}else if(k===' '){e.preventDefault();rack=mix(rack);guess=[];draw()}
+  else if(/^[a-z]$/.test(k)){const i=rack.findIndex((c,j)=>c===k&&!guess.includes(j));if(i>=0){guess.push(i);draw()}}});
+async function finish(){if(!running)return;running=false;clearInterval(timer);
+  const missed=valid.filter(w=>!found.includes(w)).sort((a,b)=>b.length-a.length).slice(0,24);
+  el.innerHTML=`<span class="qcat lbl">Time!</span><div class="big">${score}</div><p class="muted">${found.length} of ${valid.length} words · the 7-letter word was <b>${seed.toUpperCase()}</b></p>
+    <p class="muted" id="omsg">Saving…</p><button class="btn" id="go">Play again</button>
+    <div style="width:100%"><b style="font-size:13px">Some you missed</b><div class="found" style="justify-content:flex-start;margin-top:6px">${missed.map(w=>`<span class="miss">${w}</span>`).join('')}</div></div>`;
+  document.getElementById('go').onclick=start;
+  document.getElementById('omsg').innerHTML=score>0?await G.submit('letters',score,{words:found.length}):'Find a word next time!'}
+intro();
+G.boardBox(document.getElementById('lb'),'letters');
+</script>
+</body>
+</html>

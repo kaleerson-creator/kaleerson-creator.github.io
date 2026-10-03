@@ -20,7 +20,7 @@ scripts: /assets/words.js
 .kr button{flex:1;max-width:44px;height:54px;border:0;border-radius:8px;background:#dfe2d8;color:#141613;font:700 15px/1 var(--body);text-transform:uppercase;cursor:pointer;padding:0}
 .kr button.wide{max-width:68px;flex:1.5;font-size:11px;letter-spacing:-.02em}
 .kr button.g{background:#4f8a4a;color:#fff}.kr button.y{background:#d8b43a;color:#fff}.kr button.x{background:#8f958b;color:#fff}
-.toast{position:fixed;left:50%;top:90px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:12px;font-weight:600;z-index:60}
+.toast{position:fixed;left:50%;top:90px;transform:translateX(-50%);background:var(--ink);color:var(--on-ink);padding:10px 16px;border-radius:12px;font-weight:600;z-index:60}
 html[data-theme=dark] .kr button:not(.g):not(.y):not(.x){background:#30352d;color:var(--ink)}
 @@ body
 <div class="ghead"><div><h1>Daily Word</h1><p>Guess the five-letter word in six tries. A new word every day at midnight (Las Vegas time).</p></div><span class="lbl" id="dayno"></span></div>

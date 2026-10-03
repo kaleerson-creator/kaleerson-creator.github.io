@@ -9,11 +9,11 @@ window.CONTENT = {
     { name: 'Automated Production Systems',    area: 'Engineering operations', status: 'dropped', color: 'moss',   year: '2026', note: '' }
   ],
   tools: [
-    { name: 'Snapwit',  href: '/snapwit/', color: 'peach', tag: '30 games',       note: 'Reaction, memory and party games' },
-    { name: 'LD Timer', href: '/ldtimer/', color: 'sky',   tag: 'Debate',          note: 'Lincoln-Douglas round timer' },
-    { name: 'Speech & Debate', href: '/debate/', color: 'butter', tag: 'Debate',       note: 'PF, Policy, Congress and speech timers, flow, topics' },
-    { name: 'Games', href: '/edu/', color: 'moss', tag: 'Play', note: '2048, Snake, Daily Word, trivia and online rooms', open: true },
-    { name: 'PVHS Study', href: '/study/', color: 'lilac', tag: 'Study',           note: 'Palo Verde HS study site', status: 'dev' }
+    { name: 'Snapwit', art: 'snapwit',  href: '/snapwit/', color: 'peach', tag: '30 games',       note: 'Reaction, memory and party games' },
+    { name: 'LD Timer', art: 'ldtimer', href: '/ldtimer/', color: 'sky',   tag: 'Debate',          note: 'Lincoln-Douglas round timer' },
+    { name: 'Speech & Debate', art: 'debate', href: '/debate/', color: 'butter', tag: 'Debate',       note: 'PF, Policy, Congress and speech timers, flow, topics' },
+    { name: 'Games', art: 'games', href: '/edu/', color: 'moss', tag: 'Play', note: '2048, Snake, Daily Word, trivia and online rooms', open: true },
+    { name: 'PVHS Study', art: 'study', href: '/study/', color: 'lilac', tag: 'Study',           note: 'Palo Verde HS study site', status: 'dev' }
   ],
   updates: [
     { date: '2026-10', tag: 'Product', title: 'Snapwit and LD Timer opened to members' },

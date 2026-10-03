@@ -5,7 +5,8 @@ desc: Make a room, share the code, play friends on any device.
 page: play
 scripts: /assets/trivia.js
 @@ css
-.lobby{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.lobby{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
+.lobby .box{align-content:start}
 @media (max-width:760px){.lobby{grid-template-columns:1fr}}
 .gpick{display:grid;gap:8px}
 .gpick label{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:16px;background:var(--paper);cursor:pointer;font-weight:600}
@@ -35,6 +36,17 @@ scripts: /assets/trivia.js
 .score{display:grid;gap:4px;width:100%;max-width:420px}
 .score div{display:grid;grid-template-columns:1fr auto;padding:8px 12px;border-radius:12px;background:var(--paper);font-weight:600}
 .score div.me{background:var(--moss)}
+.lr{width:100%;max-width:620px;display:grid;gap:14px;justify-items:center}
+.lhead{display:flex;justify-content:space-between;width:100%;align-items:center;font-weight:600}
+.lclock{font:800 34px/1 var(--display);font-variant-numeric:tabular-nums}.lclock.low{color:#D12C2C}
+.tiles{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.tile{width:clamp(40px,11vw,58px);aspect-ratio:1;border:0;border-radius:14px;background:var(--butter);color:var(--ink);font:800 clamp(22px,6vw,30px)/1 var(--display);text-transform:uppercase;cursor:pointer;box-shadow:0 3px 0 #00000022}
+.tile:disabled{opacity:.3;cursor:default}
+.guess{min-height:54px;font:800 clamp(28px,7vw,38px)/1 var(--display);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;border-bottom:3px solid var(--line);width:100%;max-width:420px}
+.lmsg{min-height:22px;font-size:14px;font-weight:600}.lmsg.ok{color:#2f7a2a}.lmsg.no{color:#D12C2C}
+html[data-theme=dark] .lmsg.ok{color:#8fd07f}html[data-theme=dark] .lmsg.no{color:#F0695F}
+.found{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-height:140px;overflow:auto}
+.found span{background:var(--paper);border-radius:999px;padding:4px 10px;font-size:14px;font-weight:600}
 @@ body
 <div class="ghead"><div><h1>Play online</h1><p>Make a room, share the code, and play friends on any device. No sign-in needed.</p></div></div>
 <div id="lobby">
@@ -45,6 +57,7 @@ scripts: /assets/trivia.js
         <label><input type="radio" name="g" value="ttt" checked><span>Tic-tac-toe<small>2 players</small></span></label>
         <label><input type="radio" name="g" value="c4"><span>Connect Four<small>2 players</small></span></label>
         <label><input type="radio" name="g" value="trivia"><span>Trivia race<small>2–20 players · 10 questions</small></span></label>
+        <label><input type="radio" name="g" value="rush"><span>Letter Rush race<small>2–20 players · same 7 letters · 90 seconds</small></span></label>
       </div>
       <button class="btn" id="create">Create room</button></div>
     <div class="box"><h2>Join a room</h2><p class="small">Type the 4-letter code your friend shared.</p>
@@ -60,7 +73,11 @@ scripts: /assets/trivia.js
 </div>
 @@ js
 const ID=(G.local.get('play:id',null)||(()=>{const v=Math.random().toString(36).slice(2,10);G.local.set('play:id',v);return v})());
-const NAMES={ttt:'Tic-tac-toe',c4:'Connect Four',trivia:'Trivia race'};
+const NAMES={ttt:'Tic-tac-toe',c4:'Connect Four',trivia:'Trivia race',rush:'Letter Rush race'};
+const RUSH_MS=90000,PTS={3:30,4:60,5:100,6:150,7:300};
+let rushStart=0,rushT=null,rushFound={},myRound=-1,myFound=[],guess=[],rmsg=null;
+const fitsRack=(w,rack)=>{const c={};rack.forEach(x=>c[x]=(c[x]||0)+1);for(const ch of w){if(!c[ch])return false;c[ch]--}return true};
+let lettersP=null;const needLetters=()=>window.LETTERS?Promise.resolve():(lettersP=lettersP||new Promise(ok=>{const sc=document.createElement('script');sc.src='/edu/assets/letters.js?v=3';sc.onload=ok;document.head.append(sc)}));
 const nick=document.getElementById('nick');nick.value=G.local.get('play:nick','');
 G.me.ready.then(m=>{if(!nick.value&&m.name)nick.value=m.name});
 let myPick=null,ch=null,code=null,people={},isHost=false,S=null,gameType=null,tickT=null,recvAt=0;
@@ -90,7 +107,7 @@ async function enter(c,type){
   location.hash=code;
 }
 function show(){$('lobby').hidden=true;$('room').hidden=false;$('rcode').textContent=code;$('gname').textContent=gameType?NAMES[gameType]:'Joining…';draw()}
-function push(){if(!ch||!isHost)return;if(S.game==='trivia'&&S.phase==='question')S.left=Math.max(0,15000-(Date.now()-tqStart));ch.send({type:'broadcast',event:'state',payload:S})}
+function push(){if(!ch||!isHost)return;if(S.game==='trivia'&&S.phase==='question')S.left=Math.max(0,15000-(Date.now()-tqStart));if(S.game==='rush'&&S.phase==='play')S.left=Math.max(0,RUSH_MS-(Date.now()-rushStart));ch.send({type:'broadcast',event:'state',payload:S})}
 function send(a){if(!ch)return;a.from=ID;if(isHost)act(a);else ch.send({type:'broadcast',event:'act',payload:a})}
 function drawPeople(){const ids=Object.keys(people).sort((a,b)=>people[a].t-people[b].t);
   $('players').innerHTML=ids.map((id,i)=>`<span class="pl ${id===ID?'me':''}"><i style="background:${S&&S.seats&&(S.seats.X===id||S.seats.R===id)?(gameType==='c4'?'#D12C2C':'#2451C9'):S&&S.seats&&(S.seats.O===id||S.seats.Y===id)?(gameType==='c4'?'#F3C93B':'#B8322F'):'var(--ink3)'}"></i>${E(people[id].name)}${i===0?' · host':''}${id===ID?' (you)':''}</span>`).join('')}
@@ -99,6 +116,7 @@ function drawPeople(){const ids=Object.keys(people).sort((a,b)=>people[a].t-peop
 function init(type){
   if(type==='ttt')return {game:'ttt',board:Array(9).fill(''),turn:'X',seats:{},win:null,line:[],starter:'X',round:1};
   if(type==='c4')return {game:'c4',board:Array(42).fill(''),turn:'R',seats:{},win:null,line:[],starter:'R',round:1};
+  if(type==='rush')return {game:'rush',phase:'lobby',rack:[],seed:'',left:0,scores:{},counts:{},round:0};
   return {game:'trivia',phase:'lobby',qi:0,total:10,scores:{},answers:{},q:null,left:0,reveal:null,order:[]};
 }
 function seat(){if(!S.seats)return;const ids=Object.keys(people).sort((a,b)=>people[a].t-people[b].t);const keys=S.game==='ttt'?['X','O']:['R','Y'];
@@ -115,15 +133,26 @@ function act(a){
     else{const c=a.c|0;if(c<0||c>6)return;let r=5;while(r>=0&&S.board[r*7+c])r--;if(r<0)return;S.board[r*7+c]=S.turn;const w=c4win(S.board);if(w){S.win=w.v;S.line=w.line}else if(S.board.every(Boolean))S.win='draw';else S.turn=S.turn==='R'?'Y':'R'}
     return push();
   }
+  if(S.game==='rush'){
+    if(a.type==='start'&&a.from===ID&&S.phase!=='play'){needLetters().then(()=>{const seed=LETTERS.seeds[Math.floor(Math.random()*LETTERS.seeds.length)];
+      Object.assign(S,{phase:'play',seed:'',rack:shuffle(seed.split('')),scores:{},counts:{},round:S.round+1});rushSeed=seed;rushFound={};rushStart=Date.now();push();
+      clearTimeout(rushT);rushT=setTimeout(endRush,RUSH_MS)});return}
+    if(a.type==='found'&&S.phase==='play'&&window.LETTERS){const w=String(a.w||'').toLowerCase();const f=rushFound[a.from]=rushFound[a.from]||new Set();
+      if(w.length<3||w.length>7||f.has(w)||!LETTERS.words.has(w)||!fitsRack(w,S.rack))return;
+      f.add(w);S.scores[a.from]=(S.scores[a.from]||0)+PTS[w.length];S.counts[a.from]=(S.counts[a.from]||0)+1;push()}
+    return;
+  }
   // trivia
   if(a.type==='start'&&a.from===ID&&(S.phase==='lobby'||S.phase==='end')){S.order=shuffle([...TRIVIA.keys()]).slice(0,S.total);S.qi=0;S.scores={};nextQ();return}
   if(a.type==='answer'&&S.phase==='question'&&!S.answers[a.from]){const q=TRIVIA[S.order[S.qi]];const ms=Date.now()-tqStart;
     S.answers[a.from]={c:a.c,ok:a.c===q[2],ms};if(S.answers[a.from].ok)S.scores[a.from]=(S.scores[a.from]||0)+100+Math.round(100*Math.max(0,15000-ms)/15000);
     if(Object.keys(people).every(id=>S.answers[id]))reveal();else push()}
 }
-let tqStart=0;
+let tqStart=0,rushSeed='';
+function endRush(){clearTimeout(rushT);if(S.phase!=='play')return;S.phase='end';S.left=0;S.seed=rushSeed;push()}
 // A new host picks up a trivia game where the old host left off.
-function resumeHost(){if(S.game!=='trivia')return;clearTimeout(tq);
+function resumeHost(){if(S.game==='rush'){if(S.phase==='play'){needLetters();rushStart=Date.now()-(RUSH_MS-Math.max(0,S.left-(Date.now()-recvAt)));clearTimeout(rushT);rushT=setTimeout(endRush,Math.max(500,RUSH_MS-(Date.now()-rushStart)))}return}
+  if(S.game!=='trivia')return;clearTimeout(tq);
   if(S.phase==='question'){tqStart=Date.now()-(15000-Math.max(0,S.left-(Date.now()-recvAt)));tq=setTimeout(reveal,Math.max(1000,15000-(Date.now()-tqStart)))}
   else if(S.phase==='reveal')tq=setTimeout(()=>{S.qi++;if(S.qi>=S.total){S.phase='end';push()}else nextQ()},2000)}
 function nextQ(){const q=TRIVIA[S.order[S.qi]];S.phase='question';S.answers={};S.reveal=null;S.q={cat:q[0],text:q[1],opts:shuffle(q.slice(2))};S.left=15000;tqStart=Date.now();push();
@@ -154,6 +183,7 @@ function draw(){
     if($('again'))$('again').onclick=()=>send({type:'again'});
     return;
   }
+  if(S.game==='rush')return drawRush(st);
   // trivia race
   const board=()=>{const ids=Object.keys(people).sort((a,b)=>(S.scores[b]||0)-(S.scores[a]||0));return `<div class="score">${ids.map(id=>`<div class="${id===ID?'me':''}"><span>${E(name(id))}</span><span>${S.scores[id]||0}</span></div>`).join('')}</div>`};
   if(S.phase==='lobby'||S.phase==='end'){
@@ -167,6 +197,39 @@ function draw(){
   st.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>{if(!S.answers[ID]&&!myPick){myPick={qi:S.qi,c:b.dataset.o};send({type:'answer',c:b.dataset.o});draw()}});
   if(S.phase==='question'){const end=recvAt+S.left-(isHost?0:150);tickT=setInterval(()=>{const l=Math.max(0,end-Date.now());const bar=$('bar');if(bar)bar.style.width=(100*l/15000)+'%'},100)}
 }
+
+/* ── Letter Rush race ── */
+function rushBoard(){const ids=Object.keys(people).sort((a,b)=>(S.scores[b]||0)-(S.scores[a]||0));
+  return `<div class="score">${ids.map(id=>`<div class="${id===ID?'me':''}"><span>${E(name(id))} <small class="muted">${S.counts[id]||0} words</small></span><span>${S.scores[id]||0}</span></div>`).join('')}</div>`}
+function drawRush(st){
+  clearInterval(tickT);
+  if(S.phase!=='play'){
+    st.innerHTML=`<div class="status">${S.phase==='end'?'Time! Final scores':'Letter Rush race'}</div>
+      ${S.phase==='end'?`${rushBoard()}<p class="muted">The 7-letter word was <b>${E((S.seed||'').toUpperCase())}</b>. You found ${myFound.length} word${myFound.length===1?'':'s'}.</p><div class="found">${myFound.map(w=>`<span>${E(w)}</span>`).join('')}</div>`
+        :`<p class="muted">Everyone gets the same 7 letters. Make as many words (3+ letters) as you can in 90 seconds. ${Object.keys(people).length} in the room. ${isHost?'Start when everyone has joined.':'The host will start soon.'}</p>`}
+      ${isHost?`<button class="btn" id="start">${S.phase==='end'?'Play again':'Start game'}</button>`:''}`;
+    if($('start'))$('start').onclick=()=>send({type:'start'});return}
+  needLetters();
+  if(myRound!==S.round){myRound=S.round;myFound=[];guess=[];rmsg=null}
+  const word=guess.map(i=>S.rack[i]).join('');
+  st.innerHTML=`<div class="lr"><div class="lhead"><span>${S.scores[ID]||0} pts · ${myFound.length} words</span><span class="lclock" id="rclock"></span></div>
+    <div class="guess">${E(word)}</div><div class="lmsg ${rmsg?rmsg[1]:''}">${rmsg?E(rmsg[0]):''}</div>
+    <div class="tiles">${S.rack.map((c,i)=>`<button class="tile" data-t="${i}"${guess.includes(i)?' disabled':''}>${c}</button>`).join('')}</div>
+    <div class="row" style="justify-content:center"><button class="btn sm ghost" id="rdel">⌫</button><button class="btn sm ghost" id="rclr">Clear</button><button class="btn sm" id="rent">Enter</button></div>
+    <div class="found">${myFound.slice().sort((a,b)=>b.length-a.length).map(w=>`<span>${E(w)}</span>`).join('')}</div>${rushBoard()}</div>`;
+  st.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{guess.push(+b.dataset.t);drawRush(st)});
+  $('rdel').onclick=()=>{guess.pop();drawRush(st)};$('rclr').onclick=()=>{guess=[];drawRush(st)};$('rent').onclick=()=>rushSubmit(st);
+  const end=recvAt+S.left-(isHost?0:150);const upd=()=>{const l=Math.max(0,end-Date.now())/1000,c=$('rclock');if(c){c.textContent=Math.floor(Math.ceil(l)/60)+':'+String(Math.ceil(l)%60).padStart(2,'0');c.classList.toggle('low',l<=10)}};
+  upd();tickT=setInterval(upd,200);
+}
+function rushSubmit(st){const w=guess.map(i=>S.rack[i]).join('');guess=[];
+  if(w.length<3)rmsg=['3 letters or more.','no'];else if(myFound.includes(w))rmsg=['Already found.','no'];
+  else if(!window.LETTERS||!LETTERS.words.has(w))rmsg=['Not in the word list.','no'];
+  else{myFound.push(w);rmsg=[w.length===7?'All seven! +300':'+'+PTS[w.length],'ok'];send({type:'found',w})}
+  drawRush(st)}
+document.addEventListener('keydown',e=>{if(!S||S.game!=='rush'||S.phase!=='play'||e.target.matches('input,textarea'))return;const st=$('stage'),k=e.key.toLowerCase();
+  if(k==='enter'){e.preventDefault();rushSubmit(st)}else if(k==='backspace'){e.preventDefault();guess.pop();drawRush(st)}
+  else if(/^[a-z]$/.test(k)){const i=S.rack.findIndex((c,j)=>c===k&&!guess.includes(j));if(i>=0){guess.push(i);drawRush(st)}}});
 
 /* ── lobby buttons ── */
 $('create').onclick=()=>enter(newCode(),document.querySelector('[name=g]:checked').value);

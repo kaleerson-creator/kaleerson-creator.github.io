@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261005">
+<link rel="stylesheet" href="/assets/site.css?v=20261006">
 <style>
 main.pg{flex:1;padding-block:16px 56px}
 .red{--r-bg:#fef3f2;--r-ink:#b42318}
@@ -41,6 +41,7 @@ form{display:grid;gap:10px;margin-top:6px;position:relative}
 input{width:100%;font:inherit;font-size:20px;letter-spacing:.08em;padding:15px 18px;border:0;border-radius:18px;background:#fff;color:var(--ink);outline:none}
 input:focus-visible{outline:3px solid var(--butter)}
 .btn.go{justify-content:center;background:var(--butter);color:var(--ink);font-size:16px;padding:15px}
+html[data-theme=dark] .btn.go{color:var(--ink)!important}
 .btn:disabled{opacity:.6}
 .small{font-size:13px;color:#B9C9AE}
 .msg{padding:12px 14px;border-radius:16px;font-size:14px;background:#fef3f2;color:#b42318}
@@ -73,7 +74,7 @@ input:focus-visible{outline:3px solid var(--butter)}
 .forest .file{background:#ffffff1a;color:var(--forest-ink)}
 .file b{font-weight:600;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .file small{opacity:.7;font-size:12px;white-space:nowrap}
-.file button{font:inherit;font-size:13px;font-weight:600;border:0;border-radius:999px;padding:7px 12px;background:var(--ink);color:#fff;cursor:pointer}
+.file button{font:inherit;font-size:13px;font-weight:600;border:0;border-radius:999px;padding:7px 12px;background:var(--ink);color:var(--on-ink);cursor:pointer}
 .forest .file button{background:var(--forest-ink);color:var(--ink)}
 .thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;position:relative}
 .thumbs button{border:0;padding:0;background:#ffffff22;border-radius:14px;overflow:hidden;aspect-ratio:1;cursor:pointer}
@@ -143,7 +144,7 @@ input:focus-visible{outline:3px solid var(--butter)}
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
 <script src="/lib/vault-md.js?v=20261002"></script>
-<script src="/assets/site.js?v=20261005"></script>
+<script src="/assets/site.js?v=20261006"></script>
 <script>
 const $=id=>document.getElementById(id);
 const view=v=>['v-off','v-lock','v-open'].forEach(x=>$(x).hidden=x!==v);
