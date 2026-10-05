@@ -22,7 +22,9 @@ self.addEventListener('activate', function (e) {
 });
 
 var NEVER = /^\/(admin|account|join|contact)\//;
-var cacheable = function (r) { return r && r.ok && r.status === 200 && r.type === 'basic'; };
+// Only plain 200s from this origin. A redirected response (e.g. /bell -> /bell/) must not be stored:
+// browsers refuse to use one for a later navigation, which would turn an offline visit into an error page.
+var cacheable = function (r) { return r && r.ok && r.status === 200 && r.type === 'basic' && !r.redirected; };
 var put = function (req, res) { return caches.open(VERSION).then(function (c) { return c.put(req, res); }).catch(function () {}); };
 
 self.addEventListener('fetch', function (e) {

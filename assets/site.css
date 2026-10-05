@@ -173,7 +173,7 @@ body.pal-open{overflow:hidden}
 .pal-in{flex:1;min-width:0;font:inherit;font-size:18px;padding:8px 0;border:0;background:transparent;color:var(--ink);outline:none}
 .pal-in::placeholder{color:var(--ink3)}
 .pal-in:focus-visible{outline:none}
-html[data-theme=dark] .pal-in{background:transparent!important}
+html[data-theme=dark] .pal-top input.pal-in:not([type=checkbox]):not([type=radio]):not([type=range]){background:transparent!important;border-color:transparent!important}
 .pal-x{width:36px;height:36px;border-radius:999px;border:0;background:var(--paper);color:var(--ink);font-size:14px;cursor:pointer;flex:none}
 .pal-list{list-style:none;overflow:auto;padding:0 8px 8px;overscroll-behavior:contain}
 .pal-list [role=option]{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:16px;cursor:pointer;font-weight:500}

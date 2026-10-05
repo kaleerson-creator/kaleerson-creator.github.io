@@ -135,7 +135,7 @@ const opts=(arr,v)=>arr.map(x=>`<option${x===v?' selected':''}>${x}</option>`).j
 function renderG(){$('grows').innerHTML=grows.map((r,i)=>`<div class="gr"><input class="n" type="text" placeholder="Class ${i+1}" value="${S.esc(r.n||'')}" data-i="${i}" data-k="n" aria-label="Class name"><select class="g" data-i="${i}" data-k="g" aria-label="Grade">${opts(GRADES,r.g)}</select><select class="l" data-i="${i}" data-k="l" aria-label="Level">${opts(LEVELS,r.l)}</select><input class="c" type="number" min="0" max="10" step="0.5" inputmode="decimal" value="${+r.c||0}" data-i="${i}" data-k="c" aria-label="Credits"><button class="x" data-del="${i}" aria-label="Remove">×</button></div>`).join('');calcG()}
 function calcG(){
   let cr=0,u=0,w=0,n=0;
-  for(const r of grows){const c=+r.c||0;if(!(c>0)||!(r.g in PTS))continue;const p=PTS[r.g];let b=0;if(p>0)b=r.l==='Honors'?bumps.h:r.l==='AP'?bumps.a:0;cr+=c;u+=p*c;w+=(p+b)*c;n++}
+  for(const r of grows){const c=+r.c||0;if(!(c>0)||!Object.prototype.hasOwnProperty.call(PTS,r.g))continue;const p=PTS[r.g];let b=0;if(p>0)b=r.l==='Honors'?bumps.h:r.l==='AP'?bumps.a:0;cr+=c;u+=p*c;w+=(p+b)*c;n++}
   $('unw').textContent=cr?(u/cr).toFixed(2):'0.00';$('wt').textContent=cr?(w/cr).toFixed(2):'0.00';
   $('gsum').textContent=cr?n+(n===1?' class, ':' classes, ')+cr+' credits':'Add your classes below.';
   ls('gpa_rows',JSON.stringify(grows));ls('gpa_bumps',JSON.stringify(bumps));
