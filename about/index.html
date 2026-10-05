@@ -12,14 +12,14 @@
 <meta property="og:site_name" content="Kale Erson">
 <meta property="og:type" content="website">
 <meta property="og:title" content="About · Kale Erson">
-<meta property="og:description" content="About Kale Erson.">
+<meta property="og:description" content="Kale Erson, a student at Palo Verde High School in Las Vegas who builds games and tools for classmates.">
 <meta property="og:url" content="https://kaleerson.com/about/">
 <meta property="og:image" content="https://kaleerson.com/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <!-- /meta -->
-<meta name="description" content="About Kale Erson.">
+<meta name="description" content="Kale Erson, a student at Palo Verde High School in Las Vegas who builds games and tools for classmates.">
 <meta name="theme-color" content="#EEF0EA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,50 +27,77 @@
 <link rel="stylesheet" href="/assets/site.css?v=20261006">
 <style>
 .phead .blob{background:var(--lilac)}
-.photo{min-height:420px;background:var(--paper);align-items:center;justify-content:center}
-.photo .blob{inset:8%;width:auto;height:auto;background:var(--moss)}
-.photo .blob.b2{inset:22% 4% 4% 30%;background:var(--butter);opacity:.85}
-.photo span.soon{position:relative}
 .facts{display:grid;gap:0}
 .facts div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid #0000001a}
 .facts div:first-child{border-top:0}
 .facts dt{color:var(--ink2)}
 .facts dd{font-weight:600;text-align:right}
+html[data-theme=dark] .facts div{border-top-color:#ffffff1f}
 .tags{display:flex;gap:6px;flex-wrap:wrap}
-.lorem{color:var(--ink3);max-width:60ch}
+.bio{display:grid;gap:12px;align-content:start;font-size:17px;color:var(--ink2)}
+.bio p{max-width:62ch}
+.bio b{color:var(--ink)}
+.bio .blob{width:220px;aspect-ratio:1;right:-70px;top:-80px;background:var(--moss)}
+.bio .blob.b2{width:120px;right:90px;top:-40px;background:var(--butter);opacity:.9}
+.building{display:grid;gap:0}
+.building a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.building a:first-child{border-top:0}
+.building b{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.02em}
+.building small{display:block;color:var(--ink2);font-size:13px}
+.building .dot{width:12px;height:12px;flex:none;margin-right:10px}
+.building .l{display:flex;align-items:center}
+@media (max-width:520px){.building a{flex-wrap:wrap}.building .chip{margin-left:22px}}
+.hi .row{margin-top:auto}
 </style>
 </head>
 <body data-page="about">
 <main class="wrap">
 <section class="phead"><span class="blob"></span><h1>About</h1></section>
 <div class="bento">
-  <div class="b s3 r2 photo wide-m"><span class="blob"></span><span class="blob b2"></span><span class="soon">Photo coming soon</span></div>
+  <section class="b s6 bio">
+    <span class="blob"></span><span class="blob b2"></span>
+    <span class="lbl">Hi</span>
+    <p><b>I'm Kale, a student at Palo Verde High School in Las Vegas.</b> I build things for my classmates: games you can play at lunch, a study site for PVHS, timers and tools for speech and debate, and a forum where anyone can ask a question.</p>
+    <p>Outside of that I'm into engineering, game tech and automation, and I'm working on a few bigger projects you can see on the <a href="/work/" style="text-decoration:underline;text-underline-offset:3px">Work</a> page. If something on here breaks, or you want a tool that doesn't exist yet, tell me.</p>
+  </section>
   <section class="b s3 sky wide-m">
     <span class="lbl">Quick facts</span>
     <dl class="facts">
       <div><dt>Name</dt><dd>Kale Erson</dd></div>
+      <div><dt>School</dt><dd>Palo Verde High School</dd></div>
       <div><dt>Based in</dt><dd>Las Vegas, Nevada</dd></div>
-      <div><dt>Role</dt><dd>Founder</dd></div>
+      <div><dt>Doing</dt><dd>Student · builder</dd></div>
     </dl>
   </section>
   <section class="b s3 butter wide-m">
     <span class="lbl">Interests</span>
-    <div class="tags"><span class="chip">STEM</span><span class="chip">Engineering</span><span class="chip">Game tech</span><span class="chip">Automation</span><span class="chip">AI</span><span class="chip">Systems design</span><span class="chip">Software</span></div>
+    <div class="tags"><span class="chip">STEM</span><span class="chip">Engineering</span><span class="chip">Game tech</span><span class="chip">Automation</span><span class="chip">AI</span><span class="chip">Speech &amp; debate</span><span class="chip">Software</span></div>
   </section>
-  <section class="b s6">
-    <span class="lbl">Bio</span>
-    <p class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-    <p class="lorem">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  <section class="b s3 wide-m">
+    <div class="foot" style="margin:0"><span class="lbl">What I'm building</span><a class="muted" href="/work/">All projects →</a></div>
+    <div class="building" id="building"></div>
   </section>
-  <section class="b s3 forest wide-m"><span class="lbl">Elsewhere</span><span class="soon">Coming soon</span></section>
-  <a class="b s3 lilac wide-m" href="/contact/"><span class="lbl">Contact</span><h2>Have a code?</h2><div class="foot"><span class="muted">Direct details, unlocked with a code from me.</span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div></a>
+  <section class="b s3 lilac hi wide-m">
+    <span class="art" data-art="forum"></span>
+    <span class="lbl">Say hi</span>
+    <h2>Find me</h2>
+    <p class="muted">Ask in the forum, or use the contact page if you have a code from me.</p>
+    <div class="row"><a class="btn" href="/forum/">Forum</a><a class="btn light" href="/contact/">Contact</a></div>
+  </section>
 </div>
 </main>
 <script src="/assets/content.js?v=20261006"></script>
 <script src="/assets/site.js?v=20261006"></script>
 <script>
 const C=window.CONTENT,S=window.SITE;
-
+const COL={peach:'var(--peach)',sky:'var(--sky)',butter:'var(--butter)',moss:'var(--moss)',lilac:'var(--lilac)'};
+const SITE_PROJECTS=[
+  {name:'Games',area:'Daily Word, 2048, Snake and more',href:'/edu/',color:'moss',status:'live'},
+  {name:'PVHS Study',area:'Notes, flashcards and test dates',href:'/study/',color:'lilac',status:'live'},
+  {name:'Speech & Debate tools',area:'Timers, flow, drills',href:'/debate/',color:'sky',status:'live'}
+];
+const all=SITE_PROJECTS.concat(C.projects.filter(p=>p.status!=='dropped').map(p=>({name:p.name,area:p.area,href:'/work/',color:p.color,status:p.status})));
+document.getElementById('building').innerHTML=all.map(p=>`<a href="${p.href}"><span class="l"><span class="dot blob" style="position:static;background:${COL[p.color]||'var(--moss)'}"></span><span><b>${S.esc(p.name)}</b><small>${S.esc(p.area)}</small></span></span>${S.statusChip(p.status)}</a>`).join('');
 </script>
 </body>
 </html>
