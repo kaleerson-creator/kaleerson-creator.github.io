@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20261007">
-<link rel="stylesheet" href="/edu/assets/games.css?v=3">
+<link rel="stylesheet" href="/edu/assets/games.css?v=4">
 <style>
 .lobby{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
 .lobby .box{align-content:start}
@@ -99,9 +99,9 @@ html[data-theme=dark] .lmsg.ok{color:#8fd07f}html[data-theme=dark] .lmsg.no{colo
 </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/edu/assets/common.js?v=3c"></script>
+<script src="/edu/assets/common.js?v=4c"></script>
 <script src="/assets/site.js?v=20261007"></script>
-<script src="/edu/assets/trivia.js?v=3"></script>
+<script src="/edu/assets/trivia.js?v=4"></script>
 <script>
 const ID=(G.local.get('play:id',null)||(()=>{const v=Math.random().toString(36).slice(2,10);G.local.set('play:id',v);return v})());
 const NAMES={ttt:'Tic-tac-toe',c4:'Connect Four',trivia:'Trivia race',rush:'Letter Rush race'};
