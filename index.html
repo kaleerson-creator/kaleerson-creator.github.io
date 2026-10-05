@@ -12,14 +12,14 @@
 <meta property="og:site_name" content="Kale Erson">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kale Erson">
-<meta property="og:description" content="Kale Erson, founder in Las Vegas. Projects, tools and updates.">
+<meta property="og:description" content="Games, quick tools, study help and a forum for Palo Verde HS, built by Kale Erson in Las Vegas.">
 <meta property="og:url" content="https://kaleerson.com/">
 <meta property="og:image" content="https://kaleerson.com/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <!-- /meta -->
-<meta name="description" content="Kale Erson, founder in Las Vegas. Projects, tools and updates.">
+<meta name="description" content="Games, quick tools, study help and a forum for Palo Verde HS, built by Kale Erson in Las Vegas.">
 <meta name="theme-color" content="#EEF0EA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,11 +32,17 @@
 .hero .blob.a{width:62%;aspect-ratio:1;right:-14%;top:-24%;background:var(--moss)}
 .hero .blob.c{width:30%;aspect-ratio:1;right:22%;top:12%;background:var(--butter)}
 .hero .blob.d{width:16%;aspect-ratio:1;right:8%;top:46%;background:var(--sky)}
-.clock{font-family:var(--display);font-weight:800;font-size:clamp(44px,5vw,64px);letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1}
-.loc .blob{width:150px;aspect-ratio:1;right:-40px;bottom:-50px;background:#fff;opacity:.55}
-.tool .icon{width:54px;height:54px;border-radius:18px;background:#ffffffb3;display:grid;place-items:center}
-.tool .icon svg{width:26px;height:26px}
-.tool .blob{width:180px;aspect-ratio:1;right:-60px;top:-60px;background:#ffffff55}
+/* today strip */
+.today{min-height:0}
+.today .blob{width:260px;aspect-ratio:1;right:-80px;top:-110px;background:#ffffff88}
+.today .blob.b2{width:120px;right:200px;top:auto;bottom:-70px;background:var(--peach);opacity:.8}
+.trow{display:flex;gap:24px 40px;flex-wrap:wrap;align-items:flex-start}
+.tclock{display:grid;gap:4px;min-width:180px}
+.clock{font-family:var(--display);font-weight:800;font-size:clamp(40px,4.5vw,56px);letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1}
+.tstat{flex:1;min-width:min(100%,260px);display:grid;gap:10px;align-content:start}
+.dailies a.chip{font-size:14px;padding:8px 14px}
+.dailies .fire{opacity:1;font-weight:700}
+.today .btn{font-family:var(--body);padding:11px 18px}
 .plist{display:grid;gap:2px;margin-top:4px}
 .plist a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
 .plist a:first-child{border-top:0}
@@ -44,11 +50,13 @@
 .plist small{display:block;color:var(--ink2);font-size:13px}
 .plist .dot{width:14px;height:14px;flex:none;margin-right:12px}
 .plist .l{display:flex;align-items:center}
+@media (max-width:520px){.plist a{flex-wrap:wrap;gap:6px 12px}.plist .chip{margin-left:26px}}
 .upd b{font-family:var(--display);font-size:22px;letter-spacing:-.02em;line-height:1.15}
 .join .blob{width:220px;aspect-ratio:1;right:-70px;bottom:-90px;background:#fff7}
-.now .blob{width:150px;aspect-ratio:1;right:-30px;bottom:-40px;background:#2E5440}
-.now .blob.two{width:70px;right:110px;bottom:28px;background:#C9D8B6;opacity:.9}
-.lock{width:46px;height:46px;border-radius:14px;background:#ffffffb3;display:grid;place-items:center}
+.ql{display:flex;gap:8px;flex-wrap:wrap}
+.ql a{display:inline-flex;align-items:center;padding:9px 14px;border-radius:999px;background:#ffffffa6;font-weight:600;font-size:14px}
+html[data-theme=dark] .ql a{background:#ffffff14}
+html[data-theme=dark] .today .blob:not(.b2){background:#ffffff18}
 @media (max-width:900px){.hero{min-height:360px;padding:24px}}
 </style>
 </head>
@@ -60,22 +68,38 @@
       <span class="lbl">Founder · Builder</span>
       <h1>Kale<br>Erson</h1>
       <div class="sub"><span class="chip">Las Vegas, NV</span><span class="chip">STEM</span><span class="chip">Engineering</span><span class="chip">Automation</span></div>
-      <div class="row" style="margin-top:14px"><a class="btn" href="/work/">See my work</a><a class="btn light" href="/join/">Join free</a></div>
+      <div class="row" style="margin-top:14px"><a class="btn" href="/edu/">Play a game</a><a class="btn light" href="/work/">See my work</a></div>
     </section>
 
-    <section class="b s2 sky loc wide-m" aria-label="Local time">
-      <span class="blob"></span>
-      <span class="lbl">Las Vegas</span>
-      <div class="clock" id="clock">--:--</div>
-      <span class="muted" id="clockday"></span>
-    </section>
-
-    <a class="b s2 forest now wide-m" href="/forum/" aria-label="Community: forum">
+    <a class="b s2 forest wide-m" href="/forum/" aria-label="Community: forum">
       <span class="art" data-art="forum"></span>
       <span class="lbl">Community</span>
       <h2 style="font-size:clamp(26px,2.6vw,32px);line-height:1.05;position:relative">Forum</h2>
       <div class="foot" style="position:relative"><span class="muted" style="max-width:15ch">Ask questions and share ideas</span><span class="arrow"></span></div>
     </a>
+
+    <a class="b s2 moss join wide-m" href="/join/">
+      <span class="art" data-art="join"></span>
+      <span class="lbl">Members</span>
+      <h2 style="font-size:clamp(26px,2.6vw,32px);line-height:1.05">Join for free</h2>
+      <div class="foot"><span class="muted">Leaderboards, forum, Study and debate tools.</span><span class="arrow"></span></div>
+    </a>
+
+    <section class="b s6 butter today" aria-label="Today">
+      <span class="blob"></span><span class="blob b2"></span>
+      <div class="trow">
+        <div class="tclock">
+          <span class="lbl">Las Vegas</span>
+          <div class="clock" id="clock">--:--</div>
+          <span class="muted" id="clockday"></span>
+        </div>
+        <div class="tstat">
+          <span class="lbl">Today</span>
+          <div class="row dailies" id="dailies"></div>
+          <div class="row"><button class="btn" id="rnd" type="button">Random game</button><a class="btn light" href="/edu/">Games</a><a class="btn light" href="/forum/">Forum</a></div>
+        </div>
+      </div>
+    </section>
 
     <div class="bento s6" style="grid-column:1/-1" id="tools"></div>
 
@@ -89,12 +113,10 @@
       <span class="lbl">Latest</span>
     </a>
 
-    <a class="b s3 moss join wide-m" href="/join/">
-      <span class="art" data-art="join"></span>
-      <span class="lbl">Members</span>
-      <h2>Join for free</h2>
-      <div class="foot"><span class="muted">Get Snapwit, LD Timer and updates by email.</span><span class="arrow"></span></div>
-    </a>
+    <section class="b s3 sky wide-m">
+      <div class="foot" style="margin:0"><span class="lbl">Quick tools</span><a class="muted" href="/tools/">All tools →</a></div>
+      <div class="ql" id="ql"></div>
+    </section>
 
     <a class="b s3 lilac wide-m" href="/contact/">
       <span class="art" data-art="lock"></span>
@@ -112,17 +134,29 @@ const C=window.CONTENT,S=window.SITE;
 document.querySelectorAll('.arrow:empty').forEach(a=>a.outerHTML=S.arrow);
 
 // live Las Vegas clock
-function tick(){const now=new Date();const o={timeZone:'America/Los_Angeles'};
-  document.getElementById('clock').textContent=now.toLocaleTimeString('en-US',{...o,hour:'numeric',minute:'2-digit'});
-  document.getElementById('clockday').textContent=now.toLocaleDateString('en-US',{...o,weekday:'long',month:'short',day:'numeric'})}
+const LV={timeZone:'America/Los_Angeles'};
+function tick(){const now=new Date();
+  document.getElementById('clock').textContent=now.toLocaleTimeString('en-US',{...LV,hour:'numeric',minute:'2-digit'});
+  document.getElementById('clockday').textContent=now.toLocaleDateString('en-US',{...LV,weekday:'long',month:'short',day:'numeric'})}
 tick();setInterval(tick,10000);
 
-// tools
-const ICONS={
-  Snapwit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>',
-  'Speech & Debate':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5M8 22h8"/></svg>','Games':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M7 10v4M5 12h4"/><circle cx="15.5" cy="11" r="1"/><circle cx="18" cy="13.5" r="1"/></svg>','LD Timer':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>'};
-const HOME_TOOLS=C.tools.filter(t=>t.name!=='PVHS Study');
-document.getElementById('tools').outerHTML=HOME_TOOLS.map(t=>{const tag=t.href?'a':'div',open=t.href?`a href="${t.href}"`:'div';return `<${open} class="b ${HOME_TOOLS.length%3===0?'s2':'s3'} ${t.color} tool wide-m"><span class="art" data-art="${t.art||''}"></span><span class="lbl">Tool · ${S.esc(t.tag)}</span><h2>${S.esc(t.name)}</h2><div class="foot"><span class="muted">${S.esc(t.note)}</span>${t.href?S.arrow:S.statusChip(t.status||'dev')}</div></${tag}>`}).join('');
+// today: daily word / daily challenge status from the games' localStorage (g:streak:<key> = {count,last}, g:daily:<date>)
+const ls=k=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):null}catch(e){return null}};
+const ymd=(opts)=>{try{return new Date().toLocaleDateString('en-CA',opts)}catch(e){return new Date().toISOString().slice(0,10)}};
+const TODAY=[ymd(),ymd(LV),new Date().toISOString().slice(0,10)];
+function daily(key){const s=ls('g:streak:'+key)||{};const done=TODAY.includes(s.last)||(key==='daily'&&TODAY.some(d=>ls('g:daily:'+d)!=null));return{done,count:+s.count>0?+s.count:0}}
+document.getElementById('dailies').innerHTML=[['word','Daily Word','/edu/word/'],['daily','Daily Challenge','/edu/daily/']].map(([k,n,h])=>{const d=daily(k);return `<a class="chip${d.done?' live':''}" href="${h}">${n} · ${d.done?'done':'not yet'}${d.count?` <span class="fire">🔥 ${d.count}</span>`:''}</a>`}).join('');
+
+// random game
+const GAMES=['2048','snake','minesweeper','sudoku','typing','trivia','letters','word','daily','math','reaction','memory','blocks','breakout','flap','hangman','simon','connect'];
+document.getElementById('rnd').addEventListener('click',()=>{location.href='/edu/'+GAMES[Math.floor(Math.random()*GAMES.length)]+'/'});
+
+// tools: the big ones (quick tools get their own pill list below). Rows stay even for 4–6 tools.
+const HOME_TOOLS=C.tools.filter(t=>t.name!=='PVHS Study'&&!t.quick);
+const ROT=['sky','moss','peach','butter','lilac'];
+const size=(n,i)=>n%3===0?'s2':n%2===0?'s3':i<3?'s2':'s3';
+document.getElementById('tools').outerHTML=HOME_TOOLS.map((t,i)=>{const tag=t.href?'a':'div',open=t.href?`a href="${t.href}"`:'div';return `<${open} class="b ${size(HOME_TOOLS.length,i)} ${t.color||ROT[i%5]} tool wide-m"><span class="art" data-art="${t.art||''}"></span><span class="lbl">Tool · ${S.esc(t.tag)}</span><h2>${S.esc(t.name)}</h2><div class="foot"><span class="muted">${S.esc(t.note)}</span>${t.href?S.arrow:S.statusChip(t.status||'dev')}</div></${tag}>`}).join('');
+document.getElementById('ql').innerHTML=C.tools.filter(t=>t.quick&&t.href).map(t=>`<a href="${t.href}">${S.esc(t.name)}</a>`).join('');
 
 // projects
 const COL={peach:'var(--peach)',sky:'var(--sky)',butter:'var(--butter)',moss:'var(--moss)',lilac:'var(--lilac)'};

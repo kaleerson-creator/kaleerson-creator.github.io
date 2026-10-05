@@ -62,7 +62,40 @@
     news: path('M14 46l56-26v80L14 74z', R) + rect(6, 46, 16, 28, 4) + path('M30 76l8 26h12l-6-24', 'none') + path('M84 44l18-10M86 60h22M84 76l18 10', 'none'),
     lock: rect(18, 52, 84, 60, 12, Y) + path('M36 52V38a24 24 0 0 1 48 0v14', 'none') + circ(60, 78, 8, 'var(--ink)') + path('M60 84v12', 'none'),
     cards: rect(30, 18, 74, 52, 8, P) + rect(16, 34, 74, 52, 8, Y) + rect(8, 50, 80, 56, 8) + t(48, 85, 'Aa', 22),
-    ballot: rect(18, 14, 84, 98, 10) + rect(42, 6, 36, 16, 5, B) + rect(30, 38, 14, 14, 3, 'var(--paper)') + path('M33 45l4 4 8-10', 'none') + lines(52, 45, 38, 1) + rect(30, 62, 14, 14, 3, 'var(--paper)') + lines(52, 69, 38, 1) + lines(30, 90, 56, 2)
+    ballot: rect(18, 14, 84, 98, 10) + rect(42, 6, 36, 16, 5, B) + rect(30, 38, 14, 14, 3, 'var(--paper)') + path('M33 45l4 4 8-10', 'none') + lines(52, 45, 38, 1) + rect(30, 62, 14, 14, 3, 'var(--paper)') + lines(52, 69, 38, 1) + lines(30, 90, 56, 2),
+    // ── more games ──
+    math: rect(10, 12, 100, 96, 14) + t(60, 54, '7×8', 30) + rect(26, 66, 68, 28, 8, Y) + t(60, 87, '= 56', 18, '#141613') + path('M96 6l8 14M100 4l-4 16', 'none'),
+    reaction: circ(60, 62, 44, G) + circ(60, 62, 34, 'none') + path('M66 32L46 68h16l-6 26 20-36H62z', Y) + t(60, 116, 'ms', 13),
+    memory: rect(10, 24, 46, 62, 8, B) + t(33, 66, '?', 34, '#fff') + rect(62, 34, 46, 62, 8) + path('M85 44l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z', Y),
+    blocks: rect(6, 8, 108, 104, 14) + (function () { var s = '', q = function (x, y, c) { return rect(x, y, 22, 22, 3, c); };
+      s += q(14, 64, P) + q(36, 64, P) + q(58, 64, P) + q(36, 42, P); // T
+      s += q(14, 86, B) + q(36, 86, B) + q(58, 86, B) + q(80, 86, B); // I
+      s += q(84, 14, O) + q(84, 36, O) + q(62, 36, O) + q(62, 14, O); // O (falling)
+      return s; })(),
+    breakout: (function () { var s = '', C = [R, O, Y]; for (var r = 0; r < 2; r++) for (var c = 0; c < 3; c++) s += rect(8 + c * 36, 8 + r * 22, 32, 18, 4, C[(r + c) % 3]); return s; })() +
+      circ(60, 72, 9, 'var(--ink)') + rect(30, 100, 60, 12, 6, B),
+    flap: rect(86, 4, 26, 38, 4, G) + rect(82, 36, 34, 10, 3, G) + rect(86, 82, 26, 34, 4, G) + rect(82, 76, 34, 10, 3, G) +
+      circ(40, 62, 28, Y) + path('M18 68c-8 2-12 10-10 18 10 0 18-6 20-10z', Y) + circ(52, 52, 8, 'var(--card)') + circ(54, 52, 4, 'var(--ink)') + path('M62 68l18 2-18 8z', O),
+    hangman: path('M14 112h44M34 112V12h42v14', 'none') + circ(76, 38, 11) + path('M76 49v22M76 56l-12 12M76 56l12 12M76 71l-10 18M76 71l10 18', 'none') +
+      rect(8, 92, 12, 4, 2, 'var(--ink)') + rect(24, 92, 12, 4, 2, 'var(--ink)') + rect(40, 92, 12, 4, 2, 'var(--ink3)'),
+    simon: path('M60 60V14A46 46 0 0 1 106 60z', G) + path('M60 60h46a46 46 0 0 1-46 46z', R) + path('M60 60v46A46 46 0 0 1 14 60z', Y) + path('M60 60H14A46 46 0 0 1 60 14z', B) + circ(60, 60, 16),
+    connect: rect(8, 18, 104, 92, 12, B) + (function () { var s = '', M = [['c', 'c', 'c', 'c'], ['c', 'c', R, 'c'], ['c', R, Y, 'c'], [R, Y, Y, R]]; for (var r = 0; r < 4; r++) for (var c = 0; c < 4; c++) s += circ(24 + c * 24, 34 + r * 21, 8, M[r][c] === 'c' ? 'var(--card)' : M[r][c]); return s; })(),
+    // ── quick tools ──
+    bell: circ(60, 12, 5, 'var(--ink)') + path('M60 16c-18 0-30 14-30 32v20L20 84h80L90 68V48c0-18-12-32-30-32z', Y) + path('M48 90a12 12 0 0 0 24 0', 'var(--ink)') + path('M14 36a30 30 0 0 1 8-20M106 36a30 30 0 0 0-8-20', 'none'),
+    countdown: rect(26, 6, 68, 10, 4) + rect(26, 104, 68, 10, 4) + path('M34 16h52v8L68 52v16l18 28v8H34v-8l18-28V52L34 24z') + path('M44 24h32l-16 20z', Y) + path('M48 94l12-16 12 16z', Y) + path('M60 56v12', 'none'),
+    gpa: rect(14, 8, 92, 104, 12) + t(48, 84, 'A', 60, G) + t(86, 52, '+', 32, G) + lines(70, 76, 24, 3),
+    pick: (function () { var s = '', C = [R, O, Y, G, B, P], cx = 60, cy = 64, r = 44; for (var i = 0; i < 6; i++) { var a = (i * 60 - 90) * Math.PI / 180, b = ((i + 1) * 60 - 90) * Math.PI / 180;
+      s += path('M' + cx + ' ' + cy + 'L' + (cx + r * Math.cos(a)).toFixed(1) + ' ' + (cy + r * Math.sin(a)).toFixed(1) + 'A' + r + ' ' + r + ' 0 0 1 ' + (cx + r * Math.cos(b)).toFixed(1) + ' ' + (cy + r * Math.sin(b)).toFixed(1) + 'z', C[i]); }
+      return s + circ(cx, cy, 9) + path('M60 4l10 18H50z', 'var(--ink)'); })(),
+    focus: circ(60, 70, 40, R) + path('M60 30c-6-10-16-12-24-8 8 2 14 6 24 8zM60 30c6-10 16-12 24-8-8 2-14 6-24 8z', G) + path('M60 30V14', 'none') + path('M60 70V52M60 70l12 8', 'none') + circ(60, 70, 3, 'var(--ink)'),
+    cite: rect(16, 8, 88, 104, 12) + t(44, 80, '\u201C', 84, B) + lines(26, 86, 64, 2) + lines(66, 36, 24, 3),
+    qr: rect(8, 8, 104, 104, 12) + rect(18, 18, 28, 28, 5) + rect(27, 27, 10, 10, 2, 'var(--ink)') + rect(74, 18, 28, 28, 5) + rect(83, 27, 10, 10, 2, 'var(--ink)') + rect(18, 74, 28, 28, 5) + rect(27, 83, 10, 10, 2, 'var(--ink)') +
+      (function () { var s = '', M = [[54, 20], [62, 28], [54, 36], [62, 44], [20, 54], [36, 54], [54, 54], [70, 54], [86, 54], [54, 70], [62, 78], [78, 70], [94, 78], [54, 86], [70, 94], [86, 94], [94, 86]]; for (var i = 0; i < M.length; i++) s += rect(M[i][0], M[i][1], 8, 8, 2, 'var(--ink)').replace(S, 'stroke="none"'); return s; })(),
+    words: rect(14, 8, 92, 104, 12) + lines(26, 26, 66, 5) + rect(50, 78, 50, 26, 13, Y) + t(75, 96, '128', 15, '#141613'),
+    // ── site ──
+    search: circ(50, 50, 34) + circ(50, 50, 24, 'none').replace('stroke="var(--ink)"', 'stroke="var(--ink)" opacity=".3"') + path('M76 76l30 30', 'none').replace('stroke-width="3"', 'stroke-width="12"') + path('M36 40a16 16 0 0 1 10-10', 'none'),
+    random: rect(52, 8, 56, 56, 12, R) + circ(66, 22, 5, '#fff') + circ(94, 22, 5, '#fff') + circ(80, 36, 5, '#fff') + circ(66, 50, 5, '#fff') + circ(94, 50, 5, '#fff') +
+      rect(10, 48, 60, 60, 12) + circ(25, 63, 5, 'var(--ink)') + circ(55, 63, 5, 'var(--ink)') + circ(40, 78, 5, 'var(--ink)') + circ(25, 93, 5, 'var(--ink)') + circ(55, 93, 5, 'var(--ink)')
   };
   window.ART = ART;
   var draw = function (root) {
