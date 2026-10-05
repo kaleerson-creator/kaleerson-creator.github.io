@@ -71,6 +71,7 @@ input:focus,select:focus{outline:2px solid var(--ink);outline-offset:1px}
 .lb{display:grid;gap:2px;font-size:14px}
 .lb div{display:grid;grid-template-columns:28px 1fr auto;gap:8px;padding:7px 8px;border-radius:10px;align-items:center}
 .lb div:nth-child(1) i{background:var(--butter)}.lb div:nth-child(2) i{background:#e3e6df}.lb div:nth-child(3) i{background:var(--peach)}
+html[data-theme=dark] .lb div:nth-child(2) i{background:#3a3f36}
 .lb i{font-style:normal;font-weight:700;font-size:12px;width:24px;height:24px;border-radius:8px;display:grid;place-items:center;background:var(--paper)}
 .lb .me{background:var(--moss)}
 .lb b{font-variant-numeric:tabular-nums}
@@ -85,5 +86,11 @@ input:focus,select:focus{outline:2px solid var(--ink);outline-offset:1px}
 .cm-box h2{font-size:28px}
 .cm-box p{color:var(--ink2)}
 
+/* toast, challenge banner, share/challenge buttons (common.js) */
+.gtoast{position:fixed;left:50%;top:90px;transform:translateX(-50%);background:var(--ink);color:var(--on-ink);padding:10px 16px;border-radius:12px;font-weight:600;z-index:95;max-width:calc(100% - 32px);text-align:center}
+.beat{justify-self:stretch;width:100%;background:var(--butter);color:var(--ink);border-radius:16px;padding:10px 14px;font-size:14px;text-align:center}
+[data-actions]{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+[data-actions]:empty{display:none}
+.streak{font-weight:600;white-space:nowrap}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .lb div>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

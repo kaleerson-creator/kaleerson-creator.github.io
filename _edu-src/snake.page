@@ -26,7 +26,7 @@ const cv=document.getElementById('c'),ctx=cv.getContext('2d'),N=20,C=cv.width/N;
 let snake,dir,queue,food,score,alive,speed,timer,started;
 function place(){do{food=[Math.floor(Math.random()*N),Math.floor(Math.random()*N)]}while(snake.some(p=>p[0]===food[0]&&p[1]===food[1]))}
 function reset(){snake=[[9,10],[8,10],[7,10]];dir=[1,0];queue=[];score=0;alive=true;started=false;speed=140;place();draw();overlay('Snake','Press any arrow key or swipe to start.','Start')}
-function overlay(t,s,btn){document.querySelectorAll('.over').forEach(o=>o.remove());const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>${t}</h2><p class="muted" id="omsg">${s}</p><button class="btn" id="ogo">${btn}</button></div>`;document.getElementById('sbox').append(o);o.querySelector('#ogo').onclick=()=>{if(!alive)reset();else go()};return o}
+function overlay(t,s,btn){document.querySelectorAll('.over').forEach(o=>o.remove());const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>${t}</h2><p class="muted" id="omsg">${s}</p><button class="btn" id="ogo">${btn}</button><div data-actions></div></div>`;document.getElementById('sbox').append(o);o.querySelector('#ogo').onclick=()=>{if(!alive)reset();else go()};return o}
 function go(){document.querySelectorAll('.over').forEach(o=>o.remove());if(started)return;started=true;loop()}
 function loop(){clearTimeout(timer);step();if(alive)timer=setTimeout(loop,speed)}
 function step(){
@@ -47,7 +47,7 @@ function draw(){
 }
 async function die(){alive=false;clearTimeout(timer);const o=overlay('Game over',score+' apples · saving…','Play again');o.querySelector('#omsg').innerHTML=score+' apple'+(score===1?'':'s')+'<br>'+(score>0?await G.submit('snake',score):'');draw()}
 function turn(d){if(!alive)return;const last=queue.length?queue[queue.length-1]:dir;if(d[0]===-last[0]&&d[1]===-last[1]||d[0]===last[0]&&d[1]===last[1])return;if(queue.length<3)queue.push(d);if(!started)go()}
-document.addEventListener('keydown',e=>{const d={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0],w:[0,-1],s:[0,1],a:[-1,0],d:[1,0]}[e.key];if(!d)return;e.preventDefault();turn(d)});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;const d={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0],w:[0,-1],s:[0,1],a:[-1,0],d:[1,0]}[e.key];if(!d)return;e.preventDefault();turn(d)});
 document.querySelectorAll('.pad button').forEach(b=>b.addEventListener('pointerdown',e=>{e.preventDefault();turn(b.dataset.d.split(',').map(Number))}));
 let sx,sy;cv.addEventListener('pointerdown',e=>{sx=e.clientX;sy=e.clientY});
 cv.addEventListener('pointerup',e=>{if(sx==null)return;const dx=e.clientX-sx,dy=e.clientY-sy;sx=null;if(Math.max(Math.abs(dx),Math.abs(dy))<20)return;turn(Math.abs(dx)>Math.abs(dy)?[Math.sign(dx),0]:[0,Math.sign(dy)])});

@@ -68,7 +68,7 @@ function put(v){if(sel<0||puz[sel]||done)return;
   if(v===sol[sel])PEERS[sel].forEach(j=>notes[j].delete(v));
   draw();if(cur.every((x,i)=>x===sol[i]))win()}
 async function win(){done=true;clearInterval(tick);const s=Math.max(30,Math.round((Date.now()-t0)/1000));
-  const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>Solved!</h2><p class="muted" id="omsg">${fmt(s)} · ${mist} mistake${mist===1?'':'s'}</p><button class="btn" id="oagain">New puzzle</button></div>`;g.append(o);
+  const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>Solved!</h2><p class="muted" id="omsg">${fmt(s)} · ${mist} mistake${mist===1?'':'s'}</p><button class="btn" id="oagain">New puzzle</button><div data-actions></div></div>`;g.append(o);
   o.querySelector('#oagain').onclick=newGame;
   if(lv==='medium')o.querySelector('#omsg').innerHTML+=`<br>${await G.submit('sudoku',s,{mistakes:mist})}`;
   else{const k='best:sudoku:'+lv,b=G.local.get(k,null);if(b===null||s<b){G.local.set(k,s);o.querySelector('#omsg').innerHTML+='<br>New best!'}}

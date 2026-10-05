@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20261006">
-<link rel="stylesheet" href="/edu/assets/games.css?v=2">
+<link rel="stylesheet" href="/edu/assets/games.css?v=3">
 <style>
 .board{--n:4;--gap:10px;position:relative;width:min(100%,460px);aspect-ratio:1;background:#d9dccf;border-radius:20px;padding:var(--gap);touch-action:none;user-select:none}
 .cells,.tiles{position:absolute;inset:var(--gap);display:grid;grid-template-columns:repeat(var(--n),1fr);gap:var(--gap)}
@@ -40,6 +40,7 @@
 .v1024{background:#b59ce6;color:#fff;font-size:clamp(15px,4.2vw,28px)}.v2048{background:var(--forest);color:var(--butter);font-size:clamp(15px,4.2vw,28px)}.vbig{background:var(--ink);color:var(--on-ink);font-size:clamp(13px,3.6vw,24px)}
 html[data-theme=dark] .board{background:#2a2e27}
 html[data-theme=dark] .cells i{background:#1f231d}
+html[data-theme=dark] .v4,html[data-theme=dark] .v8,html[data-theme=dark] .v16,html[data-theme=dark] .v128,html[data-theme=dark] .v512{color:var(--ink)}
 </style>
 </head>
 <body data-page="games" data-sub="2048" data-game="2048">
@@ -54,7 +55,7 @@ html[data-theme=dark] .cells i{background:#1f231d}
 </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/edu/assets/common.js?v=2c"></script>
+<script src="/edu/assets/common.js?v=3c"></script>
 <script src="/assets/site.js?v=20261006"></script>
 <script>
 document.querySelector('.cells').innerHTML='<i></i>'.repeat(16);
@@ -96,10 +97,10 @@ function slide(dir){ // 0 left 1 right 2 up 3 down
   if(!canMove()){over=true;G.local.set('2048:save',null);setTimeout(gameOver,250)}
 }
 function canMove(){if(empty().length)return true;for(let r=0;r<N;r++)for(let c=0;c<N;c++){const v=grid[r][c].v;if(c<N-1&&grid[r][c+1].v===v||r<N-1&&grid[r+1][c].v===v)return true}return false}
-function msg(t,s,cont){const b=document.getElementById('board');const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>${t}</h2><p class="muted" id="omsg">${s}</p><div class="row"><button class="btn" id="oagain">${cont?'Keep going':'Play again'}</button></div></div>`;b.append(o);
+function msg(t,s,cont){const b=document.getElementById('board');const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>${t}</h2><p class="muted" id="omsg">${s}</p><div class="row"><button class="btn" id="oagain">${cont?'Keep going':'Play again'}</button></div><div data-actions></div></div>`;b.append(o);
   o.querySelector('#oagain').onclick=()=>{o.remove();if(!cont)start()};return o}
 async function gameOver(){const o=msg('Game over','Score '+score.toLocaleString()+' · saving…');o.querySelector('#omsg').innerHTML='Score '+score.toLocaleString()+'<br>'+await G.submit('2048',score,{max:Math.max(...grid.flat().map(t=>t.v))});draw()}
-document.addEventListener('keydown',e=>{const k={ArrowLeft:0,ArrowRight:1,ArrowUp:2,ArrowDown:3,a:0,d:1,w:2,s:3}[e.key];if(k===undefined||e.target.matches('input'))return;e.preventDefault();slide(k)});
+document.addEventListener('keydown',e=>{const k={ArrowLeft:0,ArrowRight:1,ArrowUp:2,ArrowDown:3,a:0,d:1,w:2,s:3}[e.key];if(k===undefined||e.target.matches('input,textarea'))return;e.preventDefault();slide(k)});
 let sx,sy;const bd=document.getElementById('board');
 bd.addEventListener('pointerdown',e=>{sx=e.clientX;sy=e.clientY});
 bd.addEventListener('pointerup',e=>{if(sx==null)return;const dx=e.clientX-sx,dy=e.clientY-sy;sx=null;if(Math.max(Math.abs(dx),Math.abs(dy))<24)return;slide(Math.abs(dx)>Math.abs(dy)?(dx<0?0:1):(dy<0?2:3))});
