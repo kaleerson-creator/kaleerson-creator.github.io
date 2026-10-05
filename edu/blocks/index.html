@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blocks · Kale's Games</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<meta name="theme-color" content="#EEF0EA">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blocks · Kale&#x27;s Games">
+<meta property="og:description" content="Falling blocks. Clear lines, speed up, don&#x27;t reach the top.">
+<meta property="og:url" content="https://kaleerson.com/edu/blocks/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Falling blocks. Clear lines, speed up, don't reach the top.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261006">
+<link rel="stylesheet" href="/edu/assets/games.css?v=2">
+<style>
+.gbox{position:relative;width:min(100%,420px);--bg:var(--paper);--grid:var(--line);--c1:#7FB2F0;--c2:#F2CF4A;--c3:#B394E6;--c4:#7CC46E;--c5:#F0866B;--c6:#4C7BD9;--c7:#F2A54A}
+html[data-theme=dark] .gbox{--bg:#0d0f0c;--grid:#23271f;--c1:#8CBCF4;--c2:#F2D45E;--c3:#BFA3EC;--c4:#8FD080;--c5:#F39A82;--c6:#6E96E6;--c7:#F4B466}
+canvas{width:100%;aspect-ratio:14/20;display:block;border-radius:20px;background:var(--bg);touch-action:none;user-select:none;-webkit-user-select:none}
+.pad{display:none;grid-template-columns:repeat(3,64px);grid-template-rows:repeat(2,56px);gap:8px;justify-content:center}
+.pad button{border:0;border-radius:16px;background:var(--paper);font-size:20px;cursor:pointer;touch-action:none;-webkit-user-select:none;user-select:none}
+.pad .rot{grid-column:2}.pad .hold{grid-column:1}.pad .drop{grid-column:3}
+@media (pointer:coarse){.pad{display:grid}}
+html[data-theme=dark] .gbox .over{background:#111310cc}
+.help{font-size:13px;color:var(--ink2);text-align:center}
+@media (pointer:coarse){.help{display:none}}
+</style>
+</head>
+<body data-page="games" data-sub="blocks" data-game="blocks">
+<main class="wrap">
+<div class="ghead"><div><h1>Blocks</h1><p>Clear lines, speed up, don't reach the top.</p></div><div class="row"><button class="btn sm ghost" id="pause">Pause</button><button class="btn sm ghost" id="restart">New game</button></div></div>
+<div class="glay">
+  <div class="stage">
+    <div class="stats"><div><b id="score">0</b><span>Score</span></div><div><b id="lines">0</b><span>Lines</span></div><div><b id="level">1</b><span>Level</span></div><div><b id="best">0</b><span>Best</span></div></div>
+    <div class="gbox" id="gbox"><canvas id="c" width="420" height="600"></canvas></div>
+    <div class="pad"><button class="hold" data-a="hold" aria-label="Hold">⇄</button><button class="rot" data-a="rot" aria-label="Rotate">⟳</button><button class="drop" data-a="drop" aria-label="Hard drop">⤓</button><button data-a="left" aria-label="Left">◀</button><button data-a="down" aria-label="Soft drop">▼</button><button data-a="right" aria-label="Right">▶</button></div>
+    <p class="help">← → move · ↑ or X rotate · Z rotate back · ↓ soft drop · Space hard drop · C hold · P pause</p>
+  </div>
+  <div class="side"><div class="box" id="lb"></div></div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/edu/assets/common.js?v=2c"></script>
+<script src="/assets/site.js?v=20261006"></script>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d'),box=document.getElementById('gbox');
+const COLS=10,ROWS=20,PANEL=4,TOTAL=COLS+PANEL;
+// Pieces: cells in an NxN box; rotation turns the box clockwise.
+const SHAPES={I:{n:4,c:[[0,1],[1,1],[2,1],[3,1]],k:'--c1'},O:{n:2,c:[[0,0],[1,0],[0,1],[1,1]],k:'--c2'},T:{n:3,c:[[1,0],[0,1],[1,1],[2,1]],k:'--c3'},S:{n:3,c:[[1,0],[2,0],[0,1],[1,1]],k:'--c4'},Z:{n:3,c:[[0,0],[1,0],[1,1],[2,1]],k:'--c5'},J:{n:3,c:[[0,0],[0,1],[1,1],[2,1]],k:'--c6'},L:{n:3,c:[[2,0],[0,1],[1,1],[2,1]],k:'--c7'}};
+const KICKS=[[0,0],[-1,0],[1,0],[-2,0],[2,0],[0,-1],[-1,-1],[1,-1],[0,-2]];
+let grid,cur,hold,canHold,bag,next,score,lines,level,over,paused,started,drop,acc,soft,raf,last,lockT;
+const $=id=>document.getElementById(id);
+function rotCells(c,n,r){let out=c.map(p=>p.slice());for(let i=0;i<r;i++)out=out.map(([x,y])=>[n-1-y,x]);return out}
+function cells(p){return rotCells(SHAPES[p.t].c,SHAPES[p.t].n,p.r).map(([x,y])=>[x+p.x,y+p.y])}
+function fits(p){return cells(p).every(([x,y])=>x>=0&&x<COLS&&y<ROWS&&(y<0||!grid[y][x]))}
+function refill(){if(bag.length)return;bag=Object.keys(SHAPES);for(let i=bag.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[bag[i],bag[j]]=[bag[j],bag[i]]}}
+function take(){refill();return bag.pop()}
+function piece(t){return{t,r:0,x:Math.floor((COLS-SHAPES[t].n)/2),y:t==='I'?-1:0}}
+function spawn(){cur=piece(next);next=take();canHold=true;acc=0;lockT=0;if(!fits(cur)){cur.y--;if(!fits(cur))return die()}}
+function reset(){grid=[...Array(ROWS)].map(()=>Array(COLS).fill(null));bag=[];next=take();hold=null;score=0;lines=0;level=1;over=false;paused=false;started=false;soft=false;acc=0;last=0;cur=null;stats();draw();overlay('Blocks','Arrow keys, WASD or the buttons. Space drops.','Start')}
+function interval(){return Math.max(70,800*Math.pow(0.82,level-1))}
+function stats(){$('score').textContent=score.toLocaleString();$('lines').textContent=lines;$('level').textContent=level;$('best').textContent=Math.max(G.local.get('best:blocks',0)||0,score).toLocaleString()}
+function overlay(t,s,btn){document.querySelectorAll('.over').forEach(o=>o.remove());const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>${t}</h2><p class="muted" id="omsg">${s}</p><div data-actions></div><button class="btn" id="ogo">${btn}</button></div>`;box.append(o);o.querySelector('#ogo').onclick=()=>{if(over)reset();go()};return o}
+function go(){document.querySelectorAll('.over').forEach(o=>o.remove());paused=false;$('pause').textContent='Pause';if(!started){started=true;spawn()}last=0;cancelAnimationFrame(raf);raf=requestAnimationFrame(frame)}
+function pause(){if(!started||over||paused)return;paused=true;cancelAnimationFrame(raf);$('pause').textContent='Resume';overlay('Paused','Take a breath.','Resume')}
+function move(dx){if(!cur||paused||over)return;const p={...cur,x:cur.x+dx};if(fits(p)){cur=p;lockT=0}}
+function rotate(d){if(!cur||paused||over||cur.t==='O')return;const r=(cur.r+d+4)%4;for(const [kx,ky] of KICKS){const p={...cur,r,x:cur.x+kx,y:cur.y+ky};if(fits(p)){cur=p;lockT=0;return}}}
+function ghost(){if(!cur)return null;const p={...cur};while(fits({...p,y:p.y+1}))p.y++;return p}
+function lock(){for(const [x,y] of cells(cur)){if(y<0)return die();grid[y][x]=SHAPES[cur.t].k}
+  let n=0;for(let y=ROWS-1;y>=0;y--){if(grid[y].every(Boolean)){grid.splice(y,1);grid.unshift(Array(COLS).fill(null));n++;y++}}
+  if(n){lines+=n;score+=[0,100,300,500,800][n]*level;level=Math.floor(lines/10)+1}
+  stats();spawn()}
+function hardDrop(){if(!cur||paused||over)return;const g=ghost();score+=(g.y-cur.y)*2;cur=g;lock()}
+function doHold(){if(!cur||paused||over||!canHold)return;const t=cur.t;if(hold){cur=piece(hold)}else{cur=piece(next);next=take()}hold=t;canHold=false;acc=0;if(!fits(cur))die()}
+function step(dt){if(!cur)return;const iv=soft?Math.min(interval(),50):interval();acc+=dt;
+  while(acc>=iv){acc-=iv;const p={...cur,y:cur.y+1};if(fits(p)){cur=p;if(soft)score++;lockT=0}else{lockT+=iv;if(lockT>=Math.min(300,iv)){lock();if(over||!cur)return}}}}
+const STEP=1000/60;let carry=0;
+function frame(t){if(paused||over)return;if(!last)last=t;let dt=Math.min(250,t-last);last=t;carry+=dt;while(carry>=STEP){step(STEP);carry-=STEP;if(over)break}draw();if(!over)raf=requestAnimationFrame(frame)}
+async function die(){over=true;cur=null;cancelAnimationFrame(raf);draw();stats();const o=overlay('Game over',score.toLocaleString()+' points · '+lines+' lines'+(score>0?' · saving…':''),'Play again');if(score>0)o.querySelector('#omsg').innerHTML=score.toLocaleString()+' points · '+lines+' lines<br>'+await G.submit('blocks',score,{lines,level});stats()}
+// drawing
+let dpr=1,cs=1,W=0,H=0;
+function size(){dpr=Math.min(3,window.devicePixelRatio||1);const w=cv.clientWidth||420,h=cv.clientHeight||Math.round(w*20/14);cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);W=w;H=h;cs=Math.min(w/TOTAL,h/ROWS);draw()}
+function tok(cs_,n){return cs_.getPropertyValue(n).trim()}
+function cell(x,y,col,alpha){const s=cs;ctx.globalAlpha=alpha==null?1:alpha;ctx.fillStyle=col;ctx.beginPath();ctx.roundRect(x*s+1,y*s+1,s-2,s-2,Math.max(2,s*.18));ctx.fill();ctx.globalAlpha=1}
+function mini(t,ox,oy,st,ink){const sh=SHAPES[t],s=cs*.62;const w=(Math.max(...sh.c.map(p=>p[0]))+1)*s;ctx.fillStyle=st.getPropertyValue(sh.k).trim()||ink;const offX=ox+(PANEL*cs-w)/2,offY=oy;for(const [x,y] of sh.c){ctx.beginPath();ctx.roundRect(offX+x*s+1,offY+y*s+1,s-2,s-2,3);ctx.fill()}}
+function draw(){const st=getComputedStyle(box);ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+  const ink=tok(st,'--ink'),ink2=tok(st,'--ink2'),gridc=tok(st,'--grid'),card=tok(st,'--card');
+  // board well
+  ctx.fillStyle=card;ctx.globalAlpha=.5;ctx.fillRect(0,0,COLS*cs,ROWS*cs);ctx.globalAlpha=1;
+  ctx.strokeStyle=gridc;ctx.lineWidth=1;ctx.beginPath();for(let x=1;x<COLS;x++){ctx.moveTo(x*cs+.5,0);ctx.lineTo(x*cs+.5,ROWS*cs)}for(let y=1;y<ROWS;y++){ctx.moveTo(0,y*cs+.5);ctx.lineTo(COLS*cs,y*cs+.5)}ctx.stroke();
+  for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++)if(grid[y][x])cell(x,y,tok(st,grid[y][x]));
+  if(cur){const col=tok(st,SHAPES[cur.t].k);const g=ghost();if(g)for(const [x,y] of cells(g))if(y>=0)cell(x,y,col,.22);for(const [x,y] of cells(cur))if(y>=0)cell(x,y,col)}
+  // side panel
+  const px=COLS*cs+cs*.35;ctx.fillStyle=ink2;ctx.font='600 '+Math.round(cs*.5)+'px '+(st.getPropertyValue('--body')||'sans-serif');ctx.textBaseline='top';
+  ctx.fillText('NEXT',px,cs*.5);if(next)mini(next,COLS*cs,cs*1.3,st,ink);
+  ctx.fillStyle=ink2;ctx.fillText('HOLD',px,cs*5);if(hold)mini(hold,COLS*cs,cs*5.8,st,ink);
+  ctx.fillStyle=ink2;ctx.fillText('LVL '+level,px,cs*18.6)}
+// input
+document.addEventListener('keydown',e=>{if(e.target&&e.target.closest&&e.target.closest('input,textarea,select'))return;const k=e.key.length===1?e.key.toLowerCase():e.key;
+  const used={ArrowLeft:1,ArrowRight:1,ArrowUp:1,ArrowDown:1,' ':1,a:1,d:1,w:1,s:1,x:1,z:1,c:1,p:1,Shift:1}[k];if(!used)return;e.preventDefault();
+  if(k==='p'){if(e.repeat)return;if(paused)go();else pause();return}
+  if(!started&&!over){go()}if(over||paused)return;
+  if(k==='ArrowLeft'||k==='a')move(-1);else if(k==='ArrowRight'||k==='d')move(1);
+  else if(k==='ArrowDown'||k==='s')soft=true;
+  else if(!e.repeat){if(k==='ArrowUp'||k==='w'||k==='x')rotate(1);else if(k==='z')rotate(-1);else if(k===' ')hardDrop();else if(k==='c'||k==='Shift')doHold()}
+  draw()});
+document.addEventListener('keyup',e=>{const k=e.key.length===1?e.key.toLowerCase():e.key;if(k==='ArrowDown'||k==='s')soft=false});
+const ACT={left:()=>move(-1),right:()=>move(1),rot:()=>rotate(1),drop:hardDrop,hold:doHold};
+document.querySelectorAll('.pad button').forEach(b=>{let t1,t2;const a=b.dataset.a;
+  const stop=()=>{clearTimeout(t1);clearInterval(t2);if(a==='down')soft=false};
+  b.addEventListener('pointerdown',e=>{e.preventDefault();if(!started&&!over){go()}if(paused||over)return;
+    if(a==='down'){soft=true;return}ACT[a]();draw();
+    if(a==='left'||a==='right'){t1=setTimeout(()=>{t2=setInterval(()=>{ACT[a]();draw()},55)},180)}});
+  ['pointerup','pointercancel','pointerleave'].forEach(ev=>b.addEventListener(ev,stop))});
+$('pause').onclick=()=>{if(!started||over)return;if(paused)go();else pause()};
+$('restart').onclick=()=>{cancelAnimationFrame(raf);reset()};
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});
+window.addEventListener('blur',()=>pause());
+document.addEventListener('themechange',draw);
+new ResizeObserver(size).observe(cv);
+reset();size();
+G.boardBox(document.getElementById('lb'),'blocks');
+</script>
+</body>
+</html>
