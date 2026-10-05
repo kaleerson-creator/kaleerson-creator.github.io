@@ -133,3 +133,4 @@ It needs one secret, set in Supabase → Edge Functions → Secrets:
 
 1. `games3.sql` — registers the nine new games (Speed Math, Reaction Time, Memory Match, Blocks, Breakout, Flap, Hangman, Simon, Connect Four) on the leaderboards. Until it runs, those games say "This leaderboard isn't set up yet." and keep personal bests on the device.
 2. `profiles3.sql` — the `public_profile` function behind the public profile pages at kaleerson.com/u/#username.
+3. `study3.sql` — raises the flashcard posting limit (60 a minute instead of 8) and fixes forum ordering after a reply is deleted. Run after `study.sql`, `study2.sql` and `ratings.sql`.
