@@ -1,0 +1,76 @@
+@@ meta
+dir: simon
+title: Simon · Kale's Games
+desc: Watch the pads light up, then repeat the pattern. It gets one step longer every round.
+page: simon
+game: simon
+@@ css
+.sbox{position:relative;width:min(100%,360px);display:grid;gap:12px;justify-items:center}
+.padwrap{position:relative;width:100%}
+.pads{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;aspect-ratio:1}
+.pad{border:0;border-radius:24px;cursor:pointer;min-height:44px;min-width:44px;padding:0;position:relative;transition:transform .08s,filter .08s,opacity .08s;touch-action:manipulation;color:var(--ink);opacity:.75;-webkit-tap-highlight-color:transparent}
+.pad:nth-child(1){background:var(--moss);border-top-left-radius:48px}.pad:nth-child(2){background:var(--sky);border-top-right-radius:48px}
+.pad:nth-child(3){background:var(--peach);border-bottom-left-radius:48px}.pad:nth-child(4){background:var(--butter);border-bottom-right-radius:48px}
+.pad span{position:absolute;left:14px;top:12px;font:700 14px/1 var(--display);opacity:.6}
+.pad.lit{opacity:1;filter:brightness(1.08) saturate(1.4);transform:scale(.96);box-shadow:inset 0 0 0 4px #ffffffaa}
+html[data-theme=dark] .pad.lit{filter:brightness(1.8) saturate(1.4);box-shadow:inset 0 0 0 4px #ffffff66}
+.pads.locked .pad{cursor:default}
+.center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;background:var(--card);display:grid;place-items:center;font:800 30px/1 var(--display);pointer-events:none;color:var(--ink)}
+.status{font-weight:600;min-height:24px;text-align:center}
+@@ body
+<div class="ghead"><div><h1>Simon</h1><p>Watch the pattern, then tap it back. One more step every round. Keys 1 to 4 work too.</p></div><button class="btn sm ghost" id="mute" aria-pressed="false">Sound on</button></div>
+<div class="glay">
+  <div class="stage">
+    <div class="stats"><div><b id="round">0</b><span>Steps</span></div><div><b id="best">–</b><span>Best</span></div></div>
+    <div class="sbox" id="sbox">
+      <div class="padwrap"><div class="pads locked" id="pads">
+        <button class="pad" data-i="0" aria-label="Pad 1"><span>1</span></button>
+        <button class="pad" data-i="1" aria-label="Pad 2"><span>2</span></button>
+        <button class="pad" data-i="2" aria-label="Pad 3"><span>3</span></button>
+        <button class="pad" data-i="3" aria-label="Pad 4"><span>4</span></button>
+      </div><div class="center" id="center">0</div></div>
+      <div class="status" id="status">Press start.</div>
+      <button class="btn" id="start">Start</button>
+    </div>
+  </div>
+  <div class="side">
+    <div class="box"><h2>How it works</h2><p class="muted">The pads play a pattern that grows by one each round. Repeat it in order. One wrong tap ends the run. Your score is the longest pattern you got through.</p></div>
+    <div class="box" id="lb"></div>
+  </div>
+</div>
+@@ js
+const $=id=>document.getElementById(id);
+const FREQ=[329.63,261.63,220,164.81];
+let seq=[],pos=0,done=0,playing=false,over=true,best=G.local.get('best:simon',null),muted=!!G.local.get('simon:mute',false),actx=null;
+const padEls=[...document.querySelectorAll('.pad')];
+function tone(i,ms){if(muted)return;try{if(!actx)actx=new (window.AudioContext||window.webkitAudioContext)();if(actx.state==='suspended')actx.resume();
+  const o=actx.createOscillator(),g=actx.createGain(),t=actx.currentTime;o.type='sine';o.frequency.value=FREQ[i];
+  g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.25,t+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t+ms/1000);
+  o.connect(g).connect(actx.destination);o.start();o.stop(t+ms/1000+0.05)}catch(e){}}
+function light(i,ms){padEls[i].classList.add('lit');tone(i,ms);setTimeout(()=>padEls[i].classList.remove('lit'),ms)}
+function speed(){return Math.max(230,560-seq.length*18)}
+function drawStats(){$('round').textContent=done;$('center').textContent=done;$('best').textContent=best===null?'–':best}
+function play(){playing=true;$('pads').classList.add('locked');$('status').textContent='Watch…';const d=speed();
+  seq.forEach((v,k)=>setTimeout(()=>{if(!over)light(v,d*0.6)},350+k*d));
+  setTimeout(()=>{if(over)return;playing=false;pos=0;$('pads').classList.remove('locked');$('status').textContent='Your turn.'},350+seq.length*d)}
+function round(){seq.push(Math.floor(Math.random()*4));drawStats();play()}
+function start(){document.querySelectorAll('.over').forEach(o=>o.remove());seq=[];done=0;over=false;$('start').hidden=true;drawStats();round()}
+function press(i){if(over||playing)return;light(i,220);
+  if(seq[pos]!==i)return end();
+  pos++;if(pos===seq.length){done=seq.length;drawStats();$('status').textContent='Good.';playing=true;setTimeout(round,650)}}
+async function end(){over=true;$('pads').classList.add('locked');const score=done;$('status').textContent='Wrong pad.';
+  const o=document.createElement('div');o.className='over';
+  o.innerHTML=`<div><h2>${score?score+' steps':'Game over'}</h2><p class="muted" id="omsg">${score?'Saving…':'Wrong pad on the first step.'}</p><div data-actions></div><button class="btn" id="oagain">Play again</button></div>`;
+  $('sbox').append(o);o.querySelector('#oagain').onclick=start;
+  if(score>0){const msg=await G.submit('simon',Math.min(200,score),{});best=G.local.get('best:simon',best);const m=o.querySelector('#omsg');if(m)m.innerHTML=msg||'Longest pattern: '+score+' steps';if(window.SITE&&SITE.confetti&&/best/i.test(msg||''))SITE.confetti()}
+  drawStats()}
+$('pads').addEventListener('pointerdown',e=>{const b=e.target.closest('.pad');if(b&&e.button===0){e.preventDefault();press(+b.dataset.i)}});
+$('pads').addEventListener('click',e=>{const b=e.target.closest('.pad');if(b&&e.detail===0)press(+b.dataset.i)});
+$('start').onclick=start;
+function muteUI(){$('mute').textContent=muted?'Sound off':'Sound on';$('mute').setAttribute('aria-pressed',String(muted))}
+$('mute').onclick=()=>{muted=!muted;G.local.set('simon:mute',muted);muteUI()};muteUI();
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.target.matches('input,textarea'))return;
+  if(/^[1-4]$/.test(e.key)){e.preventDefault();press(+e.key-1)}
+  else if((e.key==='Enter'||e.key===' ')&&over&&!e.target.matches('button,a')){const b=document.getElementById('oagain')||$('start');if(b&&!b.hidden){e.preventDefault();b.click()}}});
+drawStats();
+G.boardBox(document.getElementById('lb'),'simon');

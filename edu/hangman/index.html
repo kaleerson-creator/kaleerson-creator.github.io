@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hangman · Kale's Games</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<meta name="theme-color" content="#EEF0EA">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hangman · Kale&#x27;s Games">
+<meta property="og:description" content="Guess the word one letter at a time. Six wrong guesses and the run is over.">
+<meta property="og:url" content="https://kaleerson.com/edu/hangman/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Guess the word one letter at a time. Six wrong guesses and the run is over.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261006">
+<link rel="stylesheet" href="/edu/assets/games.css?v=2">
+<style>
+.hbox{position:relative;width:100%;display:grid;gap:14px;justify-items:center}
+.fig{width:min(100%,200px);display:block}
+.fig *{stroke:var(--ink);stroke-width:4;stroke-linecap:round;fill:none}
+.fig .p{opacity:0;transition:opacity .25s}
+.fig .p.on{opacity:1}
+.wordrow{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.wc{width:clamp(30px,9vw,44px);height:clamp(40px,11vw,54px);border-bottom:3px solid var(--ink);display:grid;place-items:end center;font:800 clamp(24px,7vw,34px)/1 var(--display);text-transform:uppercase;color:var(--ink);padding-bottom:4px}
+.wc.miss{color:#D12C2C;border-color:#D12C2C}
+.wc.hit{animation:pop .2s ease}
+@keyframes pop{from{transform:translateY(6px);opacity:0}}
+.hkb{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;width:min(100%,420px)}
+.hkb button{min-height:46px;border:0;border-radius:10px;background:#dfe2d8;color:var(--ink);font:700 16px/1 var(--body);text-transform:uppercase;cursor:pointer;padding:0;touch-action:manipulation}
+.hkb button:disabled{cursor:default}
+.hkb button.g{background:#4f8a4a;color:#fff}.hkb button.x{background:#8f958b;color:#fff;opacity:.6}
+html[data-theme=dark] .hkb button:not(.g):not(.x){background:#30352d}
+.hint{display:inline-flex;gap:6px;align-items:center;background:var(--paper);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;color:var(--ink2)}
+.note{min-height:22px;font-weight:600;text-align:center}
+.over .big{font:800 clamp(28px,8vw,40px)/1 var(--display);letter-spacing:.04em;text-transform:uppercase}
+</style>
+</head>
+<body data-page="games" data-sub="hangman" data-game="hangman">
+<main class="wrap">
+<div class="ghead"><div><h1>Hangman</h1><p>Guess the word one letter at a time. Six misses and the run ends. Each word you solve adds to your streak.</p></div></div>
+<div class="glay">
+  <div class="stage">
+    <div class="stats"><div><b id="streak">0</b><span>In a row</span></div><div><b id="best">–</b><span>Best</span></div><div><b id="left">6</b><span>Misses left</span></div></div>
+    <div class="hbox" id="hbox">
+      <svg class="fig" viewBox="0 0 200 220" aria-hidden="true">
+        <path d="M20 210h110M50 210V20h90v25"/>
+        <circle class="p" data-i="0" cx="140" cy="68" r="22"/>
+        <path class="p" data-i="1" d="M140 90v70"/>
+        <path class="p" data-i="2" d="M140 110l-32 30"/>
+        <path class="p" data-i="3" d="M140 110l32 30"/>
+        <path class="p" data-i="4" d="M140 160l-26 40"/>
+        <path class="p" data-i="5" d="M140 160l26 40"/>
+      </svg>
+      <span class="hint" id="hint"></span>
+      <div class="wordrow" id="word" aria-live="polite"></div>
+      <div class="note" id="note"></div>
+      <div class="hkb" id="kb"></div>
+    </div>
+  </div>
+  <div class="side">
+    <div class="box"><h2>How it works</h2><p class="muted">Tap a letter or type it. Solve a word and the next one loads right away. Your score is how many words you solve in a row before six misses on one word.</p></div>
+    <div class="box" id="lb"></div>
+  </div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/edu/assets/common.js?v=2c"></script>
+<script src="/assets/site.js?v=20261006"></script>
+<script src="/edu/assets/words.js?v=2"></script>
+<script>
+const W=window.WORDS||{};
+const POOL=[...new Set([...(W.answers||[]),...(W.typing||[])].filter(w=>/^[a-z]{5,8}$/.test(w)))];
+if(!POOL.length)POOL.push('planet','school','pizza','guitar','window','summer');
+const MAX=6;
+let word='',guessed=new Set(),wrong=0,streak=0,over=false,recent=[];
+const $=id=>document.getElementById(id);
+function pick(){let w;do{w=POOL[Math.floor(Math.random()*POOL.length)]}while(recent.includes(w)&&recent.length<POOL.length);recent.push(w);if(recent.length>40)recent.shift();return w}
+function next(){word=pick();guessed=new Set();wrong=0;over=false;document.querySelectorAll('.over').forEach(o=>o.remove());$('note').textContent='';draw()}
+function draw(hitLetter){
+  $('word').innerHTML=[...word].map(ch=>`<div class="wc${over&&!guessed.has(ch)?' miss':''}${ch===hitLetter?' hit':''}">${guessed.has(ch)||over?ch:''}</div>`).join('');
+  $('hint').textContent=word.length+' letters';
+  $('kb').innerHTML=[...'abcdefghijklmnopqrstuvwxyz'].map(l=>`<button data-l="${l}" class="${guessed.has(l)?(word.includes(l)?'g':'x'):''}"${guessed.has(l)||over?' disabled':''} aria-label="${l.toUpperCase()}">${l}</button>`).join('');
+  document.querySelectorAll('.fig .p').forEach((p,i)=>p.classList.toggle('on',i<wrong));
+  $('streak').textContent=streak;$('left').textContent=MAX-wrong;
+  const b=G.local.get('best:hangman',null);$('best').textContent=b===null?'–':b;
+}
+function guess(l){
+  if(over||guessed.has(l))return;
+  guessed.add(l);
+  if(word.includes(l)){
+    if([...word].every(ch=>guessed.has(ch))){streak++;draw(l);$('note').textContent='Nice. Next word…';if(window.SITE&&SITE.confetti&&streak%5===0)SITE.confetti();setTimeout(next,900);return}
+    draw(l);
+  }else{wrong++;draw();if(wrong>=MAX)lose()}
+}
+async function lose(){
+  over=true;draw();
+  const o=document.createElement('div');o.className='over';
+  o.innerHTML=`<div><h2>Out of guesses</h2><p class="muted">The word was</p><div class="big">${word}</div><p class="muted" id="omsg">${streak?streak+' in a row · saving…':'No words solved this run.'}</p><div data-actions></div><button class="btn" id="oagain">Play again</button></div>`;
+  $('hbox').append(o);
+  o.querySelector('#oagain').onclick=()=>{streak=0;next()};
+  if(streak>0){const msg=await G.submit('hangman',Math.min(500,streak),{});const m=o.querySelector('#omsg');if(m)m.innerHTML=streak+' in a row'+(msg?'<br>'+msg:'');draw()}
+}
+$('kb').addEventListener('click',e=>{const b=e.target.closest('[data-l]');if(b&&!b.disabled)guess(b.dataset.l)});
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.target.matches('input,textarea'))return;const k=e.key.toLowerCase();
+  if(/^[a-z]$/.test(k)){e.preventDefault();guess(k)}
+  else if(e.key==='Enter'&&over){const b=document.getElementById('oagain');if(b)b.click()}});
+next();
+G.boardBox(document.getElementById('lb'),'hangman');
+</script>
+</body>
+</html>
