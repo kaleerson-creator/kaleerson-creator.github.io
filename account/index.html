@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Account · Kale Erson</title>
 <!-- meta -->
-<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261007">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
 <style>
 .phead .blob{background:var(--butter);width:clamp(90px,14vw,170px);top:30px}
 .atabs{display:flex;gap:4px;background:var(--card);border-radius:999px;padding:5px;width:max-content;max-width:100%;margin-bottom:var(--gap)}
@@ -59,6 +59,10 @@ input:focus{outline:2px solid var(--ink);outline-offset:1px}
 .seg{display:flex;gap:4px;background:var(--paper);border-radius:999px;padding:4px;width:max-content;max-width:100%}
 .seg button{font:inherit;font-size:14px;font-weight:600;border:0;background:none;color:var(--ink2);padding:8px 16px;border-radius:999px;cursor:pointer}
 .seg button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.swatches{display:flex;gap:6px;flex-wrap:wrap}
+.swatches button{font:inherit;font-size:14px;font-weight:600;border:0;background:var(--paper);color:var(--ink2);padding:8px 14px 8px 10px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.swatches button i{width:14px;height:14px;border-radius:50%;background:var(--c,var(--line));flex:none}
+.swatches button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
 .who{grid-column:1/-1;display:flex;align-items:center;gap:14px;background:var(--card);border-radius:24px;padding:16px 20px;flex-wrap:wrap}
 .who .avatar{line-height:0}
 .who .txt{display:grid;gap:2px;min-width:0;flex:1}
@@ -126,6 +130,11 @@ html[data-theme=dark] .hint.ok{color:#c4e3ad}html[data-theme=dark] .hint.bad{col
         <div class="seg" id="theme" role="group" aria-label="Theme"><button data-v="auto">Auto</button><button data-v="dark">Dark</button><button data-v="light">Light</button></div>
       </div>
       <div class="box">
+        <h2>Accent</h2>
+        <p>Colors the menu, the account button and page headers. Saved on this device.</p>
+        <div class="swatches" id="accent" role="group" aria-label="Accent color"><button data-v=""><i></i>Default</button><button data-v="moss"><i style="--c:var(--moss-deep)"></i>Moss</button><button data-v="sky"><i style="--c:var(--sky-deep)"></i>Sky</button><button data-v="peach"><i style="--c:var(--peach-deep)"></i>Peach</button><button data-v="butter"><i style="--c:var(--butter-deep)"></i>Butter</button><button data-v="lilac"><i style="--c:var(--lilac-deep)"></i>Lilac</button></div>
+      </div>
+      <div class="box">
         <h2>Visit counting</h2>
         <p>One first-party cookie that lets the site count returning visitors. No ads, no tracking across sites. <a href="/privacy/" style="text-decoration:underline">Privacy</a></p>
         <label class="check"><input type="checkbox" id="kv"> Allow the visit-counting cookie on this device</label><div id="kvmsg"></div>
@@ -163,7 +172,7 @@ html[data-theme=dark] .hint.ok{color:#c4e3ad}html[data-theme=dark] .hint.bad{col
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
 <script src="/lib/avatar.js?v=20261006"></script>
-<script src="/assets/site.js?v=20261007"></script>
+<script src="/assets/site.js?v=20261008"></script>
 <script>
 const $=id=>document.getElementById(id);
 const E=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -311,6 +320,9 @@ $('savename').onclick=async()=>{
 const drawTheme=()=>{const t=SITE.theme();document.querySelectorAll('#theme button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===t))};
 document.querySelectorAll('#theme button').forEach(b=>b.onclick=()=>{SITE.setTheme(b.dataset.v);drawTheme()});
 document.addEventListener('themechange',drawTheme);drawTheme();
+const drawAccent=()=>{const a=SITE.accent();document.querySelectorAll('#accent button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===a))};
+document.querySelectorAll('#accent button').forEach(b=>b.onclick=()=>{SITE.setAccent(b.dataset.v);drawAccent()});
+document.addEventListener('accentchange',drawAccent);drawAccent();
 
 const gpc=navigator.globalPrivacyControl===true||navigator.doNotTrack==='1'||window.doNotTrack==='1';
 $('kv').checked=!gpc&&ls('kv_choice')==='yes';

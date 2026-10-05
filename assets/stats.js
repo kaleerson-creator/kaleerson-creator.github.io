@@ -42,6 +42,7 @@
     log();
 
     if (choice) return;
+    if (/^\/(snapwit|ldtimer|card)\//.test(location.pathname)) return; // fixed-light pages lay out their own bottom edge; the bar covered buttons there
     // One-time notice: a slim bar along the bottom. It sits under any modal (z-index 80) and
     // pads the page while it shows so it never covers a button. Colors are fixed on purpose so
     // it looks the same in both themes and before site.css loads.

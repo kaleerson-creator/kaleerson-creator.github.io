@@ -24,9 +24,13 @@ window.CONTENT = {
     { name: 'Focus Timer',   art: 'focus',     href: '/focus/',     color: 'lilac',  tag: 'Timer',   note: 'Pomodoro timer with tasks and session stats', open: true, quick: true },
     { name: 'Citations',     art: 'cite',      href: '/cite/',      color: 'sky',    tag: 'Writing', note: 'MLA and APA citations for websites, books and articles', open: true, quick: true },
     { name: 'QR Codes',      art: 'qr',        href: '/qr/',        color: 'moss',   tag: 'Share',   note: 'Make a QR code for any link, right in the browser', open: true, quick: true },
-    { name: 'Word Counter',  art: 'words',     href: '/words/',     color: 'peach',  tag: 'Writing', note: 'Words, characters, reading time and readability', open: true, quick: true }
+    { name: 'Word Counter',  art: 'words',     href: '/words/',     color: 'peach',  tag: 'Writing', note: 'Words, characters, reading time and readability', open: true, quick: true },
+    { name: 'Whiteboard',    art: 'draw',      href: '/draw/',      color: 'peach',  tag: 'Make',    note: 'Sketch, annotate, save as PNG', open: true, quick: true },
+    { name: 'Unit Converter', art: 'convert',  href: '/convert/',   color: 'sky',    tag: 'Math',    note: 'Length, weight, temperature, speed and more', open: true, quick: true },
+    { name: 'Stopwatch',     art: 'stopwatch', href: '/stopwatch/', color: 'moss',   tag: 'Timer',   note: 'Laps and splits, keeps running in the background', open: true, quick: true }
   ],
   updates: [
+    { date: '2026-10', tag: 'Product', title: 'Online Battleship and RPS, forum upvotes, deck import, flow sheet upgrades, three more tools', href: '/tools/' },
     { date: '2026-10', tag: 'Launch', title: 'Nine new games, eight quick tools, sharing and streaks', href: '/tools/',
       body: 'Speed Math, Reaction Time, Memory Match, Blocks, Breakout, Flap, Hangman, Simon and Connect Four, plus Bell Schedule, Countdown, GPA, Picker, Focus Timer, Citations, QR Codes and Word Counter.' },
     { date: '2026-10', tag: 'Product', title: 'Snapwit and LD Timer opened to members', href: '/tools/' },

@@ -37,7 +37,8 @@ for f in files:
              # Theme before first paint: saved choice, else the device setting. Snapwit, LD Timer and
              # the business card keep their own light look.
              '<script>try{var t=localStorage.getItem("theme");if(!/^\\/(snapwit|ldtimer|card)\\//.test(location.pathname)){'
-             'if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>\n'
+             'if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}'
+             'var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>\n'
              '<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">\n'
              '<link rel="apple-touch-icon" href="/assets/icon-180.png">\n'
              '<link rel="manifest" href="/manifest.webmanifest">\n'
