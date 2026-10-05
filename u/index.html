@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Profile · Kale Erson</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<meta name="theme-color" content="#EEF0EA">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Profile · Kale Erson">
+<meta property="og:description" content="A member&#x27;s public profile: their name, when they joined and their best game scores.">
+<meta property="og:url" content="https://kaleerson.com/u/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="A member's public profile: their name, when they joined and their best game scores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261006">
+<style>
+.phead .blob{background:var(--lilac)}
+.phead{padding-bottom:20px}
+.who{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.who .avatar{line-height:0}
+.who .avatar svg{width:clamp(72px,18vw,112px);height:auto}
+.who h1{font-size:clamp(36px,7vw,72px);overflow-wrap:anywhere;min-width:0}
+.who .sub{margin-top:8px;display:flex;gap:8px 12px;flex-wrap:wrap;align-items:center;color:var(--ink2);font-size:15px}
+.who .cm-tag{font-size:11px;vertical-align:2px}
+.who .at{font-family:ui-monospace,Menlo,monospace}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.btn.sm{padding:9px 14px;font-size:14px}
+.state{background:var(--card);border-radius:var(--r);padding:28px 24px;display:grid;gap:12px;max-width:560px}
+.state h2{font-size:28px;letter-spacing:-.03em}
+.state p{color:var(--ink2)}
+.state form{display:flex;gap:8px;flex-wrap:wrap}
+.state input{font:inherit;font-size:16px;padding:11px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);flex:1;min-width:160px}
+.state input:focus{outline:2px solid var(--ink);outline-offset:1px}
+.scores{display:grid;gap:6px;width:100%}
+.scores a{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:#ffffff8c;font-weight:600;min-width:0}
+html[data-theme=dark] .scores a{background:#ffffff12}
+.scores a:hover{background:#ffffffc4}
+html[data-theme=dark] .scores a:hover{background:#ffffff1f}
+.scores b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.scores .rk{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:999px;background:var(--ink);color:var(--paper);margin-left:8px;vertical-align:2px}
+.big{font:800 clamp(44px,8vw,72px)/1 var(--display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.b .blob{width:160px;aspect-ratio:1;right:-50px;bottom:-60px}
+.b.peach .blob{background:var(--butter)}.b.moss .blob{background:var(--sky)}.b.sky .blob{background:var(--lilac)}
+.b .lbl{position:relative}
+</style>
+</head>
+<body data-page="">
+<main class="wrap">
+  <section class="phead"><span class="blob"></span>
+    <div id="head"><h1>Profile</h1><p id="sub">Loading…</p></div>
+  </section>
+  <div id="body"></div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/config.js?v=20261001"></script>
+<script src="/lib/sb.js?v=20261001"></script>
+<script src="/lib/avatar.js?v=20261006"></script>
+<script src="/assets/site.js?v=20261006"></script>
+<script>
+const $=id=>document.getElementById(id);
+const E=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+// Game titles, links and score formats. Lower is better for the time/guess games.
+const GAMES={daily:'Daily Challenge',word:'Daily Word','2048':'2048',snake:'Snake',minesweeper:'Minesweeper',sudoku:'Sudoku',typing:'Typing',trivia:'Trivia',letters:'Letter Rush',math:'Speed Math',reaction:'Reaction Time',memory:'Memory Match',blocks:'Blocks',breakout:'Breakout',flap:'Flap',hangman:'Hangman',simon:'Simon',connect:'Connect Four'};
+const mmss=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+const FMT={minesweeper:mmss,sudoku:mmss,memory:mmss,word:s=>s+'/6',typing:s=>s+' wpm',daily:s=>s+' pts',letters:s=>s+' pts',math:s=>s+' pts',reaction:s=>s+' ms',hangman:s=>s+(s===1?' word':' words'),simon:s=>s+' steps',connect:s=>s+(s===1?' win':' wins'),flap:s=>s+(s===1?' pipe':' pipes')};
+const fmt=(g,s)=>FMT[g]?FMT[g](s):Number(s).toLocaleString();
+const month=d=>{const t=new Date(d);return isNaN(t)?'':t.toLocaleDateString('en-US',{month:'long',year:'numeric'})};
+const nameHTML=p=>{const c=/^#[0-9a-fA-F]{6}$/.test(p.name_color||'')?` style="--nc:${p.name_color}"`:'';
+  return `<span class="cm-name"${c}>${E(p.display_name)}</span>${(p.tags||[]).map(t=>` <span class="cm-tag">${E(t)}</span>`).join('')}`};
+
+const who=()=>decodeURIComponent(location.hash.replace(/^#\/?@?/,'')).trim().toLowerCase();
+function head(title,sub){$('head').innerHTML=`<h1>${E(title)}</h1><p id="sub">${E(sub)}</p>`}
+function state(title,text,extra){$('body').innerHTML=`<div class="state"><h2>${E(title)}</h2><p>${E(text)}</p>${extra||''}</div>`}
+const finder=`<form id="find"><input id="q" placeholder="username" autocapitalize="off" spellcheck="false" aria-label="Username"><button class="btn" type="submit">Look up</button></form>`;
+function wireFinder(){const f=$('find');if(!f)return;f.onsubmit=e=>{e.preventDefault();const u=$('q').value.trim().replace(/^@/,'').toLowerCase();if(u)location.hash=u}}
+
+async function load(){
+  const u=who();
+  document.title=(u?'@'+u:'Profile')+' · Kale Erson';
+  if(!u){head('Profile','Member pages live at kaleerson.com/u/#username.');state('Who are you looking for?','Type a username. You can find yours on your account page.',finder);wireFinder();return}
+  if(!/^[a-z0-9_]{3,20}$/.test(u)){head('Profile','');state('No one by that name','Usernames are 3 to 20 letters, numbers or _.',finder);wireFinder();return}
+  head('@'+u,'Loading…');$('body').innerHTML='';
+  if(!window.SB){state('Profiles are offline right now','This page needs a connection to load a member.');head('@'+u,'');return}
+  let r;try{r=await SB.rpc('public_profile',{u})}catch(e){r={error:{message:String(e)}}}
+  if(r.error){const c=r.error.code||'',m=r.error.message||'';
+    if(c==='42883'||c==='PGRST202'||/404|not find the function|does not exist/i.test(m)){head('@'+u,'');state('Profiles aren\'t turned on yet','Kale hasn\'t switched on public profiles. Check back soon.');return}
+    head('@'+u,'');state('Couldn\'t load this profile','Check your connection and try again. School Wi-Fi sometimes blocks it.',`<div><button class="btn sm" id="retry">Try again</button></div>`);$('retry').onclick=load;return}
+  const p=r.data;
+  if(!p){head('@'+u,'');state('No one by that name','Usernames are exact. Check the spelling, or look someone else up.',finder);wireFinder();return}
+  draw(p);
+}
+
+function draw(p){
+  const url=location.origin+'/u/#'+encodeURIComponent(p.username);
+  $('head').innerHTML=`<div class="who"><span class="avatar">${Avatar.svg(p.display_name||p.username,112)}</span>
+    <div style="min-width:0"><h1>${nameHTML(p)}</h1>
+      <div class="sub"><span class="at">@${E(p.username)}</span>${p.joined?`<span>Member since ${E(month(p.joined))}</span>`:''}</div></div></div>
+    <div class="actions"><button class="btn sm" id="share">Share profile</button><a class="btn sm ghost" href="/edu/leaderboards/">Leaderboards</a></div>`;
+  const best=p.best||{},wk=p.week_rank||{},keys=Object.keys(best).sort((a,b)=>(GAMES[a]||a).localeCompare(GAMES[b]||b));
+  const plays=Number(p.plays||0);
+  const rows=keys.map(g=>`<a href="/edu/${encodeURIComponent(g)}/"><span>${E(GAMES[g]||g)}${wk[g]?`<span class="rk">#${E(wk[g])} this week</span>`:''}</span><b>${E(fmt(g,best[g]))}</b></a>`).join('');
+  const bestWeek=keys.map(g=>wk[g]).filter(Boolean).sort((a,b)=>a-b)[0];
+  $('body').innerHTML=`<div class="bento">
+    <div class="b s4 peach wide-m"><span class="blob"></span><span class="lbl">Games · Best scores</span>
+      ${rows?`<div class="scores">${rows}</div>`:`<h2 style="font-size:28px">No scores yet</h2><p class="muted">${E(p.display_name)} hasn't saved a game score.</p>`}
+      <div class="foot"><span class="muted">${keys.length?`${keys.length} ${keys.length===1?'game':'games'} played`:'Scores save when you play signed in'}</span></div></div>
+    <div class="b s2 moss wide-m"><span class="blob"></span><span class="lbl">Plays</span><div class="big">${plays.toLocaleString()}</div><div class="foot"><span class="muted">${plays===1?'score saved':'scores saved'}</span></div></div>
+    <div class="b s2 sky wide-m"><span class="blob"></span><span class="lbl">This week</span><div class="big">${bestWeek?'#'+bestWeek:'—'}</div><div class="foot"><span class="muted">${bestWeek?'best rank right now':'no scores this week'}</span></div></div>
+    <a class="b s4 wide-m" href="/edu/"><span class="lbl">Play</span><h2>Beat these scores</h2><div class="foot"><span class="muted">Sign in and your best shows on your own page.</span><span class="arrow"></span></div></a>
+  </div>`;
+  document.querySelectorAll('.arrow:empty').forEach(a=>a.outerHTML=SITE.arrow);
+  $('share').onclick=async()=>{const b=$('share'),title=(p.display_name||p.username)+' on kaleerson.com';
+    try{if(navigator.share){await navigator.share({title,url});return}}catch(e){if(e&&e.name==='AbortError')return}
+    try{await navigator.clipboard.writeText(url);b.textContent='Link copied';setTimeout(()=>b.textContent='Share profile',1800)}catch(e){prompt('Copy this link',url)}};
+}
+addEventListener('hashchange',load);
+load();
+</script>
+</body>
+</html>
