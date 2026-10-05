@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GPA &amp; Grades · Kale Erson</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<meta name="theme-color" content="#EEF0EA">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GPA &amp; Grades · Kale Erson">
+<meta property="og:description" content="Weighted and unweighted GPA, what you need on the final, and weighted category averages.">
+<meta property="og:url" content="https://kaleerson.com/gpa/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Weighted and unweighted GPA, what you need on the final, and weighted category averages.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261006">
+<style>
+.phead .blob{background:var(--moss)}
+.tabs{display:inline-flex;background:var(--card);border-radius:999px;padding:4px;gap:2px;margin-bottom:12px;max-width:100%;overflow-x:auto}
+.tabs button{font:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;border:0;background:transparent;color:var(--ink2);cursor:pointer;white-space:nowrap}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--on-ink)}
+.res{min-height:220px}
+.res .blob{width:60%;aspect-ratio:1;right:-20%;bottom:-40%;background:#ffffff66}
+.res .big{font-family:var(--display);font-weight:800;font-size:clamp(64px,10vw,120px);letter-spacing:-.05em;line-height:.95;font-variant-numeric:tabular-nums}
+.res .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.res .msg{font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,44px);letter-spacing:-.03em;line-height:1.05}
+.rows{display:grid;gap:8px}
+.gr{display:grid;grid-template-columns:1fr 84px 104px 70px 36px;gap:6px;align-items:center}
+.cr{display:grid;grid-template-columns:1fr 90px 90px 36px;gap:6px;align-items:center}
+input,select{font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);width:100%;min-width:0}
+select{appearance:none;-webkit-appearance:none;padding-right:26px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;background-size:14px}
+.x{width:36px;height:36px;border-radius:999px;border:0;background:var(--paper);color:var(--ink2);font-size:18px;cursor:pointer;justify-self:end}
+.x:hover{color:var(--ink)}
+.hint{font-size:14px;color:var(--ink2)}
+.btn.sm{padding:9px 14px;font-size:14px}
+.set{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px}
+.set input{width:76px;padding:7px 10px}
+.fl{display:grid;gap:10px}
+.fl label{display:grid;gap:6px;font-weight:600;font-size:14px}
+.head{display:grid;grid-template-columns:1fr 84px 104px 70px 36px;gap:6px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);padding-inline:4px}
+.head.c{grid-template-columns:1fr 90px 90px 36px}
+@media (max-width:520px){.gr{grid-template-columns:1fr 70px 36px;grid-template-areas:"n g x" "l c x"}.gr .n{grid-area:n}.gr .g{grid-area:g}.gr .l{grid-area:l}.gr .c{grid-area:c}.gr .x{grid-area:x}.head{display:none}.cr{grid-template-columns:1fr 72px 72px 36px}input,select{padding:9px 10px;font-size:15px}}
+</style>
+</head>
+<body data-page="tools">
+<main class="wrap">
+<section class="phead"><span class="blob"></span><h1>GPA &amp; Grades</h1><p>Your GPA, what you need on the final, and weighted averages. Nothing leaves your phone.</p></section>
+<div class="tabs" role="tablist"><button data-t="gpa" aria-pressed="true">GPA</button><button data-t="final" aria-pressed="false">Final grade</button><button data-t="avg" aria-pressed="false">Weighted average</button></div>
+
+<!-- Tab 1: GPA -->
+<div class="bento" id="t-gpa">
+  <section class="b s6 moss res wide-m" aria-live="polite">
+    <span class="blob"></span>
+    <div class="two"><div><span class="lbl">Unweighted</span><div class="big" id="unw">0.00</div></div><div><span class="lbl">Weighted</span><div class="big" id="wt">0.00</div></div></div>
+    <span class="muted" id="gsum">Add your classes below.</span>
+  </section>
+  <section class="b s6 wide-m">
+    <span class="lbl">Classes</span>
+    <div class="head"><span>Class</span><span>Grade</span><span>Level</span><span>Credits</span><span></span></div>
+    <div class="rows" id="grows"></div>
+    <div class="row"><button class="btn light sm" id="gadd">Add class</button><button class="btn ghost sm" id="gclear">Clear</button></div>
+    <div class="set"><span>Bumps:</span><label>Honors +<input id="bh" type="number" step="0.1" min="0" max="2" inputmode="decimal"></label><label>AP +<input id="ba" type="number" step="0.1" min="0" max="2" inputmode="decimal"></label></div>
+    <p class="hint">A = 4.0, B = 3.0, C = 2.0, D = 1.0, F = 0; plus or minus moves it 0.3 (A+ stays 4.0). Districts weight Honors and AP differently, so change the bumps to match your school. Credits are per class (use 1 for a full year, 0.5 for a semester).</p>
+  </section>
+</div>
+
+<!-- Tab 2: Final grade -->
+<div class="bento" id="t-final" hidden>
+  <section class="b s3 wide-m">
+    <span class="lbl">Final grade</span>
+    <div class="fl">
+      <label>Current grade %<input id="fcur" type="number" min="0" max="150" step="0.1" inputmode="decimal" placeholder="88"></label>
+      <label>Final exam weight %<input id="fw" type="number" min="1" max="100" step="1" inputmode="decimal" placeholder="20"></label>
+      <label>Grade I want %<input id="ftar" type="number" min="0" max="150" step="0.1" inputmode="decimal" placeholder="90"></label>
+    </div>
+    <p class="hint">Formula: (target − current × (1 − weight)) ÷ weight.</p>
+  </section>
+  <section class="b s3 moss res wide-m" aria-live="polite">
+    <span class="blob"></span>
+    <span class="lbl">You need</span>
+    <div class="big" id="fneed">—</div>
+    <div class="msg" id="fmsg" hidden></div>
+    <span class="muted" id="fsub">Fill in the three numbers.</span>
+  </section>
+</div>
+
+<!-- Tab 3: Weighted average -->
+<div class="bento" id="t-avg" hidden>
+  <section class="b s6 moss res wide-m" aria-live="polite">
+    <span class="blob"></span>
+    <span class="lbl">Weighted average</span>
+    <div class="big" id="avg">—</div>
+    <span class="muted" id="asum">Add categories with their weight and your score.</span>
+  </section>
+  <section class="b s6 wide-m">
+    <span class="lbl">Categories</span>
+    <div class="head c"><span>Category</span><span>Weight %</span><span>Score %</span><span></span></div>
+    <div class="rows" id="crows"></div>
+    <div class="row"><button class="btn light sm" id="cadd">Add category</button><button class="btn ghost sm" id="cclear">Clear</button></div>
+    <p class="hint">Weights do not have to add to 100; I divide by the total weight you entered.</p>
+  </section>
+</div>
+</main>
+<script src="/assets/site.js?v=20261006"></script>
+<script>
+const S=window.SITE;
+const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}};
+const $=id=>document.getElementById(id);
+const jget=(k,d)=>{try{const v=JSON.parse(ls(k)||'null');return v==null?d:v}catch(e){return d}};
+
+// tabs
+document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(!b)return;document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-pressed',x===b));['gpa','final','avg'].forEach(t=>$('t-'+t).hidden=t!==b.dataset.t);ls('gpa_tab',b.dataset.t)});
+{const t=ls('gpa_tab');const b=document.querySelector(`.tabs [data-t="${t}"]`);if(b&&t!=='gpa')b.click()}
+
+// ── GPA ──
+const GRADES=['A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F'];
+const PTS={'A+':4,'A':4,'A-':3.7,'B+':3.3,'B':3,'B-':2.7,'C+':2.3,'C':2,'C-':1.7,'D+':1.3,'D':1,'D-':0.7,'F':0};
+const LEVELS=['Regular','Honors','AP'];
+let bumps=jget('gpa_bumps',{h:0.5,a:1});if(typeof bumps.h!=='number')bumps.h=0.5;if(typeof bumps.a!=='number')bumps.a=1;
+let grows=jget('gpa_rows',null);if(!Array.isArray(grows)||!grows.length)grows=[{n:'',g:'A',l:'Regular',c:1},{n:'',g:'A',l:'Regular',c:1},{n:'',g:'A',l:'Regular',c:1},{n:'',g:'A',l:'Regular',c:1}];
+$('bh').value=bumps.h;$('ba').value=bumps.a;
+const opts=(arr,v)=>arr.map(x=>`<option${x===v?' selected':''}>${x}</option>`).join('');
+function renderG(){$('grows').innerHTML=grows.map((r,i)=>`<div class="gr"><input class="n" type="text" placeholder="Class ${i+1}" value="${S.esc(r.n||'')}" data-i="${i}" data-k="n" aria-label="Class name"><select class="g" data-i="${i}" data-k="g" aria-label="Grade">${opts(GRADES,r.g)}</select><select class="l" data-i="${i}" data-k="l" aria-label="Level">${opts(LEVELS,r.l)}</select><input class="c" type="number" min="0" max="10" step="0.5" inputmode="decimal" value="${+r.c||0}" data-i="${i}" data-k="c" aria-label="Credits"><button class="x" data-del="${i}" aria-label="Remove">×</button></div>`).join('');calcG()}
+function calcG(){
+  let cr=0,u=0,w=0,n=0;
+  for(const r of grows){const c=+r.c||0;if(!(c>0)||!(r.g in PTS))continue;const p=PTS[r.g];let b=0;if(p>0)b=r.l==='Honors'?bumps.h:r.l==='AP'?bumps.a:0;cr+=c;u+=p*c;w+=(p+b)*c;n++}
+  $('unw').textContent=cr?(u/cr).toFixed(2):'0.00';$('wt').textContent=cr?(w/cr).toFixed(2):'0.00';
+  $('gsum').textContent=cr?n+(n===1?' class, ':' classes, ')+cr+' credits':'Add your classes below.';
+  ls('gpa_rows',JSON.stringify(grows));ls('gpa_bumps',JSON.stringify(bumps));
+}
+$('grows').addEventListener('input',e=>{const i=+e.target.dataset.i,k=e.target.dataset.k;if(!grows[i])return;grows[i][k]=k==='c'?+e.target.value:e.target.value;calcG()});
+$('grows').addEventListener('change',e=>{const i=+e.target.dataset.i,k=e.target.dataset.k;if(!grows[i])return;grows[i][k]=k==='c'?+e.target.value:e.target.value;calcG()});
+$('grows').addEventListener('click',e=>{const b=e.target.closest('[data-del]');if(!b)return;grows.splice(+b.dataset.del,1);renderG()});
+$('gadd').onclick=()=>{grows.push({n:'',g:'A',l:'Regular',c:1});renderG();const ins=$('grows').querySelectorAll('input.n');ins[ins.length-1].focus()};
+$('gclear').onclick=()=>{grows=[{n:'',g:'A',l:'Regular',c:1}];renderG()};
+$('bh').addEventListener('input',()=>{bumps.h=+$('bh').value||0;calcG()});
+$('ba').addEventListener('input',()=>{bumps.a=+$('ba').value||0;calcG()});
+renderG();
+
+// ── Final grade ──
+const fin=jget('gpa_final',{});['fcur','fw','ftar'].forEach(id=>{if(fin[id]!=null)$(id).value=fin[id];$(id).addEventListener('input',calcF)});
+function calcF(){
+  const cur=parseFloat($('fcur').value),w=parseFloat($('fw').value)/100,tar=parseFloat($('ftar').value);
+  ls('gpa_final',JSON.stringify({fcur:$('fcur').value,fw:$('fw').value,ftar:$('ftar').value}));
+  const need=$('fneed'),msg=$('fmsg'),sub=$('fsub');
+  if(!(w>0&&w<=1)||isNaN(cur)||isNaN(tar)){need.hidden=false;msg.hidden=true;need.textContent='—';sub.textContent='Fill in the three numbers.';return}
+  const x=(tar-cur*(1-w))/w;
+  if(x<=0){need.hidden=true;msg.hidden=false;msg.textContent='You are already safe';sub.textContent='Even a 0 on the final leaves you at '+(cur*(1-w)).toFixed(1)+'%. Still show up.'}
+  else if(x>100){need.hidden=true;msg.hidden=false;msg.textContent='Not possible without extra credit';sub.textContent='You would need '+x.toFixed(1)+'% on the final. A 100 gets you to '+(cur*(1-w)+100*w).toFixed(1)+'%.'}
+  else{need.hidden=false;msg.hidden=true;need.textContent=x.toFixed(1)+'%';sub.textContent=x>90?'On the final. Tough but doable.':x>70?'On the final. Very doable.':'On the final. You have room.'}
+}
+calcF();
+
+// ── Weighted average ──
+let crows=jget('gpa_cats',null);if(!Array.isArray(crows)||!crows.length)crows=[{n:'Tests',w:50,s:''},{n:'Homework',w:30,s:''},{n:'Participation',w:20,s:''}];
+function renderC(){$('crows').innerHTML=crows.map((r,i)=>`<div class="cr"><input type="text" placeholder="Category" value="${S.esc(r.n||'')}" data-i="${i}" data-k="n" aria-label="Category"><input type="number" min="0" max="100" step="1" inputmode="decimal" placeholder="%" value="${r.w===''?'':+r.w}" data-i="${i}" data-k="w" aria-label="Weight"><input type="number" min="0" max="150" step="0.1" inputmode="decimal" placeholder="%" value="${r.s===''||r.s==null?'':+r.s}" data-i="${i}" data-k="s" aria-label="Score"><button class="x" data-del="${i}" aria-label="Remove">×</button></div>`).join('');calcC()}
+function calcC(){let tw=0,t=0;for(const r of crows){const w=parseFloat(r.w),s=parseFloat(r.s);if(!(w>0)||isNaN(s))continue;tw+=w;t+=w*s}
+  $('avg').textContent=tw?(t/tw).toFixed(1)+'%':'—';$('asum').textContent=tw?'Weights total '+tw+'%'+(Math.abs(tw-100)>0.01?' (not 100, so I scaled them)':''):'Add categories with their weight and your score.';ls('gpa_cats',JSON.stringify(crows))}
+$('crows').addEventListener('input',e=>{const i=+e.target.dataset.i,k=e.target.dataset.k;if(!crows[i])return;crows[i][k]=e.target.value;calcC()});
+$('crows').addEventListener('click',e=>{const b=e.target.closest('[data-del]');if(!b)return;crows.splice(+b.dataset.del,1);renderC()});
+$('cadd').onclick=()=>{crows.push({n:'',w:'',s:''});renderC()};
+$('cclear').onclick=()=>{crows=[{n:'',w:'',s:''}];renderC()};
+renderC();
+</script>
+</body>
+</html>

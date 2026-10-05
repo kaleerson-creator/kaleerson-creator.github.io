@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Countdown · Kale Erson</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<meta name="theme-color" content="#EEF0EA">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Countdown · Kale Erson">
+<meta property="og:description" content="A big countdown to any date you pick, shareable by link.">
+<meta property="og:url" content="https://kaleerson.com/countdown/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="A big countdown to any date you pick, shareable by link.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261006">
+<style>
+.phead .blob{background:var(--peach)}
+.hero{min-height:320px}
+.hero .blob{width:60%;aspect-ratio:1;right:-20%;bottom:-40%;background:#ffffff66}
+.hero h2{font-size:clamp(30px,4vw,52px);overflow-wrap:anywhere}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.nums div{text-align:center}
+.nums b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(40px,8vw,104px);letter-spacing:-.05em;line-height:.95;font-variant-numeric:tabular-nums}
+.nums span{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2)}
+.ago{font-family:var(--display);font-weight:800;font-size:clamp(34px,6vw,72px);letter-spacing:-.04em;line-height:1;margin-top:10px}
+.form{display:grid;gap:10px}
+.form label{display:grid;gap:6px;font-weight:600;font-size:14px}
+.form input{font:inherit;font-size:16px;padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);width:100%;min-width:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chips button{font:inherit;font-size:13px;font-weight:600;padding:8px 13px;border-radius:999px;border:0;background:var(--paper);color:var(--ink);cursor:pointer}
+.chips button:hover{background:var(--line)}
+.saved{display:grid;gap:2px}
+.saved .it{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.saved .it:first-child{border-top:0}
+.saved a{flex:1;min-width:0}
+.saved b{font-family:var(--display);font-size:18px;letter-spacing:-.02em;font-weight:700;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.saved small{color:var(--ink2);font-size:13px}
+.x{width:36px;height:36px;border-radius:999px;border:0;background:var(--paper);color:var(--ink2);font-size:18px;cursor:pointer;flex:none}
+.hint{font-size:14px;color:var(--ink2)}
+.btn.sm{padding:9px 14px;font-size:14px}
+</style>
+</head>
+<body data-page="tools">
+<main class="wrap">
+<section class="phead"><span class="blob"></span><h1>Countdown</h1><p>Count down to anything and send the link to a friend.</p></section>
+<div class="bento">
+  <section class="b s6 peach hero wide-m" aria-live="polite">
+    <span class="blob"></span>
+    <span class="lbl" id="when">Until</span>
+    <h2 id="ttl">New Year</h2>
+    <div class="nums" id="nums"><div><b id="d">0</b><span>days</span></div><div><b id="h">0</b><span>hours</span></div><div><b id="m">0</b><span>min</span></div><div><b id="s">0</b><span>sec</span></div></div>
+    <div class="ago" id="ago" hidden></div>
+    <div class="row" style="margin-top:14px"><button class="btn sm" id="copy">Copy link</button><button class="btn light sm" id="save">Save</button></div>
+  </section>
+
+  <section class="b s3 wide-m">
+    <span class="lbl">Make your own</span>
+    <form class="form" id="f">
+      <label>Title<input id="ftitle" type="text" maxlength="60" placeholder="Spring break" autocomplete="off"></label>
+      <div class="two"><label>Date<input id="fdate" type="date" required></label><label>Time <span class="hint">(optional)</span><input id="ftime" type="time"></label></div>
+    </form>
+    <div class="row chips" id="chips" style="margin-top:4px"></div>
+    <p class="hint">Presets are a starting point; change the date if yours is different.</p>
+  </section>
+
+  <section class="b s3 wide-m">
+    <span class="lbl">Saved</span>
+    <div class="saved" id="list"></div>
+    <p class="hint" id="empty">Nothing saved yet. Press Save on a countdown to keep it here.</p>
+  </section>
+</div>
+</main>
+<script src="/assets/site.js?v=20261006"></script>
+<script>
+const S=window.SITE;
+const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}};
+const $=id=>document.getElementById(id);
+const pad=n=>String(n).padStart(2,'0');
+const iso=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+
+// state: to = 'YYYY-MM-DD' or 'YYYY-MM-DDTHH:MM' (local time), title
+let to='',title='';
+function parseTo(v){const m=/^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?$/.exec(v||'');if(!m)return null;const d=new Date(+m[1],+m[2]-1,+m[3],m[4]?+m[4]:0,m[5]?+m[5]:0,0,0);return isNaN(d)?null:d}
+function fromUrl(){
+  const q=new URLSearchParams(location.search),h=new URLSearchParams(location.hash.replace(/^#\??/,''));
+  const t=q.get('to')||h.get('to'),n=q.get('title')||h.get('title');
+  if(t&&parseTo(t)){to=t;title=(n||'').slice(0,60)}
+}
+function presets(){
+  const now=new Date();
+  let ny=new Date(now.getFullYear()+1,0,1);
+  let fri=new Date(now);fri.setHours(15,0,0,0);let add=(5-fri.getDay()+7)%7;if(add===0&&fri<=now)add=7;fri.setDate(fri.getDate()+add);
+  let sum=new Date(now.getFullYear(),5,1);if(sum<=now)sum=new Date(now.getFullYear()+1,5,1);
+  return[{t:'New Year',to:iso(ny)},{t:'Friday 3pm',to:iso(fri)+'T15:00'},{t:'Summer',to:iso(sum)}];
+}
+function setState(t,n,push){to=t;title=n;const u=new URL(location.href);u.search='';u.hash='';u.searchParams.set('to',to);if(title)u.searchParams.set('title',title);history.replaceState(null,'',u);fill();tick()}
+function fill(){const d=parseTo(to);$('ftitle').value=title;$('fdate').value=d?iso(d):'';$('ftime').value=(/T/.test(to)&&d)?pad(d.getHours())+':'+pad(d.getMinutes()):''}
+function fromForm(){const d=$('fdate').value,t=$('ftime').value;if(!/^\d{4}-\d{2}-\d{2}$/.test(d)||!parseTo(d))return;setState(t?d+'T'+t:d,$('ftitle').value.trim().slice(0,60))}
+$('f').addEventListener('input',fromForm);
+$('f').addEventListener('submit',e=>{e.preventDefault();fromForm()});
+
+function tick(){
+  const d=parseTo(to);if(!d)return;
+  const name=title||'the day';
+  $('ttl').textContent=name;
+  const diff=d-Date.now();
+  const dateStr=d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'})+(/T/.test(to)?' · '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'');
+  if(diff<=0){
+    const days=Math.floor(-diff/864e5);
+    $('nums').hidden=true;$('ago').hidden=false;$('when').textContent=dateStr;
+    $('ago').textContent=days===0?'That is today':'That was '+days+(days===1?' day ago':' days ago');
+    document.title=name+' · Countdown · Kale Erson';
+    return;
+  }
+  $('nums').hidden=false;$('ago').hidden=true;$('when').textContent='Until '+dateStr;
+  const s=Math.floor(diff/1000);
+  const dd=Math.floor(s/86400),hh=Math.floor(s%86400/3600),mm=Math.floor(s%3600/60),ss=s%60;
+  $('d').textContent=dd;$('h').textContent=hh;$('m').textContent=mm;$('s').textContent=ss;
+  document.title=dd+'d '+hh+'h '+mm+'m · '+name+' · Kale Erson';
+}
+
+// copy link
+function note(btn,msg){if(S&&S.toast){S.toast(msg);return}const t=btn.textContent;btn.textContent=msg;setTimeout(()=>btn.textContent=t,1400)}
+$('copy').onclick=async()=>{const url=location.href;let ok=false;try{await navigator.clipboard.writeText(url);ok=true}catch(e){try{const ta=document.createElement('textarea');ta.value=url;document.body.append(ta);ta.select();ok=document.execCommand('copy');ta.remove()}catch(e2){}}note($('copy'),ok?'Copied':'Could not copy')};
+
+// saved list
+let list=[];try{list=JSON.parse(ls('countdown_list')||'[]');if(!Array.isArray(list))list=[]}catch(e){list=[]}
+function renderList(){
+  list=list.filter(x=>x&&parseTo(x.to));
+  $('empty').hidden=!!list.length;
+  $('list').innerHTML=list.map((x,i)=>{const d=parseTo(x.to),days=Math.ceil((d-Date.now())/864e5);return`<div class="it"><a href="?to=${encodeURIComponent(x.to)}${x.title?'&title='+encodeURIComponent(x.title):''}" data-i="${i}"><b>${S.esc(x.title||'Untitled')}</b><small>${d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})} · ${days>0?days+' days left':days===0?'today':(-days)+' days ago'}</small></a><button class="x" data-del="${i}" aria-label="Remove">×</button></div>`}).join('');
+}
+$('list').addEventListener('click',e=>{const b=e.target.closest('[data-del]');if(b){list.splice(+b.dataset.del,1);ls('countdown_list',JSON.stringify(list));renderList();return}const a=e.target.closest('a[data-i]');if(a){e.preventDefault();const x=list[+a.dataset.i];setState(x.to,x.title||'');window.scrollTo({top:0,behavior:'smooth'})}});
+$('save').onclick=()=>{if(!parseTo(to))return;if(!list.some(x=>x.to===to&&(x.title||'')===title))list.unshift({to,title});list=list.slice(0,30);ls('countdown_list',JSON.stringify(list));renderList();note($('save'),'Saved')};
+
+// presets
+$('chips').innerHTML=presets().map((p,i)=>`<button type="button" data-p="${i}">${p.t}</button>`).join('');
+$('chips').addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(!b)return;const p=presets()[+b.dataset.p];setState(p.to,p.t)});
+
+fromUrl();
+if(!to){const p=presets()[0];to=p.to;title=p.t}
+fill();tick();renderList();
+setInterval(tick,1000);
+</script>
+</body>
+</html>
