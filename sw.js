@@ -3,7 +3,7 @@
 // - /assets/, /edu/assets/ and /edu/<game>/: cached copy first, refreshed in the background.
 // - Never caches account, admin, join or contact pages, or anything from Supabase.
 // Bump VERSION whenever the precache list or the strategy changes; old caches are deleted on activate.
-var VERSION = 'kale-v1';
+var VERSION = 'kale-v2';
 var PRECACHE = ['/', '/edu/', '/404.html', '/assets/site.css', '/assets/site.js', '/assets/art.js', '/assets/content.js', '/edu/assets/common.js', '/edu/assets/games.css'];
 
 self.addEventListener('install', function (e) {

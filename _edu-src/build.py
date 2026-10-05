@@ -32,7 +32,7 @@ HEAD = '''<!DOCTYPE html>
 </body>
 </html>
 '''
-V = '4'
+V = '5'
 for f in sorted(glob.glob(os.path.join(SRC, '*.page'))):
     parts = dict(re.findall(r'^@@ (\w+)\n(.*?)(?=^@@ |\Z)', open(f).read(), re.S | re.M))
     meta = dict(l.split(': ', 1) for l in parts.get('meta', '').strip().splitlines() if l.strip())
