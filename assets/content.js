@@ -30,7 +30,7 @@ window.CONTENT = {
     { name: 'Stopwatch',     art: 'stopwatch', href: '/stopwatch/', color: 'moss',   tag: 'Timer',   note: 'Laps and splits, keeps running in the background', open: true, quick: true }
   ],
   updates: [
-    { date: '2026-10', tag: 'Product', title: 'Online Battleship and RPS, forum upvotes, deck import, flow sheet upgrades, three more tools', href: '/tools/' },
+    { date: '2026-10', tag: 'Product', title: 'Round 2: Battleship online, forum hearts, deck import, more tools', href: '/tools/' },
     { date: '2026-10', tag: 'Launch', title: 'Nine new games, eight quick tools, sharing and streaks', href: '/tools/',
       body: 'Speed Math, Reaction Time, Memory Match, Blocks, Breakout, Flap, Hangman, Simon and Connect Four, plus Bell Schedule, Countdown, GPA, Picker, Focus Timer, Citations, QR Codes and Word Counter.' },
     { date: '2026-10', tag: 'Product', title: 'Snapwit and LD Timer opened to members', href: '/tools/' },
