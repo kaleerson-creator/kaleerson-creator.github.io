@@ -69,14 +69,14 @@
   }
 
   var st = document.createElement('script');
-  st.src = '/assets/stats.js?v=20261007';
+  st.src = '/assets/stats.js?v=20261008';
   st.defer = true;
   document.head.append(st);
   window.SITE_THEME = themeApi;
 
   // Pictures for the clickable boxes (elements with data-art="…"); see /assets/art.js.
   var art = document.createElement('script');
-  art.src = '/assets/art.js?v=2';
+  art.src = '/assets/art.js?v=3';
   art.defer = true;
   document.head.append(art);
 
@@ -102,6 +102,38 @@
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || /^(localhost|127\.0\.0\.1)$/.test(location.hostname))) {
     window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });
   }
+
+  // ── Accent color (per device, localStorage "accent"). The head script sets html[data-accent] before
+  // paint; this keeps it in step when it changes. '' = default look. ──
+  var ACCENTS = ['moss', 'sky', 'peach', 'butter', 'lilac'];
+  var cap = function (s) { return s.charAt(0).toUpperCase() + s.slice(1); };
+  var accentNow = function () { var a = ls('accent'); return ACCENTS.indexOf(a) >= 0 ? a : ''; };
+  var applyAccent = function (a) {
+    if (a) document.documentElement.dataset.accent = a; else delete document.documentElement.dataset.accent;
+    document.dispatchEvent(new CustomEvent('accentchange'));
+  };
+  var setAccent = function (a) { a = ACCENTS.indexOf(a) >= 0 ? a : ''; ls('accent', a || null); applyAccent(a); };
+  var accentTitle = function () { return 'Accent: ' + (accentNow() ? cap(accentNow()) : 'Default'); };
+  if (accentNow() !== (document.documentElement.dataset.accent || '')) applyAccent(accentNow());
+  window.SITE_ACCENT = { get: accentNow, set: setAccent, list: ACCENTS.slice() };
+  var toggleTheme = function () {
+    if (themeApi) { var next = { auto: 'dark', dark: 'light', light: 'auto' }[themeApi.get()]; themeApi.set(next); window.SITE.toast('Theme: ' + cap(next)); }
+    else window.SITE.toast('This page keeps its own look.');
+  };
+
+  // ── "What's new": a dot on the Updates link until the visitor opens /updates/. The newest entry comes
+  // from content.js when the page loads it, otherwise from the copy remembered on an earlier page. ──
+  var latest = null;
+  try { var u0 = window.CONTENT && CONTENT.updates && CONTENT.updates[0]; if (u0 && u0.date) latest = { date: String(u0.date), title: String(u0.title || '') }; } catch (e) {}
+  if (latest) ls('latest_update', JSON.stringify(latest)); else { try { latest = JSON.parse(ls('latest_update') || 'null'); } catch (e) { latest = null; } }
+  var unseen = false;
+  if (latest && latest.date) {
+    var seen = ls('seen_update') || '', seenT = ls('seen_update_t') || '';
+    unseen = seen < latest.date || (seen === latest.date && seenT !== latest.title);
+    if (page === 'updates') { ls('seen_update', latest.date); ls('seen_update_t', latest.title); unseen = false; }
+  }
+  window.SITE_NEW = unseen ? latest : null;
+  if (unseen) nav.querySelectorAll('.links a[href="/updates/"]').forEach(function (a) { a.title = 'Something new'; a.insertAdjacentHTML('beforeend', '<i class="newdot" aria-hidden="true"></i>'); });
 
   // ── Command palette: search button in the header or Ctrl/Cmd+K. ──
   var G = 'Game', T = 'Tool', P = 'Page';
@@ -147,8 +179,13 @@
     ['Citations', '/cite/', T, 'mla apa cite bibliography'],
     ['QR Codes', '/qr/', T, 'qr code link'],
     ['Word Counter', '/words/', T, 'characters reading time readability'],
+    ['Whiteboard', '/draw/', T, 'draw sketch annotate png'],
+    ['Unit Converter', '/convert/', T, 'convert length weight temperature speed units'],
+    ['Stopwatch', '/stopwatch/', T, 'laps splits timer'],
     ['Privacy', '/privacy/', P, 'cookie policy'],
     ['Toggle theme', '#theme', 'Action', 'dark light mode auto'],
+    [accentTitle(), '#accent', 'Action', 'accent color pastel moss sky peach butter lilac'],
+    ['Keyboard shortcuts', '#help', 'Action', 'keys hotkeys help ?'],
     ['Random game', '#random', 'Action', 'surprise me play something']
   ].map(function (r) { return { t: r[0], h: r[1], g: r[2], k: (r[0] + ' ' + r[3]).toLowerCase() }; });
   var GAMES = INDEX.filter(function (i) { return i.g === G; });
@@ -229,12 +266,16 @@
   };
   var go = function (it) {
     if (!it) return;
-    if (it.h === '#theme') {
+    if (it.h === '#theme') { close(); toggleTheme(); return; }
+    if (it.h === '#accent') {
       close();
-      if (themeApi) { var next = { auto: 'dark', dark: 'light', light: 'auto' }[themeApi.get()]; themeApi.set(next); window.SITE.toast('Theme: ' + next.charAt(0).toUpperCase() + next.slice(1)); }
-      else window.SITE.toast('This page keeps its own look.');
+      var ai = ACCENTS.indexOf(accentNow());
+      setAccent(ai < 0 ? ACCENTS[0] : ACCENTS[ai + 1] || '');
+      it.t = accentTitle(); it.k = (it.t + ' accent color pastel moss sky peach butter lilac').toLowerCase();
+      window.SITE.toast(accentTitle());
       return;
     }
+    if (it.h === '#help') { close(); helpOpen(); return; }
     if (it.h === '#random') { it = GAMES[Math.floor(Math.random() * GAMES.length)]; }
     remember(it.h);
     close();
@@ -263,6 +304,67 @@
     if ((e.ctrlKey || e.metaKey) && !e.altKey && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); pal.hidden ? open() : close(); }
   });
   window.SITE_PALETTE = { open: open, close: close };
+
+  // ── Keyboard shortcuts: ? help, g then h/g/t/f, t theme. Off while typing, while the palette is open,
+  // and on game pages (they use the letter keys). ──
+  var help = document.createElement('div');
+  help.className = 'pal site-ui kbd-help';
+  help.hidden = true;
+  help.innerHTML = '<div class="pal-bg"></div><div class="pal-box" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">' +
+    '<div class="pal-top"><span>Keyboard shortcuts</span><button type="button" class="pal-x" aria-label="Close">✕</button></div><ul class="keys">' +
+    [['Search', '<kbd>Ctrl</kbd><kbd>K</kbd>'], ['Home', '<kbd>g</kbd> then <kbd>h</kbd>'], ['Games', '<kbd>g</kbd> then <kbd>g</kbd>'], ['Tools', '<kbd>g</kbd> then <kbd>t</kbd>'],
+      ['Forum', '<kbd>g</kbd> then <kbd>f</kbd>'], ['Theme', '<kbd>t</kbd>'], ['This help', '<kbd>?</kbd>']].map(function (r) { return '<li><span>' + r[0] + '</span><span>' + r[1] + '</span></li>'; }).join('') +
+    '</ul></div>';
+  document.body.append(help);
+  var helpFocus = null;
+  var helpClose = function () {
+    if (help.hidden) return;
+    help.hidden = true;
+    document.body.classList.remove('pal-open');
+    if (helpFocus && helpFocus.focus) { try { helpFocus.focus(); } catch (e) {} }
+  };
+  var helpOpen = function () {
+    if (!help.hidden) { helpClose(); return; }
+    close();
+    helpFocus = document.activeElement;
+    help.hidden = false;
+    document.body.classList.add('pal-open');
+    help.querySelector('.pal-x').focus();
+  };
+  help.querySelector('.pal-bg').addEventListener('click', helpClose);
+  help.querySelector('.pal-x').addEventListener('click', helpClose);
+  window.SITE_HELP = { open: helpOpen, close: helpClose };
+  var typing = function (e) { var t = e.target; return !!(t && t.closest && t.closest('input,textarea,select,[contenteditable]:not([contenteditable=false])')); };
+  var keysOk = !document.body.hasAttribute('data-game') && !/^\/(snapwit|edu\/play)\//.test(location.pathname);
+  var CHORDS = { h: '/', g: '/edu/', t: '/tools/', f: '/forum/' };
+  var chord = 0;
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !help.hidden) { e.preventDefault(); helpClose(); return; }
+    if (e.defaultPrevented || e.repeat || e.ctrlKey || e.metaKey || e.altKey || typing(e) || !pal.hidden) return;
+    if (e.key === '?') { e.preventDefault(); helpOpen(); return; }
+    if (!help.hidden || !keysOk) return;
+    if (chord) {
+      clearTimeout(chord); chord = 0;
+      var to = CHORDS[e.key];
+      if (to) { e.preventDefault(); location.href = to; }
+      return;
+    }
+    if (e.key === 'g') { chord = setTimeout(function () { chord = 0; }, 1500); return; }
+    if (e.key === 't') toggleTheme();
+  });
+
+  // ── Konami code: confetti, a little bounce, nothing else. ──
+  var KONAMI = 'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a', kbuf = [];
+  document.addEventListener('keydown', function (e) {
+    kbuf.push(e.key.length === 1 ? e.key.toLowerCase() : e.key);
+    if (kbuf.length > 10) kbuf.shift();
+    if (kbuf.join() !== KONAMI) return;
+    kbuf = [];
+    window.SITE.confetti();
+    var blob = nav.querySelector('.logo i');
+    if (blob) { blob.classList.remove('bounce'); void blob.offsetWidth; blob.classList.add('bounce'); setTimeout(function () { blob.classList.remove('bounce'); }, 2100); }
+    window.SITE.toast('You found it.');
+  });
 })();
 
 window.SITE = {
@@ -273,6 +375,14 @@ window.SITE = {
   // Theme for the account settings page: SITE.theme() -> 'auto' | 'dark' | 'light'; SITE.setTheme(t).
   theme: function () { return window.SITE_THEME ? SITE_THEME.get() : 'auto'; },
   setTheme: function (t) { if (window.SITE_THEME) SITE_THEME.set(t); },
+  // Accent for the settings page: SITE.accent() -> '' | 'moss' | 'sky' | 'peach' | 'butter' | 'lilac'; SITE.setAccent(a); SITE.accents.
+  accent: function () { return window.SITE_ACCENT ? SITE_ACCENT.get() : ''; },
+  setAccent: function (a) { if (window.SITE_ACCENT) SITE_ACCENT.set(a); },
+  accents: window.SITE_ACCENT ? SITE_ACCENT.list : ['moss', 'sky', 'peach', 'butter', 'lilac'],
+  // The newest update ({date,title}) when this visitor has not opened /updates/ since it was posted, else null.
+  newUpdate: window.SITE_NEW || null,
+  // Keyboard shortcuts overlay (same as pressing ?).
+  help: function () { if (window.SITE_HELP) SITE_HELP.open(); },
   setName: function (n) {
     try { n ? localStorage.setItem('site_name', n) : localStorage.removeItem('site_name'); } catch (e) {}
     var a = document.querySelector('.navcta'); if (a && n) a.textContent = n;

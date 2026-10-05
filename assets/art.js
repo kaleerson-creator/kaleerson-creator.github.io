@@ -92,6 +92,13 @@
     qr: rect(8, 8, 104, 104, 12) + rect(18, 18, 28, 28, 5) + rect(27, 27, 10, 10, 2, 'var(--ink)') + rect(74, 18, 28, 28, 5) + rect(83, 27, 10, 10, 2, 'var(--ink)') + rect(18, 74, 28, 28, 5) + rect(27, 83, 10, 10, 2, 'var(--ink)') +
       (function () { var s = '', M = [[54, 20], [62, 28], [54, 36], [62, 44], [20, 54], [36, 54], [54, 54], [70, 54], [86, 54], [54, 70], [62, 78], [78, 70], [94, 78], [54, 86], [70, 94], [86, 94], [94, 86]]; for (var i = 0; i < M.length; i++) s += rect(M[i][0], M[i][1], 8, 8, 2, 'var(--ink)').replace(S, 'stroke="none"'); return s; })(),
     words: rect(14, 8, 92, 104, 12) + lines(26, 26, 66, 5) + rect(50, 78, 50, 26, 13, Y) + t(75, 96, '128', 15, '#141613'),
+    draw: rect(6, 14, 108, 78, 10) + rect(44, 98, 32, 8, 4, 'var(--ink)') + path('M60 92v6', 'none') +
+      path('M20 66c8-26 20-26 30-6s20 22 30-6', 'none').replace('stroke-width="3"', 'stroke-width="6"').replace('var(--ink)', B) +
+      circ(88, 36, 11, 'none').replace('stroke-width="3"', 'stroke-width="5"').replace('var(--ink)', R) +
+      path('M78 70l24 24 8-8-24-24z', Y) + path('M106 94l6 6-4 4-6-6z', 'var(--ink)'),
+    convert: rect(8, 40, 48, 36, 10, Y) + t(32, 65, 'km', 18, '#141613') + rect(64, 40, 48, 36, 10, B) + t(88, 65, 'mi', 18, '#fff') +
+      path('M28 24h62M80 14l10 10-10 10', 'none') + path('M92 92H30M40 82L30 92l10 10', 'none'),
+    stopwatch: stopwatch(circ(60, 42, 3.5, R) + t(60, 76, '0:42', 20) + path('M44 86h32', 'none').replace('var(--ink)', 'var(--line)')),
     // ── site ──
     search: circ(50, 50, 34) + circ(50, 50, 24, 'none').replace('stroke="var(--ink)"', 'stroke="var(--ink)" opacity=".3"') + path('M76 76l30 30', 'none').replace('stroke-width="3"', 'stroke-width="12"') + path('M36 40a16 16 0 0 1 10-10', 'none'),
     random: rect(52, 8, 56, 56, 12, R) + circ(66, 22, 5, '#fff') + circ(94, 22, 5, '#fff') + circ(80, 36, 5, '#fff') + circ(66, 50, 5, '#fff') + circ(94, 50, 5, '#fff') +

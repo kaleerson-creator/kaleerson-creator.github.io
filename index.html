@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kale Erson</title>
 <!-- meta -->
-<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261007">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
 <style>
 .hero{min-height:440px;padding:32px;justify-content:flex-end}
 .hero h1{font-size:clamp(64px,11vw,148px);line-height:.86}
@@ -44,6 +44,13 @@
 .dailies a.chip{font-size:14px;padding:8px 14px}
 .dailies .fire{opacity:1;font-weight:700}
 .today .btn{font-family:var(--body);padding:11px 18px}
+.newb{display:inline-flex;align-items:center;gap:8px;max-width:100%;padding:7px 14px 7px 10px;border-radius:999px;background:#ffffffa6;font-size:14px;font-weight:600;min-width:0}
+.newb::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent-deep,var(--peach-deep));flex:none}
+.newb b{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.newb .muted{flex:none}
+html[data-theme=dark] .newb{background:#ffffff14}
+html[data-accent] .hero .blob.a{background:var(--accent)}
+html[data-accent] .hero .btn:not(.light){background:var(--accent);color:var(--ink)}
 .plist{display:grid;gap:2px;margin-top:4px}
 .plist a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
 .plist a:first-child{border-top:0}
@@ -96,6 +103,7 @@ html[data-theme=dark] .today .blob:not(.b2){background:#ffffff18}
         </div>
         <div class="tstat">
           <span class="lbl">Today</span>
+          <a class="newb" id="whatsnew" href="/updates/" hidden><span class="muted">New</span><b></b></a>
           <div class="row dailies" id="dailies"></div>
           <div class="row"><button class="btn" id="rnd" type="button">Random game</button><a class="btn light" href="/edu/">Games</a><a class="btn light" href="/forum/">Forum</a></div>
         </div>
@@ -128,8 +136,8 @@ html[data-theme=dark] .today .blob:not(.b2){background:#ffffff18}
   </div>
 </main>
 
-<script src="/assets/content.js?v=20261007"></script>
-<script src="/assets/site.js?v=20261007"></script>
+<script src="/assets/content.js?v=20261008"></script>
+<script src="/assets/site.js?v=20261008"></script>
 <script>
 const C=window.CONTENT,S=window.SITE;
 document.querySelectorAll('.arrow:empty').forEach(a=>a.outerHTML=S.arrow);
@@ -166,6 +174,8 @@ document.getElementById('plist').innerHTML=C.projects.map(p=>`<a href="/work/"><
 // latest update
 const u=C.updates[0];
 document.getElementById('latest').insertAdjacentHTML('beforeend',`<span class="muted">${S.month(u.date)} · ${S.esc(u.tag)}</span><b>${S.esc(u.title)}</b><div class="foot"><span class="muted">All updates</span>${S.arrow}</div>`);
+// one line in the Today strip until this visitor opens /updates/
+if(S.newUpdate){const w=document.getElementById('whatsnew');w.querySelector('b').textContent=u.title;w.hidden=false}
 </script>
 </body>
 </html>

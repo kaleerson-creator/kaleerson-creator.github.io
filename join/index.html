@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Join · Kale Erson</title>
 <!-- meta -->
-<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -25,9 +25,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261007">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
 <style>
 :root{--bg:var(--paper);--bg2:var(--paper);--red:#b42318;--red-bg:#fef3f2;--green:#24502f;--green-bg:#d7ecc4;--sans:var(--body);--serif:var(--display)}
+html[data-theme=dark]{--red:#f6b6ab;--red-bg:#3d1d1a;--green:#c4e3ad;--green-bg:#22351f}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{min-height:100%}
 body{background:var(--paper)}
@@ -36,13 +37,17 @@ main.pg{max-width:440px;width:100%;margin:0 auto;padding:24px 16px 56px;flex:1}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,8vw,72px);line-height:.95;letter-spacing:-.04em}
 h1 em{font-style:normal;color:var(--ink2)}
 .lead{color:var(--ink2);margin:12px 0 14px;max-width:38ch}
-.perks{list-style:none;display:flex;gap:6px;margin:0 -16px 18px;padding:0 16px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+/* one scrolling row of chips; the fade shows there is more to the right, the spacer keeps the last chip off the edge */
+.perks{list-style:none;display:flex;gap:6px;margin:0 -16px 18px;padding:0 16px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-padding-inline:16px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 36px),transparent)}
+.perks::after{content:'';flex:none;width:24px}
 .perks::-webkit-scrollbar{display:none}
 .perks li{flex:none;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px;background:var(--card);color:var(--ink);white-space:nowrap}
 .perks li i{font-style:normal;font-size:13px}
 form{display:grid;gap:10px}
 label{font-size:13px;font-weight:500;color:var(--ink2)}
-input[type=email]{width:100%;font:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:#fff;color:var(--ink);outline:none;transition:border-color .15s}
+input[type=email],input[type=password]{width:100%;font:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);outline:none;transition:border-color .15s}
+html[data-theme=dark] input[type=email],html[data-theme=dark] input[type=password]{background:var(--field)}
 input[type=email]:focus{border-color:var(--ink)}
 .check{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink2);cursor:pointer}
 .check input{margin-top:3px;width:16px;height:16px;accent-color:var(--ink)}
@@ -149,7 +154,7 @@ input[type=email]:focus{border-color:var(--ink)}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
-<script src="/assets/site.js?v=20261007"></script>
+<script src="/assets/site.js?v=20261008"></script>
 <script>
 const $=id=>document.getElementById(id);
 const views=['v-off','v-form','v-key','v-wait','v-sent','v-in'];
