@@ -9,6 +9,8 @@
 -- 2) forum_bump: deleting a reply decremented reply_count but left last_post_at at the deleted
 --    reply's time, so the thread stayed at the top of the "active" ordering. It is now
 --    recomputed from the remaining replies (or the thread's own created_at).
+-- 3) study_posts.updated_at: posts can be edited in place now; the page shows "edited" when
+--    updated_at is later than created_at.
 
 -- ── 1) content_guard ────────────────────────────────────────────
 create or replace function public.content_guard()
@@ -52,3 +54,15 @@ begin
 end $$;
 revoke execute on function public.forum_bump() from public, anon, authenticated;
 -- The trigger forum_replies_bump (study.sql) already points at this function; nothing to recreate.
+
+-- ── 3) study_posts.updated_at ───────────────────────────────────
+alter table public.study_posts add column if not exists updated_at timestamptz;
+create or replace function public.study_posts_touch()
+returns trigger language plpgsql as $$
+begin
+  new.updated_at := now();
+  return new;
+end $$;
+revoke execute on function public.study_posts_touch() from public, anon, authenticated;
+drop trigger if exists study_posts_touch on public.study_posts;
+create trigger study_posts_touch before update on public.study_posts for each row execute function public.study_posts_touch();
