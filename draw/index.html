@@ -115,7 +115,7 @@ html[data-theme=dark] #tin{background:#ffffffcc!important;color:#141613!importan
   </section>
 </div>
 </main>
-<script src="/assets/site.js?v=20261008"></script>
+<script src="/assets/site.js?v=20261009"></script>
 <script>
 const S=window.SITE;
 const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}};
@@ -245,13 +245,14 @@ function redoOne(){if(!redo.length)return;const s=redo.pop();strokes.push(s);dra
 $('undo').onclick=undo;$('redo').onclick=redoOne;
 $('clear').onclick=()=>{if(!strokes.length&&!cur)return;if(!confirm('Clear the whole board? Undo will not bring it back.'))return;strokes=[];redo=[];cur=null;clearCanvas(lctx,lv);redraw();save();status();toast('Board cleared')};
 document.addEventListener('keydown',e=>{
-  if(e.target.matches('input,textarea,select'))return;
+  if(e.target.matches('input,textarea,select')||document.body.classList.contains('pal-open'))return;
   const k=e.key.toLowerCase();
   if((e.ctrlKey||e.metaKey)&&k==='z'){e.preventDefault();e.shiftKey?redoOne():undo();return}
   if((e.ctrlKey||e.metaKey)&&k==='y'){e.preventDefault();redoOne();return}
   if(e.ctrlKey||e.metaKey||e.altKey)return;
-  if(k==='z')undo();else if(k==='y')redoOne();else if(k==='e')setTool('eraser');else if(k==='p')setTool('pen');else if(k==='h')setTool('hl');else if(k==='t')setTool('text');
-  else if(k==='1')setSize('s');else if(k==='2')setSize('m');else if(k==='3')setSize('l');
+  const act={z:undo,y:redoOne,e:()=>setTool('eraser'),p:()=>setTool('pen'),h:()=>setTool('hl'),t:()=>setTool('text'),1:()=>setSize('s'),2:()=>setSize('m'),3:()=>setSize('l')}[k];
+  // preventDefault also tells the site shortcuts (t = theme, g then h = home) that this key is taken
+  if(act){e.preventDefault();act()}
 });
 
 // save as a picture: white paper underneath, same pixel size as the screen

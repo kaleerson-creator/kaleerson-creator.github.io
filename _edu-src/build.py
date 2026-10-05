@@ -25,7 +25,7 @@ HEAD = '''<!DOCTYPE html>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/edu/assets/common.js?v={v}c"></script>
-<script src="/assets/site.js?v=20261008"></script>
+<script src="/assets/site.js?v=20261009"></script>
 {extra}<script>
 {js}
 </script>
