@@ -136,3 +136,4 @@ It needs one secret, set in Supabase → Edge Functions → Secrets:
 3. `study3.sql` — raises the flashcard posting limit (60 a minute instead of 8) and fixes forum ordering after a reply is deleted. Run after `study.sql`, `study2.sql` and `ratings.sql`.
 4. `forum2.sql` — forum "helpful" hearts, Top sort and pinned threads. Run after `study.sql` and `study3.sql`. The forum hides those features on its own until it runs.
 5. `snapwit2.sql` — the `top_scores` function behind the Top 10 panel on Snapwit result screens. Run after `schema.sql` and `profiles2.sql`.
+6. `study4.sql` — public deck links (`study_decks.public` and the `public_deck` function). Run after `study3.sql`.
