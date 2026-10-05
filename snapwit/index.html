@@ -337,7 +337,7 @@ html,body{height:100%;overflow:hidden}
     <div class="gic"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
     <h2>Members only</h2>
     <p>Snapwit is free for members. Sign up with your email to play and see how you rank against everyone else.</p>
-    <a class="btn acc" href="/join/?next=/snapwit/">Sign up or sign in</a>
+    <a class="btn acc" id="gatejoin" href="/join/?next=/snapwit/">Sign up or sign in</a>
     <small>Already signed up? Use the same button. We'll email you a sign-in link.</small>
   </div>
 </section>
@@ -687,7 +687,7 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{tab
 
 /* ═══════════════════ SOLO RUNNER ═══════════════════ */
 let timers=[],daily=null,curGame=null;
-let chal=null;function parseChal(){chal=null;try{const m=/[#&]c=([a-z0-9]{2,20}):(-?[0-9.]+)/.exec(location.hash);if(m){const g=SOLO.find(x=>x.id===m[1]);const v=+m[2];if(g&&isFinite(v)&&v>=0)chal={id:g.id,v:g.unit==='s'?v:Math.round(v)}}}catch(e){}}parseChal();
+let chal=null;function parseChal(){chal=null;try{const m=/[#&]c=([a-z0-9]{2,20}):([0-9]+(?:\.[0-9]+)?)(?:$|&)/.exec(location.hash);if(m){const g=SOLO.find(x=>x.id===m[1]);const v=+m[2];if(g&&isFinite(v)&&v>=0)chal={id:g.id,v:g.unit==='s'?v:Math.round(v)}}}catch(e){}}parseChal();
 window.addEventListener('hashchange',()=>{parseChal();if(chal&&(!window.SB||session))openChallenge()});
 function challengeLink(g,v){return location.origin+'/snapwit/#c='+g.id+':'+v}
 async function copyText(t){try{await navigator.clipboard.writeText(t);return true}catch(e){}try{const ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.append(ta);ta.select();const ok=document.execCommand('copy');ta.remove();return ok}catch(e){return false}}
@@ -767,8 +767,8 @@ $('#pquit').addEventListener('click',()=>{clearTimers();document.querySelectorAl
 async function boot(){
   if(!window.SB){renderHome();openChallenge();return}
   const {data}=await SB.auth.getSession();session=data.session;
-  if(!session){show('gate');return}
-  $('#acct').innerHTML=' · <a href="/join/">Account</a>';
+  if(!session){$('#gatejoin').href='/join/?next='+encodeURIComponent('/snapwit/'+location.hash);show('gate');return}
+  $('#acct').innerHTML=' · <a href="/account/">Account</a>';
   renderHome();syncGlobal();openChallenge();
 }
 function openChallenge(){if(!chal)return;const g=SOLO.find(x=>x.id===chal.id);if(g)openSolo(g)}

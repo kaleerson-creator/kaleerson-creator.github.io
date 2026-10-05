@@ -620,6 +620,7 @@ function quizMode(){
 let KEYH=null,TICK=null;  // page-level keyboard handler + timer, cleared on every route change
 function learnMode(id){
   const pane=$('pane');
+  if(KEYH){removeEventListener('keydown',KEYH);KEYH=null}  // Keep going / Start over re-enter without a route change
   if(!deckCards.length){pane.innerHTML='<p class="empty">Add some cards first.</p>';return}
   const key='study_learn_'+id;
   let st=ls(key);if(!st||typeof st!=='object')st={};st.box=st.box||{};st.due=st.due||{};

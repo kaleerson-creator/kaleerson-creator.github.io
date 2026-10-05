@@ -354,7 +354,7 @@ function round(key){
     drawJudge();
   }
   /* judge view: one dark full screen with the clock, the speech and both prep clocks */
-  let JV=null,jvPushed=false;
+  let JV=null,jvPushed=false,jvPop=false;  // jvPop: our own history.back() is still in flight (its popstate must not close a freshly reopened view)
   function drawJudge(){
     if(!JV)return;const s=sp(),side=s[2],pr=run===0||run===1;
     JV.className='judge sd'+(pr?run:side);
@@ -382,10 +382,10 @@ function round(key){
   function closeJudge(){
     if(!JV)return;JV.remove();JV=null;
     try{if(document.fullscreenElement)document.exitFullscreen().catch(()=>{})}catch(e){}
-    if(jvPushed){jvPushed=false;try{history.back()}catch(e){}}
+    if(jvPushed){jvPushed=false;try{jvPop=true;history.back()}catch(e){jvPop=false}}
     if(!run)wakeLock(false);
   }
-  const onPop=()=>{if(JV){jvPushed=false;closeJudge()}};
+  const onPop=()=>{if(jvPop){jvPop=false;return}if(JV){jvPushed=false;closeJudge()}};
   const onFS=()=>{if(JV&&!document.fullscreenElement)closeJudge()};
   addEventListener('popstate',onPop);document.addEventListener('fullscreenchange',onFS);
   function loop(){
@@ -413,7 +413,7 @@ function round(key){
     if(e.code==='Space'){e.preventDefault();$('go').click()}else if(e.key==='ArrowRight')$('next').click();else if(e.key==='ArrowLeft')$('prev').click();
     else if(/^[aA]$/.test(e.key))$('prep0').click();else if(/^[bB]$/.test(e.key))$('prep1').click();
     else if(/^[jJ]$/.test(e.key)){JV?closeJudge():openJudge()}else if(e.key==='Escape'&&JV)closeJudge()};
-  function teardown(){if(JV){JV.remove();JV=null;jvPushed=false}removeEventListener('popstate',onPop);document.removeEventListener('fullscreenchange',onFS)}
+  function teardown(){if(JV){JV.remove();JV=null;jvPushed=false}jvPop=false;removeEventListener('popstate',onPop);document.removeEventListener('fullscreenchange',onFS)}
   draw();
   return teardown;
 }

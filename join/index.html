@@ -155,7 +155,8 @@ const $=id=>document.getElementById(id);
 const views=['v-off','v-form','v-key','v-wait','v-sent','v-in'];
 const view=v=>views.forEach(x=>$(x).hidden=x!==v);
 const params=new URLSearchParams(location.search);
-const next=(params.get('next')||'').startsWith('/')&&!params.get('next').startsWith('//')?params.get('next'):null;
+// Only same-origin paths: '//x', '/\\x' and full URLs all parse to another origin and are dropped.
+const next=(()=>{const raw=params.get('next')||'';if(!raw.startsWith('/')||/[\\]/.test(raw))return null;try{const u=new URL(raw,location.origin);return u.origin===location.origin&&u.pathname.startsWith('/')?u.pathname+u.search+u.hash:null}catch(e){return null}})();
 let lastEmail='',shownFor=null;
 
 // Signed in: go where they were headed (?next=), otherwise show the signed-in view here.
