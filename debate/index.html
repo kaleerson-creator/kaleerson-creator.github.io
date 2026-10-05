@@ -115,7 +115,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}
 th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);font-weight:600;padding:6px}
 td{padding:7px 6px;border-top:1px solid var(--line);vertical-align:middle}
 td.n{font-variant-numeric:tabular-nums;text-align:center}
-tr.next td{background:#fbf3cf}
+tr.next td{background:var(--n-t)}
 .mini{font:inherit;font-size:12px;font-weight:600;border:0;border-radius:999px;padding:6px 10px;cursor:pointer;background:var(--paper)}
 .mini.af{background:var(--a-t)}.mini.ng{background:var(--b-t)}
 .docket{display:grid;gap:6px}
@@ -186,6 +186,57 @@ tr.next td{background:#fbf3cf}
 .cbody2{color:var(--ink2)}.cbody2 u{color:var(--ink);font-size:15px}
 .btn.danger{background:#fef3f2;color:#b42318}
 code{background:var(--paper);padding:1px 6px;border-radius:6px;font-size:.9em}
+/* judge view (always dark: it sits on the judge's desk) */
+.judge{position:fixed;inset:0;z-index:96;display:grid;grid-template-rows:auto 1fr auto;background:#111310;color:#E9ECE4;cursor:pointer;user-select:none;--jside:#A8D59A;padding:calc(env(safe-area-inset-top,0px) + 14px) 18px calc(env(safe-area-inset-bottom,0px) + 14px)}
+.judge.sd0{--jside:#8FB0F5}.judge.sd1{--jside:#F09A8E}
+.judge .jtop{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+.judge .jcode{font:800 clamp(28px,6vw,56px)/1 var(--display);color:var(--jside)}
+.judge .jname{font-size:clamp(15px,2.4vw,24px);color:#B8BDB3;flex:1;min-width:140px}
+.judge .jx{font:600 14px var(--body);border:0;border-radius:999px;padding:10px 16px;background:#2A2E28;color:#E9ECE4;cursor:pointer}
+.judge .jmid{display:grid;place-items:center;align-content:center;gap:6px;min-height:0}
+.judge .jdig{font:800 min(38vw,42vh)/.9 var(--display);font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:#E9ECE4}
+.judge .jdig.warn{color:#E5A33A}.judge .jdig.over{color:#F0695F;animation:pulse 1s steps(2,start) infinite}
+.judge .jsub{font-size:clamp(14px,2vw,20px);color:#B8BDB3;text-align:center}
+.judge .jbot{display:grid;grid-template-columns:auto 1fr 1fr auto;gap:10px;align-items:stretch}
+.judge .jprep{border:0;border-radius:18px;padding:12px 14px;display:grid;gap:2px;text-align:left;font:inherit;color:#E9ECE4;background:#1F2F4A;cursor:pointer}
+.judge .jprep.sd1{background:#43261F}
+.judge .jprep b{font:700 clamp(26px,5vw,40px)/1 var(--display);font-variant-numeric:tabular-nums}
+.judge .jprep span{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#B8BDB3}
+.judge .jprep.on{outline:3px solid #E5A33A;outline-offset:-3px}
+.judge .jnav{border:0;border-radius:18px;background:#2A2E28;color:#E9ECE4;font-size:22px;padding:0 16px;cursor:pointer}
+.judge .jnav:disabled{opacity:.35}
+@media (max-width:520px){.judge .jbot{grid-template-columns:1fr 1fr}.judge .jnav{display:none}}
+@media (prefers-reduced-motion:reduce){.judge .jdig.over{animation:none}}
+/* argument sprint */
+.coin{width:120px;height:120px;border-radius:50%;margin:6px auto;display:grid;place-items:center;font:800 34px/1 var(--display);color:#141613;background:var(--butter);transform-style:preserve-3d;transition:transform .2s}
+.coin.flip{animation:coinflip 1.3s cubic-bezier(.3,.6,.4,1) forwards}
+@keyframes coinflip{from{transform:rotateX(0)}to{transform:rotateX(1800deg)}}
+@media (prefers-reduced-motion:reduce){.coin.flip{animation:none}}
+.coin.sd0{background:var(--a-t);color:var(--a)}.coin.sd1{background:var(--b-t);color:var(--b)}
+.sprint{display:grid;gap:12px}
+.sprint .sdig{font:800 clamp(56px,12vw,96px)/1 var(--display);font-variant-numeric:tabular-nums;text-align:center}
+.sprint .sdig.warn{color:var(--warn)}
+.sprint textarea{width:100%;resize:vertical;min-height:64px}
+.sprint textarea[readonly]{background:var(--paper)}
+.sprint ol{margin:0;padding-left:22px;display:grid;gap:8px;line-height:1.45;overflow-wrap:anywhere}
+.sideword{font:800 clamp(28px,5vw,44px)/1 var(--display);text-align:center}
+.sideword.sd0{color:var(--a)}.sideword.sd1{color:var(--b)}
+/* speaker-point rubric */
+.rub{display:flex;flex-wrap:wrap;gap:4px}
+.rub button{font:600 13px var(--body);border:0;border-radius:999px;padding:6px 9px;background:var(--card);color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums}
+.rub button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.rubnote{font-size:12px;color:var(--ink2);min-height:1.2em}
+/* card cutter + extemp pad */
+.cut{display:grid;gap:8px}
+.cut summary{cursor:pointer;font-weight:600;font-size:14px;padding:4px 0}
+.cut .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:520px){.cut .two{grid-template-columns:1fr}}
+.pad{display:grid;gap:8px}
+.pad input,.pad textarea{width:100%}
+.pad .pt{display:grid;gap:6px;background:var(--paper);border-radius:14px;padding:10px}
+.pad .pt b{font:800 13px var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.pad textarea{resize:vertical;min-height:56px}
+.readtime{font-size:12px;color:var(--ink2)}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/config.js?v=20261001"></script>
@@ -266,14 +317,14 @@ function round(key){
   app.innerHTML=`
     <a class="back" href="#/">← Speech &amp; Debate</a>
     <div class="top"><div><h1>${F.name}</h1><p class="sub">${F.note}${key==='ld'?' · <a href="/ldtimer/" style="text-decoration:underline">Classic LD Timer</a>':''}</p></div>
-      <div class="row"><button class="btn sm ghost" id="newround">New round</button></div></div>
+      <div class="row"><button class="btn sm" id="judge">Judge view ⛶</button><button class="btn sm ghost" id="newround">New round</button></div></div>
     <div class="rt">
       <div class="clock" id="clock">
         <div class="now"><span class="code" id="code"></span><span class="name" id="name"></span><span class="pchip" id="pchip" hidden>Prep</span></div>
         <div class="digits" id="digits">0:00</div><div class="csub" id="csub"></div>
         <div class="ctl"><button class="btn sm ghost" id="prev" aria-label="Previous speech">←</button><button class="btn go" id="go">Start</button><button class="btn sm ghost" id="reset">Reset</button><button class="btn sm ghost" id="next" aria-label="Next speech">→</button></div>
         <div class="preps"><button class="prep sd0" id="prep0"><span>${sideName(0)} prep</span><b>0:00</b></button><button class="prep sd1" id="prep1"><span>${sideName(1)} prep</span><b>0:00</b></button></div>
-        <p class="small" style="text-align:center">Space: start/pause · ← →: speeches · A / B: prep</p>
+        <p class="small" style="text-align:center">Space: start/pause · ← →: speeches · A / B: prep · J: judge view</p>
       </div>
       <div class="panel" style="display:grid;gap:var(--gap)">
         <div class="box"><h2>Round</h2><div class="list" id="list"></div></div>
@@ -300,7 +351,43 @@ function round(key){
     [0,1].forEach(i=>{const b=$('prep'+i);b.querySelector('b').textContent=fmtTc(S.prep[i]);b.classList.toggle('on',run===i);b.classList.toggle('out',S.prep[i]<=0)});
     $('list').innerHTML=F.speeches.map((x,i)=>`<button class="sp sd${x[2]} ${i===S.idx?'cur':''} ${S.left[i]<=0||i<S.idx&&S.left[i]<x[3]?'done':''}" data-i="${i}"><code>${x[0]}</code><span>${x[2]===2?E(x[1]):sideName(x[2])+' · '+E(x[1])}</span><small>${S.left[i]===x[3]?fmtTc(x[3]):fmtT(S.left[i])}</small></button>`).join('');
     $('prev').disabled=S.idx===0;$('next').disabled=S.idx===F.speeches.length-1;
+    drawJudge();
   }
+  /* judge view: one dark full screen with the clock, the speech and both prep clocks */
+  let JV=null,jvPushed=false;
+  function drawJudge(){
+    if(!JV)return;const s=sp(),side=s[2],pr=run===0||run===1;
+    JV.className='judge sd'+(pr?run:side);
+    JV.querySelector('.jcode').textContent=pr?S.names[run]:s[0];
+    JV.querySelector('.jname').textContent=pr?'Prep time':(side===2?s[1]:S.names[side]+' · '+s[1]);
+    const t=pr?S.prep[run]:S.left[S.idx],d=JV.querySelector('.jdig');
+    d.textContent=pr?fmtTc(t):(t<0?fmtT(t):fmtTc(t));
+    d.className='jdig'+(t<=0?' over':t<=30&&t>0?' warn':'');
+    JV.querySelector('.jsub').textContent=run==='speech'?'Speaking · tap to pause':pr?'Prep running · tap a prep clock to stop':(S.left[S.idx]<s[3]?'Paused · tap to resume':'Tap to start');
+    [0,1].forEach(i=>{const b=JV.querySelector('#jp'+i);b.querySelector('b').textContent=fmtTc(S.prep[i]);b.querySelector('span').textContent=S.names[i]+' prep';b.classList.toggle('on',run===i)});
+    JV.querySelector('#jprev').disabled=S.idx===0;JV.querySelector('#jnext').disabled=S.idx===F.speeches.length-1;
+  }
+  function openJudge(){
+    if(JV)return;JV=document.createElement('div');JV.className='judge';JV.setAttribute('role','dialog');JV.setAttribute('aria-label','Judge view');
+    JV.innerHTML=`<div class="jtop"><span class="jcode"></span><span class="jname"></span><button class="jx" id="jexit">Exit</button></div>
+      <div class="jmid"><div class="jdig">0:00</div><div class="jsub"></div></div>
+      <div class="jbot"><button class="jnav" id="jprev" aria-label="Previous speech">←</button><button class="jprep sd0" id="jp0"><span></span><b></b></button><button class="jprep sd1" id="jp1"><span></span><b></b></button><button class="jnav" id="jnext" aria-label="Next speech">→</button></div>`;
+    document.body.append(JV);
+    JV.onclick=e=>{const b=e.target.closest('button');if(!b){$('go').click();return}
+      if(b.id==='jexit')closeJudge();else if(b.id==='jprev')$('prev').click();else if(b.id==='jnext')$('next').click();else if(b.id==='jp0')$('prep0').click();else if(b.id==='jp1')$('prep1').click()};
+    try{if(JV.requestFullscreen)JV.requestFullscreen().catch(()=>{})}catch(e){}
+    try{history.pushState({judge:1},'',location.href);jvPushed=true}catch(e){}
+    wakeLock(true);drawJudge();
+  }
+  function closeJudge(){
+    if(!JV)return;JV.remove();JV=null;
+    try{if(document.fullscreenElement)document.exitFullscreen().catch(()=>{})}catch(e){}
+    if(jvPushed){jvPushed=false;try{history.back()}catch(e){}}
+    if(!run)wakeLock(false);
+  }
+  const onPop=()=>{if(JV){jvPushed=false;closeJudge()}};
+  const onFS=()=>{if(JV&&!document.fullscreenElement)closeJudge()};
+  addEventListener('popstate',onPop);document.addEventListener('fullscreenchange',onFS);
   function loop(){
     const now=performance.now(),dt=(now-last)/1000;last=now;
     if(run==='speech'){const b=S.left[S.idx];S.left[S.idx]-=dt;if(b>30&&S.left[S.idx]<=30)beep(1);if(b>0&&S.left[S.idx]<=0)beep(3)}
@@ -316,15 +403,19 @@ function round(key){
   [0,1].forEach(i=>$('prep'+i).onclick=()=>{if(run===i)return stop();if(S.prep[i]<=0)return;stop();start(i)});
   $('list').onclick=e=>{const b=e.target.closest('[data-i]');if(!b)return;stop();S.idx=+b.dataset.i;save();draw()};
   $('newround').onclick=e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to reset all clocks';setTimeout(()=>{delete e.target.dataset.armed;e.target.textContent='New round'},3000);return}
-    stop();S.idx=0;S.left=F.speeches.map(s=>s[3]);S.prep=[S.prepMin*60,S.prepMin*60];save();round(key)};
+    stop();S.idx=0;S.left=F.speeches.map(s=>s[3]);S.prep=[S.prepMin*60,S.prepMin*60];save();teardown();cleanup=round(key)};
+  $('judge').onclick=openJudge;
   $('pm').onchange=()=>{const m=Math.max(0,Math.min(20,+$('pm').value||0));const d=m*60-S.prepMin*60;S.prepMin=m;S.prep=S.prep.map(p=>Math.max(0,p+d));save();draw()};
   ['n0','n1'].forEach((id,i)=>$(id).oninput=()=>{S.names[i]=$(id).value.trim()||F.sides[i];save();draw();$('prep'+i).querySelector('span').textContent=S.names[i]+' prep'});
   if($('swap'))$('swap').onclick=()=>{S.names.reverse();$('n0').value=S.names[0];$('n1').value=S.names[1];[0,1].forEach(i=>$('prep'+i).querySelector('span').textContent=S.names[i]+' prep');save();draw()};
   $('snd').onchange=()=>store.set('sound',$('snd').checked);
   keys=e=>{if(e.target.matches('input,textarea,select'))return;
     if(e.code==='Space'){e.preventDefault();$('go').click()}else if(e.key==='ArrowRight')$('next').click();else if(e.key==='ArrowLeft')$('prev').click();
-    else if(/^[aA]$/.test(e.key))$('prep0').click();else if(/^[bB]$/.test(e.key))$('prep1').click()};
+    else if(/^[aA]$/.test(e.key))$('prep0').click();else if(/^[bB]$/.test(e.key))$('prep1').click();
+    else if(/^[jJ]$/.test(e.key)){JV?closeJudge():openJudge()}else if(e.key==='Escape'&&JV)closeJudge()};
+  function teardown(){if(JV){JV.remove();JV=null;jvPushed=false}removeEventListener('popstate',onPop);document.removeEventListener('fullscreenchange',onFS)}
   draw();
+  return teardown;
 }
 
 /* ── speech events ────────────────────────────────── */
@@ -348,6 +439,13 @@ function speech(key){
         <div class="ctl"><button class="btn go" id="go">Start</button>${V.prep||V.shared?'<button class="btn sm ghost" id="phase">Start speech now</button>':''}<button class="btn sm ghost" id="reset">Reset</button><button class="btn sm ghost" id="sig">Hand signals ⛶</button></div>
         <p class="small" style="text-align:center">Space: start/pause · F: hand signals</p>
       </div>
+      <div style="display:grid;gap:var(--gap);min-width:0">
+      ${key==='extemp'?`<div class="box pad" id="pad"><div class="row" style="justify-content:space-between"><h2>Prep pad</h2><button class="btn sm ghost" id="padclear">Clear</button></div>
+        <p class="small" style="margin:0">Your outline for this question. Saved on this device.</p>
+        <div class="row"><input id="xq" placeholder="The question" maxlength="200" style="flex:1"><button class="btn sm ghost" id="xrand" title="Random practice question">Random</button></div>
+        <input id="xa" placeholder="Your answer in one sentence" maxlength="200">
+        ${[1,2,3].map(i=>`<div class="pt"><b>Point ${i}</b><textarea id="xp${i}" rows="2" placeholder="What's the point?" maxlength="600"></textarea><input id="xs${i}" placeholder="Source (publication, date)" maxlength="120"></div>`).join('')}
+        <div class="small" id="xcount"></div></div>`:''}
       <div class="box"><h2>Settings</h2>
         ${V.prep?`<label class="setrow">Prep (minutes)<input id="cp" type="number" min="0" max="60" value="${cfg.prep/60}"></label>`:''}
         <label class="setrow">${V.shared?'Total time':'Speech'} (minutes)<input id="cs" type="number" min="1" max="30" step="0.5" value="${cfg.speak/60}"></label>
@@ -355,7 +453,19 @@ function speech(key){
         <label class="check"><input type="checkbox" id="snd" ${store.get('sound',true)?'checked':''}> Beep at each minute signal and at time</label>
         <p class="small">Hand signals show whole minutes left, then “30”, then GRACE and STOP. Tap the full-screen card to close it.</p>
       </div>
+      </div>
     </div>`;
+  if(key==='extemp'){
+    const IDS=['xq','xa','xp1','xs1','xp2','xs2','xp3','xs3'];
+    const P=Object.assign({},store.get('extemp',{}));
+    IDS.forEach(id=>{$(id).value=P[id]||''});
+    const count=()=>{const n=[1,2,3].filter(i=>($('xs'+i).value||'').trim()).length,pts=[1,2,3].filter(i=>($('xp'+i).value||'').trim()).length;$('xcount').textContent=`${pts} of 3 points · ${n} source${n===1?'':'s'} cited${n<3?' · judges want a source for every point':''}`};
+    IDS.forEach(id=>$(id).oninput=()=>{P[id]=$(id).value;store.set('extemp',P);count()});
+    $('xrand').onclick=()=>{const L=TOPICS.extemp;$('xq').value=L[Math.floor(Math.random()*L.length)];$('xq').dispatchEvent(new Event('input'))};
+    $('padclear').onclick=e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to clear';setTimeout(()=>{delete e.target.dataset.armed;e.target.textContent='Clear'},3000);return}
+      IDS.forEach(id=>{$(id).value='';delete P[id]});store.set('extemp',{});delete e.target.dataset.armed;e.target.textContent='Clear';count()};
+    count();
+  }
   const total=()=>V.shared?cfg.speak:phase==='prep'?cfg.prep:cfg.speak;
   function signalText(){
     if(left>0){if(left<=30)return '30';return String(Math.ceil(left/60))}
@@ -459,7 +569,7 @@ function congress(){
     if(b.dataset.q!==undefined)C.people[+b.dataset.q].q++;
     if(b.dataset.rm!==undefined)C.people.splice(+b.dataset.rm,1);
     save();drawPeople();drawDocket()};
-  $('docket').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.cur!==undefined)C.cur=+b.dataset.cur;if(b.dataset.rmb!==undefined){const i=+b.dataset.rmb;C.bills.splice(i,1);C.log=C.log.filter(l=>l.bill!==i).map(l=>({...l,bill:l.bill>i?l.bill-1:l.bill}));if(C.cur>=C.bills.length)C.cur=Math.max(0,C.bills.length-1)}save();drawDocket()};
+  $('docket').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.cur!==undefined)C.cur=+b.dataset.cur;if(b.dataset.rmb!==undefined){const i=+b.dataset.rmb;C.bills.splice(i,1);C.log=C.log.filter(l=>l.bill!==i).map(l=>({...l,bill:l.bill>i?l.bill-1:l.bill}));if(C.cur>i)C.cur--;if(C.cur>=C.bills.length)C.cur=Math.max(0,C.bills.length-1)}save();drawDocket()};
   $('clear').onclick=e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to clear everything';setTimeout(()=>{delete e.target.dataset.armed;e.target.textContent='Reset session'},3000);return}
     Object.assign(C,{people:[],bills:[],cur:0,log:[],order:0});save();congress()};
   keys=e=>{if(e.target.matches('input,textarea,select'))return;if(e.code==='Space'&&mode){e.preventDefault();$('go').click()}};
@@ -503,7 +613,8 @@ const TOPICS={
   ld:['Resolved: Civil disobedience in a democracy is morally justified.','Resolved: The right to privacy ought to be valued above national security.','Resolved: A just government ought to provide a universal basic income.','Resolved: Individuals have a moral obligation to assist people in need.','Resolved: The illegal is never moral.','Resolved: In a democracy, voting ought to be compulsory.','Resolved: Developing countries ought to prioritize environmental protection over resource extraction.','Resolved: Plea bargaining ought to be abolished.','Resolved: Jury nullification is a legitimate check on government.','Resolved: States ought to eliminate their nuclear arsenals.','Resolved: The pursuit of scientific knowledge ought to be limited by ethical concerns.','Resolved: A just society ought to guarantee housing to all its members.','Resolved: Public colleges and universities ought not restrict any constitutionally protected speech.','Resolved: The death penalty is unjust.','Resolved: Wealthy nations have a moral obligation to accept refugees.'],
   pf:['Resolved: The United States should ban the sale of single-use plastics.','Resolved: Social media platforms do more harm than good for teenagers.','Resolved: Schools should ban smartphones during the school day.','Resolved: The benefits of artificial intelligence in education outweigh the harms.','Resolved: The United States should adopt a four-day school week.','Resolved: High schools should require a personal finance course to graduate.','Resolved: The benefits of remote work outweigh the harms.','Resolved: The United States should significantly expand nuclear power.','Resolved: College athletes should be paid as employees.','Resolved: The United States should lower the voting age to 16.','Resolved: Standardized testing does more harm than good.','Resolved: Cities should make public transit free.','Resolved: The benefits of space exploration outweigh the costs.','Resolved: Homework should be abolished in high school.','Resolved: The United States should implement a carbon tax.'],
   policy:['Resolved: The United States federal government should substantially increase its investment in high-speed rail.','Resolved: The United States federal government should substantially reform its criminal justice system.','Resolved: The United States federal government should substantially increase its protection of water resources.','Resolved: The United States federal government should substantially increase fiscal redistribution.','Resolved: The United States federal government should substantially increase its exploration and development of the oceans.'],
-  impromptu:['“The only way out is through.”','A broken umbrella','“Comparison is the thief of joy.”','Silence','A map with no names on it','“Not all those who wander are lost.”','The last page of a book','Patience','“Fall seven times, stand up eight.”','A key with no lock','Homework','“What we do in life echoes in eternity.”','Courage','A paper airplane','“Simplicity is the ultimate sophistication.”','Second chances','An empty classroom','“You miss 100% of the shots you don’t take.”','Ladders','Shadows','“The best way to predict the future is to create it.”','A compass','Trust','A traffic light','“Be the change you wish to see.”','Rainy days','A blank canvas','Bridges','“Done is better than perfect.”','The snooze button'],
+  impromptu:['“The only way out is through.”','A broken umbrella','“Comparison is the thief of joy.”','Silence','A map with no names on it','“Not all those who wander are lost.”','The last page of a book','Patience','“Fall seven times, stand up eight.”','A key with no lock','Homework','“What we do in life echoes in eternity.”','Courage','A paper airplane','“Simplicity is the ultimate sophistication.”','Second chances','An empty classroom','“You miss 100% of the shots you don’t take.”','Ladders','Shadows','“The best way to predict the future is to create it.”','A compass','Trust','A traffic light','“Be the change you wish to see.”','Rainy days','A blank canvas','Bridges','“Done is better than perfect.”','The snooze button',
+    '“Whatever you are, be a good one.”','Lost keys','“It always seems impossible until it’s done.”','Noise','A group chat','“Everything you want is on the other side of fear.”','Detours','A borrowed pencil','“Well done is better than well said.”','Mirrors','The front row','“No pressure, no diamonds.”','Leftovers','A locker that won’t open','“Doubt kills more dreams than failure ever will.”','Windows','A handwritten letter','“If you want to go far, go together.”','Monday mornings','Fireworks','“Act as if what you do makes a difference. It does.”','An unread message','Roots','“The obstacle is the way.”','A full battery','Lunch tables','“Begin anywhere.”','Weeds','A late bus','“Luck is what happens when preparation meets opportunity.”','The last slice','Fog','“Make it work.”','A hallway at 7 a.m.','Gravity','“Slow is smooth, smooth is fast.”','A spare tire','Echoes','“Say less.”','The parking lot'],
   extemp:['Should the U.S. raise the federal minimum wage?','How should schools respond to AI tools like chatbots?','Is the U.S. doing enough to prepare for extreme weather?','Should social media companies be held liable for harmful content?','What is the biggest challenge facing public education today?','Should college be tuition-free at public universities?','How can cities reduce homelessness?','Is space exploration worth the cost?','What should be done about the youth mental health crisis?','Should the U.S. invest more in nuclear energy?','How should governments regulate artificial intelligence?','Is the electoral college still the right system for the U.S.?','How can the U.S. make housing more affordable?','Should voting be made easier, and how?','What role should the U.S. play in global climate agreements?','Should the school day start later for teenagers?','Is remote work good for the economy?','How should the U.S. address rising healthcare costs?','Should there be term limits for members of Congress?','What can be done to reduce food waste?']
 };
 function topics(kind){
@@ -517,11 +628,49 @@ function topics(kind){
     <div class="seg" style="margin-bottom:var(--gap)">${Object.entries(names).map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===kind}">${v.replace(/ (resolution|prompt|question)$/,'')}</button>`).join('')}</div>
     <div class="prompt"><span class="blob"></span><span class="lbl">${names[kind]}</span><q id="q"></q>
       <div class="row"><button class="btn" style="background:var(--forest-ink);color:var(--forest)" id="again">New ${names[kind].split(' ').pop()}</button>
-      ${kind==='impromptu'?'<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/speech/impromptu">Start Impromptu timer</a>':kind==='extemp'?'<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/speech/extemp">Start Extemp timer</a>':`<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/round/${kind}">Open ${kind.toUpperCase()==='POLICY'?'Policy':kind.toUpperCase()} timer</a>`}</div></div>`;
+      ${kind==='impromptu'?'<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/speech/impromptu">Start Impromptu timer</a>':kind==='extemp'?'<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/speech/extemp">Start Extemp timer</a>':`<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/round/${kind}">Open ${kind.toUpperCase()==='POLICY'?'Policy':kind.toUpperCase()} timer</a>`}
+      ${FORMATS[kind]?'<button class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" id="sprint">Sprint ⚡</button>':''}</div></div>
+    <div id="sprintbox"></div>`;
   const show=()=>{$('q').textContent=pick()};show();
   $('again').onclick=show;
   app.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{location.hash='#/topics/'+b.dataset.k});
   keys=null;
+  /* argument sprint: coin flip for a side, then 60 seconds to write three arguments */
+  if($('sprint'))$('sprint').onclick=()=>sprint($('q').textContent,Math.random()<.5?0:1);
+  function sprint(res,side){
+    const F=FORMATS[kind],sides=F.sides;let left=60,done=false;clearInterval(ticker);
+    const box=$('sprintbox');
+    box.innerHTML=`<div class="box sprint" style="margin-top:var(--gap)"><h2>Argument sprint</h2><p class="muted" style="margin:0">${E(res)}</p>
+      <div class="coin" id="coin">?</div><div class="sideword" id="sideword">Flipping…</div><div id="sbody"></div></div>`;
+    box.scrollIntoView({behavior:'smooth',block:'start'});
+    const coin=$('coin');
+    const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    requestAnimationFrame(()=>coin.classList.add('flip'));
+    setTimeout(()=>{
+      coin.classList.remove('flip');coin.classList.add('sd'+side);coin.textContent=sides[side];
+      $('sideword').className='sideword sd'+side;$('sideword').textContent=`You're ${sides[side]}. Go.`;
+      $('sbody').innerHTML=`<div class="sdig" id="sdig">1:00</div>
+        ${[1,2,3].map(i=>`<textarea id="arg${i}" rows="2" placeholder="Argument ${i} for the ${sides[side]}" maxlength="400"></textarea>`).join('')}
+        <div class="row"><button class="btn sm" id="sdone">Done early</button></div>`;
+      $('arg1').focus();
+      $('sdone').onclick=()=>finish();
+      let last=performance.now();
+      tick(()=>{const now=performance.now();left-=(now-last)/1000;last=now;const d=$('sdig');if(!d)return;d.textContent=fmtTc(left);d.classList.toggle('warn',left<=10);if(left<=0)finish()});
+    },reduced?50:1400);
+    function finish(){
+      if(done)return;done=true;clearInterval(ticker);beep(2);
+      const args=[1,2,3].map(i=>($('arg'+i)?$('arg'+i).value.trim():'')).filter(Boolean);
+      const txt=`${res}\n${sides[side]} arguments (60-second sprint)\n`+args.map((a,i)=>`${i+1}. ${a}`).join('\n');
+      $('sbody').innerHTML=`<div class="sdig">Time</div>
+        ${args.length?`<ol>${args.map(a=>`<li>${E(a)}</li>`).join('')}</ol>`:'<p class="muted">Nothing written this time. Run it again.</p>'}
+        <div class="row"><button class="btn sm" id="ssave">Save to cases</button><button class="btn sm ghost" id="scopy">Copy</button><button class="btn sm ghost" id="sflip">Run the other side</button><button class="btn sm ghost" id="snew">New resolution</button></div><div class="small" id="smsg"></div>`;
+      $('scopy').onclick=async()=>{try{await navigator.clipboard.writeText(txt);$('scopy').textContent='Copied ✓'}catch(e){$('smsg').textContent='Couldn\'t copy. Select the text above instead.'}};
+      $('ssave').onclick=()=>{store.set('caseDraft',{kind:'case',side:side?'neg':'aff',title:`${sides[side]} sprint · ${res.replace(/^Resolved:\s*/i,'').slice(0,160)}`,body:args.map((a,i)=>`**${i+1}.** ${a}`).join('\n\n')+`\n\n==Written in a 60-second sprint on ${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'})}==`});
+        location.hash='#/cases/new'};
+      $('sflip').onclick=()=>sprint(res,1-side);
+      $('snew').onclick=()=>{show();sprint($('q').textContent,Math.random()<.5?0:1)};
+    }
+  }
 }
 
 /* ── speech drill: record, live transcript, filler words ── */
@@ -529,14 +678,17 @@ const FILLERS=['um','uh','er','erm','like','you know','basically','actually','li
 const FILLER_RE=new RegExp('\\b('+FILLERS.map(f=>f.replace(/ /g,'\\s+')).join('|')+'|u+m+|u+h+)\\b','gi');
 function drill(){
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  const kinds={impromptu:'Impromptu',extemp:'Extemp',ld:'LD',pf:'PF',free:'Free talk'};
-  let kind=store.get('drillKind','impromptu'),target=store.get('drillTarget',120);
+  const kinds={round:'Impromptu round',impromptu:'Impromptu',extemp:'Extemp',ld:'LD',pf:'PF',free:'Free talk'};
+  let kind=store.get('drillKind','impromptu'),target=store.get('drillTarget',120);if(!kinds[kind])kind='impromptu';
   let rec=null,media=null,stream=null,chunks=[],sr=null,running=false,t0=0,elapsed=0,finalText='',interim='',taps=0,audioURL=null;
-  const pickPrompt=()=>kind==='free'?'Talk about anything: your weekend, a movie, why your favorite food is the best.':TOPICS[kind][Math.floor(Math.random()*TOPICS[kind].length)];
+  let phase='idle',prepLeft=0,prepUsed=0;   // idle | prep | talk  (prep only in the Impromptu round)
+  const PREP=120,ROUND=300;
+  const tgtSecs=()=>kind==='round'?ROUND:target;
+  const pickPrompt=()=>{const k=kind==='round'?'impromptu':kind;return k==='free'?'Talk about anything: your weekend, a movie, why your favorite food is the best.':TOPICS[k][Math.floor(Math.random()*TOPICS[k].length)]};
   let prompt=pickPrompt();
   app.innerHTML=`
     <a class="back" href="#/">← Speech &amp; Debate</a>
-    <div class="top"><div><h1>Speech drill</h1><p class="sub">Talk, and see your pace and filler words ("um", "like", "you know") as you go.</p></div></div>
+    <div class="top"><div><h1>Speech drill</h1><p class="sub">Talk, and see your pace and filler words ("um", "like", "you know") as you go. Impromptu round runs the real flow: 2:00 of prep, then 5:00 speaking.</p></div></div>
     <div class="seg" style="margin-bottom:var(--gap)" id="kinds">${Object.entries(kinds).map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===kind}">${v}</button>`).join('')}</div>
     <div class="dr">
       <div class="drmain">
@@ -545,7 +697,7 @@ function drill(){
         <div class="clock sd2">
           <div class="now"><span class="code" id="state">Ready</span><span class="name" id="tgt"></span></div>
           <div class="digits" id="digits">0:00</div>
-          <div class="ctl"><button class="btn go" id="go">Start talking</button><button class="btn sm ghost" id="tap" title="Tap when you hear a filler (or press F)">+1 filler <b id="taps">0</b></button></div>
+          <div class="ctl"><button class="btn go" id="go">Start talking</button><button class="btn sm ghost" id="cancel" hidden>Cancel</button><button class="btn sm ghost" id="tap" title="Tap when you hear a filler (or press F)">+1 filler <b id="taps">0</b></button></div>
           <div class="small" id="note"></div>
         </div>
         <div class="box"><h2>What you said</h2><div class="transcript" id="tx"><span class="muted">Your words show up here while you talk.</span></div><audio id="play" controls hidden></audio></div>
@@ -564,7 +716,8 @@ function drill(){
   const showPrompt=()=>{$('q').textContent=prompt};showPrompt();
   $('newq').onclick=()=>{prompt=pickPrompt();showPrompt()};
   $('kinds').onclick=e=>{const b=e.target.closest('[data-k]');if(!b||running)return;kind=b.dataset.k;store.set('drillKind',kind);
-    $('kinds').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));prompt=pickPrompt();showPrompt()};
+    $('kinds').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));prompt=pickPrompt();showPrompt();$('go').textContent=kind==='round'?'Start prep':'Start talking';$('target').disabled=kind==='round';draw()};
+  $('go').textContent=kind==='round'?'Start prep':'Start talking';$('target').disabled=kind==='round';
   $('target').onchange=e=>{target=+e.target.value;store.set('drillTarget',target);draw()};
   $('snd').onchange=e=>store.set('sound',e.target.checked);
   $('note').textContent=SR?'Uses your microphone. The recording stays on this device.':'Live word counting works in Chrome, Edge and Safari. You can still record yourself and tap +1 for each filler.';
@@ -573,17 +726,32 @@ function drill(){
     m.forEach(w=>{w=w.replace(/\s+/g,' ').replace(/^u+m+$/,'um').replace(/^u+h+$/,'uh');by[w]=(by[w]||0)+1});
     const words=(all.match(/[a-z0-9']+/g)||[]).length;return{n:m.length+taps,by,words}};
   function draw(){
-    $('digits').textContent=fmtTc(elapsed);$('tgt').textContent='Target '+fmtT(target)+(elapsed>target?' · over':'');
-    $('digits').classList.toggle('over',elapsed>target);
+    const T=tgtSecs();
+    if(phase==='prep'){$('digits').textContent=fmtTc(prepLeft);$('tgt').textContent='Prep · then 5:00 to speak';$('digits').className='digits'+(prepLeft<=10?' warn':'');return}
+    $('digits').textContent=fmtTc(elapsed);$('tgt').textContent=(kind==='round'?'Speak for ':'Target ')+fmtT(T)+(elapsed>T?' · over':'');
+    $('digits').className='digits'+(elapsed>T?' over':'');
     const c=counts(),min=Math.max(elapsed,1)/60;
     $('wpm').textContent=elapsed>5?Math.round(c.words/min):0;$('fc').textContent=c.n;$('fpm').textContent=elapsed>5?(c.n/min).toFixed(1):0;$('wc').textContent=c.words;$('taps').textContent=taps;
     $('fl').innerHTML=Object.entries(c.by).sort((a,b)=>b[1]-a[1]).map(([w,n])=>`<span>${E(w)} <b>${n}</b></span>`).join('')+(taps?`<span>tapped <b>${taps}</b></span>`:'');
     if(finalText||interim)$('tx').innerHTML=E(finalText).replace(FILLER_RE,'<mark>$&</mark>')+(interim?` <span class="muted">${E(interim)}</span>`:'');
   }
   function drawHist(){const h=store.get('drills',[]);
-    $('hist').innerHTML=h.length?h.map(d=>`<div><span>${new Date(d.at).toLocaleDateString('en-US',{month:'short',day:'numeric'})} · ${E(kinds[d.kind]||'')}</span><span>${fmtT(d.secs)} · ${d.wpm} wpm · ${d.fpm} fillers/min</span></div>`).join(''):'<span class="small">Nothing yet.</span>'}
+    $('hist').innerHTML=h.length?h.map(d=>`<div><span>${new Date(d.at).toLocaleDateString('en-US',{month:'short',day:'numeric'})} · ${E(kinds[d.kind]||'')}</span><span>${fmtT(d.secs)}${d.prep!=null?' · '+fmtT(d.prep)+' prep':''} · ${d.wpm} wpm · ${d.fpm} fillers/min</span></div>`).join(''):'<span class="small">Nothing yet.</span>'}
   drawHist();
-  async function start(){
+  /* Impromptu round: 2:00 prep countdown (beeps at 1:00 and 0:10), then straight into the 5:00 talk */
+  function startPrep(){
+    phase='prep';prepLeft=PREP;prepUsed=0;running=true;$('go').textContent='Start talking now';$('cancel').hidden=false;$('state').textContent='Prep';
+    $('tx').innerHTML='<span class="muted">Think it through. Your words show up here once you start talking.</span>';
+    let last=performance.now();wakeLock(true);
+    tick(()=>{const now=performance.now(),b=prepLeft;prepLeft-=(now-last)/1000;last=now;
+      if(b>60&&prepLeft<=60)beep(1);if(b>10&&prepLeft<=10)beep(1);
+      if(prepLeft<=0){beep(2);prepUsed=PREP;talk();return}draw()});
+    draw();
+  }
+  function cancelPrep(){phase='idle';running=false;clearInterval(ticker);wakeLock(false);$('go').textContent='Start prep';$('cancel').hidden=true;$('state').textContent='Ready';draw()}
+  async function start(){if(kind==='round'&&phase==='idle')return startPrep();if(phase==='prep'){prepUsed=Math.max(0,PREP-prepLeft)}return talk()}
+  async function talk(){
+    clearInterval(ticker);phase='talk';$('cancel').hidden=true;
     finalText='';interim='';taps=0;elapsed=0;chunks=[];$('play').hidden=true;if(audioURL)URL.revokeObjectURL(audioURL);
     $('tx').innerHTML='<span class="muted">Listening…</span>';
     try{stream=await navigator.mediaDevices.getUserMedia({audio:true});
@@ -595,16 +763,20 @@ function drill(){
       sr.onend=()=>{if(running)try{sr.start()}catch(e){}};sr.onerror=e=>{if(e.error==='not-allowed'){$('note').textContent='Microphone blocked, so words can\'t be counted. Tap +1 instead.'}};
       try{sr.start()}catch(e){}}
     running=true;t0=performance.now();wakeLock(true);$('go').textContent='Stop';$('state').textContent='Talking';
-    let beeped=false;tick(()=>{elapsed=(performance.now()-t0)/1000;if(!beeped&&elapsed>=target){beeped=true;beep(2)}draw()});
+    let beeped=false,T=tgtSecs();tick(()=>{elapsed=(performance.now()-t0)/1000;if(!beeped&&elapsed>=T){beeped=true;beep(2)}draw()});
+    draw();
   }
   function stop(){
-    running=false;clearInterval(ticker);wakeLock(false);
+    if(phase==='prep')return cancelPrep();
+    running=false;phase='idle';clearInterval(ticker);wakeLock(false);
     try{sr&&sr.stop()}catch(e){}try{media&&media.state!=='inactive'&&media.stop()}catch(e){}stream&&stream.getTracks().forEach(t=>t.stop());
     $('go').textContent='Go again';$('state').textContent='Done';interim='';draw();
     if(elapsed>=10){const c=counts(),min=elapsed/60,h=store.get('drills',[]);
-      h.unshift({at:Date.now(),kind,secs:Math.round(elapsed),wpm:Math.round(c.words/min),fpm:+(c.n/min).toFixed(1)});store.set('drills',h.slice(0,12));drawHist()}
+      const row={at:Date.now(),kind,secs:Math.round(elapsed),wpm:Math.round(c.words/min),fpm:+(c.n/min).toFixed(1)};if(kind==='round')row.prep=Math.round(prepUsed);
+      h.unshift(row);store.set('drills',h.slice(0,12));drawHist()}
   }
-  $('go').onclick=()=>running?stop():start();
+  $('go').onclick=()=>running&&phase!=='prep'?stop():start();
+  $('cancel').onclick=cancelPrep;
   $('tap').onclick=()=>{taps++;draw()};
   keys=e=>{if(e.target.matches('input,textarea,select'))return;if(e.key==='f'||e.key==='F'){taps++;draw()}};
   draw();
@@ -617,10 +789,14 @@ function ballot(){
   const save=()=>store.set('ballot',B);
   const per=()=>B.fmt==='ld'?1:2;
   const F=()=>FORMATS[B.fmt];
+  /* speaker-point rubric: NSDA-style 25–30 scale in half points */
+  const RUBRIC={25:'below average: major drops, hard to follow',25.5:'below average, but organized',26:'average: followed the round, some drops',26.5:'average, with real clash',27:'solid: clear and signposted, a few drops',27.5:'solid, good extensions',28:'good: organized, some weighing',28.5:'good and persuasive',29:'excellent: clear weighing, sharp cross-ex',29.5:'excellent, close to flawless',30:'the best speech I have seen this season'};
+  const rubLine=(i,p)=>`Points · ${F().sides[i>>1]}${per()>1?' '+(i%2+1):''}${B.deb[i].n?' ('+B.deb[i].n+')':''}: ${p} — ${RUBRIC[p]}`;
   function render(){
     const sides=F().sides;
     const debRow=(i,side)=>`<div class="deb"><div class="row"><input data-d="${i}" data-f="n" placeholder="${sides[side]} speaker ${per()>1?(i%2)+1:''}" value="${E(B.deb[i].n)}" maxlength="40" style="flex:1">
       <input data-d="${i}" data-f="p" type="number" inputmode="decimal" min="20" max="30" step="0.1" placeholder="Points" value="${E(B.deb[i].p)}" style="width:96px" aria-label="Speaker points"></div>
+      <div class="rub" data-rub="${i}">${Object.keys(RUBRIC).map(p=>`<button type="button" data-p="${p}" aria-pressed="${String(B.deb[i].p)===p}" title="${E(RUBRIC[p])}">${p}</button>`).join('')}</div><div class="rubnote" id="rubnote${i}">${RUBRIC[B.deb[i].p]?E(RUBRIC[B.deb[i].p]):'Tap a score to fill in the points and add a line to the RFD.'}</div>
       <textarea data-d="${i}" data-f="c" rows="2" placeholder="Comments for this speaker">${E(B.deb[i].c)}</textarea></div>`;
     const idx=side=>per()===1?[side*2]:[side*2,side*2+1];
     app.innerHTML=`
@@ -656,7 +832,12 @@ function ballot(){
     L.push('','Reason for decision:',B.rfd.trim()||'—');return L.join('\n');
   }
   function wire(){
-    app.querySelectorAll('[data-d]').forEach(el=>el.oninput=()=>{B.deb[+el.dataset.d][el.dataset.f]=el.value;save();check()});
+    app.querySelectorAll('[data-d]').forEach(el=>el.oninput=()=>{B.deb[+el.dataset.d][el.dataset.f]=el.value;save();check();
+      if(el.dataset.f==='p'){const r=app.querySelector(`[data-rub="${el.dataset.d}"]`);r.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===el.value))}});
+    app.querySelectorAll('[data-rub]').forEach(r=>r.onclick=e=>{const b=e.target.closest('[data-p]');if(!b)return;const i=+r.dataset.rub,p=b.dataset.p;
+      B.deb[i].p=p;app.querySelector(`[data-d="${i}"][data-f="p"]`).value=p;r.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('rubnote'+i).textContent=RUBRIC[p];
+      const tag='Points · '+F().sides[i>>1]+(per()>1?' '+(i%2+1):'');const lines=B.rfd.split('\n').filter(l=>!l.startsWith(tag+':')&&!l.startsWith(tag+' ('));
+      B.rfd=(lines.join('\n').replace(/\n+$/,'')+'\n'+rubLine(i,p)).replace(/^\n/,'');$('rfd').value=B.rfd;save();check()});
     app.querySelectorAll('[data-side]').forEach(el=>el.oninput=()=>{B[el.dataset.side]=el.value;save()});
     $('rfd').oninput=e=>{B.rfd=e.target.value;save()};$('round').oninput=e=>{B.round=e.target.value;save()};
     app.querySelectorAll('[data-win]').forEach(b=>b.onclick=()=>{B.win=+b.dataset.win;save();render()});
@@ -714,6 +895,7 @@ async function cases(id){
   function editor(x){
     if(x&&x.user_id!==me)return viewOnly(x);
     const isNew=!x;x=x||{kind:'card',title:'',cite:'',body:'',topic:store.get('lastTopic',''),side:'both',team_id:store.get('lastTeam',null)};
+    const draft=isNew?store.get('caseDraft',null):null;if(draft){Object.assign(x,{kind:draft.kind||'case',side:draft.side||'both',title:draft.title||'',body:draft.body||''});store.set('caseDraft',null)}
     if(x.team_id&&!TEAMS.some(t=>t.id===x.team_id))x.team_id=null;
     app.innerHTML=`<a class="back" href="#/cases">← All cards &amp; cases</a>
       <div class="top"><div><h1>${isNew?'New':'Edit'} ${x.kind==='case'?'case':'card'}</h1><p class="sub">Put <code>**double stars**</code> around the words you read out loud and <code>==equals==</code> around anything to highlight.</p></div></div>
@@ -725,14 +907,32 @@ async function cases(id){
           <input id="etitle" maxlength="200" placeholder="Tag (the claim this proves) or case name" value="${E(x.title)}">
           <input id="ecite" maxlength="600" placeholder="Cite: author, year, credentials, source, link" value="${E(x.cite)}">
           <input id="etopic" maxlength="80" placeholder="Topic (e.g. Nov–Dec LD)" value="${E(x.topic)}">
+          <details class="cut"><summary>Cut a card · build the cite for me</summary>
+            <div class="two"><input id="cauthor" maxlength="80" placeholder="Author (e.g. Maria Lopez)"><input id="ccred" maxlength="160" placeholder="Credentials (e.g. professor of law, UNLV)"></div>
+            <input id="ctitle" maxlength="200" placeholder="Article title">
+            <div class="two"><input id="csource" maxlength="80" placeholder="Source (e.g. The Atlantic)"><input id="cdate" maxlength="40" placeholder="Date (e.g. March 4, 2025)"></div>
+            <input id="curl" maxlength="400" placeholder="https://…" inputmode="url">
+            <div class="row"><button class="btn sm" id="ccut" type="button">Insert cite</button><span class="small" id="cmsg">Fills the cite line and puts the tag + cite at the top of the card.</span></div>
+          </details>
           <textarea id="ebody" rows="14" maxlength="40000" placeholder="Paste the card text or write your case">${E(x.body)}</textarea>
           <div class="row"><button class="btn" id="esave">Save</button>${isNew?'':'<button class="btn sm ghost" id="ecopy">Copy</button><button class="btn sm danger" id="edel">Delete</button>'}</div><div id="emsg"></div>
         </div>
-        <div class="box"><h2>Preview</h2><div class="cardview" id="eprev"></div></div>
+        <div class="box"><h2>Preview</h2><div class="cardview" id="eprev"></div><div class="readtime" id="eread"></div></div>
       </div>`;
     let kindNow=x.kind;
-    const prev=()=>{$('eprev').innerHTML=`<b class="ptag">${E($('etitle').value||'Tag')}</b>${$('ecite').value?`<div class="cite">${E($('ecite').value)}</div>`:''}<div class="cbody2">${cardHTML($('ebody').value)}</div>`};
+    const prev=()=>{$('eprev').innerHTML=`<b class="ptag">${E($('etitle').value||'Tag')}</b>${$('ecite').value?`<div class="cite">${E($('ecite').value)}</div>`:''}<div class="cbody2">${cardHTML($('ebody').value)}</div>`;
+      const read=($('ebody').value.match(/\*\*([^*\n]+)\*\*/g)||[]).join(' ').split(/\s+/).filter(Boolean).length;$('eread').textContent=read?`About ${Math.max(1,Math.round(read/150*60))} seconds to read the **bold** text at 150 words a minute (${read} words).`:''};
     ['etitle','ecite','ebody'].forEach(i=>$(i).oninput=prev);prev();
+    /* card cutter: standard debate cite = Lastname 'YY + full cite, dropped into the cite field and the top of the card */
+    $('ccut').onclick=()=>{const v=id=>$(id).value.trim();const author=v('cauthor'),cred=v('ccred'),title=v('ctitle'),src=v('csource'),date=v('cdate'),url=v('curl');
+      if(!author&&!title&&!src){$('cmsg').textContent='Add at least an author, a title or a source.';return}
+      const yr=(date.match(/\b(19|20)\d{2}\b/)||[])[0];const last=author?author.split(/\s+/).pop().replace(/,$/,''):(src||'No author');
+      const short=`${last}${yr?' ’'+yr.slice(2):''}`;
+      const full=[author,cred,title?`"${title}"`:'',src,date,url,'accessed '+new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})].filter(Boolean).join(', ');
+      const cite=`${short} — ${full}`;$('ecite').value=cite.slice(0,600);
+      const tag=v('etitle')||'Tag';const head=`**${tag}**\n==${short}== ${full}\n\n`;
+      const body=$('ebody').value;if(!body.includes(`==${short}==`))$('ebody').value=head+body.replace(/^\n+/,'');
+      $('cmsg').textContent='Inserted. Now mark the words you read with **stars** and highlights with ==equals==.';prev()};
     $('ek').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;kindNow=b.dataset.k;$('ek').querySelectorAll('button').forEach(z=>z.setAttribute('aria-pressed',z===b))};
     $('esave').onclick=async()=>{const row={kind:kindNow,team_id:$('eteam')&&+$('eteam').value||null,side:$('eside').value,title:$('etitle').value.trim(),cite:$('ecite').value.trim(),topic:$('etopic').value.trim(),body:$('ebody').value};
       if(!row.title){$('emsg').innerHTML='<div class="small" style="color:var(--over)">Add a tag or name first.</div>';return}
@@ -775,7 +975,12 @@ async function cases(id){
         <div><button class="btn sm danger" data-leave="${t.id}">${t.role==='owner'?'Delete team':'Leave team'}</button></div></div>`).join('')||'<p class="muted">You\'re not on a team yet.</p>';
       $('tlist').querySelectorAll('[data-newcode]').forEach(b=>b.onclick=async()=>{const r=await SB.rpc('new_team_code',{t:+b.dataset.newcode});if(!r.error){TEAMS.find(t=>t.id===+b.dataset.newcode).code=r.data;drawT()}});
       $('tlist').querySelectorAll('[data-leave]').forEach(b=>b.onclick=async()=>{if(!b.dataset.armed){b.dataset.armed=1;b.textContent=b.textContent.startsWith('Delete')?'Click again: shared cards go back to private':'Click again to leave';return}
-        const r=await SB.rpc('leave_team',{t:+b.dataset.leave});if(r.error)return alert(r.error.message);cases('team')})};
+        const r=await SB.rpc('leave_team',{t:+b.dataset.leave});
+        if(r.error){const e=r.error,missing=e.code==='42883'||e.code==='PGRST202'||/404|not found|does not exist|schema cache/i.test(e.message||'');
+          b.textContent=b.textContent.startsWith('Click again: shared')?'Delete team':'Leave team';delete b.dataset.armed;
+          const m=document.createElement('div');m.className='small';m.style.cssText='color:var(--over);margin-top:4px';m.textContent=missing?'Leaving teams isn\'t turned on yet. Ask Kale, or just stop using the team for now.':(e.message||'Something went wrong').replace(/^.*?: /,'');
+          b.parentElement.append(m);return}
+        cases('team')})};
     drawT();
     $('jgo').onclick=async()=>{const r=await SB.rpc('join_team',{c:$('jcode').value});if(r.error)return err('jmsg',r.error);location.hash='#/cases';};
     $('tgo').onclick=async()=>{const n=$('tname').value.trim();if(n.length<2)return;const r=await SB.rpc('create_team',{n});if(r.error)return err('tmsg',r.error);cases('team')};
@@ -790,7 +995,7 @@ function route(){
   if(cleanup){cleanup();cleanup=null}
   clearInterval(ticker);wakeLock(false);keys=null;document.querySelector('.signal')?.remove();
   const p=location.hash.replace(/^#\/?/,'').split('/');window.scrollTo(0,0);
-  if(p[0]==='round')return round(p[1]);
+  if(p[0]==='round')return cleanup=round(p[1]);
   if(p[0]==='speech')return speech(p[1]);
   if(p[0]==='congress')return congress();
   if(p[0]==='flow')return flow();
