@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unit Converter · Kale Erson</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unit Converter · Kale Erson">
+<meta property="og:description" content="Convert length, weight, temperature, speed, volume, area, time and data units live, both ways, with exact formulas.">
+<meta property="og:url" content="https://kaleerson.com/convert/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Convert length, weight, temperature, speed, volume, area, time and data units live, both ways, with exact formulas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261007">
+<style>
+.phead .blob{background:var(--butter)}
+.tabs{display:flex;background:var(--card);border-radius:999px;padding:4px;gap:2px;margin-bottom:12px;max-width:100%;overflow-x:auto;width:max-content;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{font:inherit;font-size:14px;font-weight:600;padding:9px 14px;border-radius:999px;border:0;background:transparent;color:var(--ink2);cursor:pointer;white-space:nowrap}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--on-ink)}
+.stage{justify-content:center;gap:18px;min-height:300px}
+.stage .blob{width:55%;aspect-ratio:1;right:-18%;bottom:-30%;background:#ffffff66}
+.pair{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;width:100%}
+.side{display:grid;gap:8px;min-width:0}
+.side input{font-family:var(--display);font-weight:800;letter-spacing:-.04em;font-size:clamp(30px,4.2vw,48px);line-height:1;padding:12px 14px;border:0;border-radius:var(--r-sm);background:#ffffffa6;color:var(--ink);width:100%;min-width:0;font-variant-numeric:tabular-nums}
+.side select{font:inherit;font-size:15px;font-weight:600;padding:10px 36px 10px 12px;border:0;border-radius:12px;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235E645B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center/16px;color:var(--ink);width:100%;appearance:none;-webkit-appearance:none;cursor:pointer}
+.swap{width:46px;height:46px;border-radius:999px;border:0;background:var(--ink);color:var(--on-ink);display:grid;place-items:center;cursor:pointer;transition:transform .3s var(--ease)}
+.swap svg{width:20px;height:20px}
+.swap:hover{transform:rotate(180deg)}
+.formula{font-size:15px;color:var(--ink2);text-align:center;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.qp{font:inherit;font-size:13px;font-weight:600;padding:8px 12px;border-radius:999px;border:0;background:var(--paper);color:var(--ink);cursor:pointer;white-space:nowrap}
+.qp:hover{background:var(--line)}
+.also{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 22px;font-size:15px;width:100%}
+.also div{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.also div:last-child{border-bottom:0}
+.also span{color:var(--ink2)}
+.also b{font-weight:600;text-align:right;white-space:nowrap;flex:none;max-width:70%;overflow:hidden;text-overflow:ellipsis}
+.also div.on b{color:var(--ink)}
+.hint{font-size:14px;color:var(--ink2)}
+@media (max-width:640px){.pair{grid-template-columns:1fr}.swap{justify-self:center;transform:rotate(90deg)}.swap:hover{transform:rotate(270deg)}.side input{font-size:clamp(30px,9vw,44px)}}
+@media (prefers-reduced-motion:reduce){.swap{transition:none}}
+</style>
+</head>
+<body data-page="tools">
+<main class="wrap">
+<section class="phead"><span class="blob"></span><h1>Unit Converter</h1><p>Type on either side. It converts live, both ways.</p></section>
+<div class="tabs" role="tablist" id="cats"></div>
+<div class="bento">
+  <section class="b s4 butter stage wide-m" id="stage">
+    <span class="blob"></span>
+    <div class="pair">
+      <div class="side"><input id="a" type="text" inputmode="decimal" autocomplete="off" aria-label="From value" placeholder="0"><select id="ua" aria-label="From unit"></select></div>
+      <button class="swap" id="swap" aria-label="Swap units" title="Swap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L3 8m4-4 4 4"/><path d="M17 8v12m0 0 4-4m-4 4-4-4"/></svg></button>
+      <div class="side"><input id="b" type="text" inputmode="decimal" autocomplete="off" aria-label="To value" placeholder="0"><select id="ub" aria-label="To unit"></select></div>
+    </div>
+    <div class="formula" id="formula"></div>
+  </section>
+  <section class="b s2 wide-m">
+    <span class="lbl">Quick</span>
+    <div class="row" id="quick"></div>
+    <div class="foot"><span class="muted">The last thing you converted comes back next time.</span></div>
+  </section>
+  <section class="b s6">
+    <span class="lbl" id="alsolbl">Also</span>
+    <div class="also" id="also"></div>
+    <div class="foot"><span class="muted" id="note"></span></div>
+  </section>
+</div>
+</main>
+<script src="/assets/site.js?v=20261007"></script>
+<script>
+const S=window.SITE;
+const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}};
+const J=(k,d)=>{try{const v=JSON.parse(ls(k));return v==null?d:v}catch(e){return d}};
+const $=id=>document.getElementById(id);
+const esc=s=>S&&S.esc?S.esc(s):String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// Every unit is a factor to the category's base unit, except temperature which uses exact to/from functions.
+const U=(n,f)=>({n,f});
+const CATS={
+  length:{name:'Length',note:'1 in = 2.54 cm, 1 mi = 1,609.344 m. All exact.',units:{mm:U('Millimeters (mm)',.001),cm:U('Centimeters (cm)',.01),m:U('Meters (m)',1),km:U('Kilometers (km)',1000),in:U('Inches (in)',.0254),ft:U('Feet (ft)',.3048),yd:U('Yards (yd)',.9144),mi:U('Miles (mi)',1609.344)}},
+  weight:{name:'Weight',note:'1 lb = 0.45359237 kg exactly. t is the metric ton.',units:{mg:U('Milligrams (mg)',1e-6),g:U('Grams (g)',.001),kg:U('Kilograms (kg)',1),t:U('Metric tons (t)',1000),oz:U('Ounces (oz)',.028349523125),lb:U('Pounds (lb)',.45359237),st:U('Stone (st)',6.35029318)}},
+  temperature:{name:'Temperature',note:'°F = °C × 9/5 + 32. K = °C + 273.15.',units:{C:{n:'Celsius (°C)',to:x=>x,from:x=>x},F:{n:'Fahrenheit (°F)',to:x=>(x-32)*5/9,from:x=>x*9/5+32},K:{n:'Kelvin (K)',to:x=>x-273.15,from:x=>x+273.15}}},
+  speed:{name:'Speed',note:'1 mph = 1.609344 km/h exactly. 1 knot = 1,852 m per hour.',units:{'m/s':U('Meters per second (m/s)',1),'km/h':U('Kilometers per hour (km/h)',1/3.6),mph:U('Miles per hour (mph)',.44704),'ft/s':U('Feet per second (ft/s)',.3048),kn:U('Knots (kn)',1852/3600)}},
+  volume:{name:'Volume',note:'US cups, pints, quarts and gallons. 1 gal = 3.785411784 L.',units:{mL:U('Milliliters (mL)',.001),L:U('Liters (L)',1),'m³':U('Cubic meters (m³)',1000),tsp:U('Teaspoons (tsp)',.00492892159375),tbsp:U('Tablespoons (tbsp)',.01478676478125),'fl oz':U('Fluid ounces (fl oz)',.0295735295625),cup:U('Cups (cup)',.2365882365),pt:U('Pints (pt)',.473176473),qt:U('Quarts (qt)',.946352946),gal:U('Gallons (gal)',3.785411784)}},
+  area:{name:'Area',note:'1 acre = 4,046.8564224 m². 1 ha = 10,000 m².',units:{'cm²':U('Square centimeters (cm²)',1e-4),'m²':U('Square meters (m²)',1),ha:U('Hectares (ha)',1e4),'km²':U('Square kilometers (km²)',1e6),'in²':U('Square inches (in²)',.00064516),'ft²':U('Square feet (ft²)',.09290304),'yd²':U('Square yards (yd²)',.83612736),acre:U('Acres (acre)',4046.8564224),'mi²':U('Square miles (mi²)',2589988.110336)}},
+  time:{name:'Time',note:'A year here is 365.25 days and a month is a twelfth of that.',units:{ms:U('Milliseconds (ms)',.001),s:U('Seconds (s)',1),min:U('Minutes (min)',60),h:U('Hours (h)',3600),d:U('Days (d)',86400),wk:U('Weeks (wk)',604800),mo:U('Months (mo)',2629800),yr:U('Years (yr)',31557600)}},
+  data:{name:'Data',note:'KB, MB, GB use 1,000. KiB, MiB, GiB use 1,024, which is what most apps mean.',units:{bit:U('Bits (bit)',.125),B:U('Bytes (B)',1),KB:U('Kilobytes (KB)',1e3),MB:U('Megabytes (MB)',1e6),GB:U('Gigabytes (GB)',1e9),TB:U('Terabytes (TB)',1e12),KiB:U('Kibibytes (KiB)',1024),MiB:U('Mebibytes (MiB)',1048576),GiB:U('Gibibytes (GiB)',1073741824),TiB:U('Tebibytes (TiB)',1099511627776)}}
+};
+const QUICK=[['length','in','cm','in → cm'],['length','mi','km','mi → km'],['weight','lb','kg','lb → kg'],['temperature','F','C','°F → °C'],['speed','mph','km/h','mph → km/h'],['weight','oz','g','oz → g'],['length','ft','m','ft → m'],['volume','cup','mL','cup → mL'],['data','GB','MB','GB → MB']];
+const TEMPF={'C>F':'°F = °C × 9/5 + 32','F>C':'°C = (°F − 32) × 5/9','C>K':'K = °C + 273.15','K>C':'°C = K − 273.15','F>K':'K = (°F − 32) × 5/9 + 273.15','K>F':'°F = (K − 273.15) × 9/5 + 32','C>C':'°C = °C','F>F':'°F = °F','K>K':'K = K'};
+const sym=k=>{const m=/\(([^)]+)\)$/.exec(CATS[cat].units[k].n);return m?m[1]:k};
+
+const toBase=(v,u)=>u.to?u.to(v):v*u.f, fromBase=(v,u)=>u.from?u.from(v):v/u.f;
+function conv(v,from,to){const us=CATS[cat].units;return fromBase(toBase(v,us[from]),us[to])}
+// sensible rounding: 8 significant digits, no trailing zeros, exponent only for very big or tiny numbers
+function fmt(x){
+  if(!isFinite(x))return '';if(x===0)return '0';
+  const a=Math.abs(x);
+  if(a>=1e15||a<1e-6)return x.toExponential(4).replace(/\.?0+e/,'e');
+  let s=String(Number(x.toPrecision(8)));
+  if(/e/.test(s))s=Number(x.toPrecision(8)).toFixed(10).replace(/\.?0+$/,'');
+  return s;
+}
+const parse=s=>{s=String(s).trim().replace(/,/g,'');if(!s||s==='-'||s==='.')return null;const v=Number(s);return isFinite(v)?v:null};
+const group=s=>{const m=/^(-?\d+)(\.\d+)?$/.exec(s);if(!m||m[1].replace('-','').length<5)return s;return m[1].replace(/\B(?=(\d{3})+(?!\d))/g,',')+(m[2]||'')};
+
+let cat='length',ua='mi',ub='km',side='a';
+const $a=$('a'),$b=$('b'),$ua=$('ua'),$ub=$('ub');
+function drawCats(){$('cats').innerHTML=Object.keys(CATS).map(k=>`<button role="tab" data-cat="${k}" aria-pressed="${k===cat}">${CATS[k].name}</button>`).join('')}
+function drawUnits(){
+  const us=CATS[cat].units,opts=Object.keys(us).map(k=>`<option value="${esc(k)}">${esc(us[k].n)}</option>`).join('');
+  $ua.innerHTML=opts;$ub.innerHTML=opts;$ua.value=ua;$ub.value=ub;
+  $('note').textContent=CATS[cat].note;
+}
+function setCat(k,from,to){
+  if(!CATS[k])return;cat=k;const keys=Object.keys(CATS[k].units);
+  const last=J('convert_last',{});
+  ua=from||(last.cat===k&&CATS[k].units[last.ua]?last.ua:keys[0]);ub=to||(last.cat===k&&CATS[k].units[last.ub]?last.ub:keys[Math.min(1,keys.length-1)]);
+  if(ua===ub)ub=keys.find(x=>x!==ua)||ua;
+  drawCats();drawUnits();
+  if(parse($a.value)==null&&parse($b.value)==null){$a.value='1';side='a'}
+  run();
+}
+function run(){
+  const src=side==='a'?$a:$b,dst=side==='a'?$b:$a,from=side==='a'?ua:ub,to=side==='a'?ub:ua;
+  const v=parse(src.value);
+  dst.value=v==null?'':fmt(conv(v,from,to));
+  const one=cat==='temperature'?TEMPF[ua+'>'+ub]:('1 '+sym(ua)+' = '+group(fmt(conv(1,ua,ub)))+' '+sym(ub));
+  $('formula').textContent=one;
+  // every unit in this category for the value on the left
+  const av=parse($a.value),us=CATS[cat].units;
+  $('alsolbl').textContent=av==null?'Also':(group(fmt(av))+' '+sym(ua)+' is also');
+  $('also').innerHTML=Object.keys(us).map(k=>`<div class="${k===ub?'on':''}"><span>${esc(us[k].n)}</span><b>${av==null?'–':esc(group(fmt(conv(av,ua,k))))}</b></div>`).join('');
+  ls('convert_last',JSON.stringify({cat,ua,ub,v:$a.value,side}));
+}
+$a.addEventListener('input',()=>{side='a';run()});
+$b.addEventListener('input',()=>{side='b';run()});
+$ua.addEventListener('change',()=>{ua=$ua.value;if(ua===ub){ub=Object.keys(CATS[cat].units).find(x=>x!==ua);$ub.value=ub}side='a';run()});
+$ub.addEventListener('change',()=>{ub=$ub.value;if(ua===ub){ua=Object.keys(CATS[cat].units).find(x=>x!==ub);$ua.value=ua}side='a';run()});
+$('swap').onclick=()=>{[ua,ub]=[ub,ua];$ua.value=ua;$ub.value=ub;$a.value=$b.value;side='a';run()};
+$('cats').addEventListener('click',e=>{const b=e.target.closest('[data-cat]');if(b&&b.dataset.cat!==cat){$a.value='';$b.value='';setCat(b.dataset.cat)}});
+$('quick').innerHTML=QUICK.map((q,i)=>`<button class="qp" data-q="${i}">${esc(q[3])}</button>`).join('');
+$('quick').addEventListener('click',e=>{const b=e.target.closest('[data-q]');if(!b)return;const q=QUICK[+b.dataset.q];if(parse($a.value)==null)$a.value='1';side='a';setCat(q[0],q[1],q[2])});
+[$a,$b].forEach(el=>el.addEventListener('focus',()=>el.select()));
+{const last=J('convert_last',{});
+  if(last&&CATS[last.cat]){cat=last.cat;if(typeof last.v==='string')$a.value=last.v;side='a';setCat(cat,CATS[cat].units[last.ua]?last.ua:null,CATS[cat].units[last.ub]?last.ub:null)}
+  else setCat('length','mi','km')}
+</script>
+</body>
+</html>
