@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Citations · Kale Erson</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<meta name="theme-color" content="#EEF0EA">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Citations · Kale Erson">
+<meta property="og:description" content="Build MLA 9 and APA 7 citations for websites, books and journal articles, then copy the whole bibliography.">
+<meta property="og:url" content="https://kaleerson.com/cite/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Build MLA 9 and APA 7 citations for websites, books and journal articles, then copy the whole bibliography.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261007">
+<style>
+.phead .blob{background:var(--sky)}
+.tabs{display:inline-flex;background:var(--card);border-radius:999px;padding:4px;gap:2px;margin-bottom:12px;max-width:100%;overflow-x:auto}
+.tabs button{font:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;border:0;background:transparent;color:var(--ink2);cursor:pointer;white-space:nowrap}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--on-ink)}
+input[type=text],input[type=url],input[type=date]{font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);width:100%;min-width:0}
+.fl{display:grid;gap:10px}
+.fl label{display:grid;gap:6px;font-weight:600;font-size:14px}
+.fl .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fl .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.au{display:grid;grid-template-columns:1fr 1fr 36px;gap:6px;align-items:center}
+.x{width:36px;height:36px;border-radius:999px;border:0;background:var(--paper);color:var(--ink2);font-size:18px;cursor:pointer;justify-self:end}
+.x:hover{color:var(--ink)}
+.btn.sm{padding:9px 14px;font-size:14px;white-space:nowrap}
+.foot{flex-wrap:wrap;gap:8px}
+.hint{font-size:14px;color:var(--ink2)}
+.out{min-height:200px}
+.out .blob{width:60%;aspect-ratio:1;right:-20%;bottom:-40%;background:#ffffff66}
+.ct{font-size:17px;line-height:1.6;overflow-wrap:anywhere;padding-left:2em;text-indent:-2em;min-height:1.6em}
+.ct i{font-style:italic}
+.ct:has(>.hint){padding-left:0;text-indent:0}
+.bib{display:grid;gap:10px}
+.bi{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start;background:var(--paper);border-radius:14px;padding:10px 12px}
+.bi .ct{font-size:15px}
+.mini{display:flex;gap:4px}
+.mini button{width:32px;height:32px;border-radius:999px;border:0;background:transparent;color:var(--ink2);cursor:pointer;display:grid;place-items:center}
+.mini button:hover{color:var(--ink);background:var(--card)}
+.mini svg{width:16px;height:16px}
+.sw{display:inline-flex;background:var(--paper);border-radius:999px;padding:3px;gap:2px}
+.sw button{font:inherit;font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;border:0;background:transparent;color:var(--ink2);cursor:pointer}
+.sw button[aria-pressed=true]{background:var(--ink);color:var(--on-ink)}
+.copied{font-size:13px;font-weight:600;color:var(--ink2)}
+@media (max-width:520px){.fl .g3{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body data-page="tools">
+<main class="wrap">
+<section class="phead"><span class="blob"></span><h1>Citations</h1><p>MLA 9 and APA 7, built as you type. Leave a field blank and it just drops out.</p></section>
+<div class="tabs" role="tablist"><button data-t="web" aria-pressed="true">Website</button><button data-t="book" aria-pressed="false">Book</button><button data-t="journal" aria-pressed="false">Journal article</button></div>
+<div class="bento">
+  <section class="b s3 wide-m r2">
+    <span class="lbl">Source</span>
+    <div class="fl" id="form">
+      <div><div class="hint" style="margin-bottom:6px;font-weight:600">Authors</div><div id="authors" class="fl" style="gap:6px"></div><button class="btn ghost sm" type="button" id="addau" style="margin-top:8px">Add author</button></div>
+      <label data-f="title"><span id="l-title">Page title</span><input type="text" id="title" autocomplete="off"></label>
+      <label data-f="site"><span id="l-site">Website name</span><input type="text" id="site" autocomplete="off"></label>
+      <label data-f="journal" hidden>Journal name<input type="text" id="journal" autocomplete="off"></label>
+      <div class="g3" data-f="vol" hidden><label>Volume<input type="text" id="vol" inputmode="numeric"></label><label>Issue<input type="text" id="issue" inputmode="numeric"></label><label>Pages<input type="text" id="pages" placeholder="45-67"></label></div>
+      <div class="g2"><label data-f="date">Published<input type="text" id="date" placeholder="2024-05-14 or 2024" inputmode="numeric"></label><label data-f="acc">Accessed<input type="date" id="acc"></label></div>
+      <label data-f="url">URL<input type="url" id="url" placeholder="https://" autocomplete="off" inputmode="url"></label>
+    </div>
+    <div class="foot"><span class="muted" id="fhint">Type the title the way the source prints it.</span><button class="btn ghost sm" id="clearf">Clear</button></div>
+  </section>
+  <section class="b s3 sky out wide-m">
+    <span class="blob"></span>
+    <span class="lbl">MLA 9</span>
+    <div class="ct" id="mla"></div>
+    <div class="foot" style="align-items:center"><span class="copied" id="c-mla"></span><div class="row"><button class="btn sm" data-copy="mla">Copy</button><button class="btn light sm" data-save="mla">Save</button></div></div>
+  </section>
+  <section class="b s3 sky out wide-m">
+    <span class="blob b2"></span>
+    <span class="lbl">APA 7</span>
+    <div class="ct" id="apa"></div>
+    <div class="foot" style="align-items:center"><span class="copied" id="c-apa"></span><div class="row"><button class="btn sm" data-copy="apa">Copy</button><button class="btn light sm" data-save="apa">Save</button></div></div>
+  </section>
+  <section class="b s6 wide-m">
+    <div class="row" style="justify-content:space-between;align-items:center"><span class="lbl">Bibliography</span><div class="sw" role="tablist"><button data-s="mla" aria-pressed="true">MLA</button><button data-s="apa" aria-pressed="false">APA</button></div></div>
+    <div class="bib" id="bib"></div>
+    <div class="foot" style="align-items:center"><span class="muted" id="bhint">Saved sources sort alphabetically, like a Works Cited page.</span><div class="row"><button class="btn sm" id="copyall">Copy all</button><button class="btn ghost sm" id="clearall">Clear list</button></div></div>
+  </section>
+</div>
+</main>
+<script src="/assets/site.js?v=20261007"></script>
+<script>
+const S=window.SITE;
+const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}};
+const J=(k,d)=>{try{const v=JSON.parse(ls(k));return v==null?d:v}catch(e){return d}};
+const $=id=>document.getElementById(id);
+const esc=s=>S&&S.esc?S.esc(s):String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const I=s=>'<i>'+esc(s)+'</i>';
+
+// ── state ──
+let type='web';
+let authors=[{first:'',last:''}];
+const F=['title','site','journal','vol','issue','pages','date','acc','url'];
+const LABELS={web:{title:'Page title',site:'Website name',hint:'Type the title the way the source prints it.'},book:{title:'Book title',site:'Publisher',hint:'Use the publisher on the copyright page and the year it was printed.'},journal:{title:'Article title',site:'Publisher',hint:'Add the DOI link as the URL if the article has one.'}};
+const SHOW={web:['title','site','date','acc','url'],book:['title','site','date'],journal:['title','journal','vol','date','url']};
+function setType(t){type=t;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===t));document.querySelectorAll('[data-f]').forEach(el=>el.hidden=!SHOW[t].includes(el.dataset.f));$('l-title').textContent=LABELS[t].title;$('l-site').textContent=LABELS[t].site;$('fhint').textContent=LABELS[t].hint;render()}
+document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b)setType(b.dataset.t)});
+
+function drawAuthors(){$('authors').innerHTML=authors.map((a,i)=>`<div class="au"><input type="text" placeholder="First" value="${esc(a.first)}" data-i="${i}" data-k="first" autocomplete="off"><input type="text" placeholder="Last" value="${esc(a.last)}" data-i="${i}" data-k="last" autocomplete="off"><button class="x" type="button" aria-label="Remove author" data-rm="${i}">×</button></div>`).join('')}
+$('authors').addEventListener('input',e=>{const i=+e.target.dataset.i,k=e.target.dataset.k;if(authors[i]&&k){authors[i][k]=e.target.value;render()}});
+$('authors').addEventListener('click',e=>{const b=e.target.closest('[data-rm]');if(!b)return;authors.splice(+b.dataset.rm,1);if(!authors.length)authors.push({first:'',last:''});drawAuthors();render()});
+$('addau').onclick=()=>{authors.push({first:'',last:''});drawAuthors();$('authors').querySelector('.au:last-child input').focus()};
+$('form').addEventListener('input',render);
+$('clearf').onclick=()=>{authors=[{first:'',last:''}];drawAuthors();F.forEach(k=>$(k).value='');render()};
+drawAuthors();
+
+// ── formatting helpers ──
+const MLA_M=['Jan.','Feb.','Mar.','Apr.','May','June','July','Aug.','Sept.','Oct.','Nov.','Dec.'];
+const APA_M=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const v=id=>($(id).value||'').trim();
+// parse "2024", "2024-05", "2024-05-14", "5/14/2024", "May 14, 2024"
+function parseDate(s){
+  s=(s||'').trim();if(!s)return null;
+  let m=s.match(/^(\d{4})(?:-(\d{1,2}))?(?:-(\d{1,2}))?$/);
+  if(m)return{y:+m[1],m:m[2]?+m[2]:null,d:m[3]?+m[3]:null};
+  m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if(m)return{y:+m[3],m:+m[1],d:+m[2]};
+  const t=Date.parse(s);if(!isNaN(t)){const d=new Date(t);return{y:d.getFullYear(),m:d.getMonth()+1,d:d.getDate()}}
+  m=s.match(/(\d{4})/);return m?{y:+m[1],m:null,d:null}:null;
+}
+const okM=d=>d&&d.m>=1&&d.m<=12;
+function mlaDate(d){if(!d)return'';if(!okM(d))return String(d.y);return(d.d?d.d+' ':'')+MLA_M[d.m-1]+' '+d.y}
+function apaDate(d){if(!d)return'n.d.';if(!okM(d))return String(d.y);return d.y+', '+APA_M[d.m-1]+(d.d?' '+d.d:'')}
+const initials=f=>f.split(/[\s]+/).filter(Boolean).map(p=>p.split('-').map(q=>q[0].toUpperCase()+'.').join('-')).join(' ');
+const clean=a=>a.map(x=>({first:x.first.trim().replace(/\s+/g,' '),last:x.last.trim().replace(/\s+/g,' ')})).filter(x=>x.first||x.last);
+const endp=s=>/[.!?]$/.test(s)?s:s+'.';   // add a period unless the piece already ends in one
+const pages=p=>p.replace(/\s*-+\s*/g,'–');
+
+// MLA: "Last, First, and First Last." / "Last, First, et al."
+function mlaAuthors(a){
+  a=clean(a);if(!a.length)return'';
+  const one=x=>x.last&&x.first?x.last+', '+x.first:(x.last||x.first);
+  const nat=x=>(x.first+' '+x.last).trim();
+  if(a.length===1)return endp(one(a[0]));
+  if(a.length===2)return endp(one(a[0])+', and '+nat(a[1]));
+  return endp(one(a[0])+', et al');
+}
+// APA: "Last, F. M., & Last, F." ; up to 20 authors
+function apaAuthors(a){
+  a=clean(a);if(!a.length)return'';
+  const one=x=>x.last&&x.first?x.last+', '+initials(x.first):(x.last||initials(x.first));
+  let s;
+  if(a.length===1)s=one(a[0]);
+  else if(a.length<=20)s=a.slice(0,-1).map(one).join(', ')+', & '+one(a[a.length-1]);
+  else s=a.slice(0,19).map(one).join(', ')+', . . . '+one(a[a.length-1]);
+  return /\.$/.test(s)?s:s+'.';
+}
+
+function build(){
+  const A=authors,title=v('title'),site=v('site'),journal=v('journal'),vol=v('vol'),issue=v('issue'),pg=v('pages'),date=parseDate(v('date')),acc=parseDate(v('acc')),url=v('url');
+  const ma=mlaAuthors(A),aa=apaAuthors(A);
+  let mla=[],apa=[];
+  if(type==='web'){
+    // MLA: Author. "Title." Site, Date, URL. Accessed Date.
+    if(ma)mla.push(ma);
+    if(title)mla.push('"'+esc(endp(title))+'"');
+    const tail=[site?I(site):'',date?mlaDate(date):'',url?esc(url):''].filter(Boolean).join(', ');
+    if(tail)mla.push(endp(tail));
+    if(acc)mla.push('Accessed '+mlaDate(acc)+'.');
+    // APA: Author. (Date). Title. Site. URL   — no author: Title. (Date). Site. URL
+    if(aa){apa.push(aa);apa.push('('+apaDate(date)+').');if(title)apa.push(I(endp(title)))}
+    else{if(title)apa.push(I(endp(title)));apa.push('('+apaDate(date)+').')}
+    if(site&&site!==title)apa.push(esc(endp(site)));
+    if(url)apa.push(acc&&!date?'Retrieved '+apaDate(acc).replace(/^(\d{4}), (.*)$/,'$2, $1')+', from '+esc(url):esc(url));
+  }else if(type==='book'){
+    // MLA: Author. Title. Publisher, Year.
+    if(ma)mla.push(ma);
+    if(title)mla.push(I(endp(title)));
+    const tail=[site,date?String(date.y):''].filter(Boolean).join(', ');if(tail)mla.push(endp(tail));
+    // APA: Author. (Year). Title. Publisher.
+    if(aa){apa.push(aa);apa.push('('+(date?date.y:'n.d.')+').');if(title)apa.push(I(endp(title)))}
+    else{if(title)apa.push(I(endp(title)));apa.push('('+(date?date.y:'n.d.')+').')}
+    if(site)apa.push(esc(endp(site)));
+  }else{
+    // MLA: Author. "Title." Journal, vol. X, no. Y, Date, pp. A–B. URL.
+    if(ma)mla.push(ma);
+    if(title)mla.push('"'+esc(endp(title))+'"');
+    const parts=[journal?I(journal):'',vol?'vol. '+esc(vol):'',issue?'no. '+esc(issue):'',date?mlaDate(date):'',pg?(/[-–]/.test(pg)?'pp. ':'p. ')+esc(pages(pg)):''].filter(Boolean).join(', ');
+    if(parts)mla.push(endp(parts));
+    if(url)mla.push(esc(url)+'.');
+    // APA: Author. (Year). Title. Journal, vol(issue), pages. URL
+    if(aa){apa.push(aa);apa.push('('+(date?date.y:'n.d.')+').');if(title)apa.push(esc(endp(title)))}
+    else{if(title)apa.push(esc(endp(title)));apa.push('('+(date?date.y:'n.d.')+').')}
+    let j='';if(journal)j+=I(journal+(vol?', '+vol:''));else if(vol)j+=I(vol);
+    if(issue)j+='('+esc(issue)+')';
+    if(pg)j+=(j?', ':'')+esc(pages(pg));
+    if(j)apa.push(j+'.');
+    if(url)apa.push(esc(url));
+  }
+  const empty=!clean(A).length&&!title&&!site&&!journal&&!url;
+  return{mla:empty?'':mla.join(' '),apa:empty?'':apa.join(' ')};
+}
+let cur={mla:'',apa:''};
+function render(){cur=build();$('mla').innerHTML=cur.mla||'<span class="hint">Fill in the form and the citation shows up here.</span>';$('apa').innerHTML=cur.apa||'<span class="hint">Same source, APA style.</span>'}
+
+// ── copy ──
+const plain=html=>{const d=document.createElement('div');d.innerHTML=html;return d.textContent};
+async function copy(html,msgEl){
+  const txt=plain(html);let ok=false;
+  try{if(navigator.clipboard&&window.ClipboardItem){await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([txt],{type:'text/plain'})})]);ok=true}}catch(e){}
+  if(!ok){try{await navigator.clipboard.writeText(txt);ok=true}catch(e){}}
+  if(!ok){try{const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();ok=document.execCommand('copy');ta.remove()}catch(e){}}
+  if(S&&S.toast)S.toast(ok?'Copied':'Could not copy');
+  else if(msgEl){msgEl.textContent=ok?'Copied':'Could not copy';setTimeout(()=>msgEl.textContent='',1800)}
+  return ok;
+}
+document.querySelectorAll('[data-copy]').forEach(b=>b.onclick=()=>{const k=b.dataset.copy;if(cur[k])copy(cur[k],$('c-'+k))});
+
+// ── bibliography — cite_list: [{id,mla,apa,key}] ──
+let list=J('cite_list',[]);if(!Array.isArray(list))list=[];
+let style=ls('cite_style')==='apa'?'apa':'mla';
+const saveList=()=>ls('cite_list',JSON.stringify(list));
+const sortKey=h=>plain(h).toLowerCase().replace(/^["'“‘(]+/,'').replace(/^(the|a|an) /,'');
+function drawBib(){
+  document.querySelectorAll('.sw button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===style));
+  const sorted=list.slice().sort((a,b)=>sortKey(a[style]).localeCompare(sortKey(b[style])));
+  $('bib').innerHTML=sorted.map(x=>`<div class="bi" data-id="${x.id}"><div class="ct">${x[style]}</div><div class="mini"><button data-c aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button><button data-d aria-label="Remove">×</button></div></div>`).join('')||'<div class="hint">Nothing saved yet. Build a citation and tap Save.</div>';
+  $('bhint').textContent=list.length?list.length+(list.length===1?' source':' sources')+', A to Z':'Saved sources sort alphabetically, like a Works Cited page.';
+}
+document.querySelectorAll('[data-save]').forEach(b=>b.onclick=()=>{if(!cur.mla&&!cur.apa)return;style=b.dataset.save;ls('cite_style',style);if(list.some(x=>x.mla===cur.mla&&x.apa===cur.apa)){if(S&&S.toast)S.toast('Already in the list');return}list.push({id:Date.now().toString(36),mla:cur.mla,apa:cur.apa});saveList();drawBib();if(S&&S.toast)S.toast('Saved to bibliography')});
+document.querySelector('.sw').addEventListener('click',e=>{const b=e.target.closest('[data-s]');if(!b)return;style=b.dataset.s;ls('cite_style',style);drawBib()});
+$('bib').addEventListener('click',e=>{const row=e.target.closest('.bi');if(!row)return;const x=list.find(y=>y.id===row.dataset.id);if(!x)return;if(e.target.closest('[data-d]')){list=list.filter(y=>y!==x);saveList();drawBib()}else if(e.target.closest('[data-c]'))copy(x[style])});
+$('copyall').onclick=()=>{if(!list.length)return;const sorted=list.slice().sort((a,b)=>sortKey(a[style]).localeCompare(sortKey(b[style])));copy(sorted.map(x=>'<p>'+x[style]+'</p>').join('\n').replace(/<\/p>\n<p>/g,'</p>\n\n<p>'))};
+$('clearall').onclick=()=>{if(!list.length)return;if(!confirm('Clear the whole list?'))return;list=[];saveList();drawBib()};
+drawBib();
+setType('web');
+</script>
+</body>
+</html>
