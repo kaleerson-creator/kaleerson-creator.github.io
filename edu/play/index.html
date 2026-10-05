@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20261006">
-<link rel="stylesheet" href="/edu/assets/games.css?v=2">
+<link rel="stylesheet" href="/edu/assets/games.css?v=3">
 <style>
 .lobby{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
 .lobby .box{align-content:start}
@@ -97,14 +97,14 @@ html[data-theme=dark] .lmsg.ok{color:#8fd07f}html[data-theme=dark] .lmsg.no{colo
 </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/edu/assets/common.js?v=2c"></script>
+<script src="/edu/assets/common.js?v=3c"></script>
 <script src="/assets/site.js?v=20261006"></script>
-<script src="/edu/assets/trivia.js?v=2"></script>
+<script src="/edu/assets/trivia.js?v=3"></script>
 <script>
 const ID=(G.local.get('play:id',null)||(()=>{const v=Math.random().toString(36).slice(2,10);G.local.set('play:id',v);return v})());
 const NAMES={ttt:'Tic-tac-toe',c4:'Connect Four',trivia:'Trivia race',rush:'Letter Rush race'};
 const RUSH_MS=90000,PTS={3:30,4:60,5:100,6:150,7:300};
-let rushStart=0,rushT=null,rushFound={},myRound=-1,myFound=[],guess=[],rmsg=null;
+let rushStart=0,rushT=null,myRound=-1,myFound=[],guess=[],rmsg=null;
 const fitsRack=(w,rack)=>{const c={};rack.forEach(x=>c[x]=(c[x]||0)+1);for(const ch of w){if(!c[ch])return false;c[ch]--}return true};
 let lettersP=null;const needLetters=()=>window.LETTERS?Promise.resolve():(lettersP=lettersP||new Promise(ok=>{const sc=document.createElement('script');sc.src='/edu/assets/letters.js?v=3';sc.onload=ok;document.head.append(sc)}));
 const nick=document.getElementById('nick');nick.value=G.local.get('play:nick','');
@@ -131,7 +131,8 @@ async function enter(c,type){
     draw()});
   ch.on('broadcast',{event:'state'},({payload})=>{S=payload;recvAt=Date.now();gameType=S.game;draw()});
   ch.on('broadcast',{event:'act'},({payload})=>{if(isHost&&S)act(payload)});
-  ch.subscribe(async st=>{if(st==='SUBSCRIBED'){await ch.track({name:n.slice(0,20),t:Date.now()});show()}
+  ch.subscribe(async st=>{if(st==='SUBSCRIBED'){await ch.track({name:n.slice(0,20),t:Date.now()});show();
+      if(!gameType){const mine=ch;setTimeout(()=>{if(ch===mine&&!S&&!gameType){leave();$('lmsg').innerHTML='<div class="msg">No room with that code. Check the letters and try again.</div>'}},4000)}}
     else if(st==='CHANNEL_ERROR'||st==='TIMED_OUT'){$('lmsg').innerHTML='<div class="msg">Couldn\'t connect. Check your internet and try again.</div>'}});
   location.hash=code;
 }
@@ -145,7 +146,7 @@ function drawPeople(){const ids=Object.keys(people).sort((a,b)=>people[a].t-peop
 function init(type){
   if(type==='ttt')return {game:'ttt',board:Array(9).fill(''),turn:'X',seats:{},win:null,line:[],starter:'X',round:1};
   if(type==='c4')return {game:'c4',board:Array(42).fill(''),turn:'R',seats:{},win:null,line:[],starter:'R',round:1};
-  if(type==='rush')return {game:'rush',phase:'lobby',rack:[],seed:'',left:0,scores:{},counts:{},round:0};
+  if(type==='rush')return {game:'rush',phase:'lobby',rack:[],seed:'',left:0,scores:{},counts:{},found:{},round:0};
   return {game:'trivia',phase:'lobby',qi:0,total:10,scores:{},answers:{},q:null,left:0,reveal:null,order:[]};
 }
 function seat(){if(!S.seats)return;const ids=Object.keys(people).sort((a,b)=>people[a].t-people[b].t);const keys=S.game==='ttt'?['X','O']:['R','Y'];
@@ -164,11 +165,11 @@ function act(a){
   }
   if(S.game==='rush'){
     if(a.type==='start'&&a.from===ID&&S.phase!=='play'){needLetters().then(()=>{const seed=LETTERS.seeds[Math.floor(Math.random()*LETTERS.seeds.length)];
-      Object.assign(S,{phase:'play',seed:'',rack:shuffle(seed.split('')),scores:{},counts:{},round:S.round+1});rushSeed=seed;rushFound={};rushStart=Date.now();push();
+      Object.assign(S,{phase:'play',seed:'',rack:shuffle(seed.split('')),scores:{},counts:{},found:{},round:S.round+1});rushSeed=seed;rushStart=Date.now();push();
       clearTimeout(rushT);rushT=setTimeout(endRush,RUSH_MS)});return}
-    if(a.type==='found'&&S.phase==='play'&&window.LETTERS){const w=String(a.w||'').toLowerCase();const f=rushFound[a.from]=rushFound[a.from]||new Set();
-      if(w.length<3||w.length>7||f.has(w)||!LETTERS.words.has(w)||!fitsRack(w,S.rack))return;
-      f.add(w);S.scores[a.from]=(S.scores[a.from]||0)+PTS[w.length];S.counts[a.from]=(S.counts[a.from]||0)+1;push()}
+    if(a.type==='found'&&S.phase==='play'&&window.LETTERS){const w=String(a.w||'').toLowerCase();S.found=S.found||{};const f=S.found[a.from]=S.found[a.from]||[];
+      if(w.length<3||w.length>7||f.includes(w)||!LETTERS.words.has(w)||!fitsRack(w,S.rack))return;
+      f.push(w);S.scores[a.from]=(S.scores[a.from]||0)+PTS[w.length];S.counts[a.from]=(S.counts[a.from]||0)+1;push()}
     return;
   }
   // trivia
@@ -178,7 +179,7 @@ function act(a){
     if(Object.keys(people).every(id=>S.answers[id]))reveal();else push()}
 }
 let tqStart=0,rushSeed='';
-function endRush(){clearTimeout(rushT);if(S.phase!=='play')return;S.phase='end';S.left=0;S.seed=rushSeed;push()}
+function endRush(){clearTimeout(rushT);if(S.phase!=='play')return;S.phase='end';S.left=0;S.seed=rushSeed||S.seed||'';push()}
 // A new host picks up a trivia game where the old host left off.
 function resumeHost(){if(S.game==='rush'){if(S.phase==='play'){needLetters();rushStart=Date.now()-(RUSH_MS-Math.max(0,S.left-(Date.now()-recvAt)));clearTimeout(rushT);rushT=setTimeout(endRush,Math.max(500,RUSH_MS-(Date.now()-rushStart)))}return}
   if(S.game!=='trivia')return;clearTimeout(tq);
@@ -234,7 +235,7 @@ function drawRush(st){
   clearInterval(tickT);
   if(S.phase!=='play'){
     st.innerHTML=`<div class="status">${S.phase==='end'?'Time! Final scores':'Letter Rush race'}</div>
-      ${S.phase==='end'?`${rushBoard()}<p class="muted">The 7-letter word was <b>${E((S.seed||'').toUpperCase())}</b>. You found ${myFound.length} word${myFound.length===1?'':'s'}.</p><div class="found">${myFound.map(w=>`<span>${E(w)}</span>`).join('')}</div>`
+      ${S.phase==='end'?`${rushBoard()}<p class="muted">${S.seed?`The 7-letter word was <b>${E(S.seed.toUpperCase())}</b>. `:''}You found ${myFound.length} word${myFound.length===1?'':'s'}.</p><div class="found">${myFound.map(w=>`<span>${E(w)}</span>`).join('')}</div>`
         :`<p class="muted">Everyone gets the same 7 letters. Make as many words (3+ letters) as you can in 90 seconds. ${Object.keys(people).length} in the room. ${isHost?'Start when everyone has joined.':'The host will start soon.'}</p>`}
       ${isHost?`<button class="btn" id="start">${S.phase==='end'?'Play again':'Start game'}</button>`:''}`;
     if($('start'))$('start').onclick=()=>send({type:'start'});return}
@@ -265,7 +266,8 @@ $('create').onclick=()=>enter(newCode(),document.querySelector('[name=g]:checked
 $('join').onclick=()=>{const c=$('joincode').value.trim().toUpperCase();if(!/^[A-Z]{4}$/.test(c)){$('lmsg').innerHTML='<div class="msg">Codes are 4 letters.</div>';return}enter(c)};
 $('joincode').onkeydown=e=>{if(e.key==='Enter')$('join').click()};
 $('copy').onclick=()=>{const u=location.origin+'/edu/play/#'+code;(navigator.share?navigator.share({text:'Play '+(NAMES[gameType]||'a game')+' with me: '+u}).catch(()=>{}):navigator.clipboard.writeText(u).then(()=>{$('copy').textContent='Copied ✓';setTimeout(()=>$('copy').textContent='Copy invite link',1500)}))};
-$('leave').onclick=()=>{if(ch)SB.removeChannel(ch);ch=null;S=null;people={};location.hash='';$('room').hidden=true;$('lobby').hidden=false};
+function leave(){if(ch)SB.removeChannel(ch);ch=null;S=null;people={};isHost=false;gameType=null;clearInterval(tickT);clearTimeout(tq);clearTimeout(rushT);history.replaceState(null,'',location.pathname);$('room').hidden=true;$('lobby').hidden=false}
+$('leave').onclick=()=>{leave();$('lmsg').innerHTML=''};
 const fromHash=location.hash.replace('#','').toUpperCase();
 if(/^[A-Z]{4}$/.test(fromHash)){$('joincode').value=fromHash;if(nick.value)enter(fromHash);else{nick.focus();$('lmsg').innerHTML='<div class="msg ok">Type your name, then press Join.</div>'}}
 </script>

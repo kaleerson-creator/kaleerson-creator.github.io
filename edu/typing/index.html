@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20261006">
-<link rel="stylesheet" href="/edu/assets/games.css?v=2">
+<link rel="stylesheet" href="/edu/assets/games.css?v=3">
 <style>
 .tt{width:100%;max-width:760px;position:relative}
 .words{font:500 clamp(20px,3vw,26px)/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink3);height:calc(1.7em * 3);overflow:hidden;user-select:none;cursor:text;word-break:normal;overflow-wrap:normal}
@@ -51,9 +51,9 @@
 </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/edu/assets/common.js?v=2c"></script>
+<script src="/edu/assets/common.js?v=3c"></script>
 <script src="/assets/site.js?v=20261006"></script>
-<script src="/edu/assets/words.js?v=2"></script>
+<script src="/edu/assets/words.js?v=3"></script>
 <script>
 let secs=60,words,idx,typed,correctChars,wrongChars,t0,timer,done,results;
 const wEl=document.getElementById('words'),inp=document.getElementById('in');
@@ -72,7 +72,7 @@ function stats(){const el=(Date.now()-t0)/60000;const wpm=el>2/60?Math.round(cor
 function start(){t0=Date.now();timer=setInterval(()=>{const left=Math.max(0,secs-Math.floor((Date.now()-t0)/1000));document.getElementById('time').textContent=left;const s=stats();document.getElementById('wpm').textContent=s.wpm;document.getElementById('acc').textContent=s.acc+'%';if(left<=0)finish()},200)}
 async function finish(){done=true;clearInterval(timer);const s={wpm:Math.round(correctChars/5/(secs/60)),acc:correctChars+wrongChars?Math.round(100*correctChars/(correctChars+wrongChars)):100};
   document.getElementById('wpm').textContent=s.wpm;
-  const o=document.createElement('div');o.className='over';o.innerHTML=`<div><span class="lbl">${secs}-second test</span><div class="big">${s.wpm} wpm</div><p class="muted" id="omsg">${s.acc}% accuracy</p><button class="btn" id="oagain">Try again</button></div>`;
+  const o=document.createElement('div');o.className='over';o.innerHTML=`<div><span class="lbl">${secs}-second test</span><div class="big">${s.wpm} wpm</div><p class="muted" id="omsg">${s.acc}% accuracy</p><button class="btn" id="oagain">Try again</button><div data-actions></div></div>`;
   document.getElementById('tt').append(o);o.querySelector('#oagain').onclick=reset;
   if(secs===60&&s.wpm>0&&s.acc>=80)o.querySelector('#omsg').innerHTML+=`<br>${await G.submit('typing',Math.min(250,s.wpm),{acc:s.acc})}`;
   else if(secs===60&&s.acc<80)o.querySelector('#omsg').innerHTML+='<br>Needs 80% accuracy to count.';
