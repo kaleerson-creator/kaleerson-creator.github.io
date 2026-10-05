@@ -119,7 +119,8 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
     <div class="ahead"><h1>Admin</h1><div class="row"><a class="btn ghost sm" href="/contact/" target="_blank">Open vault ↗</a><a class="btn ghost sm" href="/study/" target="_blank">Study ↗</a><a class="btn ghost sm" href="/forum/" target="_blank">Forum ↗</a><button class="btn ghost sm" id="out">Sign out</button></div></div>
     <div id="tokwarn" hidden style="margin-bottom:12px"></div>
     <div class="tabs" role="tablist">
-      <button role="tab" data-t="sections" aria-selected="true">Sections</button>
+      <button role="tab" data-t="overview" aria-selected="true">Overview</button>
+      <button role="tab" data-t="sections">Sections</button>
       <button role="tab" data-t="files">Files</button>
       <button role="tab" data-t="codes">Codes</button>
       <button role="tab" data-t="devices">Devices</button>
@@ -130,8 +131,17 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
       <button role="tab" data-t="games">Games</button>
     </div>
 
+    <!-- OVERVIEW -->
+    <div class="panel" id="p-overview">
+      <div class="box">
+        <h2>Right now</h2>
+        <div class="tiles" id="otiles"></div>
+        <p class="help">Numbers come from the same loads as the other tabs. Tap a tile to go there.</p>
+      </div>
+    </div>
+
     <!-- SECTIONS -->
-    <div class="panel" id="p-sections">
+    <div class="panel" id="p-sections" hidden>
       <div class="box">
         <div class="row" style="justify-content:space-between"><h2>Vault sections</h2><button class="btn sm" id="addsec">+ New section</button></div>
         <p class="help">Basic codes see <b>Basic</b> sections. VIP codes see everything. Formatting: <code># Title</code> <code>## Heading</code> <code>- bullet</code> <code>**bold**</code> <code>[label](https://link)</code>. Emails, phone numbers and links become tappable.</p>
@@ -284,19 +294,48 @@ function flash(el,text,ok){el.innerHTML=`<div class="msg ${ok?'ok':'err'}">${E(t
 // two-click confirm for destructive buttons
 function confirmBtn(b,label){if(b.dataset.armed){return true}b.dataset.armed=1;const t=b.textContent;b.textContent=label||'Sure?';setTimeout(()=>{delete b.dataset.armed;b.textContent=t},3000);return false}
 
-/* tabs */
-document.querySelectorAll('[data-t]').forEach(b=>b.addEventListener('click',()=>{
-  document.querySelectorAll('[data-t]').forEach(x=>x.setAttribute('aria-selected',x===b));
-  ['sections','files','codes','devices','people','study','site','stats'].forEach(t=>$('p-'+t).hidden=t!==b.dataset.t);
-  ({sections:loadSections,files:loadFiles,codes:loadCodes,devices:loadDevices,people:loadPeople,study:loadStudy,site:loadSite,stats:loadStats,games:loadGames})[b.dataset.t]();
-}));
+/* tabs: the panel list comes from the tab buttons themselves, so a new tab only needs a button + #p-<id> */
+const TABS=[...document.querySelectorAll('[data-t]')].map(b=>b.dataset.t);
+const LOADERS={overview:loadOverview,sections:loadSections,files:loadFiles,codes:loadCodes,devices:loadDevices,people:loadPeople,study:loadStudy,site:loadSite,stats:loadStats,games:loadGames};
+function showTab(t){
+  document.querySelectorAll('[data-t]').forEach(x=>x.setAttribute('aria-selected',x.dataset.t===t));
+  TABS.forEach(x=>{const p=$('p-'+x);if(p)p.hidden=x!==t});
+  if(LOADERS[t])LOADERS[t]();
+}
+document.querySelectorAll('[data-t]').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.t)));
+
+/* OVERVIEW: tiles built from what the other tabs already load (no extra polling) */
+const OV={members:null,verified:null,unused:null,devices:null,requests:null,reports:null,sections:null,token:null};
+const tileN=v=>v==null?'…':Number(v).toLocaleString();
+function drawOverview(){
+  if($('p-overview').hidden)return;
+  const T=[
+    ['people',OV.requests,'waiting to get in',OV.requests>0?'background:var(--butter)':''],
+    ['study',OV.reports,'open reports',OV.reports>0?'background:var(--peach)':''],
+    ['people',OV.members,'members'],
+    ['people',OV.verified,'verified'],
+    ['codes',OV.unused,'codes unused'],
+    ['devices',OV.devices,'vault devices'],
+    ['sections',OV.sections,'vault sections'],
+    ['site',OV.token==null?null:OV.token,OV.token==null?'token days left':OV.token<=0?'token expired':'token days left',OV.token!=null&&OV.token<=14?'background:var(--peach)':'']];
+  $('otiles').innerHTML=T.map(([t,v,l,st])=>`<button class="tile" data-go="${t}" style="border:0;text-align:left;cursor:pointer;font:inherit;color:inherit;${st||''}"><b>${tileN(v)}</b><span>${l}</span></button>`).join('');
+}
+$('otiles').addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b)showTab(b.dataset.go)});
+let ovLoaded=false;
+async function loadOverview(){
+  drawOverview();
+  if(ovLoaded)return;ovLoaded=true;
+  // Same loaders the tabs use; each fills its own panel too. Errors show in those panels and leave a tile at "…".
+  await Promise.all([loadSections(),loadCodes(),loadPeople(),loadStudy()].map(p=>p.catch(()=>{})));
+  drawOverview();
+}
 
 /* SECTIONS */
 let sections=[];
 async function loadSections(){
   const {data,error}=await SB.from('vault_sections').select('*').order('sort').order('id');
   if(error){$('seclist').innerHTML=`<div class="msg err">${E(error.message)}</div>`;return}
-  sections=data;
+  sections=data;OV.sections=data.length;drawOverview();
   $('seclist').innerHTML=data.map(s=>`
     <div class="box" data-id="${s.id}">
       <div class="row" style="justify-content:space-between"><h2>${E(s.title)}</h2><span class="pill ${s.tier==='vip'?'vip':''}">${s.tier==='vip'?'VIP':'Basic'}</span></div>
@@ -390,6 +429,7 @@ async function loadCodes(){
     SB.from('vault_sessions').select('code_id')]);
   if(error){$('codetable').innerHTML=`<tr><td colspan="8">${E(error.message)}</td></tr>`;return}
   const count={};(sess||[]).forEach(s=>count[s.code_id]=(count[s.code_id]||0)+1);
+  OV.unused=codes.filter(c=>c.single_use&&!c.used_at&&!c.study_used_at&&!(c.expires_at&&new Date(c.expires_at)<Date.now())).length;OV.devices=(sess||[]).length;drawOverview();
   $('codetable').innerHTML=codes.map(c=>`<tr>
     <td>${E(c.label||'—')}</td>
     <td><select data-tier="${c.id}"><option value="basic"${c.tier==='basic'?' selected':''}>Basic</option><option value="vip"${c.tier==='vip'?' selected':''}>VIP</option></select></td>
@@ -444,6 +484,7 @@ async function loadStudy(){
   if(!$('showres').checked)q=q.is('resolved_at',null);
   const {data:reps,error}=await q;
   if(error){$('replist').innerHTML=`<div class="msg err">${E(error.message)}</div>`;return}
+  OV.reports=reps.filter(r=>!r.resolved_at).length;drawOverview();
   // fetch each reported item
   const items={};
   await Promise.all(Object.keys(TGT).map(async t=>{const ids=reps.filter(r=>r.target_type===t).map(r=>r.target_id);if(!ids.length)return;const {data}=t==='teacher_rating'?await SB.rpc('admin_teacher_ratings',{ids}):await SB.from(TGT[t][0]).select('*').in('id',ids);(data||[]).forEach(x=>{if(t==='teacher_rating'){x.created_by=x.author_id;x.body=`${x.teacher}: quality ${x.quality}/5, difficulty ${x.difficulty}/5, take again ${x.take_again?'yes':'no'}${x.tags.length?' · '+x.tags.join(', '):''}\n${x.comment}`}items[t+':'+x.id]=x})}));
@@ -492,6 +533,7 @@ async function loadRequests(){
   if(!alertChecked){alertChecked=true;peopleCall({action:'alert_status'}).then(r=>{if(r&&r.email_alerts===false)$('alertsetup').hidden=false})}
   const r=await peopleCall({action:'requests'});if(r.error)return;
   const rq=r.requests||[];
+  OV.requests=rq.length;drawOverview();
   $('reqcount').hidden=!rq.length;$('reqcount').textContent=rq.length;
   $('reqbox').hidden=!rq.length;
   $('reqtable').innerHTML=rq.map(q=>`<tr><td style="overflow-wrap:anywhere">${E(q.email)}</td><td><b style="font:800 22px/1 var(--display);letter-spacing:.08em">${E(q.code)}</b></td><td>${E(device(q.device))}</td><td>${new Date(q.created_at).toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}</td>
@@ -506,8 +548,8 @@ $('reqtable').addEventListener('click',async e=>{
 });
 
 /* GAMES */
-const GNAMES={daily:'Daily Challenge',word:'Daily Word','2048':'2048',snake:'Snake',minesweeper:'Minesweeper',sudoku:'Sudoku',typing:'Typing',trivia:'Trivia',letters:'Letter Rush'};
-const GLOW=['minesweeper','sudoku','word'];
+const GNAMES={daily:'Daily Challenge',word:'Daily Word','2048':'2048',snake:'Snake',minesweeper:'Minesweeper',sudoku:'Sudoku',typing:'Typing',trivia:'Trivia',letters:'Letter Rush',math:'Speed Math',reaction:'Reaction Time',memory:'Memory Match',blocks:'Blocks',breakout:'Breakout',flap:'Flap',hangman:'Hangman',simon:'Simon',connect:'Connect Four'};
+const GLOW=['minesweeper','sudoku','word','reaction','memory'];
 $('gsel').innerHTML=Object.entries(GNAMES).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
 async function loadGames(){
   const g=$('gsel').value,top=$('gsort').value==='top';
@@ -531,6 +573,7 @@ async function loadPeople(){
   const r=await peopleCall({action:'list'});
   if(r.error){$('ptable').innerHTML=`<tr><td colspan="8"><div class="msg err">${E(r.error)}</div></td></tr>`;return}
   PEOPLE=r.users.sort((a,b)=>(b.created_at||'').localeCompare(a.created_at||''));drawPeople();
+  OV.members=PEOPLE.length;OV.verified=PEOPLE.filter(u=>u.confirmed).length;drawOverview();
 }
 function drawPeople(){
   const q=$('pfind').value.trim().toLowerCase(),unv=$('punv').checked;
@@ -781,10 +824,11 @@ async function loadSite(){if(seLoaded)return;seLoaded=true;seLoad();const r=awai
 async function checkToken(){
   const r=await seCall({action:'status'});
   const w=$('tokwarn');
-  if(r.error==='token_expired'){w.hidden=false;w.innerHTML='<div class="msg err"><b>The Site editor\'s GitHub token has expired.</b> Open the Site editor tab for the steps to renew it.</div>';return}
+  if(r.error==='token_expired'){OV.token=0;drawOverview();w.hidden=false;w.innerHTML='<div class="msg err"><b>The Site editor\'s GitHub token has expired.</b> Open the Site editor tab for the steps to renew it.</div>';return}
   if(!r.tokenExpires)return;
   const exp=new Date(r.tokenExpires.replace(' UTC','Z').replace(' ','T'));
   const days=Math.ceil((exp-Date.now())/864e5);
+  if(!isNaN(days)){OV.token=days;drawOverview()}
   if(isNaN(days)||days>14)return;
   w.hidden=false;
   w.innerHTML=`<div class="msg ${days<=3?'err':'ok'}" style="${days>3?'background:var(--butter);color:var(--ink)':''}"><b>The Site editor's GitHub token expires ${days<=0?'today':days===1?'tomorrow':'in '+days+' days'} (${exp.toLocaleDateString('en-US',{month:'short',day:'numeric'})}).</b> Make a new fine-grained token (only this repo, Contents: Read and write) and replace <code>GITHUB_TOKEN</code> in Supabase → Edge Functions → Secrets.</div>`;
@@ -797,7 +841,7 @@ async function checkToken(){
   if(!data.session){view('v-signin');return}
   const {data:ok}=await SB.rpc('is_admin');
   if(!ok){view('v-no');return}
-  view('v-app');loadSections();checkToken();loadRequests();reqTimer=setInterval(()=>{if(!document.hidden)loadRequests()},5000);
+  view('v-app');showTab('overview');checkToken();loadRequests();reqTimer=setInterval(()=>{if(!document.hidden)loadRequests()},5000);
 })();
 </script>
 </body>

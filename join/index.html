@@ -12,14 +12,14 @@
 <meta property="og:site_name" content="Kale Erson">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Join · Kale Erson">
-<meta property="og:description" content="Sign up to get Snapwit and other tools, plus occasional emails from Kale.">
+<meta property="og:description" content="Free member account: games and leaderboards, the forum, PVHS Study, speech and debate tools, Snapwit.">
 <meta property="og:url" content="https://kaleerson.com/join/">
 <meta property="og:image" content="https://kaleerson.com/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <!-- /meta -->
-<meta name="description" content="Sign up to get Snapwit and other tools, plus occasional emails from Kale.">
+<meta name="description" content="Free member account: games and leaderboards, the forum, PVHS Study, speech and debate tools, Snapwit.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
@@ -30,15 +30,14 @@
 html,body{min-height:100%}
 body{background:var(--paper)}
 a{color:inherit}
-main.pg{max-width:440px;width:100%;margin:0 auto;padding:32px 16px 56px;flex:1}
+main.pg{max-width:440px;width:100%;margin:0 auto;padding:24px 16px 56px;flex:1}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,8vw,72px);line-height:.95;letter-spacing:-.04em}
 h1 em{font-style:normal;color:var(--ink2)}
-.lead{color:var(--ink2);margin:14px 0 26px;max-width:38ch}
-.perks{list-style:none;display:grid;gap:10px;margin-bottom:28px}
-.perks li{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:16px}
-.perks b{display:block;font-weight:600}
-.perks small{color:var(--ink2)}
-.perks i{width:28px;height:28px;flex:none;border-radius:8px;background:var(--bg2);display:grid;place-items:center;font-style:normal;font-size:14px}
+.lead{color:var(--ink2);margin:12px 0 14px;max-width:38ch}
+.perks{list-style:none;display:flex;gap:6px;margin:0 -16px 18px;padding:0 16px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.perks::-webkit-scrollbar{display:none}
+.perks li{flex:none;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px;background:var(--card);color:var(--ink);white-space:nowrap}
+.perks li i{font-style:normal;font-size:13px}
 form{display:grid;gap:10px}
 label{font-size:13px;font-weight:500;color:var(--ink2)}
 input[type=email]{width:100%;font:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:#fff;color:var(--ink);outline:none;transition:border-color .15s}
@@ -53,10 +52,10 @@ input[type=email]:focus{border-color:var(--ink)}
 .msg{padding:12px 14px;border-radius:16px;font-size:14px}
 .msg.ok{background:var(--green-bg);color:var(--green)}
 .msg.err{background:var(--red-bg);color:var(--red)}
-.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:14px}
 .row{display:flex;gap:10px;flex-wrap:wrap}
 .apps{display:grid;gap:10px}
-.app{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff}
+.app{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;text-decoration:none;background:var(--card)}
 .app b{font-weight:600}.app small{display:block;color:var(--ink2)}
 .app span{color:var(--ink3)}
 [hidden]{display:none!important}
@@ -74,11 +73,13 @@ input[type=email]:focus{border-color:var(--ink)}
   <!-- sign up / sign in -->
   <section id="v-form" hidden>
     <h1>Join for <em>free.</em></h1>
-    <p class="lead">Members get the tools I build and the occasional email about what I'm working on. New and returning members use the same form.</p>
-    <ul class="perks">
-      <li><i>⚡</i><div><b>Snapwit</b><small>30 reaction, memory and party games, ranked against every member.</small></div></li>
-      <li><i>⏱</i><div><b>LD Timer</b><small>Lincoln-Douglas round timer with speech clocks and prep tracking.</small></div></li>
-      <li><i>✉</i><div><b>Updates</b><small>A short email when I ship something. Unsubscribe anytime.</small></div></li>
+    <p class="lead">One account for the games and leaderboards, the forum, PVHS Study and the tools I build. New and returning members use the same form.</p>
+    <ul class="perks" aria-label="What members get">
+      <li><i>🎮</i>Games &amp; leaderboards</li>
+      <li><i>💬</i>Forum</li>
+      <li><i>📚</i>Study</li>
+      <li><i>🎤</i>Speech &amp; Debate</li>
+      <li><i>⚡</i>Snapwit</li>
     </ul>
     <form id="f">
       <label for="email">Email</label>
@@ -129,8 +130,11 @@ input[type=email]:focus{border-color:var(--ink)}
     <h1>You're <em>in.</em></h1>
     <p class="lead">Signed in as <b id="me"></b>.</p>
     <div class="apps">
+      <a class="app" href="/edu/"><div><b>Games</b><small>Play and get on the leaderboards</small></div><span>→</span></a>
+      <a class="app" href="/forum/"><div><b>Forum</b><small>Talk with other members</small></div><span>→</span></a>
+      <a class="app" href="/study/"><div><b>PVHS Study</b><small>Notes, tests and flashcards by class</small></div><span>→</span></a>
       <a class="app" href="/snapwit/"><div><b>Snapwit</b><small>Reaction, memory and party games</small></div><span>→</span></a>
-      <a class="app" href="/ldtimer/"><div><b>LD Timer</b><small>Lincoln-Douglas round timer</small></div><span>→</span></a>
+      <a class="app" href="/account/"><div><b>Account</b><small>Your name, profile and settings</small></div><span>→</span></a>
     </div>
     <div class="card" style="margin-top:16px">
       <label class="check"><input id="pref" type="checkbox"> Email me when Kale ships something new</label>
@@ -150,9 +154,12 @@ const views=['v-off','v-form','v-key','v-wait','v-sent','v-in'];
 const view=v=>views.forEach(x=>$(x).hidden=x!==v);
 const params=new URLSearchParams(location.search);
 const next=(params.get('next')||'').startsWith('/')&&!params.get('next').startsWith('//')?params.get('next'):null;
-let lastEmail='';
+let lastEmail='',shownFor=null;
 
+// Signed in: go where they were headed (?next=), otherwise show the signed-in view here.
 async function showMember(session){
+  if(shownFor===session.user.id)return;shownFor=session.user.id;   // getSession + SIGNED_IN both fire on a link landing
+  if(next){location.replace(next);return}
   $('me').textContent=session.user.email;
   view('v-in');
   // Apply the opt-in choice made at sign-up, once.
@@ -160,9 +167,7 @@ async function showMember(session){
     const wanted=localStorage.getItem('join_optin');
     if(wanted!==null){await SB.from('members').update({email_opt_in:wanted==='1'}).eq('id',session.user.id);localStorage.removeItem('join_optin')}
   }catch(e){}
-  const {data}=await SB.from('members').select('email_opt_in').eq('id',session.user.id).maybeSingle();
-  $('pref').checked=data?data.email_opt_in:true;
-  location.replace(next||'/account/');
+  try{const {data}=await SB.from('members').select('email_opt_in').eq('id',session.user.id).maybeSingle();$('pref').checked=data?data.email_opt_in:true}catch(e){}
 }
 
 async function sendLink(email){
@@ -182,7 +187,7 @@ if(!window.SB){view('v-off')}else if(keyMatch){
   });
 }else{
   SB.auth.getSession().then(({data})=>data.session?showMember(data.session):view('v-form'));
-  SB.auth.onAuthStateChange((evt,session)=>{if(evt==='SIGNED_IN'&&session)showMember(session);if(evt==='SIGNED_OUT')view('v-form')});
+  SB.auth.onAuthStateChange((evt,session)=>{if(evt==='SIGNED_IN'&&session)showMember(session);if(evt==='SIGNED_OUT'){shownFor=null;view('v-form')}});
 
   $('f').addEventListener('submit',async e=>{
     e.preventDefault();$('ferr').hidden=true;
@@ -212,7 +217,7 @@ if(!window.SB){view('v-off')}else if(keyMatch){
     const {error}=await SB.from('members').update({email_opt_in:e.target.checked}).eq('id',data.session.user.id);
     const m=$('pmsg');m.hidden=false;m.className='msg '+(error?'err':'ok');m.textContent=error?'Could not save. Try again.':'Saved.';setTimeout(()=>m.hidden=true,1800);
   });
-  $('out').addEventListener('click',()=>{SITE.setName&&SITE.setName(null);SB.auth.signOut()});
+  $('out').addEventListener('click',async()=>{SITE.setName&&SITE.setName(null);await SB.auth.signOut();shownFor=null;view('v-form')});
   // Ask Kale to let me in: make a request, show the code, poll until approved.
   let waitTimer=null;
   const stopWait=()=>{clearInterval(waitTimer);waitTimer=null;try{sessionStorage.removeItem('login_req')}catch(e){}};
