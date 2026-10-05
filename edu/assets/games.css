@@ -81,6 +81,7 @@ html[data-theme=dark] .lb div:nth-child(2) i{background:#3a3f36}
 .over{position:absolute;inset:0;z-index:5;display:grid;place-items:center;background:#eef0eacc;backdrop-filter:blur(3px);border-radius:inherit;text-align:center;padding:16px}
 .over > div{display:grid;gap:10px;justify-items:center;background:var(--card);border-radius:22px;padding:22px 24px;box-shadow:0 20px 50px #14161322;max-width:320px}
 .over h2{font-size:34px}
+html[data-theme=dark] .over{background:#111310cc}
 .cm-modal{position:fixed;inset:0;z-index:90;background:#14161399;display:grid;place-items:center;padding:20px}
 .cm-box{background:var(--card);border-radius:var(--r);padding:24px;max-width:420px;width:100%;display:grid;gap:12px}
 .cm-box h2{font-size:28px}

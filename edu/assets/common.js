@@ -62,11 +62,13 @@
     letters: function (s) { return s + ' pts'; },
     math: function (s) { return s + ' pts'; },
     reaction: function (s) { return s + ' ms'; },
-    hangman: function (s) { return s + ' words'; },
-    simon: function (s) { return s + ' steps'; },
-    connect: function (s) { return s + ' wins'; },
-    flap: function (s) { return s + ' pipes'; }
+    hangman: function (s) { return s + (s == 1 ? ' word' : ' words'); },
+    simon: function (s) { return s + (s == 1 ? ' step' : ' steps'); },
+    connect: function (s) { return s + (s == 1 ? ' win' : ' wins'); },
+    flap: function (s) { return s + (s == 1 ? ' pipe' : ' pipes'); }
   };
+  // Network errors from supabase-js come back as raw "TypeError: Failed to fetch"; say something human instead.
+  var errText = function (e, fallback) { var m = (e && e.message) || ''; return /fetch|network|load failed|timeout/i.test(m) || !m ? fallback : m; };
   var fmt = function (g, s) { return FMT[g] ? FMT[g](s) : Number(s).toLocaleString(); };
 
   function modal(html) {
@@ -185,7 +187,7 @@
         if (n.length < 2 || n.length > 30) return fail('Display names are 2 to 30 characters.');
         var r = needName ? await SB.from('profiles').insert({ display_name: n, username: u })
           : await SB.from('profiles').update({ username: u }).eq('user_id', me.uid);
-        if (r.error) return fail(r.error.code === '23505' ? (/username/.test(r.error.message) ? 'That username is taken.' : 'That display name is taken.') + ' Try another.' : r.error.message);
+        if (r.error) return fail(r.error.code === '23505' ? (/username/.test(r.error.message) ? 'That username is taken.' : 'That display name is taken.') + ' Try another.' : errText(r.error, 'Couldn\'t reach the server. Check your connection and try again.'));
         me.name = n; me.username = u;
         if (window.SITE && SITE.setName) SITE.setName(n);
         var a = document.getElementById('gacct'); if (a) { a.textContent = 'Playing as ' + n; a.href = '/account/'; }
@@ -225,7 +227,7 @@
       if (r.error) {
         if (r.error.code === '23505') return 'Already saved today.';
         if (r.error.code === '23514') return 'This leaderboard isn\'t set up yet.';
-        return r.error.message || 'Couldn\'t save.';
+        return errText(r.error, (isBest ? 'New personal best! ' : '') + 'Couldn\'t reach the leaderboard, so this one is only saved on this device.');
       }
       document.dispatchEvent(new CustomEvent('scoresaved'));
       return (isBest ? 'New personal best! ' : '') + 'Saved to the leaderboard.';
@@ -237,6 +239,7 @@
     el.innerHTML = '<div class="lb"><span class="empty">Loading…</span></div>';
     if (!SB) { el.innerHTML = '<div class="lb"><span class="empty">Leaderboards are offline.</span></div>'; return; }
     var r = await SB.rpc('game_board', { g: game, period: period || 'week', lim: 10 });
+    if (r.error && /fetch|network|load failed|timeout/i.test(r.error.message || '')) { el.innerHTML = '<div class="lb"><span class="empty">Leaderboards are offline right now.</span></div>'; return; }
     var rows = r.data || [];
     el.innerHTML = '<div class="lb">' + (rows.map(function (x) {
       return '<div class="' + (x.mine ? 'me' : '') + '"><i>' + x.rank + '</i><span>' + nameHTML(x) + '</span><b>' + fmt(game, x.score) + '</b></div>';

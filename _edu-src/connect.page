@@ -48,7 +48,7 @@ for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++)for(const [dr,dc] of [[0,1],[1,0],
   const w=[];for(let k=0;k<4;k++){const R=r+dr*k,C=c+dc*k;if(R<0||R>=ROWS||C<0||C>=COLS)break;w.push(R*COLS+C)}if(w.length===4)WIN.push(w)}
 const AT=[...Array(42)].map((_,i)=>WIN.filter(w=>w.includes(i)));
 const ORDER=[3,2,4,1,5,0,6];
-let board,turn,done,mode='hard',starter='R',busy=false,lastIdx=-1,line=null;
+let board,turn,done,mode='hard',starter='R',busy=false,lastIdx=-1,line=null,aiT=null;
 let streak=G.local.get('connect:streak',0)||0;
 function place(b,c,p){for(let r=ROWS-1;r>=0;r--){const i=r*COLS+c;if(!b[i]){b[i]=p;return i}}return -1}
 function winAt(b,i){const p=b[i];for(const w of AT[i])if(w.every(j=>b[j]===p))return w;return null}
@@ -82,7 +82,7 @@ function draw(){
   $('turn').innerHTML=done?'':`<i class="${turn}"></i>${busy?'Computer is thinking…':who(turn)+(mode==='pass'?"'s turn":' to move')}`;
   $('streak').textContent=streak;const b=G.local.get('best:connect',null);$('best').textContent=b===null?'–':b;
 }
-function start(){document.querySelectorAll('.over').forEach(o=>o.remove());board=Array(42).fill('');turn=starter;starter=starter==='R'?'Y':'R';done=false;busy=false;lastIdx=-1;line=null;draw();
+function start(){clearTimeout(aiT);document.querySelectorAll('.over').forEach(o=>o.remove());board=Array(42).fill('');turn=starter;starter=starter==='R'?'Y':'R';done=false;busy=false;lastIdx=-1;line=null;draw();
   if(mode!=='pass'&&turn==='Y')computer()}
 function move(c){
   if(done||busy||board[c])return;
@@ -91,7 +91,9 @@ function move(c){
   if(full(board)){done=true;draw();return finish(null)}
   turn=turn==='R'?'Y':'R';draw();
   if(mode!=='pass'&&turn==='Y')computer()}
-function computer(){busy=true;draw();setTimeout(()=>{if(done)return;const c=aiMove();busy=false;move(c)},mode==='hard'?350:250)}
+function computer(){busy=true;draw();clearTimeout(aiT);aiT=setTimeout(()=>{if(done||turn!=='Y')return;const c=aiMove();busy=false;move(c)},mode==='hard'?350:250)}
+// Quitting a Hard game that has started counts as a loss, so "in a row" means in a row.
+function abandon(){if(mode==='hard'&&board&&!done&&board.some(Boolean)&&streak){streak=0;G.local.set('connect:streak',0)}}
 async function finish(winner){
   const o=document.createElement('div');o.className='over';
   let title,sub='';
@@ -109,8 +111,8 @@ async function finish(winner){
 }
 $('board').addEventListener('click',e=>{const c=e.target.closest('[data-c]');if(c&&(mode==='pass'||turn==='R'))move(+c.dataset.c)});
 $('cols').addEventListener('click',e=>{const b=e.target.closest('button[data-c]');if(b&&!b.disabled&&(mode==='pass'||turn==='R'))move(+b.dataset.c)});
-$('mode').addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(!b||b.dataset.m===mode)return;mode=b.dataset.m;$('mode').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));starter='R';start()});
-$('restart').onclick=start;
+$('mode').addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(!b||b.dataset.m===mode)return;abandon();mode=b.dataset.m;$('mode').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));starter='R';start()});
+$('restart').onclick=()=>{abandon();start()};
 document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.target.matches('input,textarea'))return;
   if(/^[1-7]$/.test(e.key)){e.preventDefault();if(mode==='pass'||turn==='R')move(+e.key-1)}
   else if(e.key==='Enter'&&done&&!e.target.matches('button,a')){const b=document.getElementById('oagain');if(b){e.preventDefault();b.click()}}});

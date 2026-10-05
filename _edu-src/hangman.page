@@ -71,7 +71,7 @@ function guess(l){
   if(over||guessed.has(l))return;
   guessed.add(l);
   if(word.includes(l)){
-    if([...word].every(ch=>guessed.has(ch))){streak++;draw(l);$('note').textContent='Nice. Next word…';if(window.SITE&&SITE.confetti&&streak%5===0)SITE.confetti();setTimeout(next,900);return}
+    if([...word].every(ch=>guessed.has(ch))){streak++;over=true;draw(l);$('note').textContent='Nice. Next word…';if(window.SITE&&SITE.confetti&&streak%5===0)SITE.confetti();setTimeout(next,900);return}
     draw(l);
   }else{wrong++;draw();if(wrong>=MAX)lose()}
 }
