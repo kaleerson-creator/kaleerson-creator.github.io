@@ -427,7 +427,7 @@ function round(key){
   const sp=()=>F.speeches[S.idx];
   const grace=()=>+store.get('roundGrace',0)||0;
   const total=F.speeches.reduce((a,s)=>a+s[3],0);
-  let wasOver=false;
+  let wasOver=false,stripHTML='';
   function draw(){
     const s=sp(),side=s[2],g=grace();
     const pr=run===0||run===1;
@@ -443,7 +443,8 @@ function round(key){
     $('go').textContent=run?'Pause':'Start';
     [0,1].forEach(i=>{const b=$('prep'+i);b.querySelector('b').textContent=fmtTc(S.prep[i]);b.classList.toggle('on',run===i);b.classList.toggle('out',S.prep[i]<=0)});
     $('list').innerHTML=F.speeches.map((x,i)=>`<button class="sp sd${x[2]} ${i===S.idx?'cur':''} ${S.left[i]<=0||i<S.idx&&S.left[i]<x[3]?'done':''}" data-i="${i}"><code>${x[0]}</code><span>${x[2]===2?E(x[1]):sideName(x[2])+' · '+E(x[1])}</span><small>${S.left[i]===x[3]?fmtTc(x[3]):fmtT(S.left[i])}</small></button>`).join('');
-    $('strip').innerHTML=F.speeches.map((x,i)=>`<button class="sch sd${x[2]}${i===S.idx?' cur':''}${i===S.idx&&over?' ot':''}${i!==S.idx&&(S.left[i]<=0||i<S.idx&&S.left[i]<x[3])?' done':''}" data-i="${i}" title="${E(x[1])}">${E(x[0])}</button>`).join('');
+    const strip=F.speeches.map((x,i)=>`<button class="sch sd${x[2]}${i===S.idx?' cur':''}${i===S.idx&&over?' ot':''}${i!==S.idx&&(S.left[i]<=0||i<S.idx&&S.left[i]<x[3])?' done':''}" data-i="${i}" title="${E(x[1])}">${E(x[0])}</button>`).join('');
+    if(strip!==stripHTML){stripHTML=strip;$('strip').innerHTML=strip}   // only rebuild the chips when they change, so a slow tap on one is not lost mid-tick
     const el=F.speeches.reduce((a,x,i)=>a+Math.max(0,x[3]-S.left[i]),0),rem=S.left.reduce((a,l)=>a+Math.max(0,l),0);
     $('tot').textContent=`${fmtT(el)} elapsed · ${fmtT(rem)} left of ${fmtT(total)}`;
     $('prev').disabled=S.idx===0;$('next').disabled=S.idx===F.speeches.length-1;
@@ -674,10 +675,12 @@ function congress(){
     $('qnow').innerHTML=qName?`<div class="qnow"><div><span class="qn">${E(qName)}</span><div class="small">${qRun?(qt<0?'Over their '+QSEC+' seconds':'Asking'):'Paused'}</div></div><div class="row" style="align-items:center"><b class="${qt<0?'over':qt<=5?'warn':''}">${qt>=0?fmtTc(qt):fmtT(qt)}</b><button class="mini" id="qpause">${qRun?'Pause':'Resume'}</button><button class="mini" id="qdone">Done</button></div></div>`:'';
     $('queue').innerHTML=C.queue.map((n,i)=>`<div class="qi"><small>${i+1}.</small><span>${E(n)}</span>${i===0?'<button class="mini af" data-rec="0">Recognize ▶</button>':''}<button class="mini" data-unq="${i}" aria-label="Remove from queue">✕</button></div>`).join('')||'<p class="small" style="margin:0">Nobody in the queue.</p>';
   }
+  /* each tick only the digits and the status line change; rebuilding the buttons every 200 ms would swallow a slow tap on Pause or Done */
+  function tickQ(){const b=$('qnow').querySelector('b');if(!b)return drawQueue();b.className=qt<0?'over':qt<=5?'warn':'';b.textContent=qt>=0?fmtTc(qt):fmtT(qt);const s=$('qnow').querySelector('.small');if(s)s.textContent=qRun?(qt<0?'Over their '+QSEC+' seconds':'Asking'):'Paused'}
   function sync(){if(run||qRun){if(!ticking){last=performance.now();tick(loop);ticking=true}wakeLock(true)}else{clearInterval(ticker);ticking=false;wakeLock(false)}}
   function loop(){const now=performance.now(),dt=(now-last)/1000;last=now;
     if(run){const b=left;left-=dt;if(b>30&&left<=30)beep(1);if(b>0&&left<=0)beep(2);drawClock()}
-    if(qRun){const b=qt;qt-=dt;if(b>5&&qt<=5)beep(1);if(b>0&&qt<=0)beep(2);drawQueue()}}
+    if(qRun){const b=qt;qt-=dt;if(b>5&&qt<=5)beep(1);if(b>0&&qt<=0)beep(2);tickQ()}}
   const start=()=>{run=true;sync();drawClock()};
   const stop=()=>{run=false;sync();drawClock()};
   const setMode=m=>{stop();mode=m;phase='speech';left=180;qLeft=m==='auth'?120:60;drawClock()};
