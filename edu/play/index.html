@@ -301,7 +301,7 @@ function push(){if(!ch||!isHost)return;if(S.game==='trivia'&&S.phase==='question
 function send(a){if(!ch)return;a.from=ID;if(isHost)act(a);else ch.send({type:'broadcast',event:'act',payload:a})}
 function seatColor(id){const col=SEATCOL[gameType];if(!col||!S||!S.seats)return 'var(--ink3)';const k=Object.keys(col).find(k=>S.seats[k]===id);return k?col[k]:'var(--ink3)'}
 function drawPeople(){const ids=Object.keys(people).sort((a,b)=>people[a].t-people[b].t);
-  $('players').innerHTML=ids.map((id,i)=>`<span class="pl ${id===ID?'me':''}"><i style="background:${seatColor(id)}"></i>${E(people[id].name)}${i===0?' · host':''}${id===ID?' (you)':''}</span>`).join('')}
+  $('players').innerHTML=ids.map((id,i)=>`<span class="pl ${id===ID?'me':''}"><i style="background:${seatColor(id)}"></i>${E(people[id].name||'Player')}${i===0?' · host':''}${id===ID?' (you)':''}</span>`).join('')}
 
 /* ── host logic ── */
 function init(type){
@@ -421,14 +421,14 @@ function draw(){
     const keys=SEATS[S.game];const mine=keys.find(k=>S.seats[k]===ID);
     const label=k=>S.game==='ttt'?k:(k==='R'?'Red':'Yellow');
     let status;
-    if(!S.seats[keys[1]])status='Waiting for a second player. Share the code!';
+    if(!S.seats[keys[0]]||!S.seats[keys[1]])status='Waiting for a second player. Share the code!';
     else if(S.win==='draw')status='Draw!';
     else if(S.win)status=(S.seats[S.win]===ID?'You win! 🎉':E(name(S.seats[S.win]))+' wins');
     else status=S.seats[S.turn]===ID?'Your turn ('+label(S.turn)+')':E(name(S.seats[S.turn]))+'\'s turn';
     const spect=!mine?'<p class="small">You\'re watching. Players: '+keys.map(k=>S.seats[k]?E(name(S.seats[k]))+' ('+label(k)+')':'').filter(Boolean).join(' vs ')+'</p>':'';
     const board=S.game==='ttt'
-      ?`<div class="ttt">${S.board.map((v,i)=>`<button data-i="${i}" class="${v} ${S.line.includes(i)?'win':''}" aria-label="Square ${i+1} ${v}">${v}</button>`).join('')}</div>`
-      :`<div class="c4">${S.board.map((v,i)=>`<button data-c="${i%7}" class="${v} ${S.line.includes(i)?'win':''}" aria-label="Column ${i%7+1}"></button>`).join('')}</div>`;
+      ?`<div class="ttt">${S.board.map((v,i)=>`<button data-i="${i}" class="${E(v)} ${S.line.includes(i)?'win':''}" aria-label="Square ${i+1} ${E(v)}">${E(v)}</button>`).join('')}</div>`
+      :`<div class="c4">${S.board.map((v,i)=>`<button data-c="${i%7}" class="${E(v)} ${S.line.includes(i)?'win':''}" aria-label="Column ${i%7+1}"></button>`).join('')}</div>`;
     st.innerHTML=`<div class="status">${status}</div>${spect}${board}${S.win&&mine?'<button class="btn" id="again">Rematch</button>':''}`;
     st.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>send({type:'move',i:+b.dataset.i}));
     st.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>send({type:'move',c:+b.dataset.c}));
@@ -439,13 +439,13 @@ function draw(){
   if(S.game==='rps')return drawRps(st);
   if(S.game==='rush')return drawRush(st);
   // trivia race
-  const board=()=>{const ids=Object.keys(people).sort((a,b)=>(S.scores[b]||0)-(S.scores[a]||0));return `<div class="score">${ids.map(id=>`<div class="${id===ID?'me':''}"><span>${E(name(id))}</span><span>${S.scores[id]||0}</span></div>`).join('')}</div>`};
+  const board=()=>{const ids=Object.keys(people).sort((a,b)=>(S.scores[b]||0)-(S.scores[a]||0));return `<div class="score">${ids.map(id=>`<div class="${id===ID?'me':''}"><span>${E(name(id))}</span><span>${+S.scores[id]||0}</span></div>`).join('')}</div>`};
   if(S.phase==='lobby'||S.phase==='end'){
     st.innerHTML=`<div class="status">${S.phase==='end'?'Final scores':'Trivia race'}</div>${S.phase==='end'?board():`<p class="muted">${Object.keys(people).length} in the room. ${isHost?'Start when everyone has joined.':'The host will start soon.'}</p>`}${isHost?`<button class="btn" id="start">${S.phase==='end'?'Play again':'Start game'}</button>`:''}`;
     if($('start'))$('start').onclick=()=>send({type:'start'});return}
   if(myPick&&myPick.qi!==S.qi)myPick=null;
   const mineAns=S.answers[ID]||(myPick&&{c:myPick.c});
-  st.innerHTML=`<div class="tq"><div class="row" style="justify-content:space-between"><span class="lbl">${E(S.q.cat)} · ${S.qi+1}/${S.total}</span><b>${S.scores[ID]||0} pts</b></div><div class="tbar"><i id="bar" style="width:100%"></i></div>
+  st.innerHTML=`<div class="tq"><div class="row" style="justify-content:space-between"><span class="lbl">${E(S.q.cat)} · ${(S.qi|0)+1}/${S.total|0}</span><b>${+S.scores[ID]||0} pts</b></div><div class="tbar"><i id="bar" style="width:100%"></i></div>
     <div class="qtext">${E(S.q.text)}</div><div class="opts">${S.q.opts.map(o=>{const cls=S.reveal?(o===S.reveal?'right':mineAns&&mineAns.c===o?'wrong':'dim'):mineAns&&mineAns.c===o?'picked':'';return `<button data-o="${E(o)}" class="${cls}" ${mineAns||S.reveal?'disabled':''}>${E(o)}</button>`}).join('')}</div>
     <p class="small">${S.reveal?(mineAns?.ok?'Correct!':'Answer: '+E(S.reveal)):mineAns?'Locked in. Waiting for others…':Object.keys(S.answers).length+' of '+Object.keys(people).length+' answered'}</p>${S.reveal?board():''}</div>`;
   st.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>{if(!S.answers[ID]&&!myPick){myPick={qi:S.qi,c:b.dataset.o};send({type:'answer',c:b.dataset.o});draw()}});
@@ -475,7 +475,7 @@ function drawShip(st){
   const names=k=>S.seats[k]?E(name(S.seats[k])):'…';
   let status,note='',body='',again='';
   if(S.win){status=S.seats[S.win]===ID?'You win! 🎉':names(S.win)+' wins';note=S.seats[S.win]===ID?'Every enemy ship is on the bottom.':'All your ships are sunk.';if(mine)again='<button class="btn" id="again">Rematch</button>'}
-  else if(!S.seats.B)status='Waiting for a second player. Share the code!';
+  else if(!S.seats.A||!S.seats.B)status='Waiting for a second player. Share the code!';
   else if(S.phase==='place')status=mine?(S.ready[mine]?'Waiting for '+names(opp)+' to place ships…':'Place your ships'):names('A')+' and '+names('B')+' are placing ships';
   else status=mine?(S.seats[S.turn]===ID?'Your turn: tap their waters':names(S.turn)+'\'s turn'):names(S.turn)+'\'s turn';
   if(S.last&&!S.win&&S.phase==='play'){const l=S.last,me=l.by===mine;const who=me?'You':names(l.by);const them=l.by===opp?'your':me?'their':names(other(l.by))+'\'s';
@@ -510,11 +510,11 @@ function drawRps(st){
   const mine=seatOf(ID),opp=mine?other(mine):null;const names=k=>S.seats[k]?E(name(S.seats[k])):'…';
   const score=`<div class="rscore"><span>${names('A')}</span><span class="pips">${[0,1,2].map(i=>`<i class="${S.score.A>i?'on':''}"></i>`).join('')}</span><b>${S.score.A|0}</b><span class="muted">–</span><b>${S.score.B|0}</b><span class="pips">${[0,1,2].map(i=>`<i class="${S.score.B>i?'on':''}"></i>`).join('')}</span><span>${names('B')}</span></div>`;
   let status,body='';
-  if(!S.seats.B){status='Waiting for a second player. Share the code!'}
+  if(!S.seats.A||!S.seats.B){status='Waiting for a second player. Share the code!'}
   else if(S.phase==='reveal'&&S.reveal){
     const key=(S.match||1)+':'+S.round;if(!rpsAnim||rpsAnim.key!==key)rpsAnim={key,at:Date.now()};
     const left=3000-(Date.now()-rpsAnim.at);
-    if(left>0){status='Round '+S.round;body=`<div class="cnt" id="cnt" aria-live="polite">${Math.ceil(left/1000)}</div>`;
+    if(left>0){status='Round '+(S.round|0);body=`<div class="cnt" id="cnt" aria-live="polite">${Math.ceil(left/1000)}</div>`;
       tickT=setInterval(()=>{const l=3000-(Date.now()-rpsAnim.at);const c=$('cnt');if(l<=0){clearInterval(tickT);drawRps(st)}else if(c)c.textContent=Math.ceil(l/1000)},100)}
     else{const r=S.reveal;
       if(S.win)status=S.seats[S.win]===ID?'You win the match! 🎉':names(S.win)+' wins the match';
@@ -522,7 +522,7 @@ function drawRps(st){
       body=`<div class="hands"><div><b>${HAND[r.A]}</b>${names('A')}</div><span class="vs">vs</span><div><b>${HAND[r.B]}</b>${names('B')}</div></div>${S.win&&mine?'<button class="btn" id="again">Rematch</button>':S.win?'':'<p class="small">Next round in a moment…</p>'}`}}
   else{
     const picked=mine&&S.picked[mine];
-    status=mine?(picked?'Locked in. Waiting for '+names(opp)+'…':'Round '+S.round+': pick one'):'Round '+S.round;
+    status=mine?(picked?'Locked in. Waiting for '+names(opp)+'…':'Round '+(S.round|0)+': pick one'):'Round '+(S.round|0);
     body=mine?`<div class="rps">${Object.keys(HAND).map(h=>`<button data-h="${h}" aria-label="${h}" ${picked?'disabled':''}>${HAND[h]}</button>`).join('')}</div>`:`<p class="small">You're watching ${names('A')} vs ${names('B')}. ${S.picked.A?names('A')+' is in.':''} ${S.picked.B?names('B')+' is in.':''}</p>`}
   st.innerHTML=`<div class="status">${status}</div>${score}${body}`;
   st.querySelectorAll('[data-h]').forEach(b=>b.onclick=()=>send({type:'pick',c:b.dataset.h}));
@@ -544,7 +544,7 @@ $('saymsg').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();$('saysend').cl
 
 /* ── Letter Rush race ── */
 function rushBoard(){const ids=Object.keys(people).sort((a,b)=>(S.scores[b]||0)-(S.scores[a]||0));
-  return `<div class="score">${ids.map(id=>`<div class="${id===ID?'me':''}"><span>${E(name(id))} <small class="muted">${S.counts[id]||0} words</small></span><span>${S.scores[id]||0}</span></div>`).join('')}</div>`}
+  return `<div class="score">${ids.map(id=>`<div class="${id===ID?'me':''}"><span>${E(name(id))} <small class="muted">${+S.counts[id]||0} words</small></span><span>${+S.scores[id]||0}</span></div>`).join('')}</div>`}
 function drawRush(st){
   clearInterval(tickT);
   if(S.phase!=='play'){
@@ -556,9 +556,9 @@ function drawRush(st){
   needLetters();
   if(myRound!==S.round){myRound=S.round;myFound=[];guess=[];rmsg=null}
   const word=guess.map(i=>S.rack[i]).join('');
-  st.innerHTML=`<div class="lr"><div class="lhead"><span>${S.scores[ID]||0} pts · ${myFound.length} words</span><span class="lclock" id="rclock"></span></div>
+  st.innerHTML=`<div class="lr"><div class="lhead"><span>${+S.scores[ID]||0} pts · ${myFound.length} words</span><span class="lclock" id="rclock"></span></div>
     <div class="guess">${E(word)}</div><div class="lmsg ${rmsg?rmsg[1]:''}">${rmsg?E(rmsg[0]):''}</div>
-    <div class="tiles">${S.rack.map((c,i)=>`<button class="tile" data-t="${i}"${guess.includes(i)?' disabled':''}>${c}</button>`).join('')}</div>
+    <div class="tiles">${S.rack.map((c,i)=>`<button class="tile" data-t="${i}"${guess.includes(i)?' disabled':''}>${E(c)}</button>`).join('')}</div>
     <div class="row" style="justify-content:center"><button class="btn sm ghost" id="rdel">⌫</button><button class="btn sm ghost" id="rclr">Clear</button><button class="btn sm" id="rent">Enter</button></div>
     <div class="found">${myFound.slice().sort((a,b)=>b.length-a.length).map(w=>`<span>${E(w)}</span>`).join('')}</div>${rushBoard()}</div>`;
   st.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{guess.push(+b.dataset.t);drawRush(st)});
