@@ -125,8 +125,11 @@ label.f{display:grid;gap:5px;font-size:12px;font-weight:600;color:var(--ink2);le
 .lightbox img{max-width:100%;max-height:86vh;border-radius:16px}
 .lightbox button{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:16px;width:44px;height:44px;border-radius:999px;border:0;background:#fff;font-size:18px;cursor:pointer}
 
-.snav{display:flex;gap:4px;background:var(--card);border-radius:999px;padding:5px;width:max-content;max-width:100%;margin-top:16px}
+.snav{display:flex;gap:4px;background:var(--card);border-radius:999px;padding:5px;width:max-content;max-width:100%;margin-top:16px;overflow-x:auto;scrollbar-width:none}
+.snav::-webkit-scrollbar{display:none}
 .snav a{font-size:14px;font-weight:600;color:var(--ink2);padding:8px 16px;border-radius:999px;white-space:nowrap}
+.snav .sm{display:none}
+@media (max-width:480px){.snav a{padding:8px 11px;font-size:13px}.snav .lg{display:none}.snav .sm{display:inline}}
 .snav a[aria-current=page]{background:var(--forest);color:var(--forest-ink)}
 .score{display:inline-grid;place-items:center;min-width:44px;height:40px;padding:0 8px;border-radius:12px;font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.02em}
 .score.good{background:#cfe8b8;color:#1b3a14}.score.ok{background:var(--butter)}.score.bad{background:#f6cdbb}.score.none{background:var(--paper);color:var(--ink3);font-size:14px}
@@ -230,6 +233,49 @@ html[data-theme=dark] .mgrid button.bad{background:#4a2a20;color:#f6cdbb}
 .cardrow{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px;align-items:start;overflow-wrap:anywhere}
 .cardrow:first-child{border-top:0}
 @media (max-width:600px){.cardrow{grid-template-columns:1fr}}
+/* import / export */
+.irow{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:14px;align-items:start;overflow-wrap:anywhere}
+.irow:first-child{border-top:0}
+.ix{width:30px;height:30px;border-radius:999px;border:0;background:var(--paper);color:var(--ink2);cursor:pointer;font:inherit;font-size:16px;line-height:1;flex:none}
+.ix:hover{background:var(--peach);color:var(--ink)}
+@media (max-width:600px){.irow{grid-template-columns:1fr auto}.irow b{grid-area:1/1}.irow span{grid-area:2/1}.irow .ix{grid-area:1/2/3/3;align-self:center}}
+.ihead{display:flex;justify-content:space-between;align-items:center;gap:6px 14px;flex-wrap:wrap;font-size:13px;color:var(--ink2)}
+.ihead b{color:var(--ink)}
+.ilist{max-height:380px;overflow:auto}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:var(--paper);padding:1px 6px;border-radius:6px}
+kbd{font:inherit;font-size:12px;font-weight:600;padding:1px 7px;border-radius:7px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line);white-space:nowrap}
+/* deck mastery */
+.deck .mast{font-size:12px;color:var(--ink2);margin-top:auto}
+.deck .prog{height:5px;background:var(--paper)}
+/* share */
+.share-link{display:flex;gap:8px}.share-link input{flex:1;font-size:14px}
+.qrbox{display:grid;justify-items:center;gap:8px;text-align:center}
+.qrbox canvas{width:200px;height:200px;max-width:100%;border-radius:14px;background:#fff}
+.pubnote{font-size:13px;color:var(--ink2)}
+.cm-box .msg{margin:0}
+/* next test chip */
+.nextt{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:8px 14px;border-radius:999px;background:var(--peach);color:var(--ink);font-size:14px;font-weight:500;max-width:100%}
+.nextt b{font-weight:700}
+.nextt::before{content:'';width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.55;flex:none}
+.nextt.today{background:#d13b2c;color:#fff}
+html[data-theme=dark] .nextt.today{background:#8a2c1c;color:#f3c1b4}
+/* stats */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--gap)}
+.tile{background:var(--card);border-radius:22px;padding:16px 18px;display:grid;gap:2px;align-content:start}
+.tile b{font-family:var(--display);font-size:36px;letter-spacing:-.04em;line-height:1}
+.tile span{font-size:13px;color:var(--ink2)}
+.tile.forest{background:var(--forest);color:var(--forest-ink)}.tile.forest span{color:inherit;opacity:.8}
+.drow{display:grid;gap:6px;padding:12px 0;border-top:1px solid var(--line)}
+.drow:first-child{border-top:0;padding-top:0}
+.drow b{font-family:var(--display);font-size:19px;letter-spacing:-.02em}
+.drow .prog{background:var(--paper);height:6px}
+/* keys overlay */
+.keys{display:grid;gap:6px;font-size:14px}
+.keys div{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.keys h3{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);font-family:var(--body);margin-top:6px}
+.mgrid button{position:relative}
+.mgrid button::before{content:attr(data-k);position:absolute;top:5px;left:9px;font-size:10px;font-weight:700;opacity:.4}
+@media (hover:none){.mgrid button::before{display:none}}
 </style>
 </head>
 <body data-page="tools">
@@ -303,6 +349,110 @@ function calLinks(ev){
 const calBtn=(id,cls)=>`<button class="${cls||''}" data-cal="${id}" type="button">Add to calendar</button>`;
 const safeName=n=>n.normalize('NFKD').replace(/[^\w.\- ]+/g,'').replace(/\s+/g,'-').replace(/-+/g,'-').slice(-80)||'file';
 
+/* ── QR encoder (copied from /qr/): byte mode, error correction M, versions 1–10 ── */
+const QR=(()=>{
+  // GF(256) with 0x11D
+  const EXP=new Uint8Array(512),LOG=new Uint8Array(256);
+  for(let i=0,x=1;i<255;i++){EXP[i]=x;LOG[x]=i;x<<=1;if(x&256)x^=0x11D}
+  for(let i=255;i<512;i++)EXP[i]=EXP[i-255];
+  const mul=(a,b)=>a&&b?EXP[LOG[a]+LOG[b]]:0;
+  function genPoly(n){let g=[1];for(let i=0;i<n;i++){const ng=new Array(g.length+1).fill(0);for(let j=0;j<g.length;j++){ng[j]^=g[j];ng[j+1]^=mul(g[j],EXP[i])}g=ng}return g}
+  function rs(data,n){const g=genPoly(n),res=new Array(n).fill(0);for(const b of data){const f=b^res[0];res.shift();res.push(0);if(f)for(let j=0;j<n;j++)res[j]^=mul(g[j+1],f)}return res}
+  // level M: [ec codewords per block, [[blocks, data codewords per block], ...]]
+  const EC=[null,[10,[[1,16]]],[16,[[1,28]]],[26,[[1,44]]],[18,[[2,32]]],[24,[[2,43]]],[16,[[4,27]]],[18,[[4,31]]],[22,[[2,38],[2,39]]],[22,[[3,36],[2,37]]],[26,[[4,43],[1,44]]]];
+  const ALIGN=[null,[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50]];
+  const dataCW=v=>EC[v][1].reduce((a,[n,c])=>a+n*c,0);
+  const capacity=v=>dataCW(v)-(v<10?2:3);   // bytes: mode(4)+count(8|16) bits
+  const utf8=s=>{const out=[];for(const ch of s){let c=ch.codePointAt(0);if(c<0x80)out.push(c);else if(c<0x800)out.push(0xC0|c>>6,0x80|c&63);else if(c<0x10000)out.push(0xE0|c>>12,0x80|c>>6&63,0x80|c&63);else out.push(0xF0|c>>18,0x80|c>>12&63,0x80|c>>6&63,0x80|c&63)}return out};
+  // BCH for format (15 bits) and version (18 bits)
+  const bchDigit=d=>{let n=0;while(d){n++;d>>>=1}return n};
+  function bch(data,shift,g){let d=data<<shift;const gd=bchDigit(g);while(bchDigit(d)-gd>=0)d^=g<<(bchDigit(d)-gd);return(data<<shift)|d}
+  const formatBits=mask=>bch((0<<3)|mask,10,0x537)^0x5412;   // EC level M = 00
+  const versionBits=v=>bch(v,12,0x1F25);
+  const MASK=[(r,c)=>(r+c)%2===0,(r,c)=>r%2===0,(r,c)=>c%3===0,(r,c)=>(r+c)%3===0,(r,c)=>((r>>1)+Math.floor(c/3))%2===0,(r,c)=>(r*c)%2+(r*c)%3===0,(r,c)=>((r*c)%2+(r*c)%3)%2===0,(r,c)=>((r+c)%2+(r*c)%3)%2===0];
+
+  function encode(text){
+    const bytes=utf8(text);
+    let v=1;while(v<=10&&capacity(v)<bytes.length)v++;
+    if(v>10)return{error:'Too long: '+bytes.length+' bytes, max '+capacity(10)+'.'};
+    // bit stream
+    const bits=[];const push=(val,n)=>{for(let i=n-1;i>=0;i--)bits.push((val>>i)&1)};
+    push(4,4);push(bytes.length,v<10?8:16);bytes.forEach(b=>push(b,8));
+    const total=dataCW(v)*8;
+    push(0,Math.min(4,total-bits.length));while(bits.length%8)bits.push(0);
+    const data=[];for(let i=0;i<bits.length;i+=8){let b=0;for(let j=0;j<8;j++)b=(b<<1)|bits[i+j];data.push(b)}
+    for(let p=0;data.length<dataCW(v);p++)data.push(p%2?0x11:0xEC);
+    // blocks + interleave
+    const [ecn,groups]=EC[v];const blocks=[];let off=0;
+    for(const [n,c] of groups)for(let i=0;i<n;i++){const d=data.slice(off,off+c);off+=c;blocks.push({d,e:rs(d,ecn)})}
+    const out=[];const maxD=Math.max(...blocks.map(b=>b.d.length));
+    for(let i=0;i<maxD;i++)for(const b of blocks)if(i<b.d.length)out.push(b.d[i]);
+    for(let i=0;i<ecn;i++)for(const b of blocks)out.push(b.e[i]);
+    // matrix: fn[r][c] true for function modules; m[r][c] 0/1
+    const n=v*4+17;const m=Array.from({length:n},()=>new Uint8Array(n)),fn=Array.from({length:n},()=>new Uint8Array(n));
+    const set=(r,c,val)=>{m[r][c]=val;fn[r][c]=1};
+    const finder=(r0,c0)=>{for(let r=-1;r<=7;r++)for(let c=-1;c<=7;c++){const rr=r0+r,cc=c0+c;if(rr<0||cc<0||rr>=n||cc>=n)continue;const dark=(r>=0&&r<=6&&(c===0||c===6))||(c>=0&&c<=6&&(r===0||r===6))||(r>=2&&r<=4&&c>=2&&c<=4);set(rr,cc,dark?1:0)}};
+    finder(0,0);finder(0,n-7);finder(n-7,0);
+    for(let i=8;i<n-8;i++){set(6,i,i%2===0?1:0);set(i,6,i%2===0?1:0)}
+    const al=ALIGN[v];
+    for(const r of al)for(const c of al){if((r<=8&&c<=8)||(r<=8&&c>=n-9)||(r>=n-9&&c<=8))continue;for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++)set(r+dr,c+dc,Math.max(Math.abs(dr),Math.abs(dc))!==1?1:0)}
+    // reserve format areas (+ dark module) and version areas
+    for(let i=0;i<9;i++){if(i!==6){set(8,i,0);set(i,8,0)}}
+    for(let i=0;i<8;i++){set(8,n-1-i,0);set(n-1-i,8,0)}
+    set(n-8,8,1);
+    if(v>=7){const vb=versionBits(v);for(let i=0;i<18;i++){const b=(vb>>i)&1;set(Math.floor(i/3),n-11+(i%3),b);set(n-11+(i%3),Math.floor(i/3),b)}}
+    // data placement order (zigzag, skipping column 6)
+    const order=[];let inc=-1,row=n-1;
+    for(let col=n-1;col>0;col-=2){if(col===6)col--;while(true){for(let c=0;c<2;c++){if(!fn[row][col-c])order.push([row,col-c])}row+=inc;if(row<0||row>=n){row-=inc;inc=-inc;break}}}
+    const totalBits=out.length*8;
+    function build(mask){
+      const g=m.map(r=>Uint8Array.from(r));const f=MASK[mask];
+      order.forEach(([r,c],i)=>{let d=i<totalBits?(out[i>>3]>>(7-(i&7)))&1:0;if(f(r,c))d^=1;g[r][c]=d});
+      const fb=formatBits(mask);
+      for(let i=0;i<15;i++){const b=(fb>>i)&1;
+        if(i<6)g[i][8]=b;else if(i<8)g[i+1][8]=b;else g[n-15+i][8]=b;
+        if(i<8)g[8][n-1-i]=b;else if(i<9)g[8][15-i]=b;else g[8][14-i]=b}
+      g[n-8][8]=1;
+      return g;
+    }
+    function penalty(g){
+      let p=0;
+      // rule 1: runs of 5+ in rows and columns
+      for(let r=0;r<n;r++){let run=1,runc=1;for(let c=1;c<n;c++){
+        if(g[r][c]===g[r][c-1]){run++;if(run===5)p+=3;else if(run>5)p++}else run=1;
+        if(g[c][r]===g[c-1][r]){runc++;if(runc===5)p+=3;else if(runc>5)p++}else runc=1}}
+      // rule 2: 2x2 blocks
+      for(let r=0;r<n-1;r++)for(let c=0;c<n-1;c++){const x=g[r][c];if(x===g[r][c+1]&&x===g[r+1][c]&&x===g[r+1][c+1])p+=3}
+      // rule 3: finder-like 1011101 with 0000 on a side
+      const P1=[1,0,1,1,1,0,1,0,0,0,0],P2=[0,0,0,0,1,0,1,1,1,0,1];
+      const match=(get,start,pat)=>{for(let i=0;i<11;i++)if(get(start+i)!==pat[i])return false;return true};
+      for(let r=0;r<n;r++)for(let c=0;c<=n-11;c++){const gr=i=>g[r][i],gc=i=>g[i][r];if(match(gr,c,P1)||match(gr,c,P2))p+=40;if(match(gc,c,P1)||match(gc,c,P2))p+=40}
+      // rule 4: dark ratio
+      let dark=0;for(let r=0;r<n;r++)for(let c=0;c<n;c++)dark+=g[r][c];
+      const pct=dark*100/(n*n),prev=Math.floor(pct/5)*5,next=prev+5;
+      p+=Math.min(Math.abs(prev-50),Math.abs(next-50))/5*10;
+      return p;
+    }
+    let best=null,bestP=Infinity,bestMask=0;
+    for(let k=0;k<8;k++){const g=build(k);const p=penalty(g);if(p<bestP){bestP=p;best=g;bestMask=k}}
+    return{size:n,modules:best,version:v,mask:bestMask,bytes:bytes.length};
+  }
+  return{encode,capacity};
+})();
+function drawQR(cv,text,px){const q=QR.encode(text);if(q.error)return false;const ctx=cv.getContext('2d');const n=q.size,quiet=4,cell=px/(n+quiet*2);cv.width=cv.height=px;
+  ctx.fillStyle='#fff';ctx.fillRect(0,0,px,px);ctx.fillStyle='#000';
+  for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(q.modules[r][c]){const x=Math.round((c+quiet)*cell),y=Math.round((r+quiet)*cell),x2=Math.round((c+quiet+1)*cell),y2=Math.round((r+quiet+1)*cell);ctx.fillRect(x,y,x2-x,y2-y)}
+  cv.setAttribute('aria-label','QR code for '+text);return true}
+
+/* ── local activity log (feeds #/me). Entries: learn [ts, deck, card, ok, box] · quiz [ts, deck, right, total, typed] · match [ts, deck, ms] ── */
+const LOGMAX={study_learn_log:800,study_quiz_log:200,study_match_log:200};
+function logPush(key,entry){let a=ls(key);if(!Array.isArray(a))a=[];a.push(entry);if(a.length>LOGMAX[key])a=a.slice(-LOGMAX[key]);ls(key,a)}
+function noteDeck(id,title,n,pub){let m=ls('study_decks_seen');if(!m||typeof m!=='object'||Array.isArray(m))m={};m[id]={t:String(title).slice(0,100),n,at:Date.now(),p:!!pub};
+  const ks=Object.keys(m);if(ks.length>60)ks.sort((a,b)=>m[a].at-m[b].at).slice(0,ks.length-60).forEach(k=>delete m[k]);ls('study_decks_seen',m)}
+const toast=(t,o)=>{if(window.SITE&&SITE.toast)SITE.toast(t,o||{});else alert(t)};
+const rpcMissing=e=>!!e&&(e.code==='42883'||e.code==='PGRST202'||e.status===404||/could not find the function|does not exist/i.test(e.message||''));
+const colMissing=e=>!!e&&(e.code==='42703'||e.code==='PGRST204'||/column|schema cache/i.test(e.message||''));
+
 /* ── data ─────────────────────────────────────────── */
 let T=[],K=[];  // teachers, classes
 let FOL=null;   // ids of classes I follow ("My classes")
@@ -323,9 +473,12 @@ async function home(){
   [...evAll,...evMine].forEach(e=>EVS[e.id]=e);
   const myCls=K.filter(c=>FOL.has(c.id));
   const weekN=id=>evMine.filter(e=>e.class_id===id&&daysTo(e.event_date)<=6).length;
+  const nxt=myCls.length?(evMine.find(e=>e.event_type==='test'||e.event_type==='quiz')||evMine[0]):null;
+  const nextChip=ev=>{const c=K.find(k=>k.id===ev.class_id);const n=daysTo(ev.event_date);const isT=ev.event_type==='test'||ev.event_type==='quiz';
+    return `<a class="nextt ${n<=0?'today':''}" id="nextt" href="#/c/${ev.class_id}/events">${isT?`<b>${c?E(c.name):'Next'} ${TYPES[ev.event_type].toLowerCase()}</b> ${until(ev.event_date)}`:`<b>${E(ev.title)}</b> due ${until(ev.event_date)}${c?' · '+E(c.name):''}`}</a>`};
   let onlyMine=myCls.length>0;
   app().innerHTML=`
-    <div class="top"><div><h1>PVHS Study</h1><p class="sub">Palo Verde HS. Find your class or add it.</p></div>
+    <div class="top"><div><h1>PVHS Study</h1><p class="sub">Palo Verde HS. Find your class or add it.</p>${nxt?nextChip(nxt):''}</div>
       <div class="who">Posting as <b>${E(me.name)}</b><button id="rename">Change</button></div></div>
     ${RULES}
     <form class="box sall" id="sall"><div class="search"><input id="sq" maxlength="80" placeholder="Search notes and tests" aria-label="Search posts"><button class="btn sm">Search</button></div></form>
@@ -514,7 +667,8 @@ async function decks(c){
   const {data,error}=await SB.from('study_decks').select('id,title,created_by,created_at,author:profiles(display_name,username,name_color,tags),study_cards(count)').eq('class_id',c.id).order('created_at',{ascending:false});
   if(error){pane.innerHTML=`<div class="msg">${E(C.errText(error))}</div>`;return}
   pane.innerHTML=`<div class="posts"><div class="box"><div class="search"><input id="dt" maxlength="100" placeholder="New deck name, e.g. Unit 3 vocab"><button class="btn sm" id="dgo">+ New deck</button></div><div id="dmsg"></div></div>
-    <div class="decks">${data.map(d=>`<a class="deck" href="#/d/${d.id}"><span class="art" data-art="cards"></span><b>${E(d.title)}</b><span class="meta">${(d.study_cards[0]||{}).count||0} cards · ${author(d)}</span></a>`).join('')||'<p class="empty">No decks yet. Make one for vocab or key terms.</p>'}</div></div>`;
+    <div class="decks">${data.map(d=>{const m=(d.study_cards[0]||{}).count||0;const st=ls('study_learn_'+d.id);const n=st&&st.box?Math.min(m,Object.values(st.box).filter(b=>+b===3).length):0;
+      return `<a class="deck" href="#/d/${d.id}"><span class="art" data-art="cards"></span><b>${E(d.title)}</b><span class="meta">${m} cards · ${author(d)}</span>${m?`<span class="mast">${n} of ${m} mastered</span><span class="prog" aria-hidden="true"><i style="--w:${Math.round(100*n/m)}%"></i></span>`:''}</a>`}).join('')||'<p class="empty">No decks yet. Make one for vocab or key terms.</p>'}</div></div>`;
   $('dgo').addEventListener('click',async()=>{
     const t=$('dt').value.trim();if(t.length<2)return;
     const r=await SB.from('study_decks').insert({class_id:c.id,title:t}).select('id').single();
@@ -523,32 +677,42 @@ async function decks(c){
   });
 }
 
-let deckCards=[];
+let deckCards=[],DBASE='',DECK=null;  // cards of the open deck, its route base (#/d/<id> or #/p/<id>) and row
+const MODES=[['study','Study'],['learn','Learn'],['match','Match'],['quiz','Quiz'],['','Cards']];
+const modeBtns=mode=>MODES.map(([m,l])=>`<a class="btn sm ${mode===m||(!mode&&!m)?'':'ghost'}" href="${DBASE}${m?'/'+m:''}">${l}</a>`).join('');
 async function deck(id,mode){
-  const {data:d}=await SB.from('study_decks').select('id,title,class_id,created_by,author:profiles(display_name,username,name_color,tags)').eq('id',id).maybeSingle();
+  const {data:d}=await SB.from('study_decks').select('*,author:profiles(display_name,username,name_color,tags)').eq('id',id).maybeSingle();
   if(!d){app().innerHTML=`<a class="back" href="#/">← All classes</a><div class="box" style="margin-top:14px"><h2>Deck not found</h2></div>`;return}
   if(!K.some(k=>k.id===d.class_id))await loadDir();
   await loadFollows();
   const c=K.find(k=>k.id===d.class_id);
   const {data:cards}=await SB.from('study_cards').select('*,author:profiles(display_name,username,name_color,tags)').eq('deck_id',id).order('id');
-  deckCards=cards||[];
+  deckCards=cards||[];DBASE='#/d/'+id;DECK=d;
+  noteDeck(id,d.title,deckCards.length,!!d.public);
   app().innerHTML=`
     <a class="back" href="#/c/${d.class_id}/cards">← ${c?E(c.name):'Class'}</a>
-    <div class="top"><div><h1>${E(d.title)}</h1><p class="sub">${deckCards.length} cards · made by ${author(d)}</p></div>
-      <div class="row">${[['study','Study'],['learn','Learn'],['match','Match'],['quiz','Quiz'],['','Cards']].map(([m,l])=>`<a class="btn sm ${mode===m||(!mode&&!m)?'':'ghost'}" href="#/d/${id}${m?'/'+m:''}">${l}</a>`).join('')}</div></div>
+    <div class="top"><div><h1>${E(d.title)}</h1><p class="sub">${deckCards.length} cards · made by ${author(d)} <span class="pill" id="pubpill" ${d.public?'':'hidden'}>Public</span></p></div>
+      <div class="row">${modeBtns(mode)}<button class="btn sm ghost" id="share" type="button">Share</button></div></div>
     <div id="pane"></div>`;
+  $('share').onclick=()=>shareDeck(d);
   if(mode==='study')return studyMode();
   if(mode==='learn')return learnMode(id);
   if(mode==='match')return matchMode(id);
-  if(mode==='quiz')return quizMode();
+  if(mode==='quiz')return quizMode(id);
   const pane=$('pane');
   pane.innerHTML=`<div class="posts">
     <div class="box"><h2>Add a card</h2><div class="g2"><label class="f">Front (term or question)<textarea id="cf" maxlength="500" style="min-height:80px"></textarea></label><label class="f">Back (definition)<textarea id="cb" maxlength="500" style="min-height:80px"></textarea></label></div>
       <div class="row"><button class="btn sm" id="cadd">Add card</button><span class="muted" style="font-size:13px">Terms and definitions from class, not test questions.</span></div><div id="cmsg"></div></div>
-    <div class="box"><div>${deckCards.map(k=>`<div class="cardrow"><b>${E(k.front)}</b><span>${E(k.back)}</span><span class="acts"><button data-rep="study_card:${k.id}">Report</button>${canDel(k)?`<button data-delcard="${k.id}">Delete</button>`:''}</span></div>`).join('')||'<p class="empty">No cards yet.</p>'}</div></div>
+    <div class="box"><h2>Import cards</h2><p class="muted" style="font-size:14px">Paste one card per line: <code>term<kbd>Tab</kbd>definition</code>, <code>term - definition</code>, <code>term :: definition</code> or <code>term, definition</code>. A Quizlet export pastes straight in.</p>
+      <label class="f">Lines<textarea id="imp" placeholder="osmosis - water moving across a membrane&#10;diffusion - high to low concentration" aria-label="Cards to import"></textarea></label>
+      <div class="row" style="align-items:flex-end"><label class="f" style="width:170px">Separator<select id="isep"><option value="auto">Auto-detect</option><option value="tab">Tab</option><option value="dash">- (dash)</option><option value="colons">:: (double colon)</option><option value="comma">, (comma)</option></select></label><button class="btn sm" id="igo" disabled type="button">Add 0 cards</button></div>
+      <div id="iprev"></div><div id="imsg"></div></div>
+    <div class="box"><div class="row" style="justify-content:space-between;align-items:center"><h2>Cards</h2>${deckCards.length?'<button class="btn sm ghost" id="exp" type="button">Export</button>':''}</div><div>${deckCards.map(k=>`<div class="cardrow"><b>${E(k.front)}</b><span>${E(k.back)}</span><span class="acts"><button data-rep="study_card:${k.id}">Report</button>${canDel(k)?`<button data-delcard="${k.id}">Delete</button>`:''}</span></div>`).join('')||'<p class="empty">No cards yet.</p>'}</div></div>
     ${deckCards.length?`<div class="box"><h2>Copy to another class</h2><p class="muted" style="font-size:14px">Same unit in another period or teacher? Make your own copy of these ${deckCards.length} cards there.</p>
       <div class="search"><select id="cpto" aria-label="Class to copy to"><option value="">Pick a class…</option>${K.filter(k=>k.id!==d.class_id).sort((a,b)=>(FOL.has(b.id)-FOL.has(a.id))||a.name.localeCompare(b.name)).map(k=>`<option value="${k.id}">${FOL.has(k.id)?'★ ':''}${E(k.name)} · ${E(teacherOf(k).name)}${k.period?' · P'+E(k.period):''}</option>`).join('')}</select><button class="btn sm" id="cpgo">Copy deck</button></div><div id="cpmsg"></div></div>`:''}
     <div class="acts"><button data-rep="study_deck:${d.id}">Report deck</button>${canDel(d)?`<button id="deldeck">Delete deck</button>`:''}</div></div>`;
+  importUI(id);
+  if($('exp'))$('exp').onclick=()=>exportDeck(d);
   if($('cpgo'))$('cpgo').onclick=async()=>{const to=+$('cpto').value;if(!to)return;$('cpgo').disabled=true;
     const say=t=>{$('cpgo').disabled=false;$('cpmsg').innerHTML=`<div class="msg">${E(t)}</div>`};
     const nd=await SB.from('study_decks').insert({class_id:to,title:d.title}).select('id').single();if(nd.error)return say(C.errText(nd.error));
@@ -569,10 +733,95 @@ async function deck(id,mode){
   });
 }
 
+/* ── import (paste lines) / export (tab-separated) ── */
+const SEPS={tab:/\t/,colons:/\s*::\s*/,dash:/\s+[-–—]\s+/,comma:/\s*,\s*/};
+function parseCards(text,sep){
+  const rows=[];let skipped=0;
+  String(text||'').split(/\r?\n/).forEach((line,i)=>{
+    line=line.trim().replace(/^[-*•]\s+(?=\S)/,'');if(!line)return;
+    const re=SEPS[sep]||['tab','colons','dash','comma'].map(k=>SEPS[k]).find(r=>r.test(line));
+    const m=re&&line.match(re);
+    if(!m){skipped++;return}
+    const front=line.slice(0,m.index).trim().slice(0,500),back=line.slice(m.index+m[0].length).trim().slice(0,500);
+    if(!front||!back){skipped++;return}
+    rows.push({i,front,back});
+  });
+  return {rows,skipped};
+}
+function importUI(id){
+  const ta=$('imp'),sel=$('isep'),go=$('igo'),prev=$('iprev'),msg=$('imsg');
+  let rows=[],removed=new Set();
+  const say=(t,ok)=>msg.innerHTML=t?`<div class="msg ${ok?'ok':''}">${E(t)}</div>`:'';
+  const draw=()=>{
+    const r=parseCards(ta.value,sel.value);rows=r.rows.filter(x=>!removed.has(x.i));
+    const n=rows.length;go.disabled=!n;go.textContent=`Add ${n} card${n===1?'':'s'}`;
+    prev.innerHTML=n?`<div class="ihead"><span><b>${n}</b> card${n===1?'':'s'} ready${r.skipped?` · ${r.skipped} line${r.skipped===1?'':'s'} skipped (no separator)`:''}</span>${n>60?'<span>Study allows 60 new cards a minute, so a big list goes in over a few minutes.</span>':''}</div>
+      <div class="ilist">${rows.map(x=>`<div class="irow"><b>${E(x.front)}</b><span>${E(x.back)}</span><button class="ix" data-ix="${x.i}" type="button" aria-label="Remove ${E(x.front)}">×</button></div>`).join('')}</div>`
+      :(ta.value.trim()?'<p class="empty">No separator found. Pick one above, or put a Tab, “ - ”, “ :: ” or a comma between each term and its definition.</p>':'');
+  };
+  ta.addEventListener('input',()=>{removed=new Set();say('');draw()});
+  sel.addEventListener('change',()=>{removed=new Set();draw()});
+  prev.addEventListener('click',e=>{const b=e.target.closest('[data-ix]');if(!b)return;removed.add(+b.dataset.ix);draw()});
+  go.addEventListener('click',async()=>{
+    if(!rows.length)return;
+    const all=rows.slice();let done=0;
+    go.disabled=true;sel.disabled=true;ta.disabled=true;say('');
+    for(let i=0;i<all.length;i+=20){
+      const batch=all.slice(i,i+20);
+      go.textContent=`Adding ${Math.min(i+20,all.length)} of ${all.length}…`;
+      const r=await SB.from('study_cards').insert(batch.map(x=>({deck_id:id,front:x.front,back:x.back})));
+      if(r.error){
+        const left=all.slice(i);const fast=/too fast/i.test(r.error.message||'');
+        const t=fast?`Added ${done} of ${all.length}. Study allows 60 new cards a minute, so wait a minute and press Add again for the ${left.length} left (they're still in the box).`:`Added ${done} of ${all.length}. ${C.errText(r.error)}`;
+        if(done){await deck(id);$('isep').value='tab';$('imp').value=left.map(x=>x.front+'\t'+x.back).join('\n');$('imp').dispatchEvent(new Event('input'));$('imsg').innerHTML=`<div class="msg">${E(t)}</div>`}
+        else{ta.disabled=false;sel.disabled=false;draw();say(t)}
+        return;
+      }
+      done+=batch.length;
+    }
+    toast(`Added ${done} card${done===1?'':'s'}`,{ok:true});
+    await deck(id);
+  });
+}
+function exportDeck(d){
+  const clean=t=>String(t).replace(/[\t\r\n]+/g,' ').trim();
+  const txt=deckCards.map(k=>clean(k.front)+'\t'+clean(k.back)).join('\n');
+  try{const a=document.createElement('a');a.href='data:text/plain;charset=utf-8,'+encodeURIComponent(txt);a.download=(safeName(d.title).replace(/\.+$/,'')||'deck')+'.txt';document.body.appendChild(a);a.click();a.remove()}catch(e){}
+  const n=deckCards.length+' card'+(deckCards.length===1?'':'s');
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(()=>toast(`Copied ${n} as tab-separated text and saved a .txt`,{ok:true}),()=>toast(`Saved ${n} as a .txt`,{ok:true}));
+  else toast(`Saved ${n} as a .txt`,{ok:true});
+}
+
+/* ── share: link + QR, owner can flip the public link (needs supabase/study4.sql) ── */
+function shareDeck(d){
+  const link=()=>'https://kaleerson.com/study/#/'+(d.public?'p':'d')+'/'+d.id;
+  const mine=!!me.uid&&canDel(d);
+  const m=C.modal(`<h2>Share this deck</h2><p>${E(d.title)}</p>
+    <div class="share-link"><input id="shl" readonly aria-label="Link to this deck"><button class="btn sm" id="shc" type="button">Copy</button></div>
+    <div class="qrbox"><canvas id="shq" width="400" height="400"></canvas><p class="pubnote" id="shn"></p></div>
+    ${mine?`<label class="qtog"><input type="checkbox" id="shp"> Public link: anyone with it can see these cards, no account needed</label><div id="shm"></div>`:''}
+    <div class="cm-row"><button class="btn ghost" data-close>Close</button></div>`);
+  const q=x=>m.el.querySelector(x);
+  const draw=()=>{q('#shl').value=link();drawQR(q('#shq'),link(),400);
+    q('#shn').textContent=d.public?'Anyone with this link or QR can open the cards, even without an account.':'Only people with Study access can open this link. They need an account and an invite code.';
+    if(q('#shp'))q('#shp').checked=!!d.public;if($('pubpill'))$('pubpill').hidden=!d.public};
+  draw();
+  q('#shc').onclick=async()=>{try{await navigator.clipboard.writeText(link());toast('Link copied',{ok:true})}catch(e){q('#shl').select();toast('Select the link and copy it')}};
+  if(q('#shp'))q('#shp').onchange=async e=>{const want=e.target.checked;e.target.disabled=true;
+    const r=await SB.from('study_decks').update({public:want}).eq('id',d.id);e.target.disabled=false;
+    if(r.error){e.target.checked=!want;q('#shm').innerHTML=`<div class="msg">${E(colMissing(r.error)?"Public decks aren't turned on yet.":C.errText(r.error))}</div>`;return}
+    d.public=want;q('#shm').innerHTML='';draw()};
+}
+
 function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+// One page-level key handler per mode (cleared on every route change). Skips fields, and keys an element already handles itself.
+const setKeys=h=>{if(KEYH)removeEventListener('keydown',KEYH);KEYH=e=>{if(e.metaKey||e.ctrlKey||e.altKey||document.querySelector('.cm-modal'))return;
+  const t=e.target,at=x=>!!(t.closest&&t.closest(x));if(at('input,textarea,select'))return;
+  if(e.key==='Enter'&&at('a,button,#fl'))return;if(e.key===' '&&at('button,#fl'))return;h(e)};addEventListener('keydown',KEYH)};
 function studyMode(){
   const pane=$('pane');
   if(!deckCards.length){pane.innerHTML='<p class="empty">Add some cards first.</p>';return}
+  setKeys(e=>{const k=e.key;if(k===' '){e.preventDefault();if($('fl'))$('fl').click()}else if(k==='ArrowRight'){if($('nx'))$('nx').click()}else if(k==='ArrowLeft'){if($('pv'))$('pv').click()}else if(k==='s'||k==='S'){if($('sh'))$('sh').click()}});
   let order=deckCards.slice(),i=0;
   const draw=()=>{const k=order[i];pane.innerHTML=`<div class="posts" style="max-width:640px;margin:0 auto">
     <div class="flip" id="fl" role="button" tabindex="0" aria-label="Flip card"><div class="in"><div class="face front">${E(k.front)}</div><div class="face backf">${E(k.back)}</div></div></div>
@@ -584,7 +833,7 @@ function studyMode(){
   draw();
 }
 const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^\p{L}\p{N}\s]/gu,' ').replace(/\s+/g,' ').trim();
-function quizMode(){
+function quizMode(id){
   const pane=$('pane');
   const typed=!!ls('study_qtype');
   const backs=[...new Set(deckCards.map(k=>k.back))];
@@ -593,7 +842,8 @@ function quizMode(){
   if(!typed&&backs.length<4){pane.innerHTML=`<div class="posts" style="max-width:640px;margin:0 auto"><p class="empty">A multiple-choice quiz needs at least 4 cards with different answers. Add a few more, or type the answers instead.</p>${tog}</div>`;$('qtype').onchange=e=>{ls('study_qtype',e.target.checked);quizMode()};return}
   const qs=shuffle(deckCards).slice(0,20);let i=0,score=0;
   const draw=()=>{
-    if(i>=qs.length){pane.innerHTML=`<div class="box" style="max-width:640px;margin:0 auto;text-align:center"><h2>${score} / ${qs.length}</h2><p class="muted">${score===qs.length?'Perfect.':score/qs.length>=.7?'Nice work.':'Keep going. Learn mode helps.'}</p><div class="ctl"><button class="btn sm" id="again">Try again</button><a class="btn sm ghost" href="#/d/${location.hash.split('/')[2]}/learn">Learn mode</a></div></div>`;if(window.SITE&&SITE.confetti&&score===qs.length)try{SITE.confetti()}catch(e){}$('again').addEventListener('click',quizMode);return}
+    if(i>=qs.length){logPush('study_quiz_log',[Date.now(),id,score,qs.length,typed?1:0]);
+      pane.innerHTML=`<div class="box" style="max-width:640px;margin:0 auto;text-align:center"><h2>${score} / ${qs.length}</h2><p class="muted">${score===qs.length?'Perfect.':score/qs.length>=.7?'Nice work.':'Keep going. Learn mode helps.'}</p><div class="ctl"><button class="btn sm" id="again">Try again</button><a class="btn sm ghost" href="${DBASE}/learn">Learn mode</a></div></div>`;if(window.SITE&&SITE.confetti&&score===qs.length)try{SITE.confetti()}catch(e){}$('again').addEventListener('click',()=>quizMode(id));return}
     const k=qs[i];const opts=typed?[]:shuffle([k.back,...shuffle(backs.filter(b=>b!==k.back)).slice(0,3)]);
     pane.innerHTML=`<div class="posts" style="max-width:640px;margin:0 auto"><div class="qhead"><span>Question ${i+1} of ${qs.length}</span>${tog}<span>Score ${score}</span></div>
       <div class="flip" style="cursor:default;min-height:0"><div class="in" style="min-height:0"><div class="face front" style="position:static;min-height:180px">${E(k.front)}</div></div></div>
@@ -613,6 +863,7 @@ function quizMode(){
       setTimeout(()=>{i++;draw()},ok?700:1500);
     }));
   };
+  setKeys(e=>{if(/^[1-4]$/.test(e.key)){const b=pane.querySelector(`[data-o="${+e.key-1}"]`);if(b&&!b.disabled)b.click()}else if(e.key==='Enter'){const n=$('nx');if(n)n.click()}});
   draw();
 }
 
@@ -637,13 +888,14 @@ function learnMode(id){
     pane.innerHTML=`<div class="box done"><div class="big">${c.m}<small> / ${total}</small></div><h2>${c.m===total?'All mastered.':'Round done.'}</h2>
       <div class="counts"><div><b>${got}</b><span>got it</span></div><div><b>${miss}</b><span>not yet</span></div><div><b>${seen}</b><span>cards seen</span></div></div>
       <p class="muted">${c.m===total?'Every card is in box 3. Start over to drill them again.':`${c.l} in box 2, ${c.n} still new. Keep going to master them.`}</p>
-      <div class="ctl">${c.m<total?'<button class="btn sm" id="more">Keep going</button>':''}<button class="btn sm ghost" id="reset">Start over</button><a class="btn sm ghost" href="#/d/${id}/match">Match</a><a class="btn sm ghost" href="#/d/${id}/quiz">Quiz</a></div></div>`;
+      <div class="ctl">${c.m<total?'<button class="btn sm" id="more">Keep going</button>':''}<button class="btn sm ghost" id="reset">Start over</button><a class="btn sm ghost" href="${DBASE}/match">Match</a><a class="btn sm ghost" href="${DBASE}/quiz">Quiz</a></div></div>`;
     if(c.m===total&&window.SITE&&SITE.confetti)try{SITE.confetti()}catch(e){}
     if($('more'))$('more').onclick=()=>learnMode(id);
     $('reset').onclick=()=>{st={box:{},due:{}};save();learnMode(id)};
   };
   const answer=ok=>{const k=queue[pos];if(!k)return;seen++;
     let b=box(k);b=ok?Math.min(3,b+1):1;st.box[k.id]=b;ok?got++:miss++;
+    logPush('study_learn_log',[Date.now(),id,k.id,ok?1:0,b]);
     queue.splice(pos,1);
     if(b<3){const at=Math.min(queue.length,pos+(ok?6:3));queue.splice(at,0,k);st.due[k.id]=at}
     else delete st.due[k.id];
@@ -663,11 +915,10 @@ function learnMode(id){
     $('no').onclick=()=>shown?answer(false):reveal();
     $('yes').onclick=()=>shown?answer(true):reveal();
   };
-  KEYH=e=>{if(e.target.matches('input,textarea,select')||e.metaKey||e.ctrlKey||e.altKey)return;
+  setKeys(e=>{
     if(e.key===' '){e.preventDefault();if($('fl'))$('fl').click()}
     else if(e.key==='1'){if($('no'))$('no').click()}
-    else if(e.key==='2'){if($('yes'))$('yes').click()}};
-  addEventListener('keydown',KEYH);
+    else if(e.key==='2'){if($('yes'))$('yes').click()}});
   draw();
 }
 
@@ -682,14 +933,17 @@ function matchMode(id){
   const pick=shuffle(uniq).slice(0,6);
   const tiles=shuffle([...pick.map(k=>({c:k.id,s:'term',t:k.front})),...pick.map(k=>({c:k.id,s:'def',t:k.back}))]);
   let left=pick.length,t0=0,sel=null,lock=false,best=+ls(key)||0;
+  const MKEYS='1234567890qw';
   pane.innerHTML=`<div class="posts">
     <div class="mhead"><span>Tap a term, then its definition.</span><span><b id="mt">0.0s</b>${best?` · best ${fmt(best)}`:''}</span></div>
-    <div class="mgrid" id="mg">${tiles.map((x,i)=>`<button type="button" class="${x.s}" data-i="${i}" aria-pressed="false">${E(x.t)}</button>`).join('')}</div></div>`;
+    <div class="mgrid" id="mg">${tiles.map((x,i)=>`<button type="button" class="${x.s}" data-i="${i}" data-k="${MKEYS[i]||''}" aria-pressed="false">${E(x.t)}</button>`).join('')}</div></div>`;
+  setKeys(e=>{const i=MKEYS.indexOf(e.key.toLowerCase());if(i>=0&&i<tiles.length){const b=$('mg')&&$('mg').querySelector(`button[data-i="${i}"]`);if(b)b.click()}});
   const tick=()=>{$('mt').textContent=fmt(Date.now()-t0)};
   const finish=()=>{clearInterval(TICK);TICK=null;const ms=Date.now()-t0;const nb=!best||ms<best;if(nb){best=ms;ls(key,ms)}
+    logPush('study_match_log',[Date.now(),id,ms]);
     pane.innerHTML=`<div class="box done"><div class="big">${fmt(ms)}</div><h2>${nb?'New best time.':'Cleared.'}</h2>
       <div class="counts"><div><b>${pick.length}</b><span>pairs</span></div><div><b>${fmt(best)}</b><span>best</span></div></div>
-      <div class="ctl"><button class="btn sm" id="again">Play again</button><a class="btn sm ghost" href="#/d/${id}/learn">Learn</a><a class="btn sm ghost" href="#/d/${id}/quiz">Quiz</a></div></div>`;
+      <div class="ctl"><button class="btn sm" id="again">Play again</button><a class="btn sm ghost" href="${DBASE}/learn">Learn</a><a class="btn sm ghost" href="${DBASE}/quiz">Quiz</a></div></div>`;
     if(nb&&window.SITE&&SITE.confetti)try{SITE.confetti()}catch(e){}
     $('again').onclick=()=>matchMode(id)};
   $('mg').addEventListener('click',e=>{
@@ -728,6 +982,21 @@ document.addEventListener('click',async e=>{
   }
   const dc=e.target.closest('[data-delcard]');
   if(dc){const r=await SB.from('study_cards').delete().eq('id',+dc.dataset.delcard);if(r.error)return alert(C.errText(r.error));dc.closest('.cardrow').remove();deckCards=deckCards.filter(k=>k.id!==+dc.dataset.delcard)}
+});
+
+/* ── keyboard: ? lists the shortcuts, / jumps to the search box ── */
+const KEYHELP=`<h2>Keyboard shortcuts</h2><div class="keys">
+  <h3>Everywhere</h3><div><span>Jump to search</span><kbd>/</kbd></div><div><span>This list</span><kbd>?</kbd></div><div><span>Close</span><kbd>Esc</kbd></div>
+  <h3>Study</h3><div><span>Flip the card</span><kbd>Space</kbd></div><div><span>Next / previous card</span><span><kbd>→</kbd> <kbd>←</kbd></span></div><div><span>Shuffle</span><kbd>S</kbd></div>
+  <h3>Learn</h3><div><span>Show the back</span><kbd>Space</kbd></div><div><span>Not yet / Got it</span><span><kbd>1</kbd> <kbd>2</kbd></span></div>
+  <h3>Quiz</h3><div><span>Pick an answer</span><span><kbd>1</kbd> to <kbd>4</kbd></span></div><div><span>Check / next</span><kbd>Enter</kbd></div>
+  <h3>Match</h3><div><span>Pick a tile</span><span><kbd>1</kbd> to <kbd>9</kbd>, <kbd>0</kbd>, <kbd>Q</kbd>, <kbd>W</kbd></span></div>
+</div><div class="cm-row"><button class="btn ghost" data-close>Close</button></div>`;
+addEventListener('keydown',e=>{
+  if(e.metaKey||e.ctrlKey||e.altKey)return;
+  const typing=e.target.closest&&e.target.closest('input,textarea,select,[contenteditable]');
+  if(e.key==='?'&&!typing){if(document.querySelector('.cm-modal'))return;e.preventDefault();C.modal(KEYHELP)}
+  else if(e.key==='/'&&!typing){const s=$('sq')||$('q')||$('tq');if(s){e.preventDefault();s.focus();s.select()}}
 });
 
 /* ── rate my teacher ──────────────────────────────── */
@@ -846,24 +1115,85 @@ async function search(q){
     ||`<div class="box"><p class="empty">Nothing found for “${E(q)}”.</p></div>`;
 }
 
+/* ── my stats (#/me): everything comes from this browser's localStorage ── */
+function mystats(){
+  const day0=new Date();day0.setHours(0,0,0,0);const t0=day0.getTime();const w=new Date(day0);w.setDate(w.getDate()-6);const w0=w.getTime();
+  const arr=k=>(ls(k)||[]).filter(e=>Array.isArray(e)&&e.length>=3);
+  const L=arr('study_learn_log'),Q=arr('study_quiz_log'),M=arr('study_match_log');
+  let seen=ls('study_decks_seen');if(!seen||typeof seen!=='object'||Array.isArray(seen))seen={};
+  const learned=from=>new Set(L.filter(e=>e[0]>=from&&e[4]===3).map(e=>e[1]+':'+e[2])).size;
+  const reviewed=from=>new Set(L.filter(e=>e[0]>=from).map(e=>e[1]+':'+e[2])).size;
+  const touched=from=>new Set([...L,...Q,...M].filter(e=>e[0]>=from).map(e=>e[1]));
+  const qa=Q.reduce((a,e)=>({c:a.c+e[2],n:a.n+e[3]}),{c:0,n:0});
+  const dk=t=>{const d=new Date(t);return d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate()};
+  const days=new Set([...L,...Q,...M].map(e=>dk(e[0])));
+  let streak=0;const d=new Date(day0);if(!days.has(dk(d.getTime())))d.setDate(d.getDate()-1);
+  while(days.has(dk(d.getTime()))){streak++;d.setDate(d.getDate()-1)}
+  const fmt=ms=>{const s=ms/1000;return s<60?s.toFixed(1)+'s':Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')};
+  const deckIds=Object.keys(seen).sort((a,b)=>seen[b].at-seen[a].at).slice(0,30);
+  const lastQ=id=>Q.filter(e=>e[1]===+id).slice(-1)[0];
+  app().innerHTML=`<div class="top"><div><h1>My stats</h1><p class="sub">From Learn, Match and Quiz on this device. Nothing here is shared.</p></div></div>
+    <div class="tiles">
+      <div class="tile forest"><b>${learned(t0)}</b><span>cards learned today</span></div>
+      <div class="tile"><b>${learned(w0)}</b><span>learned this week</span></div>
+      <div class="tile"><b>${reviewed(t0)}</b><span>cards reviewed today</span></div>
+      <div class="tile"><b>${touched(w0).size}</b><span>decks touched this week</span></div>
+      <div class="tile"><b>${qa.n?Math.round(100*qa.c/qa.n)+'%':'–'}</b><span>quiz accuracy${qa.n?` · ${qa.n} answer${qa.n===1?'':'s'}`:''}</span></div>
+      <div class="tile"><b>${streak}</b><span>day streak</span></div>
+    </div>
+    <div class="box" style="margin-top:var(--gap)"><h2>Decks</h2><div>${deckIds.map(id=>{const x=seen[id];const st=ls('study_learn_'+id);const n=st&&st.box?Math.min(x.n||0,Object.values(st.box).filter(b=>+b===3).length):0;const best=+ls('study_match_'+id)||0;const q=lastQ(id);
+      return `<div class="drow"><a href="${x.p&&!GATED?'#/p/':'#/d/'}${id}"><b>${E(x.t)}</b></a><span class="muted" style="font-size:13px">${x.n?`${n} of ${x.n} mastered`:'no cards'}${best?` · Match best ${fmt(best)}`:''}${q?` · last quiz ${q[2]} / ${q[3]}`:''}</span>${x.n?`<span class="prog" aria-hidden="true"><i style="--w:${Math.round(100*n/x.n)}%"></i></span>`:''}</div>`}).join('')||'<p class="empty">Open a deck and try Learn, Match or Quiz. Your progress shows up here.</p>'}</div>
+      ${deckIds.length?'<div class="acts"><button id="clearstats">Clear my stats on this device</button></div>':''}</div>`;
+  if($('clearstats'))$('clearstats').onclick=e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to clear';return}
+    try{Object.keys(localStorage).filter(k=>/^study_(learn|match|quiz|decks_seen)/.test(k)).forEach(k=>localStorage.removeItem(k))}catch(x){}mystats()};
+}
+
+/* ── public deck (#/p/:id): anyone, no account. Needs supabase/study4.sql ── */
+async function pubDeck(id,mode){
+  view('v-app');
+  $('snav').innerHTML=`<a href="#/">PVHS Study</a><a href="/forum/">Forum ↗</a>`;
+  const box=(h,p,btn)=>app().innerHTML=`<div class="center"><div class="gate"><span class="blob"></span><h1>${h}</h1><p>${p}</p>${btn||'<a class="btn" href="#/">Open Study</a>'}</div></div>`;
+  if(!window.SB)return box('Not connected',"This page isn't connected yet. Check back soon.",'');
+  app().innerHTML='<p class="empty">Loading…</p>';
+  const {data,error}=await SB.rpc('public_deck',{deck_id:id});
+  if(error)return rpcMissing(error)?box('Not yet',"Public decks aren't turned on yet."):box('Hmm',E(C.errText(error)));
+  if(!data||!Array.isArray(data.cards))return box('Private deck',"This deck isn't public. If you have Study access, sign in to see it.",`<a class="btn" href="#/d/${id}">Sign in to Study</a>`);
+  deckCards=data.cards;DBASE='#/p/'+id;DECK={id,title:data.title,public:true};
+  noteDeck(id,data.title,deckCards.length,true);
+  app().innerHTML=`<div class="top"><div><h1>${E(data.title)}</h1><p class="sub">${deckCards.length} cards · shared from PVHS Study</p></div>
+      <div class="row">${modeBtns(mode)}<button class="btn sm ghost" id="share" type="button">Share</button></div></div><div id="pane"></div>`;
+  $('share').onclick=()=>shareDeck(DECK);
+  if(mode==='study')return studyMode();
+  if(mode==='learn')return learnMode(id);
+  if(mode==='match')return matchMode(id);
+  if(mode==='quiz')return quizMode(id);
+  $('pane').innerHTML=`<div class="posts"><div class="box"><div>${deckCards.map(k=>`<div class="cardrow"><b>${E(k.front)}</b><span>${E(k.back)}</span></div>`).join('')||'<p class="empty">No cards yet.</p>'}</div></div>
+    <p class="muted" style="font-size:14px">Want your own decks, test dates and notes? <a href="#/" style="text-decoration:underline">PVHS Study</a> is for Palo Verde students with an invite code.</p></div>`;
+}
+
 /* ── router + boot ────────────────────────────────── */
+let GATED=false,LISTEN=false;  // GATED: the member checks passed (enter); LISTEN: hashchange wired
 function route(){
   const p=location.hash.replace(/^#\/?/,'').split('/');
   window.scrollTo(0,0);
   if(KEYH){removeEventListener('keydown',KEYH);KEYH=null}
   if(TICK){clearInterval(TICK);TICK=null}
-  const sec=p[0]==='teachers'||p[0]==='t'?'teachers':'classes';
-  $('snav').innerHTML=`<a href="#/"${sec==='classes'?' aria-current="page"':''}>Classes</a><a href="#/teachers"${sec==='teachers'?' aria-current="page"':''}>Rate teachers</a><a href="/forum/">Forum ↗</a>`;
+  const sec=p[0]==='teachers'||p[0]==='t'?'teachers':p[0]==='me'?'me':'classes';
+  $('snav').innerHTML=`<a href="#/"${sec==='classes'?' aria-current="page"':''}>Classes</a><a href="#/teachers"${sec==='teachers'?' aria-current="page"':''}><span class="lg">Rate teachers</span><span class="sm">Teachers</span></a><a href="#/me"${sec==='me'?' aria-current="page"':''}><span class="lg">My stats</span><span class="sm">Stats</span></a><a href="/forum/">Forum ↗</a>`;
+  if(p[0]==='p'&&+p[1])return pubDeck(+p[1],p[2]);
+  if(!GATED)return gate();
   if(p[0]==='c'&&+p[1])return klass(+p[1],p[2]);
   if(p[0]==='d'&&+p[1])return deck(+p[1],p[2]);
   if(p[0]==='t'&&+p[1])return teacher(+p[1]);
   if(p[0]==='teachers')return teachers();
+  if(p[0]==='me')return mystats();
   if(p[0]==='search')return search(decodeURIComponent(p.slice(1).join('/')||''));
   return home();
 }
+const listen=()=>{if(!LISTEN){addEventListener('hashchange',route);LISTEN=true}};
 async function enter(){
   if(!me.name){const ok=await C.askName('Pick the name people will see on your posts. Your email stays private.');if(!ok){view('v-app');app().innerHTML=`<div class="center"><div class="gate"><h1>One more step</h1><p>You need a display name to use Study.</p><button class="btn" id="pick">Pick a name</button></div></div>`;$('pick').addEventListener('click',enter);return}}
-  view('v-app');addEventListener('hashchange',route);route();
+  GATED=true;view('v-app');listen();route();
 }
 $('codef').addEventListener('submit',async e=>{
   e.preventDefault();
@@ -873,14 +1203,16 @@ $('codef').addEventListener('submit',async e=>{
   if(error||!data){$('codeerr').textContent=error&&/Too many/.test(error.message)?'Too many wrong codes. Try again in 10 minutes.':'That code is wrong, already used, or not a Study code.';$('codeerr').hidden=false;return}
   enter();
 });
-(async()=>{
+let GATING=null;
+function gate(){return GATING||(GATING=(async()=>{
   if(!window.SB){view('v-off');return}
-  await C.load();
+  if(!me.session)await C.load();
   if(!me.uid){view('v-signin');return}
   const {data:ok}=await SB.rpc('is_study');
   if(!ok){view('v-code');return}
   enter();
-})();
+})().finally(()=>{GATING=null}))}
+if(/^#\/p\/\d+/.test(location.hash)){listen();route()}else gate();
 </script>
 </body>
 </html>
