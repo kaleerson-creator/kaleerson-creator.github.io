@@ -95,7 +95,7 @@ function draw(){const st=getComputedStyle(box),tok=n=>st.getPropertyValue(n).tri
   if(state==='idle'){ctx.font='800 30px '+(tok('--display')||'sans-serif');ctx.fillText('Tap to start',LW/2,LH*.22);ctx.font='600 13px '+(tok('--body')||'sans-serif');ctx.fillStyle=tok('--ink2');ctx.fillText('Click, tap or press Space',LW/2,LH*.22+38)}
   else{ctx.font='800 40px '+(tok('--display')||'sans-serif');ctx.globalAlpha=.9;ctx.fillText(score,LW/2,18);ctx.globalAlpha=1}}
 // input
-document.addEventListener('keydown',e=>{if(e.target&&e.target.closest&&e.target.closest('input,textarea,select'))return;if(e.key!==' '&&e.key!=='ArrowUp'&&e.key.toLowerCase()!=='w')return;e.preventDefault();if(e.repeat)return;flap()});
+document.addEventListener('keydown',e=>{if(e.target&&e.target.closest&&e.target.closest('input,textarea,select'))return;if(e.key!==' '&&e.key!=='ArrowUp'&&e.key.toLowerCase()!=='w')return;if(e.key===' '&&e.target&&e.target.closest&&e.target.closest('.over button'))return;e.preventDefault();if(e.repeat)return;flap()});
 cv.addEventListener('pointerdown',e=>{e.preventDefault();flap()});
 $('restart').onclick=reset;
 document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf)}else if(state!=='dead'){last=0;cancelAnimationFrame(raf);raf=requestAnimationFrame(frame)}});

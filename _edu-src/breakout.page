@@ -64,7 +64,7 @@ function draw(){const st=getComputedStyle(box),tok=n=>st.getPropertyValue(n).tri
   if(stuck&&started&&!over&&!paused){ctx.fillStyle=tok('--ink2');ctx.font='600 13px '+(tok('--body')||'sans-serif');ctx.textAlign='center';ctx.fillText('Tap or press Space to launch',LW/2,PY-40)}}
 // input
 document.addEventListener('keydown',e=>{if(e.target&&e.target.closest&&e.target.closest('input,textarea,select'))return;const k=e.key.length===1?e.key.toLowerCase():e.key;
-  if(!{ArrowLeft:1,ArrowRight:1,a:1,d:1,' ':1,p:1}[k])return;e.preventDefault();
+  if(!{ArrowLeft:1,ArrowRight:1,a:1,d:1,' ':1,p:1}[k])return;if(e.key===' '&&e.target&&e.target.closest&&e.target.closest('.over button'))return;e.preventDefault();
   if(k==='p'){if(e.repeat)return;if(paused)go();else pause();return}
   if(!started&&!over)go();if(over||paused)return;
   if(k==='ArrowLeft'||k==='a')keys.l=true;else if(k==='ArrowRight'||k==='d')keys.r=true;else if(k===' '&&!e.repeat)launch()});

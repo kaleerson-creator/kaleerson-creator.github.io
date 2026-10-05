@@ -111,7 +111,7 @@ function draw(){const st=getComputedStyle(box);ctx.setTransform(dpr,0,0,dpr,0,0)
   ctx.fillStyle=ink2;ctx.fillText('LVL '+level,px,cs*18.6)}
 // input
 document.addEventListener('keydown',e=>{if(e.target&&e.target.closest&&e.target.closest('input,textarea,select'))return;const k=e.key.length===1?e.key.toLowerCase():e.key;
-  const used={ArrowLeft:1,ArrowRight:1,ArrowUp:1,ArrowDown:1,' ':1,a:1,d:1,w:1,s:1,x:1,z:1,c:1,p:1,Shift:1}[k];if(!used)return;e.preventDefault();
+  const used={ArrowLeft:1,ArrowRight:1,ArrowUp:1,ArrowDown:1,' ':1,a:1,d:1,w:1,s:1,x:1,z:1,c:1,p:1,Shift:1}[k];if(!used)return;if(e.key===' '&&e.target&&e.target.closest&&e.target.closest('.over button'))return;e.preventDefault();
   if(k==='p'){if(e.repeat)return;if(paused)go();else pause();return}
   if(!started&&!over){go()}if(over||paused)return;
   if(k==='ArrowLeft'||k==='a')move(-1);else if(k==='ArrowRight'||k==='d')move(1);
