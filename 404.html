@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Not found · Kale Erson</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Not found · Kale Erson">
+<meta property="og:description" content="That page moved or never existed.">
+<meta property="og:url" content="https://kaleerson.com/404.html">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="That page moved or never existed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261006">
+<style>
+.phead .blob{background:var(--peach)}
+.phead h1{font-size:clamp(44px,8vw,96px)}
+.code{font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.09em;color:var(--ink3);word-break:break-all}
+/* a blob you can poke */
+.pit{min-height:220px;justify-content:flex-end;overflow:hidden}
+.pit .floor{position:absolute;left:24px;right:24px;bottom:62px;height:2px;background:var(--line);z-index:-1}
+.blobby{position:absolute;left:50%;bottom:64px;width:88px;height:88px;margin-left:-44px;border:0;padding:0;cursor:pointer;background:var(--butter);border-radius:58% 42% 51% 49% / 46% 55% 45% 54%;animation:morph 6s ease-in-out infinite,idle 2.6s ease-in-out infinite;transform-origin:50% 100%;-webkit-tap-highlight-color:transparent}
+.blobby::before,.blobby::after{content:'';position:absolute;top:34px;width:9px;height:9px;border-radius:50%;background:var(--ink);transition:transform .2s}
+.blobby::before{left:28px}.blobby::after{right:28px}
+.blobby.jump{animation:morph 6s ease-in-out infinite,hop .7s cubic-bezier(.2,.7,.2,1)}
+.blobby.jump::before,.blobby.jump::after{transform:scaleY(.3)}
+.blobby:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+@keyframes idle{0%,100%{transform:scaleX(1) scaleY(1)}50%{transform:scaleX(1.05) scaleY(.95)}}
+@keyframes hop{0%{transform:scaleX(1.25) scaleY(.7)}25%{transform:translateY(-80px) scaleX(.85) scaleY(1.2)}50%{transform:translateY(-105px) scaleX(.95) scaleY(1.05)}80%{transform:translateY(0) scaleX(1.15) scaleY(.8)}100%{transform:translateY(0) scaleX(1) scaleY(1)}}
+html[data-theme=dark] .blobby{background:#E3D48A}
+html[data-theme=dark] .blobby::before,html[data-theme=dark] .blobby::after{background:#111310}
+@media (prefers-reduced-motion:reduce){.blobby{animation:none}.blobby.jump{animation:none;transform:translateY(-24px);transition:transform .2s}}
+</style>
+</head>
+<body data-page="">
+<main class="wrap">
+<section class="phead"><span class="blob"></span><h1>That page moved or never existed</h1><p>Not here, sorry. Here are the places people actually go.</p><p class="code" id="where"></p></section>
+<div class="bento">
+  <a class="b s3 moss wide-m" href="/"><span class="art" data-art="snapwit"></span><span class="lbl">Start</span><h2>Home</h2><div class="foot"><span class="muted">Everything from the top.</span><span class="arrow"></span></div></a>
+  <a class="b s3 sky wide-m" href="/edu/"><span class="art" data-art="games"></span><span class="lbl">Play</span><h2>Games</h2><div class="foot"><span class="muted">2048, Snake, Daily Word and more.</span><span class="arrow"></span></div></a>
+  <a class="b s3 butter wide-m" href="/tools/"><span class="art" data-art="ldtimer"></span><span class="lbl">Use</span><h2>Tools</h2><div class="foot"><span class="muted">Timers, calculators, debate stuff.</span><span class="arrow"></span></div></a>
+  <a class="b s3 lilac wide-m" href="/forum/"><span class="art" data-art="forum"></span><span class="lbl">Talk</span><h2>Forum</h2><div class="foot"><span class="muted">Ask questions and share ideas.</span><span class="arrow"></span></div></a>
+  <section class="b s6 pit" aria-label="A blob you can poke">
+    <span class="lbl">While you're here</span>
+    <span class="floor"></span>
+    <button class="blobby" id="blobby" type="button" aria-label="Make the blob jump"></button>
+    <div class="foot"><span class="muted" id="jumps">Tap the blob.</span></div>
+  </section>
+</div>
+</main>
+<script src="/assets/site.js?v=20261006"></script>
+<script>
+document.querySelectorAll('.arrow:empty').forEach(a=>a.outerHTML=SITE.arrow);
+document.getElementById('where').textContent=location.pathname.length>1?location.pathname:'';
+const b=document.getElementById('blobby'),j=document.getElementById('jumps');let n=0;
+b.addEventListener('click',()=>{n++;j.textContent=n===1?'1 jump.':n+' jumps.';b.classList.remove('jump');void b.offsetWidth;b.classList.add('jump')});
+b.addEventListener('animationend',e=>{if(e.animationName==='hop')b.classList.remove('jump')});
+</script>
+</body>
+</html>
