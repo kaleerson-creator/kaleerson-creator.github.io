@@ -182,6 +182,50 @@ html[data-theme=dark] .score.good{background:#2f4a2a;color:#cfe8b8!important}htm
 .opts{display:grid;gap:8px}
 .opts button{font:inherit;text-align:left;font-size:16px;padding:14px 16px;border-radius:16px;border:0;background:var(--card);cursor:pointer;white-space:pre-wrap;overflow-wrap:anywhere}
 .opts button.right{background:#d7ecc4}.opts button.wrong{background:#f3dcd6}
+html[data-theme=dark] .opts button.right{background:#2f4a2a;color:#cfe8b8}html[data-theme=dark] .opts button.wrong{background:#4a2a20;color:#f6cdbb}
+.qtog{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--ink2);cursor:pointer}.qtog input{width:auto;margin:0}
+.ans{display:grid;gap:8px}.ans form{display:flex;gap:8px}.ans input{flex:1}
+.res{padding:14px 16px;border-radius:16px;font-size:16px;white-space:pre-wrap;overflow-wrap:anywhere}
+.res.right{background:#d7ecc4}.res.wrong{background:#f3dcd6}
+html[data-theme=dark] .res.right{background:#2f4a2a;color:#cfe8b8}html[data-theme=dark] .res.wrong{background:#4a2a20;color:#f6cdbb}
+/* learn */
+.prog{height:8px;border-radius:99px;background:var(--card);overflow:hidden}.prog i{display:block;height:100%;width:var(--w,0%);background:var(--forest);border-radius:99px;transition:width .3s var(--ease)}
+.lstat{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--ink2)}.lstat b{color:var(--ink)}
+.lbtn{display:grid;grid-template-columns:1fr 1fr;gap:10px}.lbtn .btn{justify-content:center;padding:16px 18px;font-size:16px}
+.lbtn .btn.no{background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.lbtn .btn.yes{background:var(--forest);color:var(--forest-ink)}
+.done{text-align:center;display:grid;gap:12px;max-width:640px;margin:0 auto}
+.done .big{font-size:64px}
+.counts{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}.counts div{display:grid;text-align:center}.counts b{font-family:var(--display);font-size:26px;letter-spacing:-.03em}.counts span{font-size:12px;color:var(--ink2)}
+/* match */
+.mhead{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:14px;color:var(--ink2)}.mhead b{font-family:var(--display);font-size:24px;letter-spacing:-.03em;color:var(--ink);font-variant-numeric:tabular-nums}
+.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media (max-width:640px){.mgrid{grid-template-columns:repeat(3,1fr)}}
+.mgrid button{font:inherit;font-size:14px;line-height:1.3;min-height:92px;padding:10px;border-radius:16px;border:0;background:var(--card);color:var(--ink);cursor:pointer;white-space:pre-wrap;overflow-wrap:anywhere;transition:opacity .4s,transform .15s,background .15s}
+.mgrid button.def{background:var(--lilac)}
+.mgrid button[aria-pressed=true]{background:var(--ink);color:var(--on-ink);transform:scale(1.03)}
+.mgrid button.gone{opacity:0;visibility:hidden;pointer-events:none}
+.mgrid button.bad{background:#f3dcd6;animation:shake .4s}
+html[data-theme=dark] .mgrid button.bad{background:#4a2a20;color:#f6cdbb}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+@media (prefers-reduced-motion:reduce){.mgrid button{transition:none}.mgrid button.bad{animation:none}.prog i{transition:none}}
+/* checklist */
+.md li.ck{list-style:none;margin-left:-18px;display:flex;gap:9px;align-items:flex-start}
+.md li.ck input{width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:var(--forest)}
+.md li.ck.on{color:var(--ink2);text-decoration:line-through}
+.pill{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--moss);color:var(--ink)}
+.pill.all{background:var(--forest);color:var(--forest-ink)}
+/* coming up */
+.evg{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.7;padding:12px 0 0}
+.ev{grid-template-columns:auto 1fr auto}
+.ev>a{display:contents;color:inherit}
+.ev .cal{font:inherit;font-size:12px;background:#ffffff1f;color:inherit;border:0;border-radius:999px;padding:7px 10px;cursor:pointer;white-space:nowrap}
+.box:not(.forest) .ev .cal{background:var(--paper)}
+.todayc{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:999px;background:#d13b2c;color:#fff;vertical-align:middle;margin-left:4px}
+.cls .n{background:var(--forest);color:var(--forest-ink);font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px}
+.inside{display:grid;gap:6px;font-size:14px;color:var(--ink2);position:relative;padding-left:18px;margin:0}
+.inside li::marker{color:var(--ink)}
+.gate .how{font-size:14px;position:relative}.gate .how a{text-decoration:underline;text-underline-offset:3px;color:var(--ink)}
 .qhead{display:flex;justify-content:space-between;color:var(--ink2);font-size:14px}
 .cardrow{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px;align-items:start;overflow-wrap:anywhere}
 .cardrow:first-child{border-top:0}
@@ -191,12 +235,14 @@ html[data-theme=dark] .score.good{background:#2f4a2a;color:#cfe8b8!important}htm
 <body data-page="tools">
 <main class="wrap pg">
   <div id="v-wait" class="center"><p class="muted">Loading…</p></div>
-  <section id="v-off" class="center" hidden><div class="gate"><h1>PVHS Study</h1><p>This page isn't connected yet. Check back soon.</p></div></section>
+  <section id="v-off" class="center" hidden><div class="gate"><h1>PVHS Study</h1><p>This page isn't connected yet. Check back soon.</p><ul class="inside"><li>Test and due dates for your classes, with reminders</li><li>Notes, photos and study guides from classmates</li><li>Flashcards with Learn, Match and Quiz modes</li><li>Honest teacher ratings</li></ul><p class="how">Questions? Post in the <a href="/forum/">forum</a>.</p></div></section>
 
   <section id="v-signin" class="center" hidden>
     <div class="gate"><span class="blob"></span>
       <h1>PVHS Study</h1>
       <p>Notes, test dates and study tips for Palo Verde classes. You need an account and an invite code from Kale.</p>
+      <p class="how"><b>What's inside</b></p><ul class="inside"><li>Test and due dates for your classes, with reminders</li><li>Notes, photos and study guides from classmates</li><li>Flashcards with Learn, Match and Quiz modes</li><li>Honest teacher ratings</li></ul>
+      <p class="how"><b>How do I get a code?</b> Ask Kale at school or post in the <a href="/forum/">forum</a>.</p>
       <a class="btn" href="/join/?next=/study/">Sign up or sign in</a>
     </div>
   </section>
@@ -210,6 +256,8 @@ html[data-theme=dark] .score.good{background:#2f4a2a;color:#cfe8b8!important}htm
         <button class="btn" id="codego">Unlock Study</button>
         <div id="codeerr" class="msg" hidden></div>
       </form>
+      <p class="how"><b>How do I get a code?</b> Ask Kale at school or post in the <a href="/forum/">forum</a>.</p>
+      <p class="how"><b>What's inside</b></p><ul class="inside"><li>Test and due dates for your classes, with reminders</li><li>Notes, photos and study guides from classmates</li><li>Flashcards with Learn, Match and Quiz modes</li><li>Honest teacher ratings</li></ul>
     </div>
   </section>
 
@@ -235,6 +283,24 @@ const clsLabel=c=>E(c.name)+(c.period?` <small>P${E(c.period)}</small>`:'');
 const author=r=>Community.nameHTML(r.author);
 const canDel=r=>r.created_by===me.uid||me.admin;
 const RULES=`<div class="rules"><span>⚑</span><span><b>No test or assignment answers, before or after.</b> Share notes, dates and what to study. Posts with answers get removed, and so does access.</span></div>`;
+const ls=(k,v)=>{try{if(v===undefined){const x=localStorage.getItem(k);return x?JSON.parse(x):null}localStorage.setItem(k,JSON.stringify(v));return v}catch(e){return null}};
+const daysTo=s=>Math.round((new Date(s+'T12:00:00')-new Date(today()+'T12:00:00'))/864e5);
+const EVS={};  // event posts seen this session (id -> row), for "Add to calendar"
+function calLinks(ev){
+  const c=K.find(k=>k.id===ev.class_id);
+  const title=`${TYPES[ev.event_type]||'Due'}: ${ev.title}`+(c?` (${c.name} · ${teacherOf(c).name})`:'');
+  const d0=ev.event_date.replace(/-/g,''),n=new Date(ev.event_date+'T12:00:00');n.setDate(n.getDate()+1);
+  const d1=n.getFullYear()+String(n.getMonth()+1).padStart(2,'0')+String(n.getDate()).padStart(2,'0');
+  const url='https://kaleerson.com/study/#/c/'+ev.class_id+'/events';
+  const desc=(ev.body?ev.body.trim()+'\n\n':'')+url;
+  const x=t=>String(t).replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\r?\n/g,'\\n');
+  const stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+/,'');
+  const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//kaleerson.com//PVHS Study//EN','BEGIN:VEVENT','UID:study-'+ev.id+'@kaleerson.com','DTSTAMP:'+stamp,'DTSTART;VALUE=DATE:'+d0,'DTEND;VALUE=DATE:'+d1,'SUMMARY:'+x(title),'DESCRIPTION:'+x(desc),'URL:'+url,'END:VEVENT','END:VCALENDAR'].join('\r\n');
+  const file=(safeName(ev.title).replace(/\.+$/,'')||'event')+'.ics';
+  const g='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)+'&dates='+d0+'/'+d1+'&details='+encodeURIComponent(desc);
+  return {ics:'data:text/calendar;charset=utf-8,'+encodeURIComponent(ics),file,g,title};
+}
+const calBtn=(id,cls)=>`<button class="${cls||''}" data-cal="${id}" type="button">Add to calendar</button>`;
 const safeName=n=>n.normalize('NFKD').replace(/[^\w.\- ]+/g,'').replace(/\s+/g,'-').replace(/-+/g,'-').slice(-80)||'file';
 
 /* ── data ─────────────────────────────────────────── */
@@ -250,9 +316,13 @@ const teacherOf=c=>T.find(t=>t.id===c.teacher_id)||{name:'?'};
 /* ── home ─────────────────────────────────────────── */
 async function home(){
   const [,,,mem]=await Promise.all([loadDir(),loadSum(),loadFollows(),SB.from('members').select('study_reminders').eq('id',me.uid).maybeSingle()]);
-  const {data:evRows}=await SB.from('study_posts').select('id,class_id,title,event_type,event_date').eq('kind','event').gte('event_date',today()).order('event_date').limit(60);
+  const evSel=f=>{let b=SB.from('study_posts').select('id,class_id,title,event_type,event_date,body').eq('kind','event').gte('event_date',today());if(f)b=f(b);return b.order('event_date').limit(60)};
+  const [{data:evRows},mineRes]=await Promise.all([evSel(),FOL.size?evSel(b=>b.in('class_id',[...FOL])):Promise.resolve({data:null})]);
   const evAll=evRows||[];
+  const evMine=mineRes.data||evAll.filter(e=>FOL.has(e.class_id));
+  [...evAll,...evMine].forEach(e=>EVS[e.id]=e);
   const myCls=K.filter(c=>FOL.has(c.id));
+  const weekN=id=>evMine.filter(e=>e.class_id===id&&daysTo(e.event_date)<=6).length;
   let onlyMine=myCls.length>0;
   app().innerHTML=`
     <div class="top"><div><h1>PVHS Study</h1><p class="sub">Palo Verde HS. Find your class or add it.</p></div>
@@ -261,7 +331,7 @@ async function home(){
     <form class="box sall" id="sall"><div class="search"><input id="sq" maxlength="80" placeholder="Search notes and tests" aria-label="Search posts"><button class="btn sm">Search</button></div></form>
     <div class="lay">
       <div class="box">
-        ${myCls.length?`<div class="mine"><b>My classes</b><div class="classes">${myCls.map(c=>`<a class="cls" href="#/c/${c.id}">${E(c.name)} <small>${E(teacherOf(c).name)}${c.period?' · P'+E(c.period):''}</small></a>`).join('')}</div></div>`:''}
+        ${myCls.length?`<div class="mine"><b>My classes</b><div class="classes">${myCls.map(c=>{const n=weekN(c.id);return `<a class="cls" href="#/c/${c.id}">${E(c.name)} <small>${E(teacherOf(c).name)}${c.period?' · P'+E(c.period):''}</small>${n?`<span class="n">${n} this week</span>`:''}</a>`}).join('')}</div></div>`:''}
         <div class="search"><input id="q" placeholder="Search class or teacher" aria-label="Search"><button class="btn sm" id="addtog">+ Add a class</button></div>
         <div id="addcls" class="adder" hidden>
           <div class="g3">
@@ -279,9 +349,10 @@ async function home(){
         <div id="evs"></div>
         ${myCls.length?`<label class="remind"><input type="checkbox" id="remind" ${mem.data&&mem.data.study_reminders?'checked':''}> Email me the evening before tests and due dates in my classes</label><div id="remmsg"></div>`:'<p class="m" style="font-size:13px;opacity:.75">Tip: press <b>☆ Follow</b> on your classes to see just their dates here and get reminder emails.</p>'}</div>
     </div>`;
-  const drawEv=()=>{const evs=(onlyMine?evAll.filter(e=>FOL.has(e.class_id)):evAll).slice(0,12);
-    $('evs').innerHTML=evs.map(ev=>{const c=K.find(k=>k.id===ev.class_id);const d=dparts(ev.event_date);
-        return `<a class="ev" href="#/c/${ev.class_id}"><span class="day"><small>${d.mon}</small><b>${d.day}</b></span><span><span class="t">${E(ev.title)}</span><br><span class="m">${TYPES[ev.event_type]||'Due'} · ${c?E(c.name)+' · '+E(teacherOf(c).name):''} · ${until(ev.event_date)}</span></span></a>`}).join('')||`<p class="empty" style="color:#B9C9AE">${onlyMine?'Nothing coming up in your classes.':'Nothing on the calendar yet. Add tests and due dates on a class page.'}</p>`};
+  const grp=s=>{const n=daysTo(s);return n<=0?'Today':n===1?'Tomorrow':n<=6?dparts(s).dow==='Sat'?'Saturday':dparts(s).dow==='Sun'?'Sunday':new Date(s+'T12:00:00').toLocaleDateString('en-US',{weekday:'long'}):'Later'};
+  const drawEv=()=>{const evs=(onlyMine?evMine:evAll).slice(0,12);let last='';
+    $('evs').innerHTML=evs.map(ev=>{const c=K.find(k=>k.id===ev.class_id);const d=dparts(ev.event_date);const g=grp(ev.event_date);const h=g!==last?`<div class="evg">${g}</div>`:'';last=g;
+        return `${h}<div class="ev"><a href="#/c/${ev.class_id}/events"><span class="day"><small>${d.mon}</small><b>${d.day}</b></span><span><span class="t">${E(ev.title)}</span>${daysTo(ev.event_date)<=0?'<span class="todayc">Today</span>':''}<br><span class="m">${TYPES[ev.event_type]||'Due'} · ${c?E(c.name)+' · '+E(teacherOf(c).name):''} · ${until(ev.event_date)}</span></span></a>${calBtn(ev.id,'cal')}</div>`}).join('')||`<p class="empty" style="color:#B9C9AE">${onlyMine?'Nothing coming up in your classes.':'Nothing on the calendar yet. Add tests and due dates on a class page.'}</p>`};
   drawEv();
   if($('evseg'))$('evseg').onclick=e=>{const b=e.target.closest('[data-m]');if(!b)return;onlyMine=b.dataset.m==='1';$('evseg').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));drawEv()};
   if($('remind'))$('remind').onchange=async e=>{const {error}=await SB.from('members').update({study_reminders:e.target.checked}).eq('id',me.uid);
@@ -314,7 +385,11 @@ async function home(){
     if(dup){location.hash='#/c/'+dup.id;return}
     const r=await SB.from('study_classes').insert({teacher_id:t.id,name:cn,period:p||null}).select('id').single();
     $('addgo').disabled=false;
-    if(r.error)return say(C.errText(r.error));
+    if(r.error){
+      if(r.error.code==='23505'||/duplicate key/i.test(r.error.message||'')){await loadDir();
+        const d2=K.find(c=>c.teacher_id===t.id&&c.name.trim().toLowerCase()===cn.toLowerCase()&&(c.period||'').toLowerCase()===p.toLowerCase());
+        if(d2){location.hash='#/c/'+d2.id;return}return say('Someone just added that class. Search for it above.')}
+      return say(C.errText(r.error))}
     location.hash='#/c/'+r.data.id;
   });
 }
@@ -362,8 +437,13 @@ const ADDLBL={event:'+ Add a test or due date',note:'+ Add notes',tips:'+ Add wh
 async function posts(c,kind){
   const pane=$('pane');
   pane.innerHTML=`<div class="posts"><div class="box"><button class="btn sm" id="tog" style="justify-self:start">${ADDLBL[kind]}</button><div id="form" class="adder" hidden>${FORMS[kind]}<div class="row"><button class="btn sm" id="post">Post</button><button class="btn sm ghost" id="cancel">Cancel</button></div><div id="pmsg"></div></div></div><div id="list" class="posts"><p class="empty">Loading…</p></div></div>`;
-  $('tog').addEventListener('click',()=>{$('form').hidden=false;$('tog').hidden=true;pane.querySelector('[data-k=title]').focus()});
-  $('cancel').addEventListener('click',()=>{$('form').hidden=true;$('tog').hidden=false});
+  let editing=null;
+  const openForm=()=>{$('form').hidden=false;$('tog').hidden=true;pane.querySelector('[data-k=title]').focus()};
+  const closeForm=()=>{$('form').hidden=true;$('tog').hidden=false;editing=null;$('post').textContent='Post';$('pmsg').innerHTML='';pane.querySelectorAll('#form [data-k]').forEach(i=>i.value='')};
+  $('tog').addEventListener('click',openForm);
+  $('cancel').addEventListener('click',closeForm);
+  $('list').addEventListener('click',e=>{const b=e.target.closest('[data-edit]');if(!b)return;const p=rows.find(x=>x.id===+b.dataset.edit);if(!p)return;
+    editing=p.id;pane.querySelectorAll('#form [data-k]').forEach(i=>i.value=p[i.dataset.k]||'');$('post').textContent='Save';openForm();$('form').scrollIntoView({behavior:'smooth',block:'center'})});
   const fi=pane.querySelector('[data-files]');
   if(fi)fi.addEventListener('change',()=>{pane.querySelector('[data-picked]').textContent=[...fi.files].map(f=>f.name).join(', ')});
   $('post').addEventListener('click',async()=>{
@@ -374,11 +454,16 @@ async function posts(c,kind){
     if(kind==='event'&&!v.event_date)return err('Pick a date.');
     const files=fi?[...fi.files]:[];
     if(files.some(f=>f.size>10485760))return err('Each file has to be under 10 MB.');
-    $('post').disabled=true;$('post').textContent='Posting…';
-    const r=await SB.from('study_posts').insert(v).select('id').single();
-    if(r.error){$('post').disabled=false;$('post').textContent='Post';return err(C.errText(r.error))}
+    const wasEdit=editing;
+    $('post').disabled=true;$('post').textContent=wasEdit?'Saving…':'Posting…';
+    let r;
+    if(wasEdit){const u={title:v.title,body:v.body};if(kind==='event'){u.event_type=v.event_type;u.event_date=v.event_date}
+      r=await SB.from('study_posts').update(u).eq('id',wasEdit).select('id').single()}
+    else r=await SB.from('study_posts').insert(v).select('id').single();
+    if(r.error){$('post').disabled=false;$('post').textContent=wasEdit?'Save':'Post';return err(C.errText(r.error))}
+    const pid=r.data?r.data.id:wasEdit;
     for(const f of files){
-      const up=await SB.storage.from('study').upload(`${r.data.id}/${Date.now().toString(36)}-${safeName(f.name)}`,f,{contentType:f.type||undefined});
+      const up=await SB.storage.from('study').upload(`${pid}/${Date.now().toString(36)}-${safeName(f.name)}`,f,{contentType:f.type||undefined});
       if(up.error){err(f.name+': '+C.errText(up.error));break}
     }
     posts(c,kind);
@@ -388,15 +473,29 @@ async function posts(c,kind){
   const {data,error}=await q.limit(200);
   if(error){$('list').innerHTML=`<div class="msg">${E(C.errText(error))}</div>`;return}
   let rows=data;
-  if(kind==='event'){const t=today();rows=[...data.filter(p=>p.event_date>=t),...data.filter(p=>p.event_date<t).reverse()]}
+  if(kind==='event'){const t=today();rows=[...data.filter(p=>p.event_date>=t),...data.filter(p=>p.event_date<t).reverse()];rows.forEach(p=>EVS[p.id]=p)}
   $('list').innerHTML=rows.map(p=>{
     const past=kind==='event'&&p.event_date<today();
-    const head=kind==='event'?`<div class="meta"><span class="tchip ${E(p.event_type||'')}">${TYPES[p.event_type]||'Due'}</span><b>${dparts(p.event_date).full}</b> · ${until(p.event_date)}</div>`:'';
+    const head=kind==='event'?`<div class="meta"><span class="tchip ${E(p.event_type||'')}">${TYPES[p.event_type]||'Due'}</span><b>${dparts(p.event_date).full}</b> · ${until(p.event_date)}${daysTo(p.event_date)===0?'<span class="todayc">Today</span>':''}</div>`:'';
     return `<article class="post ${past?'past':''}" data-id="${p.id}">${head}<h3>${E(p.title)}</h3>${p.body?`<div class="md">${VaultMD.render(p.body)}</div>`:''}<div class="att" data-att="${p.id}"></div>
-      <div class="meta"><span>${author(p)} · ${C.ago(p.created_at)}</span></div>
-      <div class="acts"><button data-rep="study_post:${p.id}">Report</button>${canDel(p)?`<button data-del="${p.id}">Delete</button>`:''}</div></article>`;
+      <div class="meta"><span>${author(p)} · ${C.ago(p.created_at)}${p.updated_at&&p.updated_at>p.created_at?' · edited':''}</span></div>
+      <div class="acts">${kind==='event'&&!past?calBtn(p.id):''}<button data-rep="study_post:${p.id}">Report</button>${canDel(p)?`<button data-edit="${p.id}">Edit</button><button data-del="${p.id}">Delete</button>`:''}</div></article>`;
   }).join('')||`<p class="empty">${{event:'No dates yet. Add the next test or due date.',note:'No notes yet.',tips:'Nothing yet. What should people review?'}[kind]}</p>`;
   rows.forEach(p=>attachments(p.id));
+  if(kind==='tips')checklists($('list'));
+}
+
+/* "What to study" bullets become a checklist; ticks live in localStorage study_check_<postId>. */
+function checklists(root){
+  root.querySelectorAll('.post').forEach(p=>{
+    const lis=[...p.querySelectorAll('.md li')];if(!lis.length)return;
+    const key='study_check_'+p.dataset.id;let st=ls(key)||[];if(!Array.isArray(st))st=[];
+    const pill=document.createElement('span');pill.className='pill';
+    const upd=()=>{const n=st.filter(Boolean).length;pill.textContent=`${n} of ${lis.length} done`;pill.classList.toggle('all',n===lis.length)};
+    lis.forEach((li,i)=>{li.classList.add('ck');const c=document.createElement('input');c.type='checkbox';c.checked=!!st[i];c.setAttribute('aria-label','Done');li.classList.toggle('on',!!st[i]);
+      c.addEventListener('change',()=>{st[i]=c.checked;li.classList.toggle('on',c.checked);ls(key,st);upd()});li.prepend(c)});
+    const h=p.querySelector('h3');h.insertAdjacentElement('afterend',pill);upd();
+  });
 }
 
 async function attachments(pid){
@@ -436,9 +535,11 @@ async function deck(id,mode){
   app().innerHTML=`
     <a class="back" href="#/c/${d.class_id}/cards">← ${c?E(c.name):'Class'}</a>
     <div class="top"><div><h1>${E(d.title)}</h1><p class="sub">${deckCards.length} cards · made by ${author(d)}</p></div>
-      <div class="row"><a class="btn sm ${mode==='study'?'':'ghost'}" href="#/d/${id}/study">Study</a><a class="btn sm ${mode==='quiz'?'':'ghost'}" href="#/d/${id}/quiz">Quiz</a><a class="btn sm ${!mode?'':'ghost'}" href="#/d/${id}">Cards</a></div></div>
+      <div class="row">${[['study','Study'],['learn','Learn'],['match','Match'],['quiz','Quiz'],['','Cards']].map(([m,l])=>`<a class="btn sm ${mode===m||(!mode&&!m)?'':'ghost'}" href="#/d/${id}${m?'/'+m:''}">${l}</a>`).join('')}</div></div>
     <div id="pane"></div>`;
   if(mode==='study')return studyMode();
+  if(mode==='learn')return learnMode(id);
+  if(mode==='match')return matchMode(id);
   if(mode==='quiz')return quizMode();
   const pane=$('pane');
   pane.innerHTML=`<div class="posts">
@@ -482,17 +583,29 @@ function studyMode(){
     $('sh').addEventListener('click',()=>{order=shuffle(order);i=0;draw()});};
   draw();
 }
+const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^\p{L}\p{N}\s]/gu,' ').replace(/\s+/g,' ').trim();
 function quizMode(){
   const pane=$('pane');
+  const typed=!!ls('study_qtype');
   const backs=[...new Set(deckCards.map(k=>k.back))];
-  if(backs.length<4){pane.innerHTML='<p class="empty">A quiz needs at least 4 cards with different answers. Add a few more.</p>';return}
+  const tog=`<label class="qtog"><input type="checkbox" id="qtype" ${typed?'checked':''}> Type the answer</label>`;
+  if(!deckCards.length){pane.innerHTML='<p class="empty">Add some cards first.</p>';return}
+  if(!typed&&backs.length<4){pane.innerHTML=`<div class="posts" style="max-width:640px;margin:0 auto"><p class="empty">A multiple-choice quiz needs at least 4 cards with different answers. Add a few more, or type the answers instead.</p>${tog}</div>`;$('qtype').onchange=e=>{ls('study_qtype',e.target.checked);quizMode()};return}
   const qs=shuffle(deckCards).slice(0,20);let i=0,score=0;
   const draw=()=>{
-    if(i>=qs.length){pane.innerHTML=`<div class="box" style="max-width:640px;margin:0 auto;text-align:center"><h2>${score} / ${qs.length}</h2><p class="muted">${score===qs.length?'Perfect.':score/qs.length>=.7?'Nice work.':'Keep going. Study mode helps.'}</p><div class="ctl"><button class="btn sm" id="again">Try again</button><a class="btn sm ghost" href="#/d/${location.hash.split('/')[2]}/study">Study mode</a></div></div>`;$('again').addEventListener('click',quizMode);return}
-    const k=qs[i];const opts=shuffle([k.back,...shuffle(backs.filter(b=>b!==k.back)).slice(0,3)]);
-    pane.innerHTML=`<div class="posts" style="max-width:640px;margin:0 auto"><div class="qhead"><span>Question ${i+1} of ${qs.length}</span><span>Score ${score}</span></div>
+    if(i>=qs.length){pane.innerHTML=`<div class="box" style="max-width:640px;margin:0 auto;text-align:center"><h2>${score} / ${qs.length}</h2><p class="muted">${score===qs.length?'Perfect.':score/qs.length>=.7?'Nice work.':'Keep going. Learn mode helps.'}</p><div class="ctl"><button class="btn sm" id="again">Try again</button><a class="btn sm ghost" href="#/d/${location.hash.split('/')[2]}/learn">Learn mode</a></div></div>`;if(window.SITE&&SITE.confetti&&score===qs.length)try{SITE.confetti()}catch(e){}$('again').addEventListener('click',quizMode);return}
+    const k=qs[i];const opts=typed?[]:shuffle([k.back,...shuffle(backs.filter(b=>b!==k.back)).slice(0,3)]);
+    pane.innerHTML=`<div class="posts" style="max-width:640px;margin:0 auto"><div class="qhead"><span>Question ${i+1} of ${qs.length}</span>${tog}<span>Score ${score}</span></div>
       <div class="flip" style="cursor:default;min-height:0"><div class="in" style="min-height:0"><div class="face front" style="position:static;min-height:180px">${E(k.front)}</div></div></div>
-      <div class="opts">${opts.map((o,n)=>`<button data-o="${n}">${E(o)}</button>`).join('')}</div></div>`;
+      ${typed?`<div class="ans"><form id="af"><input id="ai" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the answer" aria-label="Your answer"><button class="btn sm" type="submit">Check</button></form><div id="ares"></div></div>`
+      :`<div class="opts">${opts.map((o,n)=>`<button data-o="${n}">${E(o)}</button>`).join('')}</div>`}</div>`;
+    $('qtype').onchange=e=>{ls('study_qtype',e.target.checked);quizMode()};
+    if(typed){const inp=$('ai');inp.focus();let done=false;
+      $('af').onsubmit=e=>{e.preventDefault();if(done){i++;draw();return}const a=norm(inp.value);if(!a)return;done=true;
+        const ok=a===norm(k.back);if(ok)score++;inp.disabled=true;
+        $('ares').innerHTML=`<div class="res ${ok?'right':'wrong'}">${ok?'Correct.':'Not quite. The answer is:\n'+E(k.back)}</div><div class="ctl"><button class="btn sm" id="nx" type="button">Next</button></div>`;
+        $('nx').onclick=()=>{i++;draw()};$('nx').focus()};
+      return}
     pane.querySelectorAll('[data-o]').forEach(b=>b.addEventListener('click',()=>{
       const pick=opts[+b.dataset.o];const ok=pick===k.back;if(ok)score++;
       pane.querySelectorAll('[data-o]').forEach(x=>{x.disabled=true;if(opts[+x.dataset.o]===k.back)x.classList.add('right')});
@@ -503,10 +616,103 @@ function quizMode(){
   draw();
 }
 
+/* ── learn (Leitner boxes 1–3, saved per deck in localStorage) ── */
+let KEYH=null,TICK=null;  // page-level keyboard handler + timer, cleared on every route change
+function learnMode(id){
+  const pane=$('pane');
+  if(!deckCards.length){pane.innerHTML='<p class="empty">Add some cards first.</p>';return}
+  const key='study_learn_'+id;
+  let st=ls(key);if(!st||typeof st!=='object')st={};st.box=st.box||{};st.due=st.due||{};
+  const ids=new Set(deckCards.map(k=>String(k.id)));
+  Object.keys(st.box).forEach(k=>{if(!ids.has(k))delete st.box[k]});
+  const box=k=>Math.min(3,Math.max(1,+st.box[k.id]||1));
+  const save=()=>ls(key,st);
+  const total=deckCards.length;
+  let queue=deckCards.filter(k=>box(k)<3).sort((a,b)=>(st.due[a.id]||0)-(st.due[b.id]||0)||box(a)-box(b)||a.id-b.id);
+  let got=0,miss=0,seen=0,pos=0,shown=false;
+  const mastered=()=>deckCards.filter(k=>box(k)===3).length;
+  const counts=()=>{const m=mastered();const l=deckCards.filter(k=>box(k)===2).length;return {m,l,n:total-m-l}};
+  const finish=()=>{const c=counts();
+    pane.innerHTML=`<div class="box done"><div class="big">${c.m}<small> / ${total}</small></div><h2>${c.m===total?'All mastered.':'Round done.'}</h2>
+      <div class="counts"><div><b>${got}</b><span>got it</span></div><div><b>${miss}</b><span>not yet</span></div><div><b>${seen}</b><span>cards seen</span></div></div>
+      <p class="muted">${c.m===total?'Every card is in box 3. Start over to drill them again.':`${c.l} in box 2, ${c.n} still new. Keep going to master them.`}</p>
+      <div class="ctl">${c.m<total?'<button class="btn sm" id="more">Keep going</button>':''}<button class="btn sm ghost" id="reset">Start over</button><a class="btn sm ghost" href="#/d/${id}/match">Match</a><a class="btn sm ghost" href="#/d/${id}/quiz">Quiz</a></div></div>`;
+    if(c.m===total&&window.SITE&&SITE.confetti)try{SITE.confetti()}catch(e){}
+    if($('more'))$('more').onclick=()=>learnMode(id);
+    $('reset').onclick=()=>{st={box:{},due:{}};save();learnMode(id)};
+  };
+  const answer=ok=>{const k=queue[pos];if(!k)return;seen++;
+    let b=box(k);b=ok?Math.min(3,b+1):1;st.box[k.id]=b;ok?got++:miss++;
+    queue.splice(pos,1);
+    if(b<3){const at=Math.min(queue.length,pos+(ok?6:3));queue.splice(at,0,k);st.due[k.id]=at}
+    else delete st.due[k.id];
+    save();if(pos>=queue.length)pos=0;draw()};
+  const draw=()=>{
+    if(!queue.length)return finish();
+    if(pos>=queue.length)pos=0;
+    const k=queue[pos];shown=false;const c=counts();
+    pane.innerHTML=`<div class="posts" style="max-width:640px;margin:0 auto">
+      <div class="prog" aria-label="Progress"><i style="--w:${Math.round(100*c.m/total)}%"></i></div>
+      <div class="lstat"><span><b>${c.m}</b> mastered</span><span><b>${c.l}</b> learning</span><span><b>${c.n}</b> new</span><span style="margin-left:auto"><b>${queue.length}</b> left this round</span></div>
+      <div class="flip" id="fl" role="button" tabindex="0" aria-label="Show answer"><div class="in"><div class="face front">${E(k.front)}</div><div class="face backf">${E(k.back)}</div></div></div>
+      <p class="muted" style="text-align:center;font-size:13px">Box ${box(k)} of 3 · tap the card to see the back, then be honest.</p>
+      <div class="lbtn"><button class="btn no" id="no">Not yet <small style="opacity:.6">1</small></button><button class="btn yes" id="yes">Got it <small style="opacity:.6">2</small></button></div></div>`;
+    const fl=$('fl');const reveal=()=>{fl.classList.toggle('on');shown=fl.classList.contains('on')};
+    fl.onclick=reveal;fl.onkeydown=e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();reveal()}};
+    $('no').onclick=()=>shown?answer(false):reveal();
+    $('yes').onclick=()=>shown?answer(true):reveal();
+  };
+  KEYH=e=>{if(e.target.matches('input,textarea,select')||e.metaKey||e.ctrlKey||e.altKey)return;
+    if(e.key===' '){e.preventDefault();if($('fl'))$('fl').click()}
+    else if(e.key==='1'){if($('no'))$('no').click()}
+    else if(e.key==='2'){if($('yes'))$('yes').click()}};
+  addEventListener('keydown',KEYH);
+  draw();
+}
+
+/* ── match: pair terms with definitions against the clock ── */
+function matchMode(id){
+  const pane=$('pane');
+  const uniq=[];const seenF=new Set(),seenB=new Set();
+  deckCards.forEach(k=>{const f=norm(k.front),b=norm(k.back);if(!f||!b||seenF.has(f)||seenB.has(b))return;seenF.add(f);seenB.add(b);uniq.push(k)});
+  if(uniq.length<3){pane.innerHTML='<p class="empty">Match needs at least 3 cards with different terms and definitions. Add a few more.</p>';return}
+  const key='study_match_'+id;
+  const fmt=ms=>{const s=ms/1000;return s<60?s.toFixed(1)+'s':Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')};
+  const pick=shuffle(uniq).slice(0,6);
+  const tiles=shuffle([...pick.map(k=>({c:k.id,s:'term',t:k.front})),...pick.map(k=>({c:k.id,s:'def',t:k.back}))]);
+  let left=pick.length,t0=0,sel=null,lock=false,best=+ls(key)||0;
+  pane.innerHTML=`<div class="posts">
+    <div class="mhead"><span>Tap a term, then its definition.</span><span><b id="mt">0.0s</b>${best?` · best ${fmt(best)}`:''}</span></div>
+    <div class="mgrid" id="mg">${tiles.map((x,i)=>`<button type="button" class="${x.s}" data-i="${i}" aria-pressed="false">${E(x.t)}</button>`).join('')}</div></div>`;
+  const tick=()=>{$('mt').textContent=fmt(Date.now()-t0)};
+  const finish=()=>{clearInterval(TICK);TICK=null;const ms=Date.now()-t0;const nb=!best||ms<best;if(nb){best=ms;ls(key,ms)}
+    pane.innerHTML=`<div class="box done"><div class="big">${fmt(ms)}</div><h2>${nb?'New best time.':'Cleared.'}</h2>
+      <div class="counts"><div><b>${pick.length}</b><span>pairs</span></div><div><b>${fmt(best)}</b><span>best</span></div></div>
+      <div class="ctl"><button class="btn sm" id="again">Play again</button><a class="btn sm ghost" href="#/d/${id}/learn">Learn</a><a class="btn sm ghost" href="#/d/${id}/quiz">Quiz</a></div></div>`;
+    if(nb&&window.SITE&&SITE.confetti)try{SITE.confetti()}catch(e){}
+    $('again').onclick=()=>matchMode(id)};
+  $('mg').addEventListener('click',e=>{
+    const b=e.target.closest('button[data-i]');if(!b||lock||b.classList.contains('gone'))return;
+    if(!t0){t0=Date.now();TICK=setInterval(tick,100)}
+    const x=tiles[+b.dataset.i];
+    if(sel===b){b.setAttribute('aria-pressed','false');sel=null;return}
+    if(!sel||tiles[+sel.dataset.i].s===x.s){if(sel)sel.setAttribute('aria-pressed','false');sel=b;b.setAttribute('aria-pressed','true');return}
+    const a=sel;sel=null;
+    if(tiles[+a.dataset.i].c===x.c){[a,b].forEach(z=>{z.setAttribute('aria-pressed','false');z.classList.add('gone')});left--;if(!left)finish()}
+    else{lock=true;[a,b].forEach(z=>{z.setAttribute('aria-pressed','false');z.classList.add('bad')});setTimeout(()=>{[a,b].forEach(z=>z.classList.remove('bad'));lock=false},450)}
+  });
+}
+
 /* ── shared clicks ────────────────────────────────── */
 document.addEventListener('click',async e=>{
   const rep=e.target.closest('[data-rep]');
   if(rep){const [t,id]=rep.dataset.rep.split(':');C.report(t,+id);return}
+  const cal=e.target.closest('[data-cal]');
+  if(cal){const ev=EVS[+cal.dataset.cal];if(!ev||!C.modal)return;const l=calLinks(ev);
+    C.modal(`<h2>Add to calendar</h2><p>${E(l.title)}<br>${dparts(ev.event_date).full} · all day</p>
+      <div class="cm-row" style="justify-content:flex-start"><a class="btn" href="${l.ics}" download="${E(l.file)}">Download .ics</a><a class="btn ghost" href="${l.g}" target="_blank" rel="noopener">Google Calendar</a></div>
+      <p style="font-size:13px">The .ics file opens in Apple Calendar, Outlook and most phone calendars.</p>
+      <div class="cm-row"><button class="btn ghost" data-close>Close</button></div>`);return}
   const big=e.target.closest('[data-big]');
   if(big){const lb=document.createElement('div');lb.className='lightbox';lb.innerHTML=`<img src="${big.dataset.big}" alt=""><button aria-label="Close">✕</button>`;lb.addEventListener('click',()=>lb.remove());document.body.append(lb);return}
   const del=e.target.closest('[data-del]');
@@ -643,6 +849,8 @@ async function search(q){
 function route(){
   const p=location.hash.replace(/^#\/?/,'').split('/');
   window.scrollTo(0,0);
+  if(KEYH){removeEventListener('keydown',KEYH);KEYH=null}
+  if(TICK){clearInterval(TICK);TICK=null}
   const sec=p[0]==='teachers'||p[0]==='t'?'teachers':'classes';
   $('snav').innerHTML=`<a href="#/"${sec==='classes'?' aria-current="page"':''}>Classes</a><a href="#/teachers"${sec==='teachers'?' aria-current="page"':''}>Rate teachers</a><a href="/forum/">Forum ↗</a>`;
   if(p[0]==='c'&&+p[1])return klass(+p[1],p[2]);
