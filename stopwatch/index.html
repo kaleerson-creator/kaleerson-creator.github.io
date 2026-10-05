@@ -71,11 +71,11 @@ html[data-theme=dark] .pre{background:#ffffff14}
 <section class="phead"><span class="blob"></span><h1>Stopwatch</h1><p>Laps and splits, plus a timer that beeps. Both keep going if you reload.</p></section>
 <div class="tabs" role="tablist"><button data-m="sw" aria-pressed="true">Stopwatch</button><button data-m="tm" aria-pressed="false">Timer</button></div>
 <div class="bento">
-  <section class="b s4 moss stage wide-m" id="stage" aria-live="polite">
+  <section class="b s4 moss stage wide-m" id="stage">
     <span class="blob"></span>
     <div class="pane" id="p-sw">
       <div class="clock" id="swclock">00:00<small>.00</small></div>
-      <div class="phase" id="swphase">Ready</div>
+      <div class="phase" id="swphase" aria-live="polite">Ready</div>
       <div class="row" style="justify-content:center;align-items:center">
         <button class="btn big" id="swstart">Start</button>
         <button class="btn light sm" id="swlap" disabled>Lap</button>
@@ -85,7 +85,7 @@ html[data-theme=dark] .pre{background:#ffffff14}
     </div>
     <div class="pane" id="p-tm" hidden>
       <div class="clock" id="tmclock">05:00</div>
-      <div class="phase" id="tmphase">Ready</div>
+      <div class="phase" id="tmphase" aria-live="polite">Ready</div>
       <div class="setrow" id="setrow">
         <label>min<input id="tmin" type="number" inputmode="numeric" min="0" max="999" value="5"></label>
         <label>sec<input id="tsec" type="number" inputmode="numeric" min="0" max="59" value="0"></label>
@@ -106,7 +106,7 @@ html[data-theme=dark] .pre{background:#ffffff14}
   </section>
 </div>
 </main>
-<script src="/assets/site.js?v=20261008"></script>
+<script src="/assets/site.js?v=20261009"></script>
 <script>
 const S=window.SITE;
 const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}};

@@ -338,19 +338,22 @@
   var keysOk = !document.body.hasAttribute('data-game') && !/^\/(snapwit|edu\/play)\//.test(location.pathname);
   var CHORDS = { h: '/', g: '/edu/', t: '/tools/', f: '/forum/' };
   var chord = 0;
+  // A page that uses a letter itself (the whiteboard's T, Study's ?) calls preventDefault() in its own
+  // keydown handler; those run after this one, so the site shortcut is decided a tick later.
+  var later = function (e, fn) { setTimeout(function () { if (!e.defaultPrevented) fn(); }, 0); };
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !help.hidden) { e.preventDefault(); helpClose(); return; }
-    if (e.defaultPrevented || e.repeat || e.ctrlKey || e.metaKey || e.altKey || typing(e) || !pal.hidden) return;
-    if (e.key === '?') { e.preventDefault(); helpOpen(); return; }
-    if (!help.hidden || !keysOk) return;
+    if (e.defaultPrevented || e.repeat || e.ctrlKey || e.metaKey || e.altKey || typing(e) || !pal.hidden || !keysOk) return;
+    if (e.key === '?') { later(e, helpOpen); return; }
+    if (!help.hidden) return;
     if (chord) {
       clearTimeout(chord); chord = 0;
       var to = CHORDS[e.key];
-      if (to) { e.preventDefault(); location.href = to; }
+      if (to) later(e, function () { location.href = to; });
       return;
     }
     if (e.key === 'g') { chord = setTimeout(function () { chord = 0; }, 1500); return; }
-    if (e.key === 't') toggleTheme();
+    if (e.key === 't') later(e, toggleTheme);
   });
 
   // ── Konami code: confetti, a little bounce, nothing else. ──
