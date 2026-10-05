@@ -228,6 +228,9 @@ document.querySelectorAll('[data-copy]').forEach(b=>b.onclick=()=>{const k=b.dat
 
 // ── bibliography — cite_list: [{id,mla,apa,key}] ──
 let list=J('cite_list',[]);if(!Array.isArray(list))list=[];
+// saved entries are escaped HTML with <i> only; anything else that got into storage is stripped
+const san=h=>String(h||'').replace(/<(?!\/?i>)[^>]*>/g,'');
+list=list.filter(x=>x&&typeof x==='object').map(x=>({id:String(x.id||Date.now().toString(36)),mla:san(x.mla),apa:san(x.apa)}));
 let style=ls('cite_style')==='apa'?'apa':'mla';
 const saveList=()=>ls('cite_list',JSON.stringify(list));
 const sortKey=h=>plain(h).toLowerCase().replace(/^["'“‘(]+/,'').replace(/^(the|a|an) /,'');

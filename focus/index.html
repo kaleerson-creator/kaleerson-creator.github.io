@@ -162,14 +162,16 @@ function tick(){
   paint();
   timer=setTimeout(tick,Math.min(1000,(left%1000)||1000));
 }
+// focus_state keeps a running or paused round across a reload (pull-to-refresh happens)
+const saveState=()=>ls('focus_state',JSON.stringify({phase,running,endAt,remaining,finished,at:Date.now()}));
 function start(){
   if(running)return;
   if(finished){advance();return}
-  running=true;finished=false;endAt=Date.now()+remaining;clearTimeout(timer);tick();paint();
+  running=true;finished=false;endAt=Date.now()+remaining;clearTimeout(timer);tick();paint();saveState();
   if(actx&&actx.state==='suspended')actx.resume();
 }
-function pause(){if(!running)return;running=false;remaining=Math.max(0,endAt-Date.now());clearTimeout(timer);paint()}
-function reset(){running=false;finished=false;clearTimeout(timer);remaining=len(phase);paint()}
+function pause(){if(!running)return;running=false;remaining=Math.max(0,endAt-Date.now());clearTimeout(timer);paint();saveState()}
+function reset(){running=false;finished=false;clearTimeout(timer);remaining=len(phase);paint();saveState()}
 function setPhase(p){phase=p;reset()}
 function end(){
   running=false;clearTimeout(timer);remaining=0;finished=true;
@@ -182,7 +184,7 @@ function end(){
     if(S&&S.toast)S.toast('Focus done. '+Math.round(cfg.focus)+' min logged.');
     if('vibrate' in navigator){try{navigator.vibrate([120,60,120])}catch(e){}}
   }
-  paint();
+  paint();saveState();
 }
 // after a finished focus, "Start break" picks short or long and starts it; after a break, go back to focus (ready)
 function advance(){
@@ -233,7 +235,11 @@ function drawStats(){
   $('weeksum').textContent='Last 7 days: '+Math.round(tot)+' min';
 }
 drawStats();
-reset();
+// pick up where a reload left off: a running round keeps counting, a paused one keeps its time
+{const st=J('focus_state',null);const fresh=st&&NAMES[st.phase]&&Date.now()-(+st.at||0)<12*3600e3;
+  if(fresh&&st.running&&+st.endAt>0&&Date.now()-st.endAt<3600e3){phase=st.phase;endAt=+st.endAt;running=true;finished=false;if(endAt-Date.now()>0){tick();paint()}else end()}
+  else if(fresh&&!st.running&&(st.finished||+st.remaining>0)){phase=st.phase;finished=!!st.finished;remaining=finished?0:Math.min(len(phase),+st.remaining);paint()}
+  else reset()}
 </script>
 </body>
 </html>
