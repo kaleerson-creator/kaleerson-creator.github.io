@@ -47,7 +47,7 @@ html[data-theme=dark] .v4,html[data-theme=dark] .v8,html[data-theme=dark] .v16,h
 </head>
 <body data-page="games" data-sub="2048" data-game="2048">
 <main class="wrap">
-<div class="ghead"><div><h1>2048</h1><p>Use arrow keys or swipe. Merge tiles to reach 2048.</p></div><button class="btn sm ghost" id="restart">New game</button></div>
+<div class="ghead"><div><h1>2048</h1><p>Use arrow keys or swipe. Merge tiles to reach 2048. You get 3 undos a game, but a run with an undo stays off the leaderboard.</p></div><div class="row"><button class="btn sm ghost" id="undo" disabled>Undo (3 left)</button><button class="btn sm ghost" id="restart">New game</button></div></div>
 <div class="glay">
   <div class="stage">
     <div class="stats"><div><b id="score">0</b><span>Score</span></div><div><b id="best">0</b><span>Best</span></div></div>
@@ -61,11 +61,13 @@ html[data-theme=dark] .v4,html[data-theme=dark] .v8,html[data-theme=dark] .v16,h
 <script src="/assets/site.js?v=20261007"></script>
 <script>
 document.querySelector('.cells').innerHTML='<i></i>'.repeat(16);
-const N=4;let grid,score,over,nextId=1,won=false;
+const N=4,UNDOS=3;let grid,score,over,nextId=1,won=false,hist=[],undos=0;
 const tilesEl=document.getElementById('tiles');
 function empty(){const e=[];for(let r=0;r<N;r++)for(let c=0;c<N;c++)if(!grid[r][c])e.push([r,c]);return e}
 function add(){const e=empty();if(!e.length)return;const [r,c]=e[Math.floor(Math.random()*e.length)];grid[r][c]={id:nextId++,v:Math.random()<.9?2:4,isNew:true}}
-function start(){grid=[...Array(N)].map(()=>Array(N).fill(null));score=0;over=false;won=false;add();add();draw();G.local.set('2048:save',null)}
+const copyGrid=g=>g.map(r=>r.map(t=>t?{id:t.id,v:t.v}:null));
+const snap=()=>({grid:copyGrid(grid),score,nextId,won});
+function start(){grid=[...Array(N)].map(()=>Array(N).fill(null));score=0;over=false;won=false;hist=[];undos=0;add();add();draw();G.local.set('2048:save',null)}
 function draw(){
   const seen=new Set();
   for(let r=0;r<N;r++)for(let c=0;c<N;c++){const t=grid[r][c];if(!t)continue;seen.add(t.id);
@@ -78,10 +80,11 @@ function draw(){
   tilesEl.querySelectorAll('.t').forEach(el=>{if(!seen.has(+el.dataset.id))el.remove()});
   document.getElementById('score').textContent=score.toLocaleString();
   const best=Math.max(G.local.get('best:2048',0)||0,score);document.getElementById('best').textContent=best.toLocaleString();
-  if(!over)G.local.set('2048:save',{grid,score,nextId,won});
+  const u=document.getElementById('undo');u.disabled=over||!hist.length||undos>=UNDOS;u.textContent=undos>=UNDOS?'No undos left':'Undo ('+(UNDOS-undos)+' left)';
+  if(!over)G.local.set('2048:save',{grid,score,nextId,won,undos,hist});
 }
 function slide(dir){ // 0 left 1 right 2 up 3 down
-  if(over)return;let moved=false;
+  if(over)return;let moved=false;const before=snap();
   for(let i=0;i<N;i++){
     let line=[];for(let j=0;j<N;j++){const [r,c]=dir<2?[i,dir===0?j:N-1-j]:[dir===2?j:N-1-j,i];line.push(grid[r][c])}
     const tiles=line.filter(Boolean),out=[];
@@ -95,20 +98,31 @@ function slide(dir){ // 0 left 1 right 2 up 3 down
   if(!moved)return;
   // let merged-away tiles slide under before removal
   setTimeout(()=>tilesEl.querySelectorAll('[data-id^="x"]').forEach(e=>e.remove()),110);
+  hist.push(before);if(hist.length>UNDOS)hist.shift();
   add();draw();
   if(!canMove()){over=true;G.local.set('2048:save',null);setTimeout(gameOver,250)}
 }
+// Step back one move (3 per game). Any undo keeps the final score off the leaderboard.
+function undo(){if(over||!hist.length||undos>=UNDOS)return;const s=hist.pop();grid=copyGrid(s.grid);score=s.score;nextId=s.nextId;won=s.won;undos++;
+  document.querySelectorAll('.over').forEach(o=>o.remove());tilesEl.innerHTML='';draw()}
 function canMove(){if(empty().length)return true;for(let r=0;r<N;r++)for(let c=0;c<N;c++){const v=grid[r][c].v;if(c<N-1&&grid[r][c+1].v===v||r<N-1&&grid[r+1][c].v===v)return true}return false}
 function msg(t,s,cont){const b=document.getElementById('board');const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>${t}</h2><p class="muted" id="omsg">${s}</p><div class="row"><button class="btn" id="oagain">${cont?'Keep going':'Play again'}</button></div><div data-actions></div></div>`;b.append(o);
   o.querySelector('#oagain').onclick=()=>{o.remove();if(!cont)start()};return o}
-async function gameOver(){const o=msg('Game over','Score '+score.toLocaleString()+' · saving…');o.querySelector('#omsg').innerHTML='Score '+score.toLocaleString()+'<br>'+await G.submit('2048',score,{max:Math.max(...grid.flat().map(t=>t.v))});draw()}
-document.addEventListener('keydown',e=>{const k={ArrowLeft:0,ArrowRight:1,ArrowUp:2,ArrowDown:3,a:0,d:1,w:2,s:3}[e.key];if(k===undefined||e.target.matches('input,textarea'))return;e.preventDefault();slide(k)});
+async function gameOver(){const max=Math.max(...grid.flat().map(t=>t.v));
+  if(undos){const o=msg('Game over','Score '+score.toLocaleString());const b=G.local.get('best:2048',0)||0;if(score>b)G.local.set('best:2048',score);
+    o.querySelector('#omsg').innerHTML='Score '+score.toLocaleString()+'<br>'+(score>b?'New personal best! ':'')+'Undo used — not on the leaderboard.';
+    G.actions(o.querySelector('[data-actions]'),'2048',score);draw();return}
+  const o=msg('Game over','Score '+score.toLocaleString()+' · saving…');o.querySelector('#omsg').innerHTML='Score '+score.toLocaleString()+'<br>'+await G.submit('2048',score,{max});draw()}
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;
+  if((e.key==='z'||e.key==='Z')&&!e.ctrlKey&&!e.metaKey){e.preventDefault();return undo()}
+  const k={ArrowLeft:0,ArrowRight:1,ArrowUp:2,ArrowDown:3,a:0,d:1,w:2,s:3}[e.key];if(k===undefined)return;e.preventDefault();slide(k)});
 let sx,sy;const bd=document.getElementById('board');
 bd.addEventListener('pointerdown',e=>{sx=e.clientX;sy=e.clientY});
 bd.addEventListener('pointerup',e=>{if(sx==null)return;const dx=e.clientX-sx,dy=e.clientY-sy;sx=null;if(Math.max(Math.abs(dx),Math.abs(dy))<24)return;slide(Math.abs(dx)>Math.abs(dy)?(dx<0?0:1):(dy<0?2:3))});
 document.getElementById('restart').onclick=()=>{document.querySelectorAll('.over').forEach(o=>o.remove());tilesEl.innerHTML='';start()};
+document.getElementById('undo').onclick=undo;
 const saved=G.local.get('2048:save',null);
-if(saved&&saved.grid){grid=saved.grid;score=saved.score;nextId=saved.nextId;won=saved.won;over=false;draw()}else start();
+if(saved&&saved.grid){grid=saved.grid;score=saved.score;nextId=saved.nextId;won=saved.won;undos=Math.min(UNDOS,saved.undos|0);hist=Array.isArray(saved.hist)?saved.hist.filter(h=>h&&h.grid):[];over=false;draw()}else start();
 G.boardBox(document.getElementById('lb'),'2048');
 </script>
 </body>
