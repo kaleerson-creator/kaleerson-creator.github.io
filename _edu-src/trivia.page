@@ -1,7 +1,7 @@
 @@ meta
 dir: trivia
 title: Trivia · Kale's Games
-desc: Ten quick questions. Faster answers score more.
+desc: Quick questions by category. Faster answers score more. All categories, 10 questions goes on the leaderboard.
 page: trivia
 game: trivia
 scripts: /assets/trivia.js
@@ -13,33 +13,54 @@ scripts: /assets/trivia.js
 .qtext{font:800 clamp(22px,3.4vw,32px)/1.15 var(--display);letter-spacing:-.025em}
 .opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media (max-width:560px){.opts{grid-template-columns:1fr}}
-.opts button{border:0;border-radius:16px;padding:16px;font:600 16px/1.3 var(--body);text-align:left;cursor:pointer;background:var(--paper)}
+.opts button{border:0;border-radius:16px;padding:16px;font:600 16px/1.3 var(--body);text-align:left;cursor:pointer;background:var(--paper);color:var(--ink)}
 .opts button:nth-child(1){background:var(--sky)}.opts button:nth-child(2){background:var(--peach)}.opts button:nth-child(3){background:var(--moss)}.opts button:nth-child(4){background:var(--lilac)}
 .opts button.right{background:#4f8a4a;color:#fff}.opts button.wrong{background:#D12C2C;color:#fff}.opts button.dim{opacity:.45}
 .intro{display:grid;gap:12px;justify-items:start}
 .big{font:800 64px/1 var(--display);letter-spacing:-.04em}
+.cats{display:flex;flex-wrap:wrap;gap:6px}
+.cats button{border:0;border-radius:999px;padding:9px 13px;min-height:36px;font:600 13px/1 var(--body);background:var(--paper);color:var(--ink);cursor:pointer}
+.cats button[aria-pressed=true]{background:var(--ink);color:var(--on-ink)}
 @@ body
-<div class="ghead"><div><h1>Trivia</h1><p>Ten questions, 15 seconds each. Correct answers score 100 plus a speed bonus.</p></div><a class="btn sm ghost" href="/edu/play/">Race friends online →</a></div>
+<div class="ghead"><div><h1>Trivia</h1><p>Pick a category and a length. 15 seconds a question; correct answers score 100 plus a speed bonus. All categories, 10 questions is the leaderboard round.</p></div><a class="btn sm ghost" href="/edu/play/">Race friends online →</a></div>
 <div class="glay">
   <div class="stage"><div class="tq" id="tq"></div></div>
   <div class="side"><div class="box" id="lb"></div></div>
 </div>
 @@ js
-const Q=10,T=15;let qs,i,score,streak,timer,t0,locked;
+const T=15;let Q=10,cat='All',qs,n,i,score,streak,timer,t0,locked;
 const el=document.getElementById('tq');
+const CATS=['All',...new Set(TRIVIA.map(q=>q[0]))];
+const pool=()=>cat==='All'?TRIVIA:TRIVIA.filter(q=>q[0]===cat);
+const ranked=()=>cat==='All'&&Q===10; // the only round that goes on the leaderboard
+const bestKey=()=>ranked()?'best:trivia':'best:trivia:'+cat+':'+Q;
+(function(){const m=G.local.get('trivia:mode',null);if(m){if(CATS.includes(m.cat))cat=m.cat;if(m.n===20)Q=20}})();
 function shuffle(a){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
-function intro(){const b=G.local.get('best:trivia',null);el.innerHTML=`<div class="intro"><span class="qcat">${TRIVIA.length} questions in the bank</span><div class="qtext">Ready?</div><p class="muted">Best: ${b??'–'}</p><button class="btn" id="go">Start</button></div>`;document.getElementById('go').onclick=start}
-function start(){qs=shuffle(TRIVIA).slice(0,Q);i=0;score=0;streak=0;ask()}
+function intro(){const p=pool(),len=Math.min(Q,p.length),b=G.local.get(bestKey(),null);
+  el.innerHTML=`<div class="intro"><span class="qcat">${TRIVIA.length} questions in the bank</span><div class="qtext">Pick a round</div>
+    <div class="cats" id="cats" role="group" aria-label="Category">${CATS.map(c=>`<button type="button" data-c="${G.esc(c)}" aria-pressed="${c===cat}">${G.esc(c)}</button>`).join('')}</div>
+    <div class="seg" id="qn" role="group" aria-label="Questions"><button type="button" data-q="10" aria-pressed="${Q===10}">10 questions</button><button type="button" data-q="20" aria-pressed="${Q===20}">20 questions</button></div>
+    <p class="muted" id="modenote">${ranked()?'Leaderboard round.':G.esc(cat)+' · '+len+' questions. Practice round: the score stays on this device.'}${len<Q?' Only '+len+' '+G.esc(cat)+' questions in the bank so far.':''} Best: ${b??'–'}</p>
+    <button class="btn" id="go">Start</button></div>`;
+  el.querySelectorAll('#cats [data-c]').forEach(x=>x.onclick=()=>{cat=x.dataset.c;G.local.set('trivia:mode',{cat,n:Q});intro()});
+  el.querySelectorAll('#qn [data-q]').forEach(x=>x.onclick=()=>{Q=+x.dataset.q;G.local.set('trivia:mode',{cat,n:Q});intro()});
+  document.getElementById('go').onclick=start}
+function start(){qs=shuffle(pool()).slice(0,Q);n=qs.length;i=0;score=0;streak=0;ask()}
 function ask(){locked=false;const q=qs[i],opts=shuffle(q.slice(2));
-  el.innerHTML=`<div class="row" style="justify-content:space-between"><span class="qcat">${G.esc(q[0])} · ${i+1}/${Q}</span><b>${score} pts${streak>1?` · 🔥${streak}`:''}</b></div><div class="tbar"><i id="bar"></i></div><div class="qtext">${G.esc(q[1])}</div>
+  el.innerHTML=`<div class="row" style="justify-content:space-between"><span class="qcat">${G.esc(q[0])} · ${i+1}/${n}</span><b>${score} pts${streak>1?` · 🔥${streak}`:''}</b></div><div class="tbar"><i id="bar"></i></div><div class="qtext">${G.esc(q[1])}</div>
     <div class="opts">${opts.map(o=>`<button data-o="${G.esc(o)}">${G.esc(o)}</button>`).join('')}</div>`;
   t0=Date.now();clearInterval(timer);timer=setInterval(()=>{const left=T-(Date.now()-t0)/1000;document.getElementById('bar').style.width=Math.max(0,100*left/T)+'%';if(left<=0)answer(null)},100);
   el.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>answer(b))}
 function answer(btn){if(locked)return;locked=true;clearInterval(timer);const q=qs[i],right=btn&&btn.dataset.o===q[2];
   if(right){streak++;score+=100+Math.round(100*Math.max(0,T-(Date.now()-t0)/1000)/T)+(streak>=3?25:0)}else streak=0;
   el.querySelectorAll('[data-o]').forEach(b=>{b.disabled=true;if(b.dataset.o===q[2])b.classList.add('right');else if(b===btn)b.classList.add('wrong');else b.classList.add('dim')});
-  setTimeout(()=>{i++;i<Q?ask():end()},right?900:1700)}
-async function end(){el.innerHTML=`<div class="intro"><span class="qcat">Final score</span><div class="big">${score}</div><p class="muted" id="omsg">Saving…</p><div class="row"><button class="btn" id="go">Play again</button><a class="btn ghost" href="/edu/play/">Race friends</a></div><div data-actions style="justify-content:flex-start"></div></div>`;
-  document.getElementById('go').onclick=start;document.getElementById('omsg').innerHTML=score>0?await G.submit('trivia',score):'Better luck next time.'}
+  setTimeout(()=>{i++;i<n?ask():end()},right?900:1700)}
+async function end(){el.innerHTML=`<div class="intro"><span class="qcat">Final score · ${G.esc(cat)} · ${n} questions</span><div class="big">${score}</div><p class="muted" id="omsg">${ranked()?'Saving…':''}</p><div class="row"><button class="btn" id="go">Play again</button><button class="btn ghost" id="pick">Change round</button><a class="btn ghost" href="/edu/play/">Race friends</a></div><div data-actions style="justify-content:flex-start"></div></div>`;
+  document.getElementById('go').onclick=start;document.getElementById('pick').onclick=intro;const m=document.getElementById('omsg');
+  if(!score)m.textContent='Better luck next time.';
+  else if(ranked())m.innerHTML=await G.submit('trivia',score);
+  else{const k=bestKey(),b=G.local.get(k,null),nb=b===null||score>b;if(nb)G.local.set(k,score);
+    m.textContent=(nb?'New personal best for this round. ':'')+'Practice round, so it stays on this device. All categories + 10 questions is the leaderboard round.';
+    G.actions(el.querySelector('[data-actions]'),'trivia',score,`Trivia (${cat}, ${n} questions): ${score} pts on kaleerson.com/edu/trivia`)}}
 intro();
 G.boardBox(document.getElementById('lb'),'trivia');
