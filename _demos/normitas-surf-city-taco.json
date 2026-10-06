@@ -1,16 +1,17 @@
 {
-  "place_id": "ChIJb__GnRrQyIARPG0D207Vt74",
+  "place_id": "ChIJGUEyYjkh3YARvFJxBGHMq_E",
   "demo": true,
-  "name": "Fisher’s Deli",
+  "name": "Normita's Surf City Taco",
   "tagline": "",
   "about": "",
   "email": "",
   "spanish": true,
   "domain_ideas": [
-    "fishersdelihenderson.com",
-    "fishersdeli.menu",
-    "eatfishersdeli.com",
-    "fishersdeli.net"
+    "normitassurfcitytaco.com",
+    "normitassurf.com",
+    "normitassurfhuntingtonbeach.com",
+    "normitassurf.menu",
+    "eatnormitassurf.com"
   ],
   "photos": [],
   "menu": [],
@@ -41,7 +42,7 @@
     "jobs_url": "",
     "newsletter_url": "",
     "instagram": "",
-    "facebook": "",
+    "facebook": "https://www.facebook.com/pages/Normitas-Surf-City-Taco/115555118467384",
     "tiktok": "",
     "yelp": ""
   },

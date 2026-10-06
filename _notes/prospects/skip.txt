@@ -1,0 +1,4 @@
+# Restaurants to leave out of the lead sheets and demo builds.
+# One Google place id per line, then a reason after #. Add anyone who already
+# has a good site, said no, or isn't a fit. prospect.py reads this on every run.
+ChIJb__GnRrQyIARPG0D207Vt74  # Fisher's Deli, Henderson: already has a full site at fishersdeli.com

@@ -16,7 +16,7 @@ Add-ons render only when their slot is filled, so a demo never shows a button
 that goes nowhere. "demo": true adds a preview banner and keeps search engines
 away; set it to false when the site goes live on the restaurant's own domain.
 """
-import argparse, datetime, glob, hashlib, html, json, os, re, sys, urllib.error, urllib.parse, urllib.request
+import argparse, datetime, unicodedata, glob, hashlib, html, json, os, re, sys, urllib.error, urllib.parse, urllib.request
 
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 PROSPECTS = os.path.join(ROOT, '_notes', 'prospects')
@@ -112,16 +112,19 @@ def safe_url(u):
     u = (u or '').strip()
     return u if re.match(r'^(https?:|mailto:|tel:)', u, re.I) else ''
 
-def clean_name(name):
+def clean_name(name, city=''):
     # Google listings often carry extra text: "Birria El Compa | Charleston Location",
     # "Fisher's Deli (formerly Weiss Deli)", "Novella Italian Kitchen , Pizza".
     n = re.split(r'\s+[|•]\s+', name)[0]
     n = re.sub(r'\s*\([^)]*\)', '', n)
+    m = re.match(r'^(.*?)\s+[-–—]\s+(.*)$', n)  # "All About Pho - Fullerton"
+    if m and city and re.sub(r'[^a-z]', '', m.group(2).lower()).startswith(re.sub(r'[^a-z]', '', city.lower())[:5]):
+        n = m.group(1)
     n = re.sub(r'\s+,', ',', n)
     return re.sub(r'\s{2,}', ' ', n).strip(' ,') or name
 
 def slugify(name):
-    n = name.lower().replace('&', ' and ').replace("'", '').replace('’', '')
+    n = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode().lower().replace('&', ' and ').replace("'", '').replace('’', '')
     n = re.sub(r'[^a-z0-9]+', '-', n).strip('-')
     return re.sub(r'-(restaurant|restaurante)$', '', n)[:48] or 'restaurant'
 
@@ -161,7 +164,7 @@ def new_config(lead, d):
     return {
         'place_id': d['id'],
         'demo': True,
-        'name': clean_name(d['displayName']['text']),
+        'name': clean_name(d['displayName']['text'], city_of(d)),
         'tagline': '',
         'about': '',
         'email': '',
@@ -226,7 +229,7 @@ def city_of(d):
 
 def build(slug, cfg, d):
     a = {k: v for k, v in (cfg.get('addons') or {}).items() if v}
-    name = cfg.get('name') or clean_name(d['displayName']['text'])
+    name = cfg.get('name') or clean_name(d['displayName']['text'], city_of(d))
     kind = (d.get('primaryTypeDisplayName') or {}).get('text', 'Restaurant')
     city = city_of(d)
     bg, card, ink, muted, accent, on_accent, soft = theme_for(d.get('primaryType'))
@@ -668,12 +671,12 @@ def main():
         leads = [l for l in load_leads(args.area) if l['site']['status'] in ok and not l['site'].get('maybe')][:args.top]
         for lead in leads:
             d = place_details(lead['id'])
-            slug = slugify(clean_name(d['displayName']['text']))
+            slug = slugify(clean_name(d['displayName']['text'], city_of(d)))
             f = os.path.join(CONFIGS, slug + '.json')
             if os.path.exists(f):
                 cfg = json.load(open(f))
                 if cfg.get('place_id') != d['id']:  # same name, different place
-                    slug = slugify(clean_name(d['displayName']['text']) + ' ' + city_of(d)); f = os.path.join(CONFIGS, slug + '.json')
+                    slug = slugify(clean_name(d['displayName']['text'], city_of(d)) + ' ' + city_of(d)); f = os.path.join(CONFIGS, slug + '.json')
             if not os.path.exists(f):
                 json.dump(new_config(lead, d), open(f, 'w'), indent=2, ensure_ascii=False)
             cfg = json.load(open(f))

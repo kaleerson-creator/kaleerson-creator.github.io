@@ -470,7 +470,11 @@ def run(area_key, a, args):
         vf = min(1.0, math.log10((p.get('userRatingCount') or 0) + 1) / 3.3)
         p['lead_score'] = round(p['badness'] * rf * vf)
 
-    leads = [p for p in rows if p['badness'] >= args.min_badness]
+    skip = set()
+    sp = os.path.join(OUT_DIR, 'skip.txt')
+    if os.path.exists(sp):
+        skip = {l.split('#')[0].strip() for l in open(sp) if l.split('#')[0].strip()}
+    leads = [p for p in rows if p['badness'] >= args.min_badness and p['id'] not in skip]
     leads.sort(key=lambda p: -p['lead_score'])
     log(f'  {len(leads)} leads with a weak or missing site')
 
