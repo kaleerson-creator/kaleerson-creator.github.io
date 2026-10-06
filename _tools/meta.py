@@ -11,7 +11,7 @@ DEFAULT_DESC = {
 }
 os.chdir(ROOT)
 for f in sorted(glob.glob('**/index.html', recursive=True)):
-    if f.startswith(('design/', '_')):
+    if f.startswith(('design/', 'demos/', '_')):
         continue
     s = open(f).read()
     m = re.search(r'<title>(.*?)</title>', s)
