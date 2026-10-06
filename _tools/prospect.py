@@ -175,8 +175,10 @@ def cached(name, fn):
         with open(p) as f:
             return json.load(f)
     data = fn()
-    with open(p, 'w') as f:
-        json.dump(data, f)
+    # don't keep failures, so the next run retries them
+    if not (isinstance(data, dict) and ('error' in data or data.get('available', False) is None)):
+        with open(p, 'w') as f:
+            json.dump(data, f)
     return data
 
 def http(url, body=None, headers=None, timeout=60):
@@ -398,8 +400,8 @@ def run(area_key, a, args):
 
     # site check
     for p in rows:
-        p['site'] = {'status': classify_site(p.get('websiteUri', ''))}
-        p['site']['stack'] = []
+        st = classify_site(p.get('websiteUri', ''))
+        p['site'] = {'status': 'unchecked' if (st == 'site' and args.no_psi) else st, 'stack': []}
     if not args.no_psi:
         todo = [p for p in rows if p['site']['status'] == 'site']
         log(f'  Lighthouse on {len(todo)} sites (this is the slow part)')
