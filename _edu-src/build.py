@@ -13,7 +13,7 @@ HEAD = '''<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261006">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
 <link rel="stylesheet" href="/edu/assets/games.css?v={v}">
 <style>
 {css}
@@ -25,14 +25,14 @@ HEAD = '''<!DOCTYPE html>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/edu/assets/common.js?v={v}c"></script>
-<script src="/assets/site.js?v=20261006"></script>
+<script src="/assets/site.js?v=20261009"></script>
 {extra}<script>
 {js}
 </script>
 </body>
 </html>
 '''
-V = '2'
+V = '5'
 for f in sorted(glob.glob(os.path.join(SRC, '*.page'))):
     parts = dict(re.findall(r'^@@ (\w+)\n(.*?)(?=^@@ |\Z)', open(f).read(), re.S | re.M))
     meta = dict(l.split(': ', 1) for l in parts.get('meta', '').strip().splitlines() if l.strip())

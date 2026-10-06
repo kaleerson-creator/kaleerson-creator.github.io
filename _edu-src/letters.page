@@ -71,7 +71,7 @@ document.addEventListener('keydown',e=>{if(!running||e.target.matches('input,tex
 async function finish(){if(!running)return;running=false;clearInterval(timer);
   const missed=valid.filter(w=>!found.includes(w)).sort((a,b)=>b.length-a.length).slice(0,24);
   el.innerHTML=`<span class="qcat lbl">Time!</span><div class="big">${score}</div><p class="muted">${found.length} of ${valid.length} words · the 7-letter word was <b>${seed.toUpperCase()}</b></p>
-    <p class="muted" id="omsg">Saving…</p><button class="btn" id="go">Play again</button>
+    <p class="muted" id="omsg">Saving…</p><button class="btn" id="go">Play again</button><div data-actions></div>
     <div style="width:100%"><b style="font-size:13px">Some you missed</b><div class="found" style="justify-content:flex-start;margin-top:6px">${missed.map(w=>`<span class="miss">${w}</span>`).join('')}</div></div>`;
   document.getElementById('go').onclick=start;
   document.getElementById('omsg').innerHTML=score>0?await G.submit('letters',score,{words:found.length}):'Find a word next time!'}

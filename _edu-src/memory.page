@@ -1,0 +1,82 @@
+@@ meta
+dir: memory
+title: Memory Match · Kale's Games
+desc: Flip cards, find the pairs. Clear the 6×6 board fast to get on the leaderboard, or race everyone on today's Daily layout.
+page: memory
+game: memory
+@@ css
+.mbox{position:relative;width:100%;max-width:520px}
+.grid{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:8px}
+.grid.n6{gap:6px}
+.card{position:relative;aspect-ratio:1;border:0;background:none;padding:0;cursor:pointer;perspective:600px;border-radius:14px;min-width:0;-webkit-tap-highlight-color:transparent}
+.card .in{position:absolute;inset:0;transition:transform .35s var(--ease);transform-style:preserve-3d}
+.card.up .in,.card.done .in{transform:rotateY(180deg)}
+.card .f,.card .k{position:absolute;inset:0;border-radius:14px;display:grid;place-items:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.card .k{background:var(--sky)}
+.card:nth-child(3n) .k{background:var(--lilac)}.card:nth-child(3n+1) .k{background:var(--peach)}
+.card .k::after{content:'';width:28%;aspect-ratio:1;border-radius:50%;background:var(--card);opacity:.6}
+.card .f{background:var(--paper);color:var(--ink);transform:rotateY(180deg);font-size:clamp(22px,6vw,40px);line-height:1}
+.grid.n6 .f{font-size:clamp(18px,4.5vw,30px)}
+.card.done .f{background:var(--moss);opacity:.8}
+.card:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.big{font:800 64px/1 var(--display);letter-spacing:-.04em}
+.dnote{font-size:13px;color:var(--ink2);text-align:center}
+@@ body
+<div class="ghead"><div><h1>Memory Match</h1><p>Flip two cards, find the pair. The timer starts on your first flip. 6×6 times go on the leaderboard. Daily is one 6×6 layout for everyone, new each day.</p></div>
+  <div class="seg" id="size"><button data-n="4">4×4</button><button data-n="6" aria-pressed="true">6×6</button><button data-n="d">Daily</button></div></div>
+<div class="glay">
+  <div class="stage">
+    <div class="stats"><div><b id="time">0:00</b><span>Time</span></div><div><b id="moves">0</b><span>Moves</span></div><div><b id="left">18</b><span>Pairs left</span></div><div><b id="best">–</b><span>Best</span></div></div>
+    <div class="mbox" id="mbox"><div class="grid" id="grid"></div></div>
+    <p class="dnote" id="dnote" hidden></p>
+    <div class="row"><button class="btn sm ghost" id="restart">New game (R)</button></div>
+  </div>
+  <div class="side"><div class="box" id="lb"></div></div>
+</div>
+@@ js
+const EMO=['🍎','🍌','🍇','🍓','🍒','🥝','🍕','🌮','🍩','🍪','🚀','🌙','⭐','🔥','🎧','🎮','🐶','🐱'];
+let n=6,daily=false,cards,open,lock,moves,found,t0,timer,done;
+const grid=document.getElementById('grid'),mbox=document.getElementById('mbox');
+const mmss=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+// Daily layout: same card order for everyone, keyed to the Las Vegas date (same numbering as the Daily Challenge).
+const today=new Date().toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'});
+const num=Math.round((Date.parse(today+'T00:00:00Z')-Date.UTC(2026,9,1))/864e5)+1;
+function rng(seed){return()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const bestKey=()=>daily?'best:memory:daily':n===6?'best:memory':'best:memory:4';
+function paint(){document.getElementById('moves').textContent=moves;document.getElementById('left').textContent=(n*n/2)-found;
+  const b=G.local.get(bestKey(),null);document.getElementById('best').textContent=b==null?'–':mmss(b);
+  document.getElementById('time').textContent=mmss(t0?Math.floor((Date.now()-t0)/1000):0)}
+function reset(){clearInterval(timer);t0=null;moves=0;found=0;open=[];lock=false;done=false;document.querySelectorAll('.over').forEach(o=>o.remove());
+  const r=daily?rng(num*7919+17):Math.random;
+  const pairs=EMO.slice(0,n*n/2);cards=pairs.concat(pairs);for(let i=cards.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[cards[i],cards[j]]=[cards[j],cards[i]]}
+  grid.style.setProperty('--n',n);grid.className='grid n'+n;
+  grid.innerHTML=cards.map((e,i)=>`<button class="card" data-i="${i}" aria-label="Card ${i+1}"><span class="in"><span class="k"></span><span class="f">${e}</span></span></button>`).join('');
+  grid.querySelectorAll('.card').forEach(b=>b.onclick=()=>flip(b));
+  const dn=document.getElementById('dnote');dn.hidden=!daily;dn.textContent=daily?`Daily #${num} · the same layout for everyone today · best times stay on this device`:'';
+  paint()}
+function flip(b){if(lock||done||b.classList.contains('up')||b.classList.contains('done'))return;
+  if(!t0){t0=Date.now();timer=setInterval(paint,250)}
+  b.classList.add('up');b.setAttribute('aria-label','Card '+(+b.dataset.i+1)+': '+cards[b.dataset.i]);open.push(b);
+  if(open.length<2)return;
+  moves++;const [a,c]=open;open=[];
+  if(cards[a.dataset.i]===cards[c.dataset.i]){found++;a.classList.add('done');c.classList.add('done');a.classList.remove('up');c.classList.remove('up');paint();if(found===n*n/2)win()}
+  else{lock=true;setTimeout(()=>{a.classList.remove('up');c.classList.remove('up');a.setAttribute('aria-label','Card '+(+a.dataset.i+1));c.setAttribute('aria-label','Card '+(+c.dataset.i+1));lock=false},700);paint()}}
+async function win(){done=true;clearInterval(timer);const secs=Math.max(1,Math.round((Date.now()-t0)/1000));document.getElementById('time').textContent=mmss(secs);
+  const label=daily?'Daily #'+num+' cleared':n+'×'+n+' cleared';
+  const o=document.createElement('div');o.className='over';
+  o.innerHTML=`<div><span class="lbl">${label}</span><div class="big">${mmss(secs)}</div><p class="muted">${moves} moves</p><p class="muted" id="omsg">${!daily&&n===6?'Saving…':''}</p><div class="row" style="justify-content:center"><button class="btn" id="oagain">Play again</button></div><div data-actions></div></div>`;
+  mbox.append(o);o.querySelector('#oagain').onclick=reset;
+  const msg=o.querySelector('#omsg');
+  if(daily){const k='best:memory:daily',b=G.local.get(k,null);const nb=b==null||secs<b;if(nb)G.local.set(k,secs);
+    msg.textContent=(nb?'New personal best on Daily. ':'')+'Daily is the same layout for everyone, so it stays off the leaderboard. Share your time instead.';
+    G.actions(o.querySelector('[data-actions]'),'memory',secs,`Memory Match daily #${num}: ${mmss(secs)} on kaleerson.com/edu/memory`)}
+  else if(n===6){msg.innerHTML=await G.submit('memory',Math.min(3600,secs),{moves});
+    const b=G.local.get('best:memory',null);if(b==null||secs<b)G.local.set('best:memory',secs)}
+  else{const b=G.local.get('best:memory:4',null);const nb=b==null||secs<b;if(nb)G.local.set('best:memory:4',secs);msg.textContent=nb?'New personal best on 4×4. Only 6×6 goes on the leaderboard.':'Only 6×6 goes on the leaderboard.';
+    G.actions(o.querySelector('[data-actions]'),'memory',secs,`Memory Match 4x4: ${mmss(secs)} on kaleerson.com/edu/memory`)}
+  paint()}
+document.querySelectorAll('#size [data-n]').forEach(b=>b.onclick=()=>{daily=b.dataset.n==='d';n=daily?6:+b.dataset.n;document.querySelectorAll('#size [data-n]').forEach(x=>x.setAttribute('aria-pressed',x===b));reset()});
+document.getElementById('restart').onclick=reset;
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;if(e.key==='r'||e.key==='R')reset()});
+reset();
+G.boardBox(document.getElementById('lb'),'memory');

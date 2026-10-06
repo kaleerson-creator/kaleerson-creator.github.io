@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Speech &amp; Debate · Kale Erson</title>
 <!-- meta -->
-<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
-<meta name="theme-color" content="#EEF0EA">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
 <meta property="og:site_name" content="Kale Erson">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Speech &amp; Debate · Kale Erson">
@@ -23,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261006">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
 <style>
 :root{--a:#2451C9;--a-t:#DCE8FB;--b:#B8322F;--b-t:#FBE2DA;--n:#1E3A2C;--n-t:#DCEBD0;--warn:#B86E00;--over:#D12C2C}
 html[data-theme=dark]{--a:#7FA4F0;--a-t:#1F2F4A;--b:#F08B7E;--b-t:#43261F;--n:#9FCB8E;--n-t:#22382A;--warn:#E5A33A;--over:#F0695F}
@@ -113,7 +115,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}
 th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);font-weight:600;padding:6px}
 td{padding:7px 6px;border-top:1px solid var(--line);vertical-align:middle}
 td.n{font-variant-numeric:tabular-nums;text-align:center}
-tr.next td{background:#fbf3cf}
+tr.next td{background:var(--n-t)}
 .mini{font:inherit;font-size:12px;font-weight:600;border:0;border-radius:999px;padding:6px 10px;cursor:pointer;background:var(--paper)}
 .mini.af{background:var(--a-t)}.mini.ng{background:var(--b-t)}
 .docket{display:grid;gap:6px}
@@ -125,10 +127,57 @@ tr.next td{background:#fbf3cf}
 /* flow */
 .flowbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:var(--gap)}
 .flow{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,1fr);gap:8px;overflow-x:auto;padding-bottom:8px}
-.col{background:var(--card);border-radius:18px;padding:10px;display:grid;grid-template-rows:auto 1fr;gap:6px;min-height:62vh}
-.col h3{font:800 15px/1.1 var(--display);letter-spacing:-.01em;display:flex;justify-content:space-between;gap:6px}
-.col.sd0 h3{color:var(--a)}.col.sd1 h3{color:var(--b)}
-.col textarea{border:0;background:var(--paper);border-radius:12px;resize:none;font-size:14px;line-height:1.45;padding:10px;height:100%;min-height:52vh}
+.col{background:var(--card);border-radius:18px;padding:10px;display:grid;grid-template-rows:auto auto 1fr;gap:6px;min-height:62vh}
+.col h3{font:800 15px/1.1 var(--display);letter-spacing:-.01em;display:flex;justify-content:space-between;gap:6px;align-items:baseline}
+.col.sd0 h3{color:var(--a)}.col.sd1 h3{color:var(--b)}.col.sd2 h3{color:var(--n)}
+.col.cx{background:transparent;box-shadow:inset 0 0 0 1.5px var(--line)}
+.ctools{display:flex;gap:4px;flex-wrap:wrap}
+.ctools button{font:600 11px var(--body);border:0;border-radius:999px;padding:5px 9px;background:var(--paper);color:var(--ink2);cursor:pointer}
+.ctools button:hover{color:var(--ink)}.ctools button:disabled{opacity:.4;cursor:default}
+.cell{position:relative;background:var(--paper);border-radius:12px;min-height:52vh}
+.cell textarea,.cell .mirror{font:14px/20px var(--body);letter-spacing:normal;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal;tab-size:4;box-sizing:border-box}
+.cell textarea{position:relative;z-index:1;display:block;border:0;border-radius:12px;background:transparent!important;resize:none;overflow:hidden;margin-left:22px;width:calc(100% - 22px);padding:10px 10px 10px 6px;min-height:52vh;color:var(--ink)}
+html[data-theme=dark] .cell textarea{background:transparent!important}
+.cell textarea:focus{outline:none}.cell:focus-within{outline:2px solid var(--ink);outline-offset:1px}
+.mirror{position:absolute;inset:0;padding:10px 10px 10px 28px;color:transparent;overflow:hidden;border-radius:12px;user-select:none}
+.ln{position:relative;min-height:20px;margin:0 -10px 0 -28px;padding:0 10px 0 28px;cursor:pointer}
+.ln::before{content:'';position:absolute;left:8px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--ink3);opacity:.45}
+.ln.ta{background:var(--a-t);box-shadow:inset 3px 0 0 var(--a)}.ln.ta::before{background:var(--a);opacity:1}
+.ln.tb{background:var(--b-t);box-shadow:inset 3px 0 0 var(--b)}.ln.tb::before{background:var(--b);opacity:1}
+.ln.ti{background:var(--butter);box-shadow:inset 3px 0 0 var(--warn)}.ln.ti::before{background:var(--warn);opacity:1}
+.ln.dd{text-decoration:line-through;text-decoration-color:var(--ink2);text-decoration-thickness:2px;background-image:linear-gradient(#80808022,#80808022)}
+.col.flash .cell{animation:cellflash 1s ease-out}
+@keyframes cellflash{0%{box-shadow:0 0 0 3px var(--n)}100%{box-shadow:0 0 0 3px transparent}}
+.flowhint{font-size:13px;color:var(--ink2);margin-top:6px}
+.flowhint i{display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle;margin-right:2px}
+.flist{background:var(--card);border-radius:18px;padding:4px 14px;margin-bottom:var(--gap)}
+.flist summary{cursor:pointer;font-weight:600;font-size:14px;padding:10px 0;list-style:none;display:flex;justify-content:space-between;gap:8px}
+.flist summary::-webkit-details-marker{display:none}
+.flist summary::after{content:'▾';color:var(--ink2)}.flist[open] summary::after{content:'▴'}
+.flist .fls{display:grid;gap:4px;padding-bottom:10px;max-height:300px;overflow:auto}
+.flist .fl1{display:grid;grid-template-columns:1fr auto;gap:2px 10px;text-align:left;border:0;background:var(--paper);border-radius:12px;padding:8px 10px;font:inherit;color:var(--ink);cursor:pointer;min-width:0}
+.flist .fl1.cur{box-shadow:inset 3px 0 0 var(--ink)}
+.flist .fl1 b{font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.flist .fl1 small{color:var(--ink2);font-size:12px;white-space:nowrap}
+.flist .fl1 .prev{grid-column:1/-1;font-size:13px;color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.printhead{display:none}
+@media print{
+  :root,html[data-theme=dark]{--paper:#fff;--card:#fff;--ink:#000;--ink2:#333;--ink3:#777;--line:#bbb;--a:#1a3fa0;--b:#a02a28;--a-t:#e6edfb;--b-t:#fbe6e1;--n:#1e3a2c;--n-t:#e3eedb;--warn:#8a5200;--butter:#fbf0c4}
+  @page{size:landscape;margin:10mm}
+  html,body{background:#fff!important;color:#000}
+  header.nav,footer.foot-site,.back,.top,.flowbar,.flist,.flowhint,.ctools,#site-toast,#kvbar,.site-ui{display:none!important}
+  main.pg{padding:0}
+  .printhead{display:block;font:800 18px/1.2 var(--display);margin:0 0 8px}
+  .printhead small{font:400 12px var(--body);color:#333;margin-left:8px}
+  .flow{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px;overflow:visible;padding:0}
+  .col,.col.cx{min-height:0;border:1px solid #999;border-radius:6px;padding:6px;break-inside:avoid;background:#fff;grid-template-rows:auto 1fr;box-shadow:none}
+  .col h3{font-size:12px;color:#000}
+  .cell{min-height:0;background:#fff}
+  .cell textarea{display:none}
+  .mirror{position:static;color:#000;font-size:11px;line-height:15px;padding:4px 2px 4px 16px;overflow:visible}
+  .ln{min-height:15px;margin:0 -2px 0 -16px;padding:0 2px 0 16px;break-inside:avoid}.ln::before{top:4px;left:3px;width:7px;height:7px}
+  .ln.dd{text-decoration-color:#000;color:#555}
+}
 
 /* topics */
 .prompt{background:var(--forest);color:var(--forest-ink);border-radius:var(--r);padding:28px;display:grid;gap:14px;min-height:220px;align-content:center;position:relative;overflow:hidden;isolation:isolate}
@@ -184,15 +233,104 @@ tr.next td{background:#fbf3cf}
 .cbody2{color:var(--ink2)}.cbody2 u{color:var(--ink);font-size:15px}
 .btn.danger{background:#fef3f2;color:#b42318}
 code{background:var(--paper);padding:1px 6px;border-radius:6px;font-size:.9em}
+/* judge view (always dark: it sits on the judge's desk) */
+.judge{position:fixed;inset:0;z-index:96;display:grid;grid-template-rows:auto 1fr auto;background:#111310;color:#E9ECE4;cursor:pointer;user-select:none;--jside:#A8D59A;padding:calc(env(safe-area-inset-top,0px) + 14px) 18px calc(env(safe-area-inset-bottom,0px) + 14px)}
+.judge.sd0{--jside:#8FB0F5}.judge.sd1{--jside:#F09A8E}
+.judge .jtop{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+.judge .jcode{font:800 clamp(28px,6vw,56px)/1 var(--display);color:var(--jside)}
+.judge .jname{font-size:clamp(15px,2.4vw,24px);color:#B8BDB3;flex:1;min-width:140px}
+.judge .jx{font:600 14px var(--body);border:0;border-radius:999px;padding:10px 16px;background:#2A2E28;color:#E9ECE4;cursor:pointer}
+.judge .jmid{display:grid;place-items:center;align-content:center;gap:6px;min-height:0}
+.judge .jdig{font:800 min(38vw,42vh)/.9 var(--display);font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:#E9ECE4}
+.judge .jdig.warn{color:#E5A33A}.judge .jdig.over{color:#F0695F;animation:pulse 1s steps(2,start) infinite}
+.judge .jsub{font-size:clamp(14px,2vw,20px);color:#B8BDB3;text-align:center}
+.judge .jbot{display:grid;grid-template-columns:auto 1fr 1fr auto;gap:10px;align-items:stretch}
+.judge .jprep{border:0;border-radius:18px;padding:12px 14px;display:grid;gap:2px;text-align:left;font:inherit;color:#E9ECE4;background:#1F2F4A;cursor:pointer}
+.judge .jprep.sd1{background:#43261F}
+.judge .jprep b{font:700 clamp(26px,5vw,40px)/1 var(--display);font-variant-numeric:tabular-nums}
+.judge .jprep span{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#B8BDB3}
+.judge .jprep.on{outline:3px solid #E5A33A;outline-offset:-3px}
+.judge .jnav{border:0;border-radius:18px;background:#2A2E28;color:#E9ECE4;font-size:22px;padding:0 16px;cursor:pointer}
+.judge .jnav:disabled{opacity:.35}
+@media (max-width:520px){.judge .jbot{grid-template-columns:1fr 1fr}.judge .jnav{display:none}}
+@media (prefers-reduced-motion:reduce){.judge .jdig.over{animation:none}}
+/* argument sprint */
+.coin{width:120px;height:120px;border-radius:50%;margin:6px auto;display:grid;place-items:center;font:800 34px/1 var(--display);color:#141613;background:var(--butter);transform-style:preserve-3d;transition:transform .2s}
+.coin.flip{animation:coinflip 1.3s cubic-bezier(.3,.6,.4,1) forwards}
+@keyframes coinflip{from{transform:rotateX(0)}to{transform:rotateX(1800deg)}}
+@media (prefers-reduced-motion:reduce){.coin.flip{animation:none}}
+.coin.sd0{background:var(--a-t);color:var(--a)}.coin.sd1{background:var(--b-t);color:var(--b)}
+.sprint{display:grid;gap:12px}
+.sprint .sdig{font:800 clamp(56px,12vw,96px)/1 var(--display);font-variant-numeric:tabular-nums;text-align:center}
+.sprint .sdig.warn{color:var(--warn)}
+.sprint textarea{width:100%;resize:vertical;min-height:64px}
+.sprint textarea[readonly]{background:var(--paper)}
+.sprint ol{margin:0;padding-left:22px;display:grid;gap:8px;line-height:1.45;overflow-wrap:anywhere}
+.sideword{font:800 clamp(28px,5vw,44px)/1 var(--display);text-align:center}
+.sideword.sd0{color:var(--a)}.sideword.sd1{color:var(--b)}
+/* speaker-point rubric */
+.rub{display:flex;flex-wrap:wrap;gap:4px}
+.rub button{font:600 13px var(--body);border:0;border-radius:999px;padding:6px 9px;background:var(--card);color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums}
+.rub button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.rubnote{font-size:12px;color:var(--ink2);min-height:1.2em}
+/* card cutter + extemp pad */
+.cut{display:grid;gap:8px}
+.cut summary{cursor:pointer;font-weight:600;font-size:14px;padding:4px 0}
+.cut .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:520px){.cut .two{grid-template-columns:1fr}}
+.pad{display:grid;gap:8px}
+.pad input,.pad textarea{width:100%}
+.pad .pt{display:grid;gap:6px;background:var(--paper);border-radius:14px;padding:10px}
+.pad .pt b{font:800 13px var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.pad textarea{resize:vertical;min-height:56px}
+.readtime{font-size:12px;color:var(--ink2)}
+/* round timer: speech order strip, totals, overtime flash */
+.strip{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
+.sch{font:800 12px/1 var(--display);border:0;border-radius:999px;padding:7px 9px;background:var(--paper);color:var(--ink2);cursor:pointer;font-variant-numeric:tabular-nums}
+.sch.sd0{color:var(--a)}.sch.sd1{color:var(--b)}.sch.sd2{color:var(--n)}
+.sch.done{opacity:.45;text-decoration:line-through}
+.sch.cur{background:var(--ink);color:var(--paper);opacity:1;text-decoration:none;outline:2px solid var(--side);outline-offset:1px}
+.sch.cur.ot{background:var(--over);color:#fff;outline-color:var(--over)}
+.tot{text-align:center;font-size:13px;color:var(--ink2);font-variant-numeric:tabular-nums}
+.clock.overt{box-shadow:inset 0 0 0 3px var(--over)}
+.clock.flash{animation:redflash 1.2s ease-out}
+@keyframes redflash{0%{background:var(--over)}100%{background:var(--card)}}
+@media (prefers-reduced-motion:reduce){.clock.flash{animation:none}}
+/* congress: questioning queue + motions */
+.qnow{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;background:var(--n-t);border-radius:14px;padding:10px 12px}
+.qnow b{font:800 30px/1 var(--display);font-variant-numeric:tabular-nums}
+.qnow b.warn{color:var(--warn)}.qnow b.over{color:var(--over)}
+.qnow .qn{font-weight:600;overflow-wrap:anywhere}
+.queue{display:grid;gap:4px}
+.qi{display:flex;gap:8px;align-items:center;background:var(--paper);border-radius:12px;padding:6px 6px 6px 12px;font-size:14px}
+.qi span{flex:1;min-width:0;overflow-wrap:anywhere}.qi small{color:var(--ink2);font-variant-numeric:tabular-nums}
+.mini.on{background:var(--ink);color:var(--paper)}
+.motions summary{cursor:pointer;font:800 24px/1.2 var(--display);letter-spacing:-.03em;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.motions summary::-webkit-details-marker{display:none}
+.motions summary::after{content:'▾';font:600 16px var(--body);color:var(--ink2)}.motions[open] summary::after{content:'▴'}
+.motions table{font-size:13px}.motions td{padding:6px 5px}.motions td:first-child{font-weight:600}
+.motions .y{color:var(--n);font-weight:700}.motions .nn{color:var(--ink3)}
+.motions .grp td{background:var(--paper);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);font-weight:600;border-top:0}
+/* my topics */
+.mt{display:grid;gap:8px}.mt textarea{width:100%;resize:vertical;min-height:64px}
+.mtl{display:grid;gap:4px}.mti{display:flex;gap:8px;align-items:center;background:var(--paper);border-radius:12px;padding:6px 6px 6px 12px;font-size:14px}
+.mti span{flex:1;min-width:0;overflow-wrap:anywhere}.mti code{flex:none}
+/* drill stats */
+.spark{display:block;width:100%;height:64px;overflow:visible}
+.spark .base{stroke:var(--line);stroke-width:1}
+.spark .ref{stroke:var(--ink3);stroke-width:1;stroke-dasharray:3 3}
+.spark .lnk{stroke:var(--ink);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.spark .pt{fill:var(--ink);stroke:var(--card);stroke-width:2}
+.spark text{font:600 10px var(--body);fill:var(--ink2)}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
-<script src="/lib/gate.js?v=20261001"></script>
+<script src="/lib/gate.js?v=20261007"></script>
 </head>
 <body data-page="tools">
 <main class="wrap pg" id="app"></main>
-<script src="/assets/site.js?v=20261006"></script>
+<script src="/assets/site.js?v=20261009"></script>
 <script>
 const $=id=>document.getElementById(id);
 const E=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -264,14 +402,15 @@ function round(key){
   app.innerHTML=`
     <a class="back" href="#/">← Speech &amp; Debate</a>
     <div class="top"><div><h1>${F.name}</h1><p class="sub">${F.note}${key==='ld'?' · <a href="/ldtimer/" style="text-decoration:underline">Classic LD Timer</a>':''}</p></div>
-      <div class="row"><button class="btn sm ghost" id="newround">New round</button></div></div>
+      <div class="row"><button class="btn sm" id="judge">Judge view ⛶</button><button class="btn sm ghost" id="newround">New round</button></div></div>
     <div class="rt">
       <div class="clock" id="clock">
         <div class="now"><span class="code" id="code"></span><span class="name" id="name"></span><span class="pchip" id="pchip" hidden>Prep</span></div>
         <div class="digits" id="digits">0:00</div><div class="csub" id="csub"></div>
         <div class="ctl"><button class="btn sm ghost" id="prev" aria-label="Previous speech">←</button><button class="btn go" id="go">Start</button><button class="btn sm ghost" id="reset">Reset</button><button class="btn sm ghost" id="next" aria-label="Next speech">→</button></div>
+        <div class="strip" id="strip" aria-label="Speech order"></div><div class="tot" id="tot"></div>
         <div class="preps"><button class="prep sd0" id="prep0"><span>${sideName(0)} prep</span><b>0:00</b></button><button class="prep sd1" id="prep1"><span>${sideName(1)} prep</span><b>0:00</b></button></div>
-        <p class="small" style="text-align:center">Space: start/pause · ← →: speeches · A / B: prep</p>
+        <p class="small" style="text-align:center">Space: start/pause · ← →: speeches · A / B: prep · J: judge view</p>
       </div>
       <div class="panel" style="display:grid;gap:var(--gap)">
         <div class="box"><h2>Round</h2><div class="list" id="list"></div></div>
@@ -279,29 +418,78 @@ function round(key){
           <div class="names"><input id="n0" value="${E(S.names[0])}" aria-label="First side name" maxlength="20">${F.swap?'<button id="swap" title="Swap who speaks first">⇄</button>':'<span class="small">vs</span>'}<input id="n1" value="${E(S.names[1])}" aria-label="Second side name" maxlength="20"></div>
           ${F.swap?'<p class="small">The left team speaks first. Use ⇄ after the coin flip.</p>':''}
           <label class="setrow">Prep per side (minutes)<input id="pm" type="number" min="0" max="20" step="0.5" value="${S.prepMin}"></label>
+          <label class="setrow">Grace after time<select id="gr" aria-label="Grace period">${[0,5,10].map(g=>`<option value="${g}"${g===store.get('roundGrace',0)?' selected':''}>${g?g+' s':'None'}</option>`).join('')}</select></label>
           <label class="check"><input type="checkbox" id="snd" ${store.get('sound',true)?'checked':''}> Beep at 30 seconds and at time</label>
+          <p class="small">With a grace period the clock turns orange for those seconds, then flashes red once the speaker is really over.</p>
         </div>
       </div>
     </div>`;
   const sp=()=>F.speeches[S.idx];
+  const grace=()=>+store.get('roundGrace',0)||0;
+  const total=F.speeches.reduce((a,s)=>a+s[3],0);
+  let wasOver=false,stripHTML='';
   function draw(){
-    const s=sp(),side=s[2];
-    $('clock').className='clock sd'+(run===0||run===1?run:side);
-    $('code').textContent=run===0||run===1?S.names[run]:s[0];
-    $('name').textContent=run===0||run===1?'Prep time':(side===2?s[1]:S.names[side]+' · '+s[1]);
-    $('pchip').hidden=!(run===0||run===1);
-    const t=run===0||run===1?S.prep[run]:S.left[S.idx];
-    const d=$('digits');d.textContent=run===0||run===1?fmtTc(t):(t<0?fmtT(t):fmtTc(t));
-    d.className='digits'+(t<=0&&run==='speech'?' over':t<=0&&!run?' over':t<=30&&t>0?' warn':'');
-    $('csub').textContent=run==='speech'?'Speaking':run===0||run===1?'Prep running · speech clock paused':S.left[S.idx]<s[3]?'Paused':'Ready';
+    const s=sp(),side=s[2],g=grace();
+    const pr=run===0||run===1;
+    const t=pr?S.prep[run]:S.left[S.idx];
+    const over=!pr&&t<=-g,inGrace=!pr&&t<=0&&!over;
+    const ck=$('clock');ck.className='clock sd'+(pr?run:side)+(over?' overt':'')+(ck.classList.contains('flash')?' flash':'');
+    $('code').textContent=pr?S.names[run]:s[0];
+    $('name').textContent=pr?'Prep time':(side===2?s[1]:S.names[side]+' · '+s[1]);
+    $('pchip').hidden=!pr;
+    const d=$('digits');d.textContent=pr?fmtTc(t):(t<0?fmtT(t):fmtTc(t));
+    d.className='digits'+(over?' over':inGrace?' grace':t<=30&&t>0?' warn':'');
+    $('csub').textContent=over?'Over time':inGrace?'Grace period':run==='speech'?'Speaking':pr?'Prep running · speech clock paused':S.left[S.idx]<s[3]?'Paused':'Ready';
     $('go').textContent=run?'Pause':'Start';
     [0,1].forEach(i=>{const b=$('prep'+i);b.querySelector('b').textContent=fmtTc(S.prep[i]);b.classList.toggle('on',run===i);b.classList.toggle('out',S.prep[i]<=0)});
     $('list').innerHTML=F.speeches.map((x,i)=>`<button class="sp sd${x[2]} ${i===S.idx?'cur':''} ${S.left[i]<=0||i<S.idx&&S.left[i]<x[3]?'done':''}" data-i="${i}"><code>${x[0]}</code><span>${x[2]===2?E(x[1]):sideName(x[2])+' · '+E(x[1])}</span><small>${S.left[i]===x[3]?fmtTc(x[3]):fmtT(S.left[i])}</small></button>`).join('');
+    const strip=F.speeches.map((x,i)=>`<button class="sch sd${x[2]}${i===S.idx?' cur':''}${i===S.idx&&over?' ot':''}${i!==S.idx&&(S.left[i]<=0||i<S.idx&&S.left[i]<x[3])?' done':''}" data-i="${i}" title="${E(x[1])}">${E(x[0])}</button>`).join('');
+    if(strip!==stripHTML){stripHTML=strip;$('strip').innerHTML=strip}   // only rebuild the chips when they change, so a slow tap on one is not lost mid-tick
+    const el=F.speeches.reduce((a,x,i)=>a+Math.max(0,x[3]-S.left[i]),0),rem=S.left.reduce((a,l)=>a+Math.max(0,l),0);
+    $('tot').textContent=`${fmtT(el)} elapsed · ${fmtT(rem)} left of ${fmtT(total)}`;
     $('prev').disabled=S.idx===0;$('next').disabled=S.idx===F.speeches.length-1;
+    if(over&&!wasOver&&run==='speech'){ck.classList.add('flash');setTimeout(()=>ck.classList.remove('flash'),1300)}
+    wasOver=over;
+    drawJudge();
   }
+  /* judge view: one dark full screen with the clock, the speech and both prep clocks */
+  let JV=null,jvPushed=false,jvPop=false;  // jvPop: our own history.back() is still in flight (its popstate must not close a freshly reopened view)
+  function drawJudge(){
+    if(!JV)return;const s=sp(),side=s[2],pr=run===0||run===1;
+    JV.className='judge sd'+(pr?run:side);
+    JV.querySelector('.jcode').textContent=pr?S.names[run]:s[0];
+    JV.querySelector('.jname').textContent=pr?'Prep time':(side===2?s[1]:S.names[side]+' · '+s[1]);
+    const t=pr?S.prep[run]:S.left[S.idx],d=JV.querySelector('.jdig'),g=grace();
+    d.textContent=pr?fmtTc(t):(t<0?fmtT(t):fmtTc(t));
+    d.className='jdig'+(t<=-g||pr&&t<=0?' over':t<=0||t<=30&&t>0?' warn':'');
+    JV.querySelector('.jsub').textContent=!pr&&t<=0&&t>-g?'Grace period · tap to pause':run==='speech'?'Speaking · tap to pause':pr?'Prep running · tap a prep clock to stop':(S.left[S.idx]<s[3]?'Paused · tap to resume':'Tap to start');
+    [0,1].forEach(i=>{const b=JV.querySelector('#jp'+i);b.querySelector('b').textContent=fmtTc(S.prep[i]);b.querySelector('span').textContent=S.names[i]+' prep';b.classList.toggle('on',run===i)});
+    JV.querySelector('#jprev').disabled=S.idx===0;JV.querySelector('#jnext').disabled=S.idx===F.speeches.length-1;
+  }
+  function openJudge(){
+    if(JV)return;JV=document.createElement('div');JV.className='judge';JV.setAttribute('role','dialog');JV.setAttribute('aria-label','Judge view');
+    JV.innerHTML=`<div class="jtop"><span class="jcode"></span><span class="jname"></span><button class="jx" id="jexit">Exit</button></div>
+      <div class="jmid"><div class="jdig">0:00</div><div class="jsub"></div></div>
+      <div class="jbot"><button class="jnav" id="jprev" aria-label="Previous speech">←</button><button class="jprep sd0" id="jp0"><span></span><b></b></button><button class="jprep sd1" id="jp1"><span></span><b></b></button><button class="jnav" id="jnext" aria-label="Next speech">→</button></div>`;
+    document.body.append(JV);
+    JV.onclick=e=>{const b=e.target.closest('button');if(!b){$('go').click();return}
+      if(b.id==='jexit')closeJudge();else if(b.id==='jprev')$('prev').click();else if(b.id==='jnext')$('next').click();else if(b.id==='jp0')$('prep0').click();else if(b.id==='jp1')$('prep1').click()};
+    try{if(JV.requestFullscreen)JV.requestFullscreen().catch(()=>{})}catch(e){}
+    try{history.pushState({judge:1},'',location.href);jvPushed=true}catch(e){}
+    wakeLock(true);drawJudge();
+  }
+  function closeJudge(){
+    if(!JV)return;JV.remove();JV=null;
+    try{if(document.fullscreenElement)document.exitFullscreen().catch(()=>{})}catch(e){}
+    if(jvPushed){jvPushed=false;try{jvPop=true;history.back()}catch(e){jvPop=false}}
+    if(!run)wakeLock(false);
+  }
+  const onPop=()=>{if(jvPop){jvPop=false;return}if(JV){jvPushed=false;closeJudge()}};
+  const onFS=()=>{if(JV&&!document.fullscreenElement)closeJudge()};
+  addEventListener('popstate',onPop);document.addEventListener('fullscreenchange',onFS);
   function loop(){
     const now=performance.now(),dt=(now-last)/1000;last=now;
-    if(run==='speech'){const b=S.left[S.idx];S.left[S.idx]-=dt;if(b>30&&S.left[S.idx]<=30)beep(1);if(b>0&&S.left[S.idx]<=0)beep(3)}
+    if(run==='speech'){const b=S.left[S.idx],g=grace();S.left[S.idx]-=dt;if(b>30&&S.left[S.idx]<=30)beep(1);if(b>0&&S.left[S.idx]<=0)beep(g?2:3);if(g&&b>-g&&S.left[S.idx]<=-g)beep(3)}
     else if(run===0||run===1){const b=S.prep[run];S.prep[run]=Math.max(0,S.prep[run]-dt);if(b>0&&S.prep[run]<=0){beep(2);stop()}}
     save();draw();
   }
@@ -312,17 +500,22 @@ function round(key){
   $('prev').onclick=()=>{stop();S.idx=Math.max(0,S.idx-1);save();draw()};
   $('next').onclick=()=>{stop();S.idx=Math.min(F.speeches.length-1,S.idx+1);save();draw()};
   [0,1].forEach(i=>$('prep'+i).onclick=()=>{if(run===i)return stop();if(S.prep[i]<=0)return;stop();start(i)});
-  $('list').onclick=e=>{const b=e.target.closest('[data-i]');if(!b)return;stop();S.idx=+b.dataset.i;save();draw()};
+  $('list').onclick=$('strip').onclick=e=>{const b=e.target.closest('[data-i]');if(!b)return;stop();S.idx=+b.dataset.i;save();draw()};
+  $('gr').onchange=()=>{store.set('roundGrace',+$('gr').value||0);draw()};
   $('newround').onclick=e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to reset all clocks';setTimeout(()=>{delete e.target.dataset.armed;e.target.textContent='New round'},3000);return}
-    stop();S.idx=0;S.left=F.speeches.map(s=>s[3]);S.prep=[S.prepMin*60,S.prepMin*60];save();round(key)};
+    stop();S.idx=0;S.left=F.speeches.map(s=>s[3]);S.prep=[S.prepMin*60,S.prepMin*60];save();teardown();cleanup=round(key)};
+  $('judge').onclick=openJudge;
   $('pm').onchange=()=>{const m=Math.max(0,Math.min(20,+$('pm').value||0));const d=m*60-S.prepMin*60;S.prepMin=m;S.prep=S.prep.map(p=>Math.max(0,p+d));save();draw()};
   ['n0','n1'].forEach((id,i)=>$(id).oninput=()=>{S.names[i]=$(id).value.trim()||F.sides[i];save();draw();$('prep'+i).querySelector('span').textContent=S.names[i]+' prep'});
   if($('swap'))$('swap').onclick=()=>{S.names.reverse();$('n0').value=S.names[0];$('n1').value=S.names[1];[0,1].forEach(i=>$('prep'+i).querySelector('span').textContent=S.names[i]+' prep');save();draw()};
   $('snd').onchange=()=>store.set('sound',$('snd').checked);
   keys=e=>{if(e.target.matches('input,textarea,select'))return;
     if(e.code==='Space'){e.preventDefault();$('go').click()}else if(e.key==='ArrowRight')$('next').click();else if(e.key==='ArrowLeft')$('prev').click();
-    else if(/^[aA]$/.test(e.key))$('prep0').click();else if(/^[bB]$/.test(e.key))$('prep1').click()};
+    else if(/^[aA]$/.test(e.key))$('prep0').click();else if(/^[bB]$/.test(e.key))$('prep1').click();
+    else if(/^[jJ]$/.test(e.key)){JV?closeJudge():openJudge()}else if(e.key==='Escape'&&JV)closeJudge()};
+  function teardown(){if(JV){JV.remove();JV=null;jvPushed=false}jvPop=false;removeEventListener('popstate',onPop);document.removeEventListener('fullscreenchange',onFS)}
   draw();
+  return teardown;
 }
 
 /* ── speech events ────────────────────────────────── */
@@ -346,6 +539,13 @@ function speech(key){
         <div class="ctl"><button class="btn go" id="go">Start</button>${V.prep||V.shared?'<button class="btn sm ghost" id="phase">Start speech now</button>':''}<button class="btn sm ghost" id="reset">Reset</button><button class="btn sm ghost" id="sig">Hand signals ⛶</button></div>
         <p class="small" style="text-align:center">Space: start/pause · F: hand signals</p>
       </div>
+      <div style="display:grid;gap:var(--gap);min-width:0">
+      ${key==='extemp'?`<div class="box pad" id="pad"><div class="row" style="justify-content:space-between"><h2>Prep pad</h2><button class="btn sm ghost" id="padclear">Clear</button></div>
+        <p class="small" style="margin:0">Your outline for this question. Saved on this device.</p>
+        <div class="row"><input id="xq" placeholder="The question" maxlength="200" style="flex:1"><button class="btn sm ghost" id="xrand" title="Random practice question">Random</button></div>
+        <input id="xa" placeholder="Your answer in one sentence" maxlength="200">
+        ${[1,2,3].map(i=>`<div class="pt"><b>Point ${i}</b><textarea id="xp${i}" rows="2" placeholder="What's the point?" maxlength="600"></textarea><input id="xs${i}" placeholder="Source (publication, date)" maxlength="120"></div>`).join('')}
+        <div class="small" id="xcount"></div></div>`:''}
       <div class="box"><h2>Settings</h2>
         ${V.prep?`<label class="setrow">Prep (minutes)<input id="cp" type="number" min="0" max="60" value="${cfg.prep/60}"></label>`:''}
         <label class="setrow">${V.shared?'Total time':'Speech'} (minutes)<input id="cs" type="number" min="1" max="30" step="0.5" value="${cfg.speak/60}"></label>
@@ -353,7 +553,19 @@ function speech(key){
         <label class="check"><input type="checkbox" id="snd" ${store.get('sound',true)?'checked':''}> Beep at each minute signal and at time</label>
         <p class="small">Hand signals show whole minutes left, then “30”, then GRACE and STOP. Tap the full-screen card to close it.</p>
       </div>
+      </div>
     </div>`;
+  if(key==='extemp'){
+    const IDS=['xq','xa','xp1','xs1','xp2','xs2','xp3','xs3'];
+    const P=Object.assign({},store.get('extemp',{}));
+    IDS.forEach(id=>{$(id).value=P[id]||''});
+    const count=()=>{const n=[1,2,3].filter(i=>($('xs'+i).value||'').trim()).length,pts=[1,2,3].filter(i=>($('xp'+i).value||'').trim()).length;$('xcount').textContent=`${pts} of 3 points · ${n} source${n===1?'':'s'} cited${n<3?' · judges want a source for every point':''}`};
+    IDS.forEach(id=>$(id).oninput=()=>{P[id]=$(id).value;store.set('extemp',P);count()});
+    $('xrand').onclick=()=>{const L=TOPICS.extemp;$('xq').value=L[Math.floor(Math.random()*L.length)];$('xq').dispatchEvent(new Event('input'))};
+    $('padclear').onclick=e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to clear';setTimeout(()=>{delete e.target.dataset.armed;e.target.textContent='Clear'},3000);return}
+      IDS.forEach(id=>{$(id).value='';delete P[id]});store.set('extemp',{});delete e.target.dataset.armed;e.target.textContent='Clear';count()};
+    count();
+  }
   const total=()=>V.shared?cfg.speak:phase==='prep'?cfg.prep:cfg.speak;
   function signalText(){
     if(left>0){if(left<=30)return '30';return String(Math.ceil(left/60))}
@@ -392,13 +604,30 @@ function speech(key){
 }
 
 /* ── congress ─────────────────────────────────────── */
+/* NSDA Congressional Debate table of most frequently used parliamentary motions, in order of precedence.
+   [motion, second?, debatable?, amendable?, vote, may interrupt a speaker?] */
+const MOTIONS=[
+  ['Privileged motions'],
+  ['Fix the time to which to adjourn',1,0,1,'Majority',0],['Adjourn',1,0,0,'Majority',0],['Recess',1,0,1,'Majority',0],
+  ['Rise to a question of privilege (personal privilege)',0,0,0,'Chair decides',1],['Call for the orders of the day',0,0,0,'None (a demand)',1],
+  ['Incidental motions'],
+  ['Appeal the decision of the chair',1,1,0,'Majority (tie upholds the chair)',1],['Rise to a point of order',0,0,0,'Chair decides',1],['Parliamentary inquiry',0,0,0,'Chair answers',1],
+  ['Suspend the rules',1,0,0,'2/3',0],['Object to the consideration of a question',0,0,0,'2/3 against',1],['Division of the house (counted vote)',0,0,0,'None (chair must comply)',1],
+  ['Withdraw a motion',0,0,0,'Majority if anyone objects',0],['Divide the question',1,0,1,'Majority',0],
+  ['Subsidiary motions'],
+  ['Lay on the table',1,0,0,'Majority',0],['Previous question (end debate, vote now)',1,0,0,'2/3',0],['Limit or extend debate',1,0,1,'2/3',0],
+  ['Postpone to a certain time',1,1,1,'Majority',0],['Refer to a committee',1,1,1,'Majority',0],['Amend',1,1,1,'Majority · 1/3 to consider',0],['Postpone indefinitely',1,1,0,'Majority',0],
+  ['Main motions'],
+  ['Main motion (the bill or resolution)',1,1,1,'Majority',0],['Take from the table',1,0,0,'Majority',0],['Reconsider',1,1,0,'Majority',1],['Rescind',1,1,1,'2/3, or majority with notice',0]];
 function congress(){
-  const C=store.get('congress',{people:[],bills:[],cur:0,log:[],order:0});
+  const C=store.get('congress',{people:[],bills:[],cur:0,log:[],order:0});if(!C.queue)C.queue=[];
   let mode=null,left=0,run=false,last=0,qLeft=0,phase='speech';
+  let qRun=false,qt=0,qName=null,ticking=false;   // 30-second clock for the questioner at the mic
+  const QSEC=30;
   const save=()=>store.set('congress',C);
   app.innerHTML=`
     <a class="back" href="#/">← Speech &amp; Debate</a>
-    <div class="top"><div><h1>Congress</h1><p class="sub">Speech and questioning timer, precedence and recency, and the docket.</p></div></div>
+    <div class="top"><div><h1>Congress</h1><p class="sub">Speech and questioning timer, precedence and recency, the docket, and the motions table.</p></div></div>
     <div class="cg">
       <div style="display:grid;gap:var(--gap)">
         <div class="clock sd2" id="clock">
@@ -407,18 +636,31 @@ function congress(){
           <div class="ctl"><button class="btn sm ghost" id="auth">Authorship / sponsorship<br><small>3:00 + 2:00 Q</small></button><button class="btn sm ghost" id="reg">Speech<br><small>3:00 + 1:00 Q</small></button></div>
           <div class="ctl"><button class="btn go" id="go" disabled>Start</button><button class="btn sm ghost" id="toq" hidden>Start questioning</button><button class="btn sm ghost" id="reset">Reset</button></div>
         </div>
+        <div class="box"><div class="row" style="justify-content:space-between;align-items:baseline"><h2>Questioning queue</h2><span class="small">${QSEC} s per questioner</span></div>
+          <p class="small" style="margin:0">Tap Q next to a name to queue them. Recognize whoever is next and their ${QSEC}-second clock starts.</p>
+          <div id="qnow"></div><div class="queue" id="queue"></div></div>
         <div class="box"><div class="row" style="justify-content:space-between"><h2>Docket</h2></div>
           <div class="row"><input id="bill" placeholder="Add a bill or resolution" maxlength="120" style="flex:1"><button class="btn sm" id="addbill">Add</button></div>
           <div class="docket" id="docket"></div>
           <div><b style="font-size:13px">Speeches on this bill</b><div class="log" id="log"></div></div>
         </div>
       </div>
+      <div style="display:grid;gap:var(--gap)">
       <div class="box"><div class="row" style="justify-content:space-between"><h2>Precedence</h2><button class="btn sm ghost" id="clear">Reset session</button></div>
-        <p class="small">Add everyone in the chamber. The highlighted row has priority: fewest speeches first, then whoever spoke longest ago. Tap Aff or Neg when someone gives a speech, Q when they ask a question.</p>
+        <p class="small">Add everyone in the chamber. The highlighted row has priority: fewest speeches first, then whoever spoke longest ago. Tap Aff or Neg when someone gives a speech, Q to put them in the questioning queue. The Q column counts how many times they were recognized.</p>
         <div class="row"><textarea id="ppl" rows="2" placeholder="Names, one per line" style="flex:1;min-height:0"></textarea><button class="btn sm" id="addppl">Add</button></div>
         <div style="overflow-x:auto"><table><thead><tr><th>Name</th><th>Sp.</th><th>Q</th><th>Last</th><th></th></tr></thead><tbody id="ptable"></tbody></table></div>
       </div>
+      <details class="box motions" id="motions"${store.get('congressMotions',false)?' open':''}><summary>Motions cheat-sheet</summary>
+        <p class="small" style="margin:0">The NSDA Congress table, highest precedence first. “Interrupt” means the motion may interrupt a speaker.</p>
+        <div style="overflow-x:auto"><table><thead><tr><th>Motion</th><th>2nd</th><th>Debat.</th><th>Amend.</th><th>Vote</th><th>Interrupt</th></tr></thead><tbody>
+          ${MOTIONS.map(m=>m.length===1?`<tr class="grp"><td colspan="6">${E(m[0])}</td></tr>`:`<tr><td>${E(m[0])}</td>${[m[1],m[2],m[3]].map(v=>`<td class="n">${v?'<span class="y">Yes</span>':'<span class="nn">No</span>'}</td>`).join('')}<td>${E(m[4])}</td><td class="n">${m[5]?'<span class="y">Yes</span>':'<span class="nn">No</span>'}</td></tr>`).join('')}
+        </tbody></table></div>
+        <p class="small" style="margin:0">Previous question needs two-thirds. Amendments need a second and one-third of the chamber to be considered, then a majority to pass. A point of personal privilege and a point of order never need a second.</p>
+      </details>
+      </div>
     </div>`;
+  $('motions').ontoggle=()=>store.set('congressMotions',$('motions').open);
   function drawClock(){
     const d=$('digits');
     $('code').textContent=mode?(phase==='speech'?'Speech':'Questioning'):'Ready';
@@ -429,19 +671,39 @@ function congress(){
     $('go').disabled=!mode;$('go').textContent=run?'Pause':'Start';
     $('toq').hidden=!(mode&&phase==='speech');
   }
-  function loop(){const now=performance.now(),dt=(now-last)/1000;last=now;const b=left;left-=dt;if(b>30&&left<=30)beep(1);if(b>0&&left<=0)beep(2);drawClock()}
-  const start=()=>{run=true;last=performance.now();tick(loop);wakeLock(true);drawClock()};
-  const stop=()=>{run=false;clearInterval(ticker);wakeLock(false);drawClock()};
+  function drawQueue(){
+    $('qnow').innerHTML=qName?`<div class="qnow"><div><span class="qn">${E(qName)}</span><div class="small">${qRun?(qt<0?'Over their '+QSEC+' seconds':'Asking'):'Paused'}</div></div><div class="row" style="align-items:center"><b class="${qt<0?'over':qt<=5?'warn':''}">${qt>=0?fmtTc(qt):fmtT(qt)}</b><button class="mini" id="qpause">${qRun?'Pause':'Resume'}</button><button class="mini" id="qdone">Done</button></div></div>`:'';
+    $('queue').innerHTML=C.queue.map((n,i)=>`<div class="qi"><small>${i+1}.</small><span>${E(n)}</span>${i===0?'<button class="mini af" data-rec="0">Recognize ▶</button>':''}<button class="mini" data-unq="${i}" aria-label="Remove from queue">✕</button></div>`).join('')||'<p class="small" style="margin:0">Nobody in the queue.</p>';
+  }
+  /* each tick only the digits and the status line change; rebuilding the buttons every 200 ms would swallow a slow tap on Pause or Done */
+  function tickQ(){const b=$('qnow').querySelector('b');if(!b)return drawQueue();b.className=qt<0?'over':qt<=5?'warn':'';b.textContent=qt>=0?fmtTc(qt):fmtT(qt);const s=$('qnow').querySelector('.small');if(s)s.textContent=qRun?(qt<0?'Over their '+QSEC+' seconds':'Asking'):'Paused'}
+  function sync(){if(run||qRun){if(!ticking){last=performance.now();tick(loop);ticking=true}wakeLock(true)}else{clearInterval(ticker);ticking=false;wakeLock(false)}}
+  function loop(){const now=performance.now(),dt=(now-last)/1000;last=now;
+    if(run){const b=left;left-=dt;if(b>30&&left<=30)beep(1);if(b>0&&left<=0)beep(2);drawClock()}
+    if(qRun){const b=qt;qt-=dt;if(b>5&&qt<=5)beep(1);if(b>0&&qt<=0)beep(2);tickQ()}}
+  const start=()=>{run=true;sync();drawClock()};
+  const stop=()=>{run=false;sync();drawClock()};
   const setMode=m=>{stop();mode=m;phase='speech';left=180;qLeft=m==='auth'?120:60;drawClock()};
   $('auth').onclick=()=>setMode('auth');$('reg').onclick=()=>setMode('reg');
   $('go').onclick=()=>run?stop():start();
   $('toq').onclick=()=>{phase='questioning';left=qLeft;start()};
   $('reset').onclick=()=>{stop();if(mode){phase='speech';left=180}drawClock()};
+  function recognize(i){
+    const n=C.queue.splice(i,1)[0];if(!n)return;
+    const p=C.people.find(x=>x.name===n);if(p)p.q++;
+    qName=n;qt=QSEC;qRun=true;save();sync();drawQueue();drawPeople();
+  }
+  $('queue').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+    if(b.dataset.rec!==undefined)recognize(+b.dataset.rec);
+    if(b.dataset.unq!==undefined){C.queue.splice(+b.dataset.unq,1);save();drawQueue();drawPeople()}};
+  $('qnow').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+    if(b.id==='qpause'){qRun=!qRun;sync();drawQueue()}
+    if(b.id==='qdone'){qRun=false;qName=null;sync();drawQueue()}};
   function drawPeople(){
     const ranked=C.people.map((p,i)=>({...p,i})).sort((a,b)=>a.sp-b.sp||(a.last||0)-(b.last||0)||a.i-b.i);
     const nextI=ranked.length?ranked[0].i:-1;
-    $('ptable').innerHTML=C.people.map((p,i)=>`<tr class="${i===nextI?'next':''}"><td>${E(p.name)}</td><td class="n">${p.sp}</td><td class="n">${p.q}</td><td class="n">${p.last?'#'+p.last:'–'}</td>
-      <td style="white-space:nowrap"><button class="mini af" data-sp="${i}" data-side="Aff">Aff</button> <button class="mini ng" data-sp="${i}" data-side="Neg">Neg</button> <button class="mini" data-q="${i}">Q</button> <button class="mini" data-rm="${i}" aria-label="Remove">✕</button></td></tr>`).join('')||'<tr><td colspan="5" class="small">No one added yet.</td></tr>';
+    $('ptable').innerHTML=C.people.map((p,i)=>{const qd=C.queue.includes(p.name);return `<tr class="${i===nextI?'next':''}"><td>${E(p.name)}</td><td class="n">${p.sp}</td><td class="n">${p.q}</td><td class="n">${p.last?'#'+p.last:'–'}</td>
+      <td style="white-space:nowrap"><button class="mini af" data-sp="${i}" data-side="Aff">Aff</button> <button class="mini ng" data-sp="${i}" data-side="Neg">Neg</button> <button class="mini${qd?' on':''}" data-q="${i}" aria-pressed="${qd}" title="${qd?'Remove from the questioning queue':'Queue to ask a question'}">Q</button> <button class="mini" data-rm="${i}" aria-label="Remove">✕</button></td></tr>`}).join('')||'<tr><td colspan="5" class="small">No one added yet.</td></tr>';
   }
   function drawDocket(){
     $('docket').innerHTML=C.bills.map((b,i)=>`<div class="bill ${i===C.cur?'cur':''}"><span>${i+1}. ${E(b)}</span>${i===C.cur?'<small>On the floor</small>':`<button class="mini" data-cur="${i}">Bring up</button>`}<button class="mini" data-rmb="${i}" aria-label="Remove">✕</button></div>`).join('')||'<p class="small">No bills yet.</p>';
@@ -454,46 +716,108 @@ function congress(){
   $('bill').onkeydown=e=>{if(e.key==='Enter')$('addbill').click()};
   $('ptable').onclick=e=>{const b=e.target.closest('button');if(!b)return;
     if(b.dataset.sp!==undefined){const p=C.people[+b.dataset.sp];p.sp++;p.last=++C.order;C.log.push({bill:C.cur,name:p.name,side:b.dataset.side});}
-    if(b.dataset.q!==undefined)C.people[+b.dataset.q].q++;
-    if(b.dataset.rm!==undefined)C.people.splice(+b.dataset.rm,1);
-    save();drawPeople();drawDocket()};
-  $('docket').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.cur!==undefined)C.cur=+b.dataset.cur;if(b.dataset.rmb!==undefined){const i=+b.dataset.rmb;C.bills.splice(i,1);C.log=C.log.filter(l=>l.bill!==i).map(l=>({...l,bill:l.bill>i?l.bill-1:l.bill}));if(C.cur>=C.bills.length)C.cur=Math.max(0,C.bills.length-1)}save();drawDocket()};
+    if(b.dataset.q!==undefined){const n=C.people[+b.dataset.q].name,j=C.queue.indexOf(n);if(j>=0)C.queue.splice(j,1);else C.queue.push(n)}
+    if(b.dataset.rm!==undefined){const n=C.people[+b.dataset.rm].name;C.people.splice(+b.dataset.rm,1);if(!C.people.some(x=>x.name===n))C.queue=C.queue.filter(x=>x!==n)}
+    save();drawPeople();drawDocket();drawQueue()};
+  $('docket').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.cur!==undefined)C.cur=+b.dataset.cur;if(b.dataset.rmb!==undefined){const i=+b.dataset.rmb;C.bills.splice(i,1);C.log=C.log.filter(l=>l.bill!==i).map(l=>({...l,bill:l.bill>i?l.bill-1:l.bill}));if(C.cur>i)C.cur--;if(C.cur>=C.bills.length)C.cur=Math.max(0,C.bills.length-1)}save();drawDocket()};
   $('clear').onclick=e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again to clear everything';setTimeout(()=>{delete e.target.dataset.armed;e.target.textContent='Reset session'},3000);return}
-    Object.assign(C,{people:[],bills:[],cur:0,log:[],order:0});save();congress()};
+    Object.assign(C,{people:[],bills:[],cur:0,log:[],order:0,queue:[]});save();congress()};
   keys=e=>{if(e.target.matches('input,textarea,select'))return;if(e.code==='Space'&&mode){e.preventDefault();$('go').click()}};
-  drawClock();drawPeople();drawDocket();
+  drawClock();drawPeople();drawDocket();drawQueue();
 }
 
 /* ── flow sheet ───────────────────────────────────── */
+const agoStr=ts=>{if(!ts)return '';const d=Date.now()-ts;if(d<60e3)return 'just now';if(d<3600e3)return Math.round(d/60e3)+' min ago';if(d<86400e3)return Math.round(d/3600e3)+' h ago';if(d<172800e3)return 'yesterday';return new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric'})};
 function flow(){
   const sheets=store.get('flows',[]);
   let curId=store.get('flowCur',null);
   if(!sheets.find(s=>s.id===curId))curId=null;
-  const make=fmt=>{const F=FORMATS[fmt];const s={id:Date.now().toString(36),fmt,name:F.short+' round · '+new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'}),cols:{}};sheets.unshift(s);curId=s.id;persist();return s};
+  const make=fmt=>{const F=FORMATS[fmt];const s={id:Date.now().toString(36),fmt,name:F.short+' round · '+new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'}),cols:{},meta:{},cx:false,at:Date.now()};sheets.unshift(s);curId=s.id;persist();return s};
   const persist=()=>{store.set('flows',sheets.slice(0,30));store.set('flowCur',curId)};
+  const touch=()=>{S.at=Date.now();persist()};
   let S=sheets.find(s=>s.id===curId)||make('ld');
+  if(!S.meta)S.meta={};
+  /* columns: every speech except crossfire/CX, plus the CX columns when the toggle is on. Keys: the speech code, or code#index for cross-ex. */
+  const colsOf=sh=>{const F=FORMATS[sh.fmt];return F.speeches.map((x,i)=>{const cx=x[2]===2||x[0]==='CX';return{code:x[0],name:x[1],side:x[2],i,cx,key:cx?x[0]+'#'+i:x[0]}}).filter(c=>!c.cx||sh.cx)};
+  const lines=k=>(S.cols[k]||'').split('\n');
+  const metaOf=k=>{const L=lines(k).length,m=S.meta[k]||(S.meta[k]=[]);while(m.length<L)m.push({});m.length=L;return m};
+  const TAGS=['','a','b','i'],TCLS={a:'ta',b:'tb',i:'ti'};
+  const lnClass=m=>'ln'+(m&&TCLS[m.t]?' '+TCLS[m.t]:'')+(m&&m.d?' dd':'');
+  const preview=sh=>{for(const c of colsOf(sh)){const l=(sh.cols[c.key]||'').split('\n').map(x=>x.trim()).find(Boolean);if(l)return c.code+': '+l}return 'Empty'};
   function draw(){
-    const F=FORMATS[S.fmt];
-    const cols=F.speeches.filter(x=>x[2]!==2&&!/^CX$/.test(x[0]));
+    const F=FORMATS[S.fmt],cols=colsOf(S);
     app.innerHTML=`
       <a class="back" href="#/">← Speech &amp; Debate</a>
       <div class="top"><div><h1>Flow</h1><p class="sub">Saved on this device as you type.</p></div></div>
       <div class="flowbar">
-        <select id="pick" aria-label="Saved flows">${sheets.map(s=>`<option value="${s.id}"${s.id===S.id?' selected':''}>${E(s.name)}</option>`).join('')}</select>
         <input id="fname" value="${E(S.name)}" maxlength="60" aria-label="Flow name" style="flex:1;min-width:160px">
         <div class="seg">${Object.entries(FORMATS).map(([k,v])=>`<button data-new="${k}">+ ${v.short}</button>`).join('')}</div>
-        <button class="btn sm ghost" id="dl">Download</button><button class="btn sm ghost" id="del">Delete</button>
+        <label class="check"><input type="checkbox" id="cxt" ${S.cx?'checked':''}> Cross-ex columns</label>
+        <button class="btn sm ghost" id="copytxt">Copy as text</button><button class="btn sm ghost" id="print">Print / PDF</button><button class="btn sm ghost" id="dl">Download</button><button class="btn sm ghost" id="del">Delete</button>
       </div>
-      <div class="flow">${cols.map(c=>`<div class="col sd${c[2]}"><h3><span>${E(c[0])}</span><small class="small">${E(F.sides[c[2]])}</small></h3><textarea data-c="${E(c[0])}" placeholder="${E(c[1])}">${E(S.cols[c[0]]||'')}</textarea></div>`).join('')}</div>`;
-    app.querySelectorAll('[data-c]').forEach(t=>t.oninput=()=>{S.cols[t.dataset.c]=t.value;persist()});
-    $('fname').oninput=()=>{S.name=$('fname').value||'Untitled';persist();const o=$('pick').selectedOptions[0];if(o)o.textContent=S.name};
-    $('pick').onchange=()=>{S=sheets.find(s=>s.id===$('pick').value);curId=S.id;persist();draw()};
+      <details class="flist" id="flist"><summary><span>Saved flows · ${sheets.length}</span></summary><div class="fls">${sheets.map(sh=>`<button class="fl1${sh.id===S.id?' cur':''}" data-open="${sh.id}"><b>${E(sh.name)}</b><small>${FORMATS[sh.fmt].short} · ${sh.at?'edited '+agoStr(sh.at):'not edited'}</small><span class="prev">${E(preview(sh))}</span></button>`).join('')}</div></details>
+      <div class="printhead">${E(S.name)}<small>${E(F.name)} · ${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</small></div>
+      <div class="flow">${cols.map(c=>{const m=metaOf(c.key),L=lines(c.key);const nxt=nextCol(cols,c);return `<div class="col sd${c.side}${c.cx?' cx':''}" data-col="${E(c.key)}"><h3><span>${E(c.code)}</span><small class="small">${c.cx?E(c.name):E(F.sides[c.side])}</small></h3>
+        <div class="ctools"><button data-ext="${E(c.key)}" ${nxt?`title="Copy the selected text (or the whole column) into ${E(nxt.code)}"`:'disabled title="Last speech on this side"'}>Extend →${nxt?' '+E(nxt.code):''}</button><button data-drop="${E(c.key)}" title="Strike through the line your cursor is on">Drop</button></div>
+        <div class="cell"><div class="mirror" aria-hidden="true">${L.map((l,i)=>`<div class="${lnClass(m[i])}">${E(l)}</div>`).join('')}</div><textarea data-c="${E(c.key)}" aria-label="${E(c.code)} notes" placeholder="${E(c.name)}">${E(S.cols[c.key]||'')}</textarea></div></div>`}).join('')}</div>
+      <p class="flowhint">Click the dot at a line's left edge to tag it: <i style="background:var(--a)"></i>${E(F.sides[0])} · <i style="background:var(--b)"></i>${E(F.sides[1])} · <i style="background:var(--warn)"></i>important. Drop strikes through the line your cursor is on. Extend copies lines forward with a → so you can see what carried through.</p>`;
+    app.querySelectorAll('.cell').forEach(cell=>{
+      const ta=cell.querySelector('textarea'),mir=cell.querySelector('.mirror'),key=ta.dataset.c;let prev=ta.value;
+      const size=()=>{ta.style.height='auto';ta.style.height=ta.scrollHeight+'px'};
+      const render=()=>{const m=metaOf(key),L=lines(key);mir.innerHTML=L.map((l,i)=>`<div class="${lnClass(m[i])}">${E(l)}</div>`).join('');size()};
+      ta.oninput=()=>{const v=ta.value,ol=prev.split('\n').length,nl=v.split('\n').length,m=metaOf(key);
+        const caret=v.slice(0,ta.selectionStart).split('\n').length-1;
+        if(nl>ol)m.splice(caret-(nl-ol)+1,0,...Array.from({length:nl-ol},()=>({})));
+        else if(nl<ol)m.splice(caret+1,ol-nl);
+        S.cols[key]=v;prev=v;touch();render()};
+      mir.onclick=e=>{const ln=e.target.closest('.ln');if(!ln)return;const i=[...mir.children].indexOf(ln),m=metaOf(key);m[i].t=TAGS[(TAGS.indexOf(m[i].t||'')+1)%TAGS.length];if(!m[i].t)delete m[i].t;touch();ln.className=lnClass(m[i])};
+      cell.onclick=e=>{if(e.target===cell)ta.focus()};
+      cell._render=render;size();
+    });
+    $('fname').oninput=()=>{S.name=$('fname').value||'Untitled';touch();const b=app.querySelector(`[data-open="${S.id}"] b`);if(b)b.textContent=S.name};
+    $('flist').onclick=e=>{const b=e.target.closest('[data-open]');if(!b)return;S=sheets.find(s=>s.id===b.dataset.open);if(!S.meta)S.meta={};curId=S.id;persist();draw()};
     app.querySelectorAll('[data-new]').forEach(b=>b.onclick=()=>{S=make(b.dataset.new);draw()});
-    $('dl').onclick=()=>{const txt=S.name+'\n\n'+cols.map(c=>`== ${c[0]} (${F.sides[c[2]]}) ==\n${S.cols[c[0]]||''}`).join('\n\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'text/plain'}));a.download=S.name.replace(/[^\w\- ]+/g,'')+'.txt';a.click()};
+    $('cxt').onchange=()=>{S.cx=$('cxt').checked;persist();draw()};
+    app.querySelectorAll('[data-ext]').forEach(b=>b.onclick=()=>extend(cols,b.dataset.ext));
+    app.querySelectorAll('[data-drop]').forEach(b=>b.onclick=()=>drop(b.dataset.drop));
+    $('copytxt').onclick=async()=>{const t=asText(cols);let ok=false;try{await navigator.clipboard.writeText(t);ok=true}catch(e){try{const x=document.createElement('textarea');x.value=t;x.style.cssText='position:fixed;opacity:0';document.body.append(x);x.select();ok=document.execCommand('copy');x.remove()}catch(e2){}}
+      $('copytxt').textContent=ok?'Copied ✓':'Couldn\'t copy';setTimeout(()=>{const c=$('copytxt');if(c)c.textContent='Copy as text'},1800)};
+    $('print').onclick=()=>{try{window.print()}catch(e){}};
+    $('dl').onclick=()=>{const txt=S.name+'\n\n'+cols.map(c=>`== ${c.code} (${c.cx?c.name:F.sides[c.side]}) ==\n${markLines(c.key).join('\n')}`).join('\n\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'text/plain'}));a.download=S.name.replace(/[^\w\- ]+/g,'')+'.txt';a.click()};
     $('del').onclick=e=>{if(!e.target.dataset.armed){e.target.dataset.armed=1;e.target.textContent='Click again';setTimeout(()=>{delete e.target.dataset.armed;e.target.textContent='Delete'},3000);return}
-      sheets.splice(sheets.indexOf(S),1);S=sheets[0]||make('ld');curId=S.id;persist();draw()};
+      sheets.splice(sheets.indexOf(S),1);S=sheets[0]||make('ld');if(!S.meta)S.meta={};curId=S.id;persist();draw()};
   }
+  const nextCol=(cols,c)=>c.cx?null:cols.find(x=>!x.cx&&x.side===c.side&&x.i>c.i)||null;
+  const cellOf=key=>app.querySelector(`.col[data-col="${CSS.escape(key)}"]`);
+  const markLines=key=>{const m=metaOf(key);return lines(key).map((l,i)=>{const x=m[i]||{};return (x.d?'✗ ':'')+(x.t==='a'?'[A] ':x.t==='b'?'[N] ':x.t==='i'?'[!] ':'')+l})};
+  function asText(cols){const F=FORMATS[S.fmt];const L=cols.map(c=>markLines(c.key).map(l=>l.replace(/\t/g,'  ')));const n=Math.max(0,...L.map(x=>x.length));
+    const rows=[cols.map(c=>c.code+' ('+(c.cx?'CX':F.sides[c.side])+')').join('\t')];for(let i=0;i<n;i++)rows.push(L.map(x=>x[i]||'').join('\t'));return S.name+'\n'+rows.join('\n')}
+  function extend(cols,key){
+    const c=cols.find(x=>x.key===key),nxt=nextCol(cols,c);if(!nxt)return;
+    const ta=cellOf(key).querySelector('textarea'),m=metaOf(key),v=ta.value;
+    const sel=ta.selectionStart!==ta.selectionEnd;
+    const a=sel?ta.selectionStart:0,b=sel?ta.selectionEnd:v.length;
+    const first=v.slice(0,a).split('\n').length-1;
+    const picked=v.slice(a,b).split('\n').map((l,i)=>({l:l.trim(),m:m[first+i]||{}})).filter(x=>x.l&&!x.m.d);
+    if(!picked.length)return;
+    const tk=nxt.key,tm=metaOf(tk),cur=(S.cols[tk]||'').replace(/\s+$/,'');
+    const add=picked.map(x=>'→ '+x.l.replace(/^(→ )+/,''));
+    const base=cur?cur.split('\n'):[];S.cols[tk]=base.concat(add).join('\n');
+    tm.length=base.length;picked.forEach(x=>tm.push(x.m.t?{t:x.m.t}:{}));
+    touch();
+    const tcol=cellOf(tk),tta=tcol.querySelector('textarea');tta.value=S.cols[tk];tcol.querySelector('.cell')._render();
+    tcol.classList.remove('flash');void tcol.offsetWidth;tcol.classList.add('flash');tcol.scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
+  }
+  function drop(key){
+    const ta=cellOf(key).querySelector('textarea'),m=metaOf(key),v=ta.value;
+    const a=v.slice(0,ta.selectionStart).split('\n').length-1,b=v.slice(0,ta.selectionEnd).split('\n').length-1;
+    const on=!m[a].d;for(let i=a;i<=b;i++){if(on)m[i].d=true;else delete m[i].d}
+    touch();cellOf(key).querySelector('.cell')._render();
+  }
+  const onResize=()=>app.querySelectorAll('.cell').forEach(c=>c._render&&c._render());
+  addEventListener('resize',onResize);
   keys=null;draw();
+  return ()=>removeEventListener('resize',onResize);
 }
 
 /* ── practice topics ──────────────────────────────── */
@@ -501,25 +825,86 @@ const TOPICS={
   ld:['Resolved: Civil disobedience in a democracy is morally justified.','Resolved: The right to privacy ought to be valued above national security.','Resolved: A just government ought to provide a universal basic income.','Resolved: Individuals have a moral obligation to assist people in need.','Resolved: The illegal is never moral.','Resolved: In a democracy, voting ought to be compulsory.','Resolved: Developing countries ought to prioritize environmental protection over resource extraction.','Resolved: Plea bargaining ought to be abolished.','Resolved: Jury nullification is a legitimate check on government.','Resolved: States ought to eliminate their nuclear arsenals.','Resolved: The pursuit of scientific knowledge ought to be limited by ethical concerns.','Resolved: A just society ought to guarantee housing to all its members.','Resolved: Public colleges and universities ought not restrict any constitutionally protected speech.','Resolved: The death penalty is unjust.','Resolved: Wealthy nations have a moral obligation to accept refugees.'],
   pf:['Resolved: The United States should ban the sale of single-use plastics.','Resolved: Social media platforms do more harm than good for teenagers.','Resolved: Schools should ban smartphones during the school day.','Resolved: The benefits of artificial intelligence in education outweigh the harms.','Resolved: The United States should adopt a four-day school week.','Resolved: High schools should require a personal finance course to graduate.','Resolved: The benefits of remote work outweigh the harms.','Resolved: The United States should significantly expand nuclear power.','Resolved: College athletes should be paid as employees.','Resolved: The United States should lower the voting age to 16.','Resolved: Standardized testing does more harm than good.','Resolved: Cities should make public transit free.','Resolved: The benefits of space exploration outweigh the costs.','Resolved: Homework should be abolished in high school.','Resolved: The United States should implement a carbon tax.'],
   policy:['Resolved: The United States federal government should substantially increase its investment in high-speed rail.','Resolved: The United States federal government should substantially reform its criminal justice system.','Resolved: The United States federal government should substantially increase its protection of water resources.','Resolved: The United States federal government should substantially increase fiscal redistribution.','Resolved: The United States federal government should substantially increase its exploration and development of the oceans.'],
-  impromptu:['“The only way out is through.”','A broken umbrella','“Comparison is the thief of joy.”','Silence','A map with no names on it','“Not all those who wander are lost.”','The last page of a book','Patience','“Fall seven times, stand up eight.”','A key with no lock','Homework','“What we do in life echoes in eternity.”','Courage','A paper airplane','“Simplicity is the ultimate sophistication.”','Second chances','An empty classroom','“You miss 100% of the shots you don’t take.”','Ladders','Shadows','“The best way to predict the future is to create it.”','A compass','Trust','A traffic light','“Be the change you wish to see.”','Rainy days','A blank canvas','Bridges','“Done is better than perfect.”','The snooze button'],
+  impromptu:['“The only way out is through.”','A broken umbrella','“Comparison is the thief of joy.”','Silence','A map with no names on it','“Not all those who wander are lost.”','The last page of a book','Patience','“Fall seven times, stand up eight.”','A key with no lock','Homework','“What we do in life echoes in eternity.”','Courage','A paper airplane','“Simplicity is the ultimate sophistication.”','Second chances','An empty classroom','“You miss 100% of the shots you don’t take.”','Ladders','Shadows','“The best way to predict the future is to create it.”','A compass','Trust','A traffic light','“Be the change you wish to see.”','Rainy days','A blank canvas','Bridges','“Done is better than perfect.”','The snooze button',
+    '“Whatever you are, be a good one.”','Lost keys','“It always seems impossible until it’s done.”','Noise','A group chat','“Everything you want is on the other side of fear.”','Detours','A borrowed pencil','“Well done is better than well said.”','Mirrors','The front row','“No pressure, no diamonds.”','Leftovers','A locker that won’t open','“Doubt kills more dreams than failure ever will.”','Windows','A handwritten letter','“If you want to go far, go together.”','Monday mornings','Fireworks','“Act as if what you do makes a difference. It does.”','An unread message','Roots','“The obstacle is the way.”','A full battery','Lunch tables','“Begin anywhere.”','Weeds','A late bus','“Luck is what happens when preparation meets opportunity.”','The last slice','Fog','“Make it work.”','A hallway at 7 a.m.','Gravity','“Slow is smooth, smooth is fast.”','A spare tire','Echoes','“Say less.”','The parking lot'],
   extemp:['Should the U.S. raise the federal minimum wage?','How should schools respond to AI tools like chatbots?','Is the U.S. doing enough to prepare for extreme weather?','Should social media companies be held liable for harmful content?','What is the biggest challenge facing public education today?','Should college be tuition-free at public universities?','How can cities reduce homelessness?','Is space exploration worth the cost?','What should be done about the youth mental health crisis?','Should the U.S. invest more in nuclear energy?','How should governments regulate artificial intelligence?','Is the electoral college still the right system for the U.S.?','How can the U.S. make housing more affordable?','Should voting be made easier, and how?','What role should the U.S. play in global climate agreements?','Should the school day start later for teenagers?','Is remote work good for the economy?','How should the U.S. address rising healthcare costs?','Should there be term limits for members of Congress?','What can be done to reduce food waste?']
 };
+const myTopics=()=>{const m=store.get('mytopics',[]);return Array.isArray(m)?m.filter(x=>x&&typeof x.t==='string'&&x.t.trim()):[]};
 function topics(kind){
-  kind=TOPICS[kind]?kind:'ld';
-  const names={ld:'LD resolution',pf:'PF resolution',policy:'Policy resolution',impromptu:'Impromptu prompt',extemp:'Extemp question'};
-  let last=-1;
-  const pick=()=>{const L=TOPICS[kind];let i;do{i=Math.floor(Math.random()*L.length)}while(L.length>1&&i===last);last=i;return L[i]};
+  const names={ld:'LD resolution',pf:'PF resolution',policy:'Policy resolution',impromptu:'Impromptu prompt',extemp:'Extemp question',mine:'My topic'};
+  kind=names[kind]?kind:'ld';
+  let last=-1,cur={t:'',f:null},mf=FORMATS[kind]?kind:'ld';
+  /* the pool for a format = the practice list plus any of my own topics saved for that format; the My topics tab is only mine */
+  const pool=()=>{const mine=myTopics();if(kind==='mine')return mine.map(m=>({t:m.t,f:FORMATS[m.f]?m.f:'ld'}));return TOPICS[kind].map(t=>({t,f:FORMATS[kind]?kind:null})).concat(mine.filter(m=>m.f===kind).map(m=>({t:m.t,f:m.f})))};
+  const pick=()=>{const L=pool();if(!L.length)return null;let i;do{i=Math.floor(Math.random()*L.length)}while(L.length>1&&i===last);last=i;return L[i]};
+  const ghost='class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55"';
   app.innerHTML=`
     <a class="back" href="#/">← Speech &amp; Debate</a>
-    <div class="top"><div><h1>Practice topics</h1><p class="sub">Practice prompts for drills. Not this year's official topics.</p></div></div>
-    <div class="seg" style="margin-bottom:var(--gap)">${Object.entries(names).map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===kind}">${v.replace(/ (resolution|prompt|question)$/,'')}</button>`).join('')}</div>
+    <div class="top"><div><h1>Practice topics</h1><p class="sub">Practice prompts for drills, plus your own list for this season's real resolutions.</p></div></div>
+    <div class="seg" style="margin-bottom:var(--gap)">${Object.entries(names).map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===kind}">${k==='mine'?'My topics':v.replace(/ (resolution|prompt|question)$/,'')}</button>`).join('')}</div>
     <div class="prompt"><span class="blob"></span><span class="lbl">${names[kind]}</span><q id="q"></q>
-      <div class="row"><button class="btn" style="background:var(--forest-ink);color:var(--forest)" id="again">New ${names[kind].split(' ').pop()}</button>
-      ${kind==='impromptu'?'<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/speech/impromptu">Start Impromptu timer</a>':kind==='extemp'?'<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/speech/extemp">Start Extemp timer</a>':`<a class="btn ghost" style="color:var(--forest-ink);box-shadow:inset 0 0 0 1.5px #ffffff55" href="#/round/${kind}">Open ${kind.toUpperCase()==='POLICY'?'Policy':kind.toUpperCase()} timer</a>`}</div></div>`;
-  const show=()=>{$('q').textContent=pick()};show();
-  $('again').onclick=show;
+      <div class="row" id="acts"></div></div>
+    <div id="sprintbox"></div>
+    <div class="box mt" id="mybox" style="margin-top:var(--gap)"><div class="row" style="justify-content:space-between;align-items:baseline"><h2>My topics</h2><span class="small" id="mtn"></span></div>
+      <p class="small" style="margin:0">Paste this season's real resolutions, one per line. They show up in the picker for that format, under My topics, and in Sprint. Saved on this device.</p>
+      <textarea id="mt" rows="3" placeholder="Resolved: …" maxlength="3000"></textarea>
+      <div class="row" style="align-items:center"><div class="seg" id="mtf">${['ld','pf','policy'].map(k=>`<button data-f="${k}" aria-pressed="${k===mf}">${FORMATS[k].short}</button>`).join('')}</div><button class="btn sm" id="mtadd">Add</button></div>
+      <div class="mtl" id="mtl"></div></div>`;
+  const show=()=>{cur=pick()||{t:'',f:null};$('q').textContent=cur.t||(kind==='mine'?'Nothing saved yet. Paste your resolutions below and they show up here.':'');drawActs()};
+  function drawActs(){
+    const f=cur.f,word=kind==='mine'?'topic':names[kind].split(' ').pop();
+    $('acts').innerHTML=`<button class="btn" style="background:var(--forest-ink);color:var(--forest)" id="again">New ${word}</button>
+      ${kind==='impromptu'?`<a ${ghost} href="#/speech/impromptu">Start Impromptu timer</a>`:kind==='extemp'?`<a ${ghost} href="#/speech/extemp">Start Extemp timer</a>`:f?`<a ${ghost} href="#/round/${f}">Open ${f==='policy'?'Policy':FORMATS[f].short} timer</a>`:''}
+      ${f&&cur.t?`<button ${ghost} id="sprint">Sprint ⚡</button>`:''}`;
+    $('again').onclick=show;
+    if($('sprint'))$('sprint').onclick=()=>sprint(cur.t,cur.f,Math.random()<.5?0:1);
+  }
+  show();
   app.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{location.hash='#/topics/'+b.dataset.k});
   keys=null;
+  /* my topics */
+  function drawMine(){const m=myTopics();$('mtn').textContent=m.length?m.length+' saved':'';
+    $('mtl').innerHTML=m.map((x,i)=>`<div class="mti"><code>${E((FORMATS[x.f]||FORMATS.ld).short)}</code><span>${E(x.t)}</span><button class="mini" data-rmt="${i}" aria-label="Remove">✕</button></div>`).join('')}
+  drawMine();
+  $('mtf').onclick=e=>{const b=e.target.closest('[data-f]');if(!b)return;mf=b.dataset.f;$('mtf').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b))};
+  $('mtadd').onclick=()=>{const m=myTopics();$('mt').value.split('\n').map(t=>t.trim().slice(0,300)).filter(Boolean).forEach(t=>{if(!m.some(x=>x.t===t&&x.f===mf))m.push({t,f:mf})});
+    store.set('mytopics',m.slice(0,60));$('mt').value='';drawMine();if(kind==='mine'||kind===mf)show()};
+  $('mtl').onclick=e=>{const b=e.target.closest('[data-rmt]');if(!b)return;const m=myTopics();m.splice(+b.dataset.rmt,1);store.set('mytopics',m);drawMine();if(kind==='mine'&&!m.length)show()};
+  /* argument sprint: coin flip for a side, then 60 seconds to write three arguments */
+  function sprint(res,fkey,side){
+    const F=FORMATS[fkey]||FORMATS.ld,sides=F.sides;let left=60,done=false;clearInterval(ticker);
+    const box=$('sprintbox');
+    box.innerHTML=`<div class="box sprint" style="margin-top:var(--gap)"><h2>Argument sprint</h2><p class="muted" style="margin:0">${E(res)}</p>
+      <div class="coin" id="coin">?</div><div class="sideword" id="sideword">Flipping…</div><div id="sbody"></div></div>`;
+    box.scrollIntoView({behavior:'smooth',block:'start'});
+    const coin=$('coin');
+    const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    requestAnimationFrame(()=>coin.classList.add('flip'));
+    setTimeout(()=>{
+      coin.classList.remove('flip');coin.classList.add('sd'+side);coin.textContent=sides[side];
+      $('sideword').className='sideword sd'+side;$('sideword').textContent=`You're ${sides[side]}. Go.`;
+      $('sbody').innerHTML=`<div class="sdig" id="sdig">1:00</div>
+        ${[1,2,3].map(i=>`<textarea id="arg${i}" rows="2" placeholder="Argument ${i} for the ${sides[side]}" maxlength="400"></textarea>`).join('')}
+        <div class="row"><button class="btn sm" id="sdone">Done early</button></div>`;
+      $('arg1').focus();
+      $('sdone').onclick=()=>finish();
+      let last=performance.now();
+      tick(()=>{const now=performance.now();left-=(now-last)/1000;last=now;const d=$('sdig');if(!d)return;d.textContent=fmtTc(left);d.classList.toggle('warn',left<=10);if(left<=0)finish()});
+    },reduced?50:1400);
+    function finish(){
+      if(done)return;done=true;clearInterval(ticker);beep(2);
+      const args=[1,2,3].map(i=>($('arg'+i)?$('arg'+i).value.trim():'')).filter(Boolean);
+      const txt=`${res}\n${sides[side]} arguments (60-second sprint)\n`+args.map((a,i)=>`${i+1}. ${a}`).join('\n');
+      $('sbody').innerHTML=`<div class="sdig">Time</div>
+        ${args.length?`<ol>${args.map(a=>`<li>${E(a)}</li>`).join('')}</ol>`:'<p class="muted">Nothing written this time. Run it again.</p>'}
+        <div class="row"><button class="btn sm" id="ssave">Save to cases</button><button class="btn sm ghost" id="scopy">Copy</button><button class="btn sm ghost" id="sflip">Run the other side</button><button class="btn sm ghost" id="snew">New resolution</button></div><div class="small" id="smsg"></div>`;
+      $('scopy').onclick=async()=>{try{await navigator.clipboard.writeText(txt);$('scopy').textContent='Copied ✓'}catch(e){$('smsg').textContent='Couldn\'t copy. Select the text above instead.'}};
+      $('ssave').onclick=()=>{store.set('caseDraft',{kind:'case',side:side?'neg':'aff',title:`${sides[side]} sprint · ${res.replace(/^Resolved:\s*/i,'').slice(0,160)}`,body:args.map((a,i)=>`**${i+1}.** ${a}`).join('\n\n')+`\n\n==Written in a 60-second sprint on ${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'})}==`});
+        location.hash='#/cases/new'};
+      $('sflip').onclick=()=>sprint(res,fkey,1-side);
+      $('snew').onclick=()=>{show();if(cur.f&&cur.t)sprint(cur.t,cur.f,Math.random()<.5?0:1)};
+    }
+  }
 }
 
 /* ── speech drill: record, live transcript, filler words ── */
@@ -527,14 +912,17 @@ const FILLERS=['um','uh','er','erm','like','you know','basically','actually','li
 const FILLER_RE=new RegExp('\\b('+FILLERS.map(f=>f.replace(/ /g,'\\s+')).join('|')+'|u+m+|u+h+)\\b','gi');
 function drill(){
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  const kinds={impromptu:'Impromptu',extemp:'Extemp',ld:'LD',pf:'PF',free:'Free talk'};
-  let kind=store.get('drillKind','impromptu'),target=store.get('drillTarget',120);
+  const kinds={round:'Impromptu round',impromptu:'Impromptu',extemp:'Extemp',ld:'LD',pf:'PF',free:'Free talk'};
+  let kind=store.get('drillKind','impromptu'),target=store.get('drillTarget',120);if(!kinds[kind])kind='impromptu';
   let rec=null,media=null,stream=null,chunks=[],sr=null,running=false,t0=0,elapsed=0,finalText='',interim='',taps=0,audioURL=null;
-  const pickPrompt=()=>kind==='free'?'Talk about anything: your weekend, a movie, why your favorite food is the best.':TOPICS[kind][Math.floor(Math.random()*TOPICS[kind].length)];
+  let phase='idle',prepLeft=0,prepUsed=0;   // idle | prep | talk  (prep only in the Impromptu round)
+  const PREP=120,ROUND=300;
+  const tgtSecs=()=>kind==='round'?ROUND:target;
+  const pickPrompt=()=>{const k=kind==='round'?'impromptu':kind;return k==='free'?'Talk about anything: your weekend, a movie, why your favorite food is the best.':TOPICS[k][Math.floor(Math.random()*TOPICS[k].length)]};
   let prompt=pickPrompt();
   app.innerHTML=`
     <a class="back" href="#/">← Speech &amp; Debate</a>
-    <div class="top"><div><h1>Speech drill</h1><p class="sub">Talk, and see your pace and filler words ("um", "like", "you know") as you go.</p></div></div>
+    <div class="top"><div><h1>Speech drill</h1><p class="sub">Talk, and see your pace and filler words ("um", "like", "you know") as you go. Impromptu round runs the real flow: 2:00 of prep, then 5:00 speaking.</p></div></div>
     <div class="seg" style="margin-bottom:var(--gap)" id="kinds">${Object.entries(kinds).map(([k,v])=>`<button data-k="${k}" aria-pressed="${k===kind}">${v}</button>`).join('')}</div>
     <div class="dr">
       <div class="drmain">
@@ -543,7 +931,7 @@ function drill(){
         <div class="clock sd2">
           <div class="now"><span class="code" id="state">Ready</span><span class="name" id="tgt"></span></div>
           <div class="digits" id="digits">0:00</div>
-          <div class="ctl"><button class="btn go" id="go">Start talking</button><button class="btn sm ghost" id="tap" title="Tap when you hear a filler (or press F)">+1 filler <b id="taps">0</b></button></div>
+          <div class="ctl"><button class="btn go" id="go">Start talking</button><button class="btn sm ghost" id="cancel" hidden>Cancel</button><button class="btn sm ghost" id="tap" title="Tap when you hear a filler (or press F)">+1 filler <b id="taps">0</b></button></div>
           <div class="small" id="note"></div>
         </div>
         <div class="box"><h2>What you said</h2><div class="transcript" id="tx"><span class="muted">Your words show up here while you talk.</span></div><audio id="play" controls hidden></audio></div>
@@ -556,13 +944,15 @@ function drill(){
         <div class="box"><h2>Settings</h2>
           <label class="setrow">Target time<select id="target">${[60,90,120,180,300,420].map(s=>`<option value="${s}"${s===target?' selected':''}>${fmtT(s)}</option>`).join('')}</select></label>
           <label class="check"><input type="checkbox" id="snd" ${store.get('sound',true)?'checked':''}> Beep at the target time</label></div>
+        <div class="box"><h2>Your stats</h2><div id="dstats"></div></div>
         <div class="box"><h2>Your last drills</h2><div class="hist" id="hist"></div></div>
       </div>
     </div>`;
   const showPrompt=()=>{$('q').textContent=prompt};showPrompt();
   $('newq').onclick=()=>{prompt=pickPrompt();showPrompt()};
   $('kinds').onclick=e=>{const b=e.target.closest('[data-k]');if(!b||running)return;kind=b.dataset.k;store.set('drillKind',kind);
-    $('kinds').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));prompt=pickPrompt();showPrompt()};
+    $('kinds').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));prompt=pickPrompt();showPrompt();$('go').textContent=kind==='round'?'Start prep':'Start talking';$('target').disabled=kind==='round';draw()};
+  $('go').textContent=kind==='round'?'Start prep':'Start talking';$('target').disabled=kind==='round';
   $('target').onchange=e=>{target=+e.target.value;store.set('drillTarget',target);draw()};
   $('snd').onchange=e=>store.set('sound',e.target.checked);
   $('note').textContent=SR?'Uses your microphone. The recording stays on this device.':'Live word counting works in Chrome, Edge and Safari. You can still record yourself and tap +1 for each filler.';
@@ -571,17 +961,53 @@ function drill(){
     m.forEach(w=>{w=w.replace(/\s+/g,' ').replace(/^u+m+$/,'um').replace(/^u+h+$/,'uh');by[w]=(by[w]||0)+1});
     const words=(all.match(/[a-z0-9']+/g)||[]).length;return{n:m.length+taps,by,words}};
   function draw(){
-    $('digits').textContent=fmtTc(elapsed);$('tgt').textContent='Target '+fmtT(target)+(elapsed>target?' · over':'');
-    $('digits').classList.toggle('over',elapsed>target);
+    const T=tgtSecs();
+    if(phase==='prep'){$('digits').textContent=fmtTc(prepLeft);$('tgt').textContent='Prep · then 5:00 to speak';$('digits').className='digits'+(prepLeft<=10?' warn':'');return}
+    $('digits').textContent=fmtTc(elapsed);$('tgt').textContent=(kind==='round'?'Speak for ':'Target ')+fmtT(T)+(elapsed>T?' · over':'');
+    $('digits').className='digits'+(elapsed>T?' over':'');
     const c=counts(),min=Math.max(elapsed,1)/60;
     $('wpm').textContent=elapsed>5?Math.round(c.words/min):0;$('fc').textContent=c.n;$('fpm').textContent=elapsed>5?(c.n/min).toFixed(1):0;$('wc').textContent=c.words;$('taps').textContent=taps;
     $('fl').innerHTML=Object.entries(c.by).sort((a,b)=>b[1]-a[1]).map(([w,n])=>`<span>${E(w)} <b>${n}</b></span>`).join('')+(taps?`<span>tapped <b>${taps}</b></span>`:'');
     if(finalText||interim)$('tx').innerHTML=E(finalText).replace(FILLER_RE,'<mark>$&</mark>')+(interim?` <span class="muted">${E(interim)}</span>`:'');
   }
-  function drawHist(){const h=store.get('drills',[]);
-    $('hist').innerHTML=h.length?h.map(d=>`<div><span>${new Date(d.at).toLocaleDateString('en-US',{month:'short',day:'numeric'})} · ${E(kinds[d.kind]||'')}</span><span>${fmtT(d.secs)} · ${d.wpm} wpm · ${d.fpm} fillers/min</span></div>`).join(''):'<span class="small">Nothing yet.</span>'}
+  /* stats from the stored results: sessions, average fillers/min, best WPM and a 14-day line of fillers/min by day */
+  function drawStats(){
+    const h=store.get('drills',[]).filter(d=>d&&d.at),box=$('dstats');
+    if(!h.length){box.innerHTML='<p class="small" style="margin:0">Finish a drill of 10 seconds or more and your numbers show up here.</p>';return}
+    const n=h.length,avg=(h.reduce((a,d)=>a+(+d.fpm||0),0)/n).toFixed(1),best=Math.max(...h.map(d=>+d.wpm||0));
+    const day=ts=>{const d=new Date(ts);return new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime()};
+    const today=day(Date.now()),days=Array.from({length:14},(_,i)=>today-(13-i)*86400e3);
+    const by=days.map(t=>{const L=h.filter(d=>day(d.at)===t);return L.length?{t,n:L.length,v:L.reduce((a,d)=>a+(+d.fpm||0),0)/L.length}:{t,n:0}});
+    const recent=by.reduce((a,d)=>a+d.n,0);
+    const W=Math.max(200,box.clientWidth||280),H=64,px=10,pr=50,top=10,bot=14;   // pr leaves room for the "2 / min" label past the right edge of the plot
+    const max=Math.max(3,...by.filter(d=>d.n).map(d=>d.v));
+    const x=i=>px+i*(W-px-pr)/13,y=v=>top+(H-top-bot)*(1-v/max);
+    const pts=by.map((d,i)=>d.n?[x(i),y(d.v),d]:null);
+    let path='',prevPt=null;pts.forEach(p=>{if(!p){prevPt=null;return}path+=(prevPt?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1);prevPt=p});
+    const fmtD=t=>new Date(t).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+    box.innerHTML=`<div class="stats"><div><b>${n}</b><span>session${n===1?'':'s'}</span></div><div><b>${avg}</b><span>avg fillers / min</span></div><div><b>${best}</b><span>best wpm</span></div><div><b>${recent}</b><span>in the last 14 days</span></div></div>
+      <svg class="spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="Fillers per minute over the last 14 days"><line class="base" x1="${px}" x2="${W-pr}" y1="${y(0).toFixed(1)}" y2="${y(0).toFixed(1)}"/><line class="ref" x1="${px}" x2="${W-pr}" y1="${y(2).toFixed(1)}" y2="${y(2).toFixed(1)}"/><text x="${W-pr+6}" y="${(y(2)+3.5).toFixed(1)}">2 / min</text>
+      ${path?`<path class="lnk" d="${path}"/>`:''}${pts.filter(Boolean).map(p=>`<circle class="pt" cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3.5"><title>${fmtD(p[2].t)} · ${p[2].v.toFixed(1)} fillers/min · ${p[2].n} session${p[2].n===1?'':'s'}</title></circle>`).join('')}
+      <text x="${px}" y="${H-2}">${fmtD(days[0])}</text><text x="${W-pr}" y="${H-2}" text-anchor="end">today</text></svg>
+      <p class="small" style="margin:0">Fillers per minute by day, last 14 days. Lower is better; under 2 is the goal.</p>`;
+  }
+  function drawHist(){const h=store.get('drills',[]);drawStats();
+    $('hist').innerHTML=h.length?h.slice(0,12).map(d=>`<div><span>${new Date(d.at).toLocaleDateString('en-US',{month:'short',day:'numeric'})} · ${E(kinds[d.kind]||'')}</span><span>${fmtT(d.secs)}${d.prep!=null?' · '+fmtT(d.prep)+' prep':''} · ${d.wpm} wpm · ${d.fpm} fillers/min</span></div>`).join(''):'<span class="small">Nothing yet.</span>'}
   drawHist();
-  async function start(){
+  /* Impromptu round: 2:00 prep countdown (beeps at 1:00 and 0:10), then straight into the 5:00 talk */
+  function startPrep(){
+    phase='prep';prepLeft=PREP;prepUsed=0;running=true;$('go').textContent='Start talking now';$('cancel').hidden=false;$('state').textContent='Prep';
+    $('tx').innerHTML='<span class="muted">Think it through. Your words show up here once you start talking.</span>';
+    let last=performance.now();wakeLock(true);
+    tick(()=>{const now=performance.now(),b=prepLeft;prepLeft-=(now-last)/1000;last=now;
+      if(b>60&&prepLeft<=60)beep(1);if(b>10&&prepLeft<=10)beep(1);
+      if(prepLeft<=0){beep(2);prepUsed=PREP;talk();return}draw()});
+    draw();
+  }
+  function cancelPrep(){phase='idle';running=false;clearInterval(ticker);wakeLock(false);$('go').textContent='Start prep';$('cancel').hidden=true;$('state').textContent='Ready';draw()}
+  async function start(){if(kind==='round'&&phase==='idle')return startPrep();if(phase==='prep'){prepUsed=Math.max(0,PREP-prepLeft)}return talk()}
+  async function talk(){
+    clearInterval(ticker);phase='talk';$('cancel').hidden=true;
     finalText='';interim='';taps=0;elapsed=0;chunks=[];$('play').hidden=true;if(audioURL)URL.revokeObjectURL(audioURL);
     $('tx').innerHTML='<span class="muted">Listening…</span>';
     try{stream=await navigator.mediaDevices.getUserMedia({audio:true});
@@ -593,16 +1019,20 @@ function drill(){
       sr.onend=()=>{if(running)try{sr.start()}catch(e){}};sr.onerror=e=>{if(e.error==='not-allowed'){$('note').textContent='Microphone blocked, so words can\'t be counted. Tap +1 instead.'}};
       try{sr.start()}catch(e){}}
     running=true;t0=performance.now();wakeLock(true);$('go').textContent='Stop';$('state').textContent='Talking';
-    let beeped=false;tick(()=>{elapsed=(performance.now()-t0)/1000;if(!beeped&&elapsed>=target){beeped=true;beep(2)}draw()});
+    let beeped=false,T=tgtSecs();tick(()=>{elapsed=(performance.now()-t0)/1000;if(!beeped&&elapsed>=T){beeped=true;beep(2)}draw()});
+    draw();
   }
   function stop(){
-    running=false;clearInterval(ticker);wakeLock(false);
+    if(phase==='prep')return cancelPrep();
+    running=false;phase='idle';clearInterval(ticker);wakeLock(false);
     try{sr&&sr.stop()}catch(e){}try{media&&media.state!=='inactive'&&media.stop()}catch(e){}stream&&stream.getTracks().forEach(t=>t.stop());
     $('go').textContent='Go again';$('state').textContent='Done';interim='';draw();
     if(elapsed>=10){const c=counts(),min=elapsed/60,h=store.get('drills',[]);
-      h.unshift({at:Date.now(),kind,secs:Math.round(elapsed),wpm:Math.round(c.words/min),fpm:+(c.n/min).toFixed(1)});store.set('drills',h.slice(0,12));drawHist()}
+      const row={at:Date.now(),kind,secs:Math.round(elapsed),wpm:Math.round(c.words/min),fpm:+(c.n/min).toFixed(1)};if(kind==='round')row.prep=Math.round(prepUsed);
+      h.unshift(row);store.set('drills',h.slice(0,60));drawHist()}
   }
-  $('go').onclick=()=>running?stop():start();
+  $('go').onclick=()=>running&&phase!=='prep'?stop():start();
+  $('cancel').onclick=cancelPrep;
   $('tap').onclick=()=>{taps++;draw()};
   keys=e=>{if(e.target.matches('input,textarea,select'))return;if(e.key==='f'||e.key==='F'){taps++;draw()}};
   draw();
@@ -615,10 +1045,14 @@ function ballot(){
   const save=()=>store.set('ballot',B);
   const per=()=>B.fmt==='ld'?1:2;
   const F=()=>FORMATS[B.fmt];
+  /* speaker-point rubric: NSDA-style 25–30 scale in half points */
+  const RUBRIC={25:'below average: major drops, hard to follow',25.5:'below average, but organized',26:'average: followed the round, some drops',26.5:'average, with real clash',27:'solid: clear and signposted, a few drops',27.5:'solid, good extensions',28:'good: organized, some weighing',28.5:'good and persuasive',29:'excellent: clear weighing, sharp cross-ex',29.5:'excellent, close to flawless',30:'the best speech I have seen this season'};
+  const rubLine=(i,p)=>`Points · ${F().sides[i>>1]}${per()>1?' '+(i%2+1):''}${B.deb[i].n?' ('+B.deb[i].n+')':''}: ${p} — ${RUBRIC[p]}`;
   function render(){
     const sides=F().sides;
     const debRow=(i,side)=>`<div class="deb"><div class="row"><input data-d="${i}" data-f="n" placeholder="${sides[side]} speaker ${per()>1?(i%2)+1:''}" value="${E(B.deb[i].n)}" maxlength="40" style="flex:1">
       <input data-d="${i}" data-f="p" type="number" inputmode="decimal" min="20" max="30" step="0.1" placeholder="Points" value="${E(B.deb[i].p)}" style="width:96px" aria-label="Speaker points"></div>
+      <div class="rub" data-rub="${i}">${Object.keys(RUBRIC).map(p=>`<button type="button" data-p="${p}" aria-pressed="${String(B.deb[i].p)===p}" title="${E(RUBRIC[p])}">${p}</button>`).join('')}</div><div class="rubnote" id="rubnote${i}">${RUBRIC[B.deb[i].p]?E(RUBRIC[B.deb[i].p]):'Tap a score to fill in the points and add a line to the RFD.'}</div>
       <textarea data-d="${i}" data-f="c" rows="2" placeholder="Comments for this speaker">${E(B.deb[i].c)}</textarea></div>`;
     const idx=side=>per()===1?[side*2]:[side*2,side*2+1];
     app.innerHTML=`
@@ -654,7 +1088,12 @@ function ballot(){
     L.push('','Reason for decision:',B.rfd.trim()||'—');return L.join('\n');
   }
   function wire(){
-    app.querySelectorAll('[data-d]').forEach(el=>el.oninput=()=>{B.deb[+el.dataset.d][el.dataset.f]=el.value;save();check()});
+    app.querySelectorAll('[data-d]').forEach(el=>el.oninput=()=>{B.deb[+el.dataset.d][el.dataset.f]=el.value;save();check();
+      if(el.dataset.f==='p'){const r=app.querySelector(`[data-rub="${el.dataset.d}"]`);r.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===el.value))}});
+    app.querySelectorAll('[data-rub]').forEach(r=>r.onclick=e=>{const b=e.target.closest('[data-p]');if(!b)return;const i=+r.dataset.rub,p=b.dataset.p;
+      B.deb[i].p=p;app.querySelector(`[data-d="${i}"][data-f="p"]`).value=p;r.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('rubnote'+i).textContent=RUBRIC[p];
+      const tag='Points · '+F().sides[i>>1]+(per()>1?' '+(i%2+1):'');const lines=B.rfd.split('\n').filter(l=>!l.startsWith(tag+':')&&!l.startsWith(tag+' ('));
+      B.rfd=(lines.join('\n').replace(/\n+$/,'')+'\n'+rubLine(i,p)).replace(/^\n/,'');$('rfd').value=B.rfd;save();check()});
     app.querySelectorAll('[data-side]').forEach(el=>el.oninput=()=>{B[el.dataset.side]=el.value;save()});
     $('rfd').oninput=e=>{B.rfd=e.target.value;save()};$('round').oninput=e=>{B.round=e.target.value;save()};
     app.querySelectorAll('[data-win]').forEach(b=>b.onclick=()=>{B.win=+b.dataset.win;save();render()});
@@ -712,6 +1151,7 @@ async function cases(id){
   function editor(x){
     if(x&&x.user_id!==me)return viewOnly(x);
     const isNew=!x;x=x||{kind:'card',title:'',cite:'',body:'',topic:store.get('lastTopic',''),side:'both',team_id:store.get('lastTeam',null)};
+    const draft=isNew?store.get('caseDraft',null):null;if(draft){Object.assign(x,{kind:draft.kind||'case',side:draft.side||'both',title:draft.title||'',body:draft.body||''});store.set('caseDraft',null)}
     if(x.team_id&&!TEAMS.some(t=>t.id===x.team_id))x.team_id=null;
     app.innerHTML=`<a class="back" href="#/cases">← All cards &amp; cases</a>
       <div class="top"><div><h1>${isNew?'New':'Edit'} ${x.kind==='case'?'case':'card'}</h1><p class="sub">Put <code>**double stars**</code> around the words you read out loud and <code>==equals==</code> around anything to highlight.</p></div></div>
@@ -723,14 +1163,32 @@ async function cases(id){
           <input id="etitle" maxlength="200" placeholder="Tag (the claim this proves) or case name" value="${E(x.title)}">
           <input id="ecite" maxlength="600" placeholder="Cite: author, year, credentials, source, link" value="${E(x.cite)}">
           <input id="etopic" maxlength="80" placeholder="Topic (e.g. Nov–Dec LD)" value="${E(x.topic)}">
+          <details class="cut"><summary>Cut a card · build the cite for me</summary>
+            <div class="two"><input id="cauthor" maxlength="80" placeholder="Author (e.g. Maria Lopez)"><input id="ccred" maxlength="160" placeholder="Credentials (e.g. professor of law, UNLV)"></div>
+            <input id="ctitle" maxlength="200" placeholder="Article title">
+            <div class="two"><input id="csource" maxlength="80" placeholder="Source (e.g. The Atlantic)"><input id="cdate" maxlength="40" placeholder="Date (e.g. March 4, 2025)"></div>
+            <input id="curl" maxlength="400" placeholder="https://…" inputmode="url">
+            <div class="row"><button class="btn sm" id="ccut" type="button">Insert cite</button><span class="small" id="cmsg">Fills the cite line and puts the tag + cite at the top of the card.</span></div>
+          </details>
           <textarea id="ebody" rows="14" maxlength="40000" placeholder="Paste the card text or write your case">${E(x.body)}</textarea>
           <div class="row"><button class="btn" id="esave">Save</button>${isNew?'':'<button class="btn sm ghost" id="ecopy">Copy</button><button class="btn sm danger" id="edel">Delete</button>'}</div><div id="emsg"></div>
         </div>
-        <div class="box"><h2>Preview</h2><div class="cardview" id="eprev"></div></div>
+        <div class="box"><h2>Preview</h2><div class="cardview" id="eprev"></div><div class="readtime" id="eread"></div></div>
       </div>`;
     let kindNow=x.kind;
-    const prev=()=>{$('eprev').innerHTML=`<b class="ptag">${E($('etitle').value||'Tag')}</b>${$('ecite').value?`<div class="cite">${E($('ecite').value)}</div>`:''}<div class="cbody2">${cardHTML($('ebody').value)}</div>`};
+    const prev=()=>{$('eprev').innerHTML=`<b class="ptag">${E($('etitle').value||'Tag')}</b>${$('ecite').value?`<div class="cite">${E($('ecite').value)}</div>`:''}<div class="cbody2">${cardHTML($('ebody').value)}</div>`;
+      const read=($('ebody').value.match(/\*\*([^*\n]+)\*\*/g)||[]).join(' ').split(/\s+/).filter(Boolean).length;$('eread').textContent=read?`About ${Math.max(1,Math.round(read/150*60))} seconds to read the **bold** text at 150 words a minute (${read} words).`:''};
     ['etitle','ecite','ebody'].forEach(i=>$(i).oninput=prev);prev();
+    /* card cutter: standard debate cite = Lastname 'YY + full cite, dropped into the cite field and the top of the card */
+    $('ccut').onclick=()=>{const v=id=>$(id).value.trim();const author=v('cauthor'),cred=v('ccred'),title=v('ctitle'),src=v('csource'),date=v('cdate'),url=v('curl');
+      if(!author&&!title&&!src){$('cmsg').textContent='Add at least an author, a title or a source.';return}
+      const yr=(date.match(/\b(19|20)\d{2}\b/)||[])[0];const last=author?author.split(/\s+/).pop().replace(/,$/,''):(src||'No author');
+      const short=`${last}${yr?' ’'+yr.slice(2):''}`;
+      const full=[author,cred,title?`"${title}"`:'',src,date,url,'accessed '+new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})].filter(Boolean).join(', ');
+      const cite=`${short} — ${full}`;$('ecite').value=cite.slice(0,600);
+      const tag=v('etitle')||'Tag';const head=`**${tag}**\n==${short}== ${full}\n\n`;
+      const body=$('ebody').value;if(!body.includes(`==${short}==`))$('ebody').value=head+body.replace(/^\n+/,'');
+      $('cmsg').textContent='Inserted. Now mark the words you read with **stars** and highlights with ==equals==.';prev()};
     $('ek').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;kindNow=b.dataset.k;$('ek').querySelectorAll('button').forEach(z=>z.setAttribute('aria-pressed',z===b))};
     $('esave').onclick=async()=>{const row={kind:kindNow,team_id:$('eteam')&&+$('eteam').value||null,side:$('eside').value,title:$('etitle').value.trim(),cite:$('ecite').value.trim(),topic:$('etopic').value.trim(),body:$('ebody').value};
       if(!row.title){$('emsg').innerHTML='<div class="small" style="color:var(--over)">Add a tag or name first.</div>';return}
@@ -773,7 +1231,12 @@ async function cases(id){
         <div><button class="btn sm danger" data-leave="${t.id}">${t.role==='owner'?'Delete team':'Leave team'}</button></div></div>`).join('')||'<p class="muted">You\'re not on a team yet.</p>';
       $('tlist').querySelectorAll('[data-newcode]').forEach(b=>b.onclick=async()=>{const r=await SB.rpc('new_team_code',{t:+b.dataset.newcode});if(!r.error){TEAMS.find(t=>t.id===+b.dataset.newcode).code=r.data;drawT()}});
       $('tlist').querySelectorAll('[data-leave]').forEach(b=>b.onclick=async()=>{if(!b.dataset.armed){b.dataset.armed=1;b.textContent=b.textContent.startsWith('Delete')?'Click again: shared cards go back to private':'Click again to leave';return}
-        const r=await SB.rpc('leave_team',{t:+b.dataset.leave});if(r.error)return alert(r.error.message);cases('team')})};
+        const r=await SB.rpc('leave_team',{t:+b.dataset.leave});
+        if(r.error){const e=r.error,missing=e.code==='42883'||e.code==='PGRST202'||/404|not found|does not exist|schema cache/i.test(e.message||'');
+          b.textContent=b.textContent.startsWith('Click again: shared')?'Delete team':'Leave team';delete b.dataset.armed;
+          const m=document.createElement('div');m.className='small';m.style.cssText='color:var(--over);margin-top:4px';m.textContent=missing?'Leaving teams isn\'t turned on yet. Ask Kale, or just stop using the team for now.':(e.message||'Something went wrong').replace(/^.*?: /,'');
+          b.parentElement.append(m);return}
+        cases('team')})};
     drawT();
     $('jgo').onclick=async()=>{const r=await SB.rpc('join_team',{c:$('jcode').value});if(r.error)return err('jmsg',r.error);location.hash='#/cases';};
     $('tgo').onclick=async()=>{const n=$('tname').value.trim();if(n.length<2)return;const r=await SB.rpc('create_team',{n});if(r.error)return err('tmsg',r.error);cases('team')};
@@ -788,10 +1251,10 @@ function route(){
   if(cleanup){cleanup();cleanup=null}
   clearInterval(ticker);wakeLock(false);keys=null;document.querySelector('.signal')?.remove();
   const p=location.hash.replace(/^#\/?/,'').split('/');window.scrollTo(0,0);
-  if(p[0]==='round')return round(p[1]);
+  if(p[0]==='round')return cleanup=round(p[1]);
   if(p[0]==='speech')return speech(p[1]);
   if(p[0]==='congress')return congress();
-  if(p[0]==='flow')return flow();
+  if(p[0]==='flow')return cleanup=flow();
   if(p[0]==='topics')return topics(p[1]);
   if(p[0]==='drill')return cleanup=drill();
   if(p[0]==='ballot')return ballot();

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reaction Time · Kale's Games</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Reaction Time · Kale&#x27;s Games">
+<meta property="og:description" content="Wait for green, then tap as fast as you can. Five rounds, lowest average wins.">
+<meta property="og:url" content="https://kaleerson.com/edu/reaction/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Wait for green, then tap as fast as you can. Five rounds, lowest average wins.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<link rel="stylesheet" href="/edu/assets/games.css?v=5">
+<style>
+.rbox{position:relative;width:100%;max-width:640px;display:grid;gap:12px}
+.rs{display:grid;place-items:center;text-align:center;min-height:320px;border-radius:22px;background:var(--sky);padding:24px;cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:manipulation;transition:background .15s}
+.rs h2{font:800 clamp(28px,7vw,48px)/1 var(--display);letter-spacing:-.04em}
+.rs p{color:var(--ink2);margin-top:10px;font-weight:600}
+.rs .ms{font:800 clamp(56px,14vw,96px)/1 var(--display);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.rs.wait{background:var(--peach)}
+.rs.go{background:#4f8a4a;color:#fff}.rs.go p{color:#e6f1e3}
+.rs.early{background:#D12C2C;color:#fff}.rs.early p{color:#f8d6d0}
+.rs.result{background:var(--moss)}
+@media (max-width:520px){.rs{min-height:260px}}
+.rounds{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.rounds span{min-width:64px;padding:8px 12px;border-radius:12px;background:var(--paper);font-weight:700;font-variant-numeric:tabular-nums;text-align:center;font-size:14px}
+.rounds span.todo{color:var(--ink3);font-weight:600}
+.big{font:800 64px/1 var(--display);letter-spacing:-.04em}
+</style>
+</head>
+<body data-page="games" data-sub="reaction" data-game="reaction">
+<main class="wrap">
+<div class="ghead"><div><h1>Reaction Time</h1><p>Wait for green, then tap, click or press Space. Five rounds. Tap too early and the round repeats.</p></div><button class="btn sm ghost" id="restart">Restart</button></div>
+<div class="glay">
+  <div class="stage">
+    <div class="stats"><div><b id="round">1/5</b><span>Round</span></div><div><b id="avg">–</b><span>Average</span></div><div><b id="best">–</b><span>Best</span></div></div>
+    <div class="rbox" id="rbox">
+      <div class="rs" id="rs" role="button" tabindex="0" aria-live="polite"><div><h2>Tap to start</h2><p>Then wait for green.</p></div></div>
+      <div class="rounds" id="rounds"></div>
+    </div>
+  </div>
+  <div class="side"><div class="box" id="lb"></div></div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/edu/assets/common.js?v=5c"></script>
+<script src="/assets/site.js?v=20261009"></script>
+<script>
+const R=5;let rounds,state,goAt,wait,done;
+const rs=document.getElementById('rs');
+const bestTxt=()=>{const b=G.local.get('best:reaction',null);return b==null?'–':b+' ms'};
+function paint(){document.getElementById('round').textContent=Math.min(R,rounds.length+(done?0:1))+'/'+R;
+  document.getElementById('avg').textContent=rounds.length?Math.round(rounds.reduce((a,b)=>a+b,0)/rounds.length)+' ms':'–';
+  document.getElementById('best').textContent=bestTxt();
+  document.getElementById('rounds').innerHTML=[...Array(R)].map((_,i)=>rounds[i]!=null?`<span>${rounds[i]} ms</span>`:`<span class="todo">${i+1}</span>`).join('')}
+function show(cls,h,p){rs.className='rs '+cls;rs.innerHTML=`<div>${h}<p>${p}</p></div>`}
+function reset(){clearTimeout(wait);rounds=[];done=false;state='idle';document.querySelectorAll('.over').forEach(o=>o.remove());show('','<h2>Tap to start</h2>','Then wait for green.');paint()}
+function arm(){clearTimeout(wait);state='wait';show('wait','<h2>Wait for green…</h2>','Don\'t tap yet.');
+  wait=setTimeout(()=>{state='go';goAt=performance.now();show('go','<h2>GO</h2>','Tap now')},1500+Math.random()*3500)}
+function hit(){
+  if(done)return;
+  if(state==='idle'||state==='result'||state==='early')return arm();
+  if(state==='wait'){clearTimeout(wait);state='early';show('early','<h2>Too soon!</h2>','Tap to try that round again.');return}
+  if(state==='go'){const ms=Math.max(1,Math.round(performance.now()-goAt));rounds.push(ms);state='result';
+    if(rounds.length>=R)return finish();
+    show('result',`<div class="ms">${ms}</div>`,'ms · tap for the next round');paint()}
+}
+function line(a){return a<200?'Faster than a hummingbird blink.':a<250?'Pro gamer territory.':a<300?'Solid. Most people land right here.':a<400?'Not bad. A little coffee might help.':'Coffee? Or a nap. Either works.'}
+async function finish(){done=true;const avg=Math.round(rounds.reduce((a,b)=>a+b,0)/rounds.length);paint();
+  show('result',`<div class="ms">${avg}</div>`,'ms average');
+  const o=document.createElement('div');o.className='over';
+  o.innerHTML=`<div><span class="lbl">5 rounds</span><div class="big">${avg} ms</div><p class="muted">${line(avg)}</p><p class="muted" id="omsg">${avg>=80&&avg<=2000?'Saving…':'That one won\'t count.'}</p><div class="row" style="justify-content:center"><button class="btn" id="oagain">Play again</button></div><div data-actions></div></div>`;
+  document.getElementById('rbox').append(o);o.querySelector('#oagain').onclick=reset;
+  if(avg>=80&&avg<=2000){o.querySelector('#omsg').innerHTML=await G.submit('reaction',avg,{rounds});
+    const b=G.local.get('best:reaction',null);if(b==null||avg<b)G.local.set('best:reaction',avg)}
+  paint()}
+rs.addEventListener('pointerdown',e=>{e.preventDefault();hit()});
+rs.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();hit()}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea')||e.repeat)return;if(e.key===' '){e.preventDefault();hit()}});
+document.getElementById('restart').onclick=reset;
+reset();
+G.boardBox(document.getElementById('lb'),'reaction');
+</script>
+</body>
+</html>

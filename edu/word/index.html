@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Daily Word · Kale's Games</title>
 <!-- meta -->
-<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
-<meta name="theme-color" content="#EEF0EA">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
 <meta property="og:site_name" content="Kale Erson">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Daily Word · Kale&#x27;s Games">
@@ -23,8 +25,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261006">
-<link rel="stylesheet" href="/edu/assets/games.css?v=2">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<link rel="stylesheet" href="/edu/assets/games.css?v=5">
 <style>
 .wgrid{display:grid;grid-template-rows:repeat(6,1fr);gap:6px;width:min(100%,330px)}
 .wrow{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
@@ -40,7 +42,6 @@
 .kr button{flex:1;max-width:44px;height:54px;border:0;border-radius:8px;background:#dfe2d8;color:#141613;font:700 15px/1 var(--body);text-transform:uppercase;cursor:pointer;padding:0}
 .kr button.wide{max-width:68px;flex:1.5;font-size:11px;letter-spacing:-.02em}
 .kr button.g{background:#4f8a4a;color:#fff}.kr button.y{background:#d8b43a;color:#fff}.kr button.x{background:#8f958b;color:#fff}
-.toast{position:fixed;left:50%;top:90px;transform:translateX(-50%);background:var(--ink);color:var(--on-ink);padding:10px 16px;border-radius:12px;font-weight:600;z-index:60}
 html[data-theme=dark] .kr button:not(.g):not(.y):not(.x){background:#30352d;color:var(--ink)}
 </style>
 </head>
@@ -60,9 +61,9 @@ html[data-theme=dark] .kr button:not(.g):not(.y):not(.x){background:#30352d;colo
 </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/edu/assets/common.js?v=2c"></script>
-<script src="/assets/site.js?v=20261006"></script>
-<script src="/edu/assets/words.js?v=2"></script>
+<script src="/edu/assets/common.js?v=5c"></script>
+<script src="/assets/site.js?v=20261009"></script>
+<script src="/edu/assets/words.js?v=5"></script>
 <script>
 const EPOCH=Date.UTC(2026,9,1);
 const today=new Date().toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'});  // YYYY-MM-DD
@@ -83,7 +84,8 @@ function draw(flipRow){
   document.getElementById('kb').innerHTML=['qwertyuiop','asdfghjkl','+zxcvbnm-'].map(r=>`<div class="kr">${[...r].map(k=>k==='+'?'<button class="wide" data-k="Enter">Enter</button>':k==='-'?'<button class="wide" data-k="Backspace" aria-label="Delete">⌫</button>':`<button data-k="${k}" class="${kstate[k]||''}">${k}</button>`).join('')}</div>`).join('');
   stats();
 }
-function toast(t){document.querySelectorAll('.toast').forEach(x=>x.remove());const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.append(d);setTimeout(()=>d.remove(),1800)}
+const toast=t=>G.toast(t);
+const emoji=()=>st.guesses.map(g=>score(g,answer).map(s=>({g:'🟩',y:'🟨',x:'⬜'})[s]).join('')).join('\n');
 function shake(){const r=grid.querySelector(`[data-r="${st.guesses.length}"]`);r&&(r.classList.remove('shake'),void r.offsetWidth,r.classList.add('shake'))}
 async function key(k){if(st.done)return;
   if(k==='Enter'){if(typed.length<5){toast('Not enough letters');return shake()}if(!WORDS.valid.has(typed)){toast('Not in word list');return shake()}
@@ -93,17 +95,21 @@ async function key(k){if(st.done)return;
   if(/^[a-z]$/.test(k)&&typed.length<5){typed+=k;draw()}}
 async function finish(){
   const n=st.guesses.length;
-  if(!practice&&!st.recorded){const h=G.local.get('word:history',{});h[today]=st.won?n:0;G.local.set('word:history',h);st.recorded=true;G.local.set('word:'+today,st);stats()}
-  const a=document.getElementById('after');a.hidden=false;
-  a.innerHTML=`<span><b>${st.won?['Genius!','Magnificent!','Impressive!','Splendid!','Great!','Phew!'][n-1]:'The word was '+answer.toUpperCase()}</b> <span class="muted" id="wmsg"></span></span>${practice?'':'<button class="btn sm" id="share">Share</button>'}<button class="btn sm ghost" id="prac">Practice word</button>`;
-  if(!practice&&st.won&&!st.saved){document.getElementById('wmsg').innerHTML=await G.submit('word',n,{day:today});st.saved=true;G.local.set('word:'+today,st)}
-  if(document.getElementById('share'))document.getElementById('share').onclick=()=>{const t=`Daily Word #${dayNo+1} ${st.won?n:'X'}/6\n`+st.guesses.map(g=>score(g,answer).map(s=>({g:'🟩',y:'🟨',x:'⬜'})[s]).join('')).join('\n')+'\nkaleerson.com/edu/word';
-    (navigator.share?navigator.share({text:t}).catch(()=>{}):navigator.clipboard.writeText(t).then(()=>toast('Copied to clipboard')))};
+  if(!practice&&!st.recorded){const h=G.local.get('word:history',{});h[today]=st.won?n:0;G.local.set('word:history',h);st.recorded=true;G.local.set('word:'+today,st);G.bump('word');stats()}
+  const a=document.getElementById('after');a.hidden=false;const sk=practice?0:G.streak('word').count;
+  a.innerHTML=`<span><b>${st.won?['Genius!','Magnificent!','Impressive!','Splendid!','Great!','Phew!'][n-1]:'The word was '+answer.toUpperCase()}</b> <span class="muted" id="wmsg"></span></span>${sk>0?`<span class="streak">🔥 ${sk}-day streak</span>`:''}${practice?'':'<div data-actions id="wacts"></div>'}<button class="btn sm ghost" id="prac">Practice word</button>`;
+  if(!practice){const text=`Daily Word #${dayNo+1} ${st.won?n:'X'}/6\n${emoji()}\nkaleerson.com/edu/word`,acts=document.getElementById('wacts');
+    if(st.won)G.actions(acts,'word',n,text);
+    else{acts.innerHTML='<button class="btn sm ghost" type="button" data-share>Share</button>';acts.querySelector('[data-share]').onclick=()=>G.share(text,'https://kaleerson.com/edu/word/')}}
+  if(!practice&&st.won&&!st.saved){const m=await G.submit('word',n,{day:today});document.getElementById('wmsg').innerHTML=m;if(/Saved|Already saved/.test(m)){st.saved=true;G.local.set('word:'+today,st)}}
   document.getElementById('prac').onclick=()=>{practice=true;answer=A[Math.floor(Math.random()*A.length)];st={guesses:[],done:false};typed='';a.hidden=true;toast('Practice word. Not saved.');draw()};
 }
 function stats(){const h=G.local.get('word:history',{}),days=Object.keys(h).sort(),wins=days.filter(d=>h[d]>0);
-  let streak=0;for(let d=new Date(today+'T12:00:00Z');;d.setUTCDate(d.getUTCDate()-1)){const k=d.toISOString().slice(0,10);if(h[k]>0)streak++;else if(k===today&&h[k]===undefined)continue;else break}
-  document.getElementById('stats').innerHTML=`<div><b>${days.length}</b><span>Played</span></div><div><b>${days.length?Math.round(100*wins.length/days.length):0}%</b><span>Won</span></div><div><b>${streak}</b><span>Streak</span></div>`}
+  document.getElementById('stats').innerHTML=`<div><b>${days.length}</b><span>Played</span></div><div><b>${days.length?Math.round(100*wins.length/days.length):0}%</b><span>Won</span></div><div><b>${G.streak('word').count}</b><span>Streak</span></div>`}
+// People who played before streaks existed: rebuild the streak from the history.
+if(!G.local.get('streak:word',null)){const h=G.local.get('word:history',{});let c=0,last=null;
+  for(let d=new Date(today+'T12:00:00Z');;d.setUTCDate(d.getUTCDate()-1)){const k=d.toISOString().slice(0,10);if(h[k]!==undefined){c++;last=last||k}else if(k===today)continue;else break}
+  if(c)G.local.set('streak:word',{count:c,last})}
 document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.target.matches('input'))return;const k=e.key==='Enter'||e.key==='Backspace'?e.key:e.key.toLowerCase();if(k==='Enter'||k==='Backspace'||/^[a-z]$/.test(k)){e.preventDefault();key(k)}});
 document.getElementById('kb').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(b)key(b.dataset.k)});
 draw();if(st.done)finish();

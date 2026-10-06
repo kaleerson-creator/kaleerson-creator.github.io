@@ -53,7 +53,7 @@ async function win(){over=true;clearInterval(tick);const s=Math.max(1,Math.round
   else{const k='best:minesweeper:easy',b=G.local.get(k,null);if(b===null||s<b){G.local.set(k,s);o.querySelector('#omsg').innerHTML=fmt(s)+'<br>New Easy best!'}}
   newBestLabel()}
 function newBestLabel(){const b=G.local.get('best:minesweeper'+(lv==='easy'?':easy':''),null);document.getElementById('best').textContent=b?fmt(b):'–'}
-function msg(t,s){const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>${t}</h2><p class="muted" id="omsg">${s}</p><button class="btn" id="oagain">Play again</button></div>`;g.append(o);o.querySelector('#oagain').onclick=()=>{newGame()};return o}
+function msg(t,s){const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>${t}</h2><p class="muted" id="omsg">${s}</p><button class="btn" id="oagain">Play again</button><div data-actions></div></div>`;g.append(o);o.querySelector('#oagain').onclick=()=>{newGame()};return o}
 let pressT=null,longFired=false;
 g.addEventListener('pointerdown',e=>{const b=e.target.closest('[data-i]');if(!b||over)return;longFired=false;clearTimeout(pressT);if(e.pointerType!=='mouse')pressT=setTimeout(()=>{longFired=true;flag(+b.dataset.i);draw();navigator.vibrate&&navigator.vibrate(20)},380)});
 ['pointerup','pointerleave','pointercancel'].forEach(ev=>g.addEventListener(ev,()=>clearTimeout(pressT)));

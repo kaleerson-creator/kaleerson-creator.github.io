@@ -44,7 +44,7 @@ function stats(){const el=(Date.now()-t0)/60000;const wpm=el>2/60?Math.round(cor
 function start(){t0=Date.now();timer=setInterval(()=>{const left=Math.max(0,secs-Math.floor((Date.now()-t0)/1000));document.getElementById('time').textContent=left;const s=stats();document.getElementById('wpm').textContent=s.wpm;document.getElementById('acc').textContent=s.acc+'%';if(left<=0)finish()},200)}
 async function finish(){done=true;clearInterval(timer);const s={wpm:Math.round(correctChars/5/(secs/60)),acc:correctChars+wrongChars?Math.round(100*correctChars/(correctChars+wrongChars)):100};
   document.getElementById('wpm').textContent=s.wpm;
-  const o=document.createElement('div');o.className='over';o.innerHTML=`<div><span class="lbl">${secs}-second test</span><div class="big">${s.wpm} wpm</div><p class="muted" id="omsg">${s.acc}% accuracy</p><button class="btn" id="oagain">Try again</button></div>`;
+  const o=document.createElement('div');o.className='over';o.innerHTML=`<div><span class="lbl">${secs}-second test</span><div class="big">${s.wpm} wpm</div><p class="muted" id="omsg">${s.acc}% accuracy</p><button class="btn" id="oagain">Try again</button><div data-actions></div></div>`;
   document.getElementById('tt').append(o);o.querySelector('#oagain').onclick=reset;
   if(secs===60&&s.wpm>0&&s.acc>=80)o.querySelector('#omsg').innerHTML+=`<br>${await G.submit('typing',Math.min(250,s.wpm),{acc:s.acc})}`;
   else if(secs===60&&s.acc<80)o.querySelector('#omsg').innerHTML+='<br>Needs 80% accuracy to count.';

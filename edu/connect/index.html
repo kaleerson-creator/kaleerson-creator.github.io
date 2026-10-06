@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Connect Four · Kale's Games</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Connect Four · Kale&#x27;s Games">
+<meta property="og:description" content="Four in a row beats the computer. Easy, Hard, or pass the phone to a friend.">
+<meta property="og:url" content="https://kaleerson.com/edu/connect/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Four in a row beats the computer. Easy, Hard, or pass the phone to a friend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<link rel="stylesheet" href="/edu/assets/games.css?v=5">
+<style>
+.cbox{position:relative;width:min(100%,440px);display:grid;gap:8px}
+.cols{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:0 10px}
+.cols button{min-height:44px;border:0;border-radius:12px;background:var(--paper);color:var(--ink);font:700 15px/1 var(--display);cursor:pointer;padding:0;touch-action:manipulation}
+.cols button:disabled{opacity:.4;cursor:default}
+.cols button:not(:disabled):hover{background:var(--line)}
+.cols button.hint{background:var(--butter);color:var(--ink)}
+.c4{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;background:#2451C9;padding:10px;border-radius:20px;touch-action:manipulation}
+.cell{aspect-ratio:1;border-radius:50%;background:var(--card);position:relative;cursor:pointer;overflow:visible}
+.cell.hint{box-shadow:inset 0 0 0 4px var(--butter)}
+.piece{position:absolute;inset:0;border-radius:50%}
+.piece.R{background:#D12C2C}.piece.Y{background:#F3C93B}
+.piece.drop{animation:drop .35s cubic-bezier(.3,.9,.4,1.1) both}
+@keyframes drop{from{transform:translateY(calc(-1 * var(--d) * (100% + 6px)))}}
+.piece.win{box-shadow:inset 0 0 0 5px #fff;animation:none}
+.c4.done .cell{cursor:default}
+.turn{display:flex;align-items:center;gap:8px;font-weight:600;min-height:24px;justify-content:center}
+.turn i{width:16px;height:16px;border-radius:50%;display:inline-block}
+.turn i.R{background:#D12C2C}.turn i.Y{background:#F3C93B}
+.over .pc{width:40px;height:40px;border-radius:50%;display:inline-block}
+.over .pc.R{background:#D12C2C}.over .pc.Y{background:#F3C93B}
+</style>
+</head>
+<body data-page="games" data-sub="connect" data-game="connect">
+<main class="wrap">
+<div class="ghead"><div><h1>Connect Four</h1><p>Drop pieces, get four in a row. Tap a column or press 1 to 7. Hard wins count for the leaderboard.</p></div>
+  <div class="seg" id="mode"><button data-m="easy">Easy</button><button data-m="hard" aria-pressed="true">Hard</button><button data-m="pass">Pass &amp; play</button></div></div>
+<div class="glay">
+  <div class="stage">
+    <div class="stats"><div><b id="streak">0</b><span>Hard wins in a row</span></div><div><b id="best">–</b><span>Best</span></div></div>
+    <div class="cbox" id="cbox">
+      <div class="turn" id="turn"></div>
+      <div class="cols" id="cols"></div>
+      <div class="c4" id="board"></div>
+    </div>
+    <div class="row"><button class="btn sm ghost" id="restart">New game</button><button class="btn sm ghost" id="hint" hidden>Hint (H)</button></div>
+  </div>
+  <div class="side">
+    <div class="box"><h2>How it works</h2><p class="muted">You're red. Easy plays quick and a bit random, and has a Hint button that shows the column I'd pick. Hard looks five moves ahead, so plan your traps. Pass &amp; play is two people on one phone. Beat Hard a few times in a row to climb the board.</p><p class="muted">A game you leave is saved on this device, so you can pick it back up. Starting a new game in the middle of a Hard game still resets your streak.</p></div>
+    <div class="box" id="lb"></div>
+  </div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/edu/assets/common.js?v=5c"></script>
+<script src="/assets/site.js?v=20261009"></script>
+<script>
+const ROWS=6,COLS=7,$=id=>document.getElementById(id);
+const WIN=[];
+for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++)for(const [dr,dc] of [[0,1],[1,0],[1,1],[1,-1]]){
+  const w=[];for(let k=0;k<4;k++){const R=r+dr*k,C=c+dc*k;if(R<0||R>=ROWS||C<0||C>=COLS)break;w.push(R*COLS+C)}if(w.length===4)WIN.push(w)}
+const AT=[...Array(42)].map((_,i)=>WIN.filter(w=>w.includes(i)));
+const ORDER=[3,2,4,1,5,0,6];
+let board,turn,done,mode='hard',starter='R',busy=false,lastIdx=-1,line=null,aiT=null,hint=-1;
+let streak=G.local.get('connect:streak',0)||0;
+function place(b,c,p){for(let r=ROWS-1;r>=0;r--){const i=r*COLS+c;if(!b[i]){b[i]=p;return i}}return -1}
+function winAt(b,i){const p=b[i];for(const w of AT[i])if(w.every(j=>b[j]===p))return w;return null}
+function full(b){for(let c=0;c<COLS;c++)if(!b[c])return false;return true}
+function heur(b,ai){const hu=ai==='R'?'Y':'R';let s=0;
+  for(const w of WIN){let a=0,h=0;for(const j of w){if(b[j]===ai)a++;else if(b[j]===hu)h++}
+    if(a&&h)continue;if(a===3)s+=40;else if(a===2)s+=8;else if(h===3)s-=50;else if(h===2)s-=8}
+  for(let r=0;r<ROWS;r++){const v=b[r*COLS+3];if(v===ai)s+=5;else if(v===hu)s-=5}
+  return s}
+function search(b,depth,alpha,beta,t,ai,last){
+  if(last>=0&&winAt(b,last))return b[last]===ai?100000+depth:-100000-depth;
+  if(depth===0)return heur(b,ai);
+  const other=t==='R'?'Y':'R';let any=false,best=t===ai?-Infinity:Infinity;
+  for(const c of ORDER){if(b[c])continue;any=true;const i=place(b,c,t);const v=search(b,depth-1,alpha,beta,other,ai,i);b[i]='';
+    if(t===ai){if(v>best)best=v;if(best>alpha)alpha=best}else{if(v<best)best=v;if(best<beta)beta=best}
+    if(alpha>=beta)break}
+  return any?best:0}
+function instant(b,p){for(const c of ORDER){if(b[c])continue;const i=place(b,c,p);const w=winAt(b,i);b[i]='';if(w)return c}return -1}
+// Best columns for player p by the Hard search (depth 5 for the computer, 4 for hints).
+function bestCols(p,depth){const b=board.slice(),other=p==='R'?'Y':'R';let bestV=-Infinity,bestC=[];
+  for(const c of ORDER){if(b[c])continue;const i=place(b,c,p);const v=search(b,depth,-Infinity,Infinity,other,p,i);b[i]='';
+    if(v>bestV){bestV=v;bestC=[c]}else if(v===bestV)bestC.push(c)}
+  return bestC}
+function aiMove(){
+  const ai='Y',hu='R',b=board.slice();
+  if(mode==='easy'){let c=instant(b,ai);if(c<0)c=instant(b,hu);if(c<0){const open=ORDER.filter(c=>!b[c]);c=open[Math.floor(Math.random()*open.length)]}return c}
+  const bestC=bestCols(ai,5);
+  return bestC[Math.floor(Math.random()*bestC.length)]}
+function who(p){return mode==='pass'?(p==='R'?'Red':'Yellow'):(p==='R'?'You':'Computer')}
+function draw(){
+  $('board').innerHTML=board.map((v,i)=>`<div class="cell${i%COLS===hint?' hint':''}" data-c="${i%COLS}">${v?`<div class="piece ${v}${i===lastIdx?' drop':''}${line&&line.includes(i)?' win':''}" style="--d:${Math.floor(i/COLS)+1}"></div>`:''}</div>`).join('');
+  $('board').classList.toggle('done',done);
+  $('cols').innerHTML=[...Array(COLS)].map((_,c)=>`<button data-c="${c}" class="${c===hint?'hint':''}" aria-label="Drop in column ${c+1}"${done||board[c]||busy?' disabled':''}>${c+1}</button>`).join('');
+  $('turn').innerHTML=done?'':`<i class="${turn}"></i>${busy?'Computer is thinking…':who(turn)+(mode==='pass'?"'s turn":' to move')}`;
+  $('streak').textContent=streak;const b=G.local.get('best:connect',null);$('best').textContent=b===null?'–':b;
+  $('hint').hidden=mode!=='easy';$('hint').disabled=done||busy||turn!=='R';
+}
+// The game in progress lives in g:connect:game so a closed tab can pick it back up.
+function persist(){G.local.set('connect:game',done||!board||!board.some(Boolean)?null:{board,turn,mode,starter})}
+function start(){clearTimeout(aiT);document.querySelectorAll('.over').forEach(o=>o.remove());board=Array(42).fill('');turn=starter;starter=starter==='R'?'Y':'R';done=false;busy=false;lastIdx=-1;line=null;hint=-1;draw();persist();
+  if(mode!=='pass'&&turn==='Y')computer()}
+function move(c){
+  if(done||busy||board[c])return;
+  hint=-1;const i=place(board,c,turn);lastIdx=i;const w=winAt(board,i);
+  if(w){line=w;done=true;draw();persist();return finish(turn)}
+  if(full(board)){done=true;draw();persist();return finish(null)}
+  turn=turn==='R'?'Y':'R';draw();persist();
+  if(mode!=='pass'&&turn==='Y')computer()}
+function computer(){busy=true;draw();clearTimeout(aiT);aiT=setTimeout(()=>{if(done||turn!=='Y')return;const c=aiMove();busy=false;move(c)},mode==='hard'?350:250)}
+// Quitting a Hard game that has started counts as a loss, so "in a row" means in a row.
+function abandon(){if(mode==='hard'&&board&&!done&&board.some(Boolean)&&streak){streak=0;G.local.set('connect:streak',0)}}
+function showHint(){if(mode!=='easy'||done||busy||turn!=='R')return;const c=bestCols('R',4);hint=c.length?c[0]:-1;draw()}
+async function finish(winner){
+  const o=document.createElement('div');o.className='over';
+  let title,sub='';
+  if(!winner){title='Draw';sub='The board filled up.'}
+  else if(mode==='pass')title=(winner==='R'?'Red':'Yellow')+' wins';
+  else if(winner==='R')title='You win';else title='Computer wins';
+  const hardWin=mode==='hard'&&winner==='R';
+  if(mode==='hard'){if(hardWin)streak++;else streak=0;G.local.set('connect:streak',streak)}
+  if(hardWin)sub=streak+' in a row · saving…';
+  else if(mode==='hard'&&winner==='Y')sub='Hard wins in a row reset.';
+  else if(mode==='easy'&&winner==='R')sub='Nice. Try Hard to get on the leaderboard.';
+  o.innerHTML=`<div>${winner?`<span class="pc ${winner}"></span>`:''}<h2>${title}</h2><p class="muted" id="omsg">${sub}</p><div data-actions></div><button class="btn" id="oagain">Play again</button></div>`;
+  $('cbox').append(o);o.querySelector('#oagain').onclick=start;draw();
+  if(hardWin){if(window.SITE&&SITE.confetti)SITE.confetti();const msg=await G.submit('connect',Math.min(200,streak),{mode:'hard'});const m=o.querySelector('#omsg');if(m)m.innerHTML=streak+' in a row'+(msg?'<br>'+msg:'');draw()}
+}
+$('board').addEventListener('click',e=>{const c=e.target.closest('[data-c]');if(c&&(mode==='pass'||turn==='R'))move(+c.dataset.c)});
+$('cols').addEventListener('click',e=>{const b=e.target.closest('button[data-c]');if(b&&!b.disabled&&(mode==='pass'||turn==='R'))move(+b.dataset.c)});
+$('mode').addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(!b||b.dataset.m===mode)return;abandon();mode=b.dataset.m;$('mode').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));starter='R';start()});
+$('restart').onclick=()=>{abandon();start()};
+$('hint').onclick=showHint;
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.target.matches('input,textarea'))return;
+  if(/^[1-7]$/.test(e.key)){e.preventDefault();if(mode==='pass'||turn==='R')move(+e.key-1)}
+  else if(e.key==='h'||e.key==='H')showHint();
+  else if(e.key==='Enter'&&done&&!e.target.matches('button,a')){const b=document.getElementById('oagain');if(b){e.preventDefault();b.click()}}});
+// Pick up a saved game (board, whose turn, mode and who starts next); otherwise start fresh.
+(function(){const s=G.local.get('connect:game',null);
+  if(!s||!Array.isArray(s.board)||s.board.length!==42||!['easy','hard','pass'].includes(s.mode)||(s.turn!=='R'&&s.turn!=='Y'))return start();
+  const b=s.board.map(v=>v==='R'||v==='Y'?v:'');
+  if(!b.some(Boolean)||full(b)||b.some((v,i)=>v&&winAt(b,i)))return start();
+  mode=s.mode;starter=s.starter==='Y'?'Y':'R';board=b;turn=s.turn;done=false;busy=false;lastIdx=-1;line=null;hint=-1;
+  $('mode').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.m===mode));
+  draw();G.toast('Picked up your last game');
+  if(mode!=='pass'&&turn==='Y')computer()})();
+G.boardBox(document.getElementById('lb'),'connect');
+</script>
+</body>
+</html>

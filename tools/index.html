@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tools · Kale Erson</title>
 <!-- meta -->
-<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
-<meta name="theme-color" content="#EEF0EA">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
 <meta property="og:site_name" content="Kale Erson">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tools · Kale Erson">
@@ -20,34 +22,48 @@
 <meta name="twitter:card" content="summary_large_image">
 <!-- /meta -->
 <meta name="description" content="Free tools for members.">
-<meta name="theme-color" content="#EEF0EA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261006">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
 <style>
 .phead .blob{background:var(--sky)}
-.tool{min-height:340px}
+.eyebrow{grid-column:1/-1;display:flex;align-items:baseline;gap:12px;margin-top:8px}
+.eyebrow:first-child{margin-top:0}
+.eyebrow .lbl{color:var(--ink)}
+.eyebrow .muted{font-size:14px}
+.tool{min-height:240px}
 .tool .blob{width:80%;aspect-ratio:1;right:-30%;bottom:-40%;background:#ffffff66}
-.tool .icon{width:64px;height:64px;border-radius:20px;background:#ffffffb3;display:grid;place-items:center}
-.tool .icon svg{width:30px;height:30px}
-.tool h2{font-size:clamp(40px,5vw,64px)}
-.ghost{background:transparent;border:2px dashed var(--line);justify-content:center;align-items:center;text-align:center}
+.tool h2{font-size:clamp(32px,3.6vw,44px)}
+.quick{min-height:168px;padding:20px}
+.quick h2{font-size:clamp(24px,2.4vw,30px);line-height:1}
+.quick>.art{width:clamp(64px,24%,92px)}
+.quick .foot .muted{font-size:14px}
+.ask{background:transparent;box-shadow:inset 0 0 0 2px var(--line)}
+.ask .lbl{color:var(--ink2)}
 </style>
 </head>
 <body data-page="tools">
 <main class="wrap">
-<section class="phead"><span class="blob"></span><h1>Tools</h1><p>Free for members. <a href="/join/" style="text-decoration:underline;text-underline-offset:3px">Join</a> with your email to use them.</p></section>
+<section class="phead"><span class="blob"></span><h1>Tools</h1><p>Most of these are open to anyone. A few need a free account: <a href="/join/" style="text-decoration:underline;text-underline-offset:3px">join</a> with your email.</p></section>
 <div class="bento" id="grid"></div>
 </main>
-<script src="/assets/content.js?v=20261006"></script>
-<script src="/assets/site.js?v=20261006"></script>
+<script src="/assets/content.js?v=20261010"></script>
+<script src="/assets/site.js?v=20261009"></script>
 <script>
 const C=window.CONTENT,S=window.SITE;
 
-const ICONS={'PVHS Study':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg>',Snapwit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>','Speech & Debate':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5M8 22h8"/></svg>','Games':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M7 10v4M5 12h4"/><circle cx="15.5" cy="11" r="1"/><circle cx="18" cy="13.5" r="1"/></svg>','LD Timer':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>'};
-document.getElementById('grid').innerHTML=C.tools.map((t,i)=>{const tag=t.href?'a':'div',open=t.href?`a href="${t.href}"`:'div';return `<${open} class="b s3 ${t.color} tool wide-m"><span class="art" data-art="${t.art||''}"></span><div class="row"><span class="chip">${S.esc(t.tag)}</span>${t.status?S.statusChip(t.status):t.open?'<span class="chip live">Open to all</span>':'<span class="chip">Members</span>'}</div><h2>${S.esc(t.name)}</h2><div class="foot"><span class="muted">${S.esc(t.note)}</span>${t.href?S.arrow:'<span class="soon">Coming soon</span>'}</div></${tag}>`}).join('')+`<div class="b ${C.tools.length%2?'s3':'s6'} ghost"><span class="soon">More tools coming soon</span></div>`;
-
+const BIG=C.tools.filter(t=>!t.quick),QUICK=C.tools.filter(t=>t.quick);
+// even rows on the 6-column grid: 3 per row when divisible by 3, 2 per row when even, else 3 + 2
+const size=(n,i)=>n%3===0?'s2':n%2===0?'s3':i<3?'s2':'s3';
+const chips=t=>`<div class="row"><span class="chip">${S.esc(t.tag)}</span>${t.status?S.statusChip(t.status):t.open?'<span class="chip live">Open to all</span>':'<span class="chip">Members</span>'}</div>`;
+const tile=(t,cls)=>{const tag=t.href?'a':'div',open=t.href?`a href="${t.href}"`:'div';return `<${open} class="b ${cls} ${t.color} wide-m"><span class="art" data-art="${t.art||''}"></span>${cls.includes('quick')?`<span class="lbl">${S.esc(t.tag)}${t.open?' · Open to all':''}</span>`:chips(t)}<h2>${S.esc(t.name)}</h2><div class="foot"><span class="muted">${S.esc(t.note)}</span>${t.href?S.arrow:'<span class="soon">Coming soon</span>'}</div></${tag}>`};
+document.getElementById('grid').innerHTML=
+  `<div class="eyebrow"><span class="lbl">Big tools</span><span class="muted">Games, study and debate</span></div>`+
+  BIG.map((t,i)=>tile(t,size(BIG.length,i)+' tool')).join('')+
+  `<div class="eyebrow"><span class="lbl">Quick tools</span><span class="muted">No account needed, work offline</span></div>`+
+  QUICK.map(t=>tile(t,'s2 quick')).join('')+
+  `<a class="b s2 quick ask wide-m" href="/forum/#/cat/ideas"><span class="lbl">Missing something?</span><h2>Request a tool</h2><div class="foot"><span class="muted">Post it in the forum's Ideas category.</span>${S.arrow}</div></a>`;
 </script>
 </body>
 </html>

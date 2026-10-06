@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bell Schedule · Kale Erson</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bell Schedule · Kale Erson">
+<meta property="og:description" content="Current period and minutes until the bell at Palo Verde High School, on Las Vegas time, with an editable schedule.">
+<meta property="og:url" content="https://kaleerson.com/bell/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Current period and minutes until the bell at Palo Verde High School, on Las Vegas time, with an editable schedule.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<!--
+  Schedule source: Palo Verde High School (CCSD, Las Vegas) publishes its bell schedule at
+  https://www.paloverde.org/students/pvhs-bell-schedule — the school runs a Green/Black block rotation
+  (Green = periods 1,3,5,7; Black = 2,4,6,8). The exact 2026-27 block times could not be fetched when
+  this page was built (site unreachable from the build sandbox), so the times below are a CCSD-style
+  default. The page says so and everything is editable; edits are saved in localStorage.
+-->
+<style>
+.phead .blob{background:var(--sky)}
+.now{min-height:300px}
+.now .blob{width:62%;aspect-ratio:1;right:-22%;bottom:-40%;background:#ffffff66}
+.now h2{font-size:clamp(30px,4vw,48px)}
+.big{font-family:var(--display);font-weight:800;font-size:clamp(72px,14vw,150px);letter-spacing:-.05em;line-height:.9;font-variant-numeric:tabular-nums;margin-top:4px}
+.bar{height:12px;border-radius:999px;background:#ffffff8c;overflow:hidden;margin-top:14px}
+.bar i{display:block;height:100%;width:0;background:var(--ink);border-radius:999px;transition:width 1s linear}
+html[data-theme=dark] .bar{background:#ffffff1f}
+.seg{display:inline-flex;background:var(--card);border-radius:999px;padding:4px;gap:2px}
+.seg button{font:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;border:0;background:transparent;color:var(--ink2);cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--on-ink)}
+.sky .seg{background:#ffffff8c}
+html[data-theme=dark] .sky .seg{background:#ffffff14}
+.day{display:grid;gap:2px}
+.day .rw{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;font-variant-numeric:tabular-nums}
+.day .rw b{font-family:var(--display);font-size:18px;letter-spacing:-.02em;font-weight:700}
+.day .rw span{color:var(--ink2);font-size:14px;white-space:nowrap}
+.day .rw.on{background:var(--sky)}
+.day .rw.done{opacity:.5}
+.day .rw.brk b{font-weight:600;color:var(--ink2)}
+.edit{display:grid;gap:10px}
+.edit .er{display:grid;grid-template-columns:1fr 104px 104px 40px;gap:6px;align-items:center}
+.edit input{font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);width:100%;min-width:0}
+.edit input[type=time]{font-variant-numeric:tabular-nums;padding-inline:8px}
+.x{width:40px;height:40px;border-radius:999px;border:0;background:var(--paper);color:var(--ink2);font-size:18px;cursor:pointer}
+.x:hover{color:var(--ink)}
+.hint{font-size:14px;color:var(--ink2)}
+.btn.sm{padding:9px 14px;font-size:14px}
+@media (max-width:520px){.edit .er{grid-template-columns:1fr 92px 92px 36px}.edit input{padding:9px 8px;font-size:15px}}
+</style>
+</head>
+<body data-page="tools">
+<main class="wrap">
+<section class="phead"><span class="blob"></span><h1>Bell Schedule</h1><p>What period it is and how long until the bell at Palo Verde, on Las Vegas time.</p></section>
+<div class="bento">
+  <section class="b s4 sky now wide-m" aria-live="polite">
+    <span class="blob"></span>
+    <span class="lbl" id="nowlbl">Now</span>
+    <h2 id="status">Loading</h2>
+    <div class="big" id="count">--:--</div>
+    <span class="muted" id="until">until the bell</span>
+    <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+  </section>
+
+  <section class="b s2 wide-m">
+    <span class="lbl">Today</span>
+    <div class="seg" role="group" aria-label="Day type"><button id="dgreen" aria-pressed="true">Green day</button><button id="dblack" aria-pressed="false">Black day</button></div>
+    <p class="hint">Green is periods 1, 3, 5, 7. Black is 2, 4, 6, 8. Pick whichever today is.</p>
+    <p class="hint" id="defnote">Default schedule, edit to match yours.</p>
+    <div class="foot" style="margin-top:auto"><span class="muted" id="lvtime"></span><button class="btn sm" id="editbtn" aria-expanded="false">Edit schedule</button></div>
+  </section>
+
+  <section class="b s6 wide-m" id="editbox" hidden>
+    <span class="lbl">Edit <span id="editday">green</span> day</span>
+    <div class="edit" id="rows"></div>
+    <div class="row">
+      <button class="btn light sm" id="addrow">Add row</button>
+      <button class="btn light sm" id="copyday">Copy these times to the other day</button>
+      <button class="btn sm" id="save">Save</button>
+      <button class="btn ghost sm" id="reset">Reset to default</button>
+    </div>
+    <p class="hint">Saved on this device only. Rows with no name or time are skipped.</p>
+  </section>
+
+  <section class="b s6 wide-m">
+    <span class="lbl">Full day</span>
+    <div class="day" id="day"></div>
+  </section>
+</div>
+</main>
+<script src="/assets/site.js?v=20261009"></script>
+<script>
+const S=window.SITE;
+const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}};
+
+// Default CCSD-style block day (ends 1:21). Same times both days; period numbers differ.
+const mk=(a,b,c,d)=>[{n:'Period '+a,s:'07:00',e:'08:23'},{n:'Period '+b,s:'08:29',e:'09:52'},{n:'Period '+c,s:'09:58',e:'11:21'},{n:'Lunch',s:'11:21',e:'11:52'},{n:'Period '+d,s:'11:58',e:'13:21'}];
+const DEF={green:mk(1,3,5,7),black:mk(2,4,6,8)};
+let sched=null,custom=false;
+try{const j=JSON.parse(ls('bell_schedule')||'null');if(j&&Array.isArray(j.green)&&Array.isArray(j.black)){sched=j;custom=true}}catch(e){}
+if(!sched)sched=JSON.parse(JSON.stringify(DEF));
+let dayType=ls('bell_day')==='black'?'black':'green';
+
+const $=id=>document.getElementById(id);
+const mins=t=>{const m=/^(\d{1,2}):(\d{2})$/.exec(t||'');return m?(+m[1])*60+(+m[2]):null};
+const fmt12=t=>{const m=mins(t);if(m==null)return'';const h=Math.floor(m/60),mm=m%60;return ((h+11)%12+1)+':'+String(mm).padStart(2,'0')};
+const rowsOf=d=>(sched[d]||[]).map(r=>({n:String(r.n||'').trim(),s:mins(r.s),e:mins(r.e),raw:r})).filter(r=>r.n&&r.s!=null&&r.e!=null&&r.e>r.s).sort((a,b)=>a.s-b.s);
+
+// Las Vegas clock, regardless of the device's zone.
+const DTF=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',hour12:false,weekday:'short',hour:'2-digit',minute:'2-digit',second:'2-digit'});
+function lv(){const p={};for(const x of DTF.formatToParts(new Date()))p[x.type]=x.value;const h=(+p.hour)%24;return{wd:p.weekday,sec:h*3600+(+p.minute)*60+(+p.second),h,m:+p.minute}}
+const pad=n=>String(n).padStart(2,'0');
+const clock=s=>{s=Math.max(0,Math.round(s));const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return h?h+':'+pad(m)+':'+pad(x):m+':'+pad(x)};
+
+function setDay(d){dayType=d;ls('bell_day',d);$('dgreen').setAttribute('aria-pressed',d==='green');$('dblack').setAttribute('aria-pressed',d==='black');$('editday').textContent=d;renderDay();renderEdit();tick()}
+$('dgreen').onclick=()=>setDay('green');$('dblack').onclick=()=>setDay('black');
+
+let lastKey='';
+function renderDay(){
+  const rows=rowsOf(dayType),t=lv();
+  const key=dayType+rows.map(r=>r.n+r.s+r.e).join('|');
+  if(key!==lastKey){lastKey=key;$('day').innerHTML=rows.length?rows.map((r,i)=>`<div class="rw${/lunch|break|passing/i.test(r.n)?' brk':''}" data-i="${i}"><b>${S.esc(r.n)}</b><span>${fmt12(r.raw.s)} – ${fmt12(r.raw.e)}</span></div>`).join(''):'<p class="hint">No rows yet. Open Edit schedule to add some.</p>'}
+  const weekend=t.wd==='Sat'||t.wd==='Sun';
+  document.querySelectorAll('#day .rw').forEach((el,i)=>{const r=rows[i];el.classList.toggle('on',!weekend&&t.sec>=r.s*60&&t.sec<r.e*60);el.classList.toggle('done',!weekend&&t.sec>=r.e*60)});
+  $('defnote').hidden=custom;
+}
+
+function tick(){
+  const t=lv(),rows=rowsOf(dayType),now=t.sec;
+  $('lvtime').textContent='Las Vegas · '+((t.h+11)%12+1)+':'+pad(t.m)+(t.h<12?' am':' pm');
+  let status='',target=null,from=null,until='until the bell',lbl='Now';
+  if(t.wd==='Sat'||t.wd==='Sun'){status='Weekend';until='no school today'}
+  else if(!rows.length){status='No schedule';until='add your periods'}
+  else{
+    const cur=rows.find(r=>now>=r.s*60&&now<r.e*60);
+    if(cur){status=cur.n;target=cur.e*60;from=cur.s*60;lbl=dayType==='green'?'Green day':'Black day'}
+    else if(now<rows[0].s*60){status='Before school';target=rows[0].s*60;from=null;until='until '+rows[0].n}
+    else if(now>=rows[rows.length-1].e*60){status='After school';until='see you tomorrow'}
+    else{const nx=rows.find(r=>r.s*60>now),pv=[...rows].reverse().find(r=>r.e*60<=now);status='Passing';target=nx.s*60;from=pv.e*60;until='until '+nx.n;lbl=dayType==='green'?'Green day':'Black day'}
+  }
+  $('nowlbl').textContent=lbl;
+  if($('status').textContent!==status)$('status').textContent=status;
+  $('until').textContent=until;
+  if(target!=null){const left=target-now;$('count').textContent=clock(left);document.title=clock(left)+' · '+status+' · Kale Erson';
+    $('bar').style.width=from!=null?Math.min(100,Math.max(0,(now-from)/(target-from)*100)).toFixed(1)+'%':'0%'}
+  else{$('count').textContent=((t.h+11)%12+1)+':'+pad(t.m);$('bar').style.width='0%';document.title=status+' · Bell Schedule · Kale Erson'}
+  if(now%60===0||lastKey==='')renderDay();
+  document.querySelectorAll('#day .rw').forEach((el,i)=>{const r=rows[i];if(!r)return;const w=t.wd==='Sat'||t.wd==='Sun';el.classList.toggle('on',!w&&now>=r.s*60&&now<r.e*60);el.classList.toggle('done',!w&&now>=r.e*60)});
+}
+
+// Edit panel
+function renderEdit(){
+  const rows=sched[dayType]||[];
+  $('rows').innerHTML=rows.map((r,i)=>`<div class="er"><input type="text" placeholder="Period name" value="${S.esc(r.n||'')}" data-i="${i}" data-k="n" aria-label="Name"><input type="time" value="${S.esc(r.s||'')}" data-i="${i}" data-k="s" aria-label="Start"><input type="time" value="${S.esc(r.e||'')}" data-i="${i}" data-k="e" aria-label="End"><button class="x" data-del="${i}" aria-label="Remove row">×</button></div>`).join('');
+}
+$('rows').addEventListener('input',e=>{const i=+e.target.dataset.i,k=e.target.dataset.k;if(sched[dayType][i])sched[dayType][i][k]=e.target.value});
+$('rows').addEventListener('click',e=>{const b=e.target.closest('[data-del]');if(!b)return;sched[dayType].splice(+b.dataset.del,1);renderEdit()});
+$('addrow').onclick=()=>{const last=sched[dayType][sched[dayType].length-1];sched[dayType].push({n:'',s:last?last.e:'',e:''});renderEdit();const ins=$('rows').querySelectorAll('input[data-k=n]');ins[ins.length-1].focus()};
+$('copyday').onclick=()=>{const o=dayType==='green'?'black':'green';sched[o]=sched[dayType].map(r=>({n:r.n,s:r.s,e:r.e}));saveIt('Copied to '+o+' day')};
+function saveIt(msg){custom=true;ls('bell_schedule',JSON.stringify(sched));lastKey='';renderDay();tick();$('defnote').hidden=true;flash(msg||'Saved')}
+$('save').onclick=()=>saveIt();
+$('reset').onclick=()=>{sched=JSON.parse(JSON.stringify(DEF));custom=false;ls('bell_schedule',null);renderEdit();lastKey='';renderDay();tick();flash('Back to the default')};
+$('editbtn').onclick=()=>{const open=$('editbox').hidden;$('editbox').hidden=!open;$('editbtn').setAttribute('aria-expanded',open);$('editbtn').textContent=open?'Close editor':'Edit schedule';if(open)renderEdit()};
+function flash(m){if(S&&S.toast){S.toast(m);return}const b=$('save');const t=b.textContent;b.textContent=m;setTimeout(()=>b.textContent=t,1400)}
+
+setDay(dayType);
+setInterval(tick,1000);
+</script>
+</body>
+</html>

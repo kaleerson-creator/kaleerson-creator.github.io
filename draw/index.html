@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Whiteboard · Kale Erson</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Whiteboard · Kale Erson">
+<meta property="og:description" content="A quick whiteboard in the browser: draw, highlight, add labels, undo, and save or copy the picture.">
+<meta property="og:url" content="https://kaleerson.com/draw/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="A quick whiteboard in the browser: draw, highlight, add labels, undo, and save or copy the picture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<style>
+.phead .blob{background:var(--sky)}
+.boardbox{padding:14px;gap:10px;min-height:0}
+.bar{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding:2px 4px}
+.grp{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.tb{font:inherit;font-size:14px;font-weight:600;height:36px;padding:0 12px;border-radius:999px;border:0;background:var(--paper);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.tb[aria-pressed=true]{background:var(--ink);color:var(--on-ink)}
+.tb:disabled{opacity:.4;cursor:default}
+.tb svg{width:16px;height:16px;flex:none}
+.sw{width:30px;height:30px;border-radius:50%;border:0;cursor:pointer;padding:0;background:var(--c);margin:3px}
+.sw[aria-pressed=true]{box-shadow:0 0 0 2px var(--card),0 0 0 4px var(--ink)}
+html[data-theme=dark] .sw{box-shadow:inset 0 0 0 1.5px #ffffff38}
+html[data-theme=dark] .sw[aria-pressed=true]{box-shadow:inset 0 0 0 1.5px #ffffff38,0 0 0 2px var(--card),0 0 0 4px var(--ink)}
+.sz{width:36px;height:36px;border-radius:999px;border:0;background:var(--paper);display:grid;place-items:center;cursor:pointer;color:var(--ink);padding:0}
+.sz i{display:block;border-radius:50%;background:currentColor}
+.sz[aria-pressed=true]{background:var(--ink);color:var(--on-ink)}
+/* the paper is always white, in dark mode too, so what you see is what the PNG looks like */
+.board{position:relative;width:100%;height:clamp(380px,62vh,760px);border-radius:var(--r-sm);background:#fff;overflow:hidden;touch-action:none;cursor:crosshair;-webkit-user-select:none;user-select:none}
+html[data-theme=dark] .board{background:#fff}
+.board canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;display:block}
+#live{pointer-events:none}
+.board.text{cursor:text}
+#tin{position:absolute;font-family:var(--body);font-weight:600;line-height:1.2;padding:0 4px;margin:0;border:0;outline:2px dashed #14161366;border-radius:4px;background:#ffffffcc;color:#141613;min-width:120px;max-width:calc(100% - 8px)}
+html[data-theme=dark] #tin{background:#ffffffcc!important;color:#141613!important}
+.foot{font-size:14px}
+.keys{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px;align-items:center}
+.kb{display:inline-block;min-width:26px;text-align:center;padding:2px 7px;border-radius:7px;background:var(--paper);font-size:12px;font-weight:600}
+.hint{font-size:14px;color:var(--ink2)}
+.sep{width:1px;height:22px;background:var(--line)}
+@media (max-width:520px){.sep{display:none}.bar{gap:6px 10px}.tb{padding:0 10px;font-size:13px}.board{height:clamp(320px,58vh,560px)}}
+</style>
+</head>
+<body data-page="tools">
+<main class="wrap">
+<section class="phead"><span class="blob"></span><h1>Whiteboard</h1><p>Draw something, label it, save it as a picture. It stays on this device.</p></section>
+<div class="bento">
+  <section class="b s6 boardbox">
+    <div class="bar">
+      <div class="grp" role="group" aria-label="Tool">
+        <button class="tb" data-tool="pen" aria-pressed="true" title="Pen (P)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/></svg>Pen</button>
+        <button class="tb" data-tool="hl" aria-pressed="false" title="Marker (H)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l-6 6v3h9l3-3"/><path d="M22 12l-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg>Marker</button>
+        <button class="tb" data-tool="eraser" aria-pressed="false" title="Eraser (E)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20H7L3 16a2 2 0 0 1 0-3l9-9a2 2 0 0 1 3 0l5 5a2 2 0 0 1 0 3l-7 7"/><path d="M6 11l7 7"/></svg>Eraser</button>
+        <button class="tb" data-tool="text" aria-pressed="false" title="Text (T)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>Text</button>
+      </div>
+      <span class="sep"></span>
+      <div class="grp" role="group" aria-label="Color" id="colors"></div>
+      <span class="sep"></span>
+      <div class="grp" role="group" aria-label="Size">
+        <button class="sz" data-size="s" aria-pressed="false" aria-label="Thin"><i style="width:5px;height:5px"></i></button>
+        <button class="sz" data-size="m" aria-pressed="true" aria-label="Medium"><i style="width:9px;height:9px"></i></button>
+        <button class="sz" data-size="l" aria-pressed="false" aria-label="Thick"><i style="width:15px;height:15px"></i></button>
+      </div>
+      <span class="sep"></span>
+      <div class="grp">
+        <button class="tb" id="undo" title="Undo (Z)" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></svg>Undo</button>
+        <button class="tb" id="redo" title="Redo (Y)" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 14 5-5-5-5"/><path d="M20 9H9a5 5 0 0 0 0 10h3"/></svg>Redo</button>
+        <button class="tb" id="clear" title="Clear the board">Clear</button>
+      </div>
+      <div class="grp" style="margin-left:auto">
+        <button class="tb" id="save">Save PNG</button>
+        <button class="tb" id="copy">Copy image</button>
+      </div>
+    </div>
+    <div class="board" id="boardwrap">
+      <canvas id="board" aria-label="Drawing board" role="img"></canvas>
+      <canvas id="live" aria-hidden="true"></canvas>
+      <input id="tin" type="text" maxlength="120" autocomplete="off" aria-label="Label text" hidden>
+    </div>
+    <div class="foot"><span class="muted" id="status">Empty board</span><span class="muted" id="tip">Drag to draw</span></div>
+  </section>
+  <section class="b s3 wide-m">
+    <span class="lbl">Keys</span>
+    <div class="keys">
+      <span class="kb">P</span><span>Pen</span>
+      <span class="kb">H</span><span>Marker</span>
+      <span class="kb">E</span><span>Eraser</span>
+      <span class="kb">T</span><span>Text</span>
+      <span class="kb">Z</span><span>Undo</span>
+      <span class="kb">Y</span><span>Redo</span>
+      <span class="kb">1 2 3</span><span>Thin, medium, thick</span>
+    </div>
+  </section>
+  <section class="b s3 sky wide-m">
+    <span class="lbl">How it saves</span>
+    <h3>Nothing leaves your phone</h3>
+    <div class="hint">The board autosaves on this device, so you can come back later. Save PNG downloads a picture with a white background. Copy image puts it on your clipboard for a doc or a chat.</div>
+  </section>
+</div>
+</main>
+<script src="/assets/site.js?v=20261009"></script>
+<script>
+const S=window.SITE;
+const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}};
+const J=(k,d)=>{try{const v=JSON.parse(ls(k));return v==null?d:v}catch(e){return d}};
+const $=id=>document.getElementById(id);
+const toast=m=>{if(S&&typeof S.toast==='function')S.toast(m)};
+
+// Site palette. The paper is always white, so the pen uses a deeper tint of each
+// token hue (the pastels themselves are too pale for a thin line) plus forest and ink.
+const TOK={moss:'#CFE0B4',sky:'#C4D9F5',peach:'#F6CDBB',butter:'#F3E39B',lilac:'#DCCFF3',forest:'#1E3A2C',ink:'#141613'};
+function deep(hex,L,Sat){
+  const n=parseInt(hex.slice(1),16),r=(n>>16&255)/255,g=(n>>8&255)/255,b=(n&255)/255;
+  const mx=Math.max(r,g,b),mn=Math.min(r,g,b);let h=0;const d=mx-mn;
+  if(d){h=mx===r?((g-b)/d+(g<b?6:0)):mx===g?((b-r)/d+2):((r-g)/d+4);h/=6}
+  const q=L<.5?L*(1+Sat):L+Sat-L*Sat,p=2*L-q,f=t=>{t=(t+1)%1;return t<1/6?p+(q-p)*6*t:t<.5?q:t<2/3?p+(q-p)*(2/3-t)*6:p};
+  const to=x=>Math.round(x*255).toString(16).padStart(2,'0');
+  return '#'+to(f(h+1/3))+to(f(h))+to(f(h-1/3));
+}
+const PEN={ink:TOK.ink,forest:TOK.forest,moss:deep(TOK.moss,.36,.48),sky:deep(TOK.sky,.47,.62),peach:deep(TOK.peach,.5,.72),butter:deep(TOK.butter,.42,.78),lilac:deep(TOK.lilac,.5,.5)};
+const NAMES={ink:'Ink',forest:'Forest',moss:'Moss',sky:'Sky',peach:'Peach',butter:'Butter',lilac:'Lilac'};
+const SIZES={pen:{s:2.5,m:5,l:10},hl:{s:12,m:20,l:32},eraser:{s:16,m:32,l:64},text:{s:18,m:28,l:40}};
+const FONT='"Geist",system-ui,sans-serif';
+
+const wrap=$('boardwrap'),cv=$('board'),lv=$('live'),ctx=cv.getContext('2d'),lctx=lv.getContext('2d');
+let strokes=[],redo=[],cur=null,tool='pen',color='ink',size='m',W=0,H=0;
+
+// strokes are data: {t:'p'|'h'|'e', c:'#hex', w:px, p:[x,y,x,y,...], q?:[pressure...]} or {t:'t', c, w:fontPx, x, y, s:'label'}
+function drawStroke(c,s){
+  c.save();
+  if(s.t==='t'){c.fillStyle=s.c;c.font='600 '+s.w+'px '+FONT;c.textBaseline='top';c.fillText(s.s,s.x,s.y);c.restore();return}
+  const p=s.p;if(!p||p.length<2){c.restore();return}
+  c.lineCap='round';c.lineJoin='round';
+  c.globalCompositeOperation=s.t==='e'?'destination-out':'source-over';
+  c.globalAlpha=s.t==='h'?.4:1;
+  c.strokeStyle=s.t==='e'?'#000':s.c;
+  if(s.q&&s.q.length*2===p.length&&p.length>2){
+    for(let i=2;i<p.length;i+=2){c.lineWidth=s.w*(.35+1.3*s.q[i/2]);c.beginPath();c.moveTo(p[i-2],p[i-1]);c.lineTo(p[i],p[i+1]);c.stroke()}
+  }else{
+    c.lineWidth=s.w;c.beginPath();c.moveTo(p[0],p[1]);
+    if(p.length===2)c.lineTo(p[0],p[1]);
+    for(let i=2;i<p.length-2;i+=2)c.quadraticCurveTo(p[i],p[i+1],(p[i]+p[i+2])/2,(p[i+1]+p[i+3])/2);
+    if(p.length>2)c.lineTo(p[p.length-2],p[p.length-1]);
+    c.stroke();
+  }
+  c.restore();
+}
+function clearCanvas(c,el){c.save();c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,el.width,el.height);c.restore()}
+function redraw(){clearCanvas(ctx,cv);strokes.forEach(s=>drawStroke(ctx,s))}
+function resize(){
+  const r=wrap.getBoundingClientRect();if(!r.width||!r.height)return;
+  const dpr=Math.min(window.devicePixelRatio||1,3);W=r.width;H=r.height;
+  [[cv,ctx],[lv,lctx]].forEach(([el,c])=>{el.width=Math.round(W*dpr);el.height=Math.round(H*dpr);c.setTransform(dpr,0,0,dpr,0,0)});
+  redraw();if(cur)drawStroke(lctx,cur);
+}
+if(window.ResizeObserver)new ResizeObserver(()=>resize()).observe(wrap);else addEventListener('resize',resize);
+
+// toolbar
+function setTool(t){tool=t;document.querySelectorAll('[data-tool]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.tool===t));wrap.classList.toggle('text',t==='text');$('tip').textContent={pen:'Drag to draw',hl:'Marker is see-through, good over text',eraser:'Drag over anything to erase it',text:'Tap the board to place a label'}[t];hideText(true)}
+function setSize(z){size=z;document.querySelectorAll('[data-size]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.size===z))}
+function setColor(k){color=k;document.querySelectorAll('.sw').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===k));if(tool==='eraser')setTool('pen')}
+$('colors').innerHTML=Object.keys(PEN).map(k=>`<button class="sw" data-c="${k}" style="--c:${PEN[k]}" aria-pressed="false" aria-label="${NAMES[k]}" title="${NAMES[k]}"></button>`).join('');
+$('colors').addEventListener('click',e=>{const b=e.target.closest('.sw');if(b)setColor(b.dataset.c)});
+document.querySelectorAll('[data-tool]').forEach(b=>b.onclick=()=>setTool(b.dataset.tool));
+document.querySelectorAll('[data-size]').forEach(b=>b.onclick=()=>setSize(b.dataset.size));
+function status(){
+  const n=strokes.length;$('status').textContent=n?n+(n===1?' stroke':' strokes')+' · autosaved here':'Empty board';
+  $('undo').disabled=!n;$('redo').disabled=!redo.length;
+}
+
+// pointer input: pen and marker preview on the top canvas, eraser cuts the main one as you go
+const px=e=>{const r=wrap.getBoundingClientRect();return [Math.round((e.clientX-r.left)*10)/10,Math.round((e.clientY-r.top)*10)/10]};
+wrap.addEventListener('contextmenu',e=>e.preventDefault());
+wrap.addEventListener('pointerdown',e=>{
+  if(e.target===$('tin'))return;
+  if(e.pointerType==='mouse'&&e.button!==0)return;
+  e.preventDefault();
+  if(tool==='text'){placeText(e);return}
+  if(cur)return;
+  try{wrap.setPointerCapture(e.pointerId)}catch(x){}
+  const [x,y]=px(e);
+  cur={t:{pen:'p',hl:'h',eraser:'e'}[tool],c:PEN[color],w:SIZES[tool][size],p:[x,y],id:e.pointerId};
+  if(tool==='pen'&&e.pointerType==='pen')cur.q=[e.pressure||.5];
+  if(cur.t==='e')drawStroke(ctx,{t:'e',w:cur.w,p:[x,y]});else drawStroke(lctx,cur);
+});
+wrap.addEventListener('pointermove',e=>{
+  if(!cur||e.pointerId!==cur.id)return;
+  const evs=e.getCoalescedEvents?e.getCoalescedEvents():[e];if(!evs.length)evs.push(e);
+  let added=false;
+  for(const ev of evs){
+    const [x,y]=px(ev),p=cur.p,lx=p[p.length-2],ly=p[p.length-1];
+    if(Math.abs(x-lx)<.8&&Math.abs(y-ly)<.8)continue;
+    if(cur.t==='e')drawStroke(ctx,{t:'e',w:cur.w,p:[lx,ly,x,y]});
+    p.push(x,y);if(cur.q)cur.q.push(ev.pressure||.5);added=true;
+  }
+  if(added&&cur.t!=='e'){clearCanvas(lctx,lv);drawStroke(lctx,cur)}
+});
+function finish(e){
+  if(!cur||(e&&e.pointerId!==cur.id))return;
+  const s=cur;cur=null;delete s.id;
+  if(s.t!=='e'){clearCanvas(lctx,lv);drawStroke(ctx,s)}
+  push(s);
+}
+wrap.addEventListener('pointerup',finish);wrap.addEventListener('pointercancel',finish);
+wrap.addEventListener('lostpointercapture',e=>{if(cur&&e.pointerId===cur.id)finish(e)});
+function push(s){strokes.push(s);redo=[];if(strokes.length>2000)strokes.splice(0,strokes.length-2000);save();status()}
+
+// text labels
+const tin=$('tin');let tpos=null,committing=false;
+function placeText(e){
+  hideText(true);
+  const [x,y]=px(e);tpos=[x,y];const fs=SIZES.text[size];
+  tin.style.left=Math.min(x,Math.max(0,W-130))+'px';tin.style.top=Math.max(0,Math.min(y,H-fs*1.3))+'px';tin.style.fontSize=fs+'px';tin.style.color=PEN[color];tin.value='';tin.hidden=false;
+  setTimeout(()=>tin.focus(),0);
+}
+function hideText(commit){
+  if(tin.hidden||committing)return;committing=true;
+  const v=tin.value.trim();tin.hidden=true;
+  if(commit&&v&&tpos){const s={t:'t',c:PEN[color],w:SIZES.text[size],x:tpos[0],y:tpos[1],s:v};drawStroke(ctx,s);push(s)}
+  tpos=null;committing=false;
+}
+tin.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();hideText(true)}else if(e.key==='Escape'){e.preventDefault();hideText(false)}e.stopPropagation()});
+tin.addEventListener('blur',()=>hideText(true));
+
+// undo / redo / clear
+function undo(){if(!strokes.length)return;redo.push(strokes.pop());redraw();save();status()}
+function redoOne(){if(!redo.length)return;const s=redo.pop();strokes.push(s);drawStroke(ctx,s);save();status()}
+$('undo').onclick=undo;$('redo').onclick=redoOne;
+$('clear').onclick=()=>{if(!strokes.length&&!cur)return;if(!confirm('Clear the whole board? Undo will not bring it back.'))return;strokes=[];redo=[];cur=null;clearCanvas(lctx,lv);redraw();save();status();toast('Board cleared')};
+document.addEventListener('keydown',e=>{
+  if(e.target.matches('input,textarea,select')||document.body.classList.contains('pal-open'))return;
+  const k=e.key.toLowerCase();
+  if((e.ctrlKey||e.metaKey)&&k==='z'){e.preventDefault();e.shiftKey?redoOne():undo();return}
+  if((e.ctrlKey||e.metaKey)&&k==='y'){e.preventDefault();redoOne();return}
+  if(e.ctrlKey||e.metaKey||e.altKey)return;
+  const act={z:undo,y:redoOne,e:()=>setTool('eraser'),p:()=>setTool('pen'),h:()=>setTool('hl'),t:()=>setTool('text'),1:()=>setSize('s'),2:()=>setSize('m'),3:()=>setSize('l')}[k];
+  // preventDefault also tells the site shortcuts (t = theme, g then h = home) that this key is taken
+  if(act){e.preventDefault();act()}
+});
+
+// save as a picture: white paper underneath, same pixel size as the screen
+function exportBlob(cb){
+  const o=document.createElement('canvas');o.width=cv.width||1;o.height=cv.height||1;
+  const c=o.getContext('2d');c.fillStyle='#fff';c.fillRect(0,0,o.width,o.height);c.drawImage(cv,0,0);
+  if(o.toBlob)o.toBlob(cb,'image/png');else{try{const d=atob(o.toDataURL('image/png').split(',')[1]),a=new Uint8Array(d.length);for(let i=0;i<d.length;i++)a[i]=d.charCodeAt(i);cb(new Blob([a],{type:'image/png'}))}catch(e){cb(null)}}
+}
+const stamp=()=>{const d=new Date(),p=n=>String(n).padStart(2,'0');return d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+'-'+p(d.getHours())+p(d.getMinutes())};
+$('save').onclick=()=>exportBlob(b=>{
+  if(!b){toast('Could not make the picture');return}
+  const u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='whiteboard-'+stamp()+'.png';document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(u),3000);toast('Saved as PNG');
+});
+$('copy').onclick=async()=>{
+  if(!(window.ClipboardItem&&navigator.clipboard&&navigator.clipboard.write)){toast('Copy is not supported here. Save the PNG instead.');return}
+  try{
+    await navigator.clipboard.write([new ClipboardItem({'image/png':new Promise((res,rej)=>exportBlob(b=>b?res(b):rej(new Error('no blob'))))})]);
+    toast('Copied. Paste it anywhere.');
+  }catch(e){
+    try{const b=await new Promise(r=>exportBlob(r));await navigator.clipboard.write([new ClipboardItem({'image/png':b})]);toast('Copied. Paste it anywhere.')}
+    catch(x){toast('Could not copy. Save the PNG instead.')}
+  }
+};
+
+// autosave to this device (draw_strokes); trims the oldest strokes when storage is full
+let saveT=null;
+function writeNow(){
+  let list=strokes.slice(-2000);
+  for(let tries=0;tries<3;tries++){try{localStorage.setItem('draw_strokes',JSON.stringify(list));return}catch(e){list=list.slice(Math.ceil(list.length/2))}}
+}
+function save(){clearTimeout(saveT);saveT=setTimeout(()=>{saveT=null;writeNow()},250)}
+{const saved=J('draw_strokes',[]);
+  if(Array.isArray(saved))strokes=saved.filter(s=>s&&typeof s==='object'&&(s.t==='t'?typeof s.s==='string'&&isFinite(s.x)&&isFinite(s.y):Array.isArray(s.p)&&s.p.length>=2&&isFinite(s.w))).slice(-2000);
+}
+setTool('pen');setSize('m');setColor('ink');status();resize();
+addEventListener('pagehide',()=>{if(saveT){clearTimeout(saveT);saveT=null;writeNow()}});
+</script>
+</body>
+</html>

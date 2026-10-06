@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>LD Round Timer</title>
 <!-- meta -->
-<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
-<meta name="theme-color" content="#EEF0EA">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
 <meta property="og:site_name" content="Kale Erson">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LD Round Timer">
@@ -23,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=20261006">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
 <style>
 :root{
   color-scheme:light;
@@ -83,6 +85,12 @@ h1 small{display:block;font:500 13px/1.3 var(--body);letter-spacing:.06em;text-t
 .ctrls .go.running{background:var(--panel);color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
 .row2{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
 .row2 button{border:0;background:transparent;color:var(--muted);font-size:13px;text-decoration:underline;text-underline-offset:3px;padding:4px 6px}
+.notes{display:grid;gap:6px}
+.notes .ntop{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.notes label{font:600 12px/1 var(--body);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.notes button{border:0;background:var(--soft);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600}
+.notes textarea{width:100%;resize:vertical;min-height:72px;border:0;border-radius:14px;background:var(--soft);color:var(--ink);font:14px/1.45 var(--body);padding:10px 12px}
+.notes textarea:focus-visible{outline:2px solid var(--aff);outline-offset:1px}
 
 .preps{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .prep{background:var(--panel);border:2px solid transparent;border-radius:24px;padding:18px;display:grid;gap:8px;transition:background .2s,border-color .2s}
@@ -129,8 +137,8 @@ body>.wrap>header .hb{position:absolute;z-index:-1;width:150px;aspect-ratio:1;le
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
-<script src="/lib/gate.js?v=20261001"></script>
-<script src="/assets/site.js?v=20261006" defer></script>
+<script src="/lib/gate.js?v=20261007"></script>
+<script src="/assets/site.js?v=20261009" defer></script>
 </head>
 <body data-page="tools">
 
@@ -166,6 +174,10 @@ body>.wrap>header .hb{position:absolute;z-index:-1;width:150px;aspect-ratio:1;le
         </div>
         <div class="row2">
           <button id="reset">Reset this speech</button>
+        </div>
+        <div class="notes">
+          <div class="ntop"><label for="notes" id="nlbl">Notes · 1AC</label><button id="copyNotes" type="button">Copy notes</button></div>
+          <textarea id="notes" rows="3" maxlength="4000" placeholder="Flow this speech here. Notes stay on this device with the round."></textarea>
         </div>
       </section>
 
@@ -241,6 +253,7 @@ body>.wrap>header .hb{position:absolute;z-index:-1;width:150px;aspect-ratio:1;le
     remaining: cfg.mins.map(m => m * 60000),
     touched: cfg.mins.map(() => false),
     prep: {aff: cfg.prep * 60000, neg: cfg.prep * 60000},
+    notes: SPEECHES.map(() => ''),
   });
   let cfg = {me:'aff', mins: SPEECHES.map(s => s.min), prep: 4, split: 4, sound: true};
   let R;
@@ -250,6 +263,7 @@ body>.wrap>header .hb{position:absolute;z-index:-1;width:150px;aspect-ratio:1;le
   } catch (e) {}
   if (!R) R = fresh(cfg);
   if (cfg.split == null) cfg.split = 4;
+  if (!Array.isArray(R.notes) || R.notes.length !== SPEECHES.length) R.notes = SPEECHES.map((s, k) => (R.notes && typeof R.notes[k] === 'string') ? R.notes[k] : '');
 
   let active = null;      // 'speech' | 'aff' | 'neg' | null
   let last = 0, raf = 0, lastSave = 0, confirmNew = false;
@@ -410,6 +424,11 @@ body>.wrap>header .hb{position:absolute;z-index:-1;width:150px;aspect-ratio:1;le
     const nr = $('newRound');
     nr.textContent = confirmNew ? 'Tap again to reset round' : 'New round';
     nr.classList.toggle('danger', confirmNew);
+
+    // notes: one per speech, swapped in when the speech changes (never while you type in it)
+    $('nlbl').textContent = 'Notes · ' + s.code + (s.detail ? ' (' + s.detail + ')' : '');
+    const ta = $('notes');
+    if (ta.dataset.idx !== String(i)) { ta.dataset.idx = String(i); ta.value = R.notes[i] || ''; }
   }
   function partInfo(i) {
     const s = SPEECHES[i];
@@ -457,6 +476,15 @@ body>.wrap>header .hb{position:absolute;z-index:-1;width:150px;aspect-ratio:1;le
   $('next').onclick = () => go(R.idx + 1);
   $('reset').onclick = () => { if (active === 'speech') stop(); R.remaining[R.idx] = dur(R.idx); R.touched[R.idx] = false; save(); render(); };
   for (const side of ['aff', 'neg']) $('pb-' + side).onclick = () => active === side ? stop() : start(side);
+  $('notes').addEventListener('input', e => { R.notes[R.idx] = e.target.value.slice(0, 4000); save(); });
+  $('copyNotes').onclick = async () => {
+    const b = $('copyNotes');
+    const txt = SPEECHES.map((s, k) => (R.notes[k] || '').trim() ? '== ' + s.code + (s.detail ? ' (' + s.detail + ')' : '') + ' ==\n' + R.notes[k].trim() : '').filter(Boolean).join('\n\n');
+    if (!txt) { b.textContent = 'Nothing to copy yet'; setTimeout(() => { b.textContent = 'Copy notes'; }, 1500); return; }
+    try { await navigator.clipboard.writeText(txt); b.textContent = 'Copied ✓'; }
+    catch (e) { const ta = $('notes'); ta.focus(); ta.select(); b.textContent = 'Select and copy'; }
+    setTimeout(() => { b.textContent = 'Copy notes'; }, 1800);
+  };
   $('me-aff').onclick = () => { cfg.me = 'aff'; save(); render(); };
   $('me-neg').onclick = () => { cfg.me = 'neg'; save(); render(); };
   $('newRound').onclick = () => {

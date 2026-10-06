@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Updates · Kale Erson</title>
 <!-- meta -->
-<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
-<meta name="theme-color" content="#EEF0EA">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
 <meta property="og:site_name" content="Kale Erson">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Updates · Kale Erson">
@@ -20,37 +22,41 @@
 <meta name="twitter:card" content="summary_large_image">
 <!-- /meta -->
 <meta name="description" content="What Kale Erson is working on.">
-<meta name="theme-color" content="#EEF0EA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261006">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
 <style>
-.phead .blob{background:var(--butter)}
+.phead .blob{background:var(--butter);top:-6px;right:0;width:clamp(100px,18vw,200px)}
+@media (max-width:620px){.phead .blob{top:0;width:96px}}
 .year{font-family:var(--display);font-weight:800;font-size:15px;color:var(--ink2);margin:20px 0 10px;letter-spacing:.02em}
 .tl{display:grid;gap:var(--gap)}
 .u{display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:16px;min-height:0;padding:22px 24px;border-radius:24px}
 .u .d{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.02em}
 .u h3{font-size:clamp(20px,2.4vw,28px);line-height:1.1}
 .u .chip{justify-self:start}
+.u .body{color:var(--ink2);margin-top:6px;max-width:62ch}
+.u .t{display:grid;gap:2px}
+a.u:hover .d{text-decoration:underline;text-underline-offset:4px}
 @media (max-width:620px){.u{grid-template-columns:1fr;gap:8px}}
 .join{margin-top:var(--gap);min-height:0}
 </style>
 </head>
 <body data-page="updates">
 <main class="wrap">
-<section class="phead"><span class="blob"></span><h1>Updates</h1><p>A running log.</p></section>
+<section class="phead"><span class="blob"></span><h1>Updates</h1><p>A running log of what changed on the site.</p></section>
 <div id="tl"></div>
 <a class="b moss join" href="/join/"><div class="foot" style="margin:0;align-items:center"><div><span class="lbl">Get these by email</span><h3 style="margin-top:6px">Join for free</h3></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div></a>
 </main>
-<script src="/assets/content.js?v=20261006"></script>
-<script src="/assets/site.js?v=20261006"></script>
+<script src="/assets/content.js?v=20261010"></script>
+<script src="/assets/site.js?v=20261009"></script>
 <script>
 const C=window.CONTENT,S=window.SITE;
 
 const TAGC={Launch:'var(--moss)',Product:'var(--peach)',Venture:'var(--sky)',Research:'var(--lilac)'};
 const by={};C.updates.forEach(u=>(by[u.date.slice(0,4)]=by[u.date.slice(0,4)]||[]).push(u));
-document.getElementById('tl').innerHTML=Object.keys(by).sort().reverse().map(y=>`<div class="year">${y}</div><div class="tl">${by[y].map(u=>`<article class="b u"><span class="d">${new Date(u.date+'-01T12:00:00').toLocaleDateString('en-US',{month:'short'})}</span><h3>${S.esc(u.title)}</h3><span class="chip" style="background:${TAGC[u.tag]||'var(--paper)'}">${S.esc(u.tag)}</span></article>`).join('')}</div>`).join('');
+const row=u=>{const tag=u.href?`a href="${u.href}"`:'article',end=u.href?'a':'article';return `<${tag} class="b u"><span class="d">${new Date(u.date+'-01T12:00:00').toLocaleDateString('en-US',{month:'short'})}</span><div class="t"><h3>${S.esc(u.title)}</h3>${u.body?`<p class="body">${S.esc(u.body)}</p>`:''}</div><span class="chip" style="background:${TAGC[u.tag]||'var(--paper)'}">${S.esc(u.tag)}</span></${end}>`};
+document.getElementById('tl').innerHTML=Object.keys(by).sort().reverse().map(y=>`<div class="year">${y}</div><div class="tl">${by[y].map(row).join('')}</div>`).join('');
 
 </script>
 </body>

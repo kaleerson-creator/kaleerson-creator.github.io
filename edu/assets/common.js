@@ -1,5 +1,5 @@
-// Games sub-nav, sign-in state, score saving and leaderboards for kaleerson.com/edu.
-// Pages use <body data-page="games" data-sub="2048">. Sign-in is the main site's /join/ page.
+// Games sub-nav, sign-in state, score saving, leaderboards, sharing and streaks for kaleerson.com/edu.
+// Pages use <body data-page="games" data-sub="2048" data-game="2048">. Sign-in is the main site's /join/ page.
 (function () {
   var SUPABASE_URL = 'https://xkmuakmlrttnyxdddkmd.supabase.co';
   var SUPABASE_KEY = 'sb_publishable_0fYR1Q8RJDOs-hhmjid2dQ_vDEPdKHR';
@@ -41,17 +41,34 @@
 
   var local = {
     get: function (k, d) { try { var v = localStorage.getItem('g:' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
-    set: function (k, v) { try { localStorage.setItem('g:' + k, JSON.stringify(v)); } catch (e) {} }
+    set: function (k, v) { try { localStorage.setItem('g:' + k, JSON.stringify(v)); } catch (e) {} },
+    // Keys (without the g: prefix) that start with `prefix`, e.g. local.keys('daily:') -> ['daily:2026-10-05', ...]
+    keys: function (prefix) {
+      var out = [];
+      try { for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (k && k.indexOf('g:' + (prefix || '')) === 0) out.push(k.slice(2)); } } catch (e) {}
+      return out.sort();
+    }
   };
-  var LOWER = { minesweeper: 1, sudoku: 1, word: 1 };
+  // Lower score is better (times, guesses, milliseconds). Keep in sync with the `low` CTE in supabase/games3.sql.
+  var LOWER = { minesweeper: 1, sudoku: 1, word: 1, reaction: 1, memory: 1 };
+  var mmss = function (s) { return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
   var FMT = {
-    minesweeper: function (s) { return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); },
-    sudoku: function (s) { return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); },
+    minesweeper: mmss,
+    sudoku: mmss,
+    memory: mmss,
     word: function (s) { return s + '/6'; },
     typing: function (s) { return s + ' wpm'; },
     daily: function (s) { return s + ' pts'; },
-    letters: function (s) { return s + ' pts'; }
+    letters: function (s) { return s + ' pts'; },
+    math: function (s) { return s + ' pts'; },
+    reaction: function (s) { return s + ' ms'; },
+    hangman: function (s) { return s + (s == 1 ? ' word' : ' words'); },
+    simon: function (s) { return s + (s == 1 ? ' step' : ' steps'); },
+    connect: function (s) { return s + (s == 1 ? ' win' : ' wins'); },
+    flap: function (s) { return s + (s == 1 ? ' pipe' : ' pipes'); }
   };
+  // Network errors from supabase-js come back as raw "TypeError: Failed to fetch"; say something human instead.
+  var errText = function (e, fallback) { var m = (e && e.message) || ''; return /fetch|network|load failed|timeout/i.test(m) || !m ? fallback : m; };
   var fmt = function (g, s) { return FMT[g] ? FMT[g](s) : Number(s).toLocaleString(); };
 
   function modal(html) {
@@ -61,6 +78,96 @@
     m.addEventListener('click', function (e) { if (e.target === m || e.target.closest('[data-close]')) m.remove(); });
     document.body.append(m);
     return m;
+  }
+
+  // Small toast at the top of the screen (does not depend on site.js).
+  var toastT = null;
+  function toast(t) {
+    var old = document.querySelector('.gtoast'); if (old) old.remove();
+    var d = document.createElement('div');
+    d.className = 'gtoast'; d.setAttribute('role', 'status'); d.textContent = t;
+    document.body.append(d);
+    clearTimeout(toastT); toastT = setTimeout(function () { d.remove(); }, 1800);
+  }
+
+  // Clipboard with a fallback for browsers that have no navigator.clipboard (http, old WebViews).
+  function copyOld(t) {
+    var a = document.createElement('textarea');
+    a.value = t; a.setAttribute('readonly', ''); a.style.position = 'fixed'; a.style.opacity = '0'; a.style.left = '-9999px';
+    document.body.append(a); a.select();
+    var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+    a.remove();
+    if (!ok) throw new Error('copy failed');
+  }
+  function copy(t) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(t).catch(function () { copyOld(t); });
+    return new Promise(function (ok) { copyOld(t); ok(); });
+  }
+
+  // Share text (plus an optional link): the native share sheet when there is one, else copy + toast.
+  function share(text, url) {
+    var plain = url && text.indexOf(url.replace(/^https?:\/\//, '').replace(/\/$/, '')) < 0 ? text + '\n' + url : text;
+    var viaCopy = function () { return copy(plain).then(function () { toast('Copied'); }, function () { toast('Couldn\'t copy'); }); };
+    if (navigator.share) {
+      var d = { text: text }; if (url) d.url = url;
+      return navigator.share(d).catch(function (e) { if (e && e.name === 'AbortError') return; return viaCopy(); });
+    }
+    return viaCopy();
+  }
+
+  var myName = function () {
+    if (me.name) return me.name;
+    var n = null; try { n = localStorage.getItem('site_name'); } catch (e) {}
+    return n || 'a friend';
+  };
+  // Copy a link to this game that asks a friend to beat `score`.
+  function challenge(key, score) {
+    var u = location.origin + location.pathname + '?beat=' + Math.round(score) + '&from=' + encodeURIComponent(myName().slice(0, 30));
+    return copy(u).then(function () { toast('Link copied'); }, function () { toast('Couldn\'t copy'); });
+  }
+
+  // Share / challenge buttons for a game-over box. `text` overrides the default share text.
+  var dir = (location.pathname.match(/^\/edu\/([^\/]+)\//) || [])[1] || '';
+  function pageTitle() { var h = document.querySelector('.ghead h1'); return (h ? h.textContent : document.title.split(' · ')[0]).trim(); }
+  function actions(el, key, score, text) {
+    if (!el) return;
+    text = text || pageTitle() + ': ' + fmt(key, score) + ' on kaleerson.com/edu/' + dir;
+    el.innerHTML = '<button class="btn sm ghost" type="button" data-share>Share score</button><button class="btn sm ghost" type="button" data-chal>Challenge a friend</button>';
+    el.querySelector('[data-share]').onclick = function () { share(text, 'https://kaleerson.com/edu/' + dir + '/'); };
+    el.querySelector('[data-chal]').onclick = function () { challenge(key, score); };
+  }
+
+  // ?beat=<score>&from=<name> turns the page into a challenge.
+  var beat = null;
+  (function () {
+    var game = document.body.dataset.game; if (!game) return;
+    var q = new URLSearchParams(location.search);
+    var s = Number(q.get('beat'));
+    if (!q.has('beat') || !isFinite(s) || s < 0) return;
+    beat = { score: Math.round(s), from: (q.get('from') || 'a friend').trim().slice(0, 30) || 'a friend' };
+    var stage = document.querySelector('.stage');
+    if (!stage) return;
+    var b = document.createElement('div');
+    b.className = 'beat'; b.id = 'beat';
+    b.innerHTML = '<b>' + E(beat.from) + '</b> scored ' + E(fmt(game, beat.score)) + '. Beat it.';
+    stage.prepend(b);
+  })();
+
+  // Daily streaks: {count, last} per key, Las Vegas dates. A streak older than yesterday counts as 0.
+  var laDate = function (shift) { var d = new Date(); if (shift) d.setTime(d.getTime() + shift * 864e5); return d.toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' }); };
+  function streak(key) {
+    var s = local.get('streak:' + key, null) || { count: 0, last: null };
+    var today = laDate(0), yest = laDate(-1);
+    return { count: s.last === today || s.last === yest ? (s.count | 0) : 0, last: s.last || null };
+  }
+  function bump(key) {
+    var s = local.get('streak:' + key, null) || { count: 0, last: null };
+    var today = laDate(0), yest = laDate(-1);
+    if (s.last === today) return streak(key);
+    s.count = s.last === yest ? (s.count | 0) + 1 : 1;
+    s.last = today;
+    local.set('streak:' + key, s);
+    return streak(key);
   }
 
   // New members pick a username (permanent) and a display name; older members only add the username.
@@ -80,7 +187,7 @@
         if (n.length < 2 || n.length > 30) return fail('Display names are 2 to 30 characters.');
         var r = needName ? await SB.from('profiles').insert({ display_name: n, username: u })
           : await SB.from('profiles').update({ username: u }).eq('user_id', me.uid);
-        if (r.error) return fail(r.error.code === '23505' ? (/username/.test(r.error.message) ? 'That username is taken.' : 'That display name is taken.') + ' Try another.' : r.error.message);
+        if (r.error) return fail(r.error.code === '23505' ? (/username/.test(r.error.message) ? 'That username is taken.' : 'That display name is taken.') + ' Try another.' : errText(r.error, 'Couldn\'t reach the server. Check your connection and try again.'));
         me.name = n; me.username = u;
         if (window.SITE && SITE.setName) SITE.setName(n);
         var a = document.getElementById('gacct'); if (a) { a.textContent = 'Playing as ' + n; a.href = '/account/'; }
@@ -97,20 +204,34 @@
       (x.tags || []).map(function (t) { return ' <span class="cm-tag">' + E(t) + '</span>'; }).join('');
   }
 
-  // Save a score. Returns a short message for the game-over screen.
+  // Save a score. Returns a short HTML message for the game-over screen.
+  // Also fills any empty <div data-actions></div> on the page with Share / Challenge buttons.
   async function submit(game, score, meta) {
     score = Math.round(score);
     var best = local.get('best:' + game, null);
     var isBest = best === null || (LOWER[game] ? score < best : score > best);
     if (isBest) local.set('best:' + game, score);
-    if (!SB) return isBest ? 'New personal best!' : '';
-    await me.ready;
-    if (!me.uid) return (isBest ? 'New personal best! ' : '') + '<a href="' + join + '" style="text-decoration:underline">Sign in</a> to get on the leaderboard.';
-    if (!me.name && !(await askName())) return 'Pick a display name to save scores.';
-    var r = await SB.from('game_scores').insert({ game: game, score: score, meta: meta || {} });
-    if (r.error) return r.error.code === '23505' ? 'Already saved today.' : (r.error.message || 'Couldn\'t save.');
-    document.dispatchEvent(new CustomEvent('scoresaved'));
-    return (isBest ? 'New personal best! ' : '') + 'Saved to the leaderboard.';
+    document.querySelectorAll('[data-actions]').forEach(function (el) { if (!el.children.length) actions(el, game, score); });
+    var won = beat && (LOWER[game] ? score < beat.score : score > beat.score);
+    var pre = won ? 'You beat ' + E(beat.from) + '! ' : '';
+    if (won) { var b = document.getElementById('beat'); if (b) b.innerHTML = 'You beat <b>' + E(beat.from) + '</b>. Send it back.'; }
+    var msg = await save();
+    return pre + msg;
+
+    async function save() {
+      if (!SB) return isBest ? 'New personal best!' : '';
+      await me.ready;
+      if (!me.uid) return (isBest ? 'New personal best! ' : '') + '<a href="' + join + '" style="text-decoration:underline">Sign in</a> to get on the leaderboard.';
+      if (!me.name && !(await askName())) return 'Pick a display name to save scores.';
+      var r = await SB.from('game_scores').insert({ game: game, score: score, meta: meta || {} });
+      if (r.error) {
+        if (r.error.code === '23505') return 'Already saved today.';
+        if (r.error.code === '23514') return 'This leaderboard isn\'t set up yet.';
+        return errText(r.error, (isBest ? 'New personal best! ' : '') + 'Couldn\'t reach the leaderboard, so this one is only saved on this device.');
+      }
+      document.dispatchEvent(new CustomEvent('scoresaved'));
+      return (isBest ? 'New personal best! ' : '') + 'Saved to the leaderboard.';
+    }
   }
 
   // Leaderboard widget: <div data-board="2048"></div>
@@ -118,6 +239,7 @@
     el.innerHTML = '<div class="lb"><span class="empty">Loading…</span></div>';
     if (!SB) { el.innerHTML = '<div class="lb"><span class="empty">Leaderboards are offline.</span></div>'; return; }
     var r = await SB.rpc('game_board', { g: game, period: period || 'week', lim: 10 });
+    if (r.error && /fetch|network|load failed|timeout/i.test(r.error.message || '')) { el.innerHTML = '<div class="lb"><span class="empty">Leaderboards are offline right now.</span></div>'; return; }
     var rows = r.data || [];
     el.innerHTML = '<div class="lb">' + (rows.map(function (x) {
       return '<div class="' + (x.mine ? 'me' : '') + '"><i>' + x.rank + '</i><span>' + nameHTML(x) + '</span><b>' + fmt(game, x.score) + '</b></div>';
@@ -137,5 +259,6 @@
     load();
   }
 
-  window.G = { me: me, local: local, submit: submit, board: board, boardBox: boardBox, fmt: fmt, esc: E, modal: modal, askName: askName };
+  window.G = { me: me, local: local, submit: submit, board: board, boardBox: boardBox, fmt: fmt, esc: E, modal: modal, askName: askName,
+    toast: toast, share: share, challenge: challenge, actions: actions, streak: streak, bump: bump, beat: function () { return beat; } };
 })();
