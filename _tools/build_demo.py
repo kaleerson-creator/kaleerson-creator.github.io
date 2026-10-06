@@ -664,7 +664,8 @@ def main():
     elif args.area:
         ok = {'none': {'none'}, 'social': {'none', 'social'},
               'any': {'none', 'social', 'broken', 'ordering-only', 'free-builder', 'site', 'unchecked'}}[args.only]
-        leads = [l for l in load_leads(args.area) if l['site']['status'] in ok][:args.top]
+        # skip "no website" listings that probably have one (their name .com is registered)
+        leads = [l for l in load_leads(args.area) if l['site']['status'] in ok and not l['site'].get('maybe')][:args.top]
         for lead in leads:
             d = place_details(lead['id'])
             slug = slugify(clean_name(d['displayName']['text']))
