@@ -161,8 +161,8 @@ TLD_PRICE = {'com': (11, 17), 'net': (13, 17), 'co': (13, 35), 'menu': (32, 38),
              'restaurant': (45, 62), 'cafe': (6, 35), 'pizza': (10, 55), 'bar': (70, 80),
              'kitchen': (30, 45), 'coffee': (10, 32), 'sushi': (60, 65)}
 TYPE_TLD = {'cafe': 'cafe', 'coffee_shop': 'coffee', 'pizza_restaurant': 'pizza', 'bar': 'bar',
-            'wine_bar': 'bar', 'pub': 'bar', 'sushi_restaurant': 'sushi', 'bakery': 'cafe',
-            'brewpub': 'bar', 'bar_and_grill': 'bar', 'japanese_restaurant': 'sushi'}
+            'wine_bar': 'bar', 'pub': 'bar', 'bakery': 'cafe',
+            'brewpub': 'bar', 'bar_and_grill': 'bar'}
 
 # ---------------------------------------------------------------- helpers
 def log(*a):
@@ -294,7 +294,8 @@ def summarize_psi(d):
     return {'status': 'site', 'final_url': lr.get('finalUrl', ''),
             'performance': sc('performance'), 'seo': sc('seo'),
             'accessibility': sc('accessibility'), 'best_practices': sc('best-practices'),
-            'viewport_ok': (aud.get('viewport', {}).get('score') or 0) >= 1,
+            # Lighthouse 13 calls the mobile layout check viewport-insight; older ones, viewport.
+            'viewport_ok': (aud.get('viewport-insight', aud.get('viewport', {})).get('score') or 0) >= 1,
             'https': (aud.get('is-on-https', {}).get('score') or 0) >= 1,
             'stack': stack}
 
@@ -349,7 +350,14 @@ def rdap_available(domain):
             st, _ = http('https://rdap.org/domain/' + domain, timeout=25)
             return {'available': False, 'code': st}
         except urllib.error.HTTPError as e:
-            return {'available': e.code == 404, 'code': e.code}
+            # A 404 only means "free" when it comes from the registry itself. rdap.org
+            # answers 404 on its own for endings it has no registry for (.co, .sushi).
+            from_registry = host_of(e.geturl() or '') not in ('', 'rdap.org')
+            if e.code == 404 and from_registry:
+                return {'available': True, 'code': 404}
+            if e.code == 404:
+                return {'available': None, 'code': 404, 'error': 'no registry lookup for this ending'}
+            return {'available': None if e.code >= 500 or e.code == 429 else False, 'code': e.code}
         except Exception as e:
             return {'available': None, 'code': 0, 'error': str(e)[:120]}
     return cached(key, call)
@@ -405,8 +413,15 @@ def run(area_key, a, args):
     if not args.no_psi:
         todo = [p for p in rows if p['site']['status'] == 'site']
         log(f'  Lighthouse on {len(todo)} sites (this is the slow part)')
-        with cf.ThreadPoolExecutor(max_workers=4) as ex:
-            for p, d in zip(todo, ex.map(lambda p: pagespeed(p['websiteUri']), todo)):
+        done = [0]
+        def one(p):
+            d = pagespeed(p['websiteUri'])
+            done[0] += 1
+            if done[0] % 100 == 0:
+                log(f'    {done[0]}/{len(todo)}')
+            return d
+        with cf.ThreadPoolExecutor(max_workers=args.workers) as ex:
+            for p, d in zip(todo, ex.map(one, todo)):
                 p['site'].update(summarize_psi(d))
     for p in rows:
         for needle, label in STACK:  # the website host itself can give it away too
@@ -490,6 +505,7 @@ def main():
     ap.add_argument('--limit', type=int, default=0, help='only the N most reviewed, for a quick test')
     ap.add_argument('--no-psi', action='store_true', help='skip the Lighthouse site scoring')
     ap.add_argument('--no-domains', action='store_true', help='skip the RDAP domain checks')
+    ap.add_argument('--workers', type=int, default=12, help='Lighthouse checks at once')
     ap.add_argument('--list', action='store_true', help='print the areas and spots and exit')
     args = ap.parse_args()
     if args.list:
