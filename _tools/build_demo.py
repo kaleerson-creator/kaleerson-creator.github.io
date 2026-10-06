@@ -112,6 +112,14 @@ def safe_url(u):
     u = (u or '').strip()
     return u if re.match(r'^(https?:|mailto:|tel:)', u, re.I) else ''
 
+def clean_name(name):
+    # Google listings often carry extra text: "Birria El Compa | Charleston Location",
+    # "Fisher's Deli (formerly Weiss Deli)", "Novella Italian Kitchen , Pizza".
+    n = re.split(r'\s+[|•]\s+', name)[0]
+    n = re.sub(r'\s*\([^)]*\)', '', n)
+    n = re.sub(r'\s+,', ',', n)
+    return re.sub(r'\s{2,}', ' ', n).strip(' ,') or name
+
 def slugify(name):
     n = name.lower().replace('&', ' and ').replace("'", '').replace('’', '')
     n = re.sub(r'[^a-z0-9]+', '-', n).strip('-')
@@ -153,7 +161,7 @@ def new_config(lead, d):
     return {
         'place_id': d['id'],
         'demo': True,
-        'name': d['displayName']['text'],
+        'name': clean_name(d['displayName']['text']),
         'tagline': '',
         'about': '',
         'email': '',
@@ -218,7 +226,7 @@ def city_of(d):
 
 def build(slug, cfg, d):
     a = {k: v for k, v in (cfg.get('addons') or {}).items() if v}
-    name = cfg.get('name') or d['displayName']['text']
+    name = cfg.get('name') or clean_name(d['displayName']['text'])
     kind = (d.get('primaryTypeDisplayName') or {}).get('text', 'Restaurant')
     city = city_of(d)
     bg, card, ink, muted, accent, on_accent, soft = theme_for(d.get('primaryType'))
@@ -659,12 +667,12 @@ def main():
         leads = [l for l in load_leads(args.area) if l['site']['status'] in ok][:args.top]
         for lead in leads:
             d = place_details(lead['id'])
-            slug = slugify(d['displayName']['text'])
+            slug = slugify(clean_name(d['displayName']['text']))
             f = os.path.join(CONFIGS, slug + '.json')
             if os.path.exists(f):
                 cfg = json.load(open(f))
                 if cfg.get('place_id') != d['id']:  # same name, different place
-                    slug = slugify(d['displayName']['text'] + ' ' + city_of(d)); f = os.path.join(CONFIGS, slug + '.json')
+                    slug = slugify(clean_name(d['displayName']['text']) + ' ' + city_of(d)); f = os.path.join(CONFIGS, slug + '.json')
             if not os.path.exists(f):
                 json.dump(new_config(lead, d), open(f, 'w'), indent=2, ensure_ascii=False)
             cfg = json.load(open(f))
