@@ -339,7 +339,10 @@ def domain_candidates(p, area):
     if not words:
         return []
     full = ''.join(words)
-    short = ''.join(words[:2])
+    n = 2  # first two words, but never stop on "el", "de", "la"...
+    while n < len(words) and words[n - 1] in ('el', 'la', 'los', 'las', 'de', 'del', 'y', 'di', 'da', 'le', 'a'):
+        n += 1
+    short = ''.join(words[:n])
     c = city_from_address(p.get('formattedAddress', ''))
     cities = [x for x in [c] + list(area.get('city_words') or []) if x]
     city = next((x for x in cities if x not in full), '')
