@@ -230,6 +230,12 @@ def places_search(query, lat, lng, radius, min_rating, max_pages):
         time.sleep(1.2)  # Google needs a moment before a page token is valid
     return out
 
+def km_between(lat1, lng1, lat2, lng2):
+    r = math.radians
+    a = (math.sin(r(lat2 - lat1) / 2) ** 2
+         + math.cos(r(lat1)) * math.cos(r(lat2)) * math.sin(r(lng2 - lng1) / 2) ** 2)
+    return 6371 * 2 * math.asin(math.sqrt(a))
+
 def is_food(p):
     t = p.get('primaryType', '') or ''
     return t.endswith('_restaurant') or t in FOOD_TYPES or 'restaurant' in p.get('types', [])
@@ -313,11 +319,15 @@ def badness(site):
     return int(max(0, min(100, b)))
 
 # ---------------------------------------------------------------- domains
-def slug(name):
-    n = name.lower().replace('&', ' and ').replace("'", '').replace('’', '')
+NAME_FILLER = {'restaurant', 'restaurante', 'the', 'and', 'of', 'in', 'at', 'by', 'llc', 'inc', 'co'}
+
+def name_words(name):
+    n = name.lower().replace('&', ' ').replace("'", '').replace('’', '')
     n = re.sub(r'[^a-z0-9 ]+', ' ', n)
-    words = [w for w in n.split() if w not in ('restaurant', 'restaurante', 'the', 'and')] or n.split()
-    return ''.join(words)[:40]
+    return [w for w in n.split() if w not in NAME_FILLER] or n.split()
+
+def slug(name):
+    return ''.join(name_words(name))[:40]
 
 def city_from_address(addr):
     # "123 Main St, Pasadena, CA 91101, USA" -> "pasadena"
@@ -325,41 +335,52 @@ def city_from_address(addr):
     return re.sub(r'[^a-z]', '', parts[-3].lower()) if len(parts) >= 3 else ''
 
 def domain_candidates(p, area):
-    s = slug(p['displayName']['text'])
-    if not s:
+    words = name_words(p['displayName']['text'])
+    if not words:
         return []
-    cities = list(area.get('city_words') or [])
+    full = ''.join(words)
+    short = ''.join(words[:2])
     c = city_from_address(p.get('formattedAddress', ''))
-    if c and c not in cities:
-        cities.insert(0, c)
+    cities = [x for x in [c] + list(area.get('city_words') or []) if x]
+    city = next((x for x in cities if x not in full), '')
     tld = TYPE_TLD.get(p.get('primaryType', ''), 'restaurant')
-    cands = [f'{s}.com']
-    if cities:
-        cands.append(f'{s}{cities[0]}.com')
-    cands += [f'{s}.{tld}', f'{s}.menu', f'eat{s}.com', f'{s}.net']
+    cands = []
+    if len(full) <= 22:
+        cands += [f'{full}.com']
+    cands += [f'{short}.com']
+    if city:
+        cands += [f'{short}{city}.com']
+    cands += [f'{short}.{tld}', f'{short}.menu', f'eat{short}.com', f'{short}.net']
+    if len(full) <= 22:
+        cands += [f'{full}.{tld}']
     seen, out = {host_of(p.get('websiteUri', ''))}, []  # never suggest the one they have
     for d in cands:
-        if d not in seen and len(d) <= 63:
+        if d not in seen and len(d.split('.')[0]) <= 30:
             seen.add(d); out.append(d)
     return out[:6]
 
 def rdap_available(domain):
     key = 'rdap_' + hashlib.sha1(domain.encode()).hexdigest()[:16]
     def call():
-        try:
-            st, _ = http('https://rdap.org/domain/' + domain, timeout=25)
-            return {'available': False, 'code': st}
-        except urllib.error.HTTPError as e:
-            # A 404 only means "free" when it comes from the registry itself. rdap.org
-            # answers 404 on its own for endings it has no registry for (.co, .sushi).
-            from_registry = host_of(e.geturl() or '') not in ('', 'rdap.org')
-            if e.code == 404 and from_registry:
-                return {'available': True, 'code': 404}
-            if e.code == 404:
-                return {'available': None, 'code': 404, 'error': 'no registry lookup for this ending'}
-            return {'available': None if e.code >= 500 or e.code == 429 else False, 'code': e.code}
-        except Exception as e:
-            return {'available': None, 'code': 0, 'error': str(e)[:120]}
+        for attempt in range(5):
+            try:
+                st, _ = http('https://rdap.org/domain/' + domain, timeout=25)
+                return {'available': False, 'code': st}
+            except urllib.error.HTTPError as e:
+                if e.code == 429 or e.code >= 500:  # registry says slow down
+                    time.sleep(3 * (attempt + 1)); continue
+                # A 404 only means "free" when it comes from the registry itself. rdap.org
+                # answers 404 on its own for endings it has no registry for (.co, .sushi).
+                if e.code == 404 and host_of(e.geturl() or '') not in ('', 'rdap.org'):
+                    return {'available': True, 'code': 404}
+                if e.code == 404:
+                    return {'available': None, 'code': 404, 'error': 'no registry lookup for this ending'}
+                return {'available': False, 'code': e.code}
+            except Exception as e:
+                if attempt < 4:
+                    time.sleep(2); continue
+                return {'available': None, 'code': 0, 'error': str(e)[:120]}
+        return {'available': None, 'code': 429, 'error': 'registry kept rate limiting'}
     return cached(key, call)
 
 def price_str(domain):
@@ -384,6 +405,11 @@ def run(area_key, a, args):
         for q in queries:
             for p in places_search(f'{q} near {label}', lat, lng, radius, args.min_rating, args.pages):
                 pid = p.get('id')
+                loc = p.get('location') or {}
+                # The search only leans toward the circle; drop places well outside it
+                # (e.g. "near Rockville" also finds Rockville, Maryland).
+                if loc and km_between(lat, lng, loc.get('latitude', 0), loc.get('longitude', 0)) > radius / 1000 * 2:
+                    continue
                 if pid and pid not in seen:
                     p['_spot'] = label
                     seen[pid] = p
@@ -440,7 +466,7 @@ def run(area_key, a, args):
     if not args.no_domains:
         checks = [(p, d) for p in leads for d in domain_candidates(p, a)]
         log(f'  RDAP on {len(checks)} domain names')
-        with cf.ThreadPoolExecutor(max_workers=6) as ex:
+        with cf.ThreadPoolExecutor(max_workers=3) as ex:
             results = list(ex.map(lambda pd: rdap_available(pd[1]), checks))
         for (p, d), r in zip(checks, results):
             p.setdefault('domains', []).append({'domain': d, **r, 'price': price_str(d)})

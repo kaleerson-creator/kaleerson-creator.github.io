@@ -7,39 +7,6 @@
  },
  "leads": [
   {
-   "id": "ChIJy04d8dbBSYcR1pQSPPrliyc",
-   "types": [
-    "mexican_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 542-1763",
-   "formattedAddress": "20 N UT-95, Hanksville, UT 84734, USA",
-   "location": {
-    "latitude": 38.3732403,
-    "longitude": -110.70396430000001
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=2849624052154406102&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 957,
-   "displayName": {
-    "text": "Outlaw's Roost",
-    "languageCode": "en"
-   },
-   "primaryType": "mexican_restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 89
-  },
-  {
    "id": "ChIJY-s0bv3nyoARdOmu_IziBS8",
    "types": [
     "breakfast_restaurant",
@@ -70,76 +37,45 @@
     "stack": []
    },
    "badness": 100,
-   "lead_score": 86
-  },
-  {
-   "id": "ChIJUXgqSn7St4kREcyXMI-NWLE",
-   "types": [
-    "breakfast_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(301) 424-1111",
-   "formattedAddress": "519 E Gude Dr, Rockville, MD 20850, USA",
-   "location": {
-    "latitude": 39.1058028,
-    "longitude": -77.1462222
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=12779119588798876689&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 810,
-   "displayName": {
-    "text": "Peter's Grill",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 85
-  },
-  {
-   "id": "ChIJbYDuXs6XTocRbC1ya3Re35Y",
-   "types": [
-    "pub",
-    "breakfast_restaurant",
-    "restaurant",
-    "bar",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 472-0403",
-   "formattedAddress": "148 S Main St, Helper, UT 84526, USA",
-   "location": {
-    "latitude": 39.6845273,
-    "longitude": -110.8548644
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=10871511879607528812&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.facebook.com/balancerockeatery/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 1721,
-   "displayName": {
-    "text": "Balance Rock Eatery & Pub",
-    "languageCode": "en"
-   },
-   "primaryType": "pub",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "social",
-    "stack": []
-   },
-   "badness": 95,
-   "lead_score": 84
+   "lead_score": 86,
+   "domains": [
+    {
+     "domain": "parkhouse.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "parkhousespringdale.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "parkhouse.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "parkhouse.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatparkhouse.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "parkhouse.net",
+     "available": false,
+     "code": 200,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJDz3jjI73yoARFKrDRwb-5J0",
@@ -177,108 +113,45 @@
     "stack": []
    },
    "badness": 95,
-   "lead_score": 81
-  },
-  {
-   "id": "ChIJXV2v49oPU4cRZ4K_KV0Uzww",
-   "types": [
-    "brunch_restaurant",
-    "breakfast_restaurant",
-    "mexican_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(801) 820-5396",
-   "formattedAddress": "5128 S 1900 W, Roy, UT 84067, USA",
-   "location": {
-    "latitude": 41.1706637,
-    "longitude": -112.02564389999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=922978838999171687&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.facebook.com/p/R-K-Brunch-House-61575806667736/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 814,
-   "displayName": {
-    "text": "R and K Brunch House",
-    "languageCode": "en"
-   },
-   "primaryType": "brunch_restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "social",
-    "stack": []
-   },
-   "badness": 95,
-   "lead_score": 80
-  },
-  {
-   "id": "ChIJY1YNmejNyoARXXzLGT1uBrE",
-   "types": [
-    "fast_food_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "formattedAddress": "500 E State St, Orderville, UT 84758, USA",
-   "location": {
-    "latitude": 37.2776096,
-    "longitude": -112.6294662
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=12756004203278335069&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 628,
-   "displayName": {
-    "text": "Archie's Food to Die For",
-    "languageCode": "en"
-   },
-   "primaryType": "fast_food_restaurant",
-   "_spot": "Kanab",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 80
-  },
-  {
-   "id": "ChIJ37EVYKo5bYgR5R2i_MvLiro",
-   "types": [
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(765) 569-5645",
-   "formattedAddress": "605 E Ohio St, Rockville, IN 47872, USA",
-   "location": {
-    "latitude": 39.762223299999995,
-    "longitude": -87.2211708
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=13441780114817949157&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://m.facebook.com/Benjamins.family.restaurants/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1152,
-   "displayName": {
-    "text": "Benjamin's Family Restaurant",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "social",
-    "stack": []
-   },
-   "badness": 95,
-   "lead_score": 79
+   "lead_score": 81,
+   "domains": [
+    {
+     "domain": "crosscountrydiner.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "crosscountry.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "crosscountryhurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "crosscountry.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "crosscountry.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatcrosscountry.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJC-hRFuTxyoARzu4TMN-uIKU",
@@ -305,13 +178,51 @@
     "languageCode": "en"
    },
    "primaryType": "cafe",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "none",
     "stack": []
    },
    "badness": 100,
-   "lead_score": 76
+   "lead_score": 76,
+   "domains": [
+    {
+     "domain": "buffalotrails.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "buffalotrailsvirgin.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "buffalotrails.cafe",
+     "available": false,
+     "code": 403,
+     "price": "~$6/yr then ~$35"
+    },
+    {
+     "domain": "buffalotrails.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatbuffalotrails.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "buffalotrails.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJ--RHg8f2yoARbUCNbsTDYWE",
@@ -347,44 +258,45 @@
     ]
    },
    "badness": 90,
-   "lead_score": 75
-  },
-  {
-   "id": "ChIJzfv3xNgzNYcRxicvCKFof70",
-   "types": [
-    "restaurant",
-    "gift_shop",
-    "convenience_store",
-    "food_store",
-    "store",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 648-3808",
-   "formattedAddress": "10 N Main St, Glendale, UT 84729, USA",
-   "location": {
-    "latitude": 37.3181912,
-    "longitude": -112.5972839
-   },
-   "rating": 5,
-   "googleMapsUri": "https://maps.google.com/?cid=13654747636046964678&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.facebook.com/brinkscountrystore?mibextid=ZbWKwL",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 379,
-   "displayName": {
-    "text": "Brink's Grill & Country Store",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Kanab",
-   "site": {
-    "status": "social",
-    "stack": []
-   },
-   "badness": 95,
-   "lead_score": 74
+   "lead_score": 75,
+   "domains": [
+    {
+     "domain": "dixiepizzawagon.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "dixiepizza.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "dixiepizzahurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "dixiepizza.pizza",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$55"
+    },
+    {
+     "domain": "dixiepizza.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatdixiepizza.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJ_z1tmAooFyUR5z_-yy2uNnY",
@@ -419,7 +331,45 @@
     "stack": []
    },
    "badness": 95,
-   "lead_score": 74
+   "lead_score": 74,
+   "domains": [
+    {
+     "domain": "desertsmoothie.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "desertsmoothievirgin.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "desertsmoothie.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "desertsmoothie.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatdesertsmoothie.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "desertsmoothie.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJt4n27hD1yoAR_RPL3sKGO0E",
@@ -458,77 +408,45 @@
     ]
    },
    "badness": 90,
-   "lead_score": 73
-  },
-  {
-   "id": "ChIJo14qRHXNt4kRvzsUkJpwmew",
-   "types": [
-    "restaurant",
-    "french_restaurant",
-    "dessert_shop",
-    "confectionery",
-    "food_store",
-    "european_restaurant",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(301) 309-0956",
-   "formattedAddress": "199J E Montgomery Ave, Rockville, MD 20850, USA",
-   "location": {
-    "latitude": 39.0839865,
-    "longitude": -77.1496959
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=17048781673532242879&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 429,
-   "displayName": {
-    "text": "Amai Crepe",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 73
-  },
-  {
-   "id": "ChIJJba_m3dbyoARx2IEIdvO710",
-   "types": [
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 288-3323",
-   "formattedAddress": "26A, Next to Skechers, 250 Red Cliffs Dr, St. George, UT 84790, USA",
-   "location": {
-    "latitude": 37.1111704,
-    "longitude": -113.5535177
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=6768856205508240071&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 258,
-   "displayName": {
-    "text": "Book Club Bistro",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 70
+   "lead_score": 73,
+   "domains": [
+    {
+     "domain": "mainlypizza.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "mainlypizzaleeds.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "mainlypizza.pizza",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$55"
+    },
+    {
+     "domain": "mainlypizza.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatmainlypizza.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "mainlypizza.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJ5dJQyaLCyoARFwTyS69MxIk",
@@ -563,74 +481,45 @@
     "stack": []
    },
    "badness": 100,
-   "lead_score": 69
-  },
-  {
-   "id": "ChIJqXmkCTLNyoARIb8TN0xuG8g",
-   "types": [
-    "taco_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 648-2747",
-   "formattedAddress": "385 W State St Suite A, Orderville, UT 84758, USA",
-   "location": {
-    "latitude": 37.2720005,
-    "longitude": -112.64800919999999
-   },
-   "rating": 5,
-   "googleMapsUri": "https://maps.google.com/?cid=14419239905577385761&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://instagram.com/rock.n.tacos",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 256,
-   "displayName": {
-    "text": "Rock\u2019N\u2019Tacos",
-    "languageCode": "en"
-   },
-   "primaryType": "taco_restaurant",
-   "_spot": "Kanab",
-   "site": {
-    "status": "social",
-    "stack": []
-   },
-   "badness": 95,
-   "lead_score": 69
-  },
-  {
-   "id": "ChIJr3wOyw_Nt4kRMSim74kqWTo",
-   "types": [
-    "bakery",
-    "food_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "formattedAddress": "5751 Fishers Ln Ste C, Rockville, MD 20852, USA",
-   "location": {
-    "latitude": 39.062993899999995,
-    "longitude": -77.1176606
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=4204438499046598705&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 231,
-   "displayName": {
-    "text": "Mirabeau",
-    "languageCode": "en"
-   },
-   "primaryType": "bakery",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 67
+   "lead_score": 69,
+   "domains": [
+    {
+     "domain": "perkscoffee.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "perkscoffeespringdale.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "perkscoffee.coffee",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$32"
+    },
+    {
+     "domain": "perkscoffee.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatperkscoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "perkscoffee.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJj-kK0FXVNIcRCh_bK46DfFw",
@@ -666,7 +555,45 @@
     "stack": []
    },
    "badness": 95,
-   "lead_score": 65
+   "lead_score": 65,
+   "domains": [
+    {
+     "domain": "tarocoffeebar.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "tarocoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "tarocoffeekanab.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "tarocoffee.coffee",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$32"
+    },
+    {
+     "domain": "tarocoffee.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eattarocoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJr9CnEgDVNIcRW3kyFbEjSz8",
@@ -699,7 +626,45 @@
     "stack": []
    },
    "badness": 100,
-   "lead_score": 65
+   "lead_score": 65,
+   "domains": [
+    {
+     "domain": "lostapatios.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "lostapatioskanab.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "lostapatios.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "lostapatios.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatlostapatios.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "lostapatios.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJ____4-TzyoAR71Cqb7obWMg",
@@ -737,54 +702,45 @@
     "stack": []
    },
    "badness": 100,
-   "lead_score": 59
-  },
-  {
-   "id": "ChIJYdR_Xbc2tokRxMEw2_I39iA",
-   "types": [
-    "french_restaurant",
-    "brunch_restaurant",
-    "bar",
-    "european_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(703) 759-3800",
-   "formattedAddress": "332 Springvale Rd, Great Falls, VA 22066, USA",
-   "location": {
-    "latitude": 39.029160600000004,
-    "longitude": -77.3054018
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=2375147369683534276&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.laubergechezfrancois.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
-   "userRatingCount": 1861,
-   "displayName": {
-    "text": "L'Auberge Chez Francois",
-    "languageCode": "en"
-   },
-   "primaryType": "french_restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.laubergechezfrancois.com/",
-    "performance": 56,
-    "seo": 85,
-    "accessibility": 77,
-    "best_practices": 59,
-    "viewport_ok": false,
-    "https": false
-   },
-   "badness": 61,
-   "lead_score": 58
+   "lead_score": 59,
+   "domains": [
+    {
+     "domain": "bigchill.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchillhurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchill.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "bigchill.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatbigchill.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchill.net",
+     "available": false,
+     "code": 200,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJYZnmV1T3yoARC8b3XZje3go",
@@ -820,7 +776,45 @@
     ]
    },
    "badness": 85,
-   "lead_score": 58
+   "lead_score": 58,
+   "domains": [
+    {
+     "domain": "yokosojapanesecuisine.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "yokosojapanese.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "yokosojapanesehurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "yokosojapanese.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "yokosojapanese.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatyokosojapanese.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJRSctix7uyoARe5SWXdzjkas",
@@ -855,7 +849,45 @@
     "stack": []
    },
    "badness": 95,
-   "lead_score": 49
+   "lead_score": 49,
+   "domains": [
+    {
+     "domain": "virgingoodscafe.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoods.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoodszion.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoods.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "virgingoods.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatvirgingoods.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJD6uWJob3yoARweVT_pgNRuY",
@@ -893,54 +925,45 @@
     ]
    },
    "badness": 85,
-   "lead_score": 47
-  },
-  {
-   "id": "ChIJe4toJWBbyoARSP3T5c-sofU",
-   "types": [
-    "bakery",
-    "sandwich_shop",
-    "deli",
-    "food_store",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 627-6759",
-   "formattedAddress": "2654 Red Cliffs Dr Ste B, St. George, UT 84790, USA",
-   "location": {
-    "latitude": 37.1242959,
-    "longitude": -113.5297463
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=17699618019456843080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://erniesfrenchbakery.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 568,
-   "displayName": {
-    "text": "Ernie\u2019s | The French Bakery and Deli",
-    "languageCode": "en"
-   },
-   "primaryType": "bakery",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress"
-    ],
-    "final_url": "https://erniesfrenchbakery.com/",
-    "performance": 56,
-    "seo": 45,
-    "accessibility": 80,
-    "best_practices": 63,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 52,
-   "lead_score": 42
+   "lead_score": 47,
+   "domains": [
+    {
+     "domain": "roamingroastcoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "roamingroast.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "roamingroasthurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "roamingroast.coffee",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$32"
+    },
+    {
+     "domain": "roamingroast.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatroamingroast.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJyfP3ViH1yoARidZO6dhOWao",
@@ -969,7 +992,7 @@
     "languageCode": "en"
    },
    "primaryType": "mexican_restaurant",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "site",
     "stack": [
@@ -985,7 +1008,39 @@
     "https": false
    },
    "badness": 51,
-   "lead_score": 41
+   "lead_score": 41,
+   "domains": [
+    {
+     "domain": "casatequilanaleeds.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "casatequilana.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "casatequilana.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatcasatequilana.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "casatequilana.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJ12QMdx7UNIcRc0r81_5r0PM",
@@ -1015,7 +1070,7 @@
     "languageCode": "en"
    },
    "primaryType": "american_restaurant",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Kanab",
    "site": {
     "status": "site",
     "stack": [
@@ -1031,51 +1086,45 @@
     "https": false
    },
    "badness": 40,
-   "lead_score": 36
-  },
-  {
-   "id": "ChIJAxlvzN5EyoARoQgIMhex3A4",
-   "types": [
-    "american_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 319-6005",
-   "formattedAddress": "511 S Tech Ridge Dr, St. George, UT 84770, USA",
-   "location": {
-    "latitude": 37.0995279,
-    "longitude": -113.5907917
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=1070925524589086881&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.cliffsiderestaurant.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 2553,
-   "displayName": {
-    "text": "Cliffside Restaurant",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.cliffsiderestaurant.com/",
-    "performance": 54,
-    "seo": 92,
-    "accessibility": 97,
-    "best_practices": 41,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 40,
-   "lead_score": 36
+   "lead_score": 36,
+   "domains": [
+    {
+     "domain": "wildthymebistro.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "wildthyme.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "wildthyme.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "wildthyme.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatwildthyme.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "wildthyme.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJcZ7U56fCyoARcI5EosJJH1s",
@@ -1122,104 +1171,45 @@
     "https": false
    },
    "badness": 40,
-   "lead_score": 36
-  },
-  {
-   "id": "ChIJ_1CkCoYhy4AR7N28Z6GXtq0",
-   "types": [
-    "coffee_shop",
-    "brunch_restaurant",
-    "coffee_roastery",
-    "cafe",
-    "bakery",
-    "food_store",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(928) 272-4533",
-   "formattedAddress": "15 Central St Ste A, Colorado City, AZ 86021, USA",
-   "location": {
-    "latitude": 36.9907594,
-    "longitude": -112.9744669
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=12517358933808831980&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://sweetsagecoffee.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 284,
-   "displayName": {
-    "text": "Sweet Sage Coffee Co.",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Weebly",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.sweetsagecoffee.com/",
-    "performance": 8,
-    "seo": 92,
-    "accessibility": 95,
-    "best_practices": 78,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 53,
-   "lead_score": 36
-  },
-  {
-   "id": "ChIJl_Y8gZjSt4kRUqcOClrtoqs",
-   "types": [
-    "bar",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(240) 474-5461",
-   "formattedAddress": "800 Pleasant Dr #160, Rockville, MD 20850, USA",
-   "location": {
-    "latitude": 39.113757,
-    "longitude": -77.171538
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=12367708497684375378&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://botarockville.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 974,
-   "displayName": {
-    "text": "Botanero Restaurant",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Mailchimp",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://botarockville.com/",
-    "performance": 52,
-    "seo": 77,
-    "accessibility": 92,
-    "best_practices": 81,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 40,
-   "lead_score": 33
+   "lead_score": 36,
+   "domains": [
+    {
+     "domain": "deepcreekcoffeecompany.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "deepcreek.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "deepcreekspringdale.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "deepcreek.cafe",
+     "available": false,
+     "code": 403,
+     "price": "~$6/yr then ~$35"
+    },
+    {
+     "domain": "deepcreek.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatdeepcreek.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   }
  ],
  "all": [
@@ -1256,7 +1246,7 @@
     "languageCode": "en"
    },
    "primaryType": "restaurant",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "site",
     "stack": [
@@ -1272,94 +1262,6 @@
    },
    "badness": 34,
    "lead_score": 33
-  },
-  {
-   "id": "ChIJtbQjlO9byoARPQwkQVfdsgA",
-   "types": [
-    "indian_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 574-4050",
-   "formattedAddress": "148 S 1470 E, St. George, UT 84790, USA",
-   "location": {
-    "latitude": 37.1056538,
-    "longitude": -113.5532276
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=50345912679271485&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.redfortcuisine.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 5474,
-   "displayName": {
-    "text": "Red Fort Cuisine Of India",
-    "languageCode": "en"
-   },
-   "primaryType": "indian_restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://redfortcuisine.com/",
-    "performance": 64,
-    "seo": 92,
-    "accessibility": 100,
-    "best_practices": 78,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 30,
-   "lead_score": 29
-  },
-  {
-   "id": "ChIJ-9MQGwDNt4kR7826jH1F1ro",
-   "types": [
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(301) 294-0200",
-   "formattedAddress": "2 Preserve Pkwy, Rockville, MD 20852, USA",
-   "location": {
-    "latitude": 39.0655267,
-    "longitude": -77.150534
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=13463024541604957679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.clydes.com/location/tower-oaks-lodge/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 5001,
-   "displayName": {
-    "text": "Clyde's Tower Oaks Lodge",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "BentoBox",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.clydes.com/location/clydes-tower-oaks-lodge/",
-    "performance": 41,
-    "seo": 85,
-    "accessibility": 83,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 31,
-   "lead_score": 28
   },
   {
    "id": "ChIJq6qqqtrAyoAR0A1o2G5rlQk",
@@ -1576,7 +1478,7 @@
     "languageCode": "en"
    },
    "primaryType": "american_restaurant",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Kanab",
    "site": {
     "status": "site",
     "stack": [
@@ -1592,7 +1494,45 @@
     "https": false
    },
    "badness": 40,
-   "lead_score": 36
+   "lead_score": 36,
+   "domains": [
+    {
+     "domain": "wildthymebistro.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "wildthyme.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "wildthyme.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "wildthyme.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatwildthyme.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "wildthyme.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJc817XKbWNIcRN8fsYlONOTw",
@@ -1661,7 +1601,7 @@
     "languageCode": "en"
    },
    "primaryType": "cafe",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "site",
     "stack": [
@@ -1677,50 +1617,6 @@
    },
    "badness": 33,
    "lead_score": 32
-  },
-  {
-   "id": "ChIJAxlvzN5EyoARoQgIMhex3A4",
-   "types": [
-    "american_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 319-6005",
-   "formattedAddress": "511 S Tech Ridge Dr, St. George, UT 84770, USA",
-   "location": {
-    "latitude": 37.0995279,
-    "longitude": -113.5907917
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=1070925524589086881&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.cliffsiderestaurant.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 2553,
-   "displayName": {
-    "text": "Cliffside Restaurant",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.cliffsiderestaurant.com/",
-    "performance": 54,
-    "seo": 92,
-    "accessibility": 97,
-    "best_practices": 41,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 40,
-   "lead_score": 36
   },
   {
    "id": "ChIJibKIM7bDyoAR_8gRs96-NTY",
@@ -1813,285 +1709,6 @@
    "lead_score": 20
   },
   {
-   "id": "ChIJM8V7tCRbyoARHc2Y8gMDmoE",
-   "types": [
-    "hamburger_restaurant",
-    "salad_shop",
-    "breakfast_restaurant",
-    "vegan_restaurant",
-    "vegetarian_restaurant",
-    "fast_food_restaurant",
-    "sandwich_shop",
-    "cafe",
-    "dessert_shop",
-    "burrito_restaurant",
-    "american_restaurant",
-    "confectionery",
-    "food_store",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 359-4439",
-   "formattedAddress": "702 E St George Blvd, St. George, UT 84770, USA",
-   "location": {
-    "latitude": 37.109407,
-    "longitude": -113.5681324
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=9338780092796030237&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.mortyscafe.com/stgeorge",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 2001,
-   "displayName": {
-    "text": "Morty's Cafe: St. George",
-    "languageCode": "en"
-   },
-   "primaryType": "hamburger_restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Squarespace",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.mortyscafe.com/stgeorge",
-    "performance": 42,
-    "seo": 83,
-    "accessibility": 91,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 30,
-   "lead_score": 27
-  },
-  {
-   "id": "ChIJYdR_Xbc2tokRxMEw2_I39iA",
-   "types": [
-    "french_restaurant",
-    "brunch_restaurant",
-    "bar",
-    "european_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(703) 759-3800",
-   "formattedAddress": "332 Springvale Rd, Great Falls, VA 22066, USA",
-   "location": {
-    "latitude": 39.029160600000004,
-    "longitude": -77.3054018
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=2375147369683534276&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.laubergechezfrancois.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
-   "userRatingCount": 1861,
-   "displayName": {
-    "text": "L'Auberge Chez Francois",
-    "languageCode": "en"
-   },
-   "primaryType": "french_restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.laubergechezfrancois.com/",
-    "performance": 56,
-    "seo": 85,
-    "accessibility": 77,
-    "best_practices": 59,
-    "viewport_ok": false,
-    "https": false
-   },
-   "badness": 61,
-   "lead_score": 58
-  },
-  {
-   "id": "ChIJKxh48idbyoARtx3nTe_dfR0",
-   "types": [
-    "hawaiian_restaurant",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 319-8400",
-   "formattedAddress": "1560 Grapevine Crossing Rd Suite 2, Washington, UT 84780, USA",
-   "location": {
-    "latitude": 37.144943,
-    "longitude": -113.48368649999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=2125098619062656439&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://sevenbrothersburgers.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 1726,
-   "displayName": {
-    "text": "Seven Brothers Burgers",
-    "languageCode": "en"
-   },
-   "primaryType": "hawaiian_restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Squarespace"
-    ],
-    "final_url": "https://www.sevenbrothersburgers.com/",
-    "performance": 33,
-    "seo": 92,
-    "accessibility": 97,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 30,
-   "lead_score": 28
-  },
-  {
-   "id": "ChIJU9lycQHNt4kRCo7TuQqsGuY",
-   "types": [
-    "steak_house",
-    "seafood_restaurant",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(240) 582-1000",
-   "formattedAddress": "2000 Tower Oaks Blvd, Rockville, MD 20852, USA",
-   "location": {
-    "latitude": 39.066372,
-    "longitude": -77.1531029
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=16580754140185202186&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://glenwoodsdining.com/rockville/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1725,
-   "displayName": {
-    "text": "Glenwood's (Stanford Grill - Rockville)",
-    "languageCode": "en"
-   },
-   "primaryType": "steak_house",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "OpenTable",
-     "WordPress",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://glenwoodsdining.com/rockville/",
-    "performance": 75,
-    "seo": 100,
-    "accessibility": 96,
-    "best_practices": 73,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 14,
-   "lead_score": 12
-  },
-  {
-   "id": "ChIJbYDuXs6XTocRbC1ya3Re35Y",
-   "types": [
-    "pub",
-    "breakfast_restaurant",
-    "restaurant",
-    "bar",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 472-0403",
-   "formattedAddress": "148 S Main St, Helper, UT 84526, USA",
-   "location": {
-    "latitude": 39.6845273,
-    "longitude": -110.8548644
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=10871511879607528812&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.facebook.com/balancerockeatery/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 1721,
-   "displayName": {
-    "text": "Balance Rock Eatery & Pub",
-    "languageCode": "en"
-   },
-   "primaryType": "pub",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "social",
-    "stack": []
-   },
-   "badness": 95,
-   "lead_score": 84
-  },
-  {
-   "id": "ChIJIV2t-nTNt4kRFAb8Q48ZbdM",
-   "types": [
-    "breakfast_restaurant",
-    "family_restaurant",
-    "brunch_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(301) 762-0621",
-   "formattedAddress": "100 Gibbs St Unit D, Rockville, MD 20850, USA",
-   "location": {
-    "latitude": 39.085522,
-    "longitude": -77.15210499999999
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=15234861217575863828&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.firstwatch.com/locations/rockville/?utm_source=gbp-listing&utm_medium=organic&utm_campaign=gbp-listing&utm_content=rockville",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 1676,
-   "displayName": {
-    "text": "First Watch",
-    "languageCode": "en"
-   },
-   "primaryType": "breakfast_restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://firstwatch.com/locations/rockville",
-    "performance": 46,
-    "seo": 92,
-    "accessibility": 97,
-    "best_practices": 92,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 25,
-   "lead_score": 22
-  },
-  {
    "id": "ChIJNYZ2uCPzyoARqHtdnlSZp-A",
    "types": [
     "restaurant",
@@ -2116,7 +1733,7 @@
     "languageCode": "en"
    },
    "primaryType": "restaurant",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "site",
     "stack": [
@@ -2235,7 +1852,45 @@
     "https": false
    },
    "badness": 40,
-   "lead_score": 36
+   "lead_score": 36,
+   "domains": [
+    {
+     "domain": "deepcreekcoffeecompany.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "deepcreek.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "deepcreekspringdale.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "deepcreek.cafe",
+     "available": false,
+     "code": 403,
+     "price": "~$6/yr then ~$35"
+    },
+    {
+     "domain": "deepcreek.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatdeepcreek.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJ7ULebdHxyoARogapl-Lpz1k",
@@ -2271,7 +1926,7 @@
     "languageCode": "en"
    },
    "primaryType": "american_restaurant",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "site",
     "stack": [
@@ -2287,106 +1942,6 @@
    },
    "badness": 18,
    "lead_score": 16
-  },
-  {
-   "id": "ChIJEa4aVJ5FyoAR4lQeWj5pbfk",
-   "types": [
-    "bakery",
-    "pastry_shop",
-    "catering_service",
-    "donut_shop",
-    "breakfast_restaurant",
-    "sandwich_shop",
-    "coffee_shop",
-    "cafe",
-    "dessert_shop",
-    "food_delivery",
-    "confectionery",
-    "food_store",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "service",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 986-7777",
-   "formattedAddress": "18 S 200 W, St. George, UT 84770, USA",
-   "location": {
-    "latitude": 37.1080167,
-    "longitude": -113.58776789999999
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=17973137404426343650&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://bonruebakery.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1446,
-   "displayName": {
-    "text": "Bonrue Bakery formerly Farmstead",
-    "languageCode": "en"
-   },
-   "primaryType": "bakery",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://bonruebakery.com/",
-    "performance": 38,
-    "seo": 92,
-    "accessibility": 84,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 30,
-   "lead_score": 27
-  },
-  {
-   "id": "ChIJX3I0Kn1byoARCmh6peM_M3Y",
-   "types": [
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 256-8017",
-   "formattedAddress": "1472 George Washington Blvd, St. George, UT 84790, USA",
-   "location": {
-    "latitude": 37.0842416,
-    "longitude": -113.55235599999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=8517221567254128650&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://villagebakerfood.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1398,
-   "displayName": {
-    "text": "Village Baker",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.villagebakerfood.com/",
-    "performance": 48,
-    "seo": 100,
-    "accessibility": 88,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 22,
-   "lead_score": 20
   },
   {
    "id": "ChIJvXprpXP3yoARBiv-K5FzgkA",
@@ -2414,7 +1969,7 @@
     "languageCode": "en"
    },
    "primaryType": "american_restaurant",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "site",
     "stack": [
@@ -2430,86 +1985,6 @@
    },
    "badness": 15,
    "lead_score": 13
-  },
-  {
-   "id": "ChIJ_W2yHCdbyoARljd2So24SOo",
-   "types": [
-    "european_restaurant",
-    "bistro",
-    "tea_house",
-    "cafe",
-    "meal_takeaway",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 366-2011",
-   "formattedAddress": "520 W Telegraph St Ste 2, Washington, UT 84780, USA",
-   "location": {
-    "latitude": 37.1291359,
-    "longitude": -113.51850040000001
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=16881946120177465238&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://thecrepestation.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1157,
-   "displayName": {
-    "text": "Crepe Station",
-    "languageCode": "en"
-   },
-   "primaryType": "european_restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "GoDaddy"
-    ],
-    "final_url": "https://thecrepestation.com/",
-    "performance": 79,
-    "seo": 92,
-    "accessibility": 85,
-    "best_practices": 92,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 14,
-   "lead_score": 13
-  },
-  {
-   "id": "ChIJ37EVYKo5bYgR5R2i_MvLiro",
-   "types": [
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(765) 569-5645",
-   "formattedAddress": "605 E Ohio St, Rockville, IN 47872, USA",
-   "location": {
-    "latitude": 39.762223299999995,
-    "longitude": -87.2211708
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=13441780114817949157&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://m.facebook.com/Benjamins.family.restaurants/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1152,
-   "displayName": {
-    "text": "Benjamin's Family Restaurant",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "social",
-    "stack": []
-   },
-   "badness": 95,
-   "lead_score": 79
   },
   {
    "id": "ChIJlw4WpR_UNIcRs-fWvwnqTj4",
@@ -2556,61 +2031,6 @@
    },
    "badness": 35,
    "lead_score": 29
-  },
-  {
-   "id": "ChIJzfsIrlNFyoARBt1ycXgsd0I",
-   "types": [
-    "cafe",
-    "pastry_shop",
-    "breakfast_restaurant",
-    "vegan_restaurant",
-    "vegetarian_restaurant",
-    "brunch_restaurant",
-    "coffee_shop",
-    "dessert_shop",
-    "bakery",
-    "confectionery",
-    "food_store",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 922-1639",
-   "formattedAddress": "2 W St George Blvd Ste 38, St. George, UT 84770, USA",
-   "location": {
-    "latitude": 37.1107886,
-    "longitude": -113.5839846
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=4789345624542862598&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://feellovecoffee.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1103,
-   "displayName": {
-    "text": "Cafe FeelLove",
-    "languageCode": "en"
-   },
-   "primaryType": "cafe",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://feellovecoffee.com/",
-    "performance": 74,
-    "seo": 100,
-    "accessibility": 83,
-    "best_practices": 78,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 26,
-   "lead_score": 23
   },
   {
    "id": "ChIJD_APMA5FyoARrk0f7mabguU",
@@ -2705,98 +2125,6 @@
    "lead_score": 21
   },
   {
-   "id": "ChIJiYpuR9BByoARXHdsIilJBGc",
-   "types": [
-    "restaurant",
-    "bar",
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 656-0165",
-   "formattedAddress": "815 Coyote Gulch Ct, Ivins, UT 84738, USA",
-   "location": {
-    "latitude": 37.1831508,
-    "longitude": -113.70664959999999
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=7423138526833440604&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.xetava.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1062,
-   "displayName": {
-    "text": "Xetava",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Squarespace"
-    ],
-    "final_url": "https://www.xetava.com/",
-    "performance": 55,
-    "seo": 92,
-    "accessibility": 100,
-    "best_practices": 81,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 33,
-   "lead_score": 28
-  },
-  {
-   "id": "ChIJ16INi4LSt4kR_xzPBPoK0Us",
-   "types": [
-    "italian_restaurant",
-    "seafood_restaurant",
-    "european_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(301) 309-0610",
-   "formattedAddress": "15209 Frederick Rd, Rockville, MD 20850, USA",
-   "location": {
-    "latitude": 39.1057491,
-    "longitude": -77.15718919999999
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=5463159891915906303&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.ilpizzico.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1023,
-   "displayName": {
-    "text": "Il Pizzico",
-    "languageCode": "en"
-   },
-   "primaryType": "italian_restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Squarespace"
-    ],
-    "final_url": "https://www.ilpizzico.com/",
-    "performance": 65,
-    "seo": 100,
-    "accessibility": 96,
-    "best_practices": 81,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 27,
-   "lead_score": 23
-  },
-  {
    "id": "ChIJj0FQPSPUNIcRIc002R9n3tM",
    "types": [
     "american_restaurant",
@@ -2885,52 +2213,6 @@
    "lead_score": 28
   },
   {
-   "id": "ChIJl_Y8gZjSt4kRUqcOClrtoqs",
-   "types": [
-    "bar",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(240) 474-5461",
-   "formattedAddress": "800 Pleasant Dr #160, Rockville, MD 20850, USA",
-   "location": {
-    "latitude": 39.113757,
-    "longitude": -77.171538
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=12367708497684375378&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://botarockville.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 974,
-   "displayName": {
-    "text": "Botanero Restaurant",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Mailchimp",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://botarockville.com/",
-    "performance": 52,
-    "seo": 77,
-    "accessibility": 92,
-    "best_practices": 81,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 40,
-   "lead_score": 33
-  },
-  {
    "id": "ChIJ31B7aADnyoAR-IpdJEJ7yIg",
    "types": [
     "american_restaurant",
@@ -2975,39 +2257,6 @@
    "lead_score": 32
   },
   {
-   "id": "ChIJy04d8dbBSYcR1pQSPPrliyc",
-   "types": [
-    "mexican_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 542-1763",
-   "formattedAddress": "20 N UT-95, Hanksville, UT 84734, USA",
-   "location": {
-    "latitude": 38.3732403,
-    "longitude": -110.70396430000001
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=2849624052154406102&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 957,
-   "displayName": {
-    "text": "Outlaw's Roost",
-    "languageCode": "en"
-   },
-   "primaryType": "mexican_restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 89
-  },
-  {
    "id": "ChIJqyLGHbTzyoARhyZCzzhLZg8",
    "types": [
     "mexican_restaurant",
@@ -3033,7 +2282,7 @@
     "languageCode": "en"
    },
    "primaryType": "mexican_restaurant",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "site",
     "stack": [],
@@ -3079,95 +2328,45 @@
     "stack": []
    },
    "badness": 100,
-   "lead_score": 86
-  },
-  {
-   "id": "ChIJca8I1tWPNYcRA-x5dULudT8",
-   "types": [
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 826-4550",
-   "formattedAddress": "7144 UT-12, Escalante, UT 84726, USA",
-   "location": {
-    "latitude": 37.7721176,
-    "longitude": -111.4168624
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=4572822965870783491&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://kivakoffeehouse.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 876,
-   "displayName": {
-    "text": "Kiva Koffeehouse",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Kanab",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Wix"
-    ],
-    "final_url": "https://www.kivakoffeehouse.com/",
-    "performance": 78,
-    "seo": 100,
-    "accessibility": 94,
-    "best_practices": 81,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 22,
-   "lead_score": 19
-  },
-  {
-   "id": "ChIJjUVi7SbMt4kRL6RzJnZPvpE",
-   "types": [
-    "filipino_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(240) 669-4383",
-   "formattedAddress": "5268-H Nicholson Ln, Kensington, MD 20895, USA",
-   "location": {
-    "latitude": 39.0443339,
-    "longitude": -77.106883
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=10501918749944423471&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://kuyajas.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 865,
-   "displayName": {
-    "text": "Kuya Ja's Lechon Belly",
-    "languageCode": "en"
-   },
-   "primaryType": "filipino_restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "BentoBox"
-    ],
-    "final_url": "https://www.kuyajas.com/",
-    "performance": 56,
-    "seo": 100,
-    "accessibility": 100,
-    "best_practices": 78,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 30,
-   "lead_score": 25
+   "lead_score": 86,
+   "domains": [
+    {
+     "domain": "parkhouse.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "parkhousespringdale.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "parkhouse.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "parkhouse.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatparkhouse.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "parkhouse.net",
+     "available": false,
+     "code": 200,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJDz3jjI73yoARFKrDRwb-5J0",
@@ -3205,7 +2404,45 @@
     "stack": []
    },
    "badness": 95,
-   "lead_score": 81
+   "lead_score": 81,
+   "domains": [
+    {
+     "domain": "crosscountrydiner.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "crosscountry.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "crosscountryhurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "crosscountry.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "crosscountry.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatcrosscountry.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJ--RHg8f2yoARbUCNbsTDYWE",
@@ -3241,180 +2478,45 @@
     ]
    },
    "badness": 90,
-   "lead_score": 75
-  },
-  {
-   "id": "ChIJMRLOHHrNt4kRp2y5LCRVWsg",
-   "types": [
-    "bakery",
-    "pastry_shop",
-    "breakfast_restaurant",
-    "sandwich_shop",
-    "french_restaurant",
-    "coffee_shop",
-    "cafe",
-    "dessert_shop",
-    "confectionery",
-    "food_store",
-    "european_restaurant",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(888) 648-0009",
-   "formattedAddress": "804 Hungerford Dr, Rockville, MD 20850, USA",
-   "location": {
-    "latitude": 39.0946264,
-    "longitude": -77.15449749999999
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=14436945169347079335&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.freshbaguette.net/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 814,
-   "displayName": {
-    "text": "Fresh Baguette",
-    "languageCode": "en"
-   },
-   "primaryType": "bakery",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "BentoBox",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.freshbaguette.net/",
-    "performance": 30,
-    "seo": 92,
-    "accessibility": 96,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 31,
-   "lead_score": 25
-  },
-  {
-   "id": "ChIJXV2v49oPU4cRZ4K_KV0Uzww",
-   "types": [
-    "brunch_restaurant",
-    "breakfast_restaurant",
-    "mexican_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(801) 820-5396",
-   "formattedAddress": "5128 S 1900 W, Roy, UT 84067, USA",
-   "location": {
-    "latitude": 41.1706637,
-    "longitude": -112.02564389999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=922978838999171687&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.facebook.com/p/R-K-Brunch-House-61575806667736/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 814,
-   "displayName": {
-    "text": "R and K Brunch House",
-    "languageCode": "en"
-   },
-   "primaryType": "brunch_restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "social",
-    "stack": []
-   },
-   "badness": 95,
-   "lead_score": 80
-  },
-  {
-   "id": "ChIJPbiCfj7NyoARTUWArna9azs",
-   "types": [
-    "coffee_shop",
-    "breakfast_restaurant",
-    "gift_shop",
-    "cafe",
-    "food_store",
-    "meal_takeaway",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 648-2747",
-   "formattedAddress": "385 W State St, Orderville, UT 84758, USA",
-   "location": {
-    "latitude": 37.272011,
-    "longitude": -112.64802639999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=4281724188177220941&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://therockstoputah.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 812,
-   "displayName": {
-    "text": "The Rock Stop",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "GoDaddy"
-    ],
-    "final_url": "https://therockstoputah.com/lander",
-    "performance": 70,
-    "seo": 73,
-    "accessibility": 81,
-    "best_practices": 78,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 36,
-   "lead_score": 30
-  },
-  {
-   "id": "ChIJUXgqSn7St4kREcyXMI-NWLE",
-   "types": [
-    "breakfast_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(301) 424-1111",
-   "formattedAddress": "519 E Gude Dr, Rockville, MD 20850, USA",
-   "location": {
-    "latitude": 39.1058028,
-    "longitude": -77.1462222
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=12779119588798876689&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 810,
-   "displayName": {
-    "text": "Peter's Grill",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 85
+   "lead_score": 75,
+   "domains": [
+    {
+     "domain": "dixiepizzawagon.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "dixiepizza.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "dixiepizzahurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "dixiepizza.pizza",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$55"
+    },
+    {
+     "domain": "dixiepizza.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatdixiepizza.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJ1V-Uhr_2yoAR68945UMBzh0",
@@ -3460,97 +2562,6 @@
    "lead_score": 15
   },
   {
-   "id": "ChIJB65WFgDNt4kRsybxirGPbdc",
-   "types": [
-    "asian_restaurant",
-    "buffet_restaurant",
-    "barbecue_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(240) 669-8394",
-   "formattedAddress": "1701 Rockville Pike Ste A10, Rockville, MD 20852, USA",
-   "location": {
-    "latitude": 39.060966,
-    "longitude": -77.1238719
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=15523221483319010995&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.kanpaibbqhotpot.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 740,
-   "displayName": {
-    "text": "KANPAI BBQ Hotpot Buffet",
-    "languageCode": "en"
-   },
-   "primaryType": "asian_restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Wix"
-    ],
-    "final_url": "https://www.kanpaibbqhotpot.com/",
-    "performance": 72,
-    "seo": 92,
-    "accessibility": 100,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 13,
-   "lead_score": 11
-  },
-  {
-   "id": "ChIJsb2d0BTNyoAR0wJ7owznS_o",
-   "types": [
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "formattedAddress": "17 E State St, Orderville, UT 84758, USA",
-   "location": {
-    "latitude": 37.2762138,
-    "longitude": -112.6384076
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=18035763174203654867&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.theshopcoffeeco.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 740,
-   "displayName": {
-    "text": "The Shop Coffee Co",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Kanab",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://theshopcoffeeco.com/",
-    "performance": 63,
-    "seo": 100,
-    "accessibility": 94,
-    "best_practices": 78,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 29,
-   "lead_score": 24
-  },
-  {
    "id": "ChIJyfP3ViH1yoARidZO6dhOWao",
    "types": [
     "mexican_restaurant",
@@ -3577,7 +2588,7 @@
     "languageCode": "en"
    },
    "primaryType": "mexican_restaurant",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "site",
     "stack": [
@@ -3593,50 +2604,39 @@
     "https": false
    },
    "badness": 51,
-   "lead_score": 41
-  },
-  {
-   "id": "ChIJqQYdXGhuNYcREfyNrdSBVrY",
-   "types": [
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 679-8502",
-   "formattedAddress": "21 N Main St, Tropic, UT 84776, USA",
-   "location": {
-    "latitude": 37.6247818,
-    "longitude": -112.08203909999999
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=13138831713344814097&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://brycecanyoncoffeeco.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 688,
-   "displayName": {
-    "text": "Bryce Canyon Coffee Co.",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Kanab",
-   "site": {
-    "status": "site",
-    "stack": [],
-    "final_url": "https://brycecanyoncoffeeco.com/",
-    "performance": 67,
-    "seo": 83,
-    "accessibility": 80,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 21,
-   "lead_score": 17
+   "lead_score": 41,
+   "domains": [
+    {
+     "domain": "casatequilanaleeds.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "casatequilana.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "casatequilana.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatcasatequilana.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "casatequilana.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJnwm2gpjVNIcRcjbYBFZU6H8",
@@ -3690,82 +2690,6 @@
    "lead_score": 27
   },
   {
-   "id": "ChIJmebfrZPNt4kRnr9cmWsbjBE",
-   "types": [
-    "latin_american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(240) 621-7505",
-   "formattedAddress": "12303 Twinbrook Pkwy, Rockville, MD 20852, USA",
-   "location": {
-    "latitude": 39.0585153,
-    "longitude": -77.119627
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=1264415744332709790&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.losprimosrockville.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 669,
-   "displayName": {
-    "text": "Los Primos Latin American Cuisine",
-    "languageCode": "en"
-   },
-   "primaryType": "latin_american_restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://losprimosrockville.com/",
-    "performance": 53,
-    "seo": 100,
-    "accessibility": 82,
-    "best_practices": 78,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 34,
-   "lead_score": 26
-  },
-  {
-   "id": "ChIJY1YNmejNyoARXXzLGT1uBrE",
-   "types": [
-    "fast_food_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "formattedAddress": "500 E State St, Orderville, UT 84758, USA",
-   "location": {
-    "latitude": 37.2776096,
-    "longitude": -112.6294662
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=12756004203278335069&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 628,
-   "displayName": {
-    "text": "Archie's Food to Die For",
-    "languageCode": "en"
-   },
-   "primaryType": "fast_food_restaurant",
-   "_spot": "Kanab",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 80
-  },
-  {
    "id": "ChIJre9-dqTCyoARd5Xy9_AhDwk",
    "types": [
     "hotel",
@@ -3816,52 +2740,6 @@
    "lead_score": 31
   },
   {
-   "id": "ChIJo7YYpbcytokRoeqrtIgh1sQ",
-   "types": [
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(240) 907-2994",
-   "formattedAddress": "9705 Traville Gateway Dr, Rockville, MD 20850, USA",
-   "location": {
-    "latitude": 39.0913226,
-    "longitude": -77.204014
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=14183560947480390305&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://blacklioncafe.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 613,
-   "displayName": {
-    "text": "Black Lion Coffee & Caf\u00e9",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://blacklioncafe.com/",
-    "performance": 33,
-    "seo": 100,
-    "accessibility": 100,
-    "best_practices": 81,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 39,
-   "lead_score": 30
-  },
-  {
    "id": "ChIJC-hRFuTxyoARzu4TMN-uIKU",
    "types": [
     "cafe",
@@ -3886,13 +2764,51 @@
     "languageCode": "en"
    },
    "primaryType": "cafe",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "none",
     "stack": []
    },
    "badness": 100,
-   "lead_score": 76
+   "lead_score": 76,
+   "domains": [
+    {
+     "domain": "buffalotrails.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "buffalotrailsvirgin.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "buffalotrails.cafe",
+     "available": false,
+     "code": 403,
+     "price": "~$6/yr then ~$35"
+    },
+    {
+     "domain": "buffalotrails.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatbuffalotrails.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "buffalotrails.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJ15s2KeTzyoARdCIGnrhyrB0",
@@ -3981,100 +2897,6 @@
    "lead_score": 22
   },
   {
-   "id": "ChIJdd6pjqPNt4kRJoNDp04ThaU",
-   "types": [
-    "mexican_restaurant",
-    "latin_american_restaurant",
-    "bar",
-    "spanish_restaurant",
-    "european_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(301) 738-7177",
-   "formattedAddress": "765 Rockville Pike, Rockville, MD 20852, USA",
-   "location": {
-    "latitude": 39.0773395,
-    "longitude": -77.1418334
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=11926960416695223078&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.elmariachirockville.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 581,
-   "displayName": {
-    "text": "El Mariachi",
-    "languageCode": "en"
-   },
-   "primaryType": "mexican_restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Wix"
-    ],
-    "final_url": "https://www.elmariachirockville.com/",
-    "performance": 72,
-    "seo": 100,
-    "accessibility": 96,
-    "best_practices": 81,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 24,
-   "lead_score": 18
-  },
-  {
-   "id": "ChIJe4toJWBbyoARSP3T5c-sofU",
-   "types": [
-    "bakery",
-    "sandwich_shop",
-    "deli",
-    "food_store",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 627-6759",
-   "formattedAddress": "2654 Red Cliffs Dr Ste B, St. George, UT 84790, USA",
-   "location": {
-    "latitude": 37.1242959,
-    "longitude": -113.5297463
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=17699618019456843080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://erniesfrenchbakery.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 568,
-   "displayName": {
-    "text": "Ernie\u2019s | The French Bakery and Deli",
-    "languageCode": "en"
-   },
-   "primaryType": "bakery",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress"
-    ],
-    "final_url": "https://erniesfrenchbakery.com/",
-    "performance": 56,
-    "seo": 45,
-    "accessibility": 80,
-    "best_practices": 63,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 52,
-   "lead_score": 42
-  },
-  {
    "id": "ChIJqRQbI6BYyoARCsDzXzIhu5g",
    "types": [
     "performing_arts_theater",
@@ -4117,49 +2939,6 @@
    },
    "badness": 19,
    "lead_score": 15
-  },
-  {
-   "id": "ChIJsy-obgBbNYcRwyfl556oOPM",
-   "types": [
-    "diner",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 704-2067",
-   "formattedAddress": "586 US-89, Hatch, UT 84735, USA",
-   "location": {
-    "latitude": 37.660507,
-    "longitude": -112.42843699999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=17525943350361139139&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.reddirtdiner.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 547,
-   "displayName": {
-    "text": "Red Dirt Diner",
-    "languageCode": "en"
-   },
-   "primaryType": "diner",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Wix"
-    ],
-    "final_url": "https://www.reddirtdiner.com/",
-    "performance": 69,
-    "seo": 100,
-    "accessibility": 95,
-    "best_practices": 81,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 26,
-   "lead_score": 21
   },
   {
    "id": "ChIJ6zFQejHpyoAR6lMg9OJXPg4",
@@ -4291,87 +3070,45 @@
     ]
    },
    "badness": 90,
-   "lead_score": 73
-  },
-  {
-   "id": "ChIJ61jdoC1FyoAR5zman9aGGOQ",
-   "types": [
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 525-2550",
-   "formattedAddress": "1091 N Bluff St Ste 1400, St. George, UT 84770, USA",
-   "location": {
-    "latitude": 37.1276635,
-    "longitude": -113.60233389999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=16436035096447433191&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://thecosmopolitangrill.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 517,
-   "displayName": {
-    "text": "Cosmopolitan Grill",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [],
-    "final_url": "https://thecosmopolitangrill.com/",
-    "performance": 58,
-    "seo": 100,
-    "accessibility": 96,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 18,
-   "lead_score": 14
-  },
-  {
-   "id": "ChIJ1XOh4QHPt4kRMysy_stFxuI",
-   "types": [
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(240) 500-3833",
-   "formattedAddress": "2462 Ennalls Ave, Silver Spring, MD 20902, USA",
-   "location": {
-    "latitude": 39.040149799999995,
-    "longitude": -77.05242120000001
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=16340825040405801779&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://sabormixteco.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 470,
-   "displayName": {
-    "text": "Taqueria Sabor Mixteco",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [],
-    "final_url": "https://sabormixteco.com/",
-    "performance": 70,
-    "seo": 100,
-    "accessibility": 91,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 13,
-   "lead_score": 10
+   "lead_score": 73,
+   "domains": [
+    {
+     "domain": "mainlypizza.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "mainlypizzaleeds.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "mainlypizza.pizza",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$55"
+    },
+    {
+     "domain": "mainlypizza.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatmainlypizza.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "mainlypizza.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJ7T6IEsj2yoARv8knQNrQhlY",
@@ -4428,44 +3165,6 @@
    "lead_score": 26
   },
   {
-   "id": "ChIJo14qRHXNt4kRvzsUkJpwmew",
-   "types": [
-    "restaurant",
-    "french_restaurant",
-    "dessert_shop",
-    "confectionery",
-    "food_store",
-    "european_restaurant",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(301) 309-0956",
-   "formattedAddress": "199J E Montgomery Ave, Rockville, MD 20850, USA",
-   "location": {
-    "latitude": 39.0839865,
-    "longitude": -77.1496959
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=17048781673532242879&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 429,
-   "displayName": {
-    "text": "Amai Crepe",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 73
-  },
-  {
    "id": "ChIJcQJNNUjnyoARyahIaa8hezM",
    "types": [
     "restaurant",
@@ -4513,43 +3212,6 @@
    "lead_score": 19
   },
   {
-   "id": "ChIJzfv3xNgzNYcRxicvCKFof70",
-   "types": [
-    "restaurant",
-    "gift_shop",
-    "convenience_store",
-    "food_store",
-    "store",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 648-3808",
-   "formattedAddress": "10 N Main St, Glendale, UT 84729, USA",
-   "location": {
-    "latitude": 37.3181912,
-    "longitude": -112.5972839
-   },
-   "rating": 5,
-   "googleMapsUri": "https://maps.google.com/?cid=13654747636046964678&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.facebook.com/brinkscountrystore?mibextid=ZbWKwL",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 379,
-   "displayName": {
-    "text": "Brink's Grill & Country Store",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Kanab",
-   "site": {
-    "status": "social",
-    "stack": []
-   },
-   "badness": 95,
-   "lead_score": 74
-  },
-  {
    "id": "ChIJ_z1tmAooFyUR5z_-yy2uNnY",
    "types": [
     "vegan_restaurant",
@@ -4582,50 +3244,45 @@
     "stack": []
    },
    "badness": 95,
-   "lead_score": 74
-  },
-  {
-   "id": "ChIJ9w_WP65byoARXRzB079v00A",
-   "types": [
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 879-3489",
-   "formattedAddress": "568 W Telegraph St #8, Washington, UT 84780, USA",
-   "location": {
-    "latitude": 37.130016,
-    "longitude": -113.51880399999999
-   },
-   "rating": 5,
-   "googleMapsUri": "https://maps.google.com/?cid=4671200108195421277&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://koreapicnic.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 372,
-   "displayName": {
-    "text": "Korea Picnic",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://koreapicnic.com/",
-    "performance": 54,
-    "seo": 92,
-    "accessibility": 80,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 24,
-   "lead_score": 19
+   "lead_score": 74,
+   "domains": [
+    {
+     "domain": "desertsmoothie.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "desertsmoothievirgin.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "desertsmoothie.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "desertsmoothie.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatdesertsmoothie.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "desertsmoothie.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJ26R1XgD3yoARxwe6eMFMXEA",
@@ -4666,7 +3323,7 @@
     "languageCode": "en"
    },
    "primaryType": "bakery",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "site",
     "stack": [
@@ -4757,7 +3414,7 @@
     "languageCode": "en"
    },
    "primaryType": "chinese_restaurant",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "site",
     "stack": [
@@ -4902,212 +3559,45 @@
     "stack": []
    },
    "badness": 100,
-   "lead_score": 69
-  },
-  {
-   "id": "ChIJ_1CkCoYhy4AR7N28Z6GXtq0",
-   "types": [
-    "coffee_shop",
-    "brunch_restaurant",
-    "coffee_roastery",
-    "cafe",
-    "bakery",
-    "food_store",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(928) 272-4533",
-   "formattedAddress": "15 Central St Ste A, Colorado City, AZ 86021, USA",
-   "location": {
-    "latitude": 36.9907594,
-    "longitude": -112.9744669
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=12517358933808831980&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://sweetsagecoffee.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 284,
-   "displayName": {
-    "text": "Sweet Sage Coffee Co.",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Weebly",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.sweetsagecoffee.com/",
-    "performance": 8,
-    "seo": 92,
-    "accessibility": 95,
-    "best_practices": 78,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 53,
-   "lead_score": 36
-  },
-  {
-   "id": "ChIJvZ6HfMnbNIcRsalSWzHf_UQ",
-   "types": [
-    "museum",
-    "tourist_attraction",
-    "gift_shop",
-    "history_museum",
-    "restaurant",
-    "bar",
-    "store",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 691-3452",
-   "formattedAddress": "6746 US-89, Kanab, UT 84741, USA",
-   "location": {
-    "latitude": 37.035570199999995,
-    "longitude": -112.37644829999999
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=4971374966765431217&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.onceuponatimeinamericamuseum.com/",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 271,
-   "displayName": {
-    "text": "Once upon A Time In America Museum",
-    "languageCode": "en"
-   },
-   "primaryType": "museum",
-   "_spot": "Kanab",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.onceuponatimeinamericamuseum.com/",
-    "performance": 75,
-    "seo": 100,
-    "accessibility": 90,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 11,
-   "lead_score": 8
-  },
-  {
-   "id": "ChIJJba_m3dbyoARx2IEIdvO710",
-   "types": [
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 288-3323",
-   "formattedAddress": "26A, Next to Skechers, 250 Red Cliffs Dr, St. George, UT 84790, USA",
-   "location": {
-    "latitude": 37.1111704,
-    "longitude": -113.5535177
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=6768856205508240071&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 258,
-   "displayName": {
-    "text": "Book Club Bistro",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 70
-  },
-  {
-   "id": "ChIJqXmkCTLNyoARIb8TN0xuG8g",
-   "types": [
-    "taco_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 648-2747",
-   "formattedAddress": "385 W State St Suite A, Orderville, UT 84758, USA",
-   "location": {
-    "latitude": 37.2720005,
-    "longitude": -112.64800919999999
-   },
-   "rating": 5,
-   "googleMapsUri": "https://maps.google.com/?cid=14419239905577385761&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://instagram.com/rock.n.tacos",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 256,
-   "displayName": {
-    "text": "Rock\u2019N\u2019Tacos",
-    "languageCode": "en"
-   },
-   "primaryType": "taco_restaurant",
-   "_spot": "Kanab",
-   "site": {
-    "status": "social",
-    "stack": []
-   },
-   "badness": 95,
-   "lead_score": 69
-  },
-  {
-   "id": "ChIJ7WhqMD7Nt4kRRWZN-_jyV0E",
-   "types": [
-    "cafe",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(301) 340-7567",
-   "formattedAddress": "1405 Research Blvd, Rockville, MD 20850, USA",
-   "location": {
-    "latitude": 39.091152199999996,
-    "longitude": -77.1771227
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=4708499086621107781&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.tastynookcafe.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 254,
-   "displayName": {
-    "text": "Tasty Nook Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "cafe",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [],
-    "final_url": "https://tastynookcafe.com/",
-    "performance": 82,
-    "seo": 100,
-    "accessibility": 100,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 7,
-   "lead_score": 5
+   "lead_score": 69,
+   "domains": [
+    {
+     "domain": "perkscoffee.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "perkscoffeespringdale.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "perkscoffee.coffee",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$32"
+    },
+    {
+     "domain": "perkscoffee.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatperkscoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "perkscoffee.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJYZnmV1T3yoARC8b3XZje3go",
@@ -5143,88 +3633,45 @@
     ]
    },
    "badness": 85,
-   "lead_score": 58
-  },
-  {
-   "id": "ChIJn0brzcHbNIcRgcJs53AaZR4",
-   "types": [
-    "bar_and_grill",
-    "family_restaurant",
-    "barbecue_restaurant",
-    "bar",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 691-3452",
-   "formattedAddress": "6746 US-89, Kanab, UT 84741, USA",
-   "location": {
-    "latitude": 37.0359736,
-    "longitude": -112.3755497
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=2190185866006938241&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.onceuponatimeinamericamuseum.com/smoke-wagon-saloon",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 237,
-   "displayName": {
-    "text": "Smoke Wagon Saloon & Restaurant",
-    "languageCode": "en"
-   },
-   "primaryType": "bar_and_grill",
-   "_spot": "Kanab",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.onceuponatimeinamericamuseum.com/smoke-wagon-saloon",
-    "performance": 69,
-    "seo": 100,
-    "accessibility": 94,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 13,
-   "lead_score": 9
-  },
-  {
-   "id": "ChIJr3wOyw_Nt4kRMSim74kqWTo",
-   "types": [
-    "bakery",
-    "food_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "formattedAddress": "5751 Fishers Ln Ste C, Rockville, MD 20852, USA",
-   "location": {
-    "latitude": 39.062993899999995,
-    "longitude": -77.1176606
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=4204438499046598705&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 231,
-   "displayName": {
-    "text": "Mirabeau",
-    "languageCode": "en"
-   },
-   "primaryType": "bakery",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 67
+   "lead_score": 58,
+   "domains": [
+    {
+     "domain": "yokosojapanesecuisine.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "yokosojapanese.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "yokosojapanesehurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "yokosojapanese.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "yokosojapanese.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatyokosojapanese.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJ21iWCeT3yoARvVdftkf8heg",
@@ -5367,7 +3814,45 @@
     "stack": []
    },
    "badness": 95,
-   "lead_score": 65
+   "lead_score": 65,
+   "domains": [
+    {
+     "domain": "tarocoffeebar.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "tarocoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "tarocoffeekanab.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "tarocoffee.coffee",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$32"
+    },
+    {
+     "domain": "tarocoffee.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eattarocoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJcbxk3bfVNIcROZMxrj8R9DE",
@@ -5442,7 +3927,45 @@
     "stack": []
    },
    "badness": 100,
-   "lead_score": 65
+   "lead_score": 65,
+   "domains": [
+    {
+     "domain": "lostapatios.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "lostapatioskanab.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "lostapatios.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "lostapatios.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatlostapatios.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "lostapatios.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJf4jBaf_DyoARaZl7VPci43o",
@@ -5488,52 +4011,6 @@
    },
    "badness": 21,
    "lead_score": 14
-  },
-  {
-   "id": "ChIJ0erg-gYrNYcRjvlRW5ZhjB4",
-   "types": [
-    "vegan_restaurant",
-    "buffet_restaurant",
-    "vegetarian_restaurant",
-    "cafe",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "formattedAddress": "610 W Seppi Ln, Kanab, UT 84741, USA",
-   "location": {
-    "latitude": 37.1408509,
-    "longitude": -112.5432043
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=2201241616282417550&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://bestfriends.org/sanctuary/plan-your-visit/eat-best-friends",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 181,
-   "displayName": {
-    "text": "Angel Village Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "vegan_restaurant",
-   "_spot": "Kanab",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://bestfriends.org/sanctuary/visit/eat-best-friends",
-    "performance": 38,
-    "seo": 92,
-    "accessibility": 89,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 29,
-   "lead_score": 19
   },
   {
    "id": "ChIJv7eqm9xZyoARGbs9dJznuEs",
@@ -5585,50 +4062,6 @@
    "lead_score": 11
   },
   {
-   "id": "ChIJia3KlDchy4AR7HNgQcY4_9U",
-   "types": [
-    "american_restaurant",
-    "sports_bar",
-    "breakfast_restaurant",
-    "bar",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 874-9889",
-   "formattedAddress": "1065 Utah Ave, Hildale, UT 84784, USA",
-   "location": {
-    "latitude": 37.0033943,
-    "longitude": -112.9974616
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=15420106073291387884&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://elcapbistro.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 152,
-   "displayName": {
-    "text": "El Cappuccino",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [],
-    "final_url": "https://elcapbistro.com/",
-    "performance": 92,
-    "seo": 69,
-    "accessibility": 100,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 12,
-   "lead_score": 7
-  },
-  {
    "id": "ChIJNZSnu4DxyoARd5INXt9SglM",
    "types": [
     "italian_restaurant",
@@ -5655,7 +4088,7 @@
     "languageCode": "en"
    },
    "primaryType": "italian_restaurant",
-   "_spot": "Springdale / Rockville",
+   "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "site",
     "stack": [
@@ -5708,53 +4141,45 @@
     "stack": []
    },
    "badness": 100,
-   "lead_score": 59
-  },
-  {
-   "id": "ChIJQ8ExbktbyoAR_PIcuLpYAvo",
-   "types": [
-    "cafe",
-    "vegan_restaurant",
-    "vegetarian_restaurant",
-    "meal_takeaway",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 962-0216",
-   "formattedAddress": "969 N 3050 E a2, St. George, UT 84790, USA",
-   "location": {
-    "latitude": 37.124974099999996,
-    "longitude": -113.52345269999999
-   },
-   "rating": 5,
-   "googleMapsUri": "https://maps.google.com/?cid=18015059018411471612&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://heartybeet.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 143,
-   "displayName": {
-    "text": "The Hearty Beet Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "cafe",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Toast"
-    ],
-    "final_url": "https://heartybeet.com/",
-    "performance": 39,
-    "seo": 100,
-    "accessibility": 93,
-    "best_practices": 78,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 38,
-   "lead_score": 25
+   "lead_score": 59,
+   "domains": [
+    {
+     "domain": "bigchill.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchillhurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchill.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "bigchill.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatbigchill.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchill.net",
+     "available": false,
+     "code": 200,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJ9dvvRAD3yoARwZpymyG1zX8",
@@ -5845,51 +4270,6 @@
    },
    "badness": 28,
    "lead_score": 16
-  },
-  {
-   "id": "ChIJ2WGpsyPlyoARPR0_pBFwsqM",
-   "types": [
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 877-1026",
-   "formattedAddress": "1352 State St, Apple Valley, UT 84737, USA",
-   "location": {
-    "latitude": 37.100001999999996,
-    "longitude": -113.1277274
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=11795613595109104957&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.bitterbeancoffeeco.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 124,
-   "displayName": {
-    "text": "Bitter Bean Coffee Co.",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress"
-    ],
-    "final_url": "https://bitterbeancoffeeco.com/",
-    "performance": 57,
-    "seo": 85,
-    "accessibility": 100,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 21,
-   "lead_score": 13
   },
   {
    "id": "ChIJrULlsYf3yoARGpQrnkyw0ec",
@@ -5985,50 +4365,6 @@
    },
    "badness": 21,
    "lead_score": 12
-  },
-  {
-   "id": "ChIJAQA7eMpDyoARkkdKflbDF3A",
-   "types": [
-    "restaurant",
-    "resort_hotel",
-    "hotel",
-    "bar",
-    "lodging",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(844) 237-8824",
-   "formattedAddress": "1500 E Black Desert Dr, Ivins, UT 84738, USA",
-   "location": {
-    "latitude": 37.1610916,
-    "longitude": -113.6475133
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=8077139232965674898&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.blackdesertresort.com/dining/latitude",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 96,
-   "displayName": {
-    "text": "Latitude",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [],
-    "final_url": "https://www.blackdesertresort.com/dining/latitude",
-    "performance": 62,
-    "seo": 100,
-    "accessibility": 94,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 16,
-   "lead_score": 9
   },
   {
    "id": "ChIJAYzROR_UNIcRlufqBZEeQgs",
@@ -6166,184 +4502,45 @@
     ]
    },
    "badness": 85,
-   "lead_score": 47
-  },
-  {
-   "id": "ChIJTVgn7JZByoARG8hS7PsoZrw",
-   "types": [
-    "cocktail_bar",
-    "bar",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 656-0165",
-   "formattedAddress": "815B Coyote Gulch Ct, Ivins, UT 84738, USA",
-   "location": {
-    "latitude": 37.1828773,
-    "longitude": -113.7070358
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=13575583189221689371&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.therustedcactus.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 68,
-   "displayName": {
-    "text": "Rusted Cactus by Xetava",
-    "languageCode": "en"
-   },
-   "primaryType": "cocktail_bar",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Squarespace"
-    ],
-    "final_url": "https://www.therustedcactus.com/",
-    "performance": 55,
-    "seo": 92,
-    "accessibility": 100,
-    "best_practices": 81,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 33,
-   "lead_score": 18
-  },
-  {
-   "id": "ChIJZSCtzqVbyoARt7toswaK-2w",
-   "types": [
-    "japanese_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 366-2636",
-   "formattedAddress": "875 W Red Cliffs Dr #1, Washington, UT 84780, USA",
-   "location": {
-    "latitude": 37.1258307,
-    "longitude": -113.5231687
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=7853022136635014071&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.akariutah.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 64,
-   "displayName": {
-    "text": "Akari Japanese",
-    "languageCode": "en"
-   },
-   "primaryType": "japanese_restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Squarespace"
-    ],
-    "final_url": "https://www.akariutah.com/",
-    "performance": 40,
-    "seo": 100,
-    "accessibility": 92,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 25,
-   "lead_score": 13
-  },
-  {
-   "id": "ChIJx1SpjGHFyoARW6B0LKD9ITI",
-   "types": [
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 648-2700",
-   "formattedAddress": "220 W Twin Knls Rd, Mt Carmel, UT 84755, USA",
-   "location": {
-    "latitude": 37.2704422,
-    "longitude": -112.8770294
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=3612447240510283867&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://zionponderosa.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 62,
-   "displayName": {
-    "text": "The Trailhead Treats",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Mailchimp",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.zionponderosa.com/",
-    "performance": 49,
-    "seo": 100,
-    "accessibility": 91,
-    "best_practices": 54,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 28,
-   "lead_score": 15
-  },
-  {
-   "id": "ChIJzz3jRQDPNIcRYbhb__wSKT4",
-   "types": [
-    "brunch_restaurant",
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "restaurant",
-    "store",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(928) 660-3652",
-   "formattedAddress": "623 S Main St, Fredonia, AZ 86022, USA",
-   "location": {
-    "latitude": 36.9400669,
-    "longitude": -112.52115459999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=4479132182221928545&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://ems-cafe-fredonia.cloveronline.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 62,
-   "displayName": {
-    "text": "Em\u2019s Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "brunch_restaurant",
-   "_spot": "Kanab",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Clover"
-    ],
-    "final_url": "https://ems-cafe-fredonia.cloveronline.com/",
-    "performance": 49,
-    "seo": 66,
-    "accessibility": 95,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 31,
-   "lead_score": 16
+   "lead_score": 47,
+   "domains": [
+    {
+     "domain": "roamingroastcoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "roamingroast.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "roamingroasthurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "roamingroast.coffee",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$32"
+    },
+    {
+     "domain": "roamingroast.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatroamingroast.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   },
   {
    "id": "ChIJRSctix7uyoARe5SWXdzjkas",
@@ -6378,7 +4575,45 @@
     "stack": []
    },
    "badness": 95,
-   "lead_score": 49
+   "lead_score": 49,
+   "domains": [
+    {
+     "domain": "virgingoodscafe.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoods.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoodszion.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoods.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "virgingoods.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatvirgingoods.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
   }
  ]
 }
