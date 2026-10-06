@@ -7,77 +7,6 @@
  },
  "leads": [
   {
-   "id": "ChIJY-s0bv3nyoARdOmu_IziBS8",
-   "types": [
-    "breakfast_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 772-0100",
-   "formattedAddress": "1880 Zion \u2013 Mount Carmel Hwy, Springdale, UT 84767, USA",
-   "location": {
-    "latitude": 37.174912899999995,
-    "longitude": -113.0114372
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=3388363389828786548&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 934,
-   "displayName": {
-    "text": "The Park House",
-    "languageCode": "en"
-   },
-   "primaryType": "breakfast_restaurant",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 86,
-   "domains": [
-    {
-     "domain": "parkhouse.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "parkhousespringdale.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "parkhouse.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "parkhouse.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatparkhouse.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "parkhouse.net",
-     "available": false,
-     "code": 200,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJDz3jjI73yoARFKrDRwb-5J0",
    "types": [
     "fast_food_restaurant",
@@ -522,80 +451,6 @@
    ]
   },
   {
-   "id": "ChIJj-kK0FXVNIcRCh_bK46DfFw",
-   "types": [
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "store",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 535-1197",
-   "formattedAddress": "681 E Chinle Dr, Kanab, UT 84741, USA",
-   "location": {
-    "latitude": 37.0421723,
-    "longitude": -112.5139397
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=6664346195245866762&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://instagram.com/taro.coffeebar?igshid=YmMyMTA2M2Y=",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 223,
-   "displayName": {
-    "text": "Taro Coffee Bar",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Kanab",
-   "site": {
-    "status": "social",
-    "stack": []
-   },
-   "badness": 95,
-   "lead_score": 65,
-   "domains": [
-    {
-     "domain": "tarocoffeebar.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "tarocoffee.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "tarocoffeekanab.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "tarocoffee.coffee",
-     "available": false,
-     "code": 403,
-     "price": "~$10/yr then ~$32"
-    },
-    {
-     "domain": "tarocoffee.menu",
-     "available": false,
-     "code": 403,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eattarocoffee.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJr9CnEgDVNIcRW3kyFbEjSz8",
    "types": [
     "mexican_restaurant",
@@ -667,75 +522,71 @@
    ]
   },
   {
-   "id": "ChIJ____4-TzyoAR71Cqb7obWMg",
+   "id": "ChIJY-s0bv3nyoARdOmu_IziBS8",
    "types": [
-    "ice_cream_shop",
-    "hawaiian_restaurant",
-    "dessert_shop",
-    "american_restaurant",
-    "confectionery",
-    "food_store",
-    "store",
+    "breakfast_restaurant",
     "restaurant",
     "food",
     "point_of_interest",
     "establishment"
    ],
-   "nationalPhoneNumber": "(435) 360-6377",
-   "formattedAddress": "117 W State St, Hurricane, UT 84737, USA",
+   "nationalPhoneNumber": "(435) 772-0100",
+   "formattedAddress": "1880 Zion \u2013 Mount Carmel Hwy, Springdale, UT 84767, USA",
    "location": {
-    "latitude": 37.176376999999995,
-    "longitude": -113.290561
+    "latitude": 37.174912899999995,
+    "longitude": -113.0114372
    },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=14436319093087424751&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=3388363389828786548&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
    "businessStatus": "OPERATIONAL",
-   "userRatingCount": 143,
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 934,
    "displayName": {
-    "text": "The Big Chill",
+    "text": "The Park House",
     "languageCode": "en"
    },
-   "primaryType": "ice_cream_shop",
-   "_spot": "Hurricane / La Verkin",
+   "primaryType": "breakfast_restaurant",
+   "_spot": "Springdale / Rockville",
    "site": {
     "status": "none",
-    "stack": []
+    "stack": [],
+    "maybe": "parkhouse.com"
    },
-   "badness": 100,
-   "lead_score": 59,
+   "badness": 70,
+   "lead_score": 60,
    "domains": [
     {
-     "domain": "bigchill.com",
+     "domain": "parkhouse.com",
      "available": false,
      "code": 200,
      "price": "~$11/yr then ~$17"
     },
     {
-     "domain": "bigchillhurricane.com",
+     "domain": "parkhousespringdale.com",
      "available": true,
      "code": 404,
      "price": "~$11/yr then ~$17"
     },
     {
-     "domain": "bigchill.restaurant",
+     "domain": "parkhouse.restaurant",
      "available": false,
      "code": 403,
      "price": "~$45/yr then ~$62"
     },
     {
-     "domain": "bigchill.menu",
+     "domain": "parkhouse.menu",
      "available": true,
      "code": 404,
      "price": "~$32/yr then ~$38"
     },
     {
-     "domain": "eatbigchill.com",
+     "domain": "eatparkhouse.com",
      "available": true,
      "code": 404,
      "price": "~$11/yr then ~$17"
     },
     {
-     "domain": "bigchill.net",
+     "domain": "parkhouse.net",
      "available": false,
      "code": 200,
      "price": "~$13/yr then ~$17"
@@ -817,72 +668,74 @@
    ]
   },
   {
-   "id": "ChIJRSctix7uyoARe5SWXdzjkas",
+   "id": "ChIJj-kK0FXVNIcRCh_bK46DfFw",
    "types": [
-    "brunch_restaurant",
-    "book_store",
+    "coffee_shop",
+    "cafe",
+    "food_store",
     "store",
-    "restaurant",
-    "food",
     "point_of_interest",
+    "food",
     "establishment"
    ],
-   "nationalPhoneNumber": "(435) 635-0551",
-   "formattedAddress": "2 E, 2 UT-9, Virgin, UT 84779, USA",
+   "nationalPhoneNumber": "(435) 535-1197",
+   "formattedAddress": "681 E Chinle Dr, Kanab, UT 84741, USA",
    "location": {
-    "latitude": 37.2037899,
-    "longitude": -113.18862379999999
+    "latitude": 37.0421723,
+    "longitude": -112.5139397
    },
    "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=12362912987711181947&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.facebook.com/virgingoodsbooks/",
+   "googleMapsUri": "https://maps.google.com/?cid=6664346195245866762&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://instagram.com/taro.coffeebar?igshid=YmMyMTA2M2Y=",
    "businessStatus": "OPERATIONAL",
-   "userRatingCount": 60,
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 223,
    "displayName": {
-    "text": "Virgin Goods Cafe",
+    "text": "Taro Coffee Bar",
     "languageCode": "en"
    },
-   "primaryType": "brunch_restaurant",
-   "_spot": "Hurricane / La Verkin",
+   "primaryType": "coffee_shop",
+   "_spot": "Kanab",
    "site": {
     "status": "social",
-    "stack": []
+    "stack": [],
+    "maybe": "tarocoffeebar.com"
    },
-   "badness": 95,
-   "lead_score": 49,
+   "badness": 70,
+   "lead_score": 48,
    "domains": [
     {
-     "domain": "virgingoodscafe.com",
+     "domain": "tarocoffeebar.com",
      "available": false,
      "code": 200,
      "price": "~$11/yr then ~$17"
     },
     {
-     "domain": "virgingoods.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "virgingoodszion.com",
+     "domain": "tarocoffee.com",
      "available": true,
      "code": 404,
      "price": "~$11/yr then ~$17"
     },
     {
-     "domain": "virgingoods.restaurant",
+     "domain": "tarocoffeekanab.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "tarocoffee.coffee",
      "available": false,
      "code": 403,
-     "price": "~$45/yr then ~$62"
+     "price": "~$10/yr then ~$32"
     },
     {
-     "domain": "virgingoods.menu",
-     "available": true,
-     "code": 404,
+     "domain": "tarocoffee.menu",
+     "available": false,
+     "code": 403,
      "price": "~$32/yr then ~$38"
     },
     {
-     "domain": "eatvirgingoods.com",
+     "domain": "eattarocoffee.com",
      "available": true,
      "code": 404,
      "price": "~$11/yr then ~$17"
@@ -966,6 +819,83 @@
    ]
   },
   {
+   "id": "ChIJ____4-TzyoAR71Cqb7obWMg",
+   "types": [
+    "ice_cream_shop",
+    "hawaiian_restaurant",
+    "dessert_shop",
+    "american_restaurant",
+    "confectionery",
+    "food_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 360-6377",
+   "formattedAddress": "117 W State St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.176376999999995,
+    "longitude": -113.290561
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=14436319093087424751&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "businessStatus": "OPERATIONAL",
+   "userRatingCount": 143,
+   "displayName": {
+    "text": "The Big Chill",
+    "languageCode": "en"
+   },
+   "primaryType": "ice_cream_shop",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "none",
+    "stack": [],
+    "maybe": "bigchill.com"
+   },
+   "badness": 70,
+   "lead_score": 41,
+   "domains": [
+    {
+     "domain": "bigchill.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchillhurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchill.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "bigchill.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatbigchill.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchill.net",
+     "available": false,
+     "code": 200,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
    "id": "ChIJyfP3ViH1yoARidZO6dhOWao",
    "types": [
     "mexican_restaurant",
@@ -1039,6 +969,80 @@
      "available": true,
      "code": 404,
      "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJRSctix7uyoARe5SWXdzjkas",
+   "types": [
+    "brunch_restaurant",
+    "book_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 635-0551",
+   "formattedAddress": "2 E, 2 UT-9, Virgin, UT 84779, USA",
+   "location": {
+    "latitude": 37.2037899,
+    "longitude": -113.18862379999999
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=12362912987711181947&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.facebook.com/virgingoodsbooks/",
+   "businessStatus": "OPERATIONAL",
+   "userRatingCount": 60,
+   "displayName": {
+    "text": "Virgin Goods Cafe",
+    "languageCode": "en"
+   },
+   "primaryType": "brunch_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "social",
+    "stack": [],
+    "maybe": "virgingoodscafe.com"
+   },
+   "badness": 70,
+   "lead_score": 36,
+   "domains": [
+    {
+     "domain": "virgingoodscafe.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoods.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoodszion.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoods.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "virgingoods.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatvirgingoods.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
     }
    ]
   },
@@ -2325,10 +2329,11 @@
    "_spot": "Springdale / Rockville",
    "site": {
     "status": "none",
-    "stack": []
+    "stack": [],
+    "maybe": "parkhouse.com"
    },
-   "badness": 100,
-   "lead_score": 86,
+   "badness": 70,
+   "lead_score": 60,
    "domains": [
     {
      "domain": "parkhouse.com",
@@ -3811,10 +3816,11 @@
    "_spot": "Kanab",
    "site": {
     "status": "social",
-    "stack": []
+    "stack": [],
+    "maybe": "tarocoffeebar.com"
    },
-   "badness": 95,
-   "lead_score": 65,
+   "badness": 70,
+   "lead_score": 48,
    "domains": [
     {
      "domain": "tarocoffeebar.com",
@@ -4138,10 +4144,11 @@
    "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "none",
-    "stack": []
+    "stack": [],
+    "maybe": "bigchill.com"
    },
-   "badness": 100,
-   "lead_score": 59,
+   "badness": 70,
+   "lead_score": 41,
    "domains": [
     {
      "domain": "bigchill.com",
@@ -4572,10 +4579,11 @@
    "_spot": "Hurricane / La Verkin",
    "site": {
     "status": "social",
-    "stack": []
+    "stack": [],
+    "maybe": "virgingoodscafe.com"
    },
-   "badness": 95,
-   "lead_score": 49,
+   "badness": 70,
+   "lead_score": 36,
    "domains": [
     {
      "domain": "virgingoodscafe.com",
