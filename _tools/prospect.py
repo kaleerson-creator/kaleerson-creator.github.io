@@ -321,6 +321,15 @@ def badness(site):
 # ---------------------------------------------------------------- domains
 NAME_FILLER = {'restaurant', 'restaurante', 'the', 'and', 'of', 'in', 'at', 'by', 'llc', 'inc', 'co'}
 
+def clean_listing_name(name, city=''):
+    # "All About Pho - Fullerton", "Tacos La 26! (Previously Ave 26)", "Birria El Compa | Charleston"
+    n = re.split(r'\s+[|•]\s+', name)[0]
+    n = re.sub(r'\s*\([^)]*\)', '', n)
+    m = re.match(r'^(.*?)\s+[-–—]\s+(.*)$', n)
+    if m and city and re.sub(r'[^a-z]', '', m.group(2).lower()).startswith(city[:5]):
+        n = m.group(1)
+    return n.strip() or name
+
 def name_words(name):
     n = name.lower().replace('&', ' ').replace("'", '').replace('’', '')
     n = re.sub(r'[^a-z0-9 ]+', ' ', n)
@@ -335,12 +344,12 @@ def city_from_address(addr):
     return re.sub(r'[^a-z]', '', parts[-3].lower()) if len(parts) >= 3 else ''
 
 def domain_candidates(p, area):
-    words = name_words(p['displayName']['text'])
+    words = name_words(clean_listing_name(p['displayName']['text'], city_from_address(p.get('formattedAddress', ''))))
     if not words:
         return []
     full = ''.join(words)
     n = 2  # first two words, but never stop on "el", "de", "la"...
-    while n < len(words) and words[n - 1] in ('el', 'la', 'los', 'las', 'de', 'del', 'y', 'di', 'da', 'le', 'a'):
+    while n < len(words) and words[n - 1] in ('el', 'la', 'los', 'las', 'de', 'del', 'y', 'di', 'da', 'le', 'a', 'on', 'at', 'for', 'to', 'all', 'my', 'our'):
         n += 1
     short = ''.join(words[:n])
     c = city_from_address(p.get('formattedAddress', ''))
@@ -473,6 +482,21 @@ def run(area_key, a, args):
             results = list(ex.map(lambda pd: rdap_available(pd[1]), checks))
         for (p, d), r in zip(checks, results):
             p.setdefault('domains', []).append({'domain': d, **r, 'price': price_str(d)})
+        # Google showing no website doesn't prove there isn't one. If the restaurant's
+        # exact name as a .com is registered, flag it to check by hand and rank it lower.
+        quiet = [p for p in leads if p['site']['status'] in ('none', 'social')]
+        names = [''.join(name_words(clean_listing_name(p['displayName']['text'],
+                 city_from_address(p.get('formattedAddress', ''))))) + '.com' for p in quiet]
+        with cf.ThreadPoolExecutor(max_workers=3) as ex:
+            taken = list(ex.map(rdap_available, names))
+        for p, dom, r in zip(quiet, names, taken):
+            if r.get('available') is False:
+                p['site']['maybe'] = dom
+                p['badness'] = 70
+                rf = (p.get('rating') or 0) / 5
+                vf = min(1.0, math.log10((p.get('userRatingCount') or 0) + 1) / 3.3)
+                p['lead_score'] = round(p['badness'] * rf * vf)
+        leads.sort(key=lambda p: -p['lead_score'])
 
     os.makedirs(OUT_DIR, exist_ok=True)
     with open(os.path.join(OUT_DIR, f'{area_key}.json'), 'w') as f:
@@ -483,15 +507,16 @@ def run(area_key, a, args):
 
 def site_cell(p):
     s = p['site']; st = s['status']; url = p.get('websiteUri', '')
+    maybe = f' <br><small>{s["maybe"]} is registered: check it before pitching</small>' if s.get('maybe') else ''
     if st == 'none':
-        return '**no website**'
+        return '**no website**' + maybe
     link = f'[{host_of(url)[:28]}]({url})'
     if st == 'site':
         bits = [f'perf {s.get("performance")}', f'seo {s.get("seo")}']
         if not s.get('viewport_ok', True): bits.append('not mobile')
         if not s.get('https', True): bits.append('no https')
         return f'{link} · ' + ', '.join(bits)
-    return f'{link} · **{st}**' + (f' ({s.get("error","")[:40]})' if st == 'broken' else '')
+    return f'{link} · **{st}**' + (f' ({s.get("error","")[:40]})' if st == 'broken' else '') + maybe
 
 def write_md(area_key, a, leads, rows, args, min_reviews):
     L = [f'# Prospects: {a["title"]}', '',
