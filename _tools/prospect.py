@@ -477,15 +477,25 @@ def run(area_key, a, args):
         vf = min(1.0, math.log10((p.get('userRatingCount') or 0) + 1) / 3.3)
         p['lead_score'] = round(p['badness'] * rf * vf)
 
+    # Hand checks (web search + opening the site): _notes/prospects/verified.json, by place id.
+    verified = {}
+    vp = os.path.join(OUT_DIR, 'verified.json')
+    if os.path.exists(vp):
+        verified = json.load(open(vp))
+    for p in rows:
+        if p['id'] in verified:
+            p['checked'] = verified[p['id']]
     skip = set()
     sp = os.path.join(OUT_DIR, 'skip.txt')
     if os.path.exists(sp):
         skip = {l.split('#')[0].strip() for l in open(sp) if l.split('#')[0].strip()}
     for p in rows:
         t = size_tier(p); p['size'] = t; p['suggested'] = {'setup': PRICING[t][1], 'monthly': PRICING[t][2]}
-    leads = [p for p in rows if p['badness'] >= args.min_badness and p['id'] not in skip]
-    leads.sort(key=lambda p: -p['lead_score'])
-    log(f'  {len(leads)} leads with a weak or missing site')
+    has_good = [p for p in rows if p.get('checked', {}).get('verdict') in ('good_site', 'closed')]
+    leads = [p for p in rows if p['badness'] >= args.min_badness and p['id'] not in skip and p not in has_good]
+    leads.sort(key=lambda p: (0 if p.get('checked') else 1, -p['lead_score']))
+    log(f'  {len(leads)} leads with a weak or missing site ({sum(1 for p in leads if p.get("checked"))} checked by hand,'
+        f' {len(has_good)} dropped because they already have a good site)')
 
     # domains
     if not args.no_domains:
@@ -516,7 +526,7 @@ def run(area_key, a, args):
         json.dump({'area': a['title'], 'generated': time.strftime('%Y-%m-%d'),
                    'filters': {'min_rating': args.min_rating, 'min_reviews': min_reviews},
                    'leads': leads, 'all': rows}, f, indent=1)
-    write_md(area_key, a, leads, rows, args, min_reviews)
+    write_md(area_key, a, leads, rows, args, min_reviews, has_good)
 
 def site_cell(p):
     s = p['site']; st = s['status']; url = p.get('websiteUri', '')
@@ -555,14 +565,33 @@ def price_cell(p):
     label, setup, monthly = PRICING[size_tier(p)]
     return f'{label} · ${setup:,} + ${monthly}/mo'
 
-def write_md(area_key, a, leads, rows, args, min_reviews):
+CHECK_LABEL = {'no_site': 'no website', 'social_only': 'social page only', 'ordering_page_only': 'ordering page only',
+               'weak_site': 'weak website', 'good_site': 'good website', 'closed': 'closed'}
+
+def checked_cell(p):
+    c = p.get('checked')
+    if not c:
+        return 'not checked yet'
+    url = c.get('official_url', '')
+    out = f'**✓ {CHECK_LABEL.get(c["verdict"], c["verdict"])}**'
+    if url:
+        out += f' [{host_of(url)[:28]}]({url})'
+    if c.get('missing'):
+        out += ' · missing ' + ', '.join(c['missing'][:4])
+    if c.get('uses'):
+        out += '<br><small>uses ' + ', '.join(c['uses'][:5]) + '</small>'
+    return out.replace('|', '/')
+
+def write_md(area_key, a, leads, rows, args, min_reviews, has_good=()):
     L = [f'# Prospects: {a["title"]}', '',
          f'Generated {time.strftime("%Y-%m-%d")} by `_tools/prospect.py`. Filters: rating ≥ {args.min_rating}, '
          f'reviews ≥ {min_reviews}, chains skipped. {len(rows)} restaurants checked, {len(leads)} leads.', '',
          'Lead score = how bad the current site is × how good the restaurant is. '
          'Domain prices are Namecheap list prices from memory; confirm at checkout. '
          'Size and price are a rough guess from review count, price level and type: adjust after you meet them.', '',
-         '| # | Restaurant | Rating | Current site | Already uses | Open domains | Size · suggested price | Phone |',
+         'Leads marked ✓ were checked by hand (web search and opening their site) and are listed first. '
+         'Pitch only those; the rest still need checking.', '',
+         '| # | Restaurant | Rating | Checked by hand | Google listing site | Open domains | Size · suggested price | Phone |',
          '|---|---|---|---|---|---|---|---|']
     for i, p in enumerate(leads, 1):
         cell = lambda x: str(x or '').replace('|', '\\|')  # a "|" in a name would split the table row
@@ -575,8 +604,13 @@ def write_md(area_key, a, leads, rows, args, min_reviews):
             doms = f'{unknown} checks failed (rdap.org blocked?)'
         L.append(f'| {i} | [{name}]({maps})<br><small>{addr}<br>{p.get("_spot","")} · lead {p["lead_score"]}</small> '
                  f'| {p.get("rating")} ({p.get("userRatingCount")}) '
-                 f'| {site_cell(p)} | {", ".join(p["site"].get("stack", [])) or "—"} '
+                 f'| {checked_cell(p)} | {site_cell(p)} '
                  f'| {doms or "—"} | {price_cell(p)} | {p.get("nationalPhoneNumber", "")} |')
+    if has_good:
+        L += ['', '## Checked by hand: already have a good website (not leads)', '']
+        for p in has_good:
+            c = p['checked']
+            L.append(f'- {p["displayName"]["text"]} — {CHECK_LABEL.get(c["verdict"], c["verdict"])} — {c.get("official_url", "")} — {c.get("notes", "")}')
     L += ['', '## Everyone else that passed the filters (site looks fine)', '']
     for p in sorted(rows, key=lambda p: -(p.get('userRatingCount') or 0)):
         if p['badness'] < args.min_badness:
