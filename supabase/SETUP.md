@@ -128,3 +128,12 @@ It needs one secret, set in Supabase → Edge Functions → Secrets:
   /admin → People → Waiting to get in, and the device's next poll gets a one-time sign-in link.
 - Email alerts to admins: `notify` edge function (reports) and `login-request` (sign-in requests) send through
   Resend when the `RESEND_API_KEY` Edge Function secret is set. `alert_log` limits it to one email a minute per kind.
+
+## SQL added Oct 2026 (run in this order, each file is safe to re-run)
+
+1. `games3.sql` — registers the nine new games (Speed Math, Reaction Time, Memory Match, Blocks, Breakout, Flap, Hangman, Simon, Connect Four) on the leaderboards. Until it runs, those games say "This leaderboard isn't set up yet." and keep personal bests on the device.
+2. `profiles3.sql` — the `public_profile` function behind the public profile pages at kaleerson.com/u/#username.
+3. `study3.sql` — raises the flashcard posting limit (60 a minute instead of 8) and fixes forum ordering after a reply is deleted. Run after `study.sql`, `study2.sql` and `ratings.sql`.
+4. `forum2.sql` — forum "helpful" hearts, Top sort and pinned threads. Run after `study.sql` and `study3.sql`. The forum hides those features on its own until it runs.
+5. `snapwit2.sql` — the `top_scores` function behind the Top 10 panel on Snapwit result screens. Run after `schema.sql` and `profiles2.sql`.
+6. `study4.sql` — public deck links (`study_decks.public` and the `public_deck` function). Run after `study3.sql`.

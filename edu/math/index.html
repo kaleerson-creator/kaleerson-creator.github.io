@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Speed Math · Kale's Games</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Speed Math · Kale&#x27;s Games">
+<meta property="og:description" content="60 seconds of mental math. It starts easy and gets harder the longer your streak.">
+<meta property="og:url" content="https://kaleerson.com/edu/math/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="60 seconds of mental math. It starts easy and gets harder the longer your streak.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<link rel="stylesheet" href="/edu/assets/games.css?v=5">
+<style>
+.mq{width:100%;max-width:560px;position:relative;display:grid;gap:14px;min-height:340px;align-content:start}
+.tbar{height:10px;background:var(--paper);border-radius:99px;overflow:hidden}
+.tbar i{display:block;height:100%;background:var(--forest);width:100%;transition:width .1s linear}
+.tbar i.low{background:#D12C2C}
+.qlvl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);display:flex;justify-content:space-between;gap:8px}
+.qtext{font:800 clamp(40px,9vw,72px)/1 var(--display);letter-spacing:-.04em;text-align:center;padding:18px 0 6px;font-variant-numeric:tabular-nums;min-height:1.2em}
+#ans{width:100%;font:800 clamp(28px,6vw,40px)/1 var(--display);letter-spacing:-.03em;text-align:center;padding:14px;border-radius:18px;border:2px solid var(--line);background:var(--paper)}
+#ans:focus{outline:none;border-color:var(--ink)}
+.fb{min-height:24px;text-align:center;font-weight:600;color:var(--ink2);transition:opacity .2s}
+.fb.no{color:#D12C2C}.fb.ok{color:#4f8a4a}
+html[data-theme=dark] .fb.no{color:#f6b6ab}html[data-theme=dark] .fb.ok{color:#c4e3ad}
+html[data-theme=dark] .tbar i.low{background:#e26a5a}
+.big{font:800 64px/1 var(--display);letter-spacing:-.04em}
+.over .res{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.over .res div{display:grid;text-align:center}
+.over .res b{font-family:var(--display);font-size:22px;letter-spacing:-.03em}
+.over .res span{font-size:11px;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+</style>
+</head>
+<body data-page="games" data-sub="math" data-game="math">
+<main class="wrap">
+<div class="ghead"><div><h1>Speed Math</h1><p>60 seconds. Starts easy, gets harder the longer your streak. Type the answer and it submits itself.</p></div><button class="btn sm ghost" id="restart">Restart</button></div>
+<div class="glay">
+  <div class="stage">
+    <div class="stats"><div><b id="score">0</b><span>Points</span></div><div><b id="streak">0</b><span>Streak</span></div><div><b id="time">60</b><span>Seconds</span></div><div><b id="best">–</b><span>Best</span></div></div>
+    <div class="mq" id="mq">
+      <div class="tbar"><i id="bar"></i></div>
+      <div class="qlvl"><span id="lvl">Ready?</span><span id="count">0 answered</span></div>
+      <div class="qtext" id="q">&nbsp;</div>
+      <input id="ans" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Your answer" placeholder="?">
+      <div class="fb" id="fb"></div>
+    </div>
+  </div>
+  <div class="side"><div class="box" id="lb"></div></div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/edu/assets/common.js?v=5c"></script>
+<script src="/assets/site.js?v=20261009"></script>
+<script>
+const T=60,MAX=400;
+let score,streak,answered,correct,cur,t0,timer,running=false,fbTimer;
+const qEl=document.getElementById('q'),inp=document.getElementById('ans'),fb=document.getElementById('fb'),mq=document.getElementById('mq');
+const ri=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const LEVELS=['Warm-up','Two digits','Times & divide','Solve for x'];
+function level(){return streak<3?0:streak<6?1:streak<10?2:3}
+function make(){
+  const L=level();let text,ans;
+  const kind=L===0?ri(0,1):L===1?ri(0,1):L===2?ri(2,3):ri(0,5);
+  if(L===0&&kind===0){const a=ri(1,9),b=ri(1,9);text=a+' + '+b;ans=a+b}
+  else if(L===0){const a=ri(2,9),b=ri(1,a);text=a+' − '+b;ans=a-b}
+  else if(L===1&&kind===0){const a=ri(10,99),b=ri(10,99);text=a+' + '+b;ans=a+b}
+  else if(L===1){const a=ri(20,99),b=ri(10,a);text=a+' − '+b;ans=a-b}
+  else if(kind===2){const a=ri(2,12),b=ri(2,12);text=a+' × '+b;ans=a*b}
+  else if(kind===3){const b=ri(2,12),q=ri(2,12);text=(b*q)+' ÷ '+b;ans=q}
+  else if(kind===0||kind===1){const a=ri(2,9),x=ri(1,12),b=ri(1,20);text=a+'x + '+b+' = '+(a*x+b);ans=x}
+  else {const a=ri(2,9),x=ri(2,12),b=ri(1,a*x-1);text=a+'x − '+b+' = '+(a*x-b);ans=x}
+  cur={text,ans:String(ans),solve:/x/.test(text)};
+  qEl.textContent=cur.text;inp.value='';inp.placeholder=cur.solve?'x = ?':'?';
+  document.getElementById('lvl').textContent=LEVELS[L];
+}
+function paint(){document.getElementById('score').textContent=score;document.getElementById('streak').textContent=streak;document.getElementById('count').textContent=answered+' answered';
+  const b=G.local.get('best:math',null);document.getElementById('best').textContent=b==null?'–':b}
+function feedback(t,cls){clearTimeout(fbTimer);fb.textContent=t;fb.className='fb '+cls;fbTimer=setTimeout(()=>{fb.textContent='';fb.className='fb'},1100)}
+function check(){if(!running)return;const v=inp.value.trim();if(!v)return;answered++;
+  if(v===cur.ans){correct++;streak++;const pts=1+Math.min(3,Math.floor(streak/5));score=Math.min(MAX,score+pts);feedback(pts>1?'+'+pts+' · streak bonus':'+1','ok')}
+  else{streak=0;feedback('Nope · '+cur.text+(cur.solve?' → x = ':' = ')+cur.ans,'no')}
+  paint();make()}
+function reset(){clearInterval(timer);running=false;score=0;streak=0;answered=0;correct=0;t0=null;
+  document.querySelectorAll('.over').forEach(o=>o.remove());
+  document.getElementById('time').textContent=T;const bar=document.getElementById('bar');bar.style.width='100%';bar.className='';
+  qEl.innerHTML='&nbsp;';inp.value='';fb.textContent='';fb.className='fb';document.getElementById('lvl').textContent='Ready?';paint();
+  const o=document.createElement('div');o.className='over';o.innerHTML='<div><h2>Speed Math</h2><p class="muted">60 seconds. A wrong answer resets your streak but costs nothing else.</p><button class="btn" id="ogo">Start</button></div>';
+  mq.append(o);o.querySelector('#ogo').onclick=start}
+function start(){document.querySelectorAll('.over').forEach(o=>o.remove());running=true;t0=Date.now();make();inp.focus();
+  timer=setInterval(()=>{const el=(Date.now()-t0)/1000,left=Math.max(0,T-el);document.getElementById('time').textContent=Math.ceil(left);
+    const bar=document.getElementById('bar');bar.style.width=(100*left/T)+'%';bar.className=left<=10?'low':'';if(left<=0)finish()},100)}
+async function finish(){clearInterval(timer);running=false;inp.blur();
+  const acc=answered?Math.round(100*correct/answered):0;
+  const o=document.createElement('div');o.className='over';
+  o.innerHTML=`<div><span class="lbl">Time's up</span><div class="big">${score} pts</div><div class="res"><div><b id="obest">–</b><span>Best</span></div><div><b>${correct}/${answered}</b><span>Correct</span></div><div><b>${acc}%</b><span>Accuracy</span></div></div><p class="muted" id="omsg">${score>0?'Saving…':'Answer at least one question to score.'}</p><div class="row" style="justify-content:center"><button class="btn" id="oagain">Play again</button></div><div data-actions></div></div>`;
+  mq.append(o);o.querySelector('#oagain').onclick=reset;
+  if(score>0)o.querySelector('#omsg').innerHTML=await G.submit('math',score,{answered,correct});
+  const b=G.local.get('best:math',null);o.querySelector('#obest').textContent=b==null?'–':b;paint()}
+inp.addEventListener('input',()=>{if(!running)return;inp.value=inp.value.replace(/[^0-9]/g,'');if(inp.value.length>=cur.ans.length)check()});
+inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();check()}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;if((e.key==='Enter'||e.key===' ')&&!running&&document.getElementById('ogo')){e.preventDefault();start()}
+  else if(running&&/^[0-9]$/.test(e.key)){inp.focus()}});
+document.getElementById('restart').onclick=reset;
+reset();
+G.boardBox(document.getElementById('lb'),'math');
+</script>
+</body>
+</html>

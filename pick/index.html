@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Picker · Kale Erson</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Picker · Kale Erson">
+<meta property="og:description" content="Spin a wheel of names, make random teams, shuffle an order, roll dice or flip a coin.">
+<meta property="og:url" content="https://kaleerson.com/pick/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Spin a wheel of names, make random teams, shuffle an order, roll dice or flip a coin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<style>
+.phead .blob{background:var(--butter)}
+.tabs{display:flex;background:var(--card);border-radius:999px;padding:4px;gap:2px;margin-bottom:12px;max-width:100%;overflow-x:auto;width:max-content}
+.tabs button{font:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;border:0;background:transparent;color:var(--ink2);cursor:pointer;white-space:nowrap}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--on-ink)}
+textarea{font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);width:100%;min-height:200px;resize:vertical;line-height:1.5}
+input[type=number]{font:inherit;font-size:16px;padding:9px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);width:80px}
+.stage{align-items:center;justify-content:center;min-height:360px}
+.stage .blob{width:55%;aspect-ratio:1;right:-18%;bottom:-30%;background:#ffffff66}
+.wheelbox{position:relative;width:min(100%,420px);aspect-ratio:1;margin-inline:auto}
+.wheelbox canvas{width:100%;height:100%;display:block;border-radius:50%;cursor:pointer}
+.wheelbox .pin{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-top:28px solid var(--ink)}
+.wheelbox .hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:var(--ink);color:var(--on-ink);font-family:var(--display);font-weight:800;font-size:14px;display:grid;place-items:center;pointer-events:none;letter-spacing:.04em}
+.win{font-family:var(--display);font-weight:800;font-size:clamp(36px,6vw,72px);letter-spacing:-.04em;line-height:1;text-align:center;overflow-wrap:anywhere;min-height:1em}
+.win.pop{animation:pop .5s var(--ease)}
+@keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+.teams{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;width:100%}
+.team{background:#ffffff8c;border-radius:18px;padding:14px}
+html[data-theme=dark] .team{background:#ffffff14}
+.team b{font-family:var(--display);font-size:18px;letter-spacing:-.02em;display:block;margin-bottom:6px}
+.team div{font-size:15px;line-height:1.5}
+.ol{columns:2;column-gap:20px;width:100%;font-size:17px;line-height:1.7}
+.ol div{break-inside:avoid}
+.ol span{display:inline-block;width:2em;color:var(--ink2);font-variant-numeric:tabular-nums}
+.dice{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.die{width:84px;height:84px;border-radius:20px;background:var(--card);display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);padding:12px;gap:4px}
+.die i{border-radius:50%;background:var(--ink);opacity:0;display:block}
+.die[data-v="1"] i:nth-child(5),.die[data-v="2"] i:nth-child(3),.die[data-v="2"] i:nth-child(7),.die[data-v="3"] i:nth-child(3),.die[data-v="3"] i:nth-child(5),.die[data-v="3"] i:nth-child(7),.die[data-v="4"] i:nth-child(1),.die[data-v="4"] i:nth-child(3),.die[data-v="4"] i:nth-child(7),.die[data-v="4"] i:nth-child(9),.die[data-v="5"] i:nth-child(1),.die[data-v="5"] i:nth-child(3),.die[data-v="5"] i:nth-child(5),.die[data-v="5"] i:nth-child(7),.die[data-v="5"] i:nth-child(9),.die[data-v="6"] i:nth-child(1),.die[data-v="6"] i:nth-child(3),.die[data-v="6"] i:nth-child(4),.die[data-v="6"] i:nth-child(6),.die[data-v="6"] i:nth-child(7),.die[data-v="6"] i:nth-child(9){opacity:1}
+.die.roll{animation:shake .6s var(--ease)}
+@keyframes shake{0%{transform:rotate(0) translateY(0)}25%{transform:rotate(-18deg) translateY(-14px)}50%{transform:rotate(14deg) translateY(-6px)}75%{transform:rotate(-8deg) translateY(-10px)}100%{transform:rotate(0) translateY(0)}}
+.coin{width:160px;height:160px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:28px;letter-spacing:-.03em;transform-style:preserve-3d;transition:transform 1.4s var(--ease);box-shadow:inset 0 0 0 10px var(--butter)}
+.coin.flip{transform:rotateY(1800deg)}
+.coin.flipb{transform:rotateY(1980deg)}
+.pane{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%}
+.ctl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;font-size:14px;font-weight:600}
+.hint{font-size:14px;color:var(--ink2)}
+.btn.sm{padding:9px 14px;font-size:14px}
+.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
+.confetti i{position:absolute;top:-12px;width:10px;height:14px;border-radius:3px;animation:fall 1.6s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg);opacity:.6}}
+@media (prefers-reduced-motion:reduce){.coin{transition:none}}
+</style>
+</head>
+<body data-page="tools">
+<main class="wrap">
+<section class="phead"><span class="blob"></span><h1>Picker</h1><p>Spin a wheel, make teams, shuffle an order, roll dice or flip a coin.</p></section>
+<div class="tabs" role="tablist"><button data-m="spin" aria-pressed="true">Spin</button><button data-m="teams" aria-pressed="false">Teams</button><button data-m="order" aria-pressed="false">Order</button><button data-m="dice" aria-pressed="false">Dice</button><button data-m="coin" aria-pressed="false">Coin</button></div>
+<div class="bento">
+  <section class="b s4 butter stage wide-m" id="stage" aria-live="polite">
+    <span class="blob"></span>
+    <div class="pane" id="p-spin">
+      <div class="wheelbox"><span class="pin"></span><canvas id="wheel" aria-label="Spin the wheel" role="button" tabindex="0"></canvas><span class="hub">SPIN</span></div>
+      <div class="win" id="winner"></div>
+      <div class="row"><button class="btn sm" id="spinbtn">Spin</button><button class="btn light sm" id="removewin" hidden>Remove winner</button></div>
+    </div>
+    <div class="pane" id="p-teams" hidden>
+      <div class="ctl"><label>Teams <input id="nteams" type="number" min="2" max="20" value="2"></label><button class="btn sm" id="teambtn">Shuffle</button></div>
+      <div class="teams" id="teams"></div>
+    </div>
+    <div class="pane" id="p-order" hidden>
+      <button class="btn sm" id="orderbtn">Shuffle</button>
+      <div class="ol" id="order"></div>
+    </div>
+    <div class="pane" id="p-dice" hidden>
+      <div class="ctl"><label>Dice <input id="ndice" type="number" min="1" max="6" value="2"></label><button class="btn sm" id="dicebtn">Roll</button></div>
+      <div class="dice" id="dice"></div>
+      <div class="win" id="dsum"></div>
+    </div>
+    <div class="pane" id="p-coin" hidden>
+      <div class="coin" id="coin">?</div>
+      <div class="win" id="cres"></div>
+      <button class="btn sm" id="coinbtn">Flip</button>
+    </div>
+  </section>
+  <section class="b s2 wide-m">
+    <span class="lbl">Names</span>
+    <textarea id="names" placeholder="One name per line" spellcheck="false"></textarea>
+    <div class="foot" style="margin-top:auto"><span class="muted" id="ncount">0 names</span><button class="btn ghost sm" id="clear">Clear</button></div>
+  </section>
+</div>
+</main>
+<script src="/assets/site.js?v=20261009"></script>
+<script>
+const S=window.SITE;
+const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}};
+const $=id=>document.getElementById(id);
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const rnd=n=>{if(crypto&&crypto.getRandomValues){const a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]%n}return Math.floor(Math.random()*n)};
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[j],a[i]]}return a};
+
+// names
+const ta=$('names');
+ta.value=ls('pick_names')||'';
+const names=()=>ta.value.split('\n').map(s=>s.trim()).filter(Boolean);
+function onNames(){ls('pick_names',ta.value);const n=names().length;$('ncount').textContent=n+(n===1?' name':' names');draw()}
+ta.addEventListener('input',onNames);
+$('clear').onclick=()=>{ta.value='';onNames()};
+
+// modes
+let mode=ls('pick_mode')||'spin';
+document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(b)setMode(b.dataset.m)});
+function setMode(m){mode=['spin','teams','order','dice','coin'].includes(m)?m:'spin';ls('pick_mode',mode);document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.m===mode));['spin','teams','order','dice','coin'].forEach(k=>$('p-'+k).hidden=k!==mode);if(mode==='spin')size();if(mode==='teams'&&!$('teams').children.length)teams();if(mode==='order'&&!$('order').children.length)order();if(mode==='dice'&&!$('dice').children.length)dice(false)}
+
+// ── wheel ──
+const cv=$('wheel'),cx=cv.getContext('2d');
+let angle=0,spinning=false,lastWin=null;
+const TOK=['--moss','--sky','--peach','--butter','--lilac'];
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function size(){const box=cv.parentElement,w=Math.max(120,Math.round(box.clientWidth||300)),dpr=Math.min(2,devicePixelRatio||1);if(cv.width!==w*dpr){cv.width=cv.height=w*dpr}draw()}
+function draw(){
+  const n=names().length,W=cv.width,R=W/2,ink=css('--ink'),card=css('--card');
+  cx.setTransform(1,0,0,1,0,0);cx.clearRect(0,0,W,W);
+  document.querySelector('.hub').hidden=!n;
+  if(!n){cx.fillStyle=card;cx.beginPath();cx.arc(R,R,R-2,0,Math.PI*2);cx.fill();cx.fillStyle=css('--ink2');cx.font='600 '+Math.round(W/16)+'px '+css('--body');cx.textAlign='center';cx.textBaseline='middle';cx.fillText('Add some names',R,R);return}
+  const list=names(),seg=Math.PI*2/n,cols=TOK.map(css);
+  cx.translate(R,R);cx.rotate(angle);
+  for(let i=0;i<n;i++){
+    const a0=i*seg-Math.PI/2;
+    cx.beginPath();cx.moveTo(0,0);cx.arc(0,0,R-2,a0,a0+seg);cx.closePath();
+    // avoid same color on neighbours when n is a multiple that would wrap
+    let ci=i%cols.length;if(i===n-1&&n>1&&ci===0)ci=cols.length>1?Math.min(2,cols.length-1):0;
+    cx.fillStyle=cols[ci];cx.fill();cx.strokeStyle=card;cx.lineWidth=Math.max(2,W/180);cx.stroke();
+    // keep labels upright: flip the ones on the left half of the wheel as it currently sits
+    const mid=a0+seg/2,left=Math.cos(mid+angle)<0;
+    cx.save();cx.rotate(left?mid+Math.PI:mid);cx.textAlign=left?'left':'right';cx.textBaseline='middle';cx.fillStyle=ink;
+    const fs=Math.max(10,Math.min(W/14,Math.round(W/(n>12?30:n>8?22:16))));
+    cx.font='700 '+fs+'px '+css('--display');
+    let t=list[i];const max=R*0.62;while(cx.measureText(t).width>max&&t.length>2)t=t.slice(0,-2)+'…';
+    cx.fillText(t,left?-(R-W/26):R-W/26,0);cx.restore();
+  }
+}
+function winnerIndex(){const n=names().length;if(!n)return-1;const seg=Math.PI*2/n;let a=((-angle)%(Math.PI*2)+Math.PI*2)%(Math.PI*2);return Math.floor(a/seg)%n}
+function spin(){
+  const list=names();if(spinning||!list.length)return;
+  spinning=true;$('winner').textContent='';$('winner').classList.remove('pop');$('removewin').hidden=true;
+  const n=list.length,seg=Math.PI*2/n,target=rnd(n);
+  // land in the middle-ish of the target segment with the pointer at the top
+  const off=(0.15+Math.random()*0.7)*seg;
+  const base=((angle%(Math.PI*2))+Math.PI*2)%(Math.PI*2);
+  const want=((-(target*seg+off))%(Math.PI*2)+Math.PI*2)%(Math.PI*2);
+  let delta=want-base;if(delta<0)delta+=Math.PI*2;
+  const total=delta+Math.PI*2*(reduced?1:4+rnd(3)),dur=reduced?400:3800+rnd(1200),start=angle,t0=performance.now();
+  const ease=t=>1-Math.pow(1-t,3);
+  function step(now){const p=Math.min(1,(now-t0)/dur);angle=start+total*ease(p);draw();if(p<1)requestAnimationFrame(step);else done()}
+  requestAnimationFrame(step);
+  function done(){spinning=false;const i=winnerIndex();lastWin=names()[i]||list[target];$('winner').textContent=lastWin;$('winner').classList.add('pop');$('removewin').hidden=false;celebrate()}
+}
+cv.addEventListener('click',spin);cv.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();spin()}});
+$('spinbtn').onclick=spin;
+$('removewin').onclick=()=>{if(lastWin==null)return;const l=names();const i=l.indexOf(lastWin);if(i>=0)l.splice(i,1);ta.value=l.join('\n');onNames();$('winner').textContent='';$('removewin').hidden=true};
+function celebrate(){
+  if(S&&typeof S.confetti==='function'){try{S.confetti();return}catch(e){}}
+  if(reduced)return;
+  const st=$('stage');const c=document.createElement('div');c.className='confetti';const cols=TOK.map(css);
+  for(let i=0;i<40;i++){const p=document.createElement('i');p.style.left=Math.random()*100+'%';p.style.background=i%6===5?css('--ink'):cols[i%5];p.style.animationDelay=Math.random()*.5+'s';p.style.animationDuration=1.2+Math.random()*.8+'s';c.append(p)}
+  st.append(c);setTimeout(()=>c.remove(),2600);
+}
+document.addEventListener('themechange',draw);
+if(window.ResizeObserver)new ResizeObserver(()=>size()).observe(cv.parentElement);else addEventListener('resize',size);
+
+// ── teams ──
+function teams(){const l=shuffle(names()),k=Math.max(2,Math.min(20,+$('nteams').value||2));if(!l.length){$('teams').innerHTML='<p class="hint">Add some names first.</p>';return}
+  const g=Array.from({length:Math.min(k,l.length)},()=>[]);l.forEach((n,i)=>g[i%g.length].push(n));
+  $('teams').innerHTML=g.map((t,i)=>`<div class="team"><b>Team ${i+1}</b><div>${t.map(S.esc).join('<br>')}</div></div>`).join('')}
+$('teambtn').onclick=teams;$('nteams').addEventListener('change',teams);
+
+// ── order ──
+function order(){const l=shuffle(names());$('order').innerHTML=l.length?l.map((n,i)=>`<div><span>${i+1}.</span>${S.esc(n)}</div>`).join(''):'<p class="hint">Add some names first.</p>'}
+$('orderbtn').onclick=order;
+
+// ── dice ──
+function dice(anim){const k=Math.max(1,Math.min(6,+$('ndice').value||1));const vals=Array.from({length:k},()=>1+rnd(6));
+  $('dice').innerHTML=vals.map(v=>`<div class="die${anim&&!reduced?' roll':''}" data-v="${v}" aria-label="${v}">${'<i></i>'.repeat(9)}</div>`).join('');
+  $('dsum').textContent=k>1?'Total '+vals.reduce((a,b)=>a+b,0):vals[0]}
+$('dicebtn').onclick=()=>dice(true);$('ndice').addEventListener('change',()=>dice(false));
+
+// ── coin ──
+let side=0;
+$('coinbtn').onclick=()=>{const c=$('coin');const heads=rnd(2)===0;c.classList.remove('flip','flipb');void c.offsetWidth;c.classList.add(heads?'flip':'flipb');c.textContent='';$('cres').textContent='';
+  const show=()=>{c.textContent=heads?'H':'T';$('cres').textContent=heads?'Heads':'Tails';$('cres').classList.remove('pop');void $('cres').offsetWidth;$('cres').classList.add('pop')};
+  if(reduced)show();else setTimeout(show,1300)};
+
+onNames();setMode(mode);size();
+</script>
+</body>
+</html>

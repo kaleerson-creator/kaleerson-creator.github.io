@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Word Counter · Kale Erson</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Word Counter · Kale Erson">
+<meta property="og:description" content="Count words, characters, sentences and paragraphs, check reading time and readability, and fix the case of any text.">
+<meta property="og:url" content="https://kaleerson.com/words/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Count words, characters, sentences and paragraphs, check reading time and readability, and fix the case of any text.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<style>
+.phead .blob{background:var(--peach)}
+textarea{font:inherit;font-size:16px;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);width:100%;min-height:320px;resize:vertical;line-height:1.6;flex:1}
+.hero{min-height:200px}
+.hero .blob{width:60%;aspect-ratio:1;right:-20%;bottom:-40%;background:#ffffff66}
+.big{font-family:var(--display);font-weight:800;font-size:clamp(64px,10vw,120px);letter-spacing:-.05em;line-height:.95;font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}
+.st b{display:block;font-family:var(--display);font-weight:800;font-size:28px;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+.st span{font-size:13px;color:var(--ink2)}
+.btn.sm{padding:9px 14px;font-size:14px}
+.hint{font-size:14px;color:var(--ink2)}
+.ease{font-family:var(--display);font-weight:800;font-size:clamp(26px,3.5vw,40px);letter-spacing:-.03em;line-height:1.05}
+.top{display:grid;gap:6px;width:100%}
+.top div{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;font-size:15px}
+.top i{display:block;height:8px;border-radius:4px;background:var(--ink);opacity:.85;min-width:8px}
+.top em{font-style:normal;font-variant-numeric:tabular-nums;color:var(--ink2);font-size:13px}
+.top .w{display:flex;align-items:center;gap:10px}
+.top .w span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar{display:flex;gap:6px;flex-wrap:wrap}
+.bar button{font:inherit;font-size:13px;font-weight:600;padding:8px 12px;border-radius:999px;border:0;background:var(--paper);color:var(--ink);cursor:pointer}
+.bar button:hover{background:var(--line)}
+</style>
+</head>
+<body data-page="tools">
+<main class="wrap">
+<section class="phead"><span class="blob"></span><h1>Word Counter</h1><p>Paste an essay. Counts, reading time and readability update as you type.</p></section>
+<div class="bento">
+  <section class="b s4 wide-m r2">
+    <span class="lbl">Text</span>
+    <textarea id="t" placeholder="Paste or type here" spellcheck="false"></textarea>
+    <div class="bar"><button id="up">UPPER</button><button id="lo">lower</button><button id="ti">Title Case</button><button id="sp">Remove extra spaces</button><button id="cp">Copy</button><button id="cl">Clear</button></div>
+    <div class="foot"><span class="muted" id="saved">Saved on this device as you type</span></div>
+  </section>
+  <section class="b s2 peach hero wide-m">
+    <span class="blob"></span>
+    <span class="lbl">Words</span>
+    <div class="big" id="w">0</div>
+    <div class="foot"><span class="muted" id="ch">0 characters</span></div>
+  </section>
+  <section class="b s2 wide-m">
+    <span class="lbl">Counts</span>
+    <div class="grid">
+      <div class="st"><b id="cs">0</b><span>characters</span></div>
+      <div class="st"><b id="cn">0</b><span>without spaces</span></div>
+      <div class="st"><b id="se">0</b><span>sentences</span></div>
+      <div class="st"><b id="pa">0</b><span>paragraphs</span></div>
+      <div class="st"><b id="un">0</b><span>unique words</span></div>
+      <div class="st"><b id="avg">0</b><span>words per sentence</span></div>
+    </div>
+  </section>
+  <section class="b s3 wide-m">
+    <span class="lbl">Time</span>
+    <div class="grid">
+      <div class="st"><b id="rt">0 sec</b><span>to read · 200 wpm</span></div>
+      <div class="st"><b id="st">0 sec</b><span>to speak · 130 wpm</span></div>
+    </div>
+    <div class="foot"><span class="muted">Speaking time is about right for a speech or a debate case.</span></div>
+  </section>
+  <section class="b s3 butter wide-m">
+    <span class="lbl">Readability</span>
+    <div class="ease" id="fl">Nothing yet</div>
+    <div class="foot"><span class="muted" id="fs">Flesch reading ease. Higher is easier.</span></div>
+  </section>
+  <section class="b s3 wide-m">
+    <span class="lbl">Top words</span>
+    <div class="top" id="top"><div class="hint">Common words like "the" and "and" are skipped.</div></div>
+  </section>
+</div>
+</main>
+<script src="/assets/site.js?v=20261009"></script>
+<script>
+const S=window.SITE;
+const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}};
+const $=id=>document.getElementById(id);
+const esc=s=>S&&S.esc?S.esc(s):String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ta=$('t');
+ta.value=ls('words_text')||'';
+
+const STOP=new Set('the a an and or but of to in on at for with by from as is are was were be been being it its this that these those i you he she we they me him her us them my your his our their not no so if then than too very can will just do does did have has had about into over after before up down out off more most some such only own same'.split(' '));
+const SYL=w=>{w=w.toLowerCase().replace(/[^a-z]/g,'');if(!w)return 0;if(w.length<=3)return 1;w=w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/,'').replace(/^y/,'');const m=w.match(/[aeiouy]{1,2}/g);return Math.max(1,m?m.length:1)};
+const fmtTime=min=>{const s=Math.round(min*60);if(s<60)return s+' sec';const m=Math.floor(s/60),r=s%60;return m+' min'+(r?' '+r+' sec':'')};
+const label=f=>f>=90?'Very easy':f>=80?'Easy':f>=70?'Fairly easy':f>=60?'Plain English':f>=50?'Fairly hard':f>=30?'Hard':'Very hard';
+const grade=f=>f>=90?'5th grade':f>=80?'6th grade':f>=70?'7th grade':f>=60?'8th–9th grade':f>=50?'10th–12th grade':f>=30?'College':'College graduate';
+
+function analyze(){
+  const s=ta.value;
+  const words=s.match(/[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu)||[];
+  const n=words.length;
+  const chars=[...s].length,noSpace=chars-(s.match(/\s/g)||[]).length;
+  const sentences=(s.match(/[^.!?…]+[.!?…]+["'”’)]*|[^.!?…]+$/g)||[]).filter(x=>/[\p{L}\p{N}]/u.test(x)).length;
+  const paras=s.split(/\n\s*\n/).filter(x=>x.trim()).length;
+  const freq=new Map();let syl=0;
+  for(const w of words){const k=w.toLowerCase();syl+=SYL(k);freq.set(k,(freq.get(k)||0)+1)}
+  $('w').textContent=n.toLocaleString();
+  $('ch').textContent=chars.toLocaleString()+(chars===1?' character':' characters');
+  $('cs').textContent=chars.toLocaleString();$('cn').textContent=noSpace.toLocaleString();
+  $('se').textContent=sentences.toLocaleString();$('pa').textContent=paras.toLocaleString();$('un').textContent=freq.size.toLocaleString();
+  $('avg').textContent=sentences?(n/sentences).toFixed(1):'0';
+  $('rt').textContent=fmtTime(n/200);$('st').textContent=fmtTime(n/130);
+  if(n&&sentences){const f=206.835-1.015*(n/sentences)-84.6*(syl/n);const r=Math.max(0,Math.min(100,Math.round(f)));$('fl').textContent=r+' · '+label(r);$('fs').textContent='Reads at about a '+grade(r)+' level. '+(syl/n).toFixed(2)+' syllables per word.'}
+  else{$('fl').textContent='Nothing yet';$('fs').textContent='Flesch reading ease. Higher is easier.'}
+  const top=[...freq].filter(([k])=>!STOP.has(k)&&k.length>1).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,5);
+  const max=top.length?top[0][1]:1;
+  $('top').innerHTML=top.length?top.map(([k,c])=>`<div><span class="w"><span>${esc(k)}</span><i style="width:${Math.round(c/max*120)}px"></i></span><em>${c}</em></div>`).join(''):'<div class="hint">Common words like "the" and "and" are skipped.</div>';
+}
+let timer=null;
+ta.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(()=>{ls('words_text',ta.value);analyze()},150)});
+const setText=v=>{ta.value=v;ls('words_text',v);analyze()};
+const titleCase=s=>s.replace(/[\p{L}\p{N}'’]+/gu,w=>w[0].toUpperCase()+w.slice(1).toLowerCase());
+$('up').onclick=()=>setText(ta.value.toUpperCase());
+$('lo').onclick=()=>setText(ta.value.toLowerCase());
+$('ti').onclick=()=>setText(titleCase(ta.value));
+$('sp').onclick=()=>setText(ta.value.replace(/[ \t]+/g,' ').replace(/ ?\n ?/g,'\n').replace(/\n{3,}/g,'\n\n').trim());
+$('cl').onclick=()=>{setText('');ta.focus()};
+$('cp').onclick=async()=>{let ok=false;try{await navigator.clipboard.writeText(ta.value);ok=true}catch(e){try{ta.select();ok=document.execCommand('copy')}catch(e2){}}if(S&&S.toast)S.toast(ok?'Copied':'Could not copy');else{$('saved').textContent=ok?'Copied':'Could not copy';setTimeout(()=>$('saved').textContent='Saved on this device as you type',1800)}};
+analyze();
+</script>
+</body>
+</html>

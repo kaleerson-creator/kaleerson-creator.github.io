@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QR Codes · Kale Erson</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="QR Codes · Kale Erson">
+<meta property="og:description" content="Make a QR code for any link or text right in the browser, then download it as a PNG.">
+<meta property="og:url" content="https://kaleerson.com/qr/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Make a QR code for any link or text right in the browser, then download it as a PNG.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<style>
+.phead .blob{background:var(--moss)}
+textarea{font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);width:100%;min-height:120px;resize:vertical;line-height:1.5}
+.stage{align-items:center;justify-content:center;min-height:360px}
+.stage .blob{width:55%;aspect-ratio:1;right:-18%;bottom:-30%;background:#ffffff66}
+/* the code always sits on a white card so phone cameras read it in dark mode too */
+.card{background:#fff;border-radius:20px;padding:12px;width:min(100%,360px);aspect-ratio:1;display:grid;place-items:center}
+.card canvas{width:100%;height:100%;display:block;image-rendering:pixelated}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{font:inherit;font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;border:0;background:var(--paper);color:var(--ink2);cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--on-ink)}
+.btn.sm{padding:9px 14px;font-size:14px;white-space:nowrap}
+.foot{flex-wrap:wrap;gap:8px}
+.hint{font-size:14px;color:var(--ink2)}
+.err{font-size:14px;font-weight:600;color:var(--ink)}
+.meta{font-size:13px;color:var(--ink2);font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body data-page="tools">
+<main class="wrap">
+<section class="phead"><span class="blob"></span><h1>QR Codes</h1><p>Paste a link, get a code. Nothing leaves your browser.</p></section>
+<div class="bento">
+  <section class="b s3 moss stage wide-m" aria-live="polite">
+    <span class="blob"></span>
+    <div class="card"><canvas id="qr" width="256" height="256" role="img" aria-label="QR code"></canvas></div>
+    <div class="meta" id="meta"></div>
+  </section>
+  <section class="b s3 wide-m">
+    <span class="lbl">Link or text</span>
+    <textarea id="txt" spellcheck="false" autocomplete="off" placeholder="https://kaleerson.com"></textarea>
+    <div class="err" id="err" hidden></div>
+    <span class="lbl">Size</span>
+    <div class="chips" id="sizes"><button data-s="256" aria-pressed="true">256</button><button data-s="512" aria-pressed="false">512</button><button data-s="1024" aria-pressed="false">1024</button></div>
+    <div class="foot" style="align-items:center"><span class="muted" id="copied"></span><div class="row"><button class="btn sm" id="dl">Download PNG</button><button class="btn light sm" id="cp">Copy image</button></div></div>
+  </section>
+</div>
+</main>
+<script src="/assets/site.js?v=20261009"></script>
+<script>
+const S=window.SITE;
+const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}};
+const $=id=>document.getElementById(id);
+
+/* ── QR encoder: byte mode, error correction M, versions 1–10 (ISO/IEC 18004) ── */
+const QR=(()=>{
+  // GF(256) with 0x11D
+  const EXP=new Uint8Array(512),LOG=new Uint8Array(256);
+  for(let i=0,x=1;i<255;i++){EXP[i]=x;LOG[x]=i;x<<=1;if(x&256)x^=0x11D}
+  for(let i=255;i<512;i++)EXP[i]=EXP[i-255];
+  const mul=(a,b)=>a&&b?EXP[LOG[a]+LOG[b]]:0;
+  function genPoly(n){let g=[1];for(let i=0;i<n;i++){const ng=new Array(g.length+1).fill(0);for(let j=0;j<g.length;j++){ng[j]^=g[j];ng[j+1]^=mul(g[j],EXP[i])}g=ng}return g}
+  function rs(data,n){const g=genPoly(n),res=new Array(n).fill(0);for(const b of data){const f=b^res[0];res.shift();res.push(0);if(f)for(let j=0;j<n;j++)res[j]^=mul(g[j+1],f)}return res}
+  // level M: [ec codewords per block, [[blocks, data codewords per block], ...]]
+  const EC=[null,[10,[[1,16]]],[16,[[1,28]]],[26,[[1,44]]],[18,[[2,32]]],[24,[[2,43]]],[16,[[4,27]]],[18,[[4,31]]],[22,[[2,38],[2,39]]],[22,[[3,36],[2,37]]],[26,[[4,43],[1,44]]]];
+  const ALIGN=[null,[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50]];
+  const dataCW=v=>EC[v][1].reduce((a,[n,c])=>a+n*c,0);
+  const capacity=v=>dataCW(v)-(v<10?2:3);   // bytes: mode(4)+count(8|16) bits
+  const utf8=s=>{const out=[];for(const ch of s){let c=ch.codePointAt(0);if(c<0x80)out.push(c);else if(c<0x800)out.push(0xC0|c>>6,0x80|c&63);else if(c<0x10000)out.push(0xE0|c>>12,0x80|c>>6&63,0x80|c&63);else out.push(0xF0|c>>18,0x80|c>>12&63,0x80|c>>6&63,0x80|c&63)}return out};
+  // BCH for format (15 bits) and version (18 bits)
+  const bchDigit=d=>{let n=0;while(d){n++;d>>>=1}return n};
+  function bch(data,shift,g){let d=data<<shift;const gd=bchDigit(g);while(bchDigit(d)-gd>=0)d^=g<<(bchDigit(d)-gd);return(data<<shift)|d}
+  const formatBits=mask=>bch((0<<3)|mask,10,0x537)^0x5412;   // EC level M = 00
+  const versionBits=v=>bch(v,12,0x1F25);
+  const MASK=[(r,c)=>(r+c)%2===0,(r,c)=>r%2===0,(r,c)=>c%3===0,(r,c)=>(r+c)%3===0,(r,c)=>((r>>1)+Math.floor(c/3))%2===0,(r,c)=>(r*c)%2+(r*c)%3===0,(r,c)=>((r*c)%2+(r*c)%3)%2===0,(r,c)=>((r+c)%2+(r*c)%3)%2===0];
+
+  function encode(text){
+    const bytes=utf8(text);
+    let v=1;while(v<=10&&capacity(v)<bytes.length)v++;
+    if(v>10)return{error:'Too long: '+bytes.length+' bytes, max '+capacity(10)+'.'};
+    // bit stream
+    const bits=[];const push=(val,n)=>{for(let i=n-1;i>=0;i--)bits.push((val>>i)&1)};
+    push(4,4);push(bytes.length,v<10?8:16);bytes.forEach(b=>push(b,8));
+    const total=dataCW(v)*8;
+    push(0,Math.min(4,total-bits.length));while(bits.length%8)bits.push(0);
+    const data=[];for(let i=0;i<bits.length;i+=8){let b=0;for(let j=0;j<8;j++)b=(b<<1)|bits[i+j];data.push(b)}
+    for(let p=0;data.length<dataCW(v);p++)data.push(p%2?0x11:0xEC);
+    // blocks + interleave
+    const [ecn,groups]=EC[v];const blocks=[];let off=0;
+    for(const [n,c] of groups)for(let i=0;i<n;i++){const d=data.slice(off,off+c);off+=c;blocks.push({d,e:rs(d,ecn)})}
+    const out=[];const maxD=Math.max(...blocks.map(b=>b.d.length));
+    for(let i=0;i<maxD;i++)for(const b of blocks)if(i<b.d.length)out.push(b.d[i]);
+    for(let i=0;i<ecn;i++)for(const b of blocks)out.push(b.e[i]);
+    // matrix: fn[r][c] true for function modules; m[r][c] 0/1
+    const n=v*4+17;const m=Array.from({length:n},()=>new Uint8Array(n)),fn=Array.from({length:n},()=>new Uint8Array(n));
+    const set=(r,c,val)=>{m[r][c]=val;fn[r][c]=1};
+    const finder=(r0,c0)=>{for(let r=-1;r<=7;r++)for(let c=-1;c<=7;c++){const rr=r0+r,cc=c0+c;if(rr<0||cc<0||rr>=n||cc>=n)continue;const dark=(r>=0&&r<=6&&(c===0||c===6))||(c>=0&&c<=6&&(r===0||r===6))||(r>=2&&r<=4&&c>=2&&c<=4);set(rr,cc,dark?1:0)}};
+    finder(0,0);finder(0,n-7);finder(n-7,0);
+    for(let i=8;i<n-8;i++){set(6,i,i%2===0?1:0);set(i,6,i%2===0?1:0)}
+    const al=ALIGN[v];
+    for(const r of al)for(const c of al){if((r<=8&&c<=8)||(r<=8&&c>=n-9)||(r>=n-9&&c<=8))continue;for(let dr=-2;dr<=2;dr++)for(let dc=-2;dc<=2;dc++)set(r+dr,c+dc,Math.max(Math.abs(dr),Math.abs(dc))!==1?1:0)}
+    // reserve format areas (+ dark module) and version areas
+    for(let i=0;i<9;i++){if(i!==6){set(8,i,0);set(i,8,0)}}
+    for(let i=0;i<8;i++){set(8,n-1-i,0);set(n-1-i,8,0)}
+    set(n-8,8,1);
+    if(v>=7){const vb=versionBits(v);for(let i=0;i<18;i++){const b=(vb>>i)&1;set(Math.floor(i/3),n-11+(i%3),b);set(n-11+(i%3),Math.floor(i/3),b)}}
+    // data placement order (zigzag, skipping column 6)
+    const order=[];let inc=-1,row=n-1;
+    for(let col=n-1;col>0;col-=2){if(col===6)col--;while(true){for(let c=0;c<2;c++){if(!fn[row][col-c])order.push([row,col-c])}row+=inc;if(row<0||row>=n){row-=inc;inc=-inc;break}}}
+    const totalBits=out.length*8;
+    function build(mask){
+      const g=m.map(r=>Uint8Array.from(r));const f=MASK[mask];
+      order.forEach(([r,c],i)=>{let d=i<totalBits?(out[i>>3]>>(7-(i&7)))&1:0;if(f(r,c))d^=1;g[r][c]=d});
+      const fb=formatBits(mask);
+      for(let i=0;i<15;i++){const b=(fb>>i)&1;
+        if(i<6)g[i][8]=b;else if(i<8)g[i+1][8]=b;else g[n-15+i][8]=b;
+        if(i<8)g[8][n-1-i]=b;else if(i<9)g[8][15-i]=b;else g[8][14-i]=b}
+      g[n-8][8]=1;
+      return g;
+    }
+    function penalty(g){
+      let p=0;
+      // rule 1: runs of 5+ in rows and columns
+      for(let r=0;r<n;r++){let run=1,runc=1;for(let c=1;c<n;c++){
+        if(g[r][c]===g[r][c-1]){run++;if(run===5)p+=3;else if(run>5)p++}else run=1;
+        if(g[c][r]===g[c-1][r]){runc++;if(runc===5)p+=3;else if(runc>5)p++}else runc=1}}
+      // rule 2: 2x2 blocks
+      for(let r=0;r<n-1;r++)for(let c=0;c<n-1;c++){const x=g[r][c];if(x===g[r][c+1]&&x===g[r+1][c]&&x===g[r+1][c+1])p+=3}
+      // rule 3: finder-like 1011101 with 0000 on a side
+      const P1=[1,0,1,1,1,0,1,0,0,0,0],P2=[0,0,0,0,1,0,1,1,1,0,1];
+      const match=(get,start,pat)=>{for(let i=0;i<11;i++)if(get(start+i)!==pat[i])return false;return true};
+      for(let r=0;r<n;r++)for(let c=0;c<=n-11;c++){const gr=i=>g[r][i],gc=i=>g[i][r];if(match(gr,c,P1)||match(gr,c,P2))p+=40;if(match(gc,c,P1)||match(gc,c,P2))p+=40}
+      // rule 4: dark ratio
+      let dark=0;for(let r=0;r<n;r++)for(let c=0;c<n;c++)dark+=g[r][c];
+      const pct=dark*100/(n*n),prev=Math.floor(pct/5)*5,next=prev+5;
+      p+=Math.min(Math.abs(prev-50),Math.abs(next-50))/5*10;
+      return p;
+    }
+    let best=null,bestP=Infinity,bestMask=0;
+    for(let k=0;k<8;k++){const g=build(k);const p=penalty(g);if(p<bestP){bestP=p;best=g;bestMask=k}}
+    return{size:n,modules:best,version:v,mask:bestMask,bytes:bytes.length};
+  }
+  return{encode,capacity};
+})();
+
+/* ── page ── */
+const cv=$('qr'),ctx=cv.getContext('2d');
+let size=+ls('qr_size')||256;if(![256,512,1024].includes(size))size=256;
+let last=null,timer=null;
+const text=()=>($('txt').value.trim()||'https://kaleerson.com');
+function draw(){
+  const t=text();const q=QR.encode(t);
+  $('err').hidden=!q.error;$('err').textContent=q.error||'';
+  if(q.error){if(!last)return;}else last=q;
+  const n=last.size,quiet=4,px=size,cell=px/(n+quiet*2);
+  cv.width=cv.height=px;
+  ctx.fillStyle='#fff';ctx.fillRect(0,0,px,px);
+  ctx.fillStyle='#000';
+  for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(last.modules[r][c]){const x=Math.round((c+quiet)*cell),y=Math.round((r+quiet)*cell),x2=Math.round((c+quiet+1)*cell),y2=Math.round((r+quiet+1)*cell);ctx.fillRect(x,y,x2-x,y2-y)}
+  cv.setAttribute('aria-label','QR code for '+t.slice(0,80));
+  $('meta').textContent='Version '+last.version+' · '+n+'×'+n+' · '+last.bytes+' bytes · level M · '+px+'px';
+}
+$('txt').value=ls('qr_text')||'';
+$('txt').addEventListener('input',()=>{ls('qr_text',$('txt').value);clearTimeout(timer);timer=setTimeout(draw,120)});
+$('sizes').addEventListener('click',e=>{const b=e.target.closest('[data-s]');if(!b)return;size=+b.dataset.s;ls('qr_size',String(size));document.querySelectorAll('#sizes button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.s==size));draw()});
+document.querySelectorAll('#sizes button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.s==size));
+const say=(msg)=>{if(S&&S.toast)S.toast(msg);else{$('copied').textContent=msg;setTimeout(()=>$('copied').textContent='',1800)}};
+const fname=()=>'qr-'+text().replace(/^https?:\/\//,'').replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'').slice(0,40).toLowerCase()+'.png';
+$('dl').onclick=()=>{try{const a=document.createElement('a');a.href=cv.toDataURL('image/png');a.download=fname();document.body.appendChild(a);a.click();a.remove();say('Downloading')}catch(e){say('Could not download')}};
+$('cp').onclick=async()=>{
+  try{
+    if(!navigator.clipboard||!window.ClipboardItem)throw 0;
+    const blob=await new Promise(r=>cv.toBlob(r,'image/png'));
+    await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);say('Image copied');
+  }catch(e){
+    try{await navigator.clipboard.writeText(text());say('Copying images is not supported here, copied the text instead')}catch(e2){say('Could not copy')}
+  }
+};
+window.QR=QR;   // handy for testing
+draw();
+</script>
+</body>
+</html>

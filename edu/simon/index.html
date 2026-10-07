@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simon · Kale's Games</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Simon · Kale&#x27;s Games">
+<meta property="og:description" content="Watch the pads light up, then repeat the pattern. It gets one step longer every round.">
+<meta property="og:url" content="https://kaleerson.com/edu/simon/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Watch the pads light up, then repeat the pattern. It gets one step longer every round.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<link rel="stylesheet" href="/edu/assets/games.css?v=5">
+<style>
+.sbox{position:relative;width:min(100%,360px);display:grid;gap:12px;justify-items:center}
+.padwrap{position:relative;width:100%}
+.pads{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;aspect-ratio:1}
+.pad{border:0;border-radius:24px;cursor:pointer;min-height:44px;min-width:44px;padding:0;position:relative;transition:transform .08s,filter .08s,opacity .08s;touch-action:manipulation;color:var(--ink);opacity:.75;-webkit-tap-highlight-color:transparent}
+.pad:nth-child(1){background:var(--moss);border-top-left-radius:48px}.pad:nth-child(2){background:var(--sky);border-top-right-radius:48px}
+.pad:nth-child(3){background:var(--peach);border-bottom-left-radius:48px}.pad:nth-child(4){background:var(--butter);border-bottom-right-radius:48px}
+.pad span{position:absolute;left:14px;top:12px;font:700 14px/1 var(--display);opacity:.6}
+.pad.lit{opacity:1;filter:brightness(1.08) saturate(1.4);transform:scale(.96);box-shadow:inset 0 0 0 4px #ffffffaa}
+html[data-theme=dark] .pad.lit{filter:brightness(1.8) saturate(1.4);box-shadow:inset 0 0 0 4px #ffffff66}
+.pads.locked .pad{cursor:default}
+.center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;background:var(--card);display:grid;place-items:center;font:800 30px/1 var(--display);pointer-events:none;color:var(--ink)}
+.status{font-weight:600;min-height:24px;text-align:center}
+</style>
+</head>
+<body data-page="games" data-sub="simon" data-game="simon">
+<main class="wrap">
+<div class="ghead"><div><h1>Simon</h1><p>Watch the pattern, then tap it back. One more step every round. Keys 1 to 4 work too.</p></div><button class="btn sm ghost" id="mute" aria-pressed="false">Sound on</button></div>
+<div class="glay">
+  <div class="stage">
+    <div class="stats"><div><b id="round">0</b><span>Steps</span></div><div><b id="best">–</b><span>Best</span></div></div>
+    <div class="sbox" id="sbox">
+      <div class="padwrap"><div class="pads locked" id="pads">
+        <button class="pad" data-i="0" aria-label="Pad 1"><span>1</span></button>
+        <button class="pad" data-i="1" aria-label="Pad 2"><span>2</span></button>
+        <button class="pad" data-i="2" aria-label="Pad 3"><span>3</span></button>
+        <button class="pad" data-i="3" aria-label="Pad 4"><span>4</span></button>
+      </div><div class="center" id="center">0</div></div>
+      <div class="status" id="status">Press start.</div>
+      <button class="btn" id="start">Start</button>
+    </div>
+  </div>
+  <div class="side">
+    <div class="box"><h2>How it works</h2><p class="muted">The pads play a pattern that grows by one each round. Repeat it in order. One wrong tap ends the run. Your score is the longest pattern you got through.</p></div>
+    <div class="box" id="lb"></div>
+  </div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/edu/assets/common.js?v=5c"></script>
+<script src="/assets/site.js?v=20261009"></script>
+<script>
+const $=id=>document.getElementById(id);
+const FREQ=[329.63,261.63,220,164.81];
+let seq=[],pos=0,done=0,playing=false,over=true,best=G.local.get('best:simon',null),muted=!!G.local.get('simon:mute',false),actx=null;
+const padEls=[...document.querySelectorAll('.pad')];
+function tone(i,ms){if(muted)return;try{if(!actx)actx=new (window.AudioContext||window.webkitAudioContext)();if(actx.state==='suspended')actx.resume();
+  const o=actx.createOscillator(),g=actx.createGain(),t=actx.currentTime;o.type='sine';o.frequency.value=FREQ[i];
+  g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.25,t+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t+ms/1000);
+  o.connect(g).connect(actx.destination);o.start();o.stop(t+ms/1000+0.05)}catch(e){}}
+function light(i,ms){padEls[i].classList.add('lit');tone(i,ms);setTimeout(()=>padEls[i].classList.remove('lit'),ms)}
+function speed(){return Math.max(230,560-seq.length*18)}
+function drawStats(){$('round').textContent=done;$('center').textContent=done;$('best').textContent=best===null?'–':best}
+function play(){playing=true;$('pads').classList.add('locked');$('status').textContent='Watch…';const d=speed();
+  seq.forEach((v,k)=>setTimeout(()=>{if(!over)light(v,d*0.6)},350+k*d));
+  setTimeout(()=>{if(over)return;playing=false;pos=0;$('pads').classList.remove('locked');$('status').textContent='Your turn.'},350+seq.length*d)}
+function round(){seq.push(Math.floor(Math.random()*4));drawStats();play()}
+function start(){document.querySelectorAll('.over').forEach(o=>o.remove());seq=[];done=0;over=false;$('start').hidden=true;drawStats();round()}
+function press(i){if(over||playing)return;light(i,220);
+  if(seq[pos]!==i)return end();
+  pos++;if(pos===seq.length){done=seq.length;drawStats();$('status').textContent='Good.';playing=true;setTimeout(round,650)}}
+async function end(){over=true;$('pads').classList.add('locked');const score=done;$('status').textContent='Wrong pad.';
+  const o=document.createElement('div');o.className='over';
+  o.innerHTML=`<div><h2>${score?score+' steps':'Game over'}</h2><p class="muted" id="omsg">${score?'Saving…':'Wrong pad on the first step.'}</p><div data-actions></div><button class="btn" id="oagain">Play again</button></div>`;
+  $('sbox').append(o);o.querySelector('#oagain').onclick=start;
+  if(score>0){const msg=await G.submit('simon',Math.min(200,score),{});best=G.local.get('best:simon',best);const m=o.querySelector('#omsg');if(m)m.innerHTML=msg||'Longest pattern: '+score+' steps';if(window.SITE&&SITE.confetti&&/best/i.test(msg||''))SITE.confetti()}
+  drawStats()}
+$('pads').addEventListener('pointerdown',e=>{const b=e.target.closest('.pad');if(b&&e.button===0){e.preventDefault();press(+b.dataset.i)}});
+$('pads').addEventListener('click',e=>{const b=e.target.closest('.pad');if(b&&e.detail===0)press(+b.dataset.i)});
+$('start').onclick=start;
+function muteUI(){$('mute').textContent=muted?'Sound off':'Sound on';$('mute').setAttribute('aria-pressed',String(muted))}
+$('mute').onclick=()=>{muted=!muted;G.local.set('simon:mute',muted);muteUI()};muteUI();
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.target.matches('input,textarea'))return;
+  if(/^[1-4]$/.test(e.key)){e.preventDefault();press(+e.key-1)}
+  else if((e.key==='Enter'||e.key===' ')&&over&&!e.target.matches('button,a')){const b=document.getElementById('oagain')||$('start');if(b&&!b.hidden){e.preventDefault();b.click()}}});
+drawStats();
+G.boardBox(document.getElementById('lb'),'simon');
+</script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 @@ meta
 dir: sudoku
 title: Sudoku · Kale's Games
-desc: Fill the grid so every row, column and box has 1 to 9.
+desc: Fill the grid so every row, column and box has 1 to 9. Medium times go on the leaderboard; Daily is one puzzle for everyone.
 page: sudoku
 game: sudoku
 @@ css
@@ -18,42 +18,60 @@ game: sudoku
 .pad button.done{opacity:.3}
 .tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 #pencil[aria-pressed=true]{background:var(--butter);box-shadow:none}
+.dnote{font-size:13px;color:var(--ink2);text-align:center}
+.over .lbl{display:block}
 html[data-theme=dark] .sgrid button{color:#8fb0f5}
 html[data-theme=dark] .sgrid button.given{color:var(--ink)}
 html[data-theme=dark] .sgrid button.peer{background:#262a22}
 html[data-theme=dark] .sgrid button.bad{color:#F0695F}
 @@ body
-<div class="ghead"><div><h1>Sudoku</h1><p>Every row, column and 3×3 box gets 1–9 once. Medium times go on the leaderboard.</p></div>
-  <div class="seg" id="lvl"><button data-l="easy">Easy</button><button data-l="medium" aria-pressed="true">Medium</button><button data-l="hard">Hard</button></div></div>
+<div class="ghead"><div><h1>Sudoku</h1><p>Every row, column and 3×3 box gets 1–9 once. Medium times go on the leaderboard. Daily is the same puzzle for everyone, one result a day.</p></div>
+  <div class="seg" id="lvl"><button data-l="easy">Easy</button><button data-l="medium" aria-pressed="true">Medium</button><button data-l="hard">Hard</button><button data-l="daily">Daily</button></div></div>
 <div class="glay">
   <div class="stage">
     <div class="stats"><div><b id="time">0:00</b><span>Time</span></div><div><b id="mist">0</b><span>Mistakes</span></div><div><b id="best">–</b><span>Best</span></div></div>
     <div class="sgrid" id="g"></div>
     <div class="pad" id="pad"></div>
+    <p class="dnote" id="dnote" hidden></p>
     <div class="tools"><button class="btn sm ghost" id="pencil" aria-pressed="false">✏️ Notes</button><button class="btn sm ghost" id="erase">Erase</button><button class="btn sm ghost" id="new">New puzzle</button></div>
   </div>
   <div class="side"><div class="box" id="lb"></div></div>
 </div>
 @@ js
-const HOLES={easy:38,medium:48,hard:54};
-let lv='medium',sol,puz,cur,notes,sel=-1,pencil=false,mist=0,t0,tick,done=false;
+const HOLES={easy:38,medium:48,hard:54,daily:48};
+let lv='medium',sol,puz,cur,notes,sel=-1,pencil=false,mist=0,t0,tick,done=false,rand=Math.random;
 const g=document.getElementById('g'),fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+// Daily: one puzzle for everyone, seeded from the Las Vegas date (same numbering as the Daily Challenge).
+const today=new Date().toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'});
+const num=Math.round((Date.parse(today+'T00:00:00Z')-Date.UTC(2026,9,1))/864e5)+1;
+function rng(seed){return()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const dailyKey='sudoku:daily:'+today;
 const row=i=>Math.floor(i/9),col=i=>i%9,box=i=>Math.floor(row(i)/3)*3+Math.floor(col(i)/3);
 const peers=i=>{const r=[];for(let j=0;j<81;j++)if(j!==i&&(row(j)===row(i)||col(j)===col(i)||box(j)===box(i)))r.push(j);return r};
 const PEERS=[...Array(81)].map((_,i)=>peers(i));
 const ok=(a,i,v)=>PEERS[i].every(j=>a[j]!==v);
-function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(rand()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function fill(a){const i=a.indexOf(0);if(i<0)return true;for(const v of shuffle([1,2,3,4,5,6,7,8,9]))if(ok(a,i,v)){a[i]=v;if(fill(a))return true;a[i]=0}return false}
 function count(a,limit){ // number of solutions, stops at limit
   let best=-1,bestN=10;for(let i=0;i<81;i++)if(!a[i]){let n=0;for(let v=1;v<=9;v++)if(ok(a,i,v))n++;if(n<bestN){bestN=n;best=i;if(n<=1)break}}
   if(best<0)return 1;let c=0;for(let v=1;v<=9&&c<limit;v++)if(ok(a,best,v)){a[best]=v;c+=count(a,limit-c);a[best]=0}return c}
 function generate(){
+  rand=lv==='daily'?rng(num*7919+17):Math.random;
   sol=Array(81).fill(0);fill(sol);puz=sol.slice();
   let holes=0;for(const i of shuffle([...Array(81).keys()])){if(holes>=HOLES[lv])break;const v=puz[i];puz[i]=0;if(count(puz.slice(),2)!==1)puz[i]=v;else holes++}
 }
+const bestKey=()=>'best:sudoku'+(lv==='medium'?'':':'+lv);
+function paintBest(){const b=G.local.get(bestKey(),null);document.getElementById('best').textContent=b?fmt(b):'–'}
 function newGame(){generate();cur=puz.slice();notes=[...Array(81)].map(()=>new Set());sel=-1;mist=0;done=false;clearInterval(tick);t0=Date.now();
   tick=setInterval(()=>{if(!done)document.getElementById('time').textContent=fmt(Math.floor((Date.now()-t0)/1000))},500);
-  document.querySelectorAll('.over').forEach(o=>o.remove());const b=G.local.get('best:sudoku'+(lv==='medium'?'':':'+lv),null);document.getElementById('best').textContent=b?fmt(b):'–';draw()}
+  document.querySelectorAll('.over').forEach(o=>o.remove());document.getElementById('time').textContent='0:00';paintBest();draw();
+  const dn=document.getElementById('dnote');dn.hidden=lv!=='daily';dn.textContent=lv==='daily'?`Daily #${num} · the same puzzle for everyone today · not on the leaderboard (Medium is)`:'';
+  const r=lv==='daily'?G.local.get(dailyKey,null):null;if(r)doneToday(r)}
+// Today's Daily is already recorded: show it, with a replay that doesn't count.
+function doneToday(r){done=true;clearInterval(tick);document.getElementById('time').textContent=fmt(r.secs);
+  const o=document.createElement('div');o.className='over';o.innerHTML=`<div><span class="lbl">Daily #${num}</span><h2>Done for today</h2><p class="muted">${fmt(r.secs)} · ${r.mistakes} mistake${r.mistakes===1?'':'s'}<br>Come back tomorrow for a new one.</p><div data-actions></div><button class="btn sm ghost" id="oreplay">Replay (doesn't count)</button></div>`;g.append(o);
+  G.actions(o.querySelector('[data-actions]'),'sudoku',r.secs,`Daily Sudoku ${today}: ${fmt(r.secs)}`);
+  o.querySelector('#oreplay').onclick=()=>{o.remove();done=false;t0=Date.now();document.getElementById('time').textContent='0:00';tick=setInterval(()=>{if(!done)document.getElementById('time').textContent=fmt(Math.floor((Date.now()-t0)/1000))},500)}}
 function draw(){
   const sv=sel>=0?cur[sel]:0;
   g.innerHTML=cur.map((v,i)=>{const cls=[puz[i]?'given':'',col(i)%3===2&&col(i)<8?'br':'',row(i)%3===2&&row(i)<8?'bb':'',i===sel?'sel':sel>=0&&PEERS[sel].includes(i)?'peer':'',sv&&v===sv&&i!==sel?'same':'',v&&!puz[i]&&v!==sol[i]?'bad':''].join(' ');
@@ -68,11 +86,17 @@ function put(v){if(sel<0||puz[sel]||done)return;
   if(v===sol[sel])PEERS[sel].forEach(j=>notes[j].delete(v));
   draw();if(cur.every((x,i)=>x===sol[i]))win()}
 async function win(){done=true;clearInterval(tick);const s=Math.max(30,Math.round((Date.now()-t0)/1000));
-  const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>Solved!</h2><p class="muted" id="omsg">${fmt(s)} · ${mist} mistake${mist===1?'':'s'}</p><button class="btn" id="oagain">New puzzle</button></div>`;g.append(o);
-  o.querySelector('#oagain').onclick=newGame;
-  if(lv==='medium')o.querySelector('#omsg').innerHTML+=`<br>${await G.submit('sudoku',s,{mistakes:mist})}`;
-  else{const k='best:sudoku:'+lv,b=G.local.get(k,null);if(b===null||s<b){G.local.set(k,s);o.querySelector('#omsg').innerHTML+='<br>New best!'}}
-  const b=G.local.get('best:sudoku'+(lv==='medium'?'':':'+lv),null);document.getElementById('best').textContent=b?fmt(b):'–'}
+  const o=document.createElement('div');o.className='over';o.innerHTML=`<div><h2>Solved!</h2><p class="muted" id="omsg">${fmt(s)} · ${mist} mistake${mist===1?'':'s'}</p><button class="btn" id="oagain">${lv==='daily'?'Play Medium':'New puzzle'}</button><div data-actions></div></div>`;g.append(o);
+  const m=o.querySelector('#omsg');
+  o.querySelector('#oagain').onclick=lv==='daily'?()=>document.querySelector('#lvl [data-l=medium]').click():newGame;
+  if(lv==='medium')m.innerHTML+=`<br>${await G.submit('sudoku',s,{mistakes:mist})}`;
+  else if(lv==='daily'){const prev=G.local.get(dailyKey,null);
+    if(prev)m.innerHTML+=`<br>Already recorded today (${fmt(prev.secs)}). Replays don't count.`;
+    else{G.local.set(dailyKey,{secs:s,mistakes:mist});const b=G.local.get(bestKey(),null);const nb=b===null||s<b;if(nb)G.local.set(bestKey(),s);
+      m.innerHTML+='<br>'+(nb?'New best on Daily. ':'')+'Recorded for today. Daily stays off the leaderboard, so share it.'}
+    const rs=prev?prev.secs:s;G.actions(o.querySelector('[data-actions]'),'sudoku',rs,`Daily Sudoku ${today}: ${fmt(rs)}`)}
+  else{const k=bestKey(),b=G.local.get(k,null);if(b===null||s<b){G.local.set(k,s);m.innerHTML+='<br>New best!'}}
+  paintBest()}
 g.addEventListener('click',e=>{const b=e.target.closest('[data-i]');if(!b)return;sel=+b.dataset.i;draw()});
 document.getElementById('pad').addEventListener('click',e=>{const b=e.target.closest('[data-n]');if(b)put(+b.dataset.n)});
 document.addEventListener('keydown',e=>{if(e.target.matches('input'))return;

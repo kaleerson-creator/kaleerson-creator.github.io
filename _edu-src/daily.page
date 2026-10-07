@@ -21,41 +21,76 @@ scripts: /assets/trivia.js
 .dots{display:flex;gap:6px;flex-wrap:wrap}
 .dots i{width:22px;height:22px;border-radius:7px;background:var(--paper)}
 .dots i.y{background:#4f8a4a}.dots i.n{background:#D12C2C}
+.cal{display:grid;grid-template-columns:repeat(10,1fr);gap:5px}
+.cal i{aspect-ratio:1;border-radius:6px;background:var(--paper)}
+.cal i.p{background:#8fbf86}.cal i.hi{background:#4f8a4a}.cal i.today{box-shadow:inset 0 0 0 2px var(--ink)}
 @@ body
 <div class="ghead"><div><h1>Daily Challenge</h1><p>Same 10 questions for everyone today. You get one try, so make it count. New questions every day at midnight.</p></div><a class="btn sm ghost" href="/edu/trivia/">Practice trivia →</a></div>
 <div class="glay">
   <div class="stage"><div class="tq" id="tq"></div></div>
-  <div class="side"><div class="box" id="lb"></div></div>
+  <div class="side">
+    <div class="box"><h2>Your stats</h2><div class="stats" id="stats"></div><span class="lbl">Last 30 days</span><div class="cal" id="cal" aria-label="Days played in the last 30 days"></div></div>
+    <div class="box" id="lb"></div>
+  </div>
 </div>
 @@ js
-const Q=10,T=15;let qs,i,score,timer,t0,locked,marks;
+const Q=10,T=15;let i,score,timer,t0,locked,marks,practice=false;
 const el=document.getElementById('tq');
 const today=new Date().toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'});
 const num=Math.round((Date.parse(today+'T00:00:00Z')-Date.UTC(2026,9,1))/864e5)+1;
+const dayAgo=k=>new Date(Date.parse(today+'T12:00:00Z')-k*864e5).toISOString().slice(0,10);
 // Seeded shuffle so everyone gets the same questions (and answer order) today.
 function rng(seed){return()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 function shuffle(a,r){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(r()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
-const R=rng(num*7919+17);
-const todays=shuffle(TRIVIA,R).slice(0,Q).map(q=>({cat:q[0],text:q[1],right:q[2],opts:shuffle(q.slice(2),R)}));
+// The 10 questions for day number d (today is `num`, yesterday is num-1).
+function setFor(d){const R=rng(d*7919+17);return shuffle(TRIVIA,R).slice(0,Q).map(q=>({cat:q[0],text:q[1],right:q[2],opts:shuffle(q.slice(2),R)}))}
+const todays=setFor(num),yest=num>1?setFor(num-1):null;
 const done=()=>G.local.get('daily:'+today,null);
-function intro(){const d=done();
-  if(d){el.innerHTML=`<div class="intro"><span class="qcat">Daily Challenge #${num}</span><div class="big">${d.score}</div><div class="dots">${d.marks.map(m=>`<i class="${m?'y':'n'}"></i>`).join('')}</div>
-    <p class="muted">${d.marks.filter(Boolean).length}/10 right. Come back tomorrow for new questions.</p><div class="row"><button class="btn sm ghost" id="share">Copy result</button></div></div>`;
-    document.getElementById('share').onclick=e=>{const t=`Kale's Daily Challenge #${num}: ${d.score} pts\n${d.marks.map(m=>m?'🟩':'🟥').join('')}\nkaleerson.com/edu/daily`;navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>e.target.textContent='Copied ✓')};return}
-  el.innerHTML=`<div class="intro"><span class="qcat">Daily Challenge #${num}</span><div class="qtext">10 questions. 15 seconds each. One try.</div><p class="muted">Faster correct answers score more. Ready?</p><button class="btn" id="go">Start</button></div>`;
-  document.getElementById('go').onclick=start}
-function start(){i=0;score=0;marks=[];G.local.set('daily:'+today,{score:0,marks:Array(Q).fill(false),started:true});ask()}
-function ask(){locked=false;const q=todays[i];
-  el.innerHTML=`<div class="row" style="justify-content:space-between"><span class="qcat">${G.esc(q.cat)} · ${i+1}/${Q}</span><b>${score} pts</b></div><div class="tbar"><i id="bar"></i></div><div class="qtext">${G.esc(q.text)}</div>
+// Progress is saved after every question so a closed tab can pick the run back up.
+const save=open=>G.local.set('daily:'+today,{score,marks:marks.concat(Array(Q-marks.length).fill(false)),n:marks.length,open:!!open,started:true});
+const yestBtn=()=>yest?'<button class="btn ghost" id="yest" type="button">Practice yesterday\'s</button>':'';
+function intro(){const d=done();practice=false;
+  if(d&&d.started&&!d.finished)return resume(d);
+  if(d){const sk=G.streak('daily').count;
+    el.innerHTML=`<div class="intro"><span class="qcat">Daily Challenge #${num}</span><div class="big">${d.score}</div><div class="dots">${d.marks.map(m=>`<i class="${m?'y':'n'}"></i>`).join('')}</div>
+    <p class="muted">${d.marks.filter(Boolean).length}/10 right. Come back tomorrow for new questions.${sk>0?` <span class="streak">🔥 ${sk}-day streak</span>`:''}</p><div data-actions id="dacts" style="justify-content:flex-start"></div><div class="row">${yestBtn()}</div></div>`;
+    G.actions(document.getElementById('dacts'),'daily',d.score,`Daily Challenge ${today}: ${d.score} pts\n${d.marks.map(m=>m?'🟩':'🟥').join('')}\nkaleerson.com/edu/daily`);
+    hookYest();statsBox();return}
+  el.innerHTML=`<div class="intro"><span class="qcat">Daily Challenge #${num}</span><div class="qtext">10 questions. 15 seconds each. One try.</div><p class="muted">Faster correct answers score more. Ready?</p><div class="row"><button class="btn" id="go">Start</button>${yestBtn()}</div></div>`;
+  document.getElementById('go').onclick=start;hookYest()}
+function hookYest(){const b=document.getElementById('yest');if(b)b.onclick=practiceStart}
+// The tab was closed mid-run. Continue from the next question; a question that was open counts as wrong.
+function resume(d){const n=Math.min(Q,d.n==null?Q:d.n|0);score=d.score|0;marks=(d.marks||[]).slice(0,n);
+  if(d.open&&marks.length<Q)marks.push(false);
+  i=marks.length;if(i>=Q)return end();
+  G.toast(d.open?'Resumed. The question you left counts as wrong.':'Resumed where you left off.');ask()}
+function start(){practice=false;i=0;score=0;marks=[];save(false);ask()}
+// Yesterday's 10, replayed locally: no saving, no stats, no streak.
+function practiceStart(){if(!yest)return;practice=true;i=0;score=0;marks=[];ask()}
+function ask(){locked=false;const q=(practice?yest:todays)[i];if(!practice)save(true);
+  el.innerHTML=`<div class="row" style="justify-content:space-between"><span class="qcat">${practice?'Practice #'+(num-1)+' · ':''}${G.esc(q.cat)} · ${i+1}/${Q}</span><b>${score} pts</b></div><div class="tbar"><i id="bar"></i></div><div class="qtext">${G.esc(q.text)}</div>
     <div class="opts">${q.opts.map(o=>`<button data-o="${G.esc(o)}">${G.esc(o)}</button>`).join('')}</div>`;
   t0=Date.now();clearInterval(timer);timer=setInterval(()=>{const left=T-(Date.now()-t0)/1000;document.getElementById('bar').style.width=Math.max(0,100*left/T)+'%';if(left<=0)answer(null)},100);
   el.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>answer(b))}
-function answer(btn){if(locked)return;locked=true;clearInterval(timer);const q=todays[i],right=btn&&btn.dataset.o===q.right;
-  if(right)score+=100+Math.round(100*Math.max(0,T-(Date.now()-t0)/1000)/T);marks.push(!!right);
-  G.local.set('daily:'+today,{score,marks:marks.concat(Array(Q-marks.length).fill(false)),started:true});
+function answer(btn){if(locked)return;locked=true;clearInterval(timer);const q=(practice?yest:todays)[i],right=btn&&btn.dataset.o===q.right;
+  if(right)score+=100+Math.round(100*Math.max(0,T-(Date.now()-t0)/1000)/T);marks.push(!!right);if(!practice)save(false);
   el.querySelectorAll('[data-o]').forEach(b=>{b.disabled=true;if(b.dataset.o===q.right)b.classList.add('right');else if(b===btn)b.classList.add('wrong');else b.classList.add('dim')});
-  setTimeout(()=>{i++;i<Q?ask():end()},right?900:1700)}
-async function end(){G.local.set('daily:'+today,{score,marks,finished:true});intro();
+  setTimeout(()=>{i++;i<Q?ask():(practice?practiceEnd():end())},right?900:1700)}
+function practiceEnd(){clearInterval(timer);practice=false;
+  el.innerHTML=`<div class="intro"><span class="qcat">Practice · Daily #${num-1}</span><div class="big">${score}</div><div class="dots">${marks.map(m=>`<i class="${m?'y':'n'}"></i>`).join('')}</div><p class="muted">${marks.filter(Boolean).length}/10 right. Practice doesn't count for your stats, streak or the leaderboard.</p><div class="row"><button class="btn" id="back" type="button">Back to today</button><button class="btn ghost" id="again" type="button">Practice again</button></div></div>`;
+  document.getElementById('back').onclick=intro;document.getElementById('again').onclick=practiceStart}
+async function end(){clearInterval(timer);G.local.set('daily:'+today,{score,marks,finished:true});G.bump('daily');intro();
   const p=document.createElement('p');p.className='muted';p.textContent='Saving…';el.querySelector('.intro').append(p);p.innerHTML=await G.submit('daily',score)}
+// Played / average / best / streak, plus a dot per day for the last 30 days (from g:daily:<date>).
+function statsBox(){
+  const played=G.local.keys('daily:').map(k=>k.slice(6)).filter(k=>/^\d{4}-\d{2}-\d{2}$/.test(k)).map(k=>[k,G.local.get('daily:'+k,null)]).filter(([,d])=>d&&d.finished);
+  const sc=played.map(([,d])=>d.score|0),avg=sc.length?Math.round(sc.reduce((a,b)=>a+b,0)/sc.length):0,best=sc.length?Math.max(...sc):0;
+  document.getElementById('stats').innerHTML=`<div><b>${sc.length}</b><span>Played</span></div><div><b>${avg}</b><span>Average</span></div><div><b>${best}</b><span>Best</span></div><div><b>${G.streak('daily').count}</b><span>Streak</span></div>`;
+  const by={};played.forEach(([k,d])=>by[k]=d.score|0);
+  document.getElementById('cal').innerHTML=[...Array(30)].map((_,k)=>{const d=dayAgo(29-k),s=by[d];return `<i class="${s===undefined?'':s>=1500?'hi':'p'}${d===today?' today':''}" title="${d}${s===undefined?'':': '+s+' pts'}"></i>`}).join('')}
+// People who played before streaks existed: rebuild the streak from saved days.
+if(!G.local.get('streak:daily',null)){let c=0,last=null;for(let k=0;k<400;k++){const d=dayAgo(k),x=G.local.get('daily:'+d,null);if(x&&x.finished){c++;last=last||d}else if(k===0)continue;else break}
+  if(c)G.local.set('streak:daily',{count:c,last})}
+statsBox();
 intro();
 G.boardBox(document.getElementById('lb'),'daily','day');

@@ -6,10 +6,12 @@
 <meta name="robots" content="noindex">
 <title>Account · Kale Erson</title>
 <!-- meta -->
-<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}}catch(e){}</script>
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icon-180.png">
-<meta name="theme-color" content="#EEF0EA">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
 <meta property="og:site_name" content="Kale Erson">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Account · Kale Erson">
@@ -24,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20261006">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
 <style>
 .phead .blob{background:var(--butter);width:clamp(90px,14vw,170px);top:30px}
 .atabs{display:flex;gap:4px;background:var(--card);border-radius:999px;padding:5px;width:max-content;max-width:100%;margin-bottom:var(--gap)}
@@ -57,6 +59,35 @@ input:focus{outline:2px solid var(--ink);outline-offset:1px}
 .seg{display:flex;gap:4px;background:var(--paper);border-radius:999px;padding:4px;width:max-content;max-width:100%}
 .seg button{font:inherit;font-size:14px;font-weight:600;border:0;background:none;color:var(--ink2);padding:8px 16px;border-radius:999px;cursor:pointer}
 .seg button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.swatches{display:flex;gap:6px;flex-wrap:wrap}
+.swatches button{font:inherit;font-size:14px;font-weight:600;border:0;background:var(--paper);color:var(--ink2);padding:8px 14px 8px 10px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.swatches button i{width:14px;height:14px;border-radius:50%;background:var(--c,var(--line));flex:none}
+.swatches button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.who{grid-column:1/-1;display:flex;align-items:center;gap:14px;background:var(--card);border-radius:24px;padding:16px 20px;flex-wrap:wrap}
+.who .avatar{line-height:0}
+.who .txt{display:grid;gap:2px;min-width:0;flex:1}
+.who .txt b{font-size:20px;letter-spacing:-.02em;overflow-wrap:anywhere}
+.who .txt>span{color:var(--ink2);font-size:14px;overflow-wrap:anywhere}
+.who a{text-decoration:underline;text-underline-offset:3px;font-size:14px;font-weight:600;white-space:nowrap}
+.hint{font-size:13px;min-height:18px}
+.hint.ok{color:#24502f}.hint.bad{color:#b42318}
+html[data-theme=dark] .hint.ok{color:#c4e3ad}html[data-theme=dark] .hint.bad{color:#f6b6ab}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stats div{background:var(--paper);border-radius:14px;padding:10px 12px;display:grid;gap:2px}
+.stats b{font:800 26px/1.05 var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stats span{font-size:12px;color:var(--ink2)}
+.bests{display:grid;gap:6px}
+.bests a{display:flex;justify-content:space-between;gap:10px;padding:9px 13px;border-radius:12px;background:var(--paper);font-size:15px;font-weight:600}
+.bests b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.badges{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.badge{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:center;padding:10px 12px;border-radius:14px;background:var(--moss)}
+.badge i{font-style:normal;font-size:22px;grid-row:span 2;line-height:1}
+.badge b{font-size:14px;line-height:1.2}
+.badge small{font-size:12px;color:var(--ink2);line-height:1.3}
+.badge.locked{background:var(--paper);opacity:.6}
+.badge.locked i{filter:grayscale(1);opacity:.6}
+.link{display:flex;gap:8px;align-items:center}
+.link input{font-size:14px;font-family:ui-monospace,Menlo,monospace}
 </style>
 </head>
 <body data-page="account">
@@ -65,6 +96,7 @@ input:focus{outline:2px solid var(--ink);outline-offset:1px}
   <div id="acc" hidden>
     <div class="atabs" role="tablist"><button role="tab" data-tab="profile" aria-selected="true">Profile</button><button role="tab" data-tab="settings" aria-selected="false">Settings</button></div>
     <div class="acc" id="t-profile">
+      <div class="who" id="who"></div>
       <div class="box">
         <h2>Your name</h2>
         <p>Shown on your posts, Study notes and game leaderboards. Your email is never shown.</p>
@@ -78,6 +110,15 @@ input:focus{outline:2px solid var(--ink);outline-offset:1px}
         <div class="preview" id="look"></div>
       </div>
       <div class="box">
+        <h2>Your stats</h2>
+        <div id="statsbox"><p>Loading your scores…</p></div>
+      </div>
+      <div class="box">
+        <h2>Badges</h2>
+        <p>Earned from what you've already done. Grey ones tell you how to get them.</p>
+        <div class="badges" id="badges"></div>
+      </div>
+      <div class="box">
         <h2>What you can use</h2>
         <div class="access" id="access"></div>
       </div>
@@ -87,6 +128,11 @@ input:focus{outline:2px solid var(--ink);outline-offset:1px}
         <h2>Theme</h2>
         <p>Auto follows your phone or computer. Saved on this device.</p>
         <div class="seg" id="theme" role="group" aria-label="Theme"><button data-v="auto">Auto</button><button data-v="dark">Dark</button><button data-v="light">Light</button></div>
+      </div>
+      <div class="box">
+        <h2>Accent</h2>
+        <p>Colors the menu, the account button and page headers. Saved on this device.</p>
+        <div class="swatches" id="accent" role="group" aria-label="Accent color"><button data-v=""><i></i>Default</button><button data-v="moss"><i style="--c:var(--moss-deep)"></i>Moss</button><button data-v="sky"><i style="--c:var(--sky-deep)"></i>Sky</button><button data-v="peach"><i style="--c:var(--peach-deep)"></i>Peach</button><button data-v="butter"><i style="--c:var(--butter-deep)"></i>Butter</button><button data-v="lilac"><i style="--c:var(--lilac-deep)"></i>Lilac</button></div>
       </div>
       <div class="box">
         <h2>Visit counting</h2>
@@ -111,8 +157,13 @@ input:focus{outline:2px solid var(--ink);outline-offset:1px}
         <div class="row"><button class="btn sm ghost" id="out">Sign out</button><button class="btn sm ghost" id="outall">Sign out everywhere</button></div>
       </div>
       <div class="box">
+        <h2>Public profile</h2>
+        <div id="pubbox"></div>
+      </div>
+      <div class="box">
         <h2>Your data</h2>
         <p>You can delete your own posts anytime. To delete your whole account, ask Kale. See the <a href="/privacy/" style="text-decoration:underline">privacy page</a> for what's stored.</p>
+        <div class="row"><button class="btn sm ghost" id="dl">Download my data</button></div><div id="dlmsg"></div>
       </div>
     </div>
   </div>
@@ -120,7 +171,8 @@ input:focus{outline:2px solid var(--ink);outline-offset:1px}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
-<script src="/assets/site.js?v=20261006"></script>
+<script src="/lib/avatar.js?v=20261006"></script>
+<script src="/assets/site.js?v=20261009"></script>
 <script>
 const $=id=>document.getElementById(id);
 const E=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -135,15 +187,93 @@ document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>tab(b.dataset.t
 if(location.hash==='#settings')tab('settings');
 
 const hi=n=>`Hi, ${n}${/[.!?]$/.test(n)?'':'.'}`;
-function nameHTML(p){if(!p||!p.display_name)return'<span class="no">No name yet</span>';
+function nameHTML(p,noUser){if(!p||!p.display_name)return'<span class="no">No name yet</span>';
   const c=/^#[0-9a-fA-F]{6}$/.test(p.name_color||'')?` style="--nc:${p.name_color}"`:'';
-  return `<span class="cm-name"${c}>${E(p.display_name)}</span>${(p.tags||[]).map(t=>` <span class="cm-tag">${E(t)}</span>`).join('')}${p.username?` <span class="no" style="font-size:14px">@${E(p.username)}</span>`:''}`}
+  return `<span class="cm-name"${c}>${E(p.display_name)}</span>${(p.tags||[]).map(t=>` <span class="cm-tag">${E(t)}</span>`).join('')}${p.username&&!noUser?` <span class="no" style="font-size:14px">@${E(p.username)}</span>`:''}`}
+const profileURL=()=>prof&&prof.username?location.origin+'/u/#'+encodeURIComponent(prof.username):null;
 function drawProfile(){
   $('ubox').innerHTML=prof&&prof.username
     ?`<div class="f" style="display:grid;gap:6px;font-weight:600;font-size:14px">Username <div class="uname">@${E(prof.username)}</div></div>`
-    :`<label class="f">Username <small>pick carefully, it can't be changed later</small><input id="uname" maxlength="21" placeholder="e.g. kale_e" autocapitalize="off" spellcheck="false"></label>`;
+    :`<label class="f">Username <small>pick carefully, it can't be changed later</small><input id="uname" maxlength="21" placeholder="e.g. kale_e" autocapitalize="off" spellcheck="false"></label><div class="hint" id="uhint"></div>`;
   $('look').innerHTML=nameHTML(prof);
+  const nm=prof&&prof.display_name?prof.display_name:'?';
+  $('who').innerHTML=`<span class="avatar">${Avatar.svg(nm,56)}</span><div class="txt"><b>${prof&&prof.display_name?nameHTML(prof,true):'No name yet'}</b><span>${prof&&prof.username?'@'+E(prof.username):'Pick a username to get a public page'}</span></div>${profileURL()?`<a href="/u/#${encodeURIComponent(prof.username)}">Public profile →</a>`:''}`;
+  $('pubbox').innerHTML=profileURL()
+    ?`<p>Anyone with the link sees your name, when you joined and your best scores. Never your email.</p><div class="link"><input id="publink" readonly value="${E(profileURL())}"><button class="btn sm" id="copylink">Copy link</button></div><div class="row"><a class="btn sm ghost" href="/u/#${encodeURIComponent(prof.username)}">Open</a></div>`
+    :'<p>Pick a username on the Profile tab and you get a page at kaleerson.com/u/#yourname.</p>';
+  if($('copylink'))$('copylink').onclick=async()=>{try{await navigator.clipboard.writeText(profileURL());$('copylink').textContent='Copied';setTimeout(()=>$('copylink').textContent='Copy link',1800)}catch(e){$('publink').select()}};
+  if($('publink'))$('publink').onclick=()=>$('publink').select();
+  if($('uname'))$('uname').oninput=checkUsername;
 }
+// Username availability while typing (300ms after the last key). Quietly off if the RPC is missing.
+let uTimer=null,uOk=true;
+function checkUsername(){
+  clearTimeout(uTimer);const h=$('uhint');if(!h)return;
+  const u=$('uname').value.trim().replace(/^@/,'').toLowerCase();
+  if(!u){h.textContent='';h.className='hint';return}
+  if(!/^[a-z0-9_]{3,20}$/.test(u)){h.textContent=u.length<3?'At least 3 characters.':'Only letters, numbers and _ (3 to 20).';h.className='hint bad';return}
+  h.textContent='Checking…';h.className='hint';
+  uTimer=setTimeout(async()=>{if(!uOk||!window.SB)return;let r;try{r=await SB.rpc('username_available',{u})}catch(e){r={error:e}}
+    if($('uname').value.trim().replace(/^@/,'').toLowerCase()!==u)return;
+    if(r.error){uOk=false;h.textContent='';h.className='hint';return}
+    h.textContent=r.data?'@'+u+' is free.':'@'+u+' is taken.';h.className='hint '+(r.data?'ok':'bad')},300);
+}
+
+// Stats + badges from game_scores (only my rows). Lower is better for time/guess games.
+const GAMES={daily:'Daily Challenge',word:'Daily Word','2048':'2048',snake:'Snake',minesweeper:'Minesweeper',sudoku:'Sudoku',typing:'Typing',trivia:'Trivia',letters:'Letter Rush',math:'Speed Math',reaction:'Reaction Time',memory:'Memory Match',blocks:'Blocks',breakout:'Breakout',flap:'Flap',hangman:'Hangman',simon:'Simon',connect:'Connect Four'};
+const LOWER={minesweeper:1,sudoku:1,word:1,reaction:1,memory:1};
+const mmss=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+const FMT={minesweeper:mmss,sudoku:mmss,memory:mmss,word:s=>s+'/6',typing:s=>s+' wpm',daily:s=>s+' pts',letters:s=>s+' pts',math:s=>s+' pts',reaction:s=>s+' ms',hangman:s=>s+' words',simon:s=>s+' steps',connect:s=>s+' wins',flap:s=>s+' pipes'};
+const fmt=(g,s)=>FMT[g]?FMT[g](s):Number(s).toLocaleString();
+function wordStreak(){
+  let n=0;try{const v=JSON.parse(localStorage.getItem('g:streak:word')||'null');n=typeof v==='number'?v:(v&&v.count)||0}catch(e){}
+  try{const h=JSON.parse(localStorage.getItem('g:word:history')||'{}');
+    const today=new Date().toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'});let s=0;
+    for(let d=new Date(today+'T12:00:00Z');;d.setUTCDate(d.getUTCDate()-1)){const k=d.toISOString().slice(0,10);if(h[k]>0)s++;else if(k===today&&h[k]===undefined)continue;else break;if(s>400)break}
+    n=Math.max(n,s)}catch(e){}
+  return n;
+}
+let SCORES=null;
+async function loadStats(){
+  let r;try{r=await SB.from('game_scores').select('game,score,created_at').eq('user_id',uid).order('created_at',{ascending:false}).limit(2000)}catch(e){r={error:e}}
+  if(r.error){$('statsbox').innerHTML='<p>Stats aren\'t available right now.</p>';drawBadges([]);return}
+  SCORES=r.data||[];
+  const best={};SCORES.forEach(s=>{if(!(s.game in best)||(LOWER[s.game]?s.score<best[s.game]:s.score>best[s.game]))best[s.game]=s.score});
+  const keys=Object.keys(best).sort((a,b)=>(GAMES[a]||a).localeCompare(GAMES[b]||b));
+  const days=new Set(SCORES.map(s=>new Date(s.created_at).toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'})));
+  $('statsbox').innerHTML=`<div class="stats"><div><b>${SCORES.length}</b><span>plays saved</span></div><div><b>${keys.length}</b><span>${keys.length===1?'game':'games'}</span></div><div><b>${days.size}</b><span>${days.size===1?'day':'days'} played</span></div></div>`+
+    (keys.length?`<p style="margin-top:12px;font-size:14px">Best score per game</p><div class="bests">${keys.map(g=>`<a href="/edu/${encodeURIComponent(g)}/"><span>${E(GAMES[g]||g)}</span><b>${E(fmt(g,best[g]))}</b></a>`).join('')}</div>`:'<p style="margin-top:12px">No scores yet. <a href="/edu/" style="text-decoration:underline">Play a game</a> while signed in and it shows up here.</p>');
+  drawBadges(SCORES,best);
+}
+function drawBadges(scores,best){
+  best=best||{};
+  const laHour=t=>+new Date(t).toLocaleString('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',hour12:false});
+  const B=[
+    ['🎯','First score',scores.length>=1,'Save any game score'],
+    ['🔟','10 games played',scores.length>=10,'Save 10 scores'],
+    ['📗','Daily Word solved','word' in best,'Solve a Daily Word'],
+    ['⚡','Speed demon',(best.typing||0)>=60,'Type 60 wpm or faster'],
+    ['🦉','Night owl',scores.some(s=>{const h=laHour(s.created_at);return h>=23||h<5}),'Save a score between 11pm and 5am'],
+    ['🔥','7-day Daily streak',wordStreak()>=7,'Solve the Daily Word 7 days in a row'],
+    ['🎮','All-rounder',Object.keys(best).length>=5,'Save scores in 5 different games']];
+  $('badges').innerHTML=B.map(([i,n,on,hint])=>`<div class="badge${on?'':' locked'}" title="${E(hint)}"><i>${i}</i><b>${E(n)}</b><small>${on?'Earned':E(hint)}</small></div>`).join('');
+}
+
+// Download my data: one JSON file of everything the site stores about me.
+let MEMBER=null;
+$('dl').onclick=async()=>{
+  const b=$('dl');b.disabled=true;b.textContent='Gathering…';
+  const grab=async q=>{try{const r=await q;return r.error?{error:r.error.message}:r.data}catch(e){return{error:String(e)}}};
+  const [scores,threads,replies]=await Promise.all([
+    SCORES?Promise.resolve(SCORES):grab(SB.from('game_scores').select('game,score,meta,day,created_at').eq('user_id',uid).limit(5000)),
+    grab(SB.from('forum_threads').select('id,category,title,body,created_at,reply_count,locked').eq('created_by',uid).limit(2000)),
+    grab(SB.from('forum_replies').select('id,thread_id,body,created_at').eq('created_by',uid).limit(5000))]);
+  const out={exported_at:new Date().toISOString(),email:$('email').textContent,profile:prof,preferences:MEMBER,game_scores:scores,forum_threads:threads,forum_replies:replies};
+  try{const blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+    a.download='kaleerson-'+(prof&&prof.username?prof.username:'my-data')+'.json';document.body.append(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);flash('dlmsg',true,'Downloaded.')}
+  catch(e){flash('dlmsg',false,'Could not make the file.')}
+  b.disabled=false;b.textContent='Download my data';
+};
 
 (async()=>{
   if(!window.SB){$('hello').textContent='Accounts are offline right now.';return}
@@ -154,7 +284,7 @@ function drawProfile(){
     SB.from('profiles').select('display_name,username,name_color,tags').eq('user_id',uid).maybeSingle(),
     SB.from('members').select('email_opt_in,study_reminders').eq('id',uid).maybeSingle(),
     SB.rpc('is_study'),SB.rpc('is_admin')]);
-  prof=p.data||null;const name=prof?.display_name||'';$('name').value=name;SITE.setName&&SITE.setName(name);
+  prof=p.data||null;MEMBER=m.data||null;const name=prof?.display_name||'';$('name').value=name;SITE.setName&&SITE.setName(name);
   $('hello').textContent=name?hi(name)+(prof.username?'':' Pick a username below.'):'Pick a username and display name so people know who posted.';
   drawProfile();
   $('optin').checked=m.data?m.data.email_opt_in:true;
@@ -169,6 +299,7 @@ function drawProfile(){
     (vault?row('Vault (on this device)',true,'/contact/'):'<div><span>Vault</span><a href="/contact/">Have a code? →</a></div>')+
     (admin.data?row('Admin',true,'/admin/'):'');
   $('acc').hidden=false;
+  loadStats();
 })();
 
 $('savename').onclick=async()=>{
@@ -189,6 +320,9 @@ $('savename').onclick=async()=>{
 const drawTheme=()=>{const t=SITE.theme();document.querySelectorAll('#theme button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===t))};
 document.querySelectorAll('#theme button').forEach(b=>b.onclick=()=>{SITE.setTheme(b.dataset.v);drawTheme()});
 document.addEventListener('themechange',drawTheme);drawTheme();
+const drawAccent=()=>{const a=SITE.accent();document.querySelectorAll('#accent button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===a))};
+document.querySelectorAll('#accent button').forEach(b=>b.onclick=()=>{SITE.setAccent(b.dataset.v);drawAccent()});
+document.addEventListener('accentchange',drawAccent);drawAccent();
 
 const gpc=navigator.globalPrivacyControl===true||navigator.doNotTrack==='1'||window.doNotTrack==='1';
 $('kv').checked=!gpc&&ls('kv_choice')==='yes';
