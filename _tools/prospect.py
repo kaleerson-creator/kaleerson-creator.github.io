@@ -285,6 +285,11 @@ def pagespeed(url):
 def summarize_psi(d):
     if 'error' in d:
         m = d['error'].get('message', '')
+        try:  # the message is often Google's whole JSON error body
+            m = json.loads(m)['error']['message']
+        except Exception:
+            pass
+        m = ' '.join(m.split())
         broken = any(s in m for s in ('FAILED_DOCUMENT_REQUEST', 'ERRORED_DOCUMENT_REQUEST',
                                       'DNS_FAILURE', 'NO_FCP', 'net::ERR', 'Lighthouse returned error'))
         return {'status': 'broken' if broken else 'unchecked', 'error': m[:160]}
@@ -524,7 +529,8 @@ def site_cell(p):
         if not s.get('viewport_ok', True): bits.append('not mobile')
         if not s.get('https', True): bits.append('no https')
         return f'{link} · ' + ', '.join(bits)
-    return f'{link} · **{st}**' + (f' ({s.get("error","")[:40]})' if st == 'broken' else '') + maybe
+    err = ' '.join(s.get('error', '').replace('Lighthouse returned error:', '').split())[:40].replace('|', '/')
+    return f'{link} · **{st}**' + (f' ({err})' if st == 'broken' else '') + maybe
 
 # Rough size guess from public signals only. Lifetime Google reviews track how many
 # people come through the door, and price level tracks the check size. This is a
@@ -559,9 +565,10 @@ def write_md(area_key, a, leads, rows, args, min_reviews):
          '| # | Restaurant | Rating | Current site | Already uses | Open domains | Size · suggested price | Phone |',
          '|---|---|---|---|---|---|---|---|']
     for i, p in enumerate(leads, 1):
-        name = p['displayName']['text']
+        cell = lambda x: str(x or '').replace('|', '\\|')  # a "|" in a name would split the table row
+        name = cell(p['displayName']['text'])
         maps = p.get('googleMapsUri', '')
-        addr = p.get('formattedAddress', '')
+        addr = cell(p.get('formattedAddress', ''))
         doms = ', '.join(f'{d["domain"]} ({d["price"]})' for d in p.get('domains', []) if d.get('available'))
         unknown = sum(1 for d in p.get('domains', []) if d.get('available') is None)
         if unknown and not doms:

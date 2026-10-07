@@ -116,7 +116,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 91,
@@ -272,7 +272,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 85,
@@ -578,7 +578,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 82,
@@ -813,7 +813,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 79,
@@ -1532,7 +1532,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 76,
@@ -1999,7 +1999,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 69,
@@ -2316,7 +2316,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 68,
@@ -2396,7 +2396,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 67,
@@ -13256,7 +13256,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 91,
@@ -21306,7 +21306,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 85,
@@ -24070,7 +24070,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 79,
@@ -25957,7 +25957,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 82,
@@ -27287,7 +27287,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 76,
@@ -35923,7 +35923,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 69,
@@ -39904,7 +39904,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 67,
@@ -43596,7 +43596,7 @@
    "site": {
     "status": "broken",
     "stack": [],
-    "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requeste"
+    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
    },
    "badness": 95,
    "lead_score": 68,
