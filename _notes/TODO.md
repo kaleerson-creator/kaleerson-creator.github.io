@@ -41,6 +41,10 @@ The branch `claude/wonderful-franklin-4jhg18` has everything below. Merge it on 
 ### No longer needed
 - The `games` repo, the `games` CNAME at Namecheap and the Supabase redirect URL for games.kaleerson.com. The games now live at kaleerson.com/edu and use the normal Join page. If the repo or DNS record was already made, it can stay or be deleted.
 
+- [ ] **Restaurant sites: publish the demos.** Merge the `claude/clever-cori-4dq944` branch into main. The demos then live at kaleerson.com/demos/<name>/ (hidden from Google, with a "preview" banner).
+- [ ] **Restaurant sites: replace the Google API key.** It was pasted in chat. Google Cloud → Credentials → delete it → make a new one restricted to Places API (New) + PageSpeed Insights API → add it in the Claude environment settings as `GOOGLE_API_KEY`.
+- [ ] **Restaurant sites: check the flagged leads by hand.** Lead sheets in `_notes/prospects/` say "X.com is registered: check it" where a restaurant might already have a site. Add any that do to `_notes/prospects/skip.txt`.
+
 ## Waiting on a decision
 
 - **Move games to games.kaleerson.com later** if school filters start blocking kaleerson.com. The site is built so this is a quick move.
@@ -60,6 +64,8 @@ The branch `claude/wonderful-franklin-4jhg18` has everything below. Merge it on 
 - More online games (Battleship, Pictionary)
 
 ## Notes
+
+- Restaurant prospecting: `python3 _tools/prospect.py --area vegas|socal|springdale` (needs GOOGLE_API_KEY and rdap.org plus the registry hosts allowed in the environment). Demo sites: `python3 _tools/build_demo.py --area <area> --top N`; edit `_demos/<name>.json` to add a menu, photos and add-on links, then `--slug <name>`. Set `"demo": false` when a site goes live.
 
 - Leaderboard scores come from the player's browser, so they can't be made cheat-proof. Impossible scores are blocked, and the Daily Word allows one result per day.
 - Study's answer filter only catches obvious answer lists. The Report button and admin removal are the real safeguard.

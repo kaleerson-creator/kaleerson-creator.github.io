@@ -1,0 +1,5022 @@
+{
+ "area": "Springdale, Utah (Zion)",
+ "generated": "2026-10-07",
+ "filters": {
+  "min_rating": 4.5,
+  "min_reviews": 60
+ },
+ "leads": [
+  {
+   "id": "ChIJDz3jjI73yoARFKrDRwb-5J0",
+   "types": [
+    "fast_food_restaurant",
+    "hamburger_restaurant",
+    "diner",
+    "sandwich_shop",
+    "american_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 216-7988",
+   "formattedAddress": "112 W State St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1768855,
+    "longitude": -113.2902884
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=11377497861571979796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.facebook.com/crosscountrydiner/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 849,
+   "displayName": {
+    "text": "Cross Country Diner",
+    "languageCode": "en"
+   },
+   "primaryType": "fast_food_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "social",
+    "stack": []
+   },
+   "badness": 95,
+   "lead_score": 81,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "crosscountrydiner.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "crosscountry.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "crosscountryhurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "crosscountry.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "crosscountry.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatcrosscountry.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJC-hRFuTxyoARzu4TMN-uIKU",
+   "types": [
+    "cafe",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 635-7872",
+   "formattedAddress": "771 UT-9, Virgin, UT 84779, USA",
+   "location": {
+    "latitude": 37.2037927,
+    "longitude": -113.2021122
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=11898702489120403150&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 609,
+   "displayName": {
+    "text": "Buffalo Trails Trading Company",
+    "languageCode": "en"
+   },
+   "primaryType": "cafe",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "none",
+    "stack": []
+   },
+   "badness": 100,
+   "lead_score": 76,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "buffalotrails.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "buffalotrailsvirgin.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "buffalotrails.cafe",
+     "available": false,
+     "code": 403,
+     "price": "~$6/yr then ~$35"
+    },
+    {
+     "domain": "buffalotrails.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatbuffalotrails.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "buffalotrails.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJ--RHg8f2yoARbUCNbsTDYWE",
+   "types": [
+    "pizza_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 327-2503",
+   "formattedAddress": "100 W State St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1763754,
+    "longitude": -113.2905881
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=7017104942855700589&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://order.toasttab.com/online/pizza-wagon-119-w-state-street",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 845,
+   "displayName": {
+    "text": "Dixie Pizza Wagon",
+    "languageCode": "en"
+   },
+   "primaryType": "pizza_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "ordering-only",
+    "stack": [
+     "Toast"
+    ]
+   },
+   "badness": 90,
+   "lead_score": 75,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
+   "domains": [
+    {
+     "domain": "dixiepizzawagon.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "dixiepizza.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "dixiepizzahurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "dixiepizza.pizza",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$55"
+    },
+    {
+     "domain": "dixiepizza.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatdixiepizza.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJ_z1tmAooFyUR5z_-yy2uNnY",
+   "types": [
+    "vegan_restaurant",
+    "vegetarian_restaurant",
+    "restaurant",
+    "point_of_interest",
+    "food",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(865) 438-3387",
+   "formattedAddress": "771 UT-9, Virgin, UT 84779, USA",
+   "location": {
+    "latitude": 37.2042009,
+    "longitude": -113.2018813
+   },
+   "rating": 5,
+   "googleMapsUri": "https://maps.google.com/?cid=8518187256937070567&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://instagram.com/desertsmoothie?igshid=OGQ5ZDc2ODk2ZA==",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 377,
+   "displayName": {
+    "text": "Desert Smoothie",
+    "languageCode": "en"
+   },
+   "primaryType": "vegan_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "social",
+    "stack": []
+   },
+   "badness": 95,
+   "lead_score": 74,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "desertsmoothie.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "desertsmoothievirgin.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "desertsmoothie.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "desertsmoothie.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatdesertsmoothie.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "desertsmoothie.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJt4n27hD1yoAR_RPL3sKGO0E",
+   "types": [
+    "pizza_restaurant",
+    "pizza_delivery",
+    "meal_delivery",
+    "food_delivery",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 216-7081",
+   "formattedAddress": "545 N Main St Unit 6, Leeds, UT 84746, USA",
+   "location": {
+    "latitude": 37.2432975,
+    "longitude": -113.3532638
+   },
+   "rating": 4.9,
+   "googleMapsUri": "https://maps.google.com/?cid=4700498807610872829&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.toasttab.com/mainly-pizza",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 527,
+   "displayName": {
+    "text": "Mainly Pizza",
+    "languageCode": "en"
+   },
+   "primaryType": "pizza_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "ordering-only",
+    "stack": [
+     "Toast"
+    ]
+   },
+   "badness": 90,
+   "lead_score": 73,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
+   "domains": [
+    {
+     "domain": "mainlypizza.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "mainlypizzaleeds.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "mainlypizza.pizza",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$55"
+    },
+    {
+     "domain": "mainlypizza.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatmainlypizza.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "mainlypizza.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJ5dJQyaLCyoARFwTyS69MxIk",
+   "types": [
+    "coffee_shop",
+    "cafe",
+    "food_store",
+    "store",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-0529",
+   "formattedAddress": "147 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1987358,
+    "longitude": -112.9898068
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=9927143794408555543&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 286,
+   "displayName": {
+    "text": "Perks! Coffee, Espresso, & Smoothies in Zion",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "none",
+    "stack": []
+   },
+   "badness": 100,
+   "lead_score": 69,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "perkscoffee.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "perkscoffeespringdale.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "perkscoffee.coffee",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$32"
+    },
+    {
+     "domain": "perkscoffee.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatperkscoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "perkscoffee.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJr9CnEgDVNIcRW3kyFbEjSz8",
+   "types": [
+    "mexican_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 644-4222",
+   "formattedAddress": "210 S 100 E, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.044419,
+    "longitude": -112.5266065
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=4560778291114572123&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 184,
+   "displayName": {
+    "text": "Los Tapatios Authentic Family Mexican Restaurant",
+    "languageCode": "en"
+   },
+   "primaryType": "mexican_restaurant",
+   "_spot": "Kanab",
+   "site": {
+    "status": "none",
+    "stack": []
+   },
+   "badness": 100,
+   "lead_score": 65,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "lostapatios.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "lostapatioskanab.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "lostapatios.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "lostapatios.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatlostapatios.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "lostapatios.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJY-s0bv3nyoARdOmu_IziBS8",
+   "types": [
+    "breakfast_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-0100",
+   "formattedAddress": "1880 Zion \u2013 Mount Carmel Hwy, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.174912899999995,
+    "longitude": -113.0114372
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=3388363389828786548&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 934,
+   "displayName": {
+    "text": "The Park House",
+    "languageCode": "en"
+   },
+   "primaryType": "breakfast_restaurant",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "none",
+    "stack": [],
+    "maybe": "parkhouse.com"
+   },
+   "badness": 70,
+   "lead_score": 60,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
+   "domains": [
+    {
+     "domain": "parkhouse.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "parkhousespringdale.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "parkhouse.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "parkhouse.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatparkhouse.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "parkhouse.net",
+     "available": false,
+     "code": 200,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJYZnmV1T3yoARC8b3XZje3go",
+   "types": [
+    "japanese_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 922-0631",
+   "formattedAddress": "88 N 3400 W Ste 1, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1704864,
+    "longitude": -113.3648051
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=783308131201959435&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://yokoso-ut.square.site/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 242,
+   "displayName": {
+    "text": "Yokoso Japanese Cuisine",
+    "languageCode": "en"
+   },
+   "primaryType": "japanese_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "free-builder",
+    "stack": [
+     "Square"
+    ]
+   },
+   "badness": 85,
+   "lead_score": 58,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "yokosojapanesecuisine.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "yokosojapanese.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "yokosojapanesehurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "yokosojapanese.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "yokosojapanese.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatyokosojapanese.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJj-kK0FXVNIcRCh_bK46DfFw",
+   "types": [
+    "coffee_shop",
+    "cafe",
+    "food_store",
+    "store",
+    "point_of_interest",
+    "food",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 535-1197",
+   "formattedAddress": "681 E Chinle Dr, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.0421723,
+    "longitude": -112.5139397
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=6664346195245866762&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://instagram.com/taro.coffeebar?igshid=YmMyMTA2M2Y=",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 223,
+   "displayName": {
+    "text": "Taro Coffee Bar",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Kanab",
+   "site": {
+    "status": "social",
+    "stack": [],
+    "maybe": "tarocoffeebar.com"
+   },
+   "badness": 70,
+   "lead_score": 48,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "tarocoffeebar.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "tarocoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "tarocoffeekanab.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "tarocoffee.coffee",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$32"
+    },
+    {
+     "domain": "tarocoffee.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eattarocoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJD6uWJob3yoARweVT_pgNRuY",
+   "types": [
+    "coffee_shop",
+    "cafe",
+    "food_store",
+    "food",
+    "point_of_interest",
+    "store",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 817-9933",
+   "formattedAddress": "1120 W State St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1767851,
+    "longitude": -113.3096838
+   },
+   "rating": 4.9,
+   "googleMapsUri": "https://maps.google.com/?cid=16592964827846272449&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://roamingroastcoffee.square.site/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 69,
+   "displayName": {
+    "text": "Roaming Roast Coffee",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "free-builder",
+    "stack": [
+     "Square"
+    ]
+   },
+   "badness": 85,
+   "lead_score": 47,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "roamingroastcoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "roamingroast.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "roamingroasthurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "roamingroast.coffee",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$32"
+    },
+    {
+     "domain": "roamingroast.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatroamingroast.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJ____4-TzyoAR71Cqb7obWMg",
+   "types": [
+    "ice_cream_shop",
+    "hawaiian_restaurant",
+    "dessert_shop",
+    "american_restaurant",
+    "confectionery",
+    "food_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 360-6377",
+   "formattedAddress": "117 W State St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.176376999999995,
+    "longitude": -113.290561
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=14436319093087424751&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "businessStatus": "OPERATIONAL",
+   "userRatingCount": 143,
+   "displayName": {
+    "text": "The Big Chill",
+    "languageCode": "en"
+   },
+   "primaryType": "ice_cream_shop",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "none",
+    "stack": [],
+    "maybe": "bigchill.com"
+   },
+   "badness": 70,
+   "lead_score": 41,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "bigchill.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchillhurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchill.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "bigchill.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatbigchill.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchill.net",
+     "available": false,
+     "code": 200,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJyfP3ViH1yoARidZO6dhOWao",
+   "types": [
+    "mexican_restaurant",
+    "latin_american_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 703-6204",
+   "formattedAddress": "545 N Main St #9, Leeds, UT 84746, USA",
+   "location": {
+    "latitude": 37.2434163,
+    "longitude": -113.353073
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=12274928952909158025&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.casatequilana.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 715,
+   "displayName": {
+    "text": "Casa Tequilana Mexican Cuisine",
+    "languageCode": "en"
+   },
+   "primaryType": "mexican_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Google Tag Manager",
+     "Google Analytics"
+    ],
+    "final_url": "http://www.casatequilana.com/",
+    "performance": 64,
+    "seo": 92,
+    "accessibility": 90,
+    "best_practices": 78,
+    "viewport_ok": false,
+    "https": false
+   },
+   "badness": 51,
+   "lead_score": 41,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
+   "domains": [
+    {
+     "domain": "casatequilanaleeds.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "casatequilana.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "casatequilana.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatcasatequilana.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "casatequilana.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJRSctix7uyoARe5SWXdzjkas",
+   "types": [
+    "brunch_restaurant",
+    "book_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 635-0551",
+   "formattedAddress": "2 E, 2 UT-9, Virgin, UT 84779, USA",
+   "location": {
+    "latitude": 37.2037899,
+    "longitude": -113.18862379999999
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=12362912987711181947&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.facebook.com/virgingoodsbooks/",
+   "businessStatus": "OPERATIONAL",
+   "userRatingCount": 60,
+   "displayName": {
+    "text": "Virgin Goods Cafe",
+    "languageCode": "en"
+   },
+   "primaryType": "brunch_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "social",
+    "stack": [],
+    "maybe": "virgingoodscafe.com"
+   },
+   "badness": 70,
+   "lead_score": 36,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "virgingoodscafe.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoods.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoodszion.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoods.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "virgingoods.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatvirgingoods.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJ12QMdx7UNIcRc0r81_5r0PM",
+   "types": [
+    "american_restaurant",
+    "dessert_restaurant",
+    "cafe",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 644-2848",
+   "formattedAddress": "On Highway 89, across from the Holiday Inn, 198 S 100 E, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.0449219,
+    "longitude": -112.52671819999999
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=17568660888661805683&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.wildthymekanab.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 2983,
+   "displayName": {
+    "text": "Wild Thyme Bistro",
+    "languageCode": "en"
+   },
+   "primaryType": "american_restaurant",
+   "_spot": "Kanab",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://wildthymekanab.com/",
+    "performance": 42,
+    "seo": 92,
+    "accessibility": 87,
+    "best_practices": 81,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 40,
+   "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
+   "domains": [
+    {
+     "domain": "wildthymebistro.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "wildthyme.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "wildthyme.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "wildthyme.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatwildthyme.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "wildthyme.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJcZ7U56fCyoARcI5EosJJH1s",
+   "types": [
+    "cafe",
+    "coffee_shop",
+    "bakery",
+    "food_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 669-8849",
+   "formattedAddress": "932 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1889901,
+    "longitude": -112.99995609999999
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=6566047882024357488&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.deepcreekcoffee.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 1561,
+   "displayName": {
+    "text": "Deep Creek Coffee Company",
+    "languageCode": "en"
+   },
+   "primaryType": "cafe",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Weebly"
+    ],
+    "final_url": "https://www.deepcreekcoffee.com/",
+    "performance": 40,
+    "seo": 92,
+    "accessibility": 94,
+    "best_practices": 78,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 40,
+   "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
+   "domains": [
+    {
+     "domain": "deepcreekcoffeecompany.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "deepcreek.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "deepcreekspringdale.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "deepcreek.cafe",
+     "available": false,
+     "code": 403,
+     "price": "~$6/yr then ~$35"
+    },
+    {
+     "domain": "deepcreek.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatdeepcreek.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  }
+ ],
+ "all": [
+  {
+   "id": "ChIJAw1Ve1DxyoARAUOmpTh3PQQ",
+   "types": [
+    "restaurant",
+    "breakfast_restaurant",
+    "hamburger_restaurant",
+    "pizza_restaurant",
+    "coffee_shop",
+    "cafe",
+    "american_restaurant",
+    "food_store",
+    "store",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 635-7625",
+   "formattedAddress": "394 S State St, La Verkin, UT 84745, USA",
+   "location": {
+    "latitude": 37.1945238,
+    "longitude": -113.27600199999999
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=305531434912072449&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.riverrockroasters.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 6786,
+   "displayName": {
+    "text": "River Rock Roasting Company",
+    "languageCode": "en"
+   },
+   "primaryType": "restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Shopify"
+    ],
+    "final_url": "https://riverrockroasters.com/",
+    "performance": 72,
+    "seo": 77,
+    "accessibility": 79,
+    "best_practices": 78,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 34,
+   "lead_score": 33,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
+  },
+  {
+   "id": "ChIJq6qqqtrAyoAR0A1o2G5rlQk",
+   "types": [
+    "cafe",
+    "wine_bar",
+    "beer_garden",
+    "breakfast_restaurant",
+    "hamburger_restaurant",
+    "brunch_restaurant",
+    "bar",
+    "french_restaurant",
+    "fine_dining_restaurant",
+    "american_restaurant",
+    "european_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-0114",
+   "formattedAddress": "975 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.18842,
+    "longitude": -113.000073
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=690576241692511696&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.memescafezion.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 4207,
+   "displayName": {
+    "text": "MeMe's Caf\u00e9",
+    "languageCode": "en"
+   },
+   "primaryType": "cafe",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "GoDaddy",
+     "Google Tag Manager",
+     "Google Analytics"
+    ],
+    "final_url": "https://memescafezion.com/",
+    "performance": 88,
+    "seo": 83,
+    "accessibility": 88,
+    "best_practices": 74,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 25,
+   "lead_score": 23,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
+  },
+  {
+   "id": "ChIJJ6fqVcHDyoARyFZkN-K1soU",
+   "types": [
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-3232",
+   "formattedAddress": "948 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.189006,
+    "longitude": -113.00027519999999
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=9633962536095471304&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://oscarscafe.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 3802,
+   "displayName": {
+    "text": "Oscar's Cafe",
+    "languageCode": "en"
+   },
+   "primaryType": "restaurant",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Google Tag Manager",
+     "Google Analytics"
+    ],
+    "final_url": "https://oscarscafe.com/",
+    "performance": 81,
+    "seo": 100,
+    "accessibility": 87,
+    "best_practices": 81,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 22,
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
+  },
+  {
+   "id": "ChIJywmCtBjUNIcR7pfwdv0AgPQ",
+   "types": [
+    "american_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 644-8001",
+   "formattedAddress": "97 W Center St, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.047961,
+    "longitude": -112.5304987
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=17618082830895585262&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.rockingvcafe.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 3081,
+   "displayName": {
+    "text": "Rocking V Cafe",
+    "languageCode": "en"
+   },
+   "primaryType": "american_restaurant",
+   "_spot": "Kanab",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://rockingvcafe.com/",
+    "performance": 64,
+    "seo": 92,
+    "accessibility": 83,
+    "best_practices": 78,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 32,
+   "lead_score": 29,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
+  },
+  {
+   "id": "ChIJ3cBdWwLoyoAR4LBAcXDJRMA",
+   "types": [
+    "southwestern_us_restaurant",
+    "bar",
+    "american_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-3498",
+   "formattedAddress": "1212 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1846801,
+    "longitude": -113.0031077
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=13854419838472073440&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://bitandspur.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 2989,
+   "displayName": {
+    "text": "Bit & Spur Restaurant & Saloon",
+    "languageCode": "en"
+   },
+   "primaryType": "southwestern_us_restaurant",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Squarespace"
+    ],
+    "final_url": "https://www.bitandspur.com/",
+    "performance": 51,
+    "seo": 92,
+    "accessibility": 98,
+    "best_practices": 81,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 35,
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
+  },
+  {
+   "id": "ChIJ12QMdx7UNIcRc0r81_5r0PM",
+   "types": [
+    "american_restaurant",
+    "dessert_restaurant",
+    "cafe",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 644-2848",
+   "formattedAddress": "On Highway 89, across from the Holiday Inn, 198 S 100 E, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.0449219,
+    "longitude": -112.52671819999999
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=17568660888661805683&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.wildthymekanab.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 2983,
+   "displayName": {
+    "text": "Wild Thyme Bistro",
+    "languageCode": "en"
+   },
+   "primaryType": "american_restaurant",
+   "_spot": "Kanab",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://wildthymekanab.com/",
+    "performance": 42,
+    "seo": 92,
+    "accessibility": 87,
+    "best_practices": 81,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 40,
+   "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
+   "domains": [
+    {
+     "domain": "wildthymebistro.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "wildthyme.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "wildthyme.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "wildthyme.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatwildthyme.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "wildthyme.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJc817XKbWNIcRN8fsYlONOTw",
+   "types": [
+    "mexican_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 644-3739",
+   "formattedAddress": "373 E 300 S, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.0432548,
+    "longitude": -112.52038569999999
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=4339655105229670199&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://escobarskanab.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 2974,
+   "displayName": {
+    "text": "Escobar's Mexican Restaurant",
+    "languageCode": "en"
+   },
+   "primaryType": "mexican_restaurant",
+   "_spot": "Kanab",
+   "site": {
+    "status": "site",
+    "stack": [],
+    "final_url": "https://escobarskanab.com/",
+    "performance": 100,
+    "seo": 82,
+    "accessibility": 73,
+    "best_practices": 96,
+    "viewport_ok": false,
+    "https": true
+   },
+   "badness": 30,
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
+  },
+  {
+   "id": "ChIJHwg_p8z2yoAR2szC7U4fOfw",
+   "types": [
+    "cafe",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 635-9080",
+   "formattedAddress": "138 Main St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.174395,
+    "longitude": -113.2882764
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=18174592195087224026&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.mainstreetcafehurricane.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 2927,
+   "displayName": {
+    "text": "Main Street Caf\u00e9",
+    "languageCode": "en"
+   },
+   "primaryType": "cafe",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Squarespace"
+    ],
+    "final_url": "https://www.mainstreetcafehurricane.com/",
+    "performance": 54,
+    "seo": 92,
+    "accessibility": 98,
+    "best_practices": 81,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 33,
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
+  },
+  {
+   "id": "ChIJibKIM7bDyoAR_8gRs96-NTY",
+   "types": [
+    "coffee_shop",
+    "cafe",
+    "food_store",
+    "store",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 216-0711",
+   "formattedAddress": "358 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.196377,
+    "longitude": -112.9928891
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=3906238115510077695&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.canyoncoffeezion.online/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 2229,
+   "displayName": {
+    "text": "Canyon Coffee",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Wix"
+    ],
+    "final_url": "https://www.canyoncoffeezion.online/",
+    "performance": 72,
+    "seo": 92,
+    "accessibility": 100,
+    "best_practices": 73,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 17,
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
+  },
+  {
+   "id": "ChIJl51hC6TCyoARwVc3yzDnnaU",
+   "types": [
+    "american_restaurant",
+    "bar",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-3244",
+   "formattedAddress": "428 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1946955,
+    "longitude": -112.9932393
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=11933948784355530689&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://flanigans.com/dine/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 2001,
+   "displayName": {
+    "text": "Spotted Dog",
+    "languageCode": "en"
+   },
+   "primaryType": "american_restaurant",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://flanigans.com/dine/",
+    "performance": 48,
+    "seo": 100,
+    "accessibility": 88,
+    "best_practices": 100,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 22,
+   "lead_score": 20,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
+  },
+  {
+   "id": "ChIJNYZ2uCPzyoARqHtdnlSZp-A",
+   "types": [
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 200-3508",
+   "formattedAddress": "150 N State St, La Verkin, UT 84745, USA",
+   "location": {
+    "latitude": 37.204301199999996,
+    "longitude": -113.2716871
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=16188075974319766440&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://redfortcuisine.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 1675,
+   "displayName": {
+    "text": "Red Fort",
+    "languageCode": "en"
+   },
+   "primaryType": "restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Google Tag Manager",
+     "Google Analytics"
+    ],
+    "final_url": "https://redfortcuisine.com/",
+    "performance": 70,
+    "seo": 92,
+    "accessibility": 100,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 15,
+   "lead_score": 14,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
+  },
+  {
+   "id": "ChIJHT0QDH3pyoARY61fqnOpZOY",
+   "types": [
+    "coffee_shop",
+    "pastry_shop",
+    "breakfast_restaurant",
+    "vegan_restaurant",
+    "vegetarian_restaurant",
+    "tea_house",
+    "brunch_restaurant",
+    "cafe",
+    "dessert_shop",
+    "bakery",
+    "confectionery",
+    "food_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-5980",
+   "formattedAddress": "1101 Zion Park Blvd Ste A, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.186345599999996,
+    "longitude": -113.00161910000001
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=16601580440639221091&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://feellovecoffee.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 1670,
+   "displayName": {
+    "text": "FeelLove Coffee - Zion",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://feellovecoffee.com/",
+    "performance": 74,
+    "seo": 100,
+    "accessibility": 83,
+    "best_practices": 78,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 26,
+   "lead_score": 23,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
+  },
+  {
+   "id": "ChIJcZ7U56fCyoARcI5EosJJH1s",
+   "types": [
+    "cafe",
+    "coffee_shop",
+    "bakery",
+    "food_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 669-8849",
+   "formattedAddress": "932 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1889901,
+    "longitude": -112.99995609999999
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=6566047882024357488&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.deepcreekcoffee.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 1561,
+   "displayName": {
+    "text": "Deep Creek Coffee Company",
+    "languageCode": "en"
+   },
+   "primaryType": "cafe",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Weebly"
+    ],
+    "final_url": "https://www.deepcreekcoffee.com/",
+    "performance": 40,
+    "seo": 92,
+    "accessibility": 94,
+    "best_practices": 78,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 40,
+   "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
+   "domains": [
+    {
+     "domain": "deepcreekcoffeecompany.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "deepcreek.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "deepcreekspringdale.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "deepcreek.cafe",
+     "available": false,
+     "code": 403,
+     "price": "~$6/yr then ~$35"
+    },
+    {
+     "domain": "deepcreek.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatdeepcreek.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJ7ULebdHxyoARogapl-Lpz1k",
+   "types": [
+    "american_restaurant",
+    "cocktail_bar",
+    "bar_and_grill",
+    "barbecue_restaurant",
+    "southwestern_us_restaurant",
+    "bar",
+    "live_music_venue",
+    "fine_dining_restaurant",
+    "event_venue",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 635-7141",
+   "formattedAddress": "770 UT-9, Virgin, UT 84779, USA",
+   "location": {
+    "latitude": 37.2047271,
+    "longitude": -113.2014969
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=6471648348971009698&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://balconyonevirgin.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 1530,
+   "displayName": {
+    "text": "Balcony One",
+    "languageCode": "en"
+   },
+   "primaryType": "american_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Squarespace"
+    ],
+    "final_url": "https://www.balconyonevirgin.com/",
+    "performance": 57,
+    "seo": 100,
+    "accessibility": 90,
+    "best_practices": 100,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 18,
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
+  },
+  {
+   "id": "ChIJvXprpXP3yoARBiv-K5FzgkA",
+   "types": [
+    "american_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 359-1957",
+   "formattedAddress": "75 2000 W, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1774753,
+    "longitude": -113.3259698
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=4648404832745302790&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.pigsearamericanbistro.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 1163,
+   "displayName": {
+    "text": "Pig's Ear American Bistro",
+    "languageCode": "en"
+   },
+   "primaryType": "american_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "BentoBox"
+    ],
+    "final_url": "https://www.pigsearamericanbistro.com/",
+    "performance": 68,
+    "seo": 92,
+    "accessibility": 100,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 15,
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJlw4WpR_UNIcRs-fWvwnqTj4",
+   "types": [
+    "motel",
+    "pizza_restaurant",
+    "hotel",
+    "lodging",
+    "restaurant",
+    "point_of_interest",
+    "food",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 644-2601",
+   "formattedAddress": "89 E Center St, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.0482103,
+    "longitude": -112.5270718
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=4489783206129100723&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://parrylodge.com/",
+   "businessStatus": "OPERATIONAL",
+   "userRatingCount": 1132,
+   "displayName": {
+    "text": "Parry Lodge",
+    "languageCode": "en"
+   },
+   "primaryType": "motel",
+   "_spot": "Kanab",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://parrylodge.com/",
+    "performance": 26,
+    "seo": 92,
+    "accessibility": 80,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 35,
+   "lead_score": 29,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJD_APMA5FyoARrk0f7mabguU",
+   "types": [
+    "cuban_restaurant",
+    "ice_cream_shop",
+    "dessert_shop",
+    "american_restaurant",
+    "confectionery",
+    "food_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 879-9605",
+   "formattedAddress": "310 S 100 E #1, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.0425369,
+    "longitude": -112.5266554
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=16537951648041881006&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://lahavanacabana.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 1090,
+   "displayName": {
+    "text": "Havana Cabana the Taste of Cuba",
+    "languageCode": "en"
+   },
+   "primaryType": "cuban_restaurant",
+   "_spot": "Kanab",
+   "site": {
+    "status": "site",
+    "stack": [
+     "GoDaddy"
+    ],
+    "final_url": "https://lahavanacabana.com/",
+    "performance": 96,
+    "seo": 83,
+    "accessibility": 80,
+    "best_practices": 78,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 22,
+   "lead_score": 19,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJJUHidvTDyoARg7POlrGRs-M",
+   "types": [
+    "restaurant",
+    "fast_food_restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 288-2212",
+   "formattedAddress": "358 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1963684,
+    "longitude": -112.9928889
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=16407618059366216579&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://hangrygoat.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 1066,
+   "displayName": {
+    "text": "Hangry Goat",
+    "languageCode": "en"
+   },
+   "primaryType": "restaurant",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "BentoBox"
+    ],
+    "final_url": "https://www.hangrygoat.com/",
+    "performance": 37,
+    "seo": 100,
+    "accessibility": 99,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 25,
+   "lead_score": 21,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJj0FQPSPUNIcRIc002R9n3tM",
+   "types": [
+    "american_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 644-5680",
+   "formattedAddress": "190 N 300 W, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.0513389,
+    "longitude": -112.5347912
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=15266753173318323489&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.segokanab.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 1006,
+   "displayName": {
+    "text": "Sego Restaurant",
+    "languageCode": "en"
+   },
+   "primaryType": "american_restaurant",
+   "_spot": "Kanab",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Tock",
+     "Squarespace"
+    ],
+    "final_url": "http://www.segokanab.com/",
+    "performance": 45,
+    "seo": 100,
+    "accessibility": 91,
+    "best_practices": 74,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 37,
+   "lead_score": 32,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJZQTzJgHoyoARPPiIw4lFM1Q",
+   "types": [
+    "american_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-7422",
+   "formattedAddress": "1515 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1801873,
+    "longitude": -113.00600949999999
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=6067269580991559740&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.kingslandingbistro.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+   "userRatingCount": 999,
+   "displayName": {
+    "text": "King's Landing Bistro",
+    "languageCode": "en"
+   },
+   "primaryType": "american_restaurant",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://kingslandingbistro.com/",
+    "performance": 56,
+    "seo": 92,
+    "accessibility": 89,
+    "best_practices": 78,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 34,
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
+  },
+  {
+   "id": "ChIJ31B7aADnyoAR-IpdJEJ7yIg",
+   "types": [
+    "american_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-9311",
+   "formattedAddress": "2501 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1621345,
+    "longitude": -113.0174479
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=9856263308508498680&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://wildthymespringdale.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 958,
+   "displayName": {
+    "text": "Wild Thyme Bistro at Trees Ranch",
+    "languageCode": "en"
+   },
+   "primaryType": "american_restaurant",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://wildthymespringdale.com/",
+    "performance": 45,
+    "seo": 92,
+    "accessibility": 87,
+    "best_practices": 81,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 39,
+   "lead_score": 32,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJqyLGHbTzyoARhyZCzzhLZg8",
+   "types": [
+    "mexican_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 246-4619",
+   "formattedAddress": "279 N State St, La Verkin, UT 84745, USA",
+   "location": {
+    "latitude": 37.2067887,
+    "longitude": -113.2724073
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=1109657065560876679&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://elranchout.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 950,
+   "displayName": {
+    "text": "El Rancho | Mexican Restaurant",
+    "languageCode": "en"
+   },
+   "primaryType": "mexican_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [],
+    "final_url": "https://elranchout.com/",
+    "performance": 59,
+    "seo": 100,
+    "accessibility": 100,
+    "best_practices": 100,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 16,
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJY-s0bv3nyoARdOmu_IziBS8",
+   "types": [
+    "breakfast_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-0100",
+   "formattedAddress": "1880 Zion \u2013 Mount Carmel Hwy, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.174912899999995,
+    "longitude": -113.0114372
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=3388363389828786548&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 934,
+   "displayName": {
+    "text": "The Park House",
+    "languageCode": "en"
+   },
+   "primaryType": "breakfast_restaurant",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "none",
+    "stack": [],
+    "maybe": "parkhouse.com"
+   },
+   "badness": 70,
+   "lead_score": 60,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
+   "domains": [
+    {
+     "domain": "parkhouse.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "parkhousespringdale.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "parkhouse.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "parkhouse.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatparkhouse.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "parkhouse.net",
+     "available": false,
+     "code": 200,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJDz3jjI73yoARFKrDRwb-5J0",
+   "types": [
+    "fast_food_restaurant",
+    "hamburger_restaurant",
+    "diner",
+    "sandwich_shop",
+    "american_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 216-7988",
+   "formattedAddress": "112 W State St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1768855,
+    "longitude": -113.2902884
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=11377497861571979796&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.facebook.com/crosscountrydiner/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 849,
+   "displayName": {
+    "text": "Cross Country Diner",
+    "languageCode": "en"
+   },
+   "primaryType": "fast_food_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "social",
+    "stack": []
+   },
+   "badness": 95,
+   "lead_score": 81,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "crosscountrydiner.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "crosscountry.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "crosscountryhurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "crosscountry.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "crosscountry.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatcrosscountry.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJ--RHg8f2yoARbUCNbsTDYWE",
+   "types": [
+    "pizza_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 327-2503",
+   "formattedAddress": "100 W State St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1763754,
+    "longitude": -113.2905881
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=7017104942855700589&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://order.toasttab.com/online/pizza-wagon-119-w-state-street",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 845,
+   "displayName": {
+    "text": "Dixie Pizza Wagon",
+    "languageCode": "en"
+   },
+   "primaryType": "pizza_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "ordering-only",
+    "stack": [
+     "Toast"
+    ]
+   },
+   "badness": 90,
+   "lead_score": 75,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
+   "domains": [
+    {
+     "domain": "dixiepizzawagon.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "dixiepizza.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "dixiepizzahurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "dixiepizza.pizza",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$55"
+    },
+    {
+     "domain": "dixiepizza.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatdixiepizza.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJ1V-Uhr_2yoAR68945UMBzh0",
+   "types": [
+    "family_restaurant",
+    "cafe",
+    "american_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 635-9014",
+   "formattedAddress": "1141 W State St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1758325,
+    "longitude": -113.30808689999999
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=2147655463426641899&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://tripletjscafe.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 756,
+   "displayName": {
+    "text": "Triple TJ's Caf\u00e9",
+    "languageCode": "en"
+   },
+   "primaryType": "family_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [],
+    "final_url": "http://tripletjscafe.com/",
+    "performance": 93,
+    "seo": 100,
+    "accessibility": 79,
+    "best_practices": 78,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 19,
+   "lead_score": 15,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJyfP3ViH1yoARidZO6dhOWao",
+   "types": [
+    "mexican_restaurant",
+    "latin_american_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 703-6204",
+   "formattedAddress": "545 N Main St #9, Leeds, UT 84746, USA",
+   "location": {
+    "latitude": 37.2434163,
+    "longitude": -113.353073
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=12274928952909158025&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.casatequilana.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 715,
+   "displayName": {
+    "text": "Casa Tequilana Mexican Cuisine",
+    "languageCode": "en"
+   },
+   "primaryType": "mexican_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Google Tag Manager",
+     "Google Analytics"
+    ],
+    "final_url": "http://www.casatequilana.com/",
+    "performance": 64,
+    "seo": 92,
+    "accessibility": 90,
+    "best_practices": 78,
+    "viewport_ok": false,
+    "https": false
+   },
+   "badness": 51,
+   "lead_score": 41,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
+   "domains": [
+    {
+     "domain": "casatequilanaleeds.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "casatequilana.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "casatequilana.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatcasatequilana.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "casatequilana.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJnwm2gpjVNIcRcjbYBFZU6H8",
+   "types": [
+    "sandwich_shop",
+    "ice_cream_shop",
+    "coffee_shop",
+    "cafe",
+    "dessert_shop",
+    "bakery",
+    "confectionery",
+    "food_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 644-2461",
+   "formattedAddress": "42 E Center St, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.0479974,
+    "longitude": -112.52763069999999
+   },
+   "rating": 4.9,
+   "googleMapsUri": "https://maps.google.com/?cid=9216709365838919282&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://brownboxkanab.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 676,
+   "displayName": {
+    "text": "Brown Box Cafe",
+    "languageCode": "en"
+   },
+   "primaryType": "sandwich_shop",
+   "_spot": "Kanab",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Squarespace"
+    ],
+    "final_url": "https://www.brownboxkanab.com/",
+    "performance": 59,
+    "seo": 92,
+    "accessibility": 96,
+    "best_practices": 81,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 32,
+   "lead_score": 27,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJre9-dqTCyoARd5Xy9_AhDwk",
+   "types": [
+    "hotel",
+    "hair_salon",
+    "resort_hotel",
+    "hair_care",
+    "spa",
+    "lodging",
+    "health",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "service",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-3244",
+   "formattedAddress": "450 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1945216,
+    "longitude": -112.993399
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=652777789827749239&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://flanigans.com/",
+   "businessStatus": "OPERATIONAL",
+   "userRatingCount": 620,
+   "displayName": {
+    "text": "Flanigan's Resort and Spa Springdale UT - Hotel Zion National Park",
+    "languageCode": "en"
+   },
+   "primaryType": "hotel",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://flanigans.com/",
+    "performance": 13,
+    "seo": 92,
+    "accessibility": 86,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 39,
+   "lead_score": 31,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJC-hRFuTxyoARzu4TMN-uIKU",
+   "types": [
+    "cafe",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 635-7872",
+   "formattedAddress": "771 UT-9, Virgin, UT 84779, USA",
+   "location": {
+    "latitude": 37.2037927,
+    "longitude": -113.2021122
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=11898702489120403150&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 609,
+   "displayName": {
+    "text": "Buffalo Trails Trading Company",
+    "languageCode": "en"
+   },
+   "primaryType": "cafe",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "none",
+    "stack": []
+   },
+   "badness": 100,
+   "lead_score": 76,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "buffalotrails.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "buffalotrailsvirgin.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "buffalotrails.cafe",
+     "available": false,
+     "code": 403,
+     "price": "~$6/yr then ~$35"
+    },
+    {
+     "domain": "buffalotrails.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatbuffalotrails.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "buffalotrails.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJ15s2KeTzyoARdCIGnrhyrB0",
+   "types": [
+    "coffee_shop",
+    "coffee_stand",
+    "cafe",
+    "food_store",
+    "food",
+    "point_of_interest",
+    "store",
+    "establishment"
+   ],
+   "formattedAddress": "481 N Main St, La Verkin, UT 84745, USA",
+   "location": {
+    "latitude": 37.211140799999995,
+    "longitude": -113.26936110000001
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=2138210060344894068&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://riverrockroasters.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 605,
+   "displayName": {
+    "text": "River Rock Roasting Drive Thru",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Shopify"
+    ],
+    "final_url": "https://riverrockroasters.com/",
+    "performance": 75,
+    "seo": 77,
+    "accessibility": 79,
+    "best_practices": 74,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 33,
+   "lead_score": 26,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJ3UoYHsrVNIcRZFbjdVMF9E4",
+   "types": [
+    "hamburger_restaurant",
+    "american_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "formattedAddress": "PARKING LOT of SAMCO Gas station , right at the junction of Hwy 89, 289 S 100 E, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.0432439,
+    "longitude": -112.52537439999999
+   },
+   "rating": 4.9,
+   "googleMapsUri": "https://maps.google.com/?cid=5689178085294036580&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.onlyinkanab.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 605,
+   "displayName": {
+    "text": "Only In Kanab",
+    "languageCode": "en"
+   },
+   "primaryType": "hamburger_restaurant",
+   "_spot": "Kanab",
+   "site": {
+    "status": "site",
+    "stack": [],
+    "final_url": "http://www.onlyinkanab.com/",
+    "performance": 75,
+    "seo": 100,
+    "accessibility": 71,
+    "best_practices": 78,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 27,
+   "lead_score": 22,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJqRQbI6BYyoARCsDzXzIhu5g",
+   "types": [
+    "performing_arts_theater",
+    "event_venue",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 705-8598",
+   "formattedAddress": "505 Hope Circle, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1605701,
+    "longitude": -113.3839718
+   },
+   "rating": 4.9,
+   "googleMapsUri": "https://maps.google.com/?cid=11005426614651830282&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.rattlindplayhouse.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 552,
+   "displayName": {
+    "text": "Rattlin' D Playhouse",
+    "languageCode": "en"
+   },
+   "primaryType": "performing_arts_theater",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Wix"
+    ],
+    "final_url": "https://www.rattlindplayhouse.com/",
+    "performance": 85,
+    "seo": 100,
+    "accessibility": 93,
+    "best_practices": 81,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 19,
+   "lead_score": 15,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJ6zFQejHpyoAR6lMg9OJXPg4",
+   "types": [
+    "bar",
+    "cocktail_bar",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-5794",
+   "formattedAddress": "1101 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1862998,
+    "longitude": -113.0015154
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=1026354397357036522&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://cowboysandangelszion.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 540,
+   "displayName": {
+    "text": "Cowboys & Angels Speakeasy Cocktail Parlor",
+    "languageCode": "en"
+   },
+   "primaryType": "bar",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Google Tag Manager"
+    ],
+    "final_url": "https://www.cowboysandangelszion.com/",
+    "performance": 53,
+    "seo": 100,
+    "accessibility": 91,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 20,
+   "lead_score": 15,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJsWc3f2lZyoARA65RmrtGeLI",
+   "types": [
+    "italian_restaurant",
+    "sports_bar",
+    "cocktail_bar",
+    "steak_house",
+    "family_restaurant",
+    "seafood_restaurant",
+    "bar",
+    "european_restaurant",
+    "meal_takeaway",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 352-6955",
+   "formattedAddress": "4059 Jellystone Rd, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1587107,
+    "longitude": -113.3827458
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=12860106507518324227&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://touchoftuscanyutah.com/?utm_source=google%20business%20profile&utm_medium=search&utm_campaign=google%20profile",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 535,
+   "displayName": {
+    "text": "Touch of Tuscany | Italian Steakhouse & Bar",
+    "languageCode": "en"
+   },
+   "primaryType": "italian_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [],
+    "final_url": "https://touchoftuscanyutah.com/?utm_source=google%20business%20profile&utm_medium=search&utm_campaign=google%20profile",
+    "performance": 78,
+    "seo": 100,
+    "accessibility": 92,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 10,
+   "lead_score": 8,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJt4n27hD1yoAR_RPL3sKGO0E",
+   "types": [
+    "pizza_restaurant",
+    "pizza_delivery",
+    "meal_delivery",
+    "food_delivery",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 216-7081",
+   "formattedAddress": "545 N Main St Unit 6, Leeds, UT 84746, USA",
+   "location": {
+    "latitude": 37.2432975,
+    "longitude": -113.3532638
+   },
+   "rating": 4.9,
+   "googleMapsUri": "https://maps.google.com/?cid=4700498807610872829&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.toasttab.com/mainly-pizza",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 527,
+   "displayName": {
+    "text": "Mainly Pizza",
+    "languageCode": "en"
+   },
+   "primaryType": "pizza_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "ordering-only",
+    "stack": [
+     "Toast"
+    ]
+   },
+   "badness": 90,
+   "lead_score": 73,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
+   "domains": [
+    {
+     "domain": "mainlypizza.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "mainlypizzaleeds.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "mainlypizza.pizza",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$55"
+    },
+    {
+     "domain": "mainlypizza.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatmainlypizza.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "mainlypizza.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJ7T6IEsj2yoARv8knQNrQhlY",
+   "types": [
+    "bakery",
+    "cake_shop",
+    "sandwich_shop",
+    "coffee_shop",
+    "cafe",
+    "manufacturer",
+    "food_store",
+    "wholesaler",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "service",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 467-4898",
+   "formattedAddress": "525 W State St #7, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.175637699999996,
+    "longitude": -113.2983957
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=6234900369938827711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.muddybeesbakery.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 462,
+   "displayName": {
+    "text": "Muddy Bees Bakery",
+    "languageCode": "en"
+   },
+   "primaryType": "bakery",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager",
+     "Google Analytics"
+    ],
+    "final_url": "https://www.muddybeesbakery.com/",
+    "performance": 55,
+    "seo": 100,
+    "accessibility": 87,
+    "best_practices": 78,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 33,
+   "lead_score": 26,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJcQJNNUjnyoARyahIaa8hezM",
+   "types": [
+    "restaurant",
+    "lounge_bar",
+    "bar",
+    "event_venue",
+    "night_club",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 900-3321",
+   "formattedAddress": "2400 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.167665,
+    "longitude": -113.01432299999999
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=3709595755339098313&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.anuzion.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 413,
+   "displayName": {
+    "text": "A\u00f1u Restaurant",
+    "languageCode": "en"
+   },
+   "primaryType": "restaurant",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Tock",
+     "Squarespace"
+    ],
+    "final_url": "https://www.anuzion.com/",
+    "performance": 35,
+    "seo": 100,
+    "accessibility": 99,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 26,
+   "lead_score": 19,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJ_z1tmAooFyUR5z_-yy2uNnY",
+   "types": [
+    "vegan_restaurant",
+    "vegetarian_restaurant",
+    "restaurant",
+    "point_of_interest",
+    "food",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(865) 438-3387",
+   "formattedAddress": "771 UT-9, Virgin, UT 84779, USA",
+   "location": {
+    "latitude": 37.2042009,
+    "longitude": -113.2018813
+   },
+   "rating": 5,
+   "googleMapsUri": "https://maps.google.com/?cid=8518187256937070567&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://instagram.com/desertsmoothie?igshid=OGQ5ZDc2ODk2ZA==",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 377,
+   "displayName": {
+    "text": "Desert Smoothie",
+    "languageCode": "en"
+   },
+   "primaryType": "vegan_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "social",
+    "stack": []
+   },
+   "badness": 95,
+   "lead_score": 74,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "desertsmoothie.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "desertsmoothievirgin.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "desertsmoothie.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "desertsmoothie.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatdesertsmoothie.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "desertsmoothie.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJ26R1XgD3yoARxwe6eMFMXEA",
+   "types": [
+    "bakery",
+    "pastry_shop",
+    "catering_service",
+    "donut_shop",
+    "breakfast_restaurant",
+    "sandwich_shop",
+    "coffee_shop",
+    "cafe",
+    "dessert_shop",
+    "food_delivery",
+    "confectionery",
+    "food_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "service",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 233-6662",
+   "formattedAddress": "11 Main St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1759407,
+    "longitude": -113.2878875
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=4637666110122624967&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://bonruebakery.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 361,
+   "displayName": {
+    "text": "Bonrue Bakery formerly Farmstead",
+    "languageCode": "en"
+   },
+   "primaryType": "bakery",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://bonruebakery.com/",
+    "performance": 38,
+    "seo": 92,
+    "accessibility": 84,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 30,
+   "lead_score": 22,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJafhum7_2yoARU5xC5CoE5b0",
+   "types": [
+    "coffee_shop",
+    "cafe",
+    "food_store",
+    "store",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 669-7230",
+   "formattedAddress": "1065 W State St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.176001299999996,
+    "longitude": -113.30792459999999
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=13683347625099828307&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://utahcoffee.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 327,
+   "displayName": {
+    "text": "Perks! Coffee, Espresso, & Smoothies",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager",
+     "Google Analytics"
+    ],
+    "final_url": "https://utahcoffee.com/",
+    "performance": 71,
+    "seo": 100,
+    "accessibility": 87,
+    "best_practices": 81,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 26,
+   "lead_score": 18,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJsUZPQADxyoAROw0PqY9cAuE",
+   "types": [
+    "chinese_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 292-1129",
+   "formattedAddress": "306 E 500 N, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1840799,
+    "longitude": -113.2825258
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=16213623380573621563&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.yukitchenhurricane.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 318,
+   "displayName": {
+    "text": "Yu Kitchen",
+    "languageCode": "en"
+   },
+   "primaryType": "chinese_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager",
+     "Google Analytics"
+    ],
+    "final_url": "https://www.yukitchenhurricane.com/",
+    "performance": 59,
+    "seo": 92,
+    "accessibility": 100,
+    "best_practices": 100,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 18,
+   "lead_score": 13,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJK6TddMj2yoARuNhO-eNnfwg",
+   "types": [
+    "pizza_restaurant",
+    "family_restaurant",
+    "vegetarian_restaurant",
+    "italian_restaurant",
+    "european_restaurant",
+    "meal_takeaway",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 635-7272",
+   "formattedAddress": "535 W State St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1762519,
+    "longitude": -113.2987278
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=612322303183607992&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://locations.papamurphys.com/ut/hurricane/535-west-state-street?utm_source=organic&utm_medium=gmb&utm_campaign=yext&y_source=1_MTU0MzA2MDktNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 314,
+   "displayName": {
+    "text": "Papa Murphy's | Take 'N' Bake Pizza",
+    "languageCode": "en"
+   },
+   "primaryType": "pizza_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Google Tag Manager"
+    ],
+    "final_url": "https://locations.papamurphys.com/ut/hurricane/535-west-state-street?utm_source=organic&utm_medium=gmb&utm_campaign=yext&y_source=1_MTU0MzA2MDktNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+    "performance": 35,
+    "seo": 92,
+    "accessibility": 88,
+    "best_practices": 69,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 34,
+   "lead_score": 24,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJ-yzBUwDSNIcRqQUlxsM28M4",
+   "types": [
+    "bar",
+    "liquor_store",
+    "restaurant",
+    "store",
+    "point_of_interest",
+    "food",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(928) 643-7094",
+   "formattedAddress": "2321 N Main St, Fredonia, AZ 86022, USA",
+   "location": {
+    "latitude": 36.988809499999995,
+    "longitude": -112.5308017
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=14911478580694549929&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.thebuckskintavern.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 296,
+   "displayName": {
+    "text": "Buckskin Tavern",
+    "languageCode": "en"
+   },
+   "primaryType": "bar",
+   "_spot": "Kanab",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Squarespace"
+    ],
+    "final_url": "https://www.thebuckskintavern.com/",
+    "performance": 59,
+    "seo": 92,
+    "accessibility": 98,
+    "best_practices": 100,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 19,
+   "lead_score": 13,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJ5dJQyaLCyoARFwTyS69MxIk",
+   "types": [
+    "coffee_shop",
+    "cafe",
+    "food_store",
+    "store",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-0529",
+   "formattedAddress": "147 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1987358,
+    "longitude": -112.9898068
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=9927143794408555543&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 286,
+   "displayName": {
+    "text": "Perks! Coffee, Espresso, & Smoothies in Zion",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "none",
+    "stack": []
+   },
+   "badness": 100,
+   "lead_score": 69,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "perkscoffee.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "perkscoffeespringdale.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "perkscoffee.coffee",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$32"
+    },
+    {
+     "domain": "perkscoffee.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatperkscoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "perkscoffee.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJYZnmV1T3yoARC8b3XZje3go",
+   "types": [
+    "japanese_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 922-0631",
+   "formattedAddress": "88 N 3400 W Ste 1, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1704864,
+    "longitude": -113.3648051
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=783308131201959435&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://yokoso-ut.square.site/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 242,
+   "displayName": {
+    "text": "Yokoso Japanese Cuisine",
+    "languageCode": "en"
+   },
+   "primaryType": "japanese_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "free-builder",
+    "stack": [
+     "Square"
+    ]
+   },
+   "badness": 85,
+   "lead_score": 58,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "yokosojapanesecuisine.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "yokosojapanese.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "yokosojapanesehurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "yokosojapanese.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "yokosojapanese.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatyokosojapanese.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJ21iWCeT3yoARvVdftkf8heg",
+   "types": [
+    "coffee_shop",
+    "breakfast_restaurant",
+    "coffee_stand",
+    "brunch_restaurant",
+    "cafe",
+    "food_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 772-6445",
+   "formattedAddress": "715 W State St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1762668,
+    "longitude": -113.30098
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=16755075373634377661&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://scooterscoffee.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 230,
+   "displayName": {
+    "text": "Scooter's Coffee",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Google Tag Manager"
+    ],
+    "final_url": "https://www.scooterscoffee.com/",
+    "performance": 58,
+    "seo": 92,
+    "accessibility": 85,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 22,
+   "lead_score": 14,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJPcFhkmzDyoARoVDD4io-UYI",
+   "types": [
+    "bakery",
+    "pastry_shop",
+    "catering_service",
+    "donut_shop",
+    "breakfast_restaurant",
+    "dessert_restaurant",
+    "pizza_restaurant",
+    "coffee_shop",
+    "cafe",
+    "dessert_shop",
+    "food_delivery",
+    "confectionery",
+    "food_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "service",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 233-6661",
+   "formattedAddress": "828 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1895352,
+    "longitude": -112.997604
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=9390355051958194337&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://bonruebakery.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 225,
+   "displayName": {
+    "text": "Bonrue Bakery",
+    "languageCode": "en"
+   },
+   "primaryType": "bakery",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://bonruebakery.com/",
+    "performance": 38,
+    "seo": 92,
+    "accessibility": 84,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 30,
+   "lead_score": 20,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJj-kK0FXVNIcRCh_bK46DfFw",
+   "types": [
+    "coffee_shop",
+    "cafe",
+    "food_store",
+    "store",
+    "point_of_interest",
+    "food",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 535-1197",
+   "formattedAddress": "681 E Chinle Dr, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.0421723,
+    "longitude": -112.5139397
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=6664346195245866762&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://instagram.com/taro.coffeebar?igshid=YmMyMTA2M2Y=",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 223,
+   "displayName": {
+    "text": "Taro Coffee Bar",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Kanab",
+   "site": {
+    "status": "social",
+    "stack": [],
+    "maybe": "tarocoffeebar.com"
+   },
+   "badness": 70,
+   "lead_score": 48,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "tarocoffeebar.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "tarocoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "tarocoffeekanab.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "tarocoffee.coffee",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$32"
+    },
+    {
+     "domain": "tarocoffee.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eattarocoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJcbxk3bfVNIcROZMxrj8R9DE",
+   "types": [
+    "juice_shop",
+    "point_of_interest",
+    "food",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 644-2637",
+   "formattedAddress": "176 S 100 E, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.045220199999996,
+    "longitude": -112.5270595
+   },
+   "rating": 4.9,
+   "googleMapsUri": "https://maps.google.com/?cid=3599520967378965305&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://asavajuice.life/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 191,
+   "displayName": {
+    "text": "Asava Juice & Smoothies",
+    "languageCode": "en"
+   },
+   "primaryType": "juice_shop",
+   "_spot": "Kanab",
+   "site": {
+    "status": "site",
+    "stack": [
+     "GoDaddy"
+    ],
+    "final_url": "https://asavajuice.life/",
+    "performance": 86,
+    "seo": 92,
+    "accessibility": 83,
+    "best_practices": 74,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 24,
+   "lead_score": 16,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJr9CnEgDVNIcRW3kyFbEjSz8",
+   "types": [
+    "mexican_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 644-4222",
+   "formattedAddress": "210 S 100 E, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.044419,
+    "longitude": -112.5266065
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=4560778291114572123&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 184,
+   "displayName": {
+    "text": "Los Tapatios Authentic Family Mexican Restaurant",
+    "languageCode": "en"
+   },
+   "primaryType": "mexican_restaurant",
+   "_spot": "Kanab",
+   "site": {
+    "status": "none",
+    "stack": []
+   },
+   "badness": 100,
+   "lead_score": 65,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "lostapatios.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "lostapatioskanab.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "lostapatios.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "lostapatios.menu",
+     "available": false,
+     "code": 403,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatlostapatios.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "lostapatios.net",
+     "available": true,
+     "code": 404,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJf4jBaf_DyoARaZl7VPci43o",
+   "types": [
+    "ice_cream_shop",
+    "dessert_shop",
+    "confectionery",
+    "food_store",
+    "store",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 319-4805",
+   "formattedAddress": "358 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1961606,
+    "longitude": -112.9929846
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=8854959738010179945&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://canyon-creamery.com/",
+   "businessStatus": "OPERATIONAL",
+   "userRatingCount": 181,
+   "displayName": {
+    "text": "Canyon Creamery",
+    "languageCode": "en"
+   },
+   "primaryType": "ice_cream_shop",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "GoDaddy"
+    ],
+    "final_url": "https://canyon-creamery.com/",
+    "performance": 59,
+    "seo": 92,
+    "accessibility": 88,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 21,
+   "lead_score": 14,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJv7eqm9xZyoARGbs9dJznuEs",
+   "types": [
+    "coffee_shop",
+    "ice_cream_shop",
+    "cafe",
+    "dessert_shop",
+    "confectionery",
+    "food_store",
+    "food",
+    "point_of_interest",
+    "store",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 272-2341",
+   "formattedAddress": "4295 Canterbury Rd, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1477068,
+    "longitude": -113.3875788
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=5456365607710472985&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://reverie-sandhollow.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 173,
+   "displayName": {
+    "text": "Reverie, Coffee and Ice Cream Shop",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://reverie-sandhollow.com/",
+    "performance": 61,
+    "seo": 100,
+    "accessibility": 89,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 17,
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJNZSnu4DxyoARd5INXt9SglM",
+   "types": [
+    "italian_restaurant",
+    "european_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 366-2904",
+   "formattedAddress": "495 E 800 N, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1886842,
+    "longitude": -113.27903669999999
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=6017463171429536375&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://canyoneatery.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 146,
+   "displayName": {
+    "text": "Canyon Eatery",
+    "languageCode": "en"
+   },
+   "primaryType": "italian_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress"
+    ],
+    "final_url": "https://canyoneatery.com/",
+    "performance": 61,
+    "seo": 100,
+    "accessibility": 94,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 17,
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJ____4-TzyoAR71Cqb7obWMg",
+   "types": [
+    "ice_cream_shop",
+    "hawaiian_restaurant",
+    "dessert_shop",
+    "american_restaurant",
+    "confectionery",
+    "food_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 360-6377",
+   "formattedAddress": "117 W State St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.176376999999995,
+    "longitude": -113.290561
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=14436319093087424751&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "businessStatus": "OPERATIONAL",
+   "userRatingCount": 143,
+   "displayName": {
+    "text": "The Big Chill",
+    "languageCode": "en"
+   },
+   "primaryType": "ice_cream_shop",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "none",
+    "stack": [],
+    "maybe": "bigchill.com"
+   },
+   "badness": 70,
+   "lead_score": 41,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "bigchill.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchillhurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchill.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "bigchill.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatbigchill.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "bigchill.net",
+     "available": false,
+     "code": 200,
+     "price": "~$13/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJ9dvvRAD3yoARwZpymyG1zX8",
+   "types": [
+    "coffee_shop",
+    "cafe",
+    "food_store",
+    "food",
+    "point_of_interest",
+    "store",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 216-5778",
+   "formattedAddress": "136 N 3400 W #1, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1713879,
+    "longitude": -113.3665007
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=9209215968989059777&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.beansandbrews.com/coffee-shops/hurricane/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 134,
+   "displayName": {
+    "text": "Beans & Brews Coffee House",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "WordPress",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://www.beansandbrews.com/coffee-shops/hurricane/",
+    "performance": 97,
+    "seo": 92,
+    "accessibility": 92,
+    "best_practices": 100,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 4,
+   "lead_score": 2,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJu0CsppnuyoARHO1_Ru2Q8U0",
+   "types": [
+    "fine_dining_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 256-8848",
+   "formattedAddress": "3405 Dalton Wash Rd, Virgin, UT 84779, USA",
+   "location": {
+    "latitude": 37.2258991,
+    "longitude": -113.1244091
+   },
+   "rating": 4.5,
+   "googleMapsUri": "https://maps.google.com/?cid=5616429559072156956&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.stayopensky.com/black-sage-restaurant",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+   "userRatingCount": 132,
+   "displayName": {
+    "text": "Black Sage",
+    "languageCode": "en"
+   },
+   "primaryType": "fine_dining_restaurant",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Google Tag Manager",
+     "Google Analytics"
+    ],
+    "final_url": "https://www.stayopensky.com/black-sage-restaurant",
+    "performance": 36,
+    "seo": 100,
+    "accessibility": 90,
+    "best_practices": 92,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 28,
+   "lead_score": 16,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
+  },
+  {
+   "id": "ChIJrULlsYf3yoARGpQrnkyw0ec",
+   "types": [
+    "pizza_restaurant",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 429-0575",
+   "formattedAddress": "34 S 1400 W #1, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1759961,
+    "longitude": -113.3153863
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=16704326336011539482&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.riggattis.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 117,
+   "displayName": {
+    "text": "Riggatti's Wood Fired Pizza | Hurricane, UT",
+    "languageCode": "en"
+   },
+   "primaryType": "pizza_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "site",
+    "stack": [
+     "BentoBox"
+    ],
+    "final_url": "https://www.riggattis.com/",
+    "performance": 51,
+    "seo": 85,
+    "accessibility": 95,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 25,
+   "lead_score": 14,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJ6QAkoWTDyoARbNBJ2u28vA0",
+   "types": [
+    "coffee_shop",
+    "chocolate_shop",
+    "ice_cream_shop",
+    "candy_store",
+    "cafe",
+    "dessert_shop",
+    "bakery",
+    "confectionery",
+    "food_store",
+    "store",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 522-1229",
+   "formattedAddress": "205 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1977719,
+    "longitude": -112.99130919999999
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=989873747870208108&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://lemacaron-us.com/locations/springdale-zion-national-park",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_MODERATE",
+   "userRatingCount": 98,
+   "displayName": {
+    "text": "Le Macaron French Pastries Zion",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Google Tag Manager",
+     "Google Analytics"
+    ],
+    "final_url": "https://lemacaron-us.com/locations/springdale-zion-national-park",
+    "performance": 48,
+    "seo": 100,
+    "accessibility": 99,
+    "best_practices": 96,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 21,
+   "lead_score": 12,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJAYzROR_UNIcRlufqBZEeQgs",
+   "types": [
+    "pharmacy",
+    "gift_shop",
+    "snack_bar",
+    "toy_store",
+    "meal_takeaway",
+    "restaurant",
+    "store",
+    "point_of_interest",
+    "health",
+    "food",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 644-2418",
+   "formattedAddress": "176 W Center St, Kanab, UT 84741, USA",
+   "location": {
+    "latitude": 37.048423,
+    "longitude": -112.53206159999999
+   },
+   "rating": 4.7,
+   "googleMapsUri": "https://maps.google.com/?cid=811244491098482582&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "http://www.kanabuniteddrug.com/",
+   "businessStatus": "OPERATIONAL",
+   "userRatingCount": 83,
+   "displayName": {
+    "text": "Kanab United Drug",
+    "languageCode": "en"
+   },
+   "primaryType": "pharmacy",
+   "_spot": "Kanab",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Wix"
+    ],
+    "final_url": "https://www.kanabuniteddrug.com/",
+    "performance": 67,
+    "seo": 92,
+    "accessibility": 89,
+    "best_practices": 81,
+    "viewport_ok": true,
+    "https": false
+   },
+   "badness": 30,
+   "lead_score": 16,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJcVitjV3DyoARbdQAbjub4kY",
+   "types": [
+    "fast_food_restaurant",
+    "dessert_restaurant",
+    "ice_cream_shop",
+    "hamburger_restaurant",
+    "dessert_shop",
+    "american_restaurant",
+    "confectionery",
+    "food_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 414-0137",
+   "formattedAddress": "849 Zion Park Blvd, Springdale, UT 84767, USA",
+   "location": {
+    "latitude": 37.1888921,
+    "longitude": -112.99814959999999
+   },
+   "rating": 4.6,
+   "googleMapsUri": "https://maps.google.com/?cid=5107815606942487661&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://icebergdriveinn.com/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 74,
+   "displayName": {
+    "text": "Iceberg Drive Inn - Springdale",
+    "languageCode": "en"
+   },
+   "primaryType": "fast_food_restaurant",
+   "_spot": "Springdale / Rockville",
+   "site": {
+    "status": "site",
+    "stack": [
+     "Shopify",
+     "Google Tag Manager"
+    ],
+    "final_url": "https://icebergdriveinn.com/",
+    "performance": 60,
+    "seo": 92,
+    "accessibility": 92,
+    "best_practices": 73,
+    "viewport_ok": true,
+    "https": true
+   },
+   "badness": 23,
+   "lead_score": 12,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
+  },
+  {
+   "id": "ChIJD6uWJob3yoARweVT_pgNRuY",
+   "types": [
+    "coffee_shop",
+    "cafe",
+    "food_store",
+    "food",
+    "point_of_interest",
+    "store",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 817-9933",
+   "formattedAddress": "1120 W State St, Hurricane, UT 84737, USA",
+   "location": {
+    "latitude": 37.1767851,
+    "longitude": -113.3096838
+   },
+   "rating": 4.9,
+   "googleMapsUri": "https://maps.google.com/?cid=16592964827846272449&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://roamingroastcoffee.square.site/",
+   "businessStatus": "OPERATIONAL",
+   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+   "userRatingCount": 69,
+   "displayName": {
+    "text": "Roaming Roast Coffee",
+    "languageCode": "en"
+   },
+   "primaryType": "coffee_shop",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "free-builder",
+    "stack": [
+     "Square"
+    ]
+   },
+   "badness": 85,
+   "lead_score": 47,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "roamingroastcoffee.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "roamingroast.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "roamingroasthurricane.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "roamingroast.coffee",
+     "available": false,
+     "code": 403,
+     "price": "~$10/yr then ~$32"
+    },
+    {
+     "domain": "roamingroast.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatroamingroast.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  },
+  {
+   "id": "ChIJRSctix7uyoARe5SWXdzjkas",
+   "types": [
+    "brunch_restaurant",
+    "book_store",
+    "store",
+    "restaurant",
+    "food",
+    "point_of_interest",
+    "establishment"
+   ],
+   "nationalPhoneNumber": "(435) 635-0551",
+   "formattedAddress": "2 E, 2 UT-9, Virgin, UT 84779, USA",
+   "location": {
+    "latitude": 37.2037899,
+    "longitude": -113.18862379999999
+   },
+   "rating": 4.8,
+   "googleMapsUri": "https://maps.google.com/?cid=12362912987711181947&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+   "websiteUri": "https://www.facebook.com/virgingoodsbooks/",
+   "businessStatus": "OPERATIONAL",
+   "userRatingCount": 60,
+   "displayName": {
+    "text": "Virgin Goods Cafe",
+    "languageCode": "en"
+   },
+   "primaryType": "brunch_restaurant",
+   "_spot": "Hurricane / La Verkin",
+   "site": {
+    "status": "social",
+    "stack": [],
+    "maybe": "virgingoodscafe.com"
+   },
+   "badness": 70,
+   "lead_score": 36,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
+   "domains": [
+    {
+     "domain": "virgingoodscafe.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoods.com",
+     "available": false,
+     "code": 200,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoodszion.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    },
+    {
+     "domain": "virgingoods.restaurant",
+     "available": false,
+     "code": 403,
+     "price": "~$45/yr then ~$62"
+    },
+    {
+     "domain": "virgingoods.menu",
+     "available": true,
+     "code": 404,
+     "price": "~$32/yr then ~$38"
+    },
+    {
+     "domain": "eatvirgingoods.com",
+     "available": true,
+     "code": 404,
+     "price": "~$11/yr then ~$17"
+    }
+   ]
+  }
+ ]
+}

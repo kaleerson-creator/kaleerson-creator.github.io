@@ -15,7 +15,7 @@ DEFAULT_DESC = {
 os.chdir(ROOT)
 files = sorted(glob.glob('**/index.html', recursive=True)) + (['404.html'] if os.path.exists('404.html') else [])
 for f in files:
-    if f.startswith(('design/', '_')):
+    if f.startswith(('design/', 'demos/', '_')):
         continue
     s = open(f).read()
     m = re.search(r'<title>(.*?)</title>', s)
