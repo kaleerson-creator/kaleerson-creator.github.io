@@ -43,6 +43,22 @@
    },
    "badness": 95,
    "lead_score": 81,
+   "checked": {
+    "id": "ChIJDz3jjI73yoARFKrDRwb-5J0",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "Only the Facebook page turned up; DNS shows 14 likely domains are not registered (crosscountrydiner .com/.net/.org/.co/.us/.menu/.restaurant, thecrosscountrydiner.com and Utah/Hurricane variants), and crosscountrycafe.com belongs to an unrelated coffee company; web search was unavailable, so the phone number was not searched. Re-checked with web search: still no website of its own.",
+    "evidence": [
+     "https://www.facebook.com/crosscountrydiner/",
+     "https://dns.google/resolve?name=crosscountrydiner.com&type=A"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Cross Country Diner",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -119,6 +135,22 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJC-hRFuTxyoARzu4TMN-uIKU",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "buffalotrailsco.com is a 'this domain may be for sale' parking page and buffalotrails.com is also parked; all other Buffalo Trails Trading domain variants checked are unregistered.",
+    "evidence": [
+     "http://buffalotrailsco.com/",
+     "http://buffalotrails.com/"
+    ],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Buffalo Trails Trading Company",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -198,6 +230,24 @@
    },
    "badness": 90,
    "lead_score": 75,
+   "checked": {
+    "id": "ChIJ--RHg8f2yoARbUCNbsTDYWE",
+    "verdict": "ordering_page_only",
+    "official_url": "https://dixiepizzawagon.com/",
+    "uses": [
+     "Toast"
+    ],
+    "missing": [],
+    "notes": "They own dixiepizzawagon.com (registered 2014), but it sends visitors straight to their Toast ordering page with a 301 redirect, so there is no separate website; pizzawagon.com and thepizzawagon.com belong to other people.",
+    "evidence": [
+     "http://dixiepizzawagon.com/",
+     "https://order.toasttab.com/online/pizza-wagon-119-w-state-street"
+    ],
+    "challenged": true,
+    "first_verdict": "ordering_page_only",
+    "name": "Dixie Pizza Wagon",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -276,6 +326,22 @@
    },
    "badness": 95,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJ_z1tmAooFyUR5z_-yy2uNnY",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "Only Instagram (@desertsmoothie) was found; the 14 domain variants checked are all unregistered (desertsmoothie .com/.net/.org/.co/.us, desertsmoothies.com and others), and there is no Square site; Instagram blocked loading the bio link.",
+    "evidence": [
+     "https://instagram.com/desertsmoothie",
+     "https://dns.google/resolve?name=desertsmoothie.com&type=A"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Desert Smoothie",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -358,6 +424,29 @@
    },
    "badness": 90,
    "lead_score": 73,
+   "checked": {
+    "id": "ChIJt4n27hD1yoAR_RPL3sKGO0E",
+    "verdict": "weak_site",
+    "official_url": "https://mainlypizza.com/",
+    "uses": [
+     "GoDaddy",
+     "Toast"
+    ],
+    "notes": "mainlypizza.com (a GoDaddy site registered 2024, copyright 2025, and the only Mainly Pizza found anywhere) is one bare page with a slogan and a contact form, with no menu, hours, address or link to their Toast ordering.",
+    "evidence": [
+     "https://mainlypizza.com/",
+     "https://www.toasttab.com/mainly-pizza"
+    ],
+    "missing": [
+     "menu",
+     "hours",
+     "location",
+     "ordering",
+     "photos"
+    ],
+    "name": "Mainly Pizza",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -436,6 +525,25 @@
    },
    "badness": 100,
    "lead_score": 69,
+   "checked": {
+    "id": "ChIJ5dJQyaLCyoARFwTyS69MxIk",
+    "verdict": "weak_site",
+    "official_url": "https://utahcoffee.com/",
+    "uses": [
+     "WordPress",
+     "DoorDash"
+    ],
+    "notes": "This location is part of the Perks! chain, whose WordPress site utahcoffee.com lists 'Perks at Zion' (Cable Mountain Lodge, 147 Zion Park Blvd, 435-772-0529) with a full menu, order.online and app ordering, but it gives no hours ('hours vary by location') and still shows an old COVID-19 hours notice.",
+    "evidence": [
+     "https://utahcoffee.com/locations/",
+     "https://utahcoffee.com/menu/"
+    ],
+    "missing": [
+     "hours"
+    ],
+    "name": "Perks! Coffee, Espresso, & Smoothies in Zion",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -512,6 +620,23 @@
    },
    "badness": 100,
    "lead_score": 65,
+   "checked": {
+    "id": "ChIJr9CnEgDVNIcRW3kyFbEjSz8",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "lostapatioskanab.com (registered April 16, 2026) still shows only a Namecheap parking page; lostapatiosrestaurant.com belongs to a Los Tapatios in DeSoto, TX; lostapatiosmexicanrestaurant.com (registered April 20, 2026) is a GoDaddy 'Launching Soon' page with no location, so it cannot be tied to Kanab, though the owner may be building a site.",
+    "evidence": [
+     "https://www.lostapatioskanab.com/",
+     "https://lostapatiosmexicanrestaurant.com/",
+     "http://lostapatiosrestaurant.com/"
+    ],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Los Tapatios Authentic Family Mexican Restaurant",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -589,6 +714,26 @@
    },
    "badness": 70,
    "lead_score": 60,
+   "checked": {
+    "id": "ChIJY-s0bv3nyoARdOmu_IziBS8",
+    "verdict": "weak_site",
+    "official_url": "https://parkhousecafezion.com/",
+    "uses": [
+     "WordPress"
+    ],
+    "notes": "parkhousecafezion.com has the right address but is a 2015 WordPress build (copyright 2015) with no hours or phone, menus priced in 2015 and leftover template pages (lorem-ipsum chefs, a foreign booking phone number), and parkhousecafe.com is only a Squarespace 'Coming Soon' page.",
+    "evidence": [
+     "https://parkhousecafezion.com/",
+     "https://parkhousecafe.com/"
+    ],
+    "missing": [
+     "hours",
+     "menu",
+     "working links"
+    ],
+    "name": "The Park House",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -668,6 +813,25 @@
    },
    "badness": 85,
    "lead_score": 58,
+   "checked": {
+    "id": "ChIJYZnmV1T3yoARC8b3XZje3go",
+    "verdict": "ordering_page_only",
+    "official_url": "https://yokoso-ut.square.site/",
+    "uses": [
+     "Square"
+    ],
+    "missing": [],
+    "notes": "Their only working page is a Square Online pickup-ordering menu with the address, phone and hours; yokosout.com is an expired Squarespace site, and yokosojapanesecuisineut.com (registered Dec 2025) is just a FromTheRestaurant page saying 'online ordering setup in progress'.",
+    "evidence": [
+     "https://yokoso-ut.square.site/",
+     "https://www.yokosout.com/",
+     "http://yokosojapanesecuisineut.com/"
+    ],
+    "challenged": true,
+    "first_verdict": "ordering_page_only",
+    "name": "Yokoso Japanese Cuisine",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -748,6 +912,22 @@
    },
    "badness": 70,
    "lead_score": 48,
+   "checked": {
+    "id": "ChIJj-kK0FXVNIcRCh_bK46DfFw",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "Only Instagram (@taro.coffeebar) was found; tarocoffeebar.com is registered (since 2022) but has no web records and serves nothing, the other Kanab and Taro variants are unregistered, and no Square site exists.",
+    "evidence": [
+     "https://instagram.com/taro.coffeebar",
+     "https://dns.google/resolve?name=tarocoffeebar.com&type=A"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Taro Coffee Bar",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -829,6 +1009,25 @@
    },
    "badness": 85,
    "lead_score": 47,
+   "checked": {
+    "id": "ChIJD6uWJob3yoARweVT_pgNRuY",
+    "verdict": "ordering_page_only",
+    "official_url": "https://roamingroastcoffee.square.site/",
+    "uses": [
+     "Square"
+    ],
+    "missing": [],
+    "notes": "Their only web presence is a thin Square Online drink-ordering page; roamingroastcoffee.com is unregistered, roamingroast.com points to a closed Shopify store whose owner is unknown, and theroamingroast.com and roamingroastcafe.com belong to other businesses.",
+    "evidence": [
+     "https://roamingroastcoffee.square.site/",
+     "https://roamingroast.myshopify.com/",
+     "https://roamingroastcafe.com/"
+    ],
+    "challenged": true,
+    "first_verdict": "ordering_page_only",
+    "name": "Roaming Roast Coffee",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -911,6 +1110,22 @@
    },
    "badness": 70,
    "lead_score": 41,
+   "checked": {
+    "id": "ChIJ____4-TzyoAR71Cqb7obWMg",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "No website found: 17 Big Chill Hurricane, Utah and shaved-ice domain variants are unregistered, and thebigchill.com is a Florida restaurant; the Facebook page the first checker named could not be opened here (Facebook login wall).",
+    "evidence": [
+     "https://thebigchill.com/",
+     "https://dns.google/resolve?name=thebigchillutah.com&type=A"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "The Big Chill",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -956,88 +1171,6 @@
    ]
   },
   {
-   "id": "ChIJyfP3ViH1yoARidZO6dhOWao",
-   "types": [
-    "mexican_restaurant",
-    "latin_american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 703-6204",
-   "formattedAddress": "545 N Main St #9, Leeds, UT 84746, USA",
-   "location": {
-    "latitude": 37.2434163,
-    "longitude": -113.353073
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=12274928952909158025&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.casatequilana.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 715,
-   "displayName": {
-    "text": "Casa Tequilana Mexican Cuisine",
-    "languageCode": "en"
-   },
-   "primaryType": "mexican_restaurant",
-   "_spot": "Hurricane / La Verkin",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "http://www.casatequilana.com/",
-    "performance": 64,
-    "seo": 92,
-    "accessibility": 90,
-    "best_practices": 78,
-    "viewport_ok": false,
-    "https": false
-   },
-   "badness": 51,
-   "lead_score": 41,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   },
-   "domains": [
-    {
-     "domain": "casatequilanaleeds.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "casatequilana.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "casatequilana.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatcasatequilana.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "casatequilana.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJRSctix7uyoARe5SWXdzjkas",
    "types": [
     "brunch_restaurant",
@@ -1072,6 +1205,22 @@
    },
    "badness": 70,
    "lead_score": 36,
+   "checked": {
+    "id": "ChIJRSctix7uyoARe5SWXdzjkas",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "Only the Facebook page (virgingoodsbooks) was found; virgingoodscafe.com (registered 2024) redirects to a GoDaddy '/lander' parking page, and the other Virgin Goods variants are unregistered.",
+    "evidence": [
+     "https://www.virgingoodscafe.com/lander",
+     "https://www.facebook.com/virgingoodsbooks/"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Virgin Goods Cafe",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -1112,185 +1261,6 @@
      "domain": "eatvirgingoods.com",
      "available": true,
      "code": 404,
-     "price": "~$11/yr then ~$17"
-    }
-   ]
-  },
-  {
-   "id": "ChIJ12QMdx7UNIcRc0r81_5r0PM",
-   "types": [
-    "american_restaurant",
-    "dessert_restaurant",
-    "cafe",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 644-2848",
-   "formattedAddress": "On Highway 89, across from the Holiday Inn, 198 S 100 E, Kanab, UT 84741, USA",
-   "location": {
-    "latitude": 37.0449219,
-    "longitude": -112.52671819999999
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=17568660888661805683&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.wildthymekanab.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 2983,
-   "displayName": {
-    "text": "Wild Thyme Bistro",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "Kanab",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://wildthymekanab.com/",
-    "performance": 42,
-    "seo": 92,
-    "accessibility": 87,
-    "best_practices": 81,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 40,
-   "lead_score": 36,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   },
-   "domains": [
-    {
-     "domain": "wildthymebistro.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "wildthyme.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "wildthyme.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "wildthyme.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatwildthyme.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "wildthyme.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
-   "id": "ChIJcZ7U56fCyoARcI5EosJJH1s",
-   "types": [
-    "cafe",
-    "coffee_shop",
-    "bakery",
-    "food_store",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(435) 669-8849",
-   "formattedAddress": "932 Zion Park Blvd, Springdale, UT 84767, USA",
-   "location": {
-    "latitude": 37.1889901,
-    "longitude": -112.99995609999999
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=6566047882024357488&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.deepcreekcoffee.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1561,
-   "displayName": {
-    "text": "Deep Creek Coffee Company",
-    "languageCode": "en"
-   },
-   "primaryType": "cafe",
-   "_spot": "Springdale / Rockville",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Weebly"
-    ],
-    "final_url": "https://www.deepcreekcoffee.com/",
-    "performance": 40,
-    "seo": 92,
-    "accessibility": 94,
-    "best_practices": 78,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 40,
-   "lead_score": 36,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   },
-   "domains": [
-    {
-     "domain": "deepcreekcoffeecompany.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "deepcreek.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "deepcreekspringdale.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "deepcreek.cafe",
-     "available": false,
-     "code": 403,
-     "price": "~$6/yr then ~$35"
-    },
-    {
-     "domain": "deepcreek.menu",
-     "available": false,
-     "code": 403,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatdeepcreek.com",
-     "available": false,
-     "code": 200,
      "price": "~$11/yr then ~$17"
     }
    ]
@@ -1604,49 +1574,28 @@
    },
    "badness": 40,
    "lead_score": 36,
+   "checked": {
+    "id": "ChIJ12QMdx7UNIcRc0r81_5r0PM",
+    "verdict": "good_site",
+    "official_url": "https://www.wildthymekanab.com/",
+    "uses": [
+     "WordPress",
+     "Toast"
+    ],
+    "notes": "wildthymekanab.com is a maintained WordPress site (pages updated 2026) with breakfast, lunch/dinner, drink and dessert menus, hours, address and phone, plus a Toast waitlist for booking.",
+    "evidence": [
+     "https://wildthymekanab.com/contact-us/",
+     "https://wildthymekanab.com/lunch-dinner-menu/"
+    ],
+    "missing": [],
+    "name": "Wild Thyme Bistro",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
     "monthly": 199
-   },
-   "domains": [
-    {
-     "domain": "wildthymebistro.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "wildthyme.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "wildthyme.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "wildthyme.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatwildthyme.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "wildthyme.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
+   }
   },
   {
    "id": "ChIJc817XKbWNIcRN8fsYlONOTw",
@@ -1997,49 +1946,27 @@
    },
    "badness": 40,
    "lead_score": 36,
+   "checked": {
+    "id": "ChIJcZ7U56fCyoARcI5EosJJH1s",
+    "verdict": "good_site",
+    "official_url": "https://www.deepcreekcoffee.com/",
+    "uses": [
+     "Square"
+    ],
+    "notes": "deepcreekcoffee.com is a full Square Online site with an online menu, active pickup ordering, store hours (6:30am-2pm daily), a retail and coffee-club shop, their story, catering and jobs pages.",
+    "evidence": [
+     "http://www.deepcreekcoffee.com/",
+     "https://www.deepcreekcoffee.com/app/store/api/v28/editor/users/131784796/sites/292456436381476249/store-locations"
+    ],
+    "missing": [],
+    "name": "Deep Creek Coffee Company",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
     "monthly": 199
-   },
-   "domains": [
-    {
-     "domain": "deepcreekcoffeecompany.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "deepcreek.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "deepcreekspringdale.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "deepcreek.cafe",
-     "available": false,
-     "code": 403,
-     "price": "~$6/yr then ~$35"
-    },
-    {
-     "domain": "deepcreek.menu",
-     "available": false,
-     "code": 403,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatdeepcreek.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    }
-   ]
+   }
   },
   {
    "id": "ChIJ7ULebdHxyoARogapl-Lpz1k",
@@ -2524,6 +2451,26 @@
    },
    "badness": 70,
    "lead_score": 60,
+   "checked": {
+    "id": "ChIJY-s0bv3nyoARdOmu_IziBS8",
+    "verdict": "weak_site",
+    "official_url": "https://parkhousecafezion.com/",
+    "uses": [
+     "WordPress"
+    ],
+    "notes": "parkhousecafezion.com has the right address but is a 2015 WordPress build (copyright 2015) with no hours or phone, menus priced in 2015 and leftover template pages (lorem-ipsum chefs, a foreign booking phone number), and parkhousecafe.com is only a Squarespace 'Coming Soon' page.",
+    "evidence": [
+     "https://parkhousecafezion.com/",
+     "https://parkhousecafe.com/"
+    ],
+    "missing": [
+     "hours",
+     "menu",
+     "working links"
+    ],
+    "name": "The Park House",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -2605,6 +2552,22 @@
    },
    "badness": 95,
    "lead_score": 81,
+   "checked": {
+    "id": "ChIJDz3jjI73yoARFKrDRwb-5J0",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "Only the Facebook page turned up; DNS shows 14 likely domains are not registered (crosscountrydiner .com/.net/.org/.co/.us/.menu/.restaurant, thecrosscountrydiner.com and Utah/Hurricane variants), and crosscountrycafe.com belongs to an unrelated coffee company; web search was unavailable, so the phone number was not searched. Re-checked with web search: still no website of its own.",
+    "evidence": [
+     "https://www.facebook.com/crosscountrydiner/",
+     "https://dns.google/resolve?name=crosscountrydiner.com&type=A"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Cross Country Diner",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -2684,6 +2647,24 @@
    },
    "badness": 90,
    "lead_score": 75,
+   "checked": {
+    "id": "ChIJ--RHg8f2yoARbUCNbsTDYWE",
+    "verdict": "ordering_page_only",
+    "official_url": "https://dixiepizzawagon.com/",
+    "uses": [
+     "Toast"
+    ],
+    "missing": [],
+    "notes": "They own dixiepizzawagon.com (registered 2014), but it sends visitors straight to their Toast ordering page with a 301 redirect, so there is no separate website; pizzawagon.com and thepizzawagon.com belong to other people.",
+    "evidence": [
+     "http://dixiepizzawagon.com/",
+     "https://order.toasttab.com/online/pizza-wagon-119-w-state-street"
+    ],
+    "challenged": true,
+    "first_verdict": "ordering_page_only",
+    "name": "Dixie Pizza Wagon",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -2820,43 +2801,30 @@
    },
    "badness": 51,
    "lead_score": 41,
+   "checked": {
+    "id": "ChIJyfP3ViH1yoARidZO6dhOWao",
+    "verdict": "good_site",
+    "official_url": "http://www.casatequilana.com/",
+    "uses": [
+     "Toast"
+    ],
+    "missing": [],
+    "notes": "The first checker gave no verdict here, but they have their own site: it shows the 545 N Main St #9 Leeds address, the 435-703-6204 phone and opening hours, and links to a Toast menu and online ordering; it is built on an old Xara template, but the news page has posts from February 2025.",
+    "evidence": [
+     "http://www.casatequilana.com/",
+     "https://casatequilana.com/news/",
+     "https://order.toasttab.com/online/casa-tequilana-545-n-main-st"
+    ],
+    "challenged": true,
+    "first_verdict": "missing",
+    "name": "Casa Tequilana Mexican Cuisine",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
     "monthly": 129
-   },
-   "domains": [
-    {
-     "domain": "casatequilanaleeds.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "casatequilana.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "casatequilana.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatcasatequilana.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "casatequilana.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
+   }
   },
   {
    "id": "ChIJnwm2gpjVNIcRcjbYBFZU6H8",
@@ -3001,6 +2969,22 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJC-hRFuTxyoARzu4TMN-uIKU",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "buffalotrailsco.com is a 'this domain may be for sale' parking page and buffalotrails.com is also parked; all other Buffalo Trails Trading domain variants checked are unregistered.",
+    "evidence": [
+     "http://buffalotrailsco.com/",
+     "http://buffalotrails.com/"
+    ],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Buffalo Trails Trading Company",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -3331,6 +3315,29 @@
    },
    "badness": 90,
    "lead_score": 73,
+   "checked": {
+    "id": "ChIJt4n27hD1yoAR_RPL3sKGO0E",
+    "verdict": "weak_site",
+    "official_url": "https://mainlypizza.com/",
+    "uses": [
+     "GoDaddy",
+     "Toast"
+    ],
+    "notes": "mainlypizza.com (a GoDaddy site registered 2024, copyright 2025, and the only Mainly Pizza found anywhere) is one bare page with a slogan and a contact form, with no menu, hours, address or link to their Toast ordering.",
+    "evidence": [
+     "https://mainlypizza.com/",
+     "https://www.toasttab.com/mainly-pizza"
+    ],
+    "missing": [
+     "menu",
+     "hours",
+     "location",
+     "ordering",
+     "photos"
+    ],
+    "name": "Mainly Pizza",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -3520,6 +3527,22 @@
    },
    "badness": 95,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJ_z1tmAooFyUR5z_-yy2uNnY",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "Only Instagram (@desertsmoothie) was found; the 14 domain variants checked are all unregistered (desertsmoothie .com/.net/.org/.co/.us, desertsmoothies.com and others), and there is no Square site; Instagram blocked loading the bio link.",
+    "evidence": [
+     "https://instagram.com/desertsmoothie",
+     "https://dns.google/resolve?name=desertsmoothie.com&type=A"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Desert Smoothie",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -3865,6 +3888,25 @@
    },
    "badness": 100,
    "lead_score": 69,
+   "checked": {
+    "id": "ChIJ5dJQyaLCyoARFwTyS69MxIk",
+    "verdict": "weak_site",
+    "official_url": "https://utahcoffee.com/",
+    "uses": [
+     "WordPress",
+     "DoorDash"
+    ],
+    "notes": "This location is part of the Perks! chain, whose WordPress site utahcoffee.com lists 'Perks at Zion' (Cable Mountain Lodge, 147 Zion Park Blvd, 435-772-0529) with a full menu, order.online and app ordering, but it gives no hours ('hours vary by location') and still shows an old COVID-19 hours notice.",
+    "evidence": [
+     "https://utahcoffee.com/locations/",
+     "https://utahcoffee.com/menu/"
+    ],
+    "missing": [
+     "hours"
+    ],
+    "name": "Perks! Coffee, Espresso, & Smoothies in Zion",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -3944,6 +3986,25 @@
    },
    "badness": 85,
    "lead_score": 58,
+   "checked": {
+    "id": "ChIJYZnmV1T3yoARC8b3XZje3go",
+    "verdict": "ordering_page_only",
+    "official_url": "https://yokoso-ut.square.site/",
+    "uses": [
+     "Square"
+    ],
+    "missing": [],
+    "notes": "Their only working page is a Square Online pickup-ordering menu with the address, phone and hours; yokosout.com is an expired Squarespace site, and yokosojapanesecuisineut.com (registered Dec 2025) is just a FromTheRestaurant page saying 'online ordering setup in progress'.",
+    "evidence": [
+     "https://yokoso-ut.square.site/",
+     "https://www.yokosout.com/",
+     "http://yokosojapanesecuisineut.com/"
+    ],
+    "challenged": true,
+    "first_verdict": "ordering_page_only",
+    "name": "Yokoso Japanese Cuisine",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -4141,6 +4202,22 @@
    },
    "badness": 70,
    "lead_score": 48,
+   "checked": {
+    "id": "ChIJj-kK0FXVNIcRCh_bK46DfFw",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "Only Instagram (@taro.coffeebar) was found; tarocoffeebar.com is registered (since 2022) but has no web records and serves nothing, the other Kanab and Taro variants are unregistered, and no Square site exists.",
+    "evidence": [
+     "https://instagram.com/taro.coffeebar",
+     "https://dns.google/resolve?name=tarocoffeebar.com&type=A"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Taro Coffee Bar",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -4264,6 +4341,23 @@
    },
    "badness": 100,
    "lead_score": 65,
+   "checked": {
+    "id": "ChIJr9CnEgDVNIcRW3kyFbEjSz8",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "lostapatioskanab.com (registered April 16, 2026) still shows only a Namecheap parking page; lostapatiosrestaurant.com belongs to a Los Tapatios in DeSoto, TX; lostapatiosmexicanrestaurant.com (registered April 20, 2026) is a GoDaddy 'Launching Soon' page with no location, so it cannot be tied to Kanab, though the owner may be building a site.",
+    "evidence": [
+     "https://www.lostapatioskanab.com/",
+     "https://lostapatiosmexicanrestaurant.com/",
+     "http://lostapatiosrestaurant.com/"
+    ],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Los Tapatios Authentic Family Mexican Restaurant",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -4499,6 +4593,22 @@
    },
    "badness": 70,
    "lead_score": 41,
+   "checked": {
+    "id": "ChIJ____4-TzyoAR71Cqb7obWMg",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "No website found: 17 Big Chill Hurricane, Utah and shaved-ice domain variants are unregistered, and thebigchill.com is a Florida restaurant; the Facebook page the first checker named could not be opened here (Facebook login wall).",
+    "evidence": [
+     "https://thebigchill.com/",
+     "https://dns.google/resolve?name=thebigchillutah.com&type=A"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "The Big Chill",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -4895,6 +5005,25 @@
    },
    "badness": 85,
    "lead_score": 47,
+   "checked": {
+    "id": "ChIJD6uWJob3yoARweVT_pgNRuY",
+    "verdict": "ordering_page_only",
+    "official_url": "https://roamingroastcoffee.square.site/",
+    "uses": [
+     "Square"
+    ],
+    "missing": [],
+    "notes": "Their only web presence is a thin Square Online drink-ordering page; roamingroastcoffee.com is unregistered, roamingroast.com points to a closed Shopify store whose owner is unknown, and theroamingroast.com and roamingroastcafe.com belong to other businesses.",
+    "evidence": [
+     "https://roamingroastcoffee.square.site/",
+     "https://roamingroast.myshopify.com/",
+     "https://roamingroastcafe.com/"
+    ],
+    "challenged": true,
+    "first_verdict": "ordering_page_only",
+    "name": "Roaming Roast Coffee",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -4974,6 +5103,22 @@
    },
    "badness": 70,
    "lead_score": 36,
+   "checked": {
+    "id": "ChIJRSctix7uyoARe5SWXdzjkas",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "missing": [],
+    "notes": "Only the Facebook page (virgingoodsbooks) was found; virgingoodscafe.com (registered 2024) redirects to a GoDaddy '/lander' parking page, and the other Virgin Goods variants are unregistered.",
+    "evidence": [
+     "https://www.virgingoodscafe.com/lander",
+     "https://www.facebook.com/virgingoodsbooks/"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Virgin Goods Cafe",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,

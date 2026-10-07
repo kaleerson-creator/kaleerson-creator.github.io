@@ -7,159 +7,6 @@
  },
  "leads": [
   {
-   "id": "ChIJ12_jWToy3YARKc9VQ6Gtbp8",
-   "types": [
-    "american_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "formattedAddress": "4100 Donald Douglas Dr, Long Beach, CA 90806, USA",
-   "location": {
-    "latitude": 33.8178711,
-    "longitude": -118.1454706
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=11488310607599750953&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1965,
-   "displayName": {
-    "text": "Boathouse on the Bay",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "Long Beach",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 94,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   },
-   "domains": [
-    {
-     "domain": "boathouseonbay.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "boathouseonbaylongbeach.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "boathouseonbay.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "boathouseonbay.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatboathouseonbay.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "boathouseonbay.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
-   "id": "ChIJU5Ve3O3V3IAR4eDsfbY7-2Q",
-   "types": [
-    "vietnamese_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(909) 255-6626",
-   "formattedAddress": "100 S Harbor Blvd Ste B, Fullerton, CA 92832, USA",
-   "location": {
-    "latitude": 33.8701148,
-    "longitude": -117.92393899999999
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=7276475277929930977&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://aboutpho.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 2447,
-   "displayName": {
-    "text": "All About Pho - Fullerton",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Anaheim / Fullerton",
-   "site": {
-    "status": "broken",
-    "stack": [],
-    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
-   },
-   "badness": 95,
-   "lead_score": 93,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   },
-   "domains": [
-    {
-     "domain": "allaboutpho.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "allabout.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "allaboutfullerton.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "allabout.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "allabout.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatallabout.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJ-02uXt-q3oARsmeTXs7qOMU",
    "types": [
     "mexican_restaurant",
@@ -194,6 +41,25 @@
    },
    "badness": 100,
    "lead_score": 90,
+   "checked": {
+    "id": "ChIJ-02uXt-q3oARsmeTXs7qOMU",
+    "verdict": "weak_site",
+    "official_url": "https://elagave.com/",
+    "uses": [
+     "WordPress"
+    ],
+    "missing": [
+     "menu",
+     "hours",
+     "working links"
+    ],
+    "notes": "elagave.com (registered 2001) is very likely the restaurant's own WordPress site, but every page shows 'There has been a critical error on this website', so its ownership could not be confirmed from page content.",
+    "evidence": [
+     "https://elagave.com/"
+    ],
+    "name": "El Agave Restaurant & Tequileria",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -273,6 +139,23 @@
    },
    "badness": 95,
    "lead_score": 87,
+   "checked": {
+    "id": "ChIJhcl8bOFy3IARrtyb-egJww0",
+    "verdict": "weak_site",
+    "official_url": "https://www.tiptopmeats.com/",
+    "uses": [],
+    "missing": [
+     "working links"
+    ],
+    "notes": "Reopened in a smaller format at 6118 Paseo Del Norte in February 2026 after closing in 2024, and the reopening article and Google both list tiptopmeats.com (domain renewed March 2026), but the site would not load during this check (connection timeout), so someone should open it in a browser before pitching.",
+    "evidence": [
+     "https://www.tiptopmeats.com/",
+     "https://www.sandiegoville.com/2026/02/san-diegos-historic-tip-top-meats.html",
+     "https://www.10news.com/news/local-news/north-county-news/tip-top-meats-in-carlsbad-closes-after-more-than-40-years"
+    ],
+    "name": "Tip Top Meats",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -350,6 +233,31 @@
    },
    "badness": 95,
    "lead_score": 86,
+   "checked": {
+    "id": "ChIJdy1gjIIT6YARnDxI5VNNYDw",
+    "verdict": "weak_site",
+    "official_url": "https://www.superricataqueria.com/",
+    "uses": [
+     "Google Sites"
+    ],
+    "notes": "The first checker missed this one: superricataqueria.com (registered 2021, renewed to 2027) is a Google Sites page titled 'World Famous Super Rica!' with the numbered menu and prices, a Drinks page and a map pin at 622 N Milpas St, but it has no hours, phone or ordering, a dated 'We are safely Open!' banner and probably old prices; it does not say who runs it (lasuperrica.com is a parked GoDaddy lander).",
+    "evidence": [
+     "https://www.superricataqueria.com/",
+     "https://www.superricataqueria.com/drinks",
+     "https://lasuperrica.com/"
+    ],
+    "missing": [
+     "hours",
+     "phone",
+     "ordering",
+     "photos",
+     "current prices"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "La Super-Rica Taqueria",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -429,6 +337,23 @@
    },
    "badness": 100,
    "lead_score": 85,
+   "checked": {
+    "id": "ChIJ1wqJ6iR-24ARqL79ki1oA1c",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site found: patsymaescafe.com, patsymaes.com, patsymaescafetemecula.com and about 15 other variants (.net/.org/.co/.cafe) are not registered, and the Square, Wix, Weebly, GoDaddy and WordPress subdomains return 404 or do not exist. Web search was unavailable and social pages were blocked, so a Facebook/Instagram presence is unverified. Re-checked with web search: still no website of its own.",
+    "evidence": [
+     "https://patsymaescafe.square.site/",
+     "https://patsymaescafe.wixsite.com/patsymaescafe",
+     "https://patsymaescafe.godaddysites.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Patsy Mae's Cafe",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -508,6 +433,22 @@
    },
    "badness": 100,
    "lead_score": 85,
+   "checked": {
+    "id": "ChIJL6aWgeu6woARZmvh45j5gUE",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "About 25 name variants did not resolve and thegreatwestern.com is a HugeDomains for-sale page, so no own site was found; web search was used up, so social pages could not be re-checked.",
+    "evidence": [
+     "https://thegreatwestern.com/",
+     "https://greatwesternsteakandhoagie.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "The Great Western Steak & Hoagie Co.",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -585,6 +526,22 @@
    },
    "badness": 100,
    "lead_score": 84,
+   "checked": {
+    "id": "ChIJDeR8bTNx3IARNPUjzMCYneY",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "notes": "sanluismexicanfood.shop (registered May 2026) is a template spam page that pastes Google reviews in the third person and shows a 'Reserve Now' button for a burrito shop, and every other variant (.com/.net/.org, oceanside) is unregistered, so the earlier Facebook-only verdict stands.",
+    "evidence": [
+     "https://sanluismexicanfood.shop/",
+     "https://sanluismexicanfood.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "San Luis Mexican Food",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -630,90 +587,6 @@
    ]
   },
   {
-   "id": "ChIJ7_B3_bwr3YAR95NekrRlSw4",
-   "types": [
-    "acai_shop",
-    "breakfast_restaurant",
-    "vegan_restaurant",
-    "brazilian_restaurant",
-    "vegetarian_restaurant",
-    "juice_shop",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(562) 600-4374",
-   "formattedAddress": "1109 N Harbor Blvd, Fullerton, CA 92832, USA",
-   "location": {
-    "latitude": 33.880706499999995,
-    "longitude": -117.9253121
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=1030028766008480759&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://acairepublic.square.site/s/order?location=11eb064191129c8baa5a0cc47a2b63ac",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 2231,
-   "displayName": {
-    "text": "Acai Republic Fullerton",
-    "languageCode": "en"
-   },
-   "primaryType": "acai_shop",
-   "_spot": "Anaheim / Fullerton",
-   "site": {
-    "status": "free-builder",
-    "stack": [
-     "Square"
-    ]
-   },
-   "badness": 85,
-   "lead_score": 83,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   },
-   "domains": [
-    {
-     "domain": "acairepublicfullerton.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "acairepublic.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "acairepublic.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "acairepublic.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatacairepublic.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "acairepublic.net",
-     "available": false,
-     "code": 200,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJhcl1j8nHwoARlPOblTtMEOI",
    "types": [
     "restaurant",
@@ -752,6 +625,29 @@
    },
    "badness": 95,
    "lead_score": 82,
+   "checked": {
+    "id": "ChIJhcl1j8nHwoARlPOblTtMEOI",
+    "verdict": "weak_site",
+    "official_url": "http://birdieschickensandwich.com/",
+    "uses": [
+     "DoorDash",
+     "Uber Eats",
+     "Postmates"
+    ],
+    "notes": "The domain listed on Google is still registered and renewed to 2027, but it timed out on every attempt (HTTPS reset, HTTP 503), and the shop renamed itself Duchess in 2024 (312 W Olympic Blvd); I found no Duchess website.",
+    "evidence": [
+     "http://birdieschickensandwich.com/",
+     "https://www.theinfatuation.com/los-angeles/reviews/birdies",
+     "https://wanderlog.com/place/details/397692"
+    ],
+    "missing": [
+     "working links",
+     "menu",
+     "hours"
+    ],
+    "name": "Birdies",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -836,6 +732,23 @@
    },
    "badness": 95,
    "lead_score": 82,
+   "checked": {
+    "id": "ChIJTczMZeWx3IARuGRBho12CDE",
+    "verdict": "social_only",
+    "official_url": "https://www.facebook.com/backtothegrind/",
+    "uses": [],
+    "notes": "Their old domain back2thegrind.com was caught by DropCatch in 2023 and shows a NameBright expired page, and every 'Back to the Grind' site found (backtothegrind.co Chicago, backtothegrind.ca Ontario, a 2008 WordPress blog) belongs to someone else, so only Facebook remains.",
+    "evidence": [
+     "http://back2thegrind.com/",
+     "https://www.backtothegrind.co/",
+     "https://www.backtothegrind.ca/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Back To The Grind",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -920,6 +833,27 @@
    },
    "badness": 95,
    "lead_score": 82,
+   "checked": {
+    "id": "ChIJD9g6ZAjZ3IARt5VDf8hUi-Y",
+    "verdict": "weak_site",
+    "official_url": "https://wursthaus.store/",
+    "uses": [
+     "DoorDash",
+     "Grubhub",
+     "OpenTable"
+    ],
+    "notes": "The Google-listed wursthaus.store (registered Dec 2025) has a menu page that appears in search results, but the site timed out on every attempt over HTTPS and HTTP, so check it by hand before pitching; the restaurant itself is open.",
+    "evidence": [
+     "https://wursthaus.store/menu",
+     "https://www.doordash.com/store/wursthaus-santa-ana-1559720/",
+     "https://luma.com/j4un7dr9"
+    ],
+    "missing": [
+     "working links"
+    ],
+    "name": "Wursthaus",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -1000,6 +934,28 @@
    },
    "badness": 90,
    "lead_score": 81,
+   "checked": {
+    "id": "ChIJ4z76Yrgb24ARwLCR_lW973s",
+    "verdict": "weak_site",
+    "official_url": "https://johnspalmsprings.com/",
+    "uses": [
+     "Toast",
+     "WordPress"
+    ],
+    "notes": "John's is building its own WordPress site (pages created Sept 2026, labeled 'Testing Site Only - DO NOT USE' and 'should be ready by October 1, 2026') with placeholder Menu, About, Catering and Hours pages; online ordering runs through Toast.",
+    "evidence": [
+     "https://johnspalmsprings.com/home/",
+     "https://johnspalmsprings.com/menu/",
+     "https://www.toasttab.com/johnsps"
+    ],
+    "missing": [
+     "menu",
+     "hours",
+     "photos"
+    ],
+    "name": "John's Restaurant",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -1076,6 +1032,22 @@
    },
    "badness": 100,
    "lead_score": 81,
+   "checked": {
+    "id": "ChIJVdZgH1yVwoARY29XXYIfJzQ",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "The only page found is casitastacoalcarbon.shop, a January 2026 template spam page from the same network as the San Luis one (it has the same '#cotnact' typo and a 'Get A Reservation Now' button for a taqueria), and about 15 real domain variants are unregistered; web search was used up, so social pages could not be checked.",
+    "evidence": [
+     "https://casitastacoalcarbon.shop/",
+     "https://casitastacoalcarbon.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "missing",
+    "name": "Casitas Taco Al Carbon",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -1157,6 +1129,22 @@
    },
    "badness": 100,
    "lead_score": 81,
+   "checked": {
+    "id": "ChIJRQRmf04w3YARaCHWy4j1EnM",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "Every Chuck's Coffee Shop domain variant tried (.com/.net/.org, lb, longbeach) is unregistered, chucksdiner.com is a parked lander, and no Square, GoDaddy, Weebly, Wix or WordPress page exists under the name.",
+    "evidence": [
+     "https://chuckscoffeeshop.com/",
+     "https://chucksdiner.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Chuck's Coffee Shop",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -1234,6 +1222,22 @@
    },
    "badness": 95,
    "lead_score": 80,
+   "checked": {
+    "id": "ChIJGUEyYjkh3YARvFJxBGHMq_E",
+    "verdict": "social_only",
+    "official_url": "https://www.facebook.com/pages/Normitas-Surf-City-Taco/115555118467384",
+    "uses": [],
+    "notes": "normitas.com (registered May 2026) is a Base44 template whose code uses '123 Main Street, Anytown' and '(555) 123-4567', so it is not tied to the Huntington Beach shop, and about 15 other variants are unregistered; Facebook remains the only presence.",
+    "evidence": [
+     "https://normitas.com/",
+     "https://normitassurfcitytaco.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Normita's Surf City Taco",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -1312,6 +1316,22 @@
    },
    "badness": 100,
    "lead_score": 80,
+   "checked": {
+    "id": "ChIJGUZiL-TV3IARuh3vN52IgnI",
+    "verdict": "weak_site",
+    "official_url": "http://nicksburgersfullerton.com/",
+    "uses": [],
+    "notes": "nicksburgersfullerton.com is registered (2022, renewed to 2027, with Spectrum business email) and probably belongs to them, but it never loaded and I could not confirm the owner; nickssuperburgers.shop is an auto-generated directory page, and the shared search limit was used up, so check this by hand before pitching.",
+    "evidence": [
+     "http://nicksburgersfullerton.com/",
+     "https://nickssuperburgers.shop/"
+    ],
+    "missing": [
+     "working links"
+    ],
+    "name": "Nick's Super Burgers",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -1388,6 +1408,22 @@
    },
    "badness": 100,
    "lead_score": 80,
+   "checked": {
+    "id": "ChIJc8MuvwUx3YARICKAYWyFeVI",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "galatagrill.com is now a parked ad page pending deletion, and its old GoDaddy builder page (galatagrill.godaddysites.com, \u00a9 2024) only says 'Galata Grill Launching Soon' with no address; about 25 other variants are unregistered.",
+    "evidence": [
+     "https://galatagrill.com/",
+     "https://galatagrill.godaddysites.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Galata Halal Restaurant and Grill",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -1469,6 +1505,22 @@
    },
    "badness": 95,
    "lead_score": 79,
+   "checked": {
+    "id": "ChIJuSPXLQ5y3IARUJdJoYZIAXU",
+    "verdict": "social_only",
+    "official_url": "https://www.facebook.com/cafeelysa/",
+    "uses": [],
+    "notes": "Apart from Facebook, the only page found is cafeelysa.wordpress.com, a WordPress.com blog abandoned in September 2013 with two photos, a broken Menu link and no address or hours, and all cafeelysa domain variants are unregistered.",
+    "evidence": [
+     "https://cafeelysa.wordpress.com/",
+     "https://cafeelysa.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Cafe Elysa",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -1547,6 +1599,25 @@
    },
    "badness": 90,
    "lead_score": 78,
+   "checked": {
+    "id": "ChIJdUkAuqex3IARXEiU_kDvz1M",
+    "verdict": "ordering_page_only",
+    "official_url": "https://www.toasttab.com/la-cruda-mariscos-6733-indiana-ave",
+    "uses": [
+     "Toast"
+    ],
+    "notes": "Google lists only their Toast ordering page; every lacrudamariscos and lacrudariverside domain is unregistered, and lacruda.com and lacruda.net are parked domain pages.",
+    "evidence": [
+     "https://order.toasttab.com/online/la-cruda-mariscos-6733-indiana-ave",
+     "https://www.lacruda.net/",
+     "https://lacruda.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "missing",
+    "name": "La Cruda Mariscos",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -1623,6 +1694,22 @@
    },
    "badness": 100,
    "lead_score": 78,
+   "checked": {
+    "id": "ChIJsUs67KUx3YAR0E3LqdzOmig",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "About 25 Eggs Etc. domain variants across .com/.net/.org/.us/.co are unregistered, eggsetc.wordpress.com is deleted (410), and no Square, GoDaddy, Weebly or Wix page exists; web search was used up, so social pages could not be checked.",
+    "evidence": [
+     "https://eggsetc.com/",
+     "https://eggsetc.wordpress.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Eggs Etc.",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -1700,6 +1787,22 @@
    },
    "badness": 100,
    "lead_score": 78,
+   "checked": {
+    "id": "ChIJW6D93u_b3IARnehrhlnCsv0",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "habuyatustin.com (registered April 2026) was generated by the Surfaced platform, contains its email-campaign landing tracking, and shows only scraped Google data (hours read 'Monday: Closed; Tuesday: Closed'), so it is an outreach page, not the restaurant's site; other Habuya variants are unregistered.",
+    "evidence": [
+     "https://habuyatustin.com/",
+     "https://habuyaokinawandining.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Habuya Okinawan Dining",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -1776,6 +1879,23 @@
    },
    "badness": 100,
    "lead_score": 78,
+   "checked": {
+    "id": "ChIJy_Tl-SnX3IARoHrXft9D2Ok",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "thebrunchcafe.com is for sale on HugeDomains, brunchcafe.com is an unrelated Chicago chain, brunch.cafe is parked, brunchcafe.weebly.com is a school project, and every Anaheim or OC variant is unregistered.",
+    "evidence": [
+     "https://thebrunchcafe.com/",
+     "https://brunchcafe.com/",
+     "https://brunch.cafe/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "The Brunch Caf\u00e9",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -1856,6 +1976,22 @@
    },
    "badness": 95,
    "lead_score": 77,
+   "checked": {
+    "id": "ChIJE7MPPbsp3YARKn8sKBHf6Yw",
+    "verdict": "social_only",
+    "official_url": "https://instagram.com/8thhauscafe",
+    "uses": [],
+    "notes": "8thhaus.com is a Squarespace 'Coming Soon' parking page (registered October 2023 and renewed to 2027) with nothing linking it to the cafe, 8thhaus.co is a Wix domain not connected to any site, and Instagram could not be opened to check its bio link.",
+    "evidence": [
+     "https://8thhaus.com/",
+     "https://8thhaus.co/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "8th Haus Cafe",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -1936,6 +2072,26 @@
    },
    "badness": 85,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJdwj6zdTAwoARKNcRIz7Y-gQ",
+    "verdict": "weak_site",
+    "official_url": "https://ricksdrivein.wixsite.com/ricks",
+    "uses": [
+     "Wix"
+    ],
+    "notes": "Rick's has a free Wix subdomain site covering its Silver Lake and Whittier locations with a menu page and hours, but it shows Wix ads, leftover template text ('I'm a paragraph. Click here to add your own text'), a 2016 copyright and a 213 area code for the 323 Silver Lake number.",
+    "evidence": [
+     "https://ricksdrivein.wixsite.com/ricks",
+     "https://ricksdriveinandout.com/"
+    ],
+    "missing": [
+     "own domain",
+     "working links",
+     "photos"
+    ],
+    "name": "Rick's Drive In & Out",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -2015,6 +2171,25 @@
    },
    "badness": 90,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJyY9DJeoc24ARWtRxvr68qO0",
+    "verdict": "ordering_page_only",
+    "official_url": "https://order.toasttab.com/online/la-perlita-901-crossley-rd",
+    "uses": [
+     "Toast"
+    ],
+    "notes": "The Toast ordering page is the only web presence: laperlita.com is French, laperlitarestaurant.com is in Winston-Salem, and every Palm Springs or 'mexicanfood' variant is unregistered.",
+    "evidence": [
+     "https://order.toasttab.com/online/la-perlita-901-crossley-rd",
+     "https://laperlitarestaurant.com/",
+     "https://www.laperlita.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "ordering_page_only",
+    "name": "La Perlita Mexican Food",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -2060,85 +2235,6 @@
    ]
   },
   {
-   "id": "ChIJi3Q2wRMh3YAR8CZqIyvLP5I",
-   "types": [
-    "cocktail_bar",
-    "bar",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(714) 845-4776",
-   "formattedAddress": "21500 Pacific Coast Hwy, Huntington Beach, CA 92648, USA",
-   "location": {
-    "latitude": 33.651299,
-    "longitude": -117.99073430000001
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=10538365039208441584&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://huntingtonbeach.hyatt.com/",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 763,
-   "displayName": {
-    "text": "Watertable",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "Huntington / Newport Beach",
-   "site": {
-    "status": "broken",
-    "stack": [],
-    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: NOT_HTML. The page provided is not HTML (served as MIME type text/plain).\", \"errors\": [ { \"mess"
-   },
-   "badness": 95,
-   "lead_score": 76,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   },
-   "domains": [
-    {
-     "domain": "watertable.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "watertablehuntingtonbeach.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "watertable.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "watertable.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatwatertable.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "watertable.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJB88rWzjGwoARFEnGRpfiy9I",
    "types": [
     "italian_restaurant",
@@ -2171,6 +2267,23 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJB88rWzjGwoARFEnGRpfiy9I",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "pastabyallegro.com is a link-farm template that wrongly calls it a Mexican and Thai restaurant, allegrousa.com is a freight forwarder, and about 25 Pasta e Pasta and Allegro variants are unregistered; web search was used up, so social pages could not be checked.",
+    "evidence": [
+     "https://pastabyallegro.com/",
+     "https://allegrousa.com/",
+     "https://pastaepastala.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Pasta e Pasta by Allegro",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -2248,6 +2361,23 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJ43Yrd4a4woARQd--bTzAf50",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found, but this is unconfirmed: web search was out of budget, so I could only try domains directly, and about 300 variants of jangtuhbossam, jangteobossam and jangtuh across many endings turned up nothing of theirs (jangteobossam.com points to Google but shows a bare 404, and jangteo.com, jangto.com and jangteo.net are parked or belong to other businesses).",
+    "evidence": [
+     "https://jangteobossam.com/",
+     "https://jangto.com/",
+     "https://jangteo.net/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "JangTuh Bossam \uc7a5\ud130\ubcf4\uc308",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -2324,6 +2454,21 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJu6wNbD5N6IART44U4BL91x0",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found (unconfirmed, web search was out of budget): none of the many tacosmendoza and mendozatacos domain variants exist, no Square, Weebly, GoDaddy, Wix or Linktree page turned up, and mendozasmexicanfood.com is a different restaurant (phone 760-470-3511).",
+    "evidence": [
+     "https://mendozasmexicanfood.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Tacos Mendoza",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -2400,6 +2545,23 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJd3i9dBnHwoARzj2t8UdCDLQ",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found (unconfirmed, web search was out of budget): tacozone.com is parked, and tacozone.square.site, tacozone.godaddysites.com and thetacozone.com belong to the Taco Zone in Lawrence, KS (party@thetacozone.com), while tacozone.wixsite.com is a Mexican student project.",
+    "evidence": [
+     "https://tacozone.square.site/",
+     "https://tacozone.com/",
+     "https://tacozone.wixsite.com/tacozone"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Taco Zone Truck",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -2478,6 +2640,23 @@
    },
    "badness": 95,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJd3BzkU65woAR3Z2bPGtThec",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "The website Google lists (tacos-guelaguetza.mx) has no DNS record, about 500 tacosguelaguetza and guelaguetzatacos variants don't exist or are dead (tacoguelaguetza.com.mx shows a Google 404), and ilovemole.com is the separate Guelaguetza mole shop with no Melrose location (unconfirmed, web search was out of budget).",
+    "evidence": [
+     "https://tacos-guelaguetza.mx/",
+     "https://www.ilovemole.com/",
+     "https://tacoguelaguetza.com.mx/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Tacos Guelaguetza",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -2560,6 +2739,28 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJBYo34DZu3IARWDDT7uulfi4",
+    "verdict": "weak_site",
+    "official_url": "http://order101bagelsandsubs.com/",
+    "uses": [
+     "MenuStar"
+    ],
+    "notes": "They do have a website on their own domains (101bagels.com, 101bagel.com and order101bagelsandsubs.com, built on MenuStar) with a menu, online ordering, opening hours, an About Us section, a location page and their phone and address, but it is a dated 2017 template with two conflicting sets of hours and an empty photo gallery.",
+    "evidence": [
+     "http://order101bagelsandsubs.com/",
+     "http://order101bagelsandsubs.com/location.php",
+     "https://101bagels.com/"
+    ],
+    "missing": [
+     "photos",
+     "clear hours"
+    ],
+    "challenged": true,
+    "first_verdict": "ordering_page_only",
+    "name": "101 Bagels & Subs",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -2641,6 +2842,24 @@
    },
    "badness": 95,
    "lead_score": 75,
+   "checked": {
+    "id": "ChIJbzjuPKSx3IARolKfEJJd9WI",
+    "verdict": "weak_site",
+    "official_url": "https://lobbyriverside.com/",
+    "uses": [],
+    "missing": [
+     "working links",
+     "menu",
+     "hours"
+    ],
+    "notes": "The website Google lists, lobbyriverside.com, is down: HTTPS shows a certificate error (a generic SiteGround server certificate), and plain HTTP returns 503/403 from the host's default server with a 'default vhost' header, so no content loads.",
+    "evidence": [
+     "https://lobbyriverside.com/",
+     "http://lobbyriverside.com/"
+    ],
+    "name": "The Lobby Cocktail Lounge & Kitchen",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -2718,6 +2937,23 @@
    },
    "badness": 95,
    "lead_score": 75,
+   "checked": {
+    "id": "ChIJMxEjwKW0woARELDSl1GTDfg",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "notes": "Only the Facebook page that Google lists turned up (it's behind a login wall, so I couldn't read a bio link); about 600 maderos domain variants either don't exist or are parked or unrelated (maderos.com, .co and .us are parked, and maderos.com.mx is a Mexican furniture maker), and web search was out of budget.",
+    "evidence": [
+     "https://m.facebook.com/MaderosCocinaMexicana/",
+     "https://maderos.com/",
+     "http://maderos.com.mx/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Maderos Cocina Mexicana",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -2803,6 +3039,27 @@
    },
    "badness": 95,
    "lead_score": 75,
+   "checked": {
+    "id": "ChIJaVbS3Xd-24ARWMaRefZMqfg",
+    "verdict": "weak_site",
+    "official_url": "https://liquidleaf.shop/",
+    "uses": [
+     "Toast"
+    ],
+    "missing": [
+     "working links",
+     "menu",
+     "hours"
+    ],
+    "notes": "Their Toast website (www.liquidleaf.shop points to sites.toasttab.com, and theliquidleaf.com redirects there) is broken: Cloudflare error 1001 and a failed HTTPS connection, so nothing loads.",
+    "evidence": [
+     "https://liquidleaf.shop/",
+     "http://theliquidleaf.com/",
+     "http://www.liquidleaf.shop/"
+    ],
+    "name": "Liquid Leaf",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -2879,6 +3136,23 @@
    },
    "badness": 100,
    "lead_score": 75,
+   "checked": {
+    "id": "ChIJE4CNi_q1woAR6eDAIts1xHE",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found (unconfirmed, web search was out of budget): elamigo3.com, elamigoredondobeach.com and about 800 other variants don't exist, elamigorestaurant.com is for sale, elamigo.com is parked, elamigolawndale.com now forwards to a gambling site, and elamigotacos.com is a different El Amigo in Buffalo, NY.",
+    "evidence": [
+     "https://elamigorestaurant.com/",
+     "https://elamigolawndale.com/",
+     "https://elamigotacos.square.site/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "El Amigo #3",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -2964,6 +3238,27 @@
    },
    "badness": 90,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJpXqflHHHwoARjZTUmioVgDg",
+    "verdict": "ordering_page_only",
+    "official_url": "https://www.toasttab.com/lucia-mediterranean-downtown-945-wall-street-unit-6",
+    "uses": [
+     "Toast",
+     "Squarespace",
+     "Wix"
+    ],
+    "notes": "The only working web presence is the Toast ordering page; luciamediterraneangrill.kitchen is a Squarespace site that now says 'Website Expired' and luciamediterraneangrill.com is a Wix domain with no site connected, so they have probably had a website before, though I couldn't confirm these domains are theirs by address or phone.",
+    "evidence": [
+     "https://www.luciamediterraneangrill.kitchen/",
+     "https://luciamediterraneangrill.com/",
+     "https://www.toasttab.com/lucia-mediterranean-downtown-945-wall-street-unit-6"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "ordering_page_only",
+    "name": "Lucia Mediterranean Grill - Downtown LA",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -3048,6 +3343,25 @@
    },
    "badness": 95,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJLzkmoWawwoAR1_wd64Mg5tc",
+    "verdict": "weak_site",
+    "official_url": "https://www.senorgs.com/",
+    "uses": [
+     "WordPress",
+     "DoorDash"
+    ],
+    "missing": [
+     "menu",
+     "working links"
+    ],
+    "notes": "An outdated one-page WordPress site (newest images from 2021, dead Google+ link) with address, hours (Mon-Sun 9am-8pm) and phone, but the menu is only reachable through DoorDash order.online links.",
+    "evidence": [
+     "http://www.senorgs.com/"
+    ],
+    "name": "Se\u00f1or G's Fresh & Healthy Mexican Food",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -3128,6 +3442,23 @@
    },
    "badness": 100,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJhZd4wz61woARJv05J1SVWu4",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No working site (unconfirmed, web search was out of budget): theroadhousetorrance.com now shows Thai slot-gambling spam (probably an old domain that lapsed), roadhousebarandgrill.com is a different Roadhouse in Puyallup, WA, roadhousebar.com is parked, and about 450 other variants don't exist.",
+    "evidence": [
+     "https://theroadhousetorrance.com/",
+     "https://www.roadhousebarandgrill.com/",
+     "https://roadhousebar.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "The Roadhouse Bar & Grill",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -3207,6 +3538,23 @@
    },
    "badness": 100,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJCxkoGcwp3YARAxo1HKln1_c",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found (unconfirmed, web search was out of budget): rufinos.com is now for sale, rufinos.org is a Nicaraguan theater, rufinos.godaddysites.com, rufinos.wordpress.com and linktr.ee/rufinos belong to other businesses, rufinos.weebly.com is an empty template with no address or phone, and the Anaheim-specific variants don't exist.",
+    "evidence": [
+     "https://rufinos.com/",
+     "https://rufinos.weebly.com/",
+     "https://www.rufinos.org/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Rufino's Italian Restaurant",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -3292,6 +3640,23 @@
    },
    "badness": 95,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJOS2F_GjHwoARh18Y5VQhECE",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "notes": "Only Instagram (@bohemianchai) turned up: bohemianchai.com is now an Indonesian gambling site (probably a lapsed old domain), bohemianhouse.com and .co are parked, bohemianhouse.net is an art shop, and bohemian.house is a GoDaddy 'Launching Soon' placeholder that I couldn't link to them.",
+    "evidence": [
+     "https://www.bohemianchai.com/",
+     "https://bohemian.house/",
+     "https://bohemianhouse.net/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Bohemian House of Espresso + Chai",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -3368,6 +3733,23 @@
    },
    "badness": 100,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJY7sDovqx3IAR0rkbv1GQBaQ",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found (unconfirmed, web search was out of budget): Riverside-specific and sandwich-shoppe domains don't exist, uppercrustsandwiches.com is for sale, theuppercrust.com and uppercrustcafe.com are parked, and theuppercrustcafe.com belongs to a UK cafe (+44 phone).",
+    "evidence": [
+     "https://uppercrustsandwiches.com/",
+     "https://theuppercrustcafe.com/",
+     "https://theuppercrust.co/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "The Upper Crust Sandwich Shoppe",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -3413,88 +3795,6 @@
    ]
   },
   {
-   "id": "ChIJNXl_b0y5woAR11wkgbY8lfw",
-   "types": [
-    "breakfast_restaurant",
-    "diner",
-    "brunch_restaurant",
-    "coffee_roastery",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(323) 879-9341",
-   "formattedAddress": "8201 W 3rd St, Los Angeles, CA 90048, USA",
-   "location": {
-    "latitude": 34.0726404,
-    "longitude": -118.36817579999999
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=18200520223636085975&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://order.toasttab.com/online/mood",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 815,
-   "displayName": {
-    "text": "MOOD.",
-    "languageCode": "en"
-   },
-   "primaryType": "breakfast_restaurant",
-   "_spot": "Hollywood / West Hollywood",
-   "site": {
-    "status": "ordering-only",
-    "stack": [
-     "Toast"
-    ]
-   },
-   "badness": 90,
-   "lead_score": 73,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   },
-   "domains": [
-    {
-     "domain": "mood.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "moodlosangeles.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "mood.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "mood.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatmood.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "mood.net",
-     "available": false,
-     "code": 200,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJY5cHkX-2woARrtEGa5_hRkE",
    "types": [
     "mexican_restaurant",
@@ -3528,6 +3828,29 @@
    },
    "badness": 95,
    "lead_score": 73,
+   "checked": {
+    "id": "ChIJY5cHkX-2woARrtEGa5_hRkE",
+    "verdict": "weak_site",
+    "official_url": "https://mariscosguillen.weebly.com/",
+    "uses": [
+     "Weebly"
+    ],
+    "notes": "They do have their own free Weebly site with their phone (310) 973-1810, address (12319 Prairie Ave) and hours on the Contact page, but the menu page only lists category headings ('Burritos .... Tacos ....') with no dishes or prices, and the site title is still the template name 'UrbanDine'.",
+    "evidence": [
+     "https://mariscosguillen.weebly.com/",
+     "https://mariscosguillen.weebly.com/contact.html",
+     "https://mariscosguillen.weebly.com/menu.html"
+    ],
+    "missing": [
+     "menu",
+     "photos",
+     "ordering"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Mariscos Guillen",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -3573,90 +3896,6 @@
    ]
   },
   {
-   "id": "ChIJ69Xt89wD3IARZz-DZJw3r6U",
-   "types": [
-    "cafe",
-    "catering_service",
-    "coffee_shop",
-    "food_delivery",
-    "food_store",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "service",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(858) 459-1895",
-   "formattedAddress": "6780 La Jolla Blvd, La Jolla, CA 92037, USA",
-   "location": {
-    "latitude": 32.830278899999996,
-    "longitude": -117.2769906
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=11938822282023223143&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.cafevahik.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 495,
-   "displayName": {
-    "text": "Caf\u00e9 Vahik",
-    "languageCode": "en"
-   },
-   "primaryType": "cafe",
-   "_spot": "La Jolla",
-   "site": {
-    "status": "broken",
-    "stack": [],
-    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
-   },
-   "badness": 95,
-   "lead_score": 73,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   },
-   "domains": [
-    {
-     "domain": "cafvahik.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "cafvahiklajolla.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "cafvahik.cafe",
-     "available": false,
-     "code": 403,
-     "price": "~$6/yr then ~$35"
-    },
-    {
-     "domain": "cafvahik.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatcafvahik.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "cafvahik.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJd79yFH-zwoARUbpx4YrqTEc",
    "types": [
     "french_restaurant",
@@ -3693,6 +3932,28 @@
    },
    "badness": 100,
    "lead_score": 73,
+   "checked": {
+    "id": "ChIJd79yFH-zwoARUbpx4YrqTEc",
+    "verdict": "weak_site",
+    "official_url": "https://www.cremedelacrepe.com/",
+    "uses": [
+     "WordPress",
+     "DoorDash",
+     "OpenTable"
+    ],
+    "missing": [
+     "working links",
+     "hours"
+    ],
+    "notes": "The brand site still lists Hermosa Beach (its original Pier Ave location) in the menu and contact form, but the Hermosa Beach page is unpublished and returns 404; location pages have 2026 menu PDFs but no hours, and the Hermosa page being removed may also mean this location closed.",
+    "evidence": [
+     "https://www.cremedelacrepe.com/",
+     "https://www.cremedelacrepe.com/hermosa-beach/",
+     "https://www.cremedelacrepe.com/redondo-beach/"
+    ],
+    "name": "Creme De La Crepe Hermosa Beach",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -3732,83 +3993,6 @@
    ]
   },
   {
-   "id": "ChIJvQzk_xit6YARllx35jMnBZI",
-   "types": [
-    "breakfast_restaurant",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(805) 641-2866",
-   "formattedAddress": "2009 E Main St, Ventura, CA 93001, USA",
-   "location": {
-    "latitude": 34.2782097,
-    "longitude": -119.27001190000001
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=10521859208284429462&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 422,
-   "displayName": {
-    "text": "Golden Egg Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "breakfast_restaurant",
-   "_spot": "Ventura / Oxnard",
-   "site": {
-    "status": "none",
-    "stack": []
-   },
-   "badness": 100,
-   "lead_score": 73,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   },
-   "domains": [
-    {
-     "domain": "goldeneggcafe.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "goldenegg.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "goldeneggventura.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "goldenegg.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "goldenegg.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatgoldenegg.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJa3oV1F0x3YAR9cqeP7dHwwM",
    "types": [
     "mexican_restaurant",
@@ -3840,6 +4024,22 @@
    },
    "badness": 100,
    "lead_score": 73,
+   "checked": {
+    "id": "ChIJa3oV1F0x3YAR9cqeP7dHwwM",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found (unconfirmed, web search was out of budget): tacoselsapo.com only shows a Namecheap 'recently registered' placeholder with no content and no owner info, and every other tacoselsapo and elsapotacos variant either doesn't exist or belongs to someone else (elsapo.net is a Swiss IT company).",
+    "evidence": [
+     "https://www.tacoselsapo.com/",
+     "https://elsapo.net/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Tacos \"El Sapo\" Long Beach",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -3919,6 +4119,22 @@
    },
    "badness": 95,
    "lead_score": 73,
+   "checked": {
+    "id": "ChIJ0Y7i4SJV2YAREUNtywsHK6k",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "notes": "Their Linktree (which matches 4207 Park Blvd) confirms fortunasandiego.com was their website, but that domain's registration has expired (Namecheap expired page), so what remains is Linktree, Instagram, TikTok, Facebook and YouTube, and no replacement domain turned up.",
+    "evidence": [
+     "https://linktr.ee/fortunaristoranteitaliano",
+     "https://fortunasandiego.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Fortuna Ristorante Italiano",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -55330,6 +55546,23 @@
    },
    "badness": 95,
    "lead_score": 87,
+   "checked": {
+    "id": "ChIJhcl8bOFy3IARrtyb-egJww0",
+    "verdict": "weak_site",
+    "official_url": "https://www.tiptopmeats.com/",
+    "uses": [],
+    "missing": [
+     "working links"
+    ],
+    "notes": "Reopened in a smaller format at 6118 Paseo Del Norte in February 2026 after closing in 2024, and the reopening article and Google both list tiptopmeats.com (domain renewed March 2026), but the site would not load during this check (connection timeout), so someone should open it in a browser before pitching.",
+    "evidence": [
+     "https://www.tiptopmeats.com/",
+     "https://www.sandiegoville.com/2026/02/san-diegos-historic-tip-top-meats.html",
+     "https://www.10news.com/news/local-news/north-county-news/tip-top-meats-in-carlsbad-closes-after-more-than-40-years"
+    ],
+    "name": "Tip Top Meats",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -57349,6 +57582,26 @@
    },
    "badness": 85,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJdwj6zdTAwoARKNcRIz7Y-gQ",
+    "verdict": "weak_site",
+    "official_url": "https://ricksdrivein.wixsite.com/ricks",
+    "uses": [
+     "Wix"
+    ],
+    "notes": "Rick's has a free Wix subdomain site covering its Silver Lake and Whittier locations with a menu page and hours, but it shows Wix ads, leftover template text ('I'm a paragraph. Click here to add your own text'), a 2016 copyright and a 213 area code for the 323 Silver Lake number.",
+    "evidence": [
+     "https://ricksdrivein.wixsite.com/ricks",
+     "https://ricksdriveinandout.com/"
+    ],
+    "missing": [
+     "own domain",
+     "working links",
+     "photos"
+    ],
+    "name": "Rick's Drive In & Out",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -58277,6 +58530,28 @@
    },
    "badness": 90,
    "lead_score": 81,
+   "checked": {
+    "id": "ChIJ4z76Yrgb24ARwLCR_lW973s",
+    "verdict": "weak_site",
+    "official_url": "https://johnspalmsprings.com/",
+    "uses": [
+     "Toast",
+     "WordPress"
+    ],
+    "notes": "John's is building its own WordPress site (pages created Sept 2026, labeled 'Testing Site Only - DO NOT USE' and 'should be ready by October 1, 2026') with placeholder Menu, About, Catering and Hours pages; online ordering runs through Toast.",
+    "evidence": [
+     "https://johnspalmsprings.com/home/",
+     "https://johnspalmsprings.com/menu/",
+     "https://www.toasttab.com/johnsps"
+    ],
+    "missing": [
+     "menu",
+     "hours",
+     "photos"
+    ],
+    "name": "John's Restaurant",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -58405,49 +58680,30 @@
    },
    "badness": 95,
    "lead_score": 93,
+   "checked": {
+    "id": "ChIJU5Ve3O3V3IAR4eDsfbY7-2Q",
+    "verdict": "good_site",
+    "official_url": "https://www.allaboutpho.com/",
+    "uses": [
+     "BentoBox",
+     "Toast",
+     "DoorDash"
+    ],
+    "missing": [],
+    "notes": "aboutpho.com redirects to allaboutpho.com, a BentoBox site with a Fullerton page (100 S Harbor Blvd Ste B, (909) 255-6626, daily 11am-9pm), menus, and online ordering through Toast and DoorDash.",
+    "evidence": [
+     "https://www.allaboutpho.com/",
+     "https://www.allaboutpho.com/location/aboutpho/",
+     "https://www.allaboutpho.com/order-online"
+    ],
+    "name": "All About Pho - Fullerton",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
     "monthly": 199
-   },
-   "domains": [
-    {
-     "domain": "allaboutpho.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "allabout.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "allaboutfullerton.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "allabout.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "allabout.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatallabout.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    }
-   ]
+   }
   },
   {
    "id": "ChIJf93IyCcw3YARWfdXmU01sRc",
@@ -59898,6 +60154,31 @@
    },
    "badness": 95,
    "lead_score": 86,
+   "checked": {
+    "id": "ChIJdy1gjIIT6YARnDxI5VNNYDw",
+    "verdict": "weak_site",
+    "official_url": "https://www.superricataqueria.com/",
+    "uses": [
+     "Google Sites"
+    ],
+    "notes": "The first checker missed this one: superricataqueria.com (registered 2021, renewed to 2027) is a Google Sites page titled 'World Famous Super Rica!' with the numbered menu and prices, a Drinks page and a map pin at 622 N Milpas St, but it has no hours, phone or ordering, a dated 'We are safely Open!' banner and probably old prices; it does not say who runs it (lasuperrica.com is a parked GoDaddy lander).",
+    "evidence": [
+     "https://www.superricataqueria.com/",
+     "https://www.superricataqueria.com/drinks",
+     "https://lasuperrica.com/"
+    ],
+    "missing": [
+     "hours",
+     "phone",
+     "ordering",
+     "photos",
+     "current prices"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "La Super-Rica Taqueria",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -60327,49 +60608,29 @@
    },
    "badness": 85,
    "lead_score": 83,
+   "checked": {
+    "id": "ChIJ7_B3_bwr3YAR95NekrRlSw4",
+    "verdict": "good_site",
+    "official_url": "https://acairepublic.com/store/acai-republic-fullerton",
+    "uses": [
+     "Square",
+     "Uber Eats"
+    ],
+    "notes": "The A\u00e7a\u00ed Republic chain site lists this exact address (1109 N Harbor Blvd) with hours (daily 9am-10pm), a full menu, online pickup ordering, catering and an app.",
+    "evidence": [
+     "https://acairepublic.com/",
+     "https://acairepublic.com/locations",
+     "https://acairepublic.com/store/acai-republic-fullerton"
+    ],
+    "missing": [],
+    "name": "Acai Republic Fullerton",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
     "monthly": 199
-   },
-   "domains": [
-    {
-     "domain": "acairepublicfullerton.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "acairepublic.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "acairepublic.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "acairepublic.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatacairepublic.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "acairepublic.net",
-     "available": false,
-     "code": 200,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
+   }
   },
   {
    "id": "ChIJ-8IP043EwoARxu4-KUQ-XYM",
@@ -62487,6 +62748,25 @@
    },
    "badness": 100,
    "lead_score": 90,
+   "checked": {
+    "id": "ChIJ-02uXt-q3oARsmeTXs7qOMU",
+    "verdict": "weak_site",
+    "official_url": "https://elagave.com/",
+    "uses": [
+     "WordPress"
+    ],
+    "missing": [
+     "menu",
+     "hours",
+     "working links"
+    ],
+    "notes": "elagave.com (registered 2001) is very likely the restaurant's own WordPress site, but every page shows 'There has been a critical error on this website', so its ownership could not be confirmed from page content.",
+    "evidence": [
+     "https://elagave.com/"
+    ],
+    "name": "El Agave Restaurant & Tequileria",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -63612,49 +63892,28 @@
    },
    "badness": 100,
    "lead_score": 94,
+   "checked": {
+    "id": "ChIJ12_jWToy3YARKc9VQ6Gtbp8",
+    "verdict": "good_site",
+    "official_url": "https://www.boathouseonthebay.com/",
+    "uses": [
+     "Toast"
+    ],
+    "missing": [],
+    "notes": "Full, maintained site (Next.js on Vercel) with menus including sushi, hours, location, Toast online ordering, Toast reservations and waitlist, and events. It lists only 190 N Marina Dr, Long Beach, not the 4100 Donald Douglas Dr (Long Beach Airport) address in this listing.",
+    "evidence": [
+     "https://www.boathouseonthebay.com/",
+     "https://www.boathouseonthebay.com/hours-locations",
+     "https://order.toasttab.com/online/the-boathouse-on-the-bay"
+    ],
+    "name": "Boathouse on the Bay",
+    "checked_on": "2026-10-07"
+   },
    "size": "large",
    "suggested": {
     "setup": 1800,
     "monthly": 199
-   },
-   "domains": [
-    {
-     "domain": "boathouseonbay.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "boathouseonbaylongbeach.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "boathouseonbay.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "boathouseonbay.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatboathouseonbay.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "boathouseonbay.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
+   }
   },
   {
    "id": "ChIJlQAcPZoz3YARdBWbP1WKSQs",
@@ -73198,6 +73457,29 @@
    },
    "badness": 95,
    "lead_score": 82,
+   "checked": {
+    "id": "ChIJhcl1j8nHwoARlPOblTtMEOI",
+    "verdict": "weak_site",
+    "official_url": "http://birdieschickensandwich.com/",
+    "uses": [
+     "DoorDash",
+     "Uber Eats",
+     "Postmates"
+    ],
+    "notes": "The domain listed on Google is still registered and renewed to 2027, but it timed out on every attempt (HTTPS reset, HTTP 503), and the shop renamed itself Duchess in 2024 (312 W Olympic Blvd); I found no Duchess website.",
+    "evidence": [
+     "http://birdieschickensandwich.com/",
+     "https://www.theinfatuation.com/los-angeles/reviews/birdies",
+     "https://wanderlog.com/place/details/397692"
+    ],
+    "missing": [
+     "working links",
+     "menu",
+     "hours"
+    ],
+    "name": "Birdies",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -73910,6 +74192,23 @@
    },
    "badness": 95,
    "lead_score": 82,
+   "checked": {
+    "id": "ChIJTczMZeWx3IARuGRBho12CDE",
+    "verdict": "social_only",
+    "official_url": "https://www.facebook.com/backtothegrind/",
+    "uses": [],
+    "notes": "Their old domain back2thegrind.com was caught by DropCatch in 2023 and shows a NameBright expired page, and every 'Back to the Grind' site found (backtothegrind.co Chicago, backtothegrind.ca Ontario, a 2008 WordPress blog) belongs to someone else, so only Facebook remains.",
+    "evidence": [
+     "http://back2thegrind.com/",
+     "https://www.backtothegrind.co/",
+     "https://www.backtothegrind.ca/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Back To The Grind",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -79343,6 +79642,27 @@
    },
    "badness": 95,
    "lead_score": 82,
+   "checked": {
+    "id": "ChIJD9g6ZAjZ3IARt5VDf8hUi-Y",
+    "verdict": "weak_site",
+    "official_url": "https://wursthaus.store/",
+    "uses": [
+     "DoorDash",
+     "Grubhub",
+     "OpenTable"
+    ],
+    "notes": "The Google-listed wursthaus.store (registered Dec 2025) has a menu page that appears in search results, but the site timed out on every attempt over HTTPS and HTTP, so check it by hand before pitching; the restaurant itself is open.",
+    "evidence": [
+     "https://wursthaus.store/menu",
+     "https://www.doordash.com/store/wursthaus-santa-ana-1559720/",
+     "https://luma.com/j4un7dr9"
+    ],
+    "missing": [
+     "working links"
+    ],
+    "name": "Wursthaus",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -84530,6 +84850,25 @@
    },
    "badness": 90,
    "lead_score": 78,
+   "checked": {
+    "id": "ChIJdUkAuqex3IARXEiU_kDvz1M",
+    "verdict": "ordering_page_only",
+    "official_url": "https://www.toasttab.com/la-cruda-mariscos-6733-indiana-ave",
+    "uses": [
+     "Toast"
+    ],
+    "notes": "Google lists only their Toast ordering page; every lacrudamariscos and lacrudariverside domain is unregistered, and lacruda.com and lacruda.net are parked domain pages.",
+    "evidence": [
+     "https://order.toasttab.com/online/la-cruda-mariscos-6733-indiana-ave",
+     "https://www.lacruda.net/",
+     "https://lacruda.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "missing",
+    "name": "La Cruda Mariscos",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -84910,6 +85249,23 @@
    },
    "badness": 100,
    "lead_score": 85,
+   "checked": {
+    "id": "ChIJ1wqJ6iR-24ARqL79ki1oA1c",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site found: patsymaescafe.com, patsymaes.com, patsymaescafetemecula.com and about 15 other variants (.net/.org/.co/.cafe) are not registered, and the Square, Wix, Weebly, GoDaddy and WordPress subdomains return 404 or do not exist. Web search was unavailable and social pages were blocked, so a Facebook/Instagram presence is unverified. Re-checked with web search: still no website of its own.",
+    "evidence": [
+     "https://patsymaescafe.square.site/",
+     "https://patsymaescafe.wixsite.com/patsymaescafe",
+     "https://patsymaescafe.godaddysites.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Patsy Mae's Cafe",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -87103,6 +87459,25 @@
    },
    "badness": 90,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJyY9DJeoc24ARWtRxvr68qO0",
+    "verdict": "ordering_page_only",
+    "official_url": "https://order.toasttab.com/online/la-perlita-901-crossley-rd",
+    "uses": [
+     "Toast"
+    ],
+    "notes": "The Toast ordering page is the only web presence: laperlita.com is French, laperlitarestaurant.com is in Winston-Salem, and every Palm Springs or 'mexicanfood' variant is unregistered.",
+    "evidence": [
+     "https://order.toasttab.com/online/la-perlita-901-crossley-rd",
+     "https://laperlitarestaurant.com/",
+     "https://www.laperlita.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "ordering_page_only",
+    "name": "La Perlita Mexican Food",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -87821,6 +88196,22 @@
    },
    "badness": 100,
    "lead_score": 84,
+   "checked": {
+    "id": "ChIJDeR8bTNx3IARNPUjzMCYneY",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "notes": "sanluismexicanfood.shop (registered May 2026) is a template spam page that pastes Google reviews in the third person and shows a 'Reserve Now' button for a burrito shop, and every other variant (.com/.net/.org, oceanside) is unregistered, so the earlier Facebook-only verdict stands.",
+    "evidence": [
+     "https://sanluismexicanfood.shop/",
+     "https://sanluismexicanfood.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "San Luis Mexican Food",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -90530,6 +90921,22 @@
    },
    "badness": 100,
    "lead_score": 85,
+   "checked": {
+    "id": "ChIJL6aWgeu6woARZmvh45j5gUE",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "About 25 name variants did not resolve and thegreatwestern.com is a HugeDomains for-sale page, so no own site was found; web search was used up, so social pages could not be re-checked.",
+    "evidence": [
+     "https://thegreatwestern.com/",
+     "https://greatwesternsteakandhoagie.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "The Great Western Steak & Hoagie Co.",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -91251,6 +91658,22 @@
    },
    "badness": 95,
    "lead_score": 79,
+   "checked": {
+    "id": "ChIJuSPXLQ5y3IARUJdJoYZIAXU",
+    "verdict": "social_only",
+    "official_url": "https://www.facebook.com/cafeelysa/",
+    "uses": [],
+    "notes": "Apart from Facebook, the only page found is cafeelysa.wordpress.com, a WordPress.com blog abandoned in September 2013 with two photos, a broken Menu link and no address or hours, and all cafeelysa domain variants are unregistered.",
+    "evidence": [
+     "https://cafeelysa.wordpress.com/",
+     "https://cafeelysa.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Cafe Elysa",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -91440,6 +91863,22 @@
    },
    "badness": 100,
    "lead_score": 81,
+   "checked": {
+    "id": "ChIJVdZgH1yVwoARY29XXYIfJzQ",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "The only page found is casitastacoalcarbon.shop, a January 2026 template spam page from the same network as the San Luis one (it has the same '#cotnact' typo and a 'Get A Reservation Now' button for a taqueria), and about 15 real domain variants are unregistered; web search was used up, so social pages could not be checked.",
+    "evidence": [
+     "https://casitastacoalcarbon.shop/",
+     "https://casitastacoalcarbon.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "missing",
+    "name": "Casitas Taco Al Carbon",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -92588,6 +93027,22 @@
    },
    "badness": 95,
    "lead_score": 80,
+   "checked": {
+    "id": "ChIJGUEyYjkh3YARvFJxBGHMq_E",
+    "verdict": "social_only",
+    "official_url": "https://www.facebook.com/pages/Normitas-Surf-City-Taco/115555118467384",
+    "uses": [],
+    "notes": "normitas.com (registered May 2026) is a Base44 template whose code uses '123 Main Street, Anytown' and '(555) 123-4567', so it is not tied to the Huntington Beach shop, and about 15 other variants are unregistered; Facebook remains the only presence.",
+    "evidence": [
+     "https://normitas.com/",
+     "https://normitassurfcitytaco.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Normita's Surf City Taco",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -93041,6 +93496,22 @@
    },
    "badness": 100,
    "lead_score": 81,
+   "checked": {
+    "id": "ChIJRQRmf04w3YARaCHWy4j1EnM",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "Every Chuck's Coffee Shop domain variant tried (.com/.net/.org, lb, longbeach) is unregistered, chucksdiner.com is a parked lander, and no Square, GoDaddy, Weebly, Wix or WordPress page exists under the name.",
+    "evidence": [
+     "https://chuckscoffeeshop.com/",
+     "https://chucksdiner.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Chuck's Coffee Shop",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -93350,6 +93821,22 @@
    },
    "badness": 95,
    "lead_score": 77,
+   "checked": {
+    "id": "ChIJE7MPPbsp3YARKn8sKBHf6Yw",
+    "verdict": "social_only",
+    "official_url": "https://instagram.com/8thhauscafe",
+    "uses": [],
+    "notes": "8thhaus.com is a Squarespace 'Coming Soon' parking page (registered October 2023 and renewed to 2027) with nothing linking it to the cafe, 8thhaus.co is a Wix domain not connected to any site, and Instagram could not be opened to check its bio link.",
+    "evidence": [
+     "https://8thhaus.com/",
+     "https://8thhaus.co/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "8th Haus Cafe",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -94358,6 +94845,22 @@
    },
    "badness": 100,
    "lead_score": 80,
+   "checked": {
+    "id": "ChIJGUZiL-TV3IARuh3vN52IgnI",
+    "verdict": "weak_site",
+    "official_url": "http://nicksburgersfullerton.com/",
+    "uses": [],
+    "notes": "nicksburgersfullerton.com is registered (2022, renewed to 2027, with Spectrum business email) and probably belongs to them, but it never loaded and I could not confirm the owner; nickssuperburgers.shop is an auto-generated directory page, and the shared search limit was used up, so check this by hand before pitching.",
+    "evidence": [
+     "http://nicksburgersfullerton.com/",
+     "https://nickssuperburgers.shop/"
+    ],
+    "missing": [
+     "working links"
+    ],
+    "name": "Nick's Super Burgers",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -98821,49 +99324,27 @@
    },
    "badness": 90,
    "lead_score": 73,
+   "checked": {
+    "id": "ChIJNXl_b0y5woAR11wkgbY8lfw",
+    "verdict": "good_site",
+    "official_url": "https://mood-la.com/",
+    "uses": [
+     "Toast"
+    ],
+    "notes": "Probably has a site (unconfirmed): DNS shows mood-la.com and www.mood-la.com are a Toast Website (sites.toasttab.com), and this MOOD orders through Toast, but a bot check blocked the page, so check it in a browser before deciding (moodla.com and mood.la are for sale or parked).",
+    "evidence": [
+     "https://mood-la.com/",
+     "https://order.toasttab.com/online/mood",
+     "https://moodla.com/"
+    ],
+    "name": "MOOD.",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
     "monthly": 129
-   },
-   "domains": [
-    {
-     "domain": "mood.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "moodlosangeles.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "mood.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "mood.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatmood.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "mood.net",
-     "available": false,
-     "code": 200,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
+   }
   },
   {
    "id": "ChIJJevCFADHwoARfdvQR026SJQ",
@@ -101603,6 +102084,24 @@
    },
    "badness": 95,
    "lead_score": 75,
+   "checked": {
+    "id": "ChIJbzjuPKSx3IARolKfEJJd9WI",
+    "verdict": "weak_site",
+    "official_url": "https://lobbyriverside.com/",
+    "uses": [],
+    "missing": [
+     "working links",
+     "menu",
+     "hours"
+    ],
+    "notes": "The website Google lists, lobbyriverside.com, is down: HTTPS shows a certificate error (a generic SiteGround server certificate), and plain HTTP returns 503/403 from the host's default server with a 'default vhost' header, so no content loads.",
+    "evidence": [
+     "https://lobbyriverside.com/",
+     "http://lobbyriverside.com/"
+    ],
+    "name": "The Lobby Cocktail Lounge & Kitchen",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -102139,49 +102638,29 @@
    },
    "badness": 95,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJi3Q2wRMh3YAR8CZqIyvLP5I",
+    "verdict": "good_site",
+    "official_url": "https://www.watertablehb.com/",
+    "uses": [
+     "BentoBox",
+     "Resy",
+     "Tock"
+    ],
+    "notes": "Watertable has its own Hyatt-run BentoBox site with menus, a wine list, full hours for this exact address, private events and online reservations.",
+    "evidence": [
+     "https://www.watertablehb.com/",
+     "https://www.watertablehb.com/location/hyatt-regency-huntington-beach-watertable/"
+    ],
+    "missing": [],
+    "name": "Watertable",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
     "monthly": 129
-   },
-   "domains": [
-    {
-     "domain": "watertable.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "watertablehuntingtonbeach.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "watertable.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "watertable.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatwatertable.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "watertable.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
+   }
   },
   {
    "id": "ChIJC8DQhfGs6YARClpPI-0KTlk",
@@ -105919,6 +106398,22 @@
    },
    "badness": 100,
    "lead_score": 78,
+   "checked": {
+    "id": "ChIJsUs67KUx3YAR0E3LqdzOmig",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "About 25 Eggs Etc. domain variants across .com/.net/.org/.us/.co are unregistered, eggsetc.wordpress.com is deleted (410), and no Square, GoDaddy, Weebly or Wix page exists; web search was used up, so social pages could not be checked.",
+    "evidence": [
+     "https://eggsetc.com/",
+     "https://eggsetc.wordpress.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Eggs Etc.",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -106609,6 +107104,27 @@
    },
    "badness": 90,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJpXqflHHHwoARjZTUmioVgDg",
+    "verdict": "ordering_page_only",
+    "official_url": "https://www.toasttab.com/lucia-mediterranean-downtown-945-wall-street-unit-6",
+    "uses": [
+     "Toast",
+     "Squarespace",
+     "Wix"
+    ],
+    "notes": "The only working web presence is the Toast ordering page; luciamediterraneangrill.kitchen is a Squarespace site that now says 'Website Expired' and luciamediterraneangrill.com is a Wix domain with no site connected, so they have probably had a website before, though I couldn't confirm these domains are theirs by address or phone.",
+    "evidence": [
+     "https://www.luciamediterraneangrill.kitchen/",
+     "https://luciamediterraneangrill.com/",
+     "https://www.toasttab.com/lucia-mediterranean-downtown-945-wall-street-unit-6"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "ordering_page_only",
+    "name": "Lucia Mediterranean Grill - Downtown LA",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -113011,6 +113527,23 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJB88rWzjGwoARFEnGRpfiy9I",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "pastabyallegro.com is a link-farm template that wrongly calls it a Mexican and Thai restaurant, allegrousa.com is a freight forwarder, and about 25 Pasta e Pasta and Allegro variants are unregistered; web search was used up, so social pages could not be checked.",
+    "evidence": [
+     "https://pastabyallegro.com/",
+     "https://allegrousa.com/",
+     "https://pastaepastala.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Pasta e Pasta by Allegro",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -113194,6 +113727,25 @@
    },
    "badness": 95,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJLzkmoWawwoAR1_wd64Mg5tc",
+    "verdict": "weak_site",
+    "official_url": "https://www.senorgs.com/",
+    "uses": [
+     "WordPress",
+     "DoorDash"
+    ],
+    "missing": [
+     "menu",
+     "working links"
+    ],
+    "notes": "An outdated one-page WordPress site (newest images from 2021, dead Google+ link) with address, hours (Mon-Sun 9am-8pm) and phone, but the menu is only reachable through DoorDash order.online links.",
+    "evidence": [
+     "http://www.senorgs.com/"
+    ],
+    "name": "Se\u00f1or G's Fresh & Healthy Mexican Food",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -115825,6 +116377,23 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJ43Yrd4a4woARQd--bTzAf50",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found, but this is unconfirmed: web search was out of budget, so I could only try domains directly, and about 300 variants of jangtuhbossam, jangteobossam and jangtuh across many endings turned up nothing of theirs (jangteobossam.com points to Google but shows a bare 404, and jangteo.com, jangto.com and jangteo.net are parked or belong to other businesses).",
+    "evidence": [
+     "https://jangteobossam.com/",
+     "https://jangto.com/",
+     "https://jangteo.net/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "JangTuh Bossam \uc7a5\ud130\ubcf4\uc308",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -117230,6 +117799,23 @@
    },
    "badness": 95,
    "lead_score": 75,
+   "checked": {
+    "id": "ChIJMxEjwKW0woARELDSl1GTDfg",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "notes": "Only the Facebook page that Google lists turned up (it's behind a login wall, so I couldn't read a bio link); about 600 maderos domain variants either don't exist or are parked or unrelated (maderos.com, .co and .us are parked, and maderos.com.mx is a Mexican furniture maker), and web search was out of budget.",
+    "evidence": [
+     "https://m.facebook.com/MaderosCocinaMexicana/",
+     "https://maderos.com/",
+     "http://maderos.com.mx/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Maderos Cocina Mexicana",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -118404,6 +118990,22 @@
    },
    "badness": 100,
    "lead_score": 78,
+   "checked": {
+    "id": "ChIJW6D93u_b3IARnehrhlnCsv0",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "habuyatustin.com (registered April 2026) was generated by the Surfaced platform, contains its email-campaign landing tracking, and shows only scraped Google data (hours read 'Monday: Closed; Tuesday: Closed'), so it is an outreach page, not the restaurant's site; other Habuya variants are unregistered.",
+    "evidence": [
+     "https://habuyatustin.com/",
+     "https://habuyaokinawandining.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Habuya Okinawan Dining",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -118755,6 +119357,22 @@
    },
    "badness": 100,
    "lead_score": 80,
+   "checked": {
+    "id": "ChIJc8MuvwUx3YARICKAYWyFeVI",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "galatagrill.com is now a parked ad page pending deletion, and its old GoDaddy builder page (galatagrill.godaddysites.com, \u00a9 2024) only says 'Galata Grill Launching Soon' with no address; about 25 other variants are unregistered.",
+    "evidence": [
+     "https://galatagrill.com/",
+     "https://galatagrill.godaddysites.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Galata Halal Restaurant and Grill",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -119014,6 +119632,29 @@
    },
    "badness": 95,
    "lead_score": 73,
+   "checked": {
+    "id": "ChIJY5cHkX-2woARrtEGa5_hRkE",
+    "verdict": "weak_site",
+    "official_url": "https://mariscosguillen.weebly.com/",
+    "uses": [
+     "Weebly"
+    ],
+    "notes": "They do have their own free Weebly site with their phone (310) 973-1810, address (12319 Prairie Ave) and hours on the Contact page, but the menu page only lists category headings ('Burritos .... Tacos ....') with no dishes or prices, and the site title is still the template name 'UrbanDine'.",
+    "evidence": [
+     "https://mariscosguillen.weebly.com/",
+     "https://mariscosguillen.weebly.com/contact.html",
+     "https://mariscosguillen.weebly.com/menu.html"
+    ],
+    "missing": [
+     "menu",
+     "photos",
+     "ordering"
+    ],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Mariscos Guillen",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -120610,6 +121251,21 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJu6wNbD5N6IART44U4BL91x0",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found (unconfirmed, web search was out of budget): none of the many tacosmendoza and mendozatacos domain variants exist, no Square, Weebly, GoDaddy, Wix or Linktree page turned up, and mendozasmexicanfood.com is a different restaurant (phone 760-470-3511).",
+    "evidence": [
+     "https://mendozasmexicanfood.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Tacos Mendoza",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -121586,6 +122242,23 @@
    },
    "badness": 100,
    "lead_score": 78,
+   "checked": {
+    "id": "ChIJy_Tl-SnX3IARoHrXft9D2Ok",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "thebrunchcafe.com is for sale on HugeDomains, brunchcafe.com is an unrelated Chicago chain, brunch.cafe is parked, brunchcafe.weebly.com is a school project, and every Anaheim or OC variant is unregistered.",
+    "evidence": [
+     "https://thebrunchcafe.com/",
+     "https://brunchcafe.com/",
+     "https://brunch.cafe/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "The Brunch Caf\u00e9",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -123861,6 +124534,23 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJd3i9dBnHwoARzj2t8UdCDLQ",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found (unconfirmed, web search was out of budget): tacozone.com is parked, and tacozone.square.site, tacozone.godaddysites.com and thetacozone.com belong to the Taco Zone in Lawrence, KS (party@thetacozone.com), while tacozone.wixsite.com is a Mexican student project.",
+    "evidence": [
+     "https://tacozone.square.site/",
+     "https://tacozone.com/",
+     "https://tacozone.wixsite.com/tacozone"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Taco Zone Truck",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -124789,6 +125479,27 @@
    },
    "badness": 95,
    "lead_score": 75,
+   "checked": {
+    "id": "ChIJaVbS3Xd-24ARWMaRefZMqfg",
+    "verdict": "weak_site",
+    "official_url": "https://liquidleaf.shop/",
+    "uses": [
+     "Toast"
+    ],
+    "missing": [
+     "working links",
+     "menu",
+     "hours"
+    ],
+    "notes": "Their Toast website (www.liquidleaf.shop points to sites.toasttab.com, and theliquidleaf.com redirects there) is broken: Cloudflare error 1001 and a failed HTTPS connection, so nothing loads.",
+    "evidence": [
+     "https://liquidleaf.shop/",
+     "http://theliquidleaf.com/",
+     "http://www.liquidleaf.shop/"
+    ],
+    "name": "Liquid Leaf",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -124869,6 +125580,23 @@
    },
    "badness": 100,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJhZd4wz61woARJv05J1SVWu4",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No working site (unconfirmed, web search was out of budget): theroadhousetorrance.com now shows Thai slot-gambling spam (probably an old domain that lapsed), roadhousebarandgrill.com is a different Roadhouse in Puyallup, WA, roadhousebar.com is parked, and about 450 other variants don't exist.",
+    "evidence": [
+     "https://theroadhousetorrance.com/",
+     "https://www.roadhousebarandgrill.com/",
+     "https://roadhousebar.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "The Roadhouse Bar & Grill",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -125007,6 +125735,23 @@
    },
    "badness": 95,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJd3BzkU65woAR3Z2bPGtThec",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "The website Google lists (tacos-guelaguetza.mx) has no DNS record, about 500 tacosguelaguetza and guelaguetzatacos variants don't exist or are dead (tacoguelaguetza.com.mx shows a Google 404), and ilovemole.com is the separate Guelaguetza mole shop with no Melrose location (unconfirmed, web search was out of budget).",
+    "evidence": [
+     "https://tacos-guelaguetza.mx/",
+     "https://www.ilovemole.com/",
+     "https://tacoguelaguetza.com.mx/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Tacos Guelaguetza",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -125597,6 +126342,23 @@
    },
    "badness": 100,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJCxkoGcwp3YARAxo1HKln1_c",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found (unconfirmed, web search was out of budget): rufinos.com is now for sale, rufinos.org is a Nicaraguan theater, rufinos.godaddysites.com, rufinos.wordpress.com and linktr.ee/rufinos belong to other businesses, rufinos.weebly.com is an empty template with no address or phone, and the Anaheim-specific variants don't exist.",
+    "evidence": [
+     "https://rufinos.com/",
+     "https://rufinos.weebly.com/",
+     "https://www.rufinos.org/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Rufino's Italian Restaurant",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -126834,49 +127596,24 @@
    },
    "badness": 95,
    "lead_score": 73,
+   "checked": {
+    "id": "ChIJ69Xt89wD3IARZz-DZJw3r6U",
+    "verdict": "good_site",
+    "official_url": "https://cafevahik.com/",
+    "uses": [],
+    "notes": "A current site (\u00a9 2026, built with a website builder) with a full priced menu, hours and the 6780 La Jolla Blvd address, but the www.cafevahik.com link on Google has no DNS record and the site's phone link is a placeholder (+1 555-123-4567).",
+    "evidence": [
+     "https://cafevahik.com/",
+     "http://www.cafevahik.com/"
+    ],
+    "name": "Caf\u00e9 Vahik",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
     "monthly": 79
-   },
-   "domains": [
-    {
-     "domain": "cafvahik.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "cafvahiklajolla.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "cafvahik.cafe",
-     "available": false,
-     "code": 403,
-     "price": "~$6/yr then ~$35"
-    },
-    {
-     "domain": "cafvahik.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatcafvahik.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "cafvahik.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
+   }
   },
   {
    "id": "ChIJAxttqJF_24ARq2H9ChqCmiE",
@@ -127215,6 +127952,28 @@
    },
    "badness": 100,
    "lead_score": 73,
+   "checked": {
+    "id": "ChIJd79yFH-zwoARUbpx4YrqTEc",
+    "verdict": "weak_site",
+    "official_url": "https://www.cremedelacrepe.com/",
+    "uses": [
+     "WordPress",
+     "DoorDash",
+     "OpenTable"
+    ],
+    "missing": [
+     "working links",
+     "hours"
+    ],
+    "notes": "The brand site still lists Hermosa Beach (its original Pier Ave location) in the menu and contact form, but the Hermosa Beach page is unpublished and returns 404; location pages have 2026 menu PDFs but no hours, and the Hermosa page being removed may also mean this location closed.",
+    "evidence": [
+     "https://www.cremedelacrepe.com/",
+     "https://www.cremedelacrepe.com/hermosa-beach/",
+     "https://www.cremedelacrepe.com/redondo-beach/"
+    ],
+    "name": "Creme De La Crepe Hermosa Beach",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -127425,6 +128184,23 @@
    },
    "badness": 95,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJOS2F_GjHwoARh18Y5VQhECE",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "notes": "Only Instagram (@bohemianchai) turned up: bohemianchai.com is now an Indonesian gambling site (probably a lapsed old domain), bohemianhouse.com and .co are parked, bohemianhouse.net is an art shop, and bohemian.house is a GoDaddy 'Launching Soon' placeholder that I couldn't link to them.",
+    "evidence": [
+     "https://www.bohemianchai.com/",
+     "https://bohemian.house/",
+     "https://bohemianhouse.net/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "social_only",
+    "name": "Bohemian House of Espresso + Chai",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -130317,6 +131093,28 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "checked": {
+    "id": "ChIJBYo34DZu3IARWDDT7uulfi4",
+    "verdict": "weak_site",
+    "official_url": "http://order101bagelsandsubs.com/",
+    "uses": [
+     "MenuStar"
+    ],
+    "notes": "They do have a website on their own domains (101bagels.com, 101bagel.com and order101bagelsandsubs.com, built on MenuStar) with a menu, online ordering, opening hours, an About Us section, a location page and their phone and address, but it is a dated 2017 template with two conflicting sets of hours and an empty photo gallery.",
+    "evidence": [
+     "http://order101bagelsandsubs.com/",
+     "http://order101bagelsandsubs.com/location.php",
+     "https://101bagels.com/"
+    ],
+    "missing": [
+     "photos",
+     "clear hours"
+    ],
+    "challenged": true,
+    "first_verdict": "ordering_page_only",
+    "name": "101 Bagels & Subs",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -134920,6 +135718,23 @@
    },
    "badness": 100,
    "lead_score": 75,
+   "checked": {
+    "id": "ChIJE4CNi_q1woAR6eDAIts1xHE",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found (unconfirmed, web search was out of budget): elamigo3.com, elamigoredondobeach.com and about 800 other variants don't exist, elamigorestaurant.com is for sale, elamigo.com is parked, elamigolawndale.com now forwards to a gambling site, and elamigotacos.com is a different El Amigo in Buffalo, NY.",
+    "evidence": [
+     "https://elamigorestaurant.com/",
+     "https://elamigolawndale.com/",
+     "https://elamigotacos.square.site/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "El Amigo #3",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -135989,49 +136804,26 @@
    },
    "badness": 100,
    "lead_score": 73,
+   "checked": {
+    "id": "ChIJvQzk_xit6YARllx35jMnBZI",
+    "verdict": "good_site",
+    "official_url": "https://thegoldeneggcafe.com/",
+    "uses": [
+     "Toast"
+    ],
+    "notes": "Possible site, not confirmed: thegoldeneggcafe.com is a live Toast Website (www points to sites.toasttab.com), but a bot check blocked the page, so it may be a different Golden Egg Cafe; check in a browser that it is the 2009 E Main St Ventura location before treating it as theirs or pitching.",
+    "evidence": [
+     "https://thegoldeneggcafe.com/",
+     "https://goldeneggcafe.com/"
+    ],
+    "name": "Golden Egg Cafe",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
     "monthly": 129
-   },
-   "domains": [
-    {
-     "domain": "goldeneggcafe.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "goldenegg.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "goldeneggventura.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "goldenegg.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "goldenegg.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatgoldenegg.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    }
-   ]
+   }
   },
   {
    "id": "ChIJM1LyCjDW3IAR5P8ZnckXuoI",
@@ -138926,6 +139718,22 @@
    },
    "badness": 100,
    "lead_score": 73,
+   "checked": {
+    "id": "ChIJa3oV1F0x3YAR9cqeP7dHwwM",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found (unconfirmed, web search was out of budget): tacoselsapo.com only shows a Namecheap 'recently registered' placeholder with no content and no owner info, and every other tacoselsapo and elsapotacos variant either doesn't exist or belongs to someone else (elsapo.net is a Swiss IT company).",
+    "evidence": [
+     "https://www.tacoselsapo.com/",
+     "https://elsapo.net/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Tacos \"El Sapo\" Long Beach",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -139735,6 +140543,22 @@
    },
    "badness": 95,
    "lead_score": 73,
+   "checked": {
+    "id": "ChIJ0Y7i4SJV2YAREUNtywsHK6k",
+    "verdict": "social_only",
+    "official_url": "",
+    "uses": [],
+    "notes": "Their Linktree (which matches 4207 Park Blvd) confirms fortunasandiego.com was their website, but that domain's registration has expired (Namecheap expired page), so what remains is Linktree, Instagram, TikTok, Facebook and YouTube, and no replacement domain turned up.",
+    "evidence": [
+     "https://linktr.ee/fortunaristoranteitaliano",
+     "https://fortunasandiego.com/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "Fortuna Ristorante Italiano",
+    "checked_on": "2026-10-07"
+   },
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -140314,6 +141138,23 @@
    },
    "badness": 100,
    "lead_score": 74,
+   "checked": {
+    "id": "ChIJY7sDovqx3IAR0rkbv1GQBaQ",
+    "verdict": "no_site",
+    "official_url": "",
+    "uses": [],
+    "notes": "No site of their own found (unconfirmed, web search was out of budget): Riverside-specific and sandwich-shoppe domains don't exist, uppercrustsandwiches.com is for sale, theuppercrust.com and uppercrustcafe.com are parked, and theuppercrustcafe.com belongs to a UK cafe (+44 phone).",
+    "evidence": [
+     "https://uppercrustsandwiches.com/",
+     "https://theuppercrustcafe.com/",
+     "https://theuppercrust.co/"
+    ],
+    "missing": [],
+    "challenged": true,
+    "first_verdict": "no_site",
+    "name": "The Upper Crust Sandwich Shoppe",
+    "checked_on": "2026-10-07"
+   },
    "size": "small",
    "suggested": {
     "setup": 500,
