@@ -25,7 +25,7 @@ Cost: Places text search bills per page of 20 results (Enterprise tier, since we
 ask for rating, review count, website and phone). A whole area is a few hundred
 pages at most. PageSpeed and RDAP are free.
 """
-import argparse, concurrent.futures as cf, hashlib, json, math, os, re, sys, time, urllib.error, urllib.parse, urllib.request
+import argparse, concurrent.futures as cf, hashlib, unicodedata, json, math, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 OUT_DIR = os.path.join(ROOT, '_notes', 'prospects')
@@ -126,7 +126,9 @@ CHAINS = ['mcdonald', 'starbucks', 'chipotle', 'in-n-out', 'in n out', 'panda ex
           'dave\'s hot chicken', 'capital grille', 'nobu', 'gordon ramsay', 'guy fieri',
           'hard rock', 'rainforest cafe', 'bubba gump', 'cafe zupas', 'zaxby', 'culver',
           'whataburger', 'blaze pizza', 'mod pizza', 'pieology', 'sweetgreen', 'cava ',
-          'noodles & company', 'einstein', 'crumbl', 'nothing bundt', 'baskin', 'dairy queen']
+          'noodles & company', 'einstein', 'crumbl', 'nothing bundt', 'baskin', 'dairy queen',
+          'dave & buster', 'great harvest', 'beauty & essex', 'mother wolf', 'buddy v', 'charleys', 'zupas',
+          'we olive', 'egg works', 'cafe gratitude', 'loose leaf boba']
 
 SOCIAL = ('facebook.com', 'fb.com', 'instagram.com', 'linktr.ee', 'yelp.com', 'tiktok.com',
           'twitter.com', 'x.com', 'threads.net', 'beacons.ai', 'bio.site')
@@ -241,9 +243,19 @@ def is_food(p):
     t = p.get('primaryType', '') or ''
     return t.endswith('_restaurant') or t in FOOD_TYPES or 'restaurant' in p.get('types', [])
 
-def is_chain(name):
-    n = name.lower()
-    return any(c in n for c in CHAINS)
+# Websites that mean a big brand, hotel or casino runs the place: not a small-business lead.
+BIG_SITES = ('hyatt.com', 'marriott.com', 'hilton.com', 'venetianlasvegas.com', 'mgmresorts.com', 'caesars.com',
+             'wynnlasvegas.com', 'greenvalleyranch.com', 'boydgaming.com', 'stationcasinos.com', 'redrock.sclv.com',
+             'sclv.com', 'cosmopolitanlasvegas.com', 'resortsworldlasvegas.com', 'fontainebleaulasvegas.com',
+             'daveandbusters.com', 'cafezupas.com', 'charleys.com', 'tpc.com', 'disneyland.disney.go.com')
+
+def is_chain(name, website=''):
+    n = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode().lower()
+    if any(c in n for c in CHAINS):
+        return True
+    w = (website or '').lower()
+    # a page like brand.com/locations/henderson is a chain's location page
+    return any(b in w for b in BIG_SITES) or bool(re.search(r'/locations?/', w))
 
 # ---------------------------------------------------------------- site check
 def classify_site(url):
@@ -437,7 +449,7 @@ def run(area_key, a, args):
     rows = []
     for p in seen.values():
         name = p.get('displayName', {}).get('text', '')
-        if not name or not is_food(p) or is_chain(name):
+        if not name or not is_food(p) or is_chain(name, p.get('websiteUri', '')):
             continue
         if p.get('businessStatus', 'OPERATIONAL') != 'OPERATIONAL':
             continue

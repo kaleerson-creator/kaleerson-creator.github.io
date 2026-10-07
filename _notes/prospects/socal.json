@@ -5126,86 +5126,6 @@
    ]
   },
   {
-   "id": "ChIJAzEoTj0x3YAR2PMp1L9MYEM",
-   "types": [
-    "tea_house",
-    "sandwich_shop",
-    "coffee_roastery",
-    "cafe",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(562) 768-8815",
-   "formattedAddress": "315 The Promenade N, Long Beach, CA 90802, USA",
-   "location": {
-    "latitude": 33.770824499999996,
-    "longitude": -118.1906917
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=4854964785087378392&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.bobacompany.com/",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 544,
-   "displayName": {
-    "text": "Loose Leaf Boba Company",
-    "languageCode": "en"
-   },
-   "primaryType": "tea_house",
-   "_spot": "Long Beach",
-   "site": {
-    "status": "broken",
-    "stack": [],
-    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
-   },
-   "badness": 95,
-   "lead_score": 71,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   },
-   "domains": [
-    {
-     "domain": "looseleafbobacompany.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "looseleaf.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "looseleaflongbeach.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "looseleaf.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "looseleaf.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatlooseleaf.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJOXNoJlfawoARgCp--giLesI",
    "types": [
     "mexican_restaurant",
@@ -7251,89 +7171,6 @@
    ]
   },
   {
-   "id": "ChIJwc04hvsD3IAR3v71g45sMKk",
-   "types": [
-    "wine_bar",
-    "grocery_store",
-    "food_store",
-    "restaurant",
-    "bar",
-    "store",
-    "point_of_interest",
-    "service",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(858) 551-8250",
-   "formattedAddress": "1158 Prospect St, La Jolla, CA 92037, USA",
-   "location": {
-    "latitude": 32.8488372,
-    "longitude": -117.27315469999999
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=12191363550647025374&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://weolive.com/la-jolla/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 339,
-   "displayName": {
-    "text": "We Olive & Wine Bar",
-    "languageCode": "en"
-   },
-   "primaryType": "wine_bar",
-   "_spot": "La Jolla",
-   "site": {
-    "status": "broken",
-    "stack": [],
-    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: NOT_HTML. The page provided is not HTML (served as MIME type text/plain).\", \"errors\": [ { \"mess"
-   },
-   "badness": 95,
-   "lead_score": 67,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   },
-   "domains": [
-    {
-     "domain": "weolivewinebar.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "weolivelajolla.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "weolive.bar",
-     "available": true,
-     "code": 404,
-     "price": "~$70/yr then ~$80"
-    },
-    {
-     "domain": "weolive.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatweolive.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "weolive.net",
-     "available": false,
-     "code": 200,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJDcZb5J7HwoARnRhGcsfolCw",
    "types": [
     "vegan_restaurant",
@@ -7950,88 +7787,6 @@
     },
     {
      "domain": "mar7abacafe.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
-   "id": "ChIJ-XNYc8W6woAR08pVuMkKKVk",
-   "types": [
-    "vegan_restaurant",
-    "breakfast_restaurant",
-    "vegetarian_restaurant",
-    "brunch_restaurant",
-    "juice_shop",
-    "cafe",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(424) 231-8000",
-   "formattedAddress": "512 Rose Ave, Venice, CA 90291, USA",
-   "location": {
-    "latitude": 33.998084,
-    "longitude": -118.47373309999999
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=6424678204918057683&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 2512,
-   "displayName": {
-    "text": "Cafe Gratitude",
-    "languageCode": "en"
-   },
-   "primaryType": "vegan_restaurant",
-   "_spot": "Santa Monica / Venice",
-   "site": {
-    "status": "none",
-    "stack": [],
-    "maybe": "cafegratitude.com"
-   },
-   "badness": 70,
-   "lead_score": 66,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   },
-   "domains": [
-    {
-     "domain": "cafegratitude.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "cafegratitudevenice.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "cafegratitude.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "cafegratitude.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatcafegratitude.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "cafegratitude.net",
      "available": true,
      "code": 404,
      "price": "~$13/yr then ~$17"
@@ -11678,80 +11433,6 @@
     },
     {
      "domain": "calitandoor.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
-   "id": "ChIJXfPpY1SVwoAR_9qdp3wxdvA",
-   "types": [
-    "thai_restaurant",
-    "diner",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(818) 561-4777",
-   "formattedAddress": "449 S Glenoaks Blvd, Burbank, CA 91502, USA",
-   "location": {
-    "latitude": 34.1802876,
-    "longitude": -118.30264190000001
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=17327091027812408063&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.chownow.com/order/6335/locations/8369",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 312,
-   "displayName": {
-    "text": "Summer Buffalo Thai Burbank",
-    "languageCode": "en"
-   },
-   "primaryType": "thai_restaurant",
-   "_spot": "Burbank / Glendale",
-   "site": {
-    "status": "ordering-only",
-    "stack": [
-     "ChowNow"
-    ]
-   },
-   "badness": 90,
-   "lead_score": 61,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   },
-   "domains": [
-    {
-     "domain": "summerbuffalo.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "summerbuffalo.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "summerbuffalo.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatsummerbuffalo.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "summerbuffalo.net",
      "available": true,
      "code": 404,
      "price": "~$13/yr then ~$17"
@@ -23196,98 +22877,6 @@
     },
     {
      "domain": "panchos.net",
-     "available": false,
-     "code": 200,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
-   "id": "ChIJyY0tEIvg3IARZGObWxhVlR0",
-   "types": [
-    "restaurant",
-    "womens_clothing_store",
-    "bar",
-    "live_music_venue",
-    "event_venue",
-    "clothing_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(949) 760-8686",
-   "formattedAddress": "854 Avocado Ave, Newport Beach, CA 92660, USA",
-   "location": {
-    "latitude": 33.605316,
-    "longitude": -117.87461199999998
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=2131703561734284132&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.tommybahama.com/restaurants-and-marlin-bars/locations/newport-beach",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1309,
-   "displayName": {
-    "text": "Tommy Bahama Restaurant & Bar",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Huntington / Newport Beach",
-   "site": {
-    "status": "site",
-    "stack": [
-     "OpenTable",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.tommybahama.com/restaurants-and-marlin-bars/locations/newport-beach",
-    "performance": 28,
-    "seo": 75,
-    "accessibility": 99,
-    "best_practices": 54,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 53,
-   "lead_score": 45,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   },
-   "domains": [
-    {
-     "domain": "tommybahamabar.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "tommybahamanewportbeach.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "tommybahama.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "tommybahama.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eattommybahama.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "tommybahama.net",
      "available": false,
      "code": 200,
      "price": "~$13/yr then ~$17"
@@ -45968,94 +45557,6 @@
    ]
   },
   {
-   "id": "ChIJC6FlH6hU2YARkfhWCkHvffg",
-   "types": [
-    "restaurant",
-    "breakfast_restaurant",
-    "californian_restaurant",
-    "american_restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(619) 272-5840",
-   "formattedAddress": "910 Broadway Cir, San Diego, CA 92101, USA",
-   "location": {
-    "latitude": 32.7145248,
-    "longitude": -117.16346910000001
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=17905730756120344721&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.marriott.com/en-us/hotels/sanwi-the-westin-san-diego-gaslamp-quarter/dining/?scid=feed67b0-9a2f-4de1-8df6-114544116108",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 232,
-   "displayName": {
-    "text": "Bronze Bird",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "San Diego Downtown",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.marriott.com/en-us/hotels/sanwi-the-westin-san-diego-gaslamp-quarter/dining/?scid=feed67b0-9a2f-4de1-8df6-114544116108",
-    "performance": 18,
-    "seo": 85,
-    "accessibility": 93,
-    "best_practices": 54,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 45,
-   "lead_score": 29,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   },
-   "domains": [
-    {
-     "domain": "bronzebird.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "bronzebirdsandiego.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "bronzebird.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "bronzebird.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatbronzebird.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "bronzebird.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJV4rFurE_6YARYt2-yUy6pXQ",
    "types": [
     "bakery",
@@ -49235,102 +48736,6 @@
    }
   },
   {
-   "id": "ChIJ8QbxZYTHwoAR9RMDcjmVra4",
-   "types": [
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(213) 372-5335",
-   "formattedAddress": "700 W 7th St Ste S430, Los Angeles, CA 90017, USA",
-   "location": {
-    "latitude": 34.048017,
-    "longitude": -118.25805059999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=12586880607528883189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://joeyrestaurants.com/location/joey-dtla",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_EXPENSIVE",
-   "userRatingCount": 6163,
-   "displayName": {
-    "text": "JOEY DTLA",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Downtown LA",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://joeyrestaurants.com/location/joey-dtla",
-    "performance": 32,
-    "seo": 91,
-    "accessibility": 88,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 32,
-   "lead_score": 31,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
-   "id": "ChIJRdfF38Er3YARnKctDBb0MoQ",
-   "types": [
-    "breakfast_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(657) 385-4901",
-   "formattedAddress": "8010 Beach Blvd, Buena Park, CA 90620, USA",
-   "location": {
-    "latitude": 33.8463679,
-    "longitude": -117.9974934
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=9525944537372796828&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.thebrokenyolkcafe.com/location/buena-park-ca/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 5998,
-   "displayName": {
-    "text": "Broken Yolk Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "breakfast_restaurant",
-   "_spot": "Anaheim / Fullerton",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.thebrokenyolkcafe.com/location/buena-park-ca",
-    "performance": 56,
-    "seo": 100,
-    "accessibility": 100,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 18,
-   "lead_score": 17,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJF1qcgTvGwoARn7ujAJGHC1Y",
    "types": [
     "coffee_shop",
@@ -49601,55 +49006,6 @@
    }
   },
   {
-   "id": "ChIJ2W84TbyzwoARXS7_l1fBON0",
-   "types": [
-    "restaurant",
-    "gastropub",
-    "bar",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(310) 546-1163",
-   "formattedAddress": "3120 N Sepulveda Blvd, Manhattan Beach, CA 90266, USA",
-   "location": {
-    "latitude": 33.8987963,
-    "longitude": -118.39517690000001
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=15940703463034269277&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://joeyrestaurants.com/location/joey-manhattan-beach",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 5597,
-   "displayName": {
-    "text": "JOEY Manhattan Beach",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "South Bay",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://joeyrestaurants.com/location/joey-manhattan-beach",
-    "performance": 41,
-    "seo": 91,
-    "accessibility": 88,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 28,
-   "lead_score": 27,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJxYyaKq--woARHpeKzYN9mt4",
    "types": [
     "mexican_restaurant",
@@ -49795,109 +49151,6 @@
      "price": "~$13/yr then ~$17"
     }
    ]
-  },
-  {
-   "id": "ChIJn3ulhlTDwoARfdxCvBPdik8",
-   "types": [
-    "brazilian_restaurant",
-    "steak_house",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(626) 556-9222",
-   "formattedAddress": "234 E Colorado Blvd, Pasadena, CA 91101, USA",
-   "location": {
-    "latitude": 34.1456176,
-    "longitude": -118.1456357
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=5731636552614993021&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://fogodechao.com/location/pasadena/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_EXPENSIVE",
-   "userRatingCount": 5416,
-   "displayName": {
-    "text": "Fogo de Ch\u00e3o Brazilian Steakhouse",
-    "languageCode": "en"
-   },
-   "primaryType": "brazilian_restaurant",
-   "_spot": "Pasadena",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://fogodechao.com/location/pasadena/",
-    "performance": 31,
-    "seo": 92,
-    "accessibility": 83,
-    "best_practices": 73,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 36,
-   "lead_score": 34,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
-   "id": "ChIJUcWsdsVU2YAR0mEm6X-Yn6w",
-   "types": [
-    "american_restaurant",
-    "breakfast_restaurant",
-    "brunch_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(619) 298-4646",
-   "formattedAddress": "3628 Fifth Ave, San Diego, CA 92103, USA",
-   "location": {
-    "latitude": 32.7439003,
-    "longitude": -117.16069719999999
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=12438828370960474578&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.hashhouseagogo.com/location/san-diego-california",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 5329,
-   "displayName": {
-    "text": "Hash House A Go Go",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "San Diego Downtown",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Tock",
-     "WordPress",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.hashhouseagogo.com/location/san-diego-california",
-    "performance": 59,
-    "seo": 92,
-    "accessibility": 100,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 19,
-   "lead_score": 17,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
   },
   {
    "id": "ChIJh01i1Bjf3IAR4bPrbpI69eU",
@@ -50368,64 +49621,6 @@
    }
   },
   {
-   "id": "ChIJ-5uvgC_f3IARsjzvWMvPidY",
-   "types": [
-    "italian_restaurant",
-    "wine_bar",
-    "catering_service",
-    "family_restaurant",
-    "bar",
-    "event_venue",
-    "food_delivery",
-    "european_restaurant",
-    "meal_takeaway",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "service",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(714) 546-9550",
-   "formattedAddress": "3333 Bristol St, Costa Mesa, CA 92626, USA",
-   "location": {
-    "latitude": 33.6937092,
-    "longitude": -117.88708340000001
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=15459115668203322546&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.maggianos.com/locations/california/costa-mesa/3333-bristol-st.?utm_source=google&utm_medium=organic&utm_campaign=Maggianos",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 4794,
-   "displayName": {
-    "text": "Maggiano's Little Italy",
-    "languageCode": "en"
-   },
-   "primaryType": "italian_restaurant",
-   "_spot": "Costa Mesa",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.maggianos.com/locations/california/costa-mesa/3333-bristol-st.?utm_source=google&utm_medium=organic&utm_campaign=Maggianos",
-    "performance": 35,
-    "seo": 100,
-    "accessibility": 95,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 27,
-   "lead_score": 24,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJ2WRAKA2r3oARvgoZnGCdJLo",
    "types": [
     "seafood_restaurant",
@@ -50512,56 +49707,6 @@
      "price": "~$13/yr then ~$17"
     }
    ]
-  },
-  {
-   "id": "ChIJD6_Ci0Hh3IAR4foJoTB2onI",
-   "types": [
-    "restaurant",
-    "pub",
-    "bar",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(949) 826-5699",
-   "formattedAddress": "453 Newport Center Dr, Newport Beach, CA 92660, USA",
-   "location": {
-    "latitude": 33.6148594,
-    "longitude": -117.87308829999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=8260294617783204577&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://joeyrestaurants.com/location/joey-newport-beach",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_EXPENSIVE",
-   "userRatingCount": 4664,
-   "displayName": {
-    "text": "JOEY Newport Beach",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Huntington / Newport Beach",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://joeyrestaurants.com/location/joey-newport-beach",
-    "performance": 56,
-    "seo": 91,
-    "accessibility": 88,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 22,
-   "lead_score": 21,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
   },
   {
    "id": "ChIJ7WMaG1lT2YARU9QM3_SOYFE",
@@ -51043,57 +50188,6 @@
    }
   },
   {
-   "id": "ChIJ184igS_f3IARs2WpZQX4IYI",
-   "types": [
-    "taiwanese_restaurant",
-    "dumpling_restaurant",
-    "chinese_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(714) 549-3388",
-   "formattedAddress": "3333 Bristol St, Costa Mesa, CA 92626, USA",
-   "location": {
-    "latitude": 33.6917835,
-    "longitude": -117.88797449999998
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=9377048601226208691&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://dtf.com/en/locations/costa-mesa",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 4426,
-   "displayName": {
-    "text": "Din Tai Fung",
-    "languageCode": "en"
-   },
-   "primaryType": "taiwanese_restaurant",
-   "_spot": "Costa Mesa",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://dtf.com/en-us/locations/costa-mesa",
-    "performance": 45,
-    "seo": 100,
-    "accessibility": 97,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 23,
-   "lead_score": 21,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJ845fqCUx3YARbBeWgWBGpRM",
    "types": [
     "seafood_restaurant",
@@ -51281,59 +50375,6 @@
    },
    "badness": 29,
    "lead_score": 27,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
-   "id": "ChIJ13gkNTTc3IAR-C-h8vR8ASA",
-   "types": [
-    "mediterranean_restaurant",
-    "gyro_restaurant",
-    "falafel_restaurant",
-    "salad_shop",
-    "greek_restaurant",
-    "european_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(949) 200-7998",
-   "formattedAddress": "3972 Barranca Pkwy, Irvine, CA 92606, USA",
-   "location": {
-    "latitude": 33.6849035,
-    "longitude": -117.81070419999998
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=2306261875674918904&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://cava.com/locations/irvine-ca",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 4249,
-   "displayName": {
-    "text": "CAVA",
-    "languageCode": "en"
-   },
-   "primaryType": "mediterranean_restaurant",
-   "_spot": "Irvine",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://cava.com/locations/irvine-ca",
-    "performance": 38,
-    "seo": 100,
-    "accessibility": 97,
-    "best_practices": 92,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 26,
-   "lead_score": 24,
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -52100,62 +51141,6 @@
    }
   },
   {
-   "id": "ChIJv-WLphxL3YARYkLgqfBXBcc",
-   "types": [
-    "diner",
-    "brunch_restaurant",
-    "family_restaurant",
-    "catering_service",
-    "breakfast_restaurant",
-    "food_delivery",
-    "meal_takeaway",
-    "american_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "service",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(310) 974-9002",
-   "formattedAddress": "24021 Hawthorne Blvd, Torrance, CA 90505, USA",
-   "location": {
-    "latitude": 33.8060116,
-    "longitude": -118.3515367
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=14340965279585026658&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://blackbeardiner.com/location/torrance/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 3859,
-   "displayName": {
-    "text": "Black Bear Diner Torrance",
-    "languageCode": "en"
-   },
-   "primaryType": "diner",
-   "_spot": "South Bay",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress"
-    ],
-    "final_url": "https://blackbeardiner.com/location/torrance/",
-    "performance": 79,
-    "seo": 92,
-    "accessibility": 91,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 12,
-   "lead_score": 11,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJxdvT_eSx3IAR1UWvEYTwkhM",
    "types": [
     "brewpub",
@@ -52569,54 +51554,6 @@
    },
    "badness": 8,
    "lead_score": 7,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
-   "id": "ChIJURkFhkcH3IAR-rp5Z845YBk",
-   "types": [
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(858) 834-7639",
-   "formattedAddress": "4489 La Jolla Village Dr Ste 1600, San Diego, CA 92122, USA",
-   "location": {
-    "latitude": 32.8725856,
-    "longitude": -117.21227460000001
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=1828525007374498554&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://joeyrestaurants.com/location/joey-la-jolla",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
-   "userRatingCount": 3638,
-   "displayName": {
-    "text": "JOEY La Jolla",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "La Jolla",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://joeyrestaurants.com/location/joey-la-jolla",
-    "performance": 42,
-    "seo": 91,
-    "accessibility": 88,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 28,
-   "lead_score": 27,
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -53394,62 +52331,6 @@
    }
   },
   {
-   "id": "ChIJu2gCaSzf3IARPIVJRAX9SFM",
-   "types": [
-    "diner",
-    "breakfast_restaurant",
-    "catering_service",
-    "brunch_restaurant",
-    "family_restaurant",
-    "american_restaurant",
-    "food_delivery",
-    "meal_takeaway",
-    "service",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(657) 600-9040",
-   "formattedAddress": "3355 S Bristol St, Santa Ana, CA 92704, USA",
-   "location": {
-    "latitude": 33.7009263,
-    "longitude": -117.8851364
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=6001324702533518652&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://blackbeardiner.com/location/santa-ana/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 3406,
-   "displayName": {
-    "text": "Black Bear Diner Santa Ana",
-    "languageCode": "en"
-   },
-   "primaryType": "diner",
-   "_spot": "Santa Ana / Orange",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress"
-    ],
-    "final_url": "https://blackbeardiner.com/location/santa-ana/",
-    "performance": 72,
-    "seo": 92,
-    "accessibility": 91,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 14,
-   "lead_score": 13,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJ58u4561U2YARFE2flhkfhWU",
    "types": [
     "italian_restaurant",
@@ -53545,52 +52426,6 @@
    },
    "badness": 24,
    "lead_score": 22,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
-   "id": "ChIJ87Am02TDwoAREefVEzsrWOU",
-   "types": [
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(626) 577-6001",
-   "formattedAddress": "320 S Arroyo Pkwy, Pasadena, CA 91105, USA",
-   "location": {
-    "latitude": 34.140236099999996,
-    "longitude": -118.14712019999999
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=16526006365371885329&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.houstons.com/locations/pasadena/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_EXPENSIVE",
-   "userRatingCount": 3341,
-   "displayName": {
-    "text": "Houston's",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "Pasadena",
-   "site": {
-    "status": "site",
-    "stack": [],
-    "final_url": "https://www.houstons.com/locations/pasadena/",
-    "performance": 64,
-    "seo": 91,
-    "accessibility": 96,
-    "best_practices": 81,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 30,
-   "lead_score": 27,
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -54367,113 +53202,6 @@
    },
    "badness": 18,
    "lead_score": 17,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
-   "id": "ChIJTfwmVfXV3IARZXsEJNs7H3g",
-   "types": [
-    "diner",
-    "breakfast_restaurant",
-    "catering_service",
-    "brunch_restaurant",
-    "family_restaurant",
-    "american_restaurant",
-    "food_delivery",
-    "meal_takeaway",
-    "service",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(714) 515-3481",
-   "formattedAddress": "1011 N Harbor Blvd, Fullerton, CA 92832, USA",
-   "location": {
-    "latitude": 33.879877,
-    "longitude": -117.9247629
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=8655702821217532773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://blackbeardiner.com/location/fullerton/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 3138,
-   "displayName": {
-    "text": "Black Bear Diner Fullerton",
-    "languageCode": "en"
-   },
-   "primaryType": "diner",
-   "_spot": "Anaheim / Fullerton",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress"
-    ],
-    "final_url": "https://blackbeardiner.com/location/fullerton/",
-    "performance": 78,
-    "seo": 100,
-    "accessibility": 91,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 10,
-   "lead_score": 9,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
-   "id": "ChIJ7XjkYP7AwoARYyeBPtsNUPw",
-   "types": [
-    "taiwanese_restaurant",
-    "dumpling_restaurant",
-    "chinese_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(818) 551-5561",
-   "formattedAddress": "1164 Galleria Way, Glendale, CA 91210, USA",
-   "location": {
-    "latitude": 34.1443631,
-    "longitude": -118.2586062
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=18181046930992342883&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://dtf.com/en/locations/glendale",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 3126,
-   "displayName": {
-    "text": "Din Tai Fung",
-    "languageCode": "en"
-   },
-   "primaryType": "taiwanese_restaurant",
-   "_spot": "Burbank / Glendale",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://dtf.com/en-us/locations/glendale",
-    "performance": 32,
-    "seo": 100,
-    "accessibility": 97,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 28,
-   "lead_score": 25,
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -55806,57 +54534,6 @@
    }
   },
   {
-   "id": "ChIJ-2b0vCtL3YARDmH4WzItd1s",
-   "types": [
-    "taiwanese_restaurant",
-    "dumpling_restaurant",
-    "chinese_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(310) 214-1175",
-   "formattedAddress": "21540 Hawthorne Blvd, Torrance, CA 90503, USA",
-   "location": {
-    "latitude": 33.8333011,
-    "longitude": -118.35091039999999
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=6590786273994629390&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://dtf.com/en/locations/torrance",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 2875,
-   "displayName": {
-    "text": "Din Tai Fung",
-    "languageCode": "en"
-   },
-   "primaryType": "taiwanese_restaurant",
-   "_spot": "South Bay",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://dtf.com/en-us/locations/torrance",
-    "performance": 34,
-    "seo": 100,
-    "accessibility": 97,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 27,
-   "lead_score": 25,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJ47QrAadU2YARyvVzi-kuqkg",
    "types": [
     "restaurant",
@@ -57013,56 +55690,6 @@
    }
   },
   {
-   "id": "ChIJaX_ITPty3IARj_A6AeBlniA",
-   "types": [
-    "diner",
-    "hamburger_restaurant",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(760) 931-7829",
-   "formattedAddress": "5630 Paseo Del Norte 130 D, Carlsbad, CA 92008, USA",
-   "location": {
-    "latitude": 33.12537,
-    "longitude": -117.32056
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=2350428068301697167&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.rubys.com/locations/carlsbad/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 2621,
-   "displayName": {
-    "text": "Ruby's Diner",
-    "languageCode": "en"
-   },
-   "primaryType": "diner",
-   "_spot": "Oceanside / Carlsbad",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress"
-    ],
-    "final_url": "https://www.rubys.com/location/carlsbad/",
-    "performance": 79,
-    "seo": 100,
-    "accessibility": 97,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 8,
-   "lead_score": 7,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJ3QVpIwVy3IARt78W46GgGx0",
    "types": [
     "american_restaurant",
@@ -57890,58 +56517,6 @@
    ]
   },
   {
-   "id": "ChIJb4ozNXnc3IAR0KekfSFZM0w",
-   "types": [
-    "steak_house",
-    "south_american_restaurant",
-    "brazilian_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(949) 209-1585",
-   "formattedAddress": "13772 Jamboree Rd, Irvine, CA 92602, USA",
-   "location": {
-    "latitude": 33.7236505,
-    "longitude": -117.7902326
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=5490830371071502288&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://texasdebrazil.com/locations/irvine/?utm_source=gmb&utm_medium=yext&y_source=1_NDg4MzA3MzktNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_EXPENSIVE",
-   "userRatingCount": 2526,
-   "displayName": {
-    "text": "Texas de Brazil - Irvine",
-    "languageCode": "en"
-   },
-   "primaryType": "steak_house",
-   "_spot": "Irvine",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Mailchimp",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://texasdebrazil.com/locations/irvine/?utm_source=gmb&utm_medium=yext&y_source=1_NDg4MzA3MzktNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
-    "performance": 36,
-    "seo": 85,
-    "accessibility": 92,
-    "best_practices": 73,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 35,
-   "lead_score": 32,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJi50mD1De3IAR2rQbl22V_4Y",
    "types": [
     "french_restaurant",
@@ -58046,88 +56621,6 @@
     "setup": 1800,
     "monthly": 199
    }
-  },
-  {
-   "id": "ChIJ-XNYc8W6woAR08pVuMkKKVk",
-   "types": [
-    "vegan_restaurant",
-    "breakfast_restaurant",
-    "vegetarian_restaurant",
-    "brunch_restaurant",
-    "juice_shop",
-    "cafe",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(424) 231-8000",
-   "formattedAddress": "512 Rose Ave, Venice, CA 90291, USA",
-   "location": {
-    "latitude": 33.998084,
-    "longitude": -118.47373309999999
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=6424678204918057683&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 2512,
-   "displayName": {
-    "text": "Cafe Gratitude",
-    "languageCode": "en"
-   },
-   "primaryType": "vegan_restaurant",
-   "_spot": "Santa Monica / Venice",
-   "site": {
-    "status": "none",
-    "stack": [],
-    "maybe": "cafegratitude.com"
-   },
-   "badness": 70,
-   "lead_score": 66,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   },
-   "domains": [
-    {
-     "domain": "cafegratitude.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "cafegratitudevenice.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "cafegratitude.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "cafegratitude.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatcafegratitude.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "cafegratitude.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
   },
   {
    "id": "ChIJF54QRfPe3IARev955iG3SXk",
@@ -59093,64 +57586,6 @@
    }
   },
   {
-   "id": "ChIJ9VrdTvwD3IARwf5ZwQjIp8Q",
-   "types": [
-    "seafood_restaurant",
-    "oyster_bar_restaurant",
-    "fine_dining_restaurant",
-    "steak_house",
-    "cocktail_bar",
-    "american_restaurant",
-    "lounge_bar",
-    "night_club",
-    "restaurant",
-    "live_music_venue",
-    "bar",
-    "event_venue",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(858) 459-5500",
-   "formattedAddress": "1270 Prospect St, La Jolla, CA 92037, USA",
-   "location": {
-    "latitude": 32.8492508,
-    "longitude": -117.2710302
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=14170514692473749185&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.eddiev.com/locations/ca/la-jolla/la-jolla/8511?cmpid=br:ev_ag:ie_ch:loc_ca:EVGMB_sn:gmb_gt:la-jolla-ca-8511_pl:locurl_rd:1010",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
-   "userRatingCount": 2369,
-   "displayName": {
-    "text": "Eddie V's Prime Seafood",
-    "languageCode": "en"
-   },
-   "primaryType": "seafood_restaurant",
-   "_spot": "La Jolla",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.eddiev.com/locations/ca/la-jolla/la-jolla/8511?cmpid=br:ev_ag:ie_ch:loc_ca:EVGMB_sn:gmb_gt:la-jolla-ca-8511_pl:locurl_rd:1010",
-    "performance": 18,
-    "seo": 100,
-    "accessibility": 88,
-    "best_practices": 73,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 38,
-   "lead_score": 36,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJlRaDWwEg3YARkeg6HBYCUNE",
    "types": [
     "italian_restaurant",
@@ -59514,62 +57949,6 @@
      "price": "~$13/yr then ~$17"
     }
    ]
-  },
-  {
-   "id": "ChIJ-5uvgC_f3IAR06ewXmjpGkI",
-   "types": [
-    "wine_bar",
-    "vegan_restaurant",
-    "steak_house",
-    "vegetarian_restaurant",
-    "seafood_restaurant",
-    "bar",
-    "fine_dining_restaurant",
-    "american_restaurant",
-    "meal_takeaway",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(714) 437-5252",
-   "formattedAddress": "3333 Bristol St Ste 2802, Costa Mesa, CA 92626, USA",
-   "location": {
-    "latitude": 33.68998,
-    "longitude": -117.88751999999998
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=4763376190372227027&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.seasons52.com/locations/ca/costa-mesa/costa-mesa/4513?cmpid=br:s52_ag:ie_ch:loc_ca:S52GMB_sn:gmb_gt:costa-mesa-ca-4513_pl:locurl_rd:1012",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 2325,
-   "displayName": {
-    "text": "Seasons 52",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "Santa Ana / Orange",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.seasons52.com/locations/ca/costa-mesa/costa-mesa/4513?cmpid=br:s52_ag:ie_ch:loc_ca:S52GMB_sn:gmb_gt:costa-mesa-ca-4513_pl:locurl_rd:1012",
-    "performance": 22,
-    "seo": 100,
-    "accessibility": 82,
-    "best_practices": 92,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 35,
-   "lead_score": 32,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
   },
   {
    "id": "ChIJA1BUqjtu3IAR3l-pVkMvw38",
@@ -60939,63 +59318,6 @@
    }
   },
   {
-   "id": "ChIJY4HyPRBy3IARJCSPswBA5-0",
-   "types": [
-    "seafood_restaurant",
-    "oyster_bar_restaurant",
-    "bar_and_grill",
-    "sushi_restaurant",
-    "market",
-    "bar",
-    "event_venue",
-    "american_restaurant",
-    "japanese_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(760) 730-3474",
-   "formattedAddress": "417 Carlsbad Village Dr, Carlsbad, CA 92008, USA",
-   "location": {
-    "latitude": 33.1591522,
-    "longitude": -117.34887959999999
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=17142740878365762596&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.bluewatergrill.com/locations/carlsbad",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 2196,
-   "displayName": {
-    "text": "Bluewater Grill Seafood Restaurant & Market Carlsbad",
-    "languageCode": "en"
-   },
-   "primaryType": "seafood_restaurant",
-   "_spot": "Oceanside / Carlsbad",
-   "site": {
-    "status": "site",
-    "stack": [
-     "BentoBox",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.bluewatergrill.com/location/carlsbad/",
-    "performance": 27,
-    "seo": 92,
-    "accessibility": 90,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 33,
-   "lead_score": 30,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJkYPTy64b24ARcZAknwaoMlo",
    "types": [
     "american_restaurant",
@@ -62080,55 +60402,6 @@
    },
    "badness": 21,
    "lead_score": 19,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
-   "id": "ChIJVS-XHiTf3IARX5n1WyXQqXE",
-   "types": [
-    "steak_house",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(714) 546-7405",
-   "formattedAddress": "633 Anton Blvd, Costa Mesa, CA 92626, USA",
-   "location": {
-    "latitude": 33.689636199999995,
-    "longitude": -117.88263760000001
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=8190306256225147231&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.mastrosrestaurants.com/Locations/CA/Costa-Mesa/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
-   "userRatingCount": 2121,
-   "displayName": {
-    "text": "Mastro's Steakhouse",
-    "languageCode": "en"
-   },
-   "primaryType": "steak_house",
-   "_spot": "Costa Mesa",
-   "site": {
-    "status": "site",
-    "stack": [
-     "BentoBox",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.mastrosrestaurants.com/location/mastros-steakhouse-costa-mesa/",
-    "performance": 10,
-    "seo": 100,
-    "accessibility": 96,
-    "best_practices": 88,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 38,
-   "lead_score": 34,
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -63502,64 +61775,6 @@
    }
   },
   {
-   "id": "ChIJhwNdtPgb24AR-I7dhB0w6bA",
-   "types": [
-    "bar",
-    "womens_clothing_store",
-    "health_food_store",
-    "seafood_restaurant",
-    "live_music_venue",
-    "event_venue",
-    "american_restaurant",
-    "food_store",
-    "clothing_store",
-    "store",
-    "health",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(760) 778-0019",
-   "formattedAddress": "111 N Palm Canyon Dr, Palm Springs, CA 92262, USA",
-   "location": {
-    "latitude": 33.8240213,
-    "longitude": -116.54700009999999
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=12747773123590196984&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.tommybahama.com/restaurants-and-marlin-bars/locations/palm-springs",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1988,
-   "displayName": {
-    "text": "Tommy Bahama Marlin Bar",
-    "languageCode": "en"
-   },
-   "primaryType": "bar",
-   "_spot": "Palm Springs",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.tommybahama.com/restaurants-and-marlin-bars/locations/palm-springs",
-    "performance": 40,
-    "seo": 75,
-    "accessibility": 99,
-    "best_practices": 73,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 35,
-   "lead_score": 33,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJ7YQxfL2p2YgR4E2OSYPIGXo",
    "types": [
     "comedy_club",
@@ -63704,56 +61919,6 @@
    },
    "badness": 31,
    "lead_score": 28,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
-   "id": "ChIJnU9LwBva3IAR59TsatSZGxE",
-   "types": [
-    "breakfast_restaurant",
-    "family_restaurant",
-    "brunch_restaurant",
-    "cafe",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(714) 289-9655",
-   "formattedAddress": "2810 E Chapman Ave, Orange, CA 92869, USA",
-   "location": {
-    "latitude": 33.7875444,
-    "longitude": -117.8236469
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=1232748060621984999&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.thebrokenyolkcafe.com/location/broken-yolk-cafe-city-of-orange/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1982,
-   "displayName": {
-    "text": "Broken Yolk Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "breakfast_restaurant",
-   "_spot": "Santa Ana / Orange",
-   "site": {
-    "status": "site",
-    "stack": [],
-    "final_url": "https://www.thebrokenyolkcafe.com/location/broken-yolk-cafe-city-of-orange",
-    "performance": 60,
-    "seo": 100,
-    "accessibility": 100,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 16,
-   "lead_score": 14,
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -64078,64 +62243,6 @@
    }
   },
   {
-   "id": "ChIJTRihlVVT2YARkKwrwHtzpEY",
-   "types": [
-    "seafood_restaurant",
-    "oyster_bar_restaurant",
-    "steak_house",
-    "fine_dining_restaurant",
-    "cocktail_bar",
-    "lounge_bar",
-    "night_club",
-    "bar",
-    "live_music_venue",
-    "event_venue",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(619) 615-0281",
-   "formattedAddress": "789 W Harbor Dr Ste 158, San Diego, CA 92101, USA",
-   "location": {
-    "latitude": 32.7104936,
-    "longitude": -117.1706613
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=5090320454177762448&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.eddiev.com/locations/ca/san-diego/san-diego/8514?cmpid=br:ev_ag:ie_ch:loc_ca:EVGMB_sn:gmb_gt:san-diego-ca-8514_pl:locurl_rd:1013",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
-   "userRatingCount": 1937,
-   "displayName": {
-    "text": "Eddie V's Prime Seafood",
-    "languageCode": "en"
-   },
-   "primaryType": "seafood_restaurant",
-   "_spot": "San Diego Downtown",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.eddiev.com/locations/ca/san-diego/san-diego/8514?cmpid=br:ev_ag:ie_ch:loc_ca:EVGMB_sn:gmb_gt:san-diego-ca-8514_pl:locurl_rd:1013",
-    "performance": 21,
-    "seo": 100,
-    "accessibility": 88,
-    "best_practices": 73,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 37,
-   "lead_score": 35,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJX9Q7y61U2YAREFYBL9squjo",
    "types": [
     "restaurant",
@@ -64322,58 +62429,6 @@
      "price": "~$11/yr then ~$17"
     }
    ]
-  },
-  {
-   "id": "ChIJYzPfrurf3IAROp1qXhMxC2k",
-   "types": [
-    "breakfast_restaurant",
-    "family_restaurant",
-    "brunch_restaurant",
-    "cafe",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(657) 231-6708",
-   "formattedAddress": "2701 Harbor Blvd Suite E6, Costa Mesa, CA 92626, USA",
-   "location": {
-    "latitude": 33.672117899999996,
-    "longitude": -117.92126490000001
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=7569197557984435514&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.thebrokenyolkcafe.com/location/broken-yolk-cafe-costa-mesa/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1921,
-   "displayName": {
-    "text": "Broken Yolk Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "breakfast_restaurant",
-   "_spot": "Santa Ana / Orange",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.thebrokenyolkcafe.com/location/costa-mesa",
-    "performance": 76,
-    "seo": 100,
-    "accessibility": 100,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 10,
-   "lead_score": 9,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
   },
   {
    "id": "ChIJG1JMPbm-woARxO_a-oFFDck",
@@ -66242,59 +64297,6 @@
    }
   },
   {
-   "id": "ChIJZ1LfYWoh3YARbsPkB8ji7SM",
-   "types": [
-    "pub",
-    "taco_restaurant",
-    "lounge_bar",
-    "hamburger_restaurant",
-    "bar",
-    "american_restaurant",
-    "night_club",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(714) 831-1240",
-   "formattedAddress": "21028 California 1, Pacific Coast Hwy E-100, Huntington Beach, CA 92647, USA",
-   "location": {
-    "latitude": 33.654898900000006,
-    "longitude": -117.99812669999999
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=2588974709561672558&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://simmzys.com/locations/huntington-beach/",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 1798,
-   "displayName": {
-    "text": "Simmzy's Restaurant Huntington Beach",
-    "languageCode": "en"
-   },
-   "primaryType": "pub",
-   "_spot": "Huntington / Newport Beach",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress"
-    ],
-    "final_url": "https://simmzys.com/locations/huntington-beach/",
-    "performance": 60,
-    "seo": 92,
-    "accessibility": 96,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 19,
-   "lead_score": 18,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJG6vM7KnHwoARC-j0FBuYTvA",
    "types": [
     "fine_dining_restaurant",
@@ -66729,60 +64731,6 @@
    }
   },
   {
-   "id": "ChIJraewjGLe3IARYAwwneSDa0A",
-   "types": [
-    "steak_house",
-    "catering_service",
-    "seafood_restaurant",
-    "fine_dining_restaurant",
-    "food_delivery",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "service",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(949) 252-8848",
-   "formattedAddress": "2961 Michelson Dr Ste A, Building 10, Irvine, CA 92612, USA",
-   "location": {
-    "latitude": 33.671769399999995,
-    "longitude": -117.84571120000001
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=4641948858848382048&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.ruthschris.com/locations/ca/irvine/irvine/7315?cmpid=br:rc_ag:ie_ch:loc_ca:RCGMB_sn:gmb_gt:irvine-ca-7315_pl:locurl_rd:1011",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 1759,
-   "displayName": {
-    "text": "Ruth's Chris Steak House",
-    "languageCode": "en"
-   },
-   "primaryType": "steak_house",
-   "_spot": "Irvine",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.ruthschris.com/locations/ca/irvine/irvine/7315?cmpid=br:rc_ag:ie_ch:loc_ca:RCGMB_sn:gmb_gt:irvine-ca-7315_pl:locurl_rd:1011",
-    "performance": 24,
-    "seo": 92,
-    "accessibility": 92,
-    "best_practices": 88,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 35,
-   "lead_score": 32,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJ6UNysOfZ3IARqnqH1x_UXro",
    "types": [
     "mexican_restaurant",
@@ -67195,58 +65143,6 @@
    },
    "badness": 25,
    "lead_score": 23,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
-   "id": "ChIJ08Om0m_DwoARnSevAeCu4R4",
-   "types": [
-    "steak_house",
-    "wine_bar",
-    "bar_and_grill",
-    "bar",
-    "fine_dining_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(626) 639-0490",
-   "formattedAddress": "179 E Colorado Blvd, Pasadena, CA 91105, USA",
-   "location": {
-    "latitude": 34.1461002,
-    "longitude": -118.14628920000001
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=2225251968021899165&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.flemingssteakhouse.com/Locations/CA/Pasadena?y_source=1_MTU1MDMxNTEtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
-   "userRatingCount": 1737,
-   "displayName": {
-    "text": "Fleming\u2019s Prime Steakhouse & Wine Bar",
-    "languageCode": "en"
-   },
-   "primaryType": "steak_house",
-   "_spot": "Pasadena",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.flemingssteakhouse.com/Locations/CA/Pasadena?y_source=1_MTU1MDMxNTEtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
-    "performance": 52,
-    "seo": 77,
-    "accessibility": 88,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 28,
-   "lead_score": 25,
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -68082,59 +65978,6 @@
    }
   },
   {
-   "id": "ChIJySyJUDYw3YARg-6XhdDm274",
-   "types": [
-    "pub",
-    "taco_restaurant",
-    "hamburger_restaurant",
-    "lounge_bar",
-    "american_restaurant",
-    "bar",
-    "night_club",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(562) 439-5590",
-   "formattedAddress": "5271 2nd St, Long Beach, CA 90803, USA",
-   "location": {
-    "latitude": 33.7598817,
-    "longitude": -118.13325830000001
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=13752839670374854275&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://simmzys.com/locations/long-beach/",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 1676,
-   "displayName": {
-    "text": "Simmzy's Restaurant Long Beach",
-    "languageCode": "en"
-   },
-   "primaryType": "pub",
-   "_spot": "Long Beach",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress"
-    ],
-    "final_url": "https://simmzys.com/locations/long-beach/",
-    "performance": 35,
-    "seo": 92,
-    "accessibility": 96,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 29,
-   "lead_score": 26,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJtwXsDDLDwoARJtDOKlsahnA",
    "types": [
     "american_restaurant",
@@ -68366,62 +66209,6 @@
    },
    "badness": 24,
    "lead_score": 21,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
-   "id": "ChIJf995pZoB3IARt7PHLvWLi6s",
-   "types": [
-    "californian_restaurant",
-    "breakfast_restaurant",
-    "brunch_restaurant",
-    "coffee_shop",
-    "cafe",
-    "american_restaurant",
-    "food_store",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(858) 274-2233",
-   "formattedAddress": "5119 Cass St, San Diego, CA 92109, USA",
-   "location": {
-    "latitude": 32.8080468,
-    "longitude": -117.25479239999999
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=12361127487416546231&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://figtreeeatery.com/locations/pacific-beach/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1665,
-   "displayName": {
-    "text": "Fig Tree Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "californian_restaurant",
-   "_spot": "Pacific Beach",
-   "site": {
-    "status": "site",
-    "stack": [
-     "GoDaddy",
-     "WordPress"
-    ],
-    "final_url": "https://figtreeeatery.com/pacific-beach/",
-    "performance": 60,
-    "seo": 92,
-    "accessibility": 85,
-    "best_practices": 78,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 33,
-   "lead_score": 29,
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -70649,59 +68436,6 @@
    }
   },
   {
-   "id": "ChIJD-Z1Pm_DwoAR7ZoNV0ctr00",
-   "types": [
-    "steak_house",
-    "catering_service",
-    "seafood_restaurant",
-    "fine_dining_restaurant",
-    "food_delivery",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "service",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(626) 583-8122",
-   "formattedAddress": "369 E Colorado Blvd, Pasadena, CA 91101, USA",
-   "location": {
-    "latitude": 34.1460256,
-    "longitude": -118.14262079999999
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=5597742646271253229&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.ruthschris.com/locations/ca/pasadena/pasadena/7334?cmpid=br:rc_ag:ie_ch:loc_ca:RCGMB_sn:gmb_gt:pasadena-ca-7334_pl:locurl_rd:1031",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 1559,
-   "displayName": {
-    "text": "Ruth's Chris Steak House",
-    "languageCode": "en"
-   },
-   "primaryType": "steak_house",
-   "_spot": "Pasadena",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.ruthschris.com/locations/ca/pasadena/pasadena/7334?cmpid=br:rc_ag:ie_ch:loc_ca:RCGMB_sn:gmb_gt:pasadena-ca-7334_pl:locurl_rd:1031",
-    "performance": 14,
-    "seo": 92,
-    "accessibility": 93,
-    "best_practices": 92,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 39,
-   "lead_score": 35,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJFeLedXOVwoARc_fEVDfCiqw",
    "types": [
     "diner",
@@ -70994,57 +68728,6 @@
    },
    "badness": 27,
    "lead_score": 23,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
-   "id": "ChIJ9ag3czgb24ARwCMNWYeUAJw",
-   "types": [
-    "breakfast_restaurant",
-    "brunch_restaurant",
-    "family_restaurant",
-    "american_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(760) 656-9655",
-   "formattedAddress": "155 S Palm Canyon Dr Ste B-21, Palm Springs, CA 92262, USA",
-   "location": {
-    "latitude": 33.8220935,
-    "longitude": -116.54726099999999
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=11241147978952287168&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.thebrokenyolkcafe.com/location/unnamed/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1543,
-   "displayName": {
-    "text": "Broken Yolk Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "breakfast_restaurant",
-   "_spot": "Palm Springs",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.thebrokenyolkcafe.com/",
-    "performance": 60,
-    "seo": 100,
-    "accessibility": 100,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 16,
-   "lead_score": 14,
    "size": "large",
    "suggested": {
     "setup": 1800,
@@ -74459,59 +72142,6 @@
    }
   },
   {
-   "id": "ChIJFxv2H_3d3IARQ5WPGMWX7z0",
-   "types": [
-    "breakfast_restaurant",
-    "family_restaurant",
-    "brunch_restaurant",
-    "cafe",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(949) 335-5534",
-   "formattedAddress": "3988 Barranca Pkwy Ste A, Irvine, CA 92606, USA",
-   "location": {
-    "latitude": 33.684270399999996,
-    "longitude": -117.80920719999999
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=4462952628523865411&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.thebrokenyolkcafe.com/location/Irvine/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1404,
-   "displayName": {
-    "text": "Broken Yolk Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "breakfast_restaurant",
-   "_spot": "Irvine",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.thebrokenyolkcafe.com/location/irvine",
-    "performance": 53,
-    "seo": 100,
-    "accessibility": 100,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 19,
-   "lead_score": 17,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
-  },
-  {
    "id": "ChIJp-c7-VEB3IARJfXEXybYw7E",
    "types": [
     "bar_and_grill",
@@ -76095,62 +73725,6 @@
    ]
   },
   {
-   "id": "ChIJ40xZPBRM6IARD5xbJzhr6ss",
-   "types": [
-    "sandwich_shop",
-    "salad_shop",
-    "catering_service",
-    "food_delivery",
-    "american_restaurant",
-    "meal_takeaway",
-    "service",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(805) 485-4200",
-   "formattedAddress": "1750 E Gonzales Rd, Oxnard, CA 93030, USA",
-   "location": {
-    "latitude": 34.2185489,
-    "longitude": -119.15894039999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=14693674623172320271&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://urbanecafe.com/location/oxnard/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 1337,
-   "displayName": {
-    "text": "Urbane Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "sandwich_shop",
-   "_spot": "Ventura / Oxnard",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://urbanecafe.com/location/oxnard/",
-    "performance": 51,
-    "seo": 92,
-    "accessibility": 95,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 23,
-   "lead_score": 21,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
-  },
-  {
    "id": "ChIJVeWnRkbZ3IAROMCmGTfZ0hE",
    "types": [
     "brunch_restaurant",
@@ -76644,98 +74218,6 @@
    }
   },
   {
-   "id": "ChIJyY0tEIvg3IARZGObWxhVlR0",
-   "types": [
-    "restaurant",
-    "womens_clothing_store",
-    "bar",
-    "live_music_venue",
-    "event_venue",
-    "clothing_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(949) 760-8686",
-   "formattedAddress": "854 Avocado Ave, Newport Beach, CA 92660, USA",
-   "location": {
-    "latitude": 33.605316,
-    "longitude": -117.87461199999998
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=2131703561734284132&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.tommybahama.com/restaurants-and-marlin-bars/locations/newport-beach",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1309,
-   "displayName": {
-    "text": "Tommy Bahama Restaurant & Bar",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Huntington / Newport Beach",
-   "site": {
-    "status": "site",
-    "stack": [
-     "OpenTable",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.tommybahama.com/restaurants-and-marlin-bars/locations/newport-beach",
-    "performance": 28,
-    "seo": 75,
-    "accessibility": 99,
-    "best_practices": 54,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 53,
-   "lead_score": 45,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   },
-   "domains": [
-    {
-     "domain": "tommybahamabar.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "tommybahamanewportbeach.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "tommybahama.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "tommybahama.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eattommybahama.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "tommybahama.net",
-     "available": false,
-     "code": 200,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJUdDlpwYg3YARQ5jwLdPgZzU",
    "types": [
     "seafood_restaurant",
@@ -77198,57 +74680,6 @@
    }
   },
   {
-   "id": "ChIJoYUyrVBT2YARVqj1DbMGikY",
-   "types": [
-    "restaurant",
-    "steak_house",
-    "family_restaurant",
-    "american_restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(619) 696-3369",
-   "formattedAddress": "285 J St, San Diego, CA 92101, USA",
-   "location": {
-    "latitude": 32.709151,
-    "longitude": -117.16216
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=5082882495544141910&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.mortons.com/location/mortons-the-steakhouse-san-diego-ca/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
-   "userRatingCount": 1291,
-   "displayName": {
-    "text": "Morton's The Steakhouse",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "San Diego Downtown",
-   "site": {
-    "status": "site",
-    "stack": [
-     "BentoBox",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.mortons.com/location/mortons-the-steakhouse-san-diego-ca/",
-    "performance": 19,
-    "seo": 92,
-    "accessibility": 95,
-    "best_practices": 92,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 36,
-   "lead_score": 31,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJGykzXK--woARV2tzaxNUbnI",
    "types": [
     "brazilian_restaurant",
@@ -77297,65 +74728,6 @@
    },
    "badness": 11,
    "lead_score": 9,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
-  },
-  {
-   "id": "ChIJpeDDbERV2YART1uauDuT1Ig",
-   "types": [
-    "mexican_restaurant",
-    "southwestern_us_restaurant",
-    "taco_restaurant",
-    "catering_service",
-    "family_restaurant",
-    "cocktail_bar",
-    "burrito_restaurant",
-    "bar",
-    "food_delivery",
-    "meal_takeaway",
-    "service",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(619) 810-2931",
-   "formattedAddress": "7007 Friars Rd #901, San Diego, CA 92108, USA",
-   "location": {
-    "latitude": 32.7675309,
-    "longitude": -117.16561229999999
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=9859667368930335567&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.blancotacostequila.com/locations/san-diego-ca/?utm_source=Google&utm_medium=Organic&utm_campaign=Maps",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1289,
-   "displayName": {
-    "text": "Blanco Cocina + Cantina",
-    "languageCode": "en"
-   },
-   "primaryType": "mexican_restaurant",
-   "_spot": "North Park / Hillcrest",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.blancococinacantina.com/locations/san-diego/",
-    "performance": 59,
-    "seo": 100,
-    "accessibility": 86,
-    "best_practices": 77,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 31,
-   "lead_score": 26,
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -79848,55 +77220,6 @@
    }
   },
   {
-   "id": "ChIJ5zJJ_58M3IARYQO6S89fUEo",
-   "types": [
-    "breakfast_restaurant",
-    "brunch_restaurant",
-    "family_restaurant",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(760) 943-8182",
-   "formattedAddress": "7670 El Camino Real, Carlsbad, CA 92009, USA",
-   "location": {
-    "latitude": 33.0857569,
-    "longitude": -117.26795879999999
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=5354885300876870497&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.thebrokenyolkcafe.com/location/broken-yolk-cafe-la-costa/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 1222,
-   "displayName": {
-    "text": "Broken Yolk Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "breakfast_restaurant",
-   "_spot": "Oceanside / Carlsbad",
-   "site": {
-    "status": "site",
-    "stack": [],
-    "final_url": "https://www.thebrokenyolkcafe.com/location/broken-yolk-cafe-la-costa",
-    "performance": 61,
-    "seo": 100,
-    "accessibility": 100,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 16,
-   "lead_score": 13,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
-  },
-  {
    "id": "ChIJ4yVK4IoT6YAR79CZZHOmkqk",
    "types": [
     "italian_restaurant",
@@ -80679,57 +78002,6 @@
    "suggested": {
     "setup": 1800,
     "monthly": 199
-   }
-  },
-  {
-   "id": "ChIJr9JQibbHwoARPvxGR1SCLlk",
-   "types": [
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "store",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(213) 213-2616",
-   "formattedAddress": "801 S Hope St Apt A, Los Angeles, CA 90017, USA",
-   "location": {
-    "latitude": 34.046566399999996,
-    "longitude": -118.25936030000001
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=6426217016788974654&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://philzcoffee.com/locations/dtla-hope?utm_source=gmb&utm_medium=yext",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 1200,
-   "displayName": {
-    "text": "Philz Coffee",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Downtown LA",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Square",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://philzcoffee.com/locations/dtla-hope?utm_source=gmb&utm_medium=yext",
-    "performance": 32,
-    "seo": 100,
-    "accessibility": 93,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 28,
-   "lead_score": 24,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
    }
   },
   {
@@ -82696,54 +79968,6 @@
    }
   },
   {
-   "id": "ChIJexMYvMWkwoARylHdfvtUq9c",
-   "types": [
-    "sushi_restaurant",
-    "american_restaurant",
-    "japanese_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(310) 576-7558",
-   "formattedAddress": "202 Wilshire Blvd, Santa Monica, CA 90401, USA",
-   "location": {
-    "latitude": 34.017523,
-    "longitude": -118.49981400000001
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=15540608378313986506&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://hillstonerestaurant.com/locations/santamonica/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_EXPENSIVE",
-   "userRatingCount": 1141,
-   "displayName": {
-    "text": "Hillstone",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "Santa Monica / Venice",
-   "site": {
-    "status": "site",
-    "stack": [],
-    "final_url": "https://hillstonerestaurant.com/locations/santamonica/",
-    "performance": 64,
-    "seo": 100,
-    "accessibility": 92,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 15,
-   "lead_score": 13,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJvyNTQKHY3IARc1USufsjQyM",
    "types": [
     "american_restaurant",
@@ -83807,58 +81031,6 @@
    }
   },
   {
-   "id": "ChIJ-cbrdGoh3YARLX_pP2n9WAw",
-   "types": [
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "food",
-    "point_of_interest",
-    "store",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(714) 916-0628",
-   "formattedAddress": "21010 Pacific Coast Hwy, Huntington Beach, CA 92648, USA",
-   "location": {
-    "latitude": 33.6554937,
-    "longitude": -117.99855090000001
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=889739554891333421&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://philzcoffee.com/locations/huntington-beach?utm_source=gmb&utm_medium=yext",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 1116,
-   "displayName": {
-    "text": "Philz Coffee",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Huntington / Newport Beach",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Square",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://philzcoffee.com/locations/huntington-beach?utm_source=gmb&utm_medium=yext",
-    "performance": 28,
-    "seo": 100,
-    "accessibility": 93,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 29,
-   "lead_score": 25,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
-  },
-  {
    "id": "ChIJh9zLyl5T2YARkVCoUHxtxmI",
    "types": [
     "steak_house",
@@ -84644,64 +81816,6 @@
    },
    "badness": 33,
    "lead_score": 27,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
-  },
-  {
-   "id": "ChIJyVS7Ba2-woAR2c16DApJxI8",
-   "types": [
-    "american_restaurant",
-    "brunch_restaurant",
-    "breakfast_restaurant",
-    "coffee_shop",
-    "cafe",
-    "vegan_restaurant",
-    "vegetarian_restaurant",
-    "food_store",
-    "restaurant",
-    "bar",
-    "store",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(424) 204-1595",
-   "formattedAddress": "120 N Robertson Blvd, Los Angeles, CA 90048, USA",
-   "location": {
-    "latitude": 34.0761134,
-    "longitude": -118.38327400000001
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=10359485350366858713&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.thehenryrestaurant.com/locations/the-henry-west-hollywood/?utm_source=Google&utm_medium=Organic&utm_campaign=Maps",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1086,
-   "displayName": {
-    "text": "The Henry",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "Hollywood / West Hollywood",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.thehenryrestaurant.com/locations/the-henry-west-hollywood/?utm_source=Google&utm_medium=Organic&utm_campaign=Maps",
-    "performance": 48,
-    "seo": 100,
-    "accessibility": 91,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 22,
-   "lead_score": 18,
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -85698,58 +82812,6 @@
    },
    "badness": 34,
    "lead_score": 28,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
-  },
-  {
-   "id": "ChIJ3Z9z9Cm6woARsuDO-ZzwQhs",
-   "types": [
-    "mediterranean_restaurant",
-    "salad_shop",
-    "gyro_restaurant",
-    "greek_restaurant",
-    "falafel_restaurant",
-    "european_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(323) 230-5027",
-   "formattedAddress": "9343 Culver Blvd, Culver City, CA 90232, USA",
-   "location": {
-    "latitude": 34.0251065,
-    "longitude": -118.3939679
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=1964396944483606706&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://cava.com/locations/culver-city-ca",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 1065,
-   "displayName": {
-    "text": "CAVA",
-    "languageCode": "en"
-   },
-   "primaryType": "mediterranean_restaurant",
-   "_spot": "Culver City",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://cava.com/locations/culver-city-ca",
-    "performance": 24,
-    "seo": 100,
-    "accessibility": 97,
-    "best_practices": 92,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 32,
-   "lead_score": 26,
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -88552,53 +85614,6 @@
    }
   },
   {
-   "id": "ChIJw9y46bCkwoARfPFPcBoUgeA",
-   "types": [
-    "bar",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(310) 395-3314",
-   "formattedAddress": "1323 Montana Ave, Santa Monica, CA 90403, USA",
-   "location": {
-    "latitude": 34.0320914,
-    "longitude": -118.4957843
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=16177233440277524860&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://rd-kitchen.com/locations/santamonica/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 1003,
-   "displayName": {
-    "text": "R+D Kitchen",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "Santa Monica / Venice",
-   "site": {
-    "status": "site",
-    "stack": [],
-    "final_url": "https://rd-kitchen.com/locations/santamonica/",
-    "performance": 67,
-    "seo": 100,
-    "accessibility": 96,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 13,
-   "lead_score": 11,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
-  },
-  {
    "id": "ChIJ6c3nW33HwoAR8dFj_akzu-8",
    "types": [
     "japanese_curry_restaurant",
@@ -89517,63 +86532,6 @@
    "suggested": {
     "setup": 1000,
     "monthly": 129
-   }
-  },
-  {
-   "id": "ChIJ2Tw86LKx3IAR7M1_g0W0fAU",
-   "types": [
-    "sandwich_shop",
-    "catering_service",
-    "family_restaurant",
-    "bar",
-    "deli",
-    "meal_delivery",
-    "food_delivery",
-    "american_restaurant",
-    "food_store",
-    "meal_takeaway",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "service",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(951) 777-1117",
-   "formattedAddress": "3505 Market St Ste 101, Riverside, CA 92501, USA",
-   "location": {
-    "latitude": 33.98543,
-    "longitude": -117.37411999999998
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=395389077953695212&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://chebahut.com/locations/riversideca/?utm_source=google&utm_medium=GBP&utm_campaign=Riverside-Market",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 970,
-   "displayName": {
-    "text": "Cheba Hut \"Toasted\" Subs",
-    "languageCode": "usa"
-   },
-   "primaryType": "sandwich_shop",
-   "_spot": "Riverside",
-   "site": {
-    "status": "site",
-    "stack": [],
-    "final_url": "https://www.chebahut.com/locations/riversideca?utm_source=google&utm_medium=GBP&utm_campaign=Riverside-Market",
-    "performance": 66,
-    "seo": 100,
-    "accessibility": 96,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 14,
-   "lead_score": 12,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
    }
   },
   {
@@ -95700,58 +92658,6 @@
    }
   },
   {
-   "id": "ChIJV1XYmtDV3IARpMNBKFf1Syg",
-   "types": [
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(714) 888-3173",
-   "formattedAddress": "520 N State College Blvd, Fullerton, CA 92831, USA",
-   "location": {
-    "latitude": 33.8750852,
-    "longitude": -117.88915050000001
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=2903684139456775076&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://philzcoffee.com/locations/fullerton?utm_source=gmb&utm_medium=yext",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 873,
-   "displayName": {
-    "text": "Philz Coffee",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Anaheim / Fullerton",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Square",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://philzcoffee.com/locations/fullerton?utm_source=gmb&utm_medium=yext",
-    "performance": 42,
-    "seo": 100,
-    "accessibility": 93,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 24,
-   "lead_score": 19,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
-  },
-  {
    "id": "ChIJ0__2bXnHwoARF2OG9wa2ycY",
    "types": [
     "korean_restaurant",
@@ -95827,59 +92733,6 @@
      "price": "~$13/yr then ~$17"
     }
    ]
-  },
-  {
-   "id": "ChIJ0UfR0eVx3IARG_eIu5PdztQ",
-   "types": [
-    "hamburger_restaurant",
-    "family_restaurant",
-    "fast_food_restaurant",
-    "american_restaurant",
-    "meal_takeaway",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(760) 994-0274",
-   "formattedAddress": "2540 El Camino Real Ste a, Carlsbad, CA 92008, USA",
-   "location": {
-    "latitude": 33.179302899999996,
-    "longitude": -117.3248984
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=15334437407819364123&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.mooyah.com/locations/carlsbad-ca-321",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 872,
-   "displayName": {
-    "text": "MOOYAH Burgers, Fries & Shakes",
-    "languageCode": "en"
-   },
-   "primaryType": "hamburger_restaurant",
-   "_spot": "Oceanside / Carlsbad",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.mooyah.com/locations/carlsbad-ca-321/",
-    "performance": 42,
-    "seo": 92,
-    "accessibility": 100,
-    "best_practices": 77,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 29,
-   "lead_score": 25,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
   },
   {
    "id": "ChIJXzoDPOHawoARVb8hV0XabwA",
@@ -99403,61 +96256,6 @@
    }
   },
   {
-   "id": "ChIJ5_WHD4Qx3YARAd_dkHf2xaM",
-   "types": [
-    "steak_house",
-    "catering_service",
-    "fine_dining_restaurant",
-    "seafood_restaurant",
-    "american_restaurant",
-    "food_delivery",
-    "service",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(562) 966-6777",
-   "formattedAddress": "180 E Ocean Blvd Ste 160, Long Beach, CA 90802, USA",
-   "location": {
-    "latitude": 33.7663224,
-    "longitude": -118.19133310000001
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=11801109391986253569&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.ruthschris.com/locations/ca/long-beach/long-beach/7374?cmpid=br:rc_ag:ie_ch:loc_ca:RCGMB_sn:gmb_gt:long-beach-ca-7374_pl:locurl_rd:1079",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
-   "userRatingCount": 814,
-   "displayName": {
-    "text": "Ruth's Chris Steak House",
-    "languageCode": "en"
-   },
-   "primaryType": "steak_house",
-   "_spot": "Long Beach",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.ruthschris.com/locations/ca/long-beach/long-beach/7374?cmpid=br:rc_ag:ie_ch:loc_ca:RCGMB_sn:gmb_gt:long-beach-ca-7374_pl:locurl_rd:1079",
-    "performance": 18,
-    "seo": 92,
-    "accessibility": 92,
-    "best_practices": 88,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 38,
-   "lead_score": 30,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
-  },
-  {
    "id": "ChIJucPyKvbV3IAR-hN8MLgpvi8",
    "types": [
     "chicken_restaurant",
@@ -100225,54 +97023,6 @@
    }
   },
   {
-   "id": "ChIJ_zjd_PS9woARpyyTv0qzhB4",
-   "types": [
-    "mexican_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(818) 623-8000",
-   "formattedAddress": "12905 Ventura Blvd, Studio City, CA 91604, USA",
-   "location": {
-    "latitude": 34.14537190000001,
-    "longitude": -118.41401819999999
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=2199079651686689959&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.sharkys.com/en-us/locations/ca/studio-city/12905-ventura-blvd/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 802,
-   "displayName": {
-    "text": "Sharky's Woodfired Mexican Grill",
-    "languageCode": "en"
-   },
-   "primaryType": "mexican_restaurant",
-   "_spot": "Sherman Oaks / Studio City",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://order.thanx.com/sharkys",
-    "performance": 32,
-    "seo": 92,
-    "accessibility": 92,
-    "best_practices": 73,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 34,
-   "lead_score": 28,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
-  },
-  {
    "id": "ChIJPc3JBhBy3IAR4Khz_zbHGUo",
    "types": [
     "italian_restaurant",
@@ -100589,62 +97339,6 @@
      "price": "~$13/yr then ~$17"
     }
    ]
-  },
-  {
-   "id": "ChIJjVuEjlNN6IARHkTOCJhABho",
-   "types": [
-    "sandwich_shop",
-    "salad_shop",
-    "catering_service",
-    "food_delivery",
-    "american_restaurant",
-    "meal_takeaway",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "service",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(805) 654-1619",
-   "formattedAddress": "4960 Telephone Rd, Ventura, CA 93003, USA",
-   "location": {
-    "latitude": 34.2630328,
-    "longitude": -119.2256649
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=1875257316573332510&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://urbanecafe.com/location/ventura/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 794,
-   "displayName": {
-    "text": "Urbane Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "sandwich_shop",
-   "_spot": "Ventura / Oxnard",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://urbanecafe.com/location/ventura/",
-    "performance": 52,
-    "seo": 92,
-    "accessibility": 95,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 22,
-   "lead_score": 18,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
   },
   {
    "id": "ChIJaVpIg68b24AR2ulE2Gijlj0",
@@ -102604,65 +99298,6 @@
    ]
   },
   {
-   "id": "ChIJi3Q2wRMh3YAR8CZqIyvLP5I",
-   "types": [
-    "cocktail_bar",
-    "bar",
-    "american_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(714) 845-4776",
-   "formattedAddress": "21500 Pacific Coast Hwy, Huntington Beach, CA 92648, USA",
-   "location": {
-    "latitude": 33.651299,
-    "longitude": -117.99073430000001
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=10538365039208441584&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://huntingtonbeach.hyatt.com/",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 763,
-   "displayName": {
-    "text": "Watertable",
-    "languageCode": "en"
-   },
-   "primaryType": "american_restaurant",
-   "_spot": "Huntington / Newport Beach",
-   "site": {
-    "status": "broken",
-    "stack": [],
-    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: NOT_HTML. The page provided is not HTML (served as MIME type text/plain).\", \"errors\": [ { \"mess"
-   },
-   "badness": 95,
-   "lead_score": 76,
-   "checked": {
-    "id": "ChIJi3Q2wRMh3YAR8CZqIyvLP5I",
-    "verdict": "good_site",
-    "official_url": "https://www.watertablehb.com/",
-    "uses": [
-     "BentoBox",
-     "Resy",
-     "Tock"
-    ],
-    "notes": "Watertable has its own Hyatt-run BentoBox site with menus, a wine list, full hours for this exact address, private events and online reservations.",
-    "evidence": [
-     "https://www.watertablehb.com/",
-     "https://www.watertablehb.com/location/hyatt-regency-huntington-beach-watertable/"
-    ],
-    "missing": [],
-    "name": "Watertable",
-    "checked_on": "2026-10-07"
-   },
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
-  },
-  {
    "id": "ChIJC8DQhfGs6YARClpPI-0KTlk",
    "types": [
     "ice_cream_shop",
@@ -103191,60 +99826,6 @@
    }
   },
   {
-   "id": "ChIJt8neTPsD3IAR9cwyLvzJ_3Y",
-   "types": [
-    "breakfast_restaurant",
-    "brunch_restaurant",
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "restaurant",
-    "store",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(858) 412-0227",
-   "formattedAddress": "927 Silverado St, La Jolla, CA 92037, USA",
-   "location": {
-    "latitude": 32.8448753,
-    "longitude": -117.27445019999999
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=8574794300480736501&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.parakeetcafe.com/location/la-jolla/",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 751,
-   "displayName": {
-    "text": "Parakeet Cafe - La Jolla",
-    "languageCode": "en"
-   },
-   "primaryType": "breakfast_restaurant",
-   "_spot": "La Jolla",
-   "site": {
-    "status": "site",
-    "stack": [
-     "BentoBox",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.parakeetcafe.com/location/la-jolla/",
-    "performance": 37,
-    "seo": 100,
-    "accessibility": 92,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 27,
-   "lead_score": 21,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
-  },
-  {
    "id": "ChIJCdvPfl8x3YARNmX28UA9xoA",
    "types": [
     "restaurant",
@@ -103395,58 +99976,6 @@
    "suggested": {
     "setup": 1000,
     "monthly": 129
-   }
-  },
-  {
-   "id": "ChIJH034UP7AwoARDdFGQDquWQQ",
-   "types": [
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(818) 844-8492",
-   "formattedAddress": "252 S Brand Blvd Ste A, Glendale, CA 91204, USA",
-   "location": {
-    "latitude": 34.1430448,
-    "longitude": -118.25467239999999
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=313473214288679181&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://philzcoffee.com/locations/glendale?utm_source=gmb&utm_medium=yext",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 744,
-   "displayName": {
-    "text": "Philz Coffee",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Burbank / Glendale",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Square",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://philzcoffee.com/locations/glendale?utm_source=gmb&utm_medium=yext",
-    "performance": 29,
-    "seo": 100,
-    "accessibility": 93,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 29,
-   "lead_score": 23,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
    }
   },
   {
@@ -104420,62 +100949,6 @@
      "price": "~$13/yr then ~$17"
     }
    ]
-  },
-  {
-   "id": "ChIJERX35T1-24ARW6i9cqf-T9Y",
-   "types": [
-    "sandwich_shop",
-    "salad_shop",
-    "catering_service",
-    "food_delivery",
-    "american_restaurant",
-    "meal_takeaway",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "service",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(951) 296-6251",
-   "formattedAddress": "40688 Winchester Rd, Temecula, CA 92591, USA",
-   "location": {
-    "latitude": 33.5269323,
-    "longitude": -117.15656419999999
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=15442841642414745691&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://urbanecafe.com/location/temecula/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 732,
-   "displayName": {
-    "text": "Urbane Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "sandwich_shop",
-   "_spot": "Temecula",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://urbanecafe.com/location/temecula/",
-    "performance": 51,
-    "seo": 92,
-    "accessibility": 95,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 23,
-   "lead_score": 19,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
   },
   {
    "id": "ChIJF2hEpKncwoARG-7kNgAZUNs",
@@ -109313,58 +105786,6 @@
    "suggested": {
     "setup": 1000,
     "monthly": 129
-   }
-  },
-  {
-   "id": "ChIJA5UNSFzDwoAR-pLMxSIH4UY",
-   "types": [
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(626) 204-3796",
-   "formattedAddress": "146 S Lake Ave #106, Pasadena, CA 91101, USA",
-   "location": {
-    "latitude": 34.1432092,
-    "longitude": -118.13168399999999
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=5107371298343654138&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://philzcoffee.com/locations/pasadena?utm_source=gmb&utm_medium=yext",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 669,
-   "displayName": {
-    "text": "Philz Coffee",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Pasadena",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Square",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://philzcoffee.com/locations/pasadena?utm_source=gmb&utm_medium=yext",
-    "performance": 35,
-    "seo": 100,
-    "accessibility": 93,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 27,
-   "lead_score": 21,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
    }
   },
   {
@@ -117063,55 +113484,6 @@
    ]
   },
   {
-   "id": "ChIJ9a_aSgC7woARuCjfY4ZA-fk",
-   "types": [
-    "japanese_restaurant",
-    "ramen_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "formattedAddress": "9516 Culver Blvd, Culver City, CA 90232, USA",
-   "location": {
-    "latitude": 34.0232296,
-    "longitude": -118.39461379999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=18012499130590374072&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://mensho.com/location/mensho-tokyo-la/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 588,
-   "displayName": {
-    "text": "MENSHO TOKYO",
-    "languageCode": "en"
-   },
-   "primaryType": "japanese_restaurant",
-   "_spot": "Culver City",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://mensho.com/location/mensho-tokyo-la/",
-    "performance": 56,
-    "seo": 100,
-    "accessibility": 88,
-    "best_practices": 100,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 19,
-   "lead_score": 15,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
-  },
-  {
    "id": "ChIJQ1PK0I9x3IAR9044Hsu5OJY",
    "types": [
     "mexican_restaurant",
@@ -120598,55 +116970,6 @@
    }
   },
   {
-   "id": "ChIJXfGv8Cbf3IAR1F8L5oHoeD4",
-   "types": [
-    "brazilian_restaurant",
-    "steak_house",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(949) 529-5296",
-   "formattedAddress": "1830 Main St, Irvine, CA 92614, USA",
-   "location": {
-    "latitude": 33.685389799999996,
-    "longitude": -117.85618919999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=4501603472164741076&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://galpaogauchousa.com/locations/irvine-ca/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_EXPENSIVE",
-   "userRatingCount": 554,
-   "displayName": {
-    "text": "Galp\u00e3o Gaucho Brazilian Steakhouse",
-    "languageCode": "en"
-   },
-   "primaryType": "brazilian_restaurant",
-   "_spot": "Santa Ana / Orange",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress"
-    ],
-    "final_url": "https://galpaogauchousa.com/location/irvine-ca/",
-    "performance": 54,
-    "seo": 92,
-    "accessibility": 96,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 22,
-   "lead_score": 18,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
-   }
-  },
-  {
    "id": "ChIJQ0qMZXsU6YARPGe0T0BD8HY",
    "types": [
     "sushi_restaurant",
@@ -121833,86 +118156,6 @@
    }
   },
   {
-   "id": "ChIJAzEoTj0x3YAR2PMp1L9MYEM",
-   "types": [
-    "tea_house",
-    "sandwich_shop",
-    "coffee_roastery",
-    "cafe",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(562) 768-8815",
-   "formattedAddress": "315 The Promenade N, Long Beach, CA 90802, USA",
-   "location": {
-    "latitude": 33.770824499999996,
-    "longitude": -118.1906917
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=4854964785087378392&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.bobacompany.com/",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 544,
-   "displayName": {
-    "text": "Loose Leaf Boba Company",
-    "languageCode": "en"
-   },
-   "primaryType": "tea_house",
-   "_spot": "Long Beach",
-   "site": {
-    "status": "broken",
-    "stack": [],
-    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: FAILED_DOCUMENT_REQUEST. Lighthouse was unable to reliably load the page you requested. Make su"
-   },
-   "badness": 95,
-   "lead_score": 71,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   },
-   "domains": [
-    {
-     "domain": "looseleafbobacompany.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "looseleaf.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "looseleaflongbeach.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "looseleaf.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "looseleaf.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatlooseleaf.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJzZF_yayx3IARxVEnEbA0zhc",
    "types": [
     "pizza_restaurant",
@@ -122646,59 +118889,6 @@
    },
    "badness": 37,
    "lead_score": 28,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
-  },
-  {
-   "id": "ChIJXcDONa7f3IARbgM-zlLABmY",
-   "types": [
-    "restaurant",
-    "wine_bar",
-    "catering_service",
-    "cocktail_bar",
-    "bar",
-    "food_delivery",
-    "service",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(949) 336-2600",
-   "formattedAddress": "2981 Michelson Dr Ste e, Irvine, CA 92612, USA",
-   "location": {
-    "latitude": 33.6729017,
-    "longitude": -117.8465698
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=7351774903608935278&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.postino.com/locations/postino-park-place",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 537,
-   "displayName": {
-    "text": "Postino Park Place",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "Santa Ana / Orange",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.postino.com/locations/postino-park-place",
-    "performance": 44,
-    "seo": 100,
-    "accessibility": 96,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 23,
-   "lead_score": 18,
    "size": "medium",
    "suggested": {
     "setup": 1000,
@@ -125389,56 +121579,6 @@
    ]
   },
   {
-   "id": "ChIJmTkD1PKlwoARZ4YRl-VYRHY",
-   "types": [
-    "taiwanese_restaurant",
-    "chinese_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(310) 737-2088",
-   "formattedAddress": "395 Santa Monica Pl, Santa Monica, CA 90401, USA",
-   "location": {
-    "latitude": 34.0132505,
-    "longitude": -118.49438210000001
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=8522034137997084263&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://dtf.com/en/locations/santa-monica",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 509,
-   "displayName": {
-    "text": "Din Tai Fung",
-    "languageCode": "en"
-   },
-   "primaryType": "taiwanese_restaurant",
-   "_spot": "Santa Monica / Venice",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://dtf.com/en-us/locations/santa-monica",
-    "performance": 43,
-    "seo": 100,
-    "accessibility": 97,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 23,
-   "lead_score": 17,
-   "size": "medium",
-   "suggested": {
-    "setup": 1000,
-    "monthly": 129
-   }
-  },
-  {
    "id": "ChIJaVbS3Xd-24ARWMaRefZMqfg",
    "types": [
     "coffee_shop",
@@ -125640,66 +121780,6 @@
      "price": "~$11/yr then ~$17"
     }
    ]
-  },
-  {
-   "id": "ChIJaTlbzSZ_24ARXAWuDPnW_lw",
-   "types": [
-    "bakery",
-    "breakfast_restaurant",
-    "cake_shop",
-    "sandwich_shop",
-    "cafe",
-    "manufacturer",
-    "confectionery",
-    "food_store",
-    "wholesaler",
-    "store",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "service",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(951) 676-0550",
-   "formattedAddress": "31795 Rancho California Rd, Temecula, CA 92591, USA",
-   "location": {
-    "latitude": 33.5131672,
-    "longitude": -117.103058
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=6701029660721808732&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://www.greatharvesttemecula.com/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 507,
-   "displayName": {
-    "text": "Great Harvest Bread Co.",
-    "languageCode": "en"
-   },
-   "primaryType": "bakery",
-   "_spot": "Temecula",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://greatharvesttemecula.com/",
-    "performance": 53,
-    "seo": 100,
-    "accessibility": 82,
-    "best_practices": 74,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 35,
-   "lead_score": 27,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
   },
   {
    "id": "ChIJd3BzkU65woAR3Z2bPGtThec",
@@ -126720,60 +122800,6 @@
    "suggested": {
     "setup": 1000,
     "monthly": 129
-   }
-  },
-  {
-   "id": "ChIJq6paYIG5woAR12b90o1eHQ0",
-   "types": [
-    "mediterranean_restaurant",
-    "turkish_restaurant",
-    "bar",
-    "lebanese_restaurant",
-    "greek_restaurant",
-    "european_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(310) 356-0200",
-   "formattedAddress": "8801 Washington Blvd, Culver City, CA 90232, USA",
-   "location": {
-    "latitude": 34.0281245,
-    "longitude": -118.38715040000001
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=945015460040894167&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.zaytinya.com/location/culver-city/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_EXPENSIVE",
-   "userRatingCount": 500,
-   "displayName": {
-    "text": "Zaytinya",
-    "languageCode": "en"
-   },
-   "primaryType": "mediterranean_restaurant",
-   "_spot": "Culver City",
-   "site": {
-    "status": "site",
-    "stack": [
-     "BentoBox",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.zaytinya.com/location/culver-city/",
-    "performance": 50,
-    "seo": 100,
-    "accessibility": 98,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 20,
-   "lead_score": 15,
-   "size": "large",
-   "suggested": {
-    "setup": 1800,
-    "monthly": 199
    }
   },
   {
@@ -137105,62 +133131,6 @@
    }
   },
   {
-   "id": "ChIJXb-EKFzDwoAR7jfvpdNyPgQ",
-   "types": [
-    "sandwich_shop",
-    "salad_shop",
-    "catering_service",
-    "food_delivery",
-    "american_restaurant",
-    "meal_takeaway",
-    "service",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(626) 202-1616",
-   "formattedAddress": "218 S Lake Ave, Pasadena, CA 91101, USA",
-   "location": {
-    "latitude": 34.1420433,
-    "longitude": -118.1321386
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=305808078055356398&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://urbanecafe.com/location/pasadena/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 419,
-   "displayName": {
-    "text": "Urbane Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "sandwich_shop",
-   "_spot": "Pasadena",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://urbanecafe.com/location/pasadena/",
-    "performance": 54,
-    "seo": 92,
-    "accessibility": 93,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 22,
-   "lead_score": 16,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
-  },
-  {
    "id": "ChIJFfPUpE4x3YARpWbPVzqnkUU",
    "types": [
     "restaurant",
@@ -138086,57 +134056,6 @@
    },
    "badness": 9,
    "lead_score": 6,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
-  },
-  {
-   "id": "ChIJdwfZH9xx3IARDo1QCXrlWWc",
-   "types": [
-    "coffee_shop",
-    "cafe",
-    "food_store",
-    "store",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(833) 843-5776",
-   "formattedAddress": "1918 Oceanside Blvd, Oceanside, CA 92054, USA",
-   "location": {
-    "latitude": 33.1941226,
-    "longitude": -117.3556669
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=7447235771138870542&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.br.coffee/locations/oceanside",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 413,
-   "displayName": {
-    "text": "Black Rock Coffee Bar",
-    "languageCode": "en"
-   },
-   "primaryType": "coffee_shop",
-   "_spot": "Oceanside / Carlsbad",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Shopify",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.br.coffee/locations/oceanside",
-    "performance": 37,
-    "seo": 82,
-    "accessibility": 87,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 33,
-   "lead_score": 24,
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -151911,89 +147830,6 @@
    }
   },
   {
-   "id": "ChIJwc04hvsD3IAR3v71g45sMKk",
-   "types": [
-    "wine_bar",
-    "grocery_store",
-    "food_store",
-    "restaurant",
-    "bar",
-    "store",
-    "point_of_interest",
-    "service",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(858) 551-8250",
-   "formattedAddress": "1158 Prospect St, La Jolla, CA 92037, USA",
-   "location": {
-    "latitude": 32.8488372,
-    "longitude": -117.27315469999999
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=12191363550647025374&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "http://weolive.com/la-jolla/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 339,
-   "displayName": {
-    "text": "We Olive & Wine Bar",
-    "languageCode": "en"
-   },
-   "primaryType": "wine_bar",
-   "_spot": "La Jolla",
-   "site": {
-    "status": "broken",
-    "stack": [],
-    "error": "{ \"error\": { \"code\": 400, \"message\": \"Lighthouse returned error: NOT_HTML. The page provided is not HTML (served as MIME type text/plain).\", \"errors\": [ { \"mess"
-   },
-   "badness": 95,
-   "lead_score": 67,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   },
-   "domains": [
-    {
-     "domain": "weolivewinebar.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "weolivelajolla.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "weolive.bar",
-     "available": true,
-     "code": 404,
-     "price": "~$70/yr then ~$80"
-    },
-    {
-     "domain": "weolive.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatweolive.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "weolive.net",
-     "available": false,
-     "code": 200,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJ8UQfLxZx3IAR4pmgeeT44I8",
    "types": [
     "brewery",
@@ -156415,62 +152251,6 @@
    ]
   },
   {
-   "id": "ChIJ5U2xdABx3IARoxoX6feIPe8",
-   "types": [
-    "sandwich_shop",
-    "salad_shop",
-    "catering_service",
-    "food_delivery",
-    "meal_takeaway",
-    "american_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "service",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(760) 607-3511",
-   "formattedAddress": "2183 Vista Way Ste B-1, Oceanside, CA 92054, USA",
-   "location": {
-    "latitude": 33.182786,
-    "longitude": -117.34076119999997
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=17239085546993031843&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://urbanecafe.com/location/oceanside/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 319,
-   "displayName": {
-    "text": "Urbane Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "sandwich_shop",
-   "_spot": "Oceanside / Carlsbad",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://urbanecafe.com/location/oceanside/",
-    "performance": 34,
-    "seo": 92,
-    "accessibility": 95,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 30,
-   "lead_score": 22,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
-  },
-  {
    "id": "ChIJYYy062W7woARrXYzCQr_wX4",
    "types": [
     "salad_shop",
@@ -158035,80 +153815,6 @@
     "setup": 500,
     "monthly": 79
    }
-  },
-  {
-   "id": "ChIJXfPpY1SVwoAR_9qdp3wxdvA",
-   "types": [
-    "thai_restaurant",
-    "diner",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(818) 561-4777",
-   "formattedAddress": "449 S Glenoaks Blvd, Burbank, CA 91502, USA",
-   "location": {
-    "latitude": 34.1802876,
-    "longitude": -118.30264190000001
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=17327091027812408063&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.chownow.com/order/6335/locations/8369",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 312,
-   "displayName": {
-    "text": "Summer Buffalo Thai Burbank",
-    "languageCode": "en"
-   },
-   "primaryType": "thai_restaurant",
-   "_spot": "Burbank / Glendale",
-   "site": {
-    "status": "ordering-only",
-    "stack": [
-     "ChowNow"
-    ]
-   },
-   "badness": 90,
-   "lead_score": 61,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   },
-   "domains": [
-    {
-     "domain": "summerbuffalo.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "summerbuffalo.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "summerbuffalo.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatsummerbuffalo.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "summerbuffalo.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
   },
   {
    "id": "ChIJgYv1_k1V2YARXtA4xge64T4",
@@ -170504,64 +166210,6 @@
    }
   },
   {
-   "id": "ChIJYX6qox9x3IARSOFQFcMZ9JU",
-   "types": [
-    "bakery",
-    "cake_shop",
-    "pastry_shop",
-    "coffee_shop",
-    "cafe",
-    "dessert_shop",
-    "confectionery",
-    "food_store",
-    "manufacturer",
-    "store",
-    "wholesaler",
-    "service",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(442) 266-3002",
-   "formattedAddress": "2588 El Camino Real Ste H, Carlsbad, CA 92008, USA",
-   "location": {
-    "latitude": 33.178162799999996,
-    "longitude": -117.325237
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=10805289731635601736&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://parisbaguette.com/locations/ca/carlsbad/2588-el-camino-real/",
-   "businessStatus": "OPERATIONAL",
-   "userRatingCount": 253,
-   "displayName": {
-    "text": "Paris Baguette",
-    "languageCode": "en"
-   },
-   "primaryType": "bakery",
-   "_spot": "Oceanside / Carlsbad",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://parisbaguette.com/locations/ca/carlsbad/2588-el-camino-real/",
-    "performance": 44,
-    "seo": 100,
-    "accessibility": 96,
-    "best_practices": 77,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 26,
-   "lead_score": 17,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
-  },
-  {
    "id": "ChIJ60-o0UfHwoARpgtvYKGz-OE",
    "types": [
     "japanese_restaurant",
@@ -176531,94 +172179,6 @@
    ]
   },
   {
-   "id": "ChIJC6FlH6hU2YARkfhWCkHvffg",
-   "types": [
-    "restaurant",
-    "breakfast_restaurant",
-    "californian_restaurant",
-    "american_restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(619) 272-5840",
-   "formattedAddress": "910 Broadway Cir, San Diego, CA 92101, USA",
-   "location": {
-    "latitude": 32.7145248,
-    "longitude": -117.16346910000001
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=17905730756120344721&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.marriott.com/en-us/hotels/sanwi-the-westin-san-diego-gaslamp-quarter/dining/?scid=feed67b0-9a2f-4de1-8df6-114544116108",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 232,
-   "displayName": {
-    "text": "Bronze Bird",
-    "languageCode": "en"
-   },
-   "primaryType": "restaurant",
-   "_spot": "San Diego Downtown",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager"
-    ],
-    "final_url": "https://www.marriott.com/en-us/hotels/sanwi-the-westin-san-diego-gaslamp-quarter/dining/?scid=feed67b0-9a2f-4de1-8df6-114544116108",
-    "performance": 18,
-    "seo": 85,
-    "accessibility": 93,
-    "best_practices": 54,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 45,
-   "lead_score": 29,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   },
-   "domains": [
-    {
-     "domain": "bronzebird.com",
-     "available": false,
-     "code": 200,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "bronzebirdsandiego.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "bronzebird.restaurant",
-     "available": false,
-     "code": 403,
-     "price": "~$45/yr then ~$62"
-    },
-    {
-     "domain": "bronzebird.menu",
-     "available": true,
-     "code": 404,
-     "price": "~$32/yr then ~$38"
-    },
-    {
-     "domain": "eatbronzebird.com",
-     "available": true,
-     "code": 404,
-     "price": "~$11/yr then ~$17"
-    },
-    {
-     "domain": "bronzebird.net",
-     "available": true,
-     "code": 404,
-     "price": "~$13/yr then ~$17"
-    }
-   ]
-  },
-  {
    "id": "ChIJMxZpRPwD3IARF8O8ydaf80E",
    "types": [
     "restaurant",
@@ -180792,57 +176352,6 @@
    }
   },
   {
-   "id": "ChIJY3b5oDLHwoAR3BxEBfktLyI",
-   "types": [
-    "sushi_restaurant",
-    "japanese_restaurant",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(213) 338-2284",
-   "formattedAddress": "3465 W 6th St #50, Los Angeles, CA 90020, USA",
-   "location": {
-    "latitude": 34.0637265,
-    "longitude": -118.29715770000001
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=2463238068753407196&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.handrollbar.com/locations/koreatown/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 217,
-   "displayName": {
-    "text": "KazuNori: The Original Hand Roll Bar",
-    "languageCode": "en"
-   },
-   "primaryType": "sushi_restaurant",
-   "_spot": "Koreatown",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://www.handrollbar.com/locations/koreatown/",
-    "performance": 61,
-    "seo": 85,
-    "accessibility": 91,
-    "best_practices": 73,
-    "viewport_ok": true,
-    "https": false
-   },
-   "badness": 35,
-   "lead_score": 23,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
-  },
-  {
    "id": "ChIJWzvL0Sa5woAR9Q-VY1iqRcY",
    "types": [
     "coffee_shop",
@@ -180982,64 +176491,6 @@
    },
    "badness": 27,
    "lead_score": 18,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
-  },
-  {
-   "id": "ChIJ76NlQM4V6YARbZn0bZjV7GE",
-   "types": [
-    "catering_service",
-    "hawaiian_restaurant",
-    "sushi_restaurant",
-    "seafood_restaurant",
-    "fast_food_restaurant",
-    "food_delivery",
-    "american_restaurant",
-    "japanese_restaurant",
-    "meal_takeaway",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "service",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(805) 869-2722",
-   "formattedAddress": "811 State St Ste D, Santa Barbara, CA 93101, USA",
-   "location": {
-    "latitude": 34.4196536,
-    "longitude": -119.70010769999999
-   },
-   "rating": 4.8,
-   "googleMapsUri": "https://maps.google.com/?cid=7056249566839216493&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://www.poke.house/locations/poke-statest-santabarbara",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 217,
-   "displayName": {
-    "text": "Poke House - Santa Barbara",
-    "languageCode": "en"
-   },
-   "primaryType": "hawaiian_restaurant",
-   "_spot": "Santa Barbara",
-   "site": {
-    "status": "site",
-    "stack": [
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://poke.house/locations/ca/santa-barbara/811-state-st",
-    "performance": 35,
-    "seo": 92,
-    "accessibility": 92,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 30,
-   "lead_score": 20,
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -184875,62 +180326,6 @@
    },
    "badness": 25,
    "lead_score": 16,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
-  },
-  {
-   "id": "ChIJn1apgGqv3IAREtTF-n1TMos",
-   "types": [
-    "sandwich_shop",
-    "salad_shop",
-    "catering_service",
-    "food_delivery",
-    "meal_takeaway",
-    "american_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "service",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(858) 314-6775",
-   "formattedAddress": "2692 Canyon Springs Pkwy Ste e, Riverside, CA 92507, USA",
-   "location": {
-    "latitude": 33.9413565,
-    "longitude": -117.28259050000001
-   },
-   "rating": 4.6,
-   "googleMapsUri": "https://maps.google.com/?cid=10030171120650802194&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://urbanecafe.com/location/moreno-valley/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 201,
-   "displayName": {
-    "text": "Urbane Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "sandwich_shop",
-   "_spot": "Riverside",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://urbanecafe.com/location/moreno-valley/",
-    "performance": 51,
-    "seo": 92,
-    "accessibility": 95,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 23,
-   "lead_score": 15,
    "size": "small",
    "suggested": {
     "setup": 500,
@@ -194634,62 +190029,6 @@
    }
   },
   {
-   "id": "ChIJ-_mPJLa_woARJ5p8Goyx0ck",
-   "types": [
-    "sandwich_shop",
-    "salad_shop",
-    "catering_service",
-    "food_delivery",
-    "american_restaurant",
-    "meal_takeaway",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "service",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(818) 465-4023",
-   "formattedAddress": "3800 W Verdugo Ave, Burbank, CA 91505, USA",
-   "location": {
-    "latitude": 34.1603111,
-    "longitude": -118.34506899999998
-   },
-   "rating": 4.7,
-   "googleMapsUri": "https://maps.google.com/?cid=14542599887053953575&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://urbanecafe.com/location/burbank/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 163,
-   "displayName": {
-    "text": "Urbane Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "sandwich_shop",
-   "_spot": "Burbank / Glendale",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://urbanecafe.com/location/burbank/",
-    "performance": 55,
-    "seo": 92,
-    "accessibility": 95,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 21,
-   "lead_score": 13,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
-  },
-  {
    "id": "ChIJvzwTZ0_AwoARxyFTPeLKoHc",
    "types": [
     "coffee_shop",
@@ -196434,62 +191773,6 @@
    }
   },
   {
-   "id": "ChIJ3WsHRW6t6YARWZKO1As7vc8",
-   "types": [
-    "sandwich_shop",
-    "salad_shop",
-    "catering_service",
-    "food_delivery",
-    "american_restaurant",
-    "meal_takeaway",
-    "service",
-    "restaurant",
-    "food",
-    "point_of_interest",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(820) 999-2380",
-   "formattedAddress": "811 E Thompson Blvd, Ventura, CA 93001, USA",
-   "location": {
-    "latitude": 34.2785896,
-    "longitude": -119.28825850000001
-   },
-   "rating": 4.9,
-   "googleMapsUri": "https://maps.google.com/?cid=14969185658446189145&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://urbanecafe.com/location/ventura-downtown/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-   "userRatingCount": 158,
-   "displayName": {
-    "text": "Urbane Cafe",
-    "languageCode": "en"
-   },
-   "primaryType": "sandwich_shop",
-   "_spot": "Ventura / Oxnard",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager",
-     "Google Analytics"
-    ],
-    "final_url": "https://urbanecafe.com/location/ventura-downtown/",
-    "performance": 50,
-    "seo": 92,
-    "accessibility": 95,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 23,
-   "lead_score": 15,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
-  },
-  {
    "id": "ChIJ0fohEpjHwoARFSpx512z1QU",
    "types": [
     "coffee_shop",
@@ -196586,55 +191869,6 @@
    },
    "badness": 31,
    "lead_score": 19,
-   "size": "small",
-   "suggested": {
-    "setup": 500,
-    "monthly": 79
-   }
-  },
-  {
-   "id": "ChIJJ5WPyvi0woARIZ_6CVzodvE",
-   "types": [
-    "mediterranean_restaurant",
-    "restaurant",
-    "point_of_interest",
-    "food",
-    "establishment"
-   ],
-   "nationalPhoneNumber": "(310) 295-1102",
-   "formattedAddress": "17100 Hawthorne Blvd, Lawndale, CA 90260, USA",
-   "location": {
-    "latitude": 33.8755315,
-    "longitude": -118.3521866
-   },
-   "rating": 4.5,
-   "googleMapsUri": "https://maps.google.com/?cid=17399349692394544929&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-   "websiteUri": "https://zankouchicken.com/locations/california/south-bay/",
-   "businessStatus": "OPERATIONAL",
-   "priceLevel": "PRICE_LEVEL_MODERATE",
-   "userRatingCount": 157,
-   "displayName": {
-    "text": "Zankou Chicken South Bay",
-    "languageCode": "en"
-   },
-   "primaryType": "mediterranean_restaurant",
-   "_spot": "South Bay",
-   "site": {
-    "status": "site",
-    "stack": [
-     "WordPress",
-     "Google Tag Manager"
-    ],
-    "final_url": "https://zankouchicken.com/locations/california/south-bay/",
-    "performance": 53,
-    "seo": 92,
-    "accessibility": 89,
-    "best_practices": 96,
-    "viewport_ok": true,
-    "https": true
-   },
-   "badness": 23,
-   "lead_score": 14,
    "size": "small",
    "suggested": {
     "setup": 500,

@@ -1,6 +1,6 @@
 # Prospects: Springdale, Utah (Zion)
 
-Generated 2026-10-07 by `_tools/prospect.py`. Filters: rating ≥ 4.5, reviews ≥ 60, chains skipped. 63 restaurants checked, 13 leads.
+Generated 2026-10-07 by `_tools/prospect.py`. Filters: rating ≥ 4.5, reviews ≥ 60, chains skipped. 62 restaurants checked, 13 leads.
 
 Lead score = how bad the current site is × how good the restaurant is. Domain prices are Namecheap list prices from memory; confirm at checkout. Size and price are a rough guess from review count, price level and type: adjust after you meet them.
 
@@ -74,6 +74,5 @@ Leads marked ✓ were checked by hand (web search and opening their site) and ar
 - Beans & Brews Coffee House — 4.6 (134) — [beansandbrews.com](https://www.beansandbrews.com/coffee-shops/hurricane/) · perf 97, seo 92
 - Black Sage — 4.5 (132) — [stayopensky.com](https://www.stayopensky.com/black-sage-restaurant) · perf 36, seo 100
 - Riggatti's Wood Fired Pizza | Hurricane, UT — 4.6 (117) — [riggattis.com](https://www.riggattis.com/) · perf 51, seo 85
-- Le Macaron French Pastries Zion — 4.7 (98) — [lemacaron-us.com](https://lemacaron-us.com/locations/springdale-zion-national-park) · perf 48, seo 100
 - Kanab United Drug — 4.7 (83) — [kanabuniteddrug.com](http://www.kanabuniteddrug.com/) · perf 67, seo 92, no https
 - Iceberg Drive Inn - Springdale — 4.6 (74) — [icebergdriveinn.com](https://icebergdriveinn.com/) · perf 60, seo 92
