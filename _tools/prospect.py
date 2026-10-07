@@ -25,7 +25,7 @@ Cost: Places text search bills per page of 20 results (Enterprise tier, since we
 ask for rating, review count, website and phone). A whole area is a few hundred
 pages at most. PageSpeed and RDAP are free.
 """
-import argparse, concurrent.futures as cf, hashlib, json, math, os, re, sys, time, urllib.error, urllib.parse, urllib.request
+import argparse, concurrent.futures as cf, hashlib, unicodedata, json, math, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 OUT_DIR = os.path.join(ROOT, '_notes', 'prospects')
@@ -126,7 +126,9 @@ CHAINS = ['mcdonald', 'starbucks', 'chipotle', 'in-n-out', 'in n out', 'panda ex
           'dave\'s hot chicken', 'capital grille', 'nobu', 'gordon ramsay', 'guy fieri',
           'hard rock', 'rainforest cafe', 'bubba gump', 'cafe zupas', 'zaxby', 'culver',
           'whataburger', 'blaze pizza', 'mod pizza', 'pieology', 'sweetgreen', 'cava ',
-          'noodles & company', 'einstein', 'crumbl', 'nothing bundt', 'baskin', 'dairy queen']
+          'noodles & company', 'einstein', 'crumbl', 'nothing bundt', 'baskin', 'dairy queen',
+          'dave & buster', 'great harvest', 'beauty & essex', 'mother wolf', 'buddy v', 'charleys', 'zupas',
+          'we olive', 'egg works', 'cafe gratitude', 'loose leaf boba']
 
 SOCIAL = ('facebook.com', 'fb.com', 'instagram.com', 'linktr.ee', 'yelp.com', 'tiktok.com',
           'twitter.com', 'x.com', 'threads.net', 'beacons.ai', 'bio.site')
@@ -241,9 +243,19 @@ def is_food(p):
     t = p.get('primaryType', '') or ''
     return t.endswith('_restaurant') or t in FOOD_TYPES or 'restaurant' in p.get('types', [])
 
-def is_chain(name):
-    n = name.lower()
-    return any(c in n for c in CHAINS)
+# Websites that mean a big brand, hotel or casino runs the place: not a small-business lead.
+BIG_SITES = ('hyatt.com', 'marriott.com', 'hilton.com', 'venetianlasvegas.com', 'mgmresorts.com', 'caesars.com',
+             'wynnlasvegas.com', 'greenvalleyranch.com', 'boydgaming.com', 'stationcasinos.com', 'redrock.sclv.com',
+             'sclv.com', 'cosmopolitanlasvegas.com', 'resortsworldlasvegas.com', 'fontainebleaulasvegas.com',
+             'daveandbusters.com', 'cafezupas.com', 'charleys.com', 'tpc.com', 'disneyland.disney.go.com')
+
+def is_chain(name, website=''):
+    n = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode().lower()
+    if any(c in n for c in CHAINS):
+        return True
+    w = (website or '').lower()
+    # a page like brand.com/locations/henderson is a chain's location page
+    return any(b in w for b in BIG_SITES) or bool(re.search(r'/locations?/', w))
 
 # ---------------------------------------------------------------- site check
 def classify_site(url):
@@ -437,7 +449,7 @@ def run(area_key, a, args):
     rows = []
     for p in seen.values():
         name = p.get('displayName', {}).get('text', '')
-        if not name or not is_food(p) or is_chain(name):
+        if not name or not is_food(p) or is_chain(name, p.get('websiteUri', '')):
             continue
         if p.get('businessStatus', 'OPERATIONAL') != 'OPERATIONAL':
             continue
@@ -477,15 +489,25 @@ def run(area_key, a, args):
         vf = min(1.0, math.log10((p.get('userRatingCount') or 0) + 1) / 3.3)
         p['lead_score'] = round(p['badness'] * rf * vf)
 
+    # Hand checks (web search + opening the site): _notes/prospects/verified.json, by place id.
+    verified = {}
+    vp = os.path.join(OUT_DIR, 'verified.json')
+    if os.path.exists(vp):
+        verified = json.load(open(vp))
+    for p in rows:
+        if p['id'] in verified:
+            p['checked'] = verified[p['id']]
     skip = set()
     sp = os.path.join(OUT_DIR, 'skip.txt')
     if os.path.exists(sp):
         skip = {l.split('#')[0].strip() for l in open(sp) if l.split('#')[0].strip()}
     for p in rows:
         t = size_tier(p); p['size'] = t; p['suggested'] = {'setup': PRICING[t][1], 'monthly': PRICING[t][2]}
-    leads = [p for p in rows if p['badness'] >= args.min_badness and p['id'] not in skip]
-    leads.sort(key=lambda p: -p['lead_score'])
-    log(f'  {len(leads)} leads with a weak or missing site')
+    has_good = [p for p in rows if p.get('checked', {}).get('verdict') in ('good_site', 'closed')]
+    leads = [p for p in rows if p['badness'] >= args.min_badness and p['id'] not in skip and p not in has_good]
+    leads.sort(key=lambda p: (0 if p.get('checked') else 1, -p['lead_score']))
+    log(f'  {len(leads)} leads with a weak or missing site ({sum(1 for p in leads if p.get("checked"))} checked by hand,'
+        f' {len(has_good)} dropped because they already have a good site)')
 
     # domains
     if not args.no_domains:
@@ -516,7 +538,7 @@ def run(area_key, a, args):
         json.dump({'area': a['title'], 'generated': time.strftime('%Y-%m-%d'),
                    'filters': {'min_rating': args.min_rating, 'min_reviews': min_reviews},
                    'leads': leads, 'all': rows}, f, indent=1)
-    write_md(area_key, a, leads, rows, args, min_reviews)
+    write_md(area_key, a, leads, rows, args, min_reviews, has_good)
 
 def site_cell(p):
     s = p['site']; st = s['status']; url = p.get('websiteUri', '')
@@ -555,14 +577,33 @@ def price_cell(p):
     label, setup, monthly = PRICING[size_tier(p)]
     return f'{label} · ${setup:,} + ${monthly}/mo'
 
-def write_md(area_key, a, leads, rows, args, min_reviews):
+CHECK_LABEL = {'no_site': 'no website', 'social_only': 'social page only', 'ordering_page_only': 'ordering page only',
+               'weak_site': 'weak website', 'good_site': 'good website', 'closed': 'closed'}
+
+def checked_cell(p):
+    c = p.get('checked')
+    if not c:
+        return 'not checked yet'
+    url = c.get('official_url', '')
+    out = f'**✓ {CHECK_LABEL.get(c["verdict"], c["verdict"])}**'
+    if url:
+        out += f' [{host_of(url)[:28]}]({url})'
+    if c.get('missing'):
+        out += ' · missing ' + ', '.join(c['missing'][:4])
+    if c.get('uses'):
+        out += '<br><small>uses ' + ', '.join(c['uses'][:5]) + '</small>'
+    return out.replace('|', '/')
+
+def write_md(area_key, a, leads, rows, args, min_reviews, has_good=()):
     L = [f'# Prospects: {a["title"]}', '',
          f'Generated {time.strftime("%Y-%m-%d")} by `_tools/prospect.py`. Filters: rating ≥ {args.min_rating}, '
          f'reviews ≥ {min_reviews}, chains skipped. {len(rows)} restaurants checked, {len(leads)} leads.', '',
          'Lead score = how bad the current site is × how good the restaurant is. '
          'Domain prices are Namecheap list prices from memory; confirm at checkout. '
          'Size and price are a rough guess from review count, price level and type: adjust after you meet them.', '',
-         '| # | Restaurant | Rating | Current site | Already uses | Open domains | Size · suggested price | Phone |',
+         'Leads marked ✓ were checked by hand (web search and opening their site) and are listed first. '
+         'Pitch only those; the rest still need checking.', '',
+         '| # | Restaurant | Rating | Checked by hand | Google listing site | Open domains | Size · suggested price | Phone |',
          '|---|---|---|---|---|---|---|---|']
     for i, p in enumerate(leads, 1):
         cell = lambda x: str(x or '').replace('|', '\\|')  # a "|" in a name would split the table row
@@ -575,8 +616,13 @@ def write_md(area_key, a, leads, rows, args, min_reviews):
             doms = f'{unknown} checks failed (rdap.org blocked?)'
         L.append(f'| {i} | [{name}]({maps})<br><small>{addr}<br>{p.get("_spot","")} · lead {p["lead_score"]}</small> '
                  f'| {p.get("rating")} ({p.get("userRatingCount")}) '
-                 f'| {site_cell(p)} | {", ".join(p["site"].get("stack", [])) or "—"} '
+                 f'| {checked_cell(p)} | {site_cell(p)} '
                  f'| {doms or "—"} | {price_cell(p)} | {p.get("nationalPhoneNumber", "")} |')
+    if has_good:
+        L += ['', '## Checked by hand: already have a good website (not leads)', '']
+        for p in has_good:
+            c = p['checked']
+            L.append(f'- {p["displayName"]["text"]} — {CHECK_LABEL.get(c["verdict"], c["verdict"])} — {c.get("official_url", "")} — {c.get("notes", "")}')
     L += ['', '## Everyone else that passed the filters (site looks fine)', '']
     for p in sorted(rows, key=lambda p: -(p.get('userRatingCount') or 0)):
         if p['badness'] < args.min_badness:

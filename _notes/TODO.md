@@ -41,9 +41,10 @@ The branch `claude/wonderful-franklin-4jhg18` has everything below. Merge it on 
 ### No longer needed
 - The `games` repo, the `games` CNAME at Namecheap and the Supabase redirect URL for games.kaleerson.com. The games now live at kaleerson.com/edu and use the normal Join page. If the repo or DNS record was already made, it can stay or be deleted.
 
-- [ ] **Restaurant sites: publish the demos.** Merge the `claude/clever-cori-4dq944` branch into main. The demos then live at kaleerson.com/demos/<name>/ (hidden from Google, with a "preview" banner).
+- [ ] **Restaurant sites: merge PR #47.** It takes down 10 demos for restaurants that already had good sites (ITs SUSHI, Boathouse and 8 more) and publishes 105 demos, all for restaurants checked by hand.
+- [ ] **Restaurant sites: pitch from `_notes/prospects/PITCH-LIST.md` only.** 166 restaurants, each checked by a web search and by opening their site. Las Vegas first (62). Read any ⚠ note before walking in.
 - [ ] **Restaurant sites: replace the Google API key.** It was pasted in chat. Google Cloud → Credentials → delete it → make a new one restricted to Places API (New) + PageSpeed Insights API → add it in the Claude environment settings as `GOOGLE_API_KEY`.
-- [ ] **Restaurant sites: check the flagged leads by hand.** Lead sheets in `_notes/prospects/` say "X.com is registered: check it" where a restaurant might already have a site. Add any that do to `_notes/prospects/skip.txt`.
+- [ ] **Restaurant sites: better demo design (optional).** Paste `_notes/claude-design-prompt.md` into Claude Design, then share the link with Claude to apply it to every demo.
 
 ## Waiting on a decision
 
