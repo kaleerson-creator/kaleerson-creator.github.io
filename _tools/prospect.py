@@ -474,6 +474,8 @@ def run(area_key, a, args):
     sp = os.path.join(OUT_DIR, 'skip.txt')
     if os.path.exists(sp):
         skip = {l.split('#')[0].strip() for l in open(sp) if l.split('#')[0].strip()}
+    for p in rows:
+        t = size_tier(p); p['size'] = t; p['suggested'] = {'setup': PRICING[t][1], 'monthly': PRICING[t][2]}
     leads = [p for p in rows if p['badness'] >= args.min_badness and p['id'] not in skip]
     leads.sort(key=lambda p: -p['lead_score'])
     log(f'  {len(leads)} leads with a weak or missing site')
@@ -522,14 +524,38 @@ def site_cell(p):
         return f'{link} · ' + ', '.join(bits)
     return f'{link} · **{st}**' + (f' ({s.get("error","")[:40]})' if st == 'broken' else '') + maybe
 
+# Rough size guess from public signals only. Lifetime Google reviews track how many
+# people come through the door, and price level tracks the check size. This is a
+# starting point for the conversation, not a revenue figure.
+PRICING = {  # tier: (label, setup $, monthly $)
+    'small': ('Small', 500, 79),
+    'medium': ('Medium', 1000, 129),
+    'large': ('Large', 1800, 199),
+}
+QUICK = ('cafe', 'coffee', 'bakery', 'food_truck', 'ice_cream', 'juice', 'dessert', 'donut', 'bagel',
+         'sandwich', 'fast_food', 'meal_takeaway', 'acai', 'deli', 'taco', 'hot_dog', 'tea')
+
+def size_tier(p):
+    n = p.get('userRatingCount') or 0
+    lvl = p.get('priceLevel') or ''
+    quick = any(q in (p.get('primaryType') or '') for q in QUICK)
+    pts = (n >= 400) + (n >= 1500) + (lvl in ('PRICE_LEVEL_EXPENSIVE', 'PRICE_LEVEL_VERY_EXPENSIVE')) \
+          + (lvl == 'PRICE_LEVEL_MODERATE' and not quick) - (quick and n < 1500)
+    return 'small' if pts <= 0 else 'medium' if pts == 1 else 'large'
+
+def price_cell(p):
+    label, setup, monthly = PRICING[size_tier(p)]
+    return f'{label} · ${setup:,} + ${monthly}/mo'
+
 def write_md(area_key, a, leads, rows, args, min_reviews):
     L = [f'# Prospects: {a["title"]}', '',
          f'Generated {time.strftime("%Y-%m-%d")} by `_tools/prospect.py`. Filters: rating ≥ {args.min_rating}, '
          f'reviews ≥ {min_reviews}, chains skipped. {len(rows)} restaurants checked, {len(leads)} leads.', '',
          'Lead score = how bad the current site is × how good the restaurant is. '
-         'Domain prices are Namecheap list prices from memory; confirm at checkout.', '',
-         '| # | Restaurant | Rating | Current site | Already uses | Open domains | Phone |',
-         '|---|---|---|---|---|---|---|']
+         'Domain prices are Namecheap list prices from memory; confirm at checkout. '
+         'Size and price are a rough guess from review count, price level and type: adjust after you meet them.', '',
+         '| # | Restaurant | Rating | Current site | Already uses | Open domains | Size · suggested price | Phone |',
+         '|---|---|---|---|---|---|---|---|']
     for i, p in enumerate(leads, 1):
         name = p['displayName']['text']
         maps = p.get('googleMapsUri', '')
@@ -541,7 +567,7 @@ def write_md(area_key, a, leads, rows, args, min_reviews):
         L.append(f'| {i} | [{name}]({maps})<br><small>{addr}<br>{p.get("_spot","")} · lead {p["lead_score"]}</small> '
                  f'| {p.get("rating")} ({p.get("userRatingCount")}) '
                  f'| {site_cell(p)} | {", ".join(p["site"].get("stack", [])) or "—"} '
-                 f'| {doms or "—"} | {p.get("nationalPhoneNumber", "")} |')
+                 f'| {doms or "—"} | {price_cell(p)} | {p.get("nationalPhoneNumber", "")} |')
     L += ['', '## Everyone else that passed the filters (site looks fine)', '']
     for p in sorted(rows, key=lambda p: -(p.get('userRatingCount') or 0)):
         if p['badness'] < args.min_badness:

@@ -1,6 +1,6 @@
 {
  "area": "Springdale, Utah (Zion)",
- "generated": "2026-10-06",
+ "generated": "2026-10-07",
  "filters": {
   "min_rating": 4.5,
   "min_reviews": 60
@@ -43,6 +43,11 @@
    },
    "badness": 95,
    "lead_score": 81,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "crosscountrydiner.com",
@@ -114,6 +119,11 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "buffalotrails.com",
@@ -188,6 +198,11 @@
    },
    "badness": 90,
    "lead_score": 75,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "dixiepizzawagon.com",
@@ -261,6 +276,11 @@
    },
    "badness": 95,
    "lead_score": 74,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "desertsmoothie.com",
@@ -338,6 +358,11 @@
    },
    "badness": 90,
    "lead_score": 73,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "mainlypizza.com",
@@ -411,6 +436,11 @@
    },
    "badness": 100,
    "lead_score": 69,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "perkscoffee.com",
@@ -482,6 +512,11 @@
    },
    "badness": 100,
    "lead_score": 65,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "lostapatios.com",
@@ -554,6 +589,11 @@
    },
    "badness": 70,
    "lead_score": 60,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "parkhouse.com",
@@ -628,6 +668,11 @@
    },
    "badness": 85,
    "lead_score": 58,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "yokosojapanesecuisine.com",
@@ -703,6 +748,11 @@
    },
    "badness": 70,
    "lead_score": 48,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "tarocoffeebar.com",
@@ -779,6 +829,11 @@
    },
    "badness": 85,
    "lead_score": 47,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "roamingroastcoffee.com",
@@ -856,6 +911,11 @@
    },
    "badness": 70,
    "lead_score": 41,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "bigchill.com",
@@ -939,6 +999,11 @@
    },
    "badness": 51,
    "lead_score": 41,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "casatequilanaleeds.com",
@@ -1007,6 +1072,11 @@
    },
    "badness": 70,
    "lead_score": 36,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "virgingoodscafe.com",
@@ -1091,6 +1161,11 @@
    },
    "badness": 40,
    "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "wildthymebistro.com",
@@ -1176,6 +1251,11 @@
    },
    "badness": 40,
    "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "deepcreekcoffeecompany.com",
@@ -1265,7 +1345,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 33
+   "lead_score": 33,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJq6qqqtrAyoAR0A1o2G5rlQk",
@@ -1320,7 +1405,12 @@
     "https": false
    },
    "badness": 25,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJJ6fqVcHDyoARyFZkN-K1soU",
@@ -1363,7 +1453,12 @@
     "https": false
    },
    "badness": 22,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJywmCtBjUNIcR7pfwdv0AgPQ",
@@ -1407,7 +1502,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ3cBdWwLoyoAR4LBAcXDJRMA",
@@ -1452,7 +1552,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ12QMdx7UNIcRc0r81_5r0PM",
@@ -1499,6 +1604,11 @@
    },
    "badness": 40,
    "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "wildthymebistro.com",
@@ -1577,7 +1687,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJHwg_p8z2yoAR2szC7U4fOfw",
@@ -1620,7 +1735,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJibKIM7bDyoAR_8gRs96-NTY",
@@ -1665,7 +1785,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJl51hC6TCyoARwVc3yzDnnaU",
@@ -1710,7 +1835,12 @@
     "https": true
    },
    "badness": 22,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJNYZ2uCPzyoARqHtdnlSZp-A",
@@ -1753,7 +1883,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJHT0QDH3pyoARY61fqnOpZOY",
@@ -1809,7 +1944,12 @@
     "https": false
    },
    "badness": 26,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJcZ7U56fCyoARcI5EosJJH1s",
@@ -1857,6 +1997,11 @@
    },
    "badness": 40,
    "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "deepcreekcoffeecompany.com",
@@ -1945,7 +2090,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJvXprpXP3yoARBiv-K5FzgkA",
@@ -1988,7 +2138,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJlw4WpR_UNIcRs-fWvwnqTj4",
@@ -2034,7 +2189,12 @@
     "https": true
    },
    "badness": 35,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJD_APMA5FyoARrk0f7mabguU",
@@ -2083,7 +2243,12 @@
     "https": false
    },
    "badness": 22,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJJUHidvTDyoARg7POlrGRs-M",
@@ -2126,7 +2291,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJj0FQPSPUNIcRIc002R9n3tM",
@@ -2170,7 +2340,12 @@
     "https": false
    },
    "badness": 37,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJZQTzJgHoyoARPPiIw4lFM1Q",
@@ -2214,7 +2389,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ31B7aADnyoAR-IpdJEJ7yIg",
@@ -2258,7 +2438,12 @@
     "https": false
    },
    "badness": 39,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJqyLGHbTzyoARhyZCzzhLZg8",
@@ -2299,7 +2484,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJY-s0bv3nyoARdOmu_IziBS8",
@@ -2334,6 +2524,11 @@
    },
    "badness": 70,
    "lead_score": 60,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "parkhouse.com",
@@ -2410,6 +2605,11 @@
    },
    "badness": 95,
    "lead_score": 81,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "crosscountrydiner.com",
@@ -2484,6 +2684,11 @@
    },
    "badness": 90,
    "lead_score": 75,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "dixiepizzawagon.com",
@@ -2564,7 +2769,12 @@
     "https": false
    },
    "badness": 19,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJyfP3ViH1yoARidZO6dhOWao",
@@ -2610,6 +2820,11 @@
    },
    "badness": 51,
    "lead_score": 41,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "casatequilanaleeds.com",
@@ -2692,7 +2907,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJre9-dqTCyoARd5Xy9_AhDwk",
@@ -2742,7 +2962,12 @@
     "https": true
    },
    "badness": 39,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJC-hRFuTxyoARzu4TMN-uIKU",
@@ -2776,6 +3001,11 @@
    },
    "badness": 100,
    "lead_score": 76,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "buffalotrails.com",
@@ -2858,7 +3088,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ3UoYHsrVNIcRZFbjdVMF9E4",
@@ -2899,7 +3134,12 @@
     "https": false
    },
    "badness": 27,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJqRQbI6BYyoARCsDzXzIhu5g",
@@ -2943,7 +3183,12 @@
     "https": false
    },
    "badness": 19,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ6zFQejHpyoAR6lMg9OJXPg4",
@@ -2987,7 +3232,12 @@
     "https": true
    },
    "badness": 20,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJsWc3f2lZyoARA65RmrtGeLI",
@@ -3036,7 +3286,12 @@
     "https": true
    },
    "badness": 10,
-   "lead_score": 8
+   "lead_score": 8,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJt4n27hD1yoAR_RPL3sKGO0E",
@@ -3076,6 +3331,11 @@
    },
    "badness": 90,
    "lead_score": 73,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "mainlypizza.com",
@@ -3167,7 +3427,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJcQJNNUjnyoARyahIaa8hezM",
@@ -3214,7 +3479,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ_z1tmAooFyUR5z_-yy2uNnY",
@@ -3250,6 +3520,11 @@
    },
    "badness": 95,
    "lead_score": 74,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "desertsmoothie.com",
@@ -3344,7 +3619,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJafhum7_2yoARU5xC5CoE5b0",
@@ -3391,7 +3671,12 @@
     "https": false
    },
    "badness": 26,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJsUZPQADxyoAROw0PqY9cAuE",
@@ -3436,7 +3721,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJK6TddMj2yoARuNhO-eNnfwg",
@@ -3484,7 +3774,12 @@
     "https": true
    },
    "badness": 34,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ-yzBUwDSNIcRqQUlxsM28M4",
@@ -3529,7 +3824,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ5dJQyaLCyoARFwTyS69MxIk",
@@ -3565,6 +3865,11 @@
    },
    "badness": 100,
    "lead_score": 69,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "perkscoffee.com",
@@ -3639,6 +3944,11 @@
    },
    "badness": 85,
    "lead_score": 58,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "yokosojapanesecuisine.com",
@@ -3725,7 +4035,12 @@
     "https": true
    },
    "badness": 22,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJPcFhkmzDyoARoVDD4io-UYI",
@@ -3783,7 +4098,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJj-kK0FXVNIcRCh_bK46DfFw",
@@ -3821,6 +4141,11 @@
    },
    "badness": 70,
    "lead_score": 48,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "tarocoffeebar.com",
@@ -3900,7 +4225,12 @@
     "https": false
    },
    "badness": 24,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJr9CnEgDVNIcRW3kyFbEjSz8",
@@ -3934,6 +4264,11 @@
    },
    "badness": 100,
    "lead_score": 65,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "lostapatios.com",
@@ -4016,7 +4351,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJv7eqm9xZyoARGbs9dJznuEs",
@@ -4065,7 +4405,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJNZSnu4DxyoARd5INXt9SglM",
@@ -4109,7 +4454,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ____4-TzyoAR71Cqb7obWMg",
@@ -4149,6 +4499,11 @@
    },
    "badness": 70,
    "lead_score": 41,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "bigchill.com",
@@ -4232,7 +4587,12 @@
     "https": true
    },
    "badness": 4,
-   "lead_score": 2
+   "lead_score": 2,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJu0CsppnuyoARHO1_Ru2Q8U0",
@@ -4276,7 +4636,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJrULlsYf3yoARGpQrnkyw0ec",
@@ -4319,7 +4684,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ6QAkoWTDyoARbNBJ2u28vA0",
@@ -4371,7 +4741,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJAYzROR_UNIcRlufqBZEeQgs",
@@ -4419,7 +4794,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJcVitjV3DyoARbdQAbjub4kY",
@@ -4471,7 +4851,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJD6uWJob3yoARweVT_pgNRuY",
@@ -4510,6 +4895,11 @@
    },
    "badness": 85,
    "lead_score": 47,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "roamingroastcoffee.com",
@@ -4584,6 +4974,11 @@
    },
    "badness": 70,
    "lead_score": 36,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "virgingoodscafe.com",

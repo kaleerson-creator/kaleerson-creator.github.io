@@ -1,6 +1,6 @@
 {
  "area": "Las Vegas",
- "generated": "2026-10-06",
+ "generated": "2026-10-07",
  "filters": {
   "min_rating": 4.5,
   "min_reviews": 150
@@ -41,6 +41,11 @@
    },
    "badness": 100,
    "lead_score": 92,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "itssushispringmountain.com",
@@ -115,6 +120,11 @@
    },
    "badness": 95,
    "lead_score": 91,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "eggscellentbreakfast.com",
@@ -186,6 +196,11 @@
    },
    "badness": 100,
    "lead_score": 88,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "elzarape1.com",
@@ -261,6 +276,11 @@
    },
    "badness": 95,
    "lead_score": 85,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "codfather.com",
@@ -333,6 +353,11 @@
    },
    "badness": 100,
    "lead_score": 85,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "losolivosristorante.com",
@@ -404,6 +429,11 @@
    },
    "badness": 100,
    "lead_score": 84,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "elchachotortasbirria.com",
@@ -475,6 +505,11 @@
    },
    "badness": 100,
    "lead_score": 84,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "777korean.com",
@@ -547,6 +582,11 @@
    },
    "badness": 95,
    "lead_score": 82,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "eggscellentbreakfast.com",
@@ -623,6 +663,11 @@
    },
    "badness": 90,
    "lead_score": 81,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "malatown.com",
@@ -695,6 +740,11 @@
    },
    "badness": 100,
    "lead_score": 81,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "sunshinetailwindscafe.com",
@@ -767,6 +817,11 @@
    },
    "badness": 95,
    "lead_score": 79,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "hometowncountrykitchen.com",
@@ -843,6 +898,11 @@
    },
    "badness": 90,
    "lead_score": 79,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "novellaitalian.com",
@@ -918,6 +978,11 @@
    },
    "badness": 100,
    "lead_score": 79,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "issweetcoffeedessert.com",
@@ -991,6 +1056,11 @@
    },
    "badness": 100,
    "lead_score": 79,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "diegosfarm.com",
@@ -1074,6 +1144,11 @@
    },
    "badness": 85,
    "lead_score": 78,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "omelethouse50sdiner.com",
@@ -1149,6 +1224,11 @@
    },
    "badness": 100,
    "lead_score": 78,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "paletabarshanghaiplaza.com",
@@ -1220,6 +1300,11 @@
    },
    "badness": 100,
    "lead_score": 78,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "romotacos.com",
@@ -1292,6 +1377,11 @@
    },
    "badness": 90,
    "lead_score": 77,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "chinosmexicankitchen.com",
@@ -1366,6 +1456,11 @@
    },
    "badness": 90,
    "lead_score": 76,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "birriaelcompa.com",
@@ -1441,6 +1536,11 @@
    },
    "badness": 95,
    "lead_score": 76,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "painacafelasvegas.com",
@@ -1509,6 +1609,11 @@
    },
    "badness": 100,
    "lead_score": 75,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "tacosyhotdogssonora.com",
@@ -1585,6 +1690,11 @@
    },
    "badness": 90,
    "lead_score": 72,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "skimoscoffeeshop.com",
@@ -1660,6 +1770,11 @@
    },
    "badness": 90,
    "lead_score": 72,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "chillhaus.com",
@@ -1730,6 +1845,11 @@
    },
    "badness": 100,
    "lead_score": 71,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "matchacafe.com",
@@ -1801,6 +1921,11 @@
    },
    "badness": 100,
    "lead_score": 70,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "bodeaushaitian.com",
@@ -1878,6 +2003,11 @@
    },
    "badness": 95,
    "lead_score": 69,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "pokeman.com",
@@ -1951,6 +2081,11 @@
    },
    "badness": 100,
    "lead_score": 69,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "itsizakaya.com",
@@ -2025,6 +2160,11 @@
    },
    "badness": 90,
    "lead_score": 68,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "bossdaddys.com",
@@ -2097,6 +2237,11 @@
    },
    "badness": 100,
    "lead_score": 68,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "mariscosisla.com",
@@ -2175,6 +2320,11 @@
    },
    "badness": 95,
    "lead_score": 68,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "frenchkitchen.com",
@@ -2250,6 +2400,11 @@
    },
    "badness": 95,
    "lead_score": 67,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "ramenshow2.com",
@@ -2322,6 +2477,11 @@
    },
    "badness": 100,
    "lead_score": 66,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "rushhourbargrill.com",
@@ -2393,6 +2553,11 @@
    },
    "badness": 100,
    "lead_score": 66,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "birrieriaelzarape2.com",
@@ -2467,6 +2632,11 @@
    },
    "badness": 85,
    "lead_score": 65,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "pennsthaihouse.com",
@@ -2548,6 +2718,11 @@
    },
    "badness": 85,
    "lead_score": 65,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "panino.com",
@@ -2620,6 +2795,11 @@
    },
    "badness": 90,
    "lead_score": 65,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "siamgarden.com",
@@ -2691,6 +2871,11 @@
    },
    "badness": 100,
    "lead_score": 65,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "kananiscafe.com",
@@ -2762,6 +2947,11 @@
    },
    "badness": 100,
    "lead_score": 63,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "birrieriaelzarape1.com",
@@ -2835,6 +3025,11 @@
    },
    "badness": 90,
    "lead_score": 62,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "fiestapinolera.com",
@@ -2908,6 +3103,11 @@
    },
    "badness": 100,
    "lead_score": 61,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "hummusclub.com",
@@ -2980,6 +3180,11 @@
    },
    "badness": 70,
    "lead_score": 59,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "polloseldorado.com",
@@ -3053,6 +3258,11 @@
    },
    "badness": 70,
    "lead_score": 59,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "ramenhashi.com",
@@ -3126,6 +3336,11 @@
    },
    "badness": 70,
    "lead_score": 58,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "carolinasmexican.com",
@@ -3199,6 +3414,11 @@
    },
    "badness": 70,
    "lead_score": 55,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "wafflescafe.com",
@@ -3274,6 +3494,11 @@
    },
    "badness": 70,
    "lead_score": 53,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "vinnyspizzeria.com",
@@ -3347,6 +3572,11 @@
    },
    "badness": 70,
    "lead_score": 52,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "crownbakery.com",
@@ -3419,6 +3649,11 @@
    },
    "badness": 70,
    "lead_score": 52,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "magicnoodle.com",
@@ -3491,6 +3726,11 @@
    },
    "badness": 70,
    "lead_score": 52,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "gorditasbetancourt.com",
@@ -3565,6 +3805,11 @@
    },
    "badness": 70,
    "lead_score": 51,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "canh.com",
@@ -3637,6 +3882,11 @@
    },
    "badness": 70,
    "lead_score": 50,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "bigdanxiantaste.com",
@@ -3716,6 +3966,11 @@
    },
    "badness": 70,
    "lead_score": 50,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "babybirdscafe.com",
@@ -3789,6 +4044,11 @@
    },
    "badness": 70,
    "lead_score": 50,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "bcdamtacos.com",
@@ -3867,6 +4127,11 @@
    },
    "badness": 50,
    "lead_score": 49,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "elysbreakfastburgers.com",
@@ -3939,6 +4204,11 @@
    },
    "badness": 70,
    "lead_score": 47,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "chinosmexicankitchen.com",
@@ -4021,6 +4291,11 @@
    },
    "badness": 59,
    "lead_score": 47,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "backto80s.com",
@@ -4094,6 +4369,11 @@
    },
    "badness": 70,
    "lead_score": 46,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "jinjugomtang.com",
@@ -4166,6 +4446,11 @@
    },
    "badness": 70,
    "lead_score": 46,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "susys.com",
@@ -4238,6 +4523,11 @@
    },
    "badness": 70,
    "lead_score": 46,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "milindonayarit.com",
@@ -4322,6 +4612,11 @@
    },
    "badness": 50,
    "lead_score": 46,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "evelpielasvegas.com",
@@ -4399,6 +4694,11 @@
    },
    "badness": 53,
    "lead_score": 46,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "alsolitoposto.com",
@@ -4479,6 +4779,11 @@
    },
    "badness": 55,
    "lead_score": 46,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "elbirotazo.com",
@@ -4558,6 +4863,11 @@
    },
    "badness": 57,
    "lead_score": 46,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "partage.com",
@@ -4635,6 +4945,11 @@
    },
    "badness": 70,
    "lead_score": 45,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "planetproteinsnackbar.com",
@@ -4714,6 +5029,11 @@
    },
    "badness": 50,
    "lead_score": 45,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "elys.com",
@@ -4786,6 +5106,11 @@
    },
    "badness": 70,
    "lead_score": 44,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "nogakeskitchen.com",
@@ -4869,6 +5194,11 @@
    },
    "badness": 48,
    "lead_score": 44,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "gritzcafelasvegas.com",
@@ -4945,6 +5275,11 @@
    },
    "badness": 49,
    "lead_score": 44,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "beautyessex.com",
@@ -5030,6 +5365,11 @@
    },
    "badness": 48,
    "lead_score": 43,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "eggworks.com",
@@ -5116,6 +5456,11 @@
    },
    "badness": 48,
    "lead_score": 43,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "cafzupas.com",
@@ -5205,6 +5550,11 @@
    },
    "badness": 48,
    "lead_score": 43,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "coffeepub.com",
@@ -5287,6 +5637,11 @@
    },
    "badness": 46,
    "lead_score": 42,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "goldentiki.com",
@@ -5368,6 +5723,11 @@
    },
    "badness": 47,
    "lead_score": 42,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "tacoselgordo.com",
@@ -5447,6 +5807,11 @@
    },
    "badness": 44,
    "lead_score": 42,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "casaeldesayunonorthlasvegas.com",
@@ -5525,6 +5890,11 @@
    },
    "badness": 53,
    "lead_score": 42,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "damroast.com",
@@ -5612,6 +5982,11 @@
    },
    "badness": 55,
    "lead_score": 42,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "coocoos.com",
@@ -5695,6 +6070,11 @@
    },
    "badness": 49,
    "lead_score": 41,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "badowl.com",
@@ -5774,6 +6154,11 @@
    },
    "badness": 46,
    "lead_score": 41,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "beachcafe.com",
@@ -5855,6 +6240,11 @@
    },
    "badness": 52,
    "lead_score": 41,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "bangkokstreetfood.com",
@@ -5939,6 +6329,11 @@
    },
    "badness": 44,
    "lead_score": 40,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "bonitomichoacanmexican.com",
@@ -6023,6 +6418,11 @@
    },
    "badness": 44,
    "lead_score": 40,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "sparrowwolf.com",
@@ -6108,6 +6508,11 @@
    },
    "badness": 43,
    "lead_score": 40,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "merkigreekgrill.com",
@@ -6198,6 +6603,11 @@
    },
    "badness": 51,
    "lead_score": 40,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "cafemonglasvegas.com",
@@ -6277,6 +6687,11 @@
    },
    "badness": 42,
    "lead_score": 39,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "eggworks.com",
@@ -6370,6 +6785,11 @@
    },
    "badness": 47,
    "lead_score": 39,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "tpclasvegas.com",
@@ -6452,6 +6872,11 @@
    },
    "badness": 49,
    "lead_score": 39,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "motherwolflasvegas.com",
@@ -6534,6 +6959,11 @@
    },
    "badness": 52,
    "lead_score": 39,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "tacoslosbarriosnorthlasvegas.com",
@@ -6613,6 +7043,11 @@
    },
    "badness": 54,
    "lead_score": 39,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "laflor.com",
@@ -6697,6 +7132,11 @@
    },
    "badness": 41,
    "lead_score": 38,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "dirtdog.com",
@@ -6782,6 +7222,11 @@
    },
    "badness": 42,
    "lead_score": 38,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "eggworks.com",
@@ -6867,6 +7312,11 @@
    },
    "badness": 40,
    "lead_score": 38,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "winnieethels.com",
@@ -6949,6 +7399,11 @@
    },
    "badness": 45,
    "lead_score": 38,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "chavelosmexican.com",
@@ -7035,6 +7490,11 @@
    },
    "badness": 49,
    "lead_score": 38,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "badowlcoffeeroasters.com",
@@ -7122,6 +7582,11 @@
    },
    "badness": 50,
    "lead_score": 38,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "hokkaidoteppanyaki.com",
@@ -7205,6 +7670,11 @@
    },
    "badness": 41,
    "lead_score": 37,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "buddyvsristorante.com",
@@ -7297,6 +7767,11 @@
    },
    "badness": 40,
    "lead_score": 37,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "jammsbreakfastlunch.com",
@@ -7378,6 +7853,11 @@
    },
    "badness": 45,
    "lead_score": 37,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "finfeathersrestaurants.com",
@@ -7462,6 +7942,11 @@
    },
    "badness": 46,
    "lead_score": 37,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "davebustershenderson.com",
@@ -7545,6 +8030,11 @@
    },
    "badness": 42,
    "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "chilecalientebar.com",
@@ -7626,6 +8116,11 @@
    },
    "badness": 41,
    "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "dirtdogbar.com",
@@ -7708,6 +8203,11 @@
    },
    "badness": 47,
    "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "frankiesuptownlasvegas.com",
@@ -7788,6 +8288,11 @@
    },
    "badness": 52,
    "lead_score": 36,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "dailyspark.com",
@@ -7868,6 +8373,11 @@
    },
    "badness": 55,
    "lead_score": 36,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "laokitchen.com",
@@ -7946,6 +8456,11 @@
    },
    "badness": 41,
    "lead_score": 35,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "lavecindad.com",
@@ -8033,6 +8548,11 @@
    },
    "badness": 45,
    "lead_score": 35,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "tressocial.com",
@@ -8113,6 +8633,11 @@
    },
    "badness": 58,
    "lead_score": 35,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "javatree.com",
@@ -8195,6 +8720,11 @@
    },
    "badness": 40,
    "lead_score": 34,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "hanksfine.com",
@@ -8284,6 +8814,11 @@
    },
    "badness": 41,
    "lead_score": 34,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "lecafeduval.com",
@@ -8370,6 +8905,11 @@
    },
    "badness": 41,
    "lead_score": 34,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "faustosmexican.com",
@@ -8452,6 +8992,11 @@
    },
    "badness": 47,
    "lead_score": 34,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "redwoodsteakhouse.com",
@@ -8536,6 +9081,11 @@
    },
    "badness": 50,
    "lead_score": 34,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "eltamalucas.com",
@@ -8618,6 +9168,11 @@
    },
    "badness": 52,
    "lead_score": 34,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "tacoslosbarrioslasvegas.com",
@@ -8693,6 +9248,11 @@
    },
    "badness": 52,
    "lead_score": 34,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "tacoslosbarrioslasvegas.com",
@@ -8774,6 +9334,11 @@
    },
    "badness": 49,
    "lead_score": 34,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "sweetmong.com",
@@ -8853,6 +9418,11 @@
    },
    "badness": 43,
    "lead_score": 33,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "bobseast.com",
@@ -8936,6 +9506,11 @@
    },
    "badness": 41,
    "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "basilicoristorante.com",
@@ -9023,6 +9598,11 @@
    },
    "badness": 43,
    "lead_score": 32,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "woodsfamilysandwiches.com",
@@ -9107,6 +9687,11 @@
    },
    "badness": 43,
    "lead_score": 32,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "doanburilasvegas.com",
@@ -9192,6 +9777,11 @@
    },
    "badness": 43,
    "lead_score": 31,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "greatharvestbread.com",
@@ -9276,6 +9866,11 @@
    },
    "badness": 43,
    "lead_score": 31,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "charleyscheesesteaks.com",
@@ -9360,6 +9955,11 @@
    },
    "badness": 40,
    "lead_score": 30,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "tresamigosmexicangrill.com",
@@ -9444,6 +10044,11 @@
    },
    "badness": 40,
    "lead_score": 30,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "taru.com",
@@ -9529,6 +10134,11 @@
    },
    "badness": 42,
    "lead_score": 30,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "doublezeropiepub.com",
@@ -9614,6 +10224,11 @@
    },
    "badness": 42,
    "lead_score": 29,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "bouldercity.com",
@@ -9705,6 +10320,11 @@
    },
    "badness": 43,
    "lead_score": 29,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "greatharvestbread.com",
@@ -9788,6 +10408,11 @@
    },
    "badness": 44,
    "lead_score": 29,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "evergreencoffee.com",
@@ -9883,6 +10508,11 @@
    },
    "badness": 41,
    "lead_score": 28,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "mgpatisseriecafe.com",
@@ -9969,6 +10599,11 @@
    },
    "badness": 40,
    "lead_score": 28,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "pachipachi.com",
@@ -10058,6 +10693,11 @@
    },
    "badness": 41,
    "lead_score": 27,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "finecompany.com",
@@ -10139,6 +10779,11 @@
    },
    "badness": 41,
    "lead_score": 26,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "lecafedulac.com",
@@ -10223,7 +10868,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ8ZyV-ZXGyIARGyNV1wqW-Sw",
@@ -10269,7 +10919,12 @@
     "https": false
    },
    "badness": 26,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJT4mIszHEyIARbIoYQzpc9iA",
@@ -10318,7 +10973,12 @@
     "https": true
    },
    "badness": 34,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ53f4DrnGyIARh7fuITdBPKU",
@@ -10365,6 +11025,11 @@
    },
    "badness": 44,
    "lead_score": 40,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "bonitomichoacanmexican.com",
@@ -10453,7 +11118,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJD4Xfwt7AyIARS6jWVkRWPxA",
@@ -10510,7 +11180,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJVVxGHxTEyIARA496IbJn6qo",
@@ -10563,7 +11238,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJh-NebXXDyIARFt5YRbVdRf4",
@@ -10610,6 +11290,11 @@
    },
    "badness": 50,
    "lead_score": 46,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "evelpielasvegas.com",
@@ -10691,7 +11376,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ4wBOpXXEyIARHU27TN5fdfg",
@@ -10738,7 +11428,12 @@
     "https": true
    },
    "badness": 31,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJc95t7DzEyIARIGSplDAcmLE",
@@ -10790,7 +11485,12 @@
     "https": false
    },
    "badness": 39,
-   "lead_score": 35
+   "lead_score": 35,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJOSHRnH_FyIARDaQiNI2t6-Y",
@@ -10846,7 +11546,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ490hEvXHyIARmHBbqGtDg70",
@@ -10886,7 +11591,12 @@
     "https": true
    },
    "badness": 10,
-   "lead_score": 10
+   "lead_score": 10,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJNcVs1VXByIARaX7ykQPgpuQ",
@@ -10933,7 +11643,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJV1EuXj7EyIARzPNHkMZVXhs",
@@ -10980,7 +11695,12 @@
     "https": true
    },
    "badness": 32,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJOwZGOsPGyIARetwyrVL6OoU",
@@ -11032,7 +11752,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ75sFJfXPyIARujWXPJF-T6k",
@@ -11080,6 +11805,11 @@
    },
    "badness": 42,
    "lead_score": 39,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "eggworks.com",
@@ -11159,7 +11889,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ_TaDcbm4yIARctirhx5yBm0",
@@ -11201,7 +11936,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJm4fxhBrQyIARgbEbMHeBLEo",
@@ -11254,7 +11994,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJmToW7nHByIARcCyWYFlKxo4",
@@ -11300,7 +12045,12 @@
     "https": false
    },
    "badness": 36,
-   "lead_score": 35
+   "lead_score": 35,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ44w1UIXDyIAR4Gj6uVkFoPY",
@@ -11346,7 +12096,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJfVxGHxTEyIARoGlztaVMWto",
@@ -11395,7 +12150,12 @@
     "https": true
    },
    "badness": 22,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ85HjhCfQJRURHVD-0etwkn0",
@@ -11439,7 +12199,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ1-0jchTRyIARlrIsB6G9kOA",
@@ -11480,6 +12245,11 @@
    },
    "badness": 50,
    "lead_score": 49,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "elysbreakfastburgers.com",
@@ -11562,7 +12332,12 @@
     "https": true
    },
    "badness": 29,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJGyKr_qbGyIARaoi6bTTfX1A",
@@ -11607,6 +12382,11 @@
    },
    "badness": 46,
    "lead_score": 42,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "goldentiki.com",
@@ -11690,6 +12470,11 @@
    },
    "badness": 48,
    "lead_score": 44,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "gritzcafelasvegas.com",
@@ -11765,6 +12550,11 @@
    },
    "badness": 47,
    "lead_score": 42,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "tacoselgordo.com",
@@ -11857,7 +12647,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJY4FrIGjAyIARCk7mIUmXLxA",
@@ -11908,7 +12703,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJv_R3bTMryYAR7MdP40qkFvY",
@@ -11952,7 +12752,12 @@
     "https": false
    },
    "badness": 29,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJyQ8bTZ7DyIARH5prXiAsa9k",
@@ -12002,7 +12807,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ7W2IvvrGyIARpqV0t5uYOxE",
@@ -12051,7 +12861,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJNXI_1b_GyIARzvyRIAKXjV8",
@@ -12098,7 +12913,12 @@
     "https": false
    },
    "badness": 29,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJmfgkgRXEyIARIEusSZ6bHkg",
@@ -12144,6 +12964,11 @@
    },
    "badness": 41,
    "lead_score": 37,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "buddyvsristorante.com",
@@ -12231,7 +13056,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ1Qpl0fzEyIARnHzKYOHk1uY",
@@ -12284,7 +13114,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJuQvkq7rGyIARVt-V673WgfM",
@@ -12330,7 +13165,12 @@
     "https": false
    },
    "badness": 31,
-   "lead_score": 30
+   "lead_score": 30,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJu-6Dv7fGyIAR_xocph6eidA",
@@ -12378,7 +13218,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJJ9LTxeTFyIARLU0WrVcbel0",
@@ -12415,6 +13260,11 @@
    },
    "badness": 95,
    "lead_score": 91,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "eggscellentbreakfast.com",
@@ -12499,7 +13349,12 @@
     "https": false
    },
    "badness": 36,
-   "lead_score": 35
+   "lead_score": 35,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJLXoRDhnAyIARsAEmaREVt5A",
@@ -12552,7 +13407,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJtXtQl3XDyIARDehVK-nwLrU",
@@ -12598,7 +13458,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJvb2-rc7HyIARN6KFGUkkQBY",
@@ -12635,6 +13500,11 @@
    },
    "badness": 100,
    "lead_score": 92,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "itssushispringmountain.com",
@@ -12718,7 +13588,12 @@
     "https": false
    },
    "badness": 39,
-   "lead_score": 36
+   "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJL-djY0DOyIARF1nEoAjAtBg",
@@ -12772,7 +13647,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJVVWVX87GyIARYdB4ZK1Xs-k",
@@ -12820,7 +13700,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ6SzNO0XEyIARHG7F-1Ew5_c",
@@ -12867,7 +13752,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJvWxFicfWyIARk7Ueo0lYWO8",
@@ -12914,7 +13804,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJU9ZyI__ByIAR7wiPqMudMqk",
@@ -12960,7 +13855,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJr6hv0sjDyIARZ6dt-zyB-vQ",
@@ -13005,7 +13905,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ5cMdC3XDyIARFMzgSYmvu_Q",
@@ -13056,7 +13961,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 33
+   "lead_score": 33,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJOWCBmfHFyIARwM0sD2PNe6g",
@@ -13110,7 +14020,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJBR3XC8XEyIARxPawfnspQBU",
@@ -13156,6 +14071,11 @@
    },
    "badness": 85,
    "lead_score": 78,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "omelethouse50sdiner.com",
@@ -13244,7 +14164,12 @@
     "https": false
    },
    "badness": 24,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJI7WrkJbHyIARPXZI4m7j7mQ",
@@ -13286,7 +14211,12 @@
     "https": true
    },
    "badness": 5,
-   "lead_score": 5
+   "lead_score": 5,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJc69JTaLDyIARFTrc4A04Ct0",
@@ -13328,7 +14258,12 @@
     "https": true
    },
    "badness": 36,
-   "lead_score": 35
+   "lead_score": 35,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ28f0H9DFyIARNoQYg8SWdic",
@@ -13374,7 +14309,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJT4mIszHEyIARfbSsOCYMWNw",
@@ -13415,7 +14355,12 @@
     "https": true
    },
    "badness": 32,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ2368TTnFyIAROCLdd-THHKE",
@@ -13461,7 +14406,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ6Rx-ljDEyIARxAJN4WZAlyI",
@@ -13508,6 +14458,11 @@
    },
    "badness": 41,
    "lead_score": 38,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "dirtdog.com",
@@ -13588,7 +14543,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ9fx0AuG_yIARdjJ_vbTUacA",
@@ -13636,7 +14596,12 @@
     "https": true
    },
    "badness": 27,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJc5jJqM_FyIARyOsEBHuhfx4",
@@ -13677,7 +14642,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJP9Y8XULDyIARAFdMBluIjNw",
@@ -13721,7 +14691,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ53zaxrHHyIARIN31fs1gRdo",
@@ -13770,7 +14745,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJycMETy0ryYARnK7ujXKVpsg",
@@ -13813,7 +14793,12 @@
     "https": false
    },
    "badness": 26,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJM7jaCHHDyIARPHMuFhyy8hI",
@@ -13859,7 +14844,12 @@
     "https": false
    },
    "badness": 31,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJcTZlIJnWyIARsYLxIA905os",
@@ -13901,7 +14891,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJIbR8j7K4yIAR6b_f-0SQA8M",
@@ -13951,7 +14946,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJVyU3LYHHyIARUABVOPPcIrU",
@@ -14002,7 +15002,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJNRWaG6zJyIARypN1KEozAIM",
@@ -14052,7 +15057,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJkRTX7xHOyIAR6rg_iP2iU0E",
@@ -14105,7 +15115,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJE4EyMKfDyIARSLll4EOFwHI",
@@ -14147,7 +15162,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJgZSkprrGyIARb44_7rgbT7Q",
@@ -14192,7 +15212,12 @@
     "https": true
    },
    "badness": 20,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJVXAs_VS-yIARe6OZlktntdw",
@@ -14245,7 +15270,12 @@
     "https": true
    },
    "badness": 29,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ02FeNgDDyIARrUqKqx6X7OM",
@@ -14289,7 +15319,12 @@
     "https": true
    },
    "badness": 4,
-   "lead_score": 4
+   "lead_score": 4,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJEfiIB7fGyIARAW6oxKfUqFM",
@@ -14334,7 +15369,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJKbokqI6_yIARMUUkdfdPFOg",
@@ -14378,7 +15418,12 @@
     "https": false
    },
    "badness": 37,
-   "lead_score": 36
+   "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJnUkKm-7FyIARkIsHk5l1X4A",
@@ -14427,7 +15472,12 @@
     "https": true
    },
    "badness": 35,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ2-iN1DUryYARs-slHITY-z8",
@@ -14473,7 +15523,12 @@
     "https": true
    },
    "badness": 32,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJYR6lpEDDyIARqTY5MoUFPFw",
@@ -14524,7 +15579,12 @@
     "https": true
    },
    "badness": 14,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJCYv4FkPHyIARz8rkS4F2D2E",
@@ -14567,7 +15627,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJH9g3cFnbyIARlL3EqVWVyf8",
@@ -14613,7 +15678,12 @@
     "https": true
    },
    "badness": 29,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ57D-DKDDyIARixxCylfku1E",
@@ -14658,7 +15728,12 @@
     "https": false
    },
    "badness": 39,
-   "lead_score": 35
+   "lead_score": 35,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ0fjlK4bDyIARP_EQ9vHHReE",
@@ -14702,7 +15777,12 @@
     "https": false
    },
    "badness": 37,
-   "lead_score": 34
+   "lead_score": 34,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJD1jyoqHDyIARJikpUW3smIE",
@@ -14749,7 +15829,12 @@
     "https": true
    },
    "badness": 35,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJiZ4hOR7DyIARqwg3gKzDlCc",
@@ -14790,7 +15875,12 @@
     "https": true
    },
    "badness": 27,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJCdQXrpXFyIARt0Lo8rErkpA",
@@ -14831,7 +15921,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJP2pS7lTHyIARVXcWSggKJRc",
@@ -14878,7 +15973,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJD8xOFE_FyIARfiJPcqkXpNg",
@@ -14924,7 +16024,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJtwsksIe_yIAR_C70hAGl8u0",
@@ -14973,7 +16078,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJAQAAty_EyIARz5xJqGFJzeE",
@@ -15014,7 +16124,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJo6Qz7P3NyIARI2odmW5Y8qU",
@@ -15062,6 +16177,11 @@
    },
    "badness": 48,
    "lead_score": 43,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "eggworks.com",
@@ -15143,7 +16263,12 @@
     "https": false
    },
    "badness": 28,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJY2tENnC_yIARIfgp9dJQcPA",
@@ -15198,7 +16323,12 @@
     "https": false
    },
    "badness": 31,
-   "lead_score": 30
+   "lead_score": 30,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJEXX1HyDAyIARRGsbijHmGvI",
@@ -15243,7 +16373,12 @@
     "https": false
    },
    "badness": 28,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJNRRNoN3RyIARt-KHMwJrcdE",
@@ -15286,7 +16421,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJn_HhDPvAyIARhL_H6KxFU30",
@@ -15341,6 +16481,11 @@
    },
    "badness": 40,
    "lead_score": 37,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "jammsbreakfastlunch.com",
@@ -15421,7 +16566,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJAcz4SjDEyIARtgAMHMG5KUo",
@@ -15466,6 +16616,11 @@
    },
    "badness": 49,
    "lead_score": 44,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "beautyessex.com",
@@ -15547,7 +16702,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ_9iTJuG_yIARJTr40bPSADc",
@@ -15595,6 +16755,11 @@
    },
    "badness": 42,
    "lead_score": 38,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "eggworks.com",
@@ -15677,7 +16842,12 @@
     "https": false
    },
    "badness": 37,
-   "lead_score": 33
+   "lead_score": 33,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJEchzD0oryYARhsaWCroVzsM",
@@ -15728,7 +16898,12 @@
     "https": true
    },
    "badness": 35,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ_eg26p_DyIARJKz8wUHmf0s",
@@ -15777,7 +16952,12 @@
     "https": true
    },
    "badness": 35,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJyyhqOPbQyIAR3qUQeXXvCAk",
@@ -15826,6 +17006,11 @@
    },
    "badness": 48,
    "lead_score": 43,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "cafzupas.com",
@@ -15912,7 +17097,12 @@
     "https": false
    },
    "badness": 37,
-   "lead_score": 35
+   "lead_score": 35,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJsakw83-_yIARoep1KAmMxf4",
@@ -15966,7 +17156,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJtXkL6ZzDyIARwL5ItjYkWKM",
@@ -16009,7 +17204,12 @@
     "https": false
    },
    "badness": 37,
-   "lead_score": 34
+   "lead_score": 34,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJBWG1C3XDyIAR5DkKSMGkQ5M",
@@ -16053,7 +17253,12 @@
     "https": true
    },
    "badness": 13,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJtYvvNMjGyIARY-G5XNruqAc",
@@ -16101,7 +17306,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJM5pPyaHDyIARkCuLa-5PA3A",
@@ -16147,7 +17357,12 @@
     "https": true
    },
    "badness": 36,
-   "lead_score": 33
+   "lead_score": 33,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJyQhKqnPDyIARuveG20F48Z4",
@@ -16195,6 +17410,11 @@
    },
    "badness": 40,
    "lead_score": 38,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "winnieethels.com",
@@ -16283,7 +17503,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ4fYsfv7NyIAR5ZWG31FHHzM",
@@ -16329,7 +17554,12 @@
     "https": true
    },
    "badness": 29,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJy4lTSYK_yIARpSjNfrulhMM",
@@ -16381,7 +17611,12 @@
     "https": true
    },
    "badness": 34,
-   "lead_score": 30
+   "lead_score": 30,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ8xjGYgDpyIARow8S0NAkWRg",
@@ -16423,6 +17658,11 @@
    },
    "badness": 44,
    "lead_score": 42,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "casaeldesayunonorthlasvegas.com",
@@ -16498,7 +17738,12 @@
     "https": false
    },
    "badness": 28,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJb__GnRrQyIARPG0D207Vt74",
@@ -16533,7 +17778,12 @@
     "stack": []
    },
    "badness": 100,
-   "lead_score": 91
+   "lead_score": 91,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJfZeG9B7EyIARcrvF3u1NnUA",
@@ -16576,7 +17826,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJD7_PqyXFyIARXKPOPr9x6Xg",
@@ -16624,7 +17879,12 @@
     "https": true
    },
    "badness": 1,
-   "lead_score": 1
+   "lead_score": 1,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJq3v_bjHEyIARevN-bExYuNg",
@@ -16668,7 +17928,12 @@
     "https": true
    },
    "badness": 34,
-   "lead_score": 30
+   "lead_score": 30,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJqUsbqbrGyIARJWjniHcOLPs",
@@ -16715,6 +17980,11 @@
    },
    "badness": 44,
    "lead_score": 40,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "sparrowwolf.com",
@@ -16798,7 +18068,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 30
+   "lead_score": 30,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJsXxSXafGyIARxaY0i2wnE_U",
@@ -16848,7 +18123,12 @@
     "https": false
    },
    "badness": 29,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJDa2s0BTEyIAR6Ncj7RAfLp0",
@@ -16892,7 +18172,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJr_Og_6XRyIAR2k1Q1FG2bWg",
@@ -16941,7 +18226,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJS7MflUPryIAR7qQQRfXnUIw",
@@ -16990,7 +18280,12 @@
     "https": false
    },
    "badness": 36,
-   "lead_score": 33
+   "lead_score": 33,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJVwzT2VfFyIARkBDsCCKF8vA",
@@ -17036,7 +18331,12 @@
     "https": true
    },
    "badness": 3,
-   "lead_score": 3
+   "lead_score": 3,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJixtBQDzEyIARUGAGUag9aMo",
@@ -17087,7 +18387,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJL6bGx0nOyIAR-azoIfWe6oc",
@@ -17128,7 +18433,12 @@
     "https": false
    },
    "badness": 26,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJQ4d5O5vDyIAR8EcC1IUGjug",
@@ -17172,7 +18482,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJYyMK2D_EyIAR_1_ruR-6-1o",
@@ -17220,7 +18535,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJE7jV_vDDyIARmErr0TQTa-0",
@@ -17266,7 +18586,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ2ZqQmk3HyIARu4MykGBZuDg",
@@ -17313,7 +18638,12 @@
     "https": true
    },
    "badness": 20,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJo5abwo-_yIARUmLoQO1ncAg",
@@ -17357,7 +18687,12 @@
     "https": true
    },
    "badness": 29,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJK3lLXxvHyIARx_t2aVVoxjc",
@@ -17405,6 +18740,11 @@
    },
    "badness": 43,
    "lead_score": 40,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "merkigreekgrill.com",
@@ -17493,7 +18833,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJn2jmQy0ryYAREuD-1PxjM60",
@@ -17548,7 +18893,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ83Z2x3XDyIARXaYZoph5ams",
@@ -17595,7 +18945,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJYfocv6DDyIARNquQatGx_YM",
@@ -17639,7 +18994,12 @@
     "https": false
    },
    "badness": 38,
-   "lead_score": 34
+   "lead_score": 34,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJwTnHNKDFyIARMuV3OuhR76o",
@@ -17680,7 +19040,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ9TPeq4a_yIARBJgwa83Pmr4",
@@ -17725,7 +19090,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ4bzZDyHoyIARgI0_G5oEGws",
@@ -17773,7 +19143,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJMWmzNgDHyIAR3plxzXtrWhE",
@@ -17817,7 +19192,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJEfXQMI7HyIARRb1MB4Z7hOI",
@@ -17867,7 +19247,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJoWtuBGvDyIARQvswFhwtgVo",
@@ -17911,7 +19296,12 @@
     "https": true
    },
    "badness": 29,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJh6tyOL3EyIARcCR0-Sc1LrY",
@@ -17959,7 +19349,12 @@
     "https": false
    },
    "badness": 38,
-   "lead_score": 35
+   "lead_score": 35,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJr5XyQa24yIARuWHFBPoFVzc",
@@ -18005,7 +19400,12 @@
     "https": false
    },
    "badness": 31,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJRUHjZgHByIARJbf1U3jn4yE",
@@ -18056,7 +19456,12 @@
     "https": true
    },
    "badness": 14,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJBwYz6X3PyIARPO8E4IgyZng",
@@ -18114,7 +19519,12 @@
     "https": true
    },
    "badness": 3,
-   "lead_score": 3
+   "lead_score": 3,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJE7fQwYHHyIARI964-mSnpKM",
@@ -18159,7 +19569,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJTZElJdUqyYAR1WH25LOUYDQ",
@@ -18207,7 +19622,12 @@
     "https": true
    },
    "badness": 2,
-   "lead_score": 2
+   "lead_score": 2,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ_763VoTFyIAR5-Oh6HjTjU4",
@@ -18247,7 +19667,12 @@
     "https": true
    },
    "badness": 1,
-   "lead_score": 1
+   "lead_score": 1,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJwSXcxTzEyIARRZD7bamjC-4",
@@ -18291,7 +19716,12 @@
     "https": true
    },
    "badness": 31,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJA16SharqyIARaHgEdsn015Q",
@@ -18334,7 +19764,12 @@
     "https": false
    },
    "badness": 31,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJhcw9VvnQyIARcSIoeCb33fM",
@@ -18382,7 +19817,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJF8NFXFXryIARiADU4B9O7g4",
@@ -18432,7 +19872,12 @@
     "https": false
    },
    "badness": 28,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJkYVjCQrByIARk7EU3WGEp6I",
@@ -18477,7 +19922,12 @@
     "https": false
    },
    "badness": 36,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJYWp4iJ_DyIARiJFD0qOSn8Y",
@@ -18523,7 +19973,12 @@
     "https": false
    },
    "badness": 36,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJG73jVjLpyIARWhe14W52U-o",
@@ -18566,7 +20021,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJGckHo_LHyIARCtNdBHK7AKY",
@@ -18611,7 +20071,12 @@
     "https": false
    },
    "badness": 22,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJM2-l_PTHyIARz-Sgei5PBXQ",
@@ -18658,7 +20123,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJa9gLk3_DyIARYJIMKWKIpS4",
@@ -18702,7 +20172,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJuVR2bwDAyIARJnsLZHgkCZU",
@@ -18747,7 +20222,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ-_68-tzRyIARllRCEhD-z30",
@@ -18795,7 +20275,12 @@
     "https": false
    },
    "badness": 31,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJBaEn1aHDyIARyBZSYLTuwBU",
@@ -18844,7 +20329,12 @@
     "https": true
    },
    "badness": 35,
-   "lead_score": 30
+   "lead_score": 30,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJZ7jmH4C_yIAR6gwSx4TwrZE",
@@ -18891,7 +20381,12 @@
     "https": true
    },
    "badness": 27,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJpZDLiozFyIARL69lIAbo9N8",
@@ -18940,7 +20435,12 @@
     "https": false
    },
    "badness": 39,
-   "lead_score": 34
+   "lead_score": 34,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ1a7yWIvDyIARJD1MVbCKvNQ",
@@ -18986,7 +20486,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJI-7R1BPRyIARWArciDNbsSc",
@@ -19033,7 +20538,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJS4Z-3UPByIARqh1UAhREw5w",
@@ -19087,7 +20597,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJZ0ubSEjEyIAR0JnEtmNVcXA",
@@ -19131,7 +20646,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJN4HITffPyIARmEtlgMnTslQ",
@@ -19181,7 +20701,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 30
+   "lead_score": 30,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJgc5XMwDFyIARnIei8jYEKjQ",
@@ -19224,7 +20749,12 @@
     "https": true
    },
    "badness": 31,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ13xk71bHyIAR2YrH-79l60A",
@@ -19277,7 +20807,12 @@
     "https": false
    },
    "badness": 39,
-   "lead_score": 34
+   "lead_score": 34,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJFykJqHTHyIARsK4n-oDjESs",
@@ -19320,7 +20855,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJmb3MFETRyIARjJwAsVU-L_s",
@@ -19365,7 +20905,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJEfiIB7fGyIARprRriIeikIA",
@@ -19410,7 +20955,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJJQIkhIzPyIARawVxd6Lzzx0",
@@ -19452,7 +21002,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ2STDxnzGyIARp2BSqkvygJY",
@@ -19486,6 +21041,11 @@
    },
    "badness": 100,
    "lead_score": 88,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "elzarape1.com",
@@ -19575,6 +21135,11 @@
    },
    "badness": 48,
    "lead_score": 43,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "coffeepub.com",
@@ -19653,7 +21218,12 @@
     "https": true
    },
    "badness": 32,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJZcplJmvOyIARUoACubk-5dQ",
@@ -19697,7 +21267,12 @@
     "https": false
    },
    "badness": 29,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJS6TlMu3RyIARidXyufxaKlk",
@@ -19735,6 +21310,11 @@
    },
    "badness": 95,
    "lead_score": 85,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "codfather.com",
@@ -19821,7 +21401,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJPyyjDpHCyIARg_pahGzuLm0",
@@ -19869,7 +21454,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJOVmlRnvQyIARgRDw_3f2T6E",
@@ -19915,6 +21505,11 @@
    },
    "badness": 42,
    "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "chilecalientebar.com",
@@ -19995,7 +21590,12 @@
     "https": true
    },
    "badness": 1,
-   "lead_score": 1
+   "lead_score": 1,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJpwnTwXvDyIARMR4rVi455zk",
@@ -20048,7 +21648,12 @@
     "https": true
    },
    "badness": 32,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJt3AWTYXDyIARcYXpVjOsvAU",
@@ -20096,7 +21701,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ57GZQIbDyIARROzBukuB8YI",
@@ -20142,7 +21752,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJrel49lnbyIARpssk-DIe9yg",
@@ -20195,7 +21810,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJS1f5JtHPyIARjyuTQpOQth4",
@@ -20240,7 +21860,12 @@
     "https": false
    },
    "badness": 36,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJKabjX-TpyIARBFcsrdqGAc8",
@@ -20286,7 +21911,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ5Rf6aXXryIAR4vNAo16J8I4",
@@ -20332,7 +21962,12 @@
     "https": false
    },
    "badness": 27,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ62qIAN_RyIARnDk6DgWEpzU",
@@ -20377,6 +22012,11 @@
    },
    "badness": 40,
    "lead_score": 34,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "hanksfine.com",
@@ -20460,6 +22100,11 @@
    },
    "badness": 53,
    "lead_score": 46,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "alsolitoposto.com",
@@ -20534,6 +22179,11 @@
    },
    "badness": 90,
    "lead_score": 76,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "birriaelcompa.com",
@@ -20620,7 +22270,12 @@
     "https": true
    },
    "badness": 37,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ-b9fgrDGyIARTG3xZcHwWtE",
@@ -20666,7 +22321,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJB8hWVlfbyIAROMTy3GqUyVE",
@@ -20709,6 +22369,11 @@
    },
    "badness": 55,
    "lead_score": 46,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "elbirotazo.com",
@@ -20785,6 +22450,11 @@
    },
    "badness": 45,
    "lead_score": 38,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "chavelosmexican.com",
@@ -20868,7 +22538,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJbQHfSvfXyIARU17iK0Spv1A",
@@ -20914,7 +22589,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJmzceZu7byIARdiDMHq6WfHc",
@@ -20962,7 +22642,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJUUb1BxPPyIARQoCDX4yBkYY",
@@ -21009,7 +22694,12 @@
     "https": true
    },
    "badness": 13,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJAQBAoDHEyIARkFIvagq-4Ds",
@@ -21059,7 +22749,12 @@
     "https": true
    },
    "badness": 31,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ1TrkeqXGyIARe_bg5YZ_ELA",
@@ -21104,7 +22799,12 @@
     "https": true
    },
    "badness": 35,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJpTi5WaDDyIARjx8JQudza14",
@@ -21149,7 +22849,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJkwvTeADbyIARsktfSfh_fpQ",
@@ -21191,6 +22896,11 @@
    },
    "badness": 50,
    "lead_score": 45,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "elys.com",
@@ -21274,6 +22984,11 @@
    },
    "badness": 49,
    "lead_score": 41,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "badowl.com",
@@ -21352,7 +23067,12 @@
     "https": true
    },
    "badness": 7,
-   "lead_score": 6
+   "lead_score": 6,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJh4_f8DbPyIARh6ZPP3Stw5o",
@@ -21395,7 +23115,12 @@
     "https": false
    },
    "badness": 38,
-   "lead_score": 32
+   "lead_score": 32,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJXSNFJtXtyIAR86G_tSyamQQ",
@@ -21440,7 +23165,12 @@
     "https": true
    },
    "badness": 29,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJw0wabrLHyIARIk4EG-xUi0E",
@@ -21483,7 +23213,12 @@
     "https": false
    },
    "badness": 39,
-   "lead_score": 33
+   "lead_score": 33,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ64bVXxvHyIARyiu1gY8ft00",
@@ -21539,7 +23274,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJW0FyqrHHyIARm06DP6-5VAk",
@@ -21590,7 +23330,12 @@
     "https": true
    },
    "badness": 20,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ0RWJ4PzFyIARnsgUI3KDFcQ",
@@ -21633,7 +23378,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJmSemhU-_yIARyD8u2DYlNzI",
@@ -21682,7 +23432,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJc-trWZLRyIARSMRnIXLyGzQ",
@@ -21734,7 +23489,12 @@
     "https": true
    },
    "badness": 14,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJqZi8ukbbyIARVphkFP7JAD0",
@@ -21779,7 +23539,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJu401LfnEyIARzVfPEzyLQqs",
@@ -21828,7 +23593,12 @@
     "https": true
    },
    "badness": 27,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJm-GBCq7HyIAR4ilheIc7Or0",
@@ -21875,7 +23645,12 @@
     "https": true
    },
    "badness": 2,
-   "lead_score": 2
+   "lead_score": 2,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJqVzy6SLByIARA3y-A2g_39g",
@@ -21914,6 +23689,11 @@
    },
    "badness": 90,
    "lead_score": 81,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "malatown.com",
@@ -21992,7 +23772,12 @@
     "https": false
    },
    "badness": 19,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJySDnYg_DyIARuou1HRsRoPY",
@@ -22043,7 +23828,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ9UpImPnHyIARrjOrX9h1jhA",
@@ -22084,7 +23874,12 @@
     "https": false
    },
    "badness": 14,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJRdmwV77PyIARYjvUB6Cs3Kk",
@@ -22134,7 +23929,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJpTW4KM3byIARh3XXinUENVI",
@@ -22181,7 +23981,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJWTkzgUnDyIARlNEdOKxnK3o",
@@ -22229,7 +24034,12 @@
     "https": true
    },
    "badness": 38,
-   "lead_score": 33
+   "lead_score": 33,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ0_XjyoXVyIARWdt6y8gllfk",
@@ -22264,6 +24074,11 @@
    },
    "badness": 95,
    "lead_score": 79,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "hometowncountrykitchen.com",
@@ -22343,6 +24158,11 @@
    },
    "badness": 46,
    "lead_score": 41,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "beachcafe.com",
@@ -22422,7 +24242,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ4c-c1qXGyIARUOn5bdGi5kg",
@@ -22478,7 +24303,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJAQDQJBTryIARkzhv3upUnpU",
@@ -22524,7 +24354,12 @@
     "https": true
    },
    "badness": 14,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJkQzbBjHEyIARMkc5flN4EBY",
@@ -22566,7 +24401,12 @@
     "https": true
    },
    "badness": 34,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJpdqo4gvDyIARpSpJxz4TAoA",
@@ -22609,7 +24449,12 @@
     "https": true
    },
    "badness": 27,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJoRxuoaXGyIARxcFM7gaDZjE",
@@ -22652,7 +24497,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJo9dbUb3RyIARJ68jVkVi9Hs",
@@ -22704,6 +24554,11 @@
    },
    "badness": 41,
    "lead_score": 34,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "lecafeduval.com",
@@ -22787,7 +24642,12 @@
     "https": true
    },
    "badness": 32,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ8Wsd_iHHyIARolz2i0wLy2k",
@@ -22826,6 +24686,11 @@
    },
    "badness": 90,
    "lead_score": 79,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "novellaitalian.com",
@@ -22910,6 +24775,11 @@
    },
    "badness": 41,
    "lead_score": 35,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "lavecindad.com",
@@ -22990,7 +24860,12 @@
     "https": true
    },
    "badness": 12,
-   "lead_score": 10
+   "lead_score": 10,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJERLCGarRyIARDjPWcO4JEkI",
@@ -23039,6 +24914,11 @@
    },
    "badness": 41,
    "lead_score": 34,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "faustosmexican.com",
@@ -23111,6 +24991,11 @@
    },
    "badness": 90,
    "lead_score": 77,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "chinosmexicankitchen.com",
@@ -23192,6 +25077,11 @@
    },
    "badness": 45,
    "lead_score": 37,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "finfeathersrestaurants.com",
@@ -23275,7 +25165,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJj2x7_CXDyIAR5Vw67Qjgfwo",
@@ -23324,7 +25219,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJwfzxmFHHyIARQBFtqYv0q0A",
@@ -23369,7 +25269,12 @@
     "https": true
    },
    "badness": 32,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJI3pTsAzNyIARjLUcDMrnwoM",
@@ -23420,7 +25325,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJj0-YzuCVyIARxliF47uZsJY",
@@ -23464,7 +25374,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ1UtJaOzDyIARrWnpK36eiPk",
@@ -23508,7 +25423,12 @@
     "https": true
    },
    "badness": 5,
-   "lead_score": 4
+   "lead_score": 4,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJSTKZJgDByIARDq4n_WU_iPI",
@@ -23553,7 +25473,12 @@
     "https": true
    },
    "badness": 9,
-   "lead_score": 8
+   "lead_score": 8,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJjUxecqrRyIARN8ufG4mm_mo",
@@ -23598,7 +25523,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ8f5fwqvAyIARGAfgJqdqhSs",
@@ -23647,7 +25577,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJGQW36f7PyIARdBxJhnploFI",
@@ -23702,7 +25637,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJjw4-FEbVyIARkhd1f8zwgSA",
@@ -23745,7 +25685,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJk6SRLsC_yIARLqWemcR8Rmo",
@@ -23801,6 +25746,11 @@
    },
    "badness": 47,
    "lead_score": 39,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "tpclasvegas.com",
@@ -23882,6 +25832,11 @@
    },
    "badness": 41,
    "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "dirtdogbar.com",
@@ -23966,7 +25921,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJGXypZjTPyIARyeU9EmZrP58",
@@ -24001,6 +25961,11 @@
    },
    "badness": 95,
    "lead_score": 82,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "eggscellentbreakfast.com",
@@ -24086,7 +26051,12 @@
     "https": true
    },
    "badness": 39,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ0QJoeFjHyIARf2ep8HFSgkQ",
@@ -24133,7 +26103,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJOykdlg_FyIARzidH87_WT7s",
@@ -24178,6 +26153,11 @@
    },
    "badness": 49,
    "lead_score": 39,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "motherwolflasvegas.com",
@@ -24257,7 +26237,12 @@
     "https": false
    },
    "badness": 21,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJkS4VNDy_yIARjERDilJ_kLY",
@@ -24302,7 +26287,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJAwZtyK_DyIAR3qBoAzzaJj0",
@@ -24344,7 +26334,12 @@
     "https": false
    },
    "badness": 28,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJfyNMrqrXyIAR5etq3M8bzAc",
@@ -24387,7 +26382,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJtafOvlbByIARmKsrM_lyX2s",
@@ -24422,6 +26422,11 @@
    },
    "badness": 70,
    "lead_score": 59,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "polloseldorado.com",
@@ -24504,7 +26509,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJr-BOSS3byIARYp9T1V65940",
@@ -24539,6 +26549,11 @@
    },
    "badness": 100,
    "lead_score": 85,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "losolivosristorante.com",
@@ -24612,6 +26627,11 @@
    },
    "badness": 70,
    "lead_score": 59,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "ramenhashi.com",
@@ -24693,7 +26713,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJVVUl-s3GyIARePkvoyQK-1I",
@@ -24743,7 +26768,12 @@
     "https": false
    },
    "badness": 25,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJF_CMdg_PyIARYM5HU9ErbKE",
@@ -24787,7 +26817,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJoZJPie7qyIARnWaJensyOS4",
@@ -24831,7 +26866,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJO2f7sx7RyIAR8GojiBtqGyk",
@@ -24875,7 +26915,12 @@
     "https": true
    },
    "badness": 14,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJUaSuri3RyIARpdoSkBXaxLU",
@@ -24922,6 +26967,11 @@
    },
    "badness": 46,
    "lead_score": 37,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "davebustershenderson.com",
@@ -25002,7 +27052,12 @@
     "https": false
    },
    "badness": 38,
-   "lead_score": 30
+   "lead_score": 30,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJUUMUuM7DyIARm2IvVfWlwhw",
@@ -25047,7 +27102,12 @@
     "https": false
    },
    "badness": 29,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJXVvduRvHyIARiQdBQEPaH7U",
@@ -25089,7 +27149,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJBWEsM1HAyIARK0sHV6bUKAg",
@@ -25134,7 +27199,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 30
+   "lead_score": 30,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJEbOy1V3cyIARxGnwmtzgkMU",
@@ -25178,7 +27248,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJx1MVXyvHyIARhbkytcRptko",
@@ -25216,6 +27291,11 @@
    },
    "badness": 95,
    "lead_score": 76,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "painacafelasvegas.com",
@@ -25296,7 +27376,12 @@
     "https": false
    },
    "badness": 36,
-   "lead_score": 30
+   "lead_score": 30,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJieiLKLnHyIARN-JNU3TrAeU",
@@ -25346,7 +27431,12 @@
     "https": true
    },
    "badness": 27,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJiUqkM3HpyIARnm1f32-ViTM",
@@ -25391,7 +27481,12 @@
     "https": true
    },
    "badness": 27,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJUTiUmFnDyIARLKlP-a0jtgM",
@@ -25439,7 +27534,12 @@
     "https": true
    },
    "badness": 1,
-   "lead_score": 1
+   "lead_score": 1,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJw8Qzp7DpyIAR10yAlwYT058",
@@ -25490,7 +27590,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJvfScXXLPyIAR_Umdfp_gWrg",
@@ -25546,7 +27651,12 @@
     "https": true
    },
    "badness": 22,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJjUbGZ8zFyIAR5eDdKqY1XX4",
@@ -25597,7 +27707,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ4XOWTTXFyIARgCGviHKNSTE",
@@ -25642,6 +27757,11 @@
    },
    "badness": 59,
    "lead_score": 47,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "backto80s.com",
@@ -25726,7 +27846,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJJRxh-b_AyIARmwoxwCFYf_A",
@@ -25769,7 +27894,12 @@
     "https": false
    },
    "badness": 28,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJW45kcGbHyIARtLtT1enGH5A",
@@ -25815,7 +27945,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ9f07_2u_yIARIbtkIGAVtQE",
@@ -25871,7 +28006,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJWQjEpYzHyIARkkmbqAJgN9o",
@@ -25919,7 +28059,12 @@
     "https": true
    },
    "badness": 27,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJReeQS1nQyIAR-gr7BCXeDX0",
@@ -25958,6 +28103,11 @@
    },
    "badness": 90,
    "lead_score": 72,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "skimoscoffeeshop.com",
@@ -26041,7 +28191,12 @@
     "https": true
    },
    "badness": 12,
-   "lead_score": 9
+   "lead_score": 9,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ42V2tyLAyIARgMzbhbe4nKc",
@@ -26091,7 +28246,12 @@
     "https": false
    },
    "badness": 22,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJGbaiLcjGyIARC3ZMibONMas",
@@ -26129,6 +28289,11 @@
    },
    "badness": 100,
    "lead_score": 79,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "issweetcoffeedessert.com",
@@ -26214,7 +28379,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJb5Kx_4PFyIARsth_rj4HP8s",
@@ -26248,6 +28418,11 @@
    },
    "badness": 100,
    "lead_score": 84,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "elchachotortasbirria.com",
@@ -26326,7 +28501,12 @@
     "https": false
    },
    "badness": 22,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJk1T7v2LHyIARmLuDFJHaflE",
@@ -26373,7 +28553,12 @@
     "https": true
    },
    "badness": 27,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJoy_NX_zQyIARk6M4ZuWndjI",
@@ -26422,7 +28607,12 @@
     "https": false
    },
    "badness": 26,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ4T5sh8S5yIARDWlbRRleNtQ",
@@ -26468,7 +28658,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJOTbgSdPHyIARzDxewUhtZ64",
@@ -26517,7 +28712,12 @@
     "https": false
    },
    "badness": 38,
-   "lead_score": 30
+   "lead_score": 30,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ7c4GAbbHyIARhIbHr3Ypp0M",
@@ -26553,6 +28753,11 @@
    },
    "badness": 70,
    "lead_score": 58,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "carolinasmexican.com",
@@ -26634,7 +28839,12 @@
     "https": true
    },
    "badness": 31,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJwTCLSqDDyIAROt3nN5gvdKc",
@@ -26677,7 +28887,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJXT_KOa_HyIARXbWZb3KJDnw",
@@ -26711,6 +28926,11 @@
    },
    "badness": 100,
    "lead_score": 84,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "777korean.com",
@@ -26789,7 +29009,12 @@
     "https": true
    },
    "badness": 14,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJq6r6_SO_yIARgWd5CR3H1Og",
@@ -26834,7 +29059,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJJUOJJy-TyIARg8iLsGOp9FU",
@@ -26881,7 +29111,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJhU_yio_DyIARpQGpcw5ZS0k",
@@ -26932,7 +29167,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJEeLvEYLHyIARf2C43bJHt6A",
@@ -26980,6 +29220,11 @@
    },
    "badness": 57,
    "lead_score": 46,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "partage.com",
@@ -27064,7 +29309,12 @@
     "https": true
    },
    "badness": 31,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ23kAmX3DyIARsyhdGBA3PSQ",
@@ -27107,7 +29357,12 @@
     "https": false
    },
    "badness": 19,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJmVCT1RvDyIARUdTuzuzaoFM",
@@ -27157,7 +29412,12 @@
     "https": false
    },
    "badness": 38,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJFTCK_-HQyIARWpLEg603LHs",
@@ -27204,7 +29464,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJxXMqqy_HyIARwAzFwg-7HQw",
@@ -27251,7 +29516,12 @@
     "https": false
    },
    "badness": 20,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJZ-93QcvFyIARqArsJhw7Mso",
@@ -27293,7 +29563,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJmw3DoUXFyIARokqhyWl2jUg",
@@ -27335,7 +29610,12 @@
     "https": true
    },
    "badness": 9,
-   "lead_score": 7
+   "lead_score": 7,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJeaOsPxG_yIAR4zgkLuFE1Wo",
@@ -27380,6 +29660,11 @@
    },
    "badness": 47,
    "lead_score": 36,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "frankiesuptownlasvegas.com",
@@ -27467,7 +29752,12 @@
     "https": false
    },
    "badness": 25,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJw1nO4gzHyIARC1nsfsuQ95Y",
@@ -27510,7 +29800,12 @@
     "https": false
    },
    "badness": 26,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJK38LRv_FyIARrwofQ7byJCE",
@@ -27560,6 +29855,11 @@
    },
    "badness": 45,
    "lead_score": 35,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "tressocial.com",
@@ -27632,6 +29932,11 @@
    },
    "badness": 100,
    "lead_score": 81,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "sunshinetailwindscafe.com",
@@ -27714,7 +30019,12 @@
     "https": false
    },
    "badness": 28,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJlVObWefDyIARNbWpPqDlcKo",
@@ -27761,7 +30071,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ75IwFXnIyIARf94Mmuhs-RQ",
@@ -27810,6 +30125,11 @@
    },
    "badness": 49,
    "lead_score": 38,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "badowlcoffeeroasters.com",
@@ -27893,7 +30213,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJCV2MAvXHyIARvVAI_klpT5k",
@@ -27939,7 +30264,12 @@
     "https": false
    },
    "badness": 36,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJJ1FGghrQyIARQxzqPbLhjQI",
@@ -27989,7 +30319,12 @@
     "https": false
    },
    "badness": 36,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJP8Ae5jbDyIAR_EZ68kq-jKA",
@@ -28037,7 +30372,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ5VOJ3oHtyIARcZMvs94LAnw",
@@ -28087,7 +30427,12 @@
     "https": true
    },
    "badness": 2,
-   "lead_score": 2
+   "lead_score": 2,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJyfpqrWwryYARPKfToJ0Azfc",
@@ -28137,7 +30482,12 @@
     "https": false
    },
    "badness": 24,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJG65V7-fQyIARMjoboKCgN2A",
@@ -28174,6 +30524,11 @@
    },
    "badness": 85,
    "lead_score": 65,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "pennsthaihouse.com",
@@ -28261,7 +30616,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJBaEDZtrRyIARECiqIvbGqYM",
@@ -28307,7 +30667,12 @@
     "https": false
    },
    "badness": 19,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJg1V4DhG_yIARpWmLqwL00NA",
@@ -28352,7 +30717,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ1-3FVALHyIARaRIbxj3pZtI",
@@ -28396,7 +30766,12 @@
     "https": false
    },
    "badness": 38,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJGQrP_SO_yIARG_pQgrtqDhc",
@@ -28446,6 +30821,11 @@
    },
    "badness": 50,
    "lead_score": 38,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "hokkaidoteppanyaki.com",
@@ -28526,7 +30906,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJM9rRYtK_yIARNjGTy30H-O8",
@@ -28567,7 +30952,12 @@
     "https": false
    },
    "badness": 22,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJs2M1iDHRyIARS5PX3hL1-aI",
@@ -28612,7 +31002,12 @@
     "https": false
    },
    "badness": 29,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJLfTOXbrsyIARp89Vsr3lbFo",
@@ -28653,7 +31048,12 @@
     "https": true
    },
    "badness": 10,
-   "lead_score": 8
+   "lead_score": 8,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJcd-6OEEryYARlFI52gb3GFE",
@@ -28699,7 +31099,12 @@
     "https": true
    },
    "badness": 14,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJQbmC3wfPyIARw_4kQ5kxqaE",
@@ -28748,7 +31153,12 @@
     "https": true
    },
    "badness": 14,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJJxMY23zJyIARyjEDTGiVeKU",
@@ -28794,7 +31204,12 @@
     "https": true
    },
    "badness": 9,
-   "lead_score": 7
+   "lead_score": 7,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJC5cy8xLHyIAR-PfBn71oWq8",
@@ -28838,6 +31253,11 @@
    },
    "badness": 52,
    "lead_score": 41,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "bangkokstreetfood.com",
@@ -28917,7 +31337,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJU9On-o3GyIARF5SliO1yUqg",
@@ -28963,7 +31388,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJMS4Sl-u_yIARnszqopd6BnY",
@@ -29012,7 +31442,12 @@
     "https": true
    },
    "badness": 8,
-   "lead_score": 6
+   "lead_score": 6,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJsWdYdwDPyIARN7O2vxu8DmI",
@@ -29057,7 +31492,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJZxmablfHyIARTE_m6HGrTg0",
@@ -29101,7 +31541,12 @@
     "https": true
    },
    "badness": 22,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJXwwdLRzPyIARyfKwXYN_I10",
@@ -29148,6 +31593,11 @@
    },
    "badness": 40,
    "lead_score": 30,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "tresamigosmexicangrill.com",
@@ -29236,7 +31686,12 @@
     "https": false
    },
    "badness": 38,
-   "lead_score": 29
+   "lead_score": 29,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJXzXqvf7HyIARtaFzFIVHxEE",
@@ -29289,7 +31744,12 @@
     "https": true
    },
    "badness": 4,
-   "lead_score": 3
+   "lead_score": 3,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJiy0vytbHyIARDhuVvNyF0CI",
@@ -29337,7 +31797,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ1WjrarrWyIARVH4JawCF4MM",
@@ -29392,7 +31857,12 @@
     "https": false
    },
    "badness": 28,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJdRZiD5jDyIARG06Km__Vc5g",
@@ -29436,7 +31906,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJbUL3U6LPyIARZYdkpeqZAKQ",
@@ -29481,7 +31956,12 @@
     "https": false
    },
    "badness": 36,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJS-9bIvvryIARuQQF667jCAw",
@@ -29531,7 +32011,12 @@
     "https": true
    },
    "badness": 29,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJZ39o3KPWyIARS8U8Igs1c6I",
@@ -29579,7 +32064,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJm8swADDEyIARAsePlKDOn40",
@@ -29622,7 +32112,12 @@
     "https": true
    },
    "badness": 31,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJvR7V7gOTyIARYxOxH8SS-dk",
@@ -29658,6 +32153,11 @@
    },
    "badness": 100,
    "lead_score": 79,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "diegosfarm.com",
@@ -29740,7 +32240,12 @@
     "https": true
    },
    "badness": 29,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ8VlrwqbDyIAR11z5qTfKhp4",
@@ -29787,7 +32292,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJSRZPhHTFyIARWmEtYRQf9JM",
@@ -29827,7 +32337,12 @@
     "https": true
    },
    "badness": 33,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ27L7Ve3pyIARuWjtZ-vdV-Y",
@@ -29872,6 +32387,11 @@
    },
    "badness": 52,
    "lead_score": 39,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "tacoslosbarriosnorthlasvegas.com",
@@ -29948,7 +32468,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJrYDkTdUqyYAR6qTetNWoXmc",
@@ -29986,6 +32511,11 @@
    },
    "badness": 70,
    "lead_score": 53,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "vinnyspizzeria.com",
@@ -30069,7 +32599,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJiy58cVS_yIARs-GdxD1f4FA",
@@ -30114,7 +32649,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJgxL2H86_yIARktUAcQc7wp8",
@@ -30160,7 +32700,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJu4HBciTVyIARYEDClaEQNlA",
@@ -30213,7 +32758,12 @@
     "https": true
    },
    "badness": 20,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ3fAwW2HByIAR1KQKs_X8GVg",
@@ -30265,7 +32815,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJLxeTYauUyIARV4Pdux78N1M",
@@ -30301,6 +32856,11 @@
    },
    "badness": 70,
    "lead_score": 55,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "wafflescafe.com",
@@ -30385,6 +32945,11 @@
    },
    "badness": 53,
    "lead_score": 42,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "damroast.com",
@@ -30463,7 +33028,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJidMPnqrqyIARuneCwvUPVF4",
@@ -30510,7 +33080,12 @@
     "https": true
    },
    "badness": 4,
-   "lead_score": 3
+   "lead_score": 3,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJoyapANjUzoARUnaO2qe04kE",
@@ -30556,7 +33131,12 @@
     "https": false
    },
    "badness": 38,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJw5GJDZzDyIARdvUXXSLxWiY",
@@ -30605,7 +33185,12 @@
     "https": false
    },
    "badness": 20,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJZxgFsnKVyIARGgP9bioz_Ug",
@@ -30653,7 +33238,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ99UOrebAyIARJPCY9oPSluQ",
@@ -30701,7 +33291,12 @@
     "https": true
    },
    "badness": 39,
-   "lead_score": 31
+   "lead_score": 31,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJAQBwU6qUyIARj3JI1uSmMoI",
@@ -30739,6 +33334,11 @@
    },
    "badness": 90,
    "lead_score": 72,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "chillhaus.com",
@@ -30824,6 +33424,11 @@
    },
    "badness": 43,
    "lead_score": 33,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "bobseast.com",
@@ -30908,7 +33513,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ112KHh_RyIARl0rpT-Xd1yk",
@@ -30952,7 +33562,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJk1zQaI_GyIARPZfGJap_5zc",
@@ -30994,7 +33609,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ--grGcLByIARPxtEpeULzjg",
@@ -31043,7 +33663,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJWfxTxKfJyIARPB8HEvAeIjc",
@@ -31087,7 +33712,12 @@
     "https": true
    },
    "badness": 20,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJfz_yITvDyIARpLJJ14h4N_Y",
@@ -31132,7 +33762,12 @@
     "https": false
    },
    "badness": 38,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJYR5MSIrryIARM-SLhQLYPqY",
@@ -31176,7 +33811,12 @@
     "https": true
    },
    "badness": 31,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJOYXvKCS_yIAR-gHnD252Qwk",
@@ -31221,7 +33861,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJkRmpN7nayIARDc5kU726Ay8",
@@ -31266,7 +33911,12 @@
     "https": false
    },
    "badness": 28,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJEdDvIx6_yIARO-1_ZLOvlEU",
@@ -31311,7 +33961,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJj4sMoH7HyIARTRE6M72T-vw",
@@ -31357,7 +34012,12 @@
     "https": false
    },
    "badness": 28,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ6SZRyay5yIARvC2Za06nzX8",
@@ -31403,7 +34063,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJXYdjykvHyIARd9O5iyBCNcc",
@@ -31449,6 +34114,11 @@
    },
    "badness": 41,
    "lead_score": 32,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "basilicoristorante.com",
@@ -31523,6 +34193,11 @@
    },
    "badness": 90,
    "lead_score": 68,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "bossdaddys.com",
@@ -31605,7 +34280,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJfXRZ1z3RyIARxMgtVKgHeIo",
@@ -31657,7 +34337,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ3f8u4hvDyIARvQ8Yz7vvufQ",
@@ -31706,7 +34391,12 @@
     "https": true
    },
    "badness": 29,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJP-Ia3be5yIARQEEEHSWz7HU",
@@ -31759,6 +34449,11 @@
    },
    "badness": 51,
    "lead_score": 40,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "cafemonglasvegas.com",
@@ -31835,7 +34530,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJpQL8_jHHyIARo8o7tkfUF80",
@@ -31879,7 +34579,12 @@
     "https": false
    },
    "badness": 29,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJq4KjZADDyIARTwFiC5akZWg",
@@ -31930,7 +34635,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJI1KVREOVyIARGXORUGVzJAo",
@@ -31976,7 +34686,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ73ho-lGVyIARMY7i36-kw2E",
@@ -32019,7 +34734,12 @@
     "https": false
    },
    "badness": 36,
-   "lead_score": 28
+   "lead_score": 28,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJkWONYivPyIARzwiIpaBCg9k",
@@ -32067,7 +34787,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ-7dQNBjtyIARSX01Q8stcXE",
@@ -32111,7 +34836,12 @@
     "https": true
    },
    "badness": 5,
-   "lead_score": 4
+   "lead_score": 4,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ77Q93yXHyIARjFhDpbuH9X4",
@@ -32152,7 +34882,12 @@
     "https": false
    },
    "badness": 22,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJseVLAAvHyIARnKbpRuOYS44",
@@ -32199,7 +34934,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJxfp_xrrWyIARF-z1l__KPgs",
@@ -32249,6 +34989,11 @@
    },
    "badness": 55,
    "lead_score": 42,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "coocoos.com",
@@ -32334,7 +35079,12 @@
     "https": true
    },
    "badness": 10,
-   "lead_score": 7
+   "lead_score": 7,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJVVWF6EHAyIARZHmjo_3xuUk",
@@ -32384,7 +35134,12 @@
     "https": true
    },
    "badness": 12,
-   "lead_score": 9
+   "lead_score": 9,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJndlt8PLByIAR2lIXRLtnRas",
@@ -32428,7 +35183,12 @@
     "https": true
    },
    "badness": 12,
-   "lead_score": 9
+   "lead_score": 9,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJlfYyx1nbyIAREE353Sa-9gQ",
@@ -32471,7 +35231,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJqWMJlcLFyIARR250Q7EPwX0",
@@ -32516,7 +35281,12 @@
     "https": true
    },
    "badness": 9,
-   "lead_score": 7
+   "lead_score": 7,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJVzBecMHHyIAR4pKT5GCQOjY",
@@ -32553,6 +35323,11 @@
    },
    "badness": 70,
    "lead_score": 51,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "canh.com",
@@ -32639,7 +35414,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJoRxuoaXGyIAROiAwxXtQDig",
@@ -32675,6 +35455,11 @@
    },
    "badness": 70,
    "lead_score": 52,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "crownbakery.com",
@@ -32750,6 +35535,11 @@
    },
    "badness": 100,
    "lead_score": 78,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "paletabarshanghaiplaza.com",
@@ -32834,7 +35624,12 @@
     "https": true
    },
    "badness": 22,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJE67ely3HyIARwINo5tFJU08",
@@ -32877,7 +35672,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ-RS0AFXFyIARwT9JslVtt4E",
@@ -32920,7 +35720,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJKeuDcdjDyIARBqCOf6GeduE",
@@ -32970,7 +35775,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJxaixMDm5yIARxcs0_lVE6IY",
@@ -33013,7 +35823,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJvbIF-Yi4yIARFkBdDl5koxc",
@@ -33067,7 +35882,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJTQrXY6fGyIARm0bxTmofOWk",
@@ -33107,6 +35927,11 @@
    },
    "badness": 95,
    "lead_score": 69,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "pokeman.com",
@@ -33185,7 +36010,12 @@
     "https": true
    },
    "badness": 11,
-   "lead_score": 8
+   "lead_score": 8,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJX49uUEjHyIARwlixHXRmgYw",
@@ -33220,6 +36050,11 @@
    },
    "badness": 70,
    "lead_score": 52,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "magicnoodle.com",
@@ -33302,7 +36137,12 @@
     "https": true
    },
    "badness": 31,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJaUqqimC_yIARh_ZqjXiRjNo",
@@ -33348,7 +36188,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJy3tq7yTDyIAR6zpErzdWiIs",
@@ -33397,7 +36242,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJYaj8tDDFyIAR5ADYw_SYq7g",
@@ -33442,7 +36292,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJnaA7R73byIARuzUOnKkKypk",
@@ -33477,6 +36332,11 @@
    },
    "badness": 70,
    "lead_score": 52,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "gorditasbetancourt.com",
@@ -33561,7 +36421,12 @@
     "https": true
    },
    "badness": 20,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJj0xyhgDRyIARNIS2nPkSq0s",
@@ -33606,7 +36471,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJI7jlBOOVyIARzOARQ_4Ozhw",
@@ -33658,7 +36528,12 @@
     "https": true
    },
    "badness": 14,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJKYHCVhbRyIARzmB1nMmqZ08",
@@ -33708,6 +36583,11 @@
    },
    "badness": 43,
    "lead_score": 32,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "woodsfamilysandwiches.com",
@@ -33789,7 +36669,12 @@
     "https": true
    },
    "badness": 29,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJm1W5pLW4yIARMIPD1dNTJ0w",
@@ -33833,7 +36718,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJ6TpkRVnFyIARaUhmkEEl8jg",
@@ -33881,7 +36771,12 @@
     "https": true
    },
    "badness": 2,
-   "lead_score": 2
+   "lead_score": 2,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJi6oe8vfryIARwCp_gnOA1F0",
@@ -33933,7 +36828,12 @@
     "https": false
    },
    "badness": 36,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJw7_6lt3CyIARhgQmHOr8TC4",
@@ -33981,6 +36881,11 @@
    },
    "badness": 54,
    "lead_score": 39,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "laflor.com",
@@ -34052,6 +36957,11 @@
    },
    "badness": 100,
    "lead_score": 78,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   },
    "domains": [
     {
      "domain": "romotacos.com",
@@ -34137,7 +37047,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJRf-nylDGyIARHWuhpQnqDl0",
@@ -34180,7 +37095,12 @@
     "https": false
    },
    "badness": 31,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJv_WQA6HDyIARKB_rzFIb_dw",
@@ -34225,6 +37145,11 @@
    },
    "badness": 47,
    "lead_score": 34,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "redwoodsteakhouse.com",
@@ -34297,6 +37222,11 @@
    },
    "badness": 70,
    "lead_score": 50,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "bigdanxiantaste.com",
@@ -34380,7 +37310,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJRSnN1YPDyIARX4hWx8V_IqE",
@@ -34417,6 +37352,11 @@
    },
    "badness": 100,
    "lead_score": 75,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "tacosyhotdogssonora.com",
@@ -34499,7 +37439,12 @@
     "https": true
    },
    "badness": 13,
-   "lead_score": 10
+   "lead_score": 10,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJdydfG5rPyIAR8MBdaV8rowM",
@@ -34548,7 +37493,12 @@
     "https": false
    },
    "badness": 39,
-   "lead_score": 30
+   "lead_score": 30,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ08a0tvrtyIARaYGAkM_9UG4",
@@ -34591,7 +37541,12 @@
     "https": true
    },
    "badness": 12,
-   "lead_score": 9
+   "lead_score": 9,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJh9I6-IbByIAR1jhxNYMoH1A",
@@ -34638,7 +37593,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJvzMQEgDHyIARLqe5VD3v_cQ",
@@ -34692,7 +37652,12 @@
     "https": true
    },
    "badness": 29,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJMRfzNTQryYARBu1d1SjOxdI",
@@ -34740,7 +37705,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJX4cDtIjDyIAR5Oiin2U2sTk",
@@ -34781,7 +37751,12 @@
     "https": false
    },
    "badness": 24,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJB361r7XXyIARnWWAyIQSg_0",
@@ -34824,7 +37799,12 @@
     "https": true
    },
    "badness": 4,
-   "lead_score": 3
+   "lead_score": 3,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJqaIftBrQyIARIkXPCHIHRl0",
@@ -34868,7 +37848,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "large",
+   "suggested": {
+    "setup": 1800,
+    "monthly": 199
+   }
   },
   {
    "id": "ChIJx1PMjkHDyIARMCV2FJ110yE",
@@ -34912,7 +37897,12 @@
     "https": true
    },
    "badness": 3,
-   "lead_score": 2
+   "lead_score": 2,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJb-iO0a7RyIARaJOmZV35khA",
@@ -34961,7 +37951,12 @@
     "https": true
    },
    "badness": 28,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJecKf56zHyIARAyOEJMEtVAE",
@@ -35013,7 +38008,12 @@
     "https": true
    },
    "badness": 22,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ-7Px5Qi_yIARCP3i6xjAs58",
@@ -35067,7 +38067,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ08r5lPHQyIARvWvd19YIFZo",
@@ -35121,6 +38126,11 @@
    },
    "badness": 43,
    "lead_score": 31,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "greatharvestbread.com",
@@ -35201,7 +38211,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJFcHnRJG_yIARiHylHd5dHfM",
@@ -35245,7 +38260,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJyRn6QwbOyIARmY7HZWakVZc",
@@ -35298,7 +38318,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJw_jRuQWTyIARDjEzvqTb-TM",
@@ -35344,7 +38369,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJa19mOysryYARIlkTPash7DA",
@@ -35385,7 +38415,12 @@
     "https": true
    },
    "badness": 7,
-   "lead_score": 5
+   "lead_score": 5,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJfyNCINXRyIARA2E4RqesT68",
@@ -35428,7 +38463,12 @@
     "https": false
    },
    "badness": 38,
-   "lead_score": 27
+   "lead_score": 27,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJh5Y4jr3HyIARbkw9-qCvbNY",
@@ -35475,6 +38515,11 @@
    },
    "badness": 40,
    "lead_score": 30,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "taru.com",
@@ -35554,7 +38599,12 @@
     "https": false
    },
    "badness": 29,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJiZQTc_--yIARicNhv0X27f8",
@@ -35609,7 +38659,12 @@
     "https": true
    },
    "badness": 31,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJY1HtOxHRyIARMcrUNRxFFac",
@@ -35655,7 +38710,12 @@
     "https": true
    },
    "badness": 2,
-   "lead_score": 1
+   "lead_score": 1,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJa5CYu7PHyIARlaCuANjRVME",
@@ -35703,6 +38763,11 @@
    },
    "badness": 42,
    "lead_score": 30,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "doublezeropiepub.com",
@@ -35780,7 +38845,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJQ6tvrjnRyIARoD42cvSy6gs",
@@ -35827,7 +38897,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJZVAkI9nPyIARmiramr2Ya-Y",
@@ -35877,7 +38952,12 @@
     "https": true
    },
    "badness": 4,
-   "lead_score": 3
+   "lead_score": 3,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJNVqgawDFyIARXFUVr1-hFSM",
@@ -35922,7 +39002,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJcXebZaq5yIAR-yFOXbzk0r8",
@@ -35974,7 +39059,12 @@
     "https": true
    },
    "badness": 39,
-   "lead_score": 30
+   "lead_score": 30,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ6wwwtyTPyIARvhKyd0xDew8",
@@ -36019,7 +39109,12 @@
     "https": false
    },
    "badness": 29,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ-Yts1LfHyIARDPcvDy1vgoM",
@@ -36063,6 +39158,11 @@
    },
    "badness": 85,
    "lead_score": 65,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "panino.com",
@@ -36148,7 +39248,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJWWyAjzjHyIAR4rRsIl2I4l8",
@@ -36191,7 +39296,12 @@
     "https": false
    },
    "badness": 31,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJI4xz6mLXyIARyTEucIb-6Bo",
@@ -36235,7 +39345,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJK5Ejjni_yIARBFtM_nqqKCs",
@@ -36277,6 +39392,11 @@
    },
    "badness": 70,
    "lead_score": 50,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "babybirdscafe.com",
@@ -36358,7 +39478,12 @@
     "https": false
    },
    "badness": 26,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJUxhp3J3HyIAR2aNtSQNO7qk",
@@ -36408,7 +39533,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJvcEM8IbByIARGVt0hqzMRIc",
@@ -36455,6 +39585,11 @@
    },
    "badness": 43,
    "lead_score": 32,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "doanburilasvegas.com",
@@ -36536,7 +39671,12 @@
     "https": true
    },
    "badness": 6,
-   "lead_score": 4
+   "lead_score": 4,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJhQGSqknHyIARG3IRHchlBx0",
@@ -36580,7 +39720,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 10
+   "lead_score": 10,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJiwD3ULfHyIAR5eHJ_uISxLg",
@@ -36623,7 +39768,12 @@
     "https": true
    },
    "badness": 14,
-   "lead_score": 10
+   "lead_score": 10,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ5-fH0v7EyIARnz7k1ChVvto",
@@ -36667,7 +39817,12 @@
     "https": true
    },
    "badness": 27,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJMY-qQazHyIARFi3AyiexOyQ",
@@ -36710,7 +39865,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJrW_IY2nHyIARlLkKWFW74KU",
@@ -36748,6 +39908,11 @@
    },
    "badness": 95,
    "lead_score": 67,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "ramenshow2.com",
@@ -36827,7 +39992,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJb6399L-_yIARYqGlsGP5PS4",
@@ -36875,7 +40045,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJW7Nmf5rRyIARHI8EdM6bdKI",
@@ -36919,7 +40094,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJNQs7R4m_yIARfMgZMML2PKg",
@@ -36964,7 +40144,12 @@
     "https": false
    },
    "badness": 20,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJP4SQkzTdyIARJtO_iWoXXmY",
@@ -36999,6 +40184,11 @@
    },
    "badness": 90,
    "lead_score": 65,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "siamgarden.com",
@@ -37079,7 +40269,12 @@
     "https": true
    },
    "badness": 22,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ_QvJO_vDyIARLFzpFj-HCVg",
@@ -37130,7 +40325,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 10
+   "lead_score": 10,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJS124dwDDyIAR-K4sKQ-ResA",
@@ -37177,7 +40377,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJp-7h3sbHyIAR230G0yV7YGs",
@@ -37219,7 +40424,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJndxMPgDFyIARsj0wVYJeXPg",
@@ -37266,7 +40476,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJpfIQOorPyIAR5sL-aLfQUkI",
@@ -37313,7 +40528,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJMUMfqwfOyIARDp_DjyP7TLw",
@@ -37362,7 +40582,12 @@
     "https": true
    },
    "badness": 4,
-   "lead_score": 3
+   "lead_score": 3,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJKS2QR8fPyIARbA4klAZy21M",
@@ -37403,7 +40628,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJgyL4wdK5yIARTWZiHSsMzJU",
@@ -37450,6 +40680,11 @@
    },
    "badness": 43,
    "lead_score": 31,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "charleyscheesesteaks.com",
@@ -37530,7 +40765,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJNVNLMBHRyIAR-8xQqR4RVDg",
@@ -37582,7 +40822,12 @@
     "https": true
    },
    "badness": 9,
-   "lead_score": 6
+   "lead_score": 6,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJd7X-dwDHyIAR7k4IOnoWXa0",
@@ -37630,7 +40875,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ49vvrl7ryIARGV2QG5Wc9_k",
@@ -37683,7 +40933,12 @@
     "https": true
    },
    "badness": 4,
-   "lead_score": 3
+   "lead_score": 3,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJISQnUcXHyIARVjBBnpdcx0o",
@@ -37728,7 +40983,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJU0-ZYZLByIARUHXiaevydDo",
@@ -37769,7 +41029,12 @@
     "https": true
    },
    "badness": 13,
-   "lead_score": 9
+   "lead_score": 9,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJE85Pc-i5yIARD-6T-CoM7-o",
@@ -37818,7 +41083,12 @@
     "https": true
    },
    "badness": 14,
-   "lead_score": 10
+   "lead_score": 10,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJERT5vSTHyIARfGf1BJ874EY",
@@ -37862,7 +41132,12 @@
     "https": true
    },
    "badness": 32,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJLXSANJrcyIAR1YSlNrk3Iz4",
@@ -37897,6 +41172,11 @@
    },
    "badness": 100,
    "lead_score": 68,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "mariscosisla.com",
@@ -37980,7 +41260,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ98O067XryIARQY5qsy9ONZQ",
@@ -38030,7 +41315,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJlw4XSsK5yIARi0yDwSeS70A",
@@ -38073,7 +41363,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 23
+   "lead_score": 23,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJr-C9B7zRyIARGcwMTdBt6v0",
@@ -38122,6 +41417,11 @@
    },
    "badness": 52,
    "lead_score": 36,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "dailyspark.com",
@@ -38203,7 +41503,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJW6KpDPvFyIARIocPQobNjD0",
@@ -38247,7 +41552,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ0z2zHNPHyIAR2OK7MSnMRRE",
@@ -38283,6 +41593,11 @@
    },
    "badness": 100,
    "lead_score": 69,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "itsizakaya.com",
@@ -38356,6 +41671,11 @@
    },
    "badness": 90,
    "lead_score": 62,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "fiestapinolera.com",
@@ -38434,7 +41754,12 @@
     "https": true
    },
    "badness": 9,
-   "lead_score": 6
+   "lead_score": 6,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJq7nhVADDyIARJxyWvRcvlpk",
@@ -38479,7 +41804,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 10
+   "lead_score": 10,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJFwBwfzTDyIAR2H0kVGbt0oA",
@@ -38522,7 +41852,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 10
+   "lead_score": 10,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJK7TOjnLDyIARSUZlrgoFqsg",
@@ -38566,7 +41901,12 @@
     "https": true
    },
    "badness": 22,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJK8cMVjYryYARCCTYoUuaD6M",
@@ -38614,6 +41954,11 @@
    },
    "badness": 42,
    "lead_score": 29,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "bouldercity.com",
@@ -38695,7 +42040,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJX7F91bnHyIARQGJFeWD848o",
@@ -38753,6 +42103,11 @@
    },
    "badness": 41,
    "lead_score": 28,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "mgpatisseriecafe.com",
@@ -38833,7 +42188,12 @@
     "https": true
    },
    "badness": 20,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJkZahUjfDyIARuH_YKv5ajmI",
@@ -38882,7 +42242,12 @@
     "https": true
    },
    "badness": 20,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJW3BXjk3byIARbhJdgNLkt1M",
@@ -38916,6 +42281,11 @@
    },
    "badness": 100,
    "lead_score": 70,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "bodeaushaitian.com",
@@ -39002,7 +42372,12 @@
     "https": true
    },
    "badness": 37,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJa6vERwPQyIARmjuXJLrokKI",
@@ -39037,6 +42412,11 @@
    },
    "badness": 100,
    "lead_score": 66,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "rushhourbargrill.com",
@@ -39129,7 +42509,12 @@
     "https": true
    },
    "badness": 11,
-   "lead_score": 8
+   "lead_score": 8,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJV_mVWgDHyIARMoETDGaFePA",
@@ -39173,7 +42558,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJoeqFKyzHyIARpLxH4VKGfEw",
@@ -39206,6 +42596,11 @@
    },
    "badness": 100,
    "lead_score": 71,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "matchacafe.com",
@@ -39286,6 +42681,11 @@
    },
    "badness": 55,
    "lead_score": 36,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "laokitchen.com",
@@ -39361,7 +42761,12 @@
     "https": false
    },
    "badness": 39,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJz5EYBVzOyIARknYkWsUIyLw",
@@ -39405,7 +42810,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJQdPoHADFyIARUINAz5EG674",
@@ -39440,6 +42850,11 @@
    },
    "badness": 70,
    "lead_score": 47,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "chinosmexicankitchen.com",
@@ -39522,7 +42937,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJmd9sC-bbyIARgiZCzEK4kbs",
@@ -39556,6 +42976,11 @@
    },
    "badness": 100,
    "lead_score": 66,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "birrieriaelzarape2.com",
@@ -39636,7 +43061,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJzTH-tALHyIARgD1rBqBt4n4",
@@ -39672,6 +43102,11 @@
    },
    "badness": 70,
    "lead_score": 46,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "jinjugomtang.com",
@@ -39757,7 +43192,12 @@
     "https": false
    },
    "badness": 36,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJa9w7X-HDyIARcU8qpx5GDUU",
@@ -39806,6 +43246,11 @@
    },
    "badness": 40,
    "lead_score": 28,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "pachipachi.com",
@@ -39888,7 +43333,12 @@
     "https": false
    },
    "badness": 38,
-   "lead_score": 26
+   "lead_score": 26,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJT7U3Uj_PyIAR_FlVrp64pL8",
@@ -39932,7 +43382,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJKQyVkS4ryYARVeoHoFwDxDQ",
@@ -39968,6 +43423,11 @@
    },
    "badness": 70,
    "lead_score": 50,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "bcdamtacos.com",
@@ -40048,7 +43508,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJO6rx3gTByIARpMj_DWvr60M",
@@ -40089,7 +43554,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJXfByTpDPyIARoUmX4X0QjyA",
@@ -40130,6 +43600,11 @@
    },
    "badness": 95,
    "lead_score": 68,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "frenchkitchen.com",
@@ -40215,7 +43690,12 @@
     "https": false
    },
    "badness": 35,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJUc5VUTu_yIARskITq4x41e8",
@@ -40267,6 +43747,11 @@
    },
    "badness": 41,
    "lead_score": 27,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "finecompany.com",
@@ -40351,6 +43836,11 @@
    },
    "badness": 50,
    "lead_score": 34,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "eltamalucas.com",
@@ -40442,6 +43932,11 @@
    },
    "badness": 43,
    "lead_score": 29,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "greatharvestbread.com",
@@ -40525,7 +44020,12 @@
     "https": false
    },
    "badness": 38,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJGSgNlEfdyIAR29_MUyE5rlU",
@@ -40560,6 +44060,11 @@
    },
    "badness": 70,
    "lead_score": 46,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "milindonayarit.com",
@@ -40642,6 +44147,11 @@
    },
    "badness": 52,
    "lead_score": 34,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "tacoslosbarrioslasvegas.com",
@@ -40726,7 +44236,12 @@
     "https": true
    },
    "badness": 30,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ3a8iQr7ryIARCOS3yhqOE4Y",
@@ -40770,6 +44285,11 @@
    },
    "badness": 52,
    "lead_score": 34,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "tacoslosbarrioslasvegas.com",
@@ -40851,6 +44371,11 @@
    },
    "badness": 49,
    "lead_score": 34,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "sweetmong.com",
@@ -40930,7 +44455,12 @@
     "https": true
    },
    "badness": 2,
-   "lead_score": 1
+   "lead_score": 1,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJlZ4UF7TnyIARtgMw5LgPWMU",
@@ -40977,7 +44507,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 24
+   "lead_score": 24,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJUxCVdRIryYARdhuMSIOmox8",
@@ -41021,7 +44556,12 @@
     "https": false
    },
    "badness": 30,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJf9jJaDrRyIARMWugmfu0oqI",
@@ -41075,7 +44615,12 @@
     "https": true
    },
    "badness": 11,
-   "lead_score": 8
+   "lead_score": 8,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJu5JO7sTByIARjJ2mb6LRpdI",
@@ -41119,7 +44664,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ6cacyw65yIARBfYxqP84jM0",
@@ -41172,7 +44722,12 @@
     "https": true
    },
    "badness": 7,
-   "lead_score": 5
+   "lead_score": 5,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJfdXIFMLFyIAR-SAzHtYmzqI",
@@ -41216,7 +44771,12 @@
     "https": true
    },
    "badness": 33,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJGZyYrFDHyIARLyTMu-9xg6k",
@@ -41260,7 +44820,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJjweYdkPDyIARIUzyPnv5-zg",
@@ -41305,7 +44870,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJF_5lfuC_yIARUPUjktsSSK8",
@@ -41347,7 +44917,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJd0ErNHbRyIARgT3aH6vBiS8",
@@ -41393,6 +44968,11 @@
    },
    "badness": 44,
    "lead_score": 29,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "evergreencoffee.com",
@@ -41474,7 +45054,12 @@
     "https": true
    },
    "badness": 6,
-   "lead_score": 4
+   "lead_score": 4,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJMWhiYADDyIAR-Bp2ph06B-A",
@@ -41518,7 +45103,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJdQ7G3tfDyIARqKlV3u5OoOE",
@@ -41566,7 +45156,12 @@
     "https": true
    },
    "badness": 1,
-   "lead_score": 1
+   "lead_score": 1,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJuT1lsBPryIARGhHQm1H9Yzk",
@@ -41623,7 +45218,12 @@
     "https": true
    },
    "badness": 1,
-   "lead_score": 1
+   "lead_score": 1,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJGS46wa_RyIARUarguiQ3p0k",
@@ -41674,7 +45274,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJI-tI5Wy_yIARvPinFRIxPn0",
@@ -41719,7 +45324,12 @@
     "https": false
    },
    "badness": 34,
-   "lead_score": 22
+   "lead_score": 22,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJJehDyzXbyIART3iVJQbD38Q",
@@ -41754,6 +45364,11 @@
    },
    "badness": 70,
    "lead_score": 46,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "susys.com",
@@ -41834,7 +45449,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJMfZoLXG_yIAR2GZWUsqQMBc",
@@ -41877,7 +45497,12 @@
     "https": false
    },
    "badness": 26,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJW7E7nb_HyIARnpRRKrCsh5g",
@@ -41928,7 +45553,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJm76TawDXyIAR_vUmzMfjaYQ",
@@ -41974,7 +45604,12 @@
     "https": false
    },
    "badness": 27,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJa_8Mlny5yIAR4PfWoiiNnr0",
@@ -42019,7 +45654,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJa0aOIgDDyIARvVnjiyWrSGA",
@@ -42060,7 +45700,12 @@
     "https": true
    },
    "badness": 6,
-   "lead_score": 4
+   "lead_score": 4,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJyU9SVobRyIAR44F8M9x8bu0",
@@ -42102,7 +45747,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJmQqgViTHyIARwJKf33wrAUc",
@@ -42142,7 +45792,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJDVMTffjHyIAR6gNcXNkPjDw",
@@ -42187,7 +45842,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ39MuJfLHyIARda9aMOzQCdw",
@@ -42237,7 +45897,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJJ51NXQDPyIARfbnSbuznnt4",
@@ -42281,7 +45946,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ5Vq63bLXyIARmJuj0Iupbt4",
@@ -42329,7 +45999,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJ1VBZWGfPyIARKvYG6ZzyEX8",
@@ -42372,7 +46047,12 @@
     "https": true
    },
    "badness": 12,
-   "lead_score": 8
+   "lead_score": 8,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJe98vR2THyIARijrOXAxPhJQ",
@@ -42415,7 +46095,12 @@
     "https": true
    },
    "badness": 20,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJl5uiSwAryYARXWl_RcRpAN8",
@@ -42459,7 +46144,12 @@
     "https": true
    },
    "badness": 20,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJGU4KwBfHyIARweK24J6K7zQ",
@@ -42505,7 +46195,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJxQEiW-_nyIARolKezg7HA9E",
@@ -42545,7 +46240,12 @@
     "https": true
    },
    "badness": 12,
-   "lead_score": 8
+   "lead_score": 8,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJDa4ss_3dyIARhlswUMuDqpA",
@@ -42579,6 +46279,11 @@
    },
    "badness": 100,
    "lead_score": 63,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "birrieriaelzarape1.com",
@@ -42657,7 +46362,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJjVW2jibXyIARALtPE5R8jEI",
@@ -42700,7 +46410,12 @@
     "https": true
    },
    "badness": 19,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJe3qIAlzbyIARhj8iuc6PKcc",
@@ -42740,6 +46455,11 @@
    },
    "badness": 70,
    "lead_score": 45,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "planetproteinsnackbar.com",
@@ -42822,7 +46542,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 10
+   "lead_score": 10,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJVVWF9ADXyIARk0Sx7WYJsgI",
@@ -42867,7 +46592,12 @@
     "https": false
    },
    "badness": 29,
-   "lead_score": 19
+   "lead_score": 19,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJD9CdHpPXyIARsy3p0VwDQB4",
@@ -42911,6 +46641,11 @@
    },
    "badness": 41,
    "lead_score": 26,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "lecafedulac.com",
@@ -42989,7 +46724,12 @@
     "https": false
    },
    "badness": 39,
-   "lead_score": 25
+   "lead_score": 25,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJZX4RQGTryIARLhBiM8JsJCs",
@@ -43033,7 +46773,12 @@
     "https": true
    },
    "badness": 22,
-   "lead_score": 14
+   "lead_score": 14,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJHd3uMwDFyIARupNmJP9nF4A",
@@ -43081,7 +46826,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJafQzk_XRyIARCeGLdRGDHJM",
@@ -43125,7 +46875,12 @@
     "https": true
    },
    "badness": 14,
-   "lead_score": 9
+   "lead_score": 9,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJxWr2GDHryIARyv5rgMzEzg0",
@@ -43169,7 +46924,12 @@
     "https": true
    },
    "badness": 13,
-   "lead_score": 9
+   "lead_score": 9,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJif2XPDcryYARy-KptXq2G-8",
@@ -43211,7 +46971,12 @@
     "https": true
    },
    "badness": 23,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJP9qH_j_byIARWIRKCKaOJnk",
@@ -43252,7 +47017,12 @@
     "https": true
    },
    "badness": 24,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJNQRjOdUqyYARx-pBC0Vq0KQ",
@@ -43294,7 +47064,12 @@
     "https": true
    },
    "badness": 2,
-   "lead_score": 1
+   "lead_score": 1,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJfU8aGwrRyIAR7ug6OUsiV60",
@@ -43334,7 +47109,12 @@
     "https": true
    },
    "badness": 9,
-   "lead_score": 6
+   "lead_score": 6,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJT7nTnkjpyIARRgyC6mndA1w",
@@ -43370,6 +47150,11 @@
    },
    "badness": 100,
    "lead_score": 61,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   },
    "domains": [
     {
      "domain": "hummusclub.com",
@@ -43450,7 +47235,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJLZPibXXVyIARrse8lV3bukM",
@@ -43492,7 +47282,12 @@
     "https": true
    },
    "badness": 17,
-   "lead_score": 10
+   "lead_score": 10,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ6xbvoFHCyIARKljvxmLAYNQ",
@@ -43537,7 +47332,12 @@
     "https": true
    },
    "badness": 13,
-   "lead_score": 8
+   "lead_score": 8,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJsdtOJgDRyIARdX5-wU4ou90",
@@ -43586,7 +47386,12 @@
     "https": false
    },
    "badness": 32,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJO7jDcVPHyIARpv5a1CyAD9M",
@@ -43629,7 +47434,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJScGU117PyIAR3_rKHMB-BtY",
@@ -43675,7 +47485,12 @@
     "https": true
    },
    "badness": 32,
-   "lead_score": 20
+   "lead_score": 20,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJUZulCQHAyIAR81uWsOtUhtI",
@@ -43720,7 +47535,12 @@
     "https": true
    },
    "badness": 9,
-   "lead_score": 6
+   "lead_score": 6,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJVY34JAC_yIARqHzAUrvjeUc",
@@ -43765,7 +47585,12 @@
     "https": true
    },
    "badness": 21,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ1XXChpnryIARN_kL8mTTGKk",
@@ -43814,7 +47639,12 @@
     "https": false
    },
    "badness": 33,
-   "lead_score": 21
+   "lead_score": 21,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ5fRZYpTpyIARt4hTwOhDOUA",
@@ -43857,7 +47687,12 @@
     "https": false
    },
    "badness": 29,
-   "lead_score": 18
+   "lead_score": 18,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJ9aYJmd65yIARZ9bIzWeHfOU",
@@ -43905,7 +47740,12 @@
     "https": true
    },
    "badness": 18,
-   "lead_score": 11
+   "lead_score": 11,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJjSfOxADHyIARskR4ps9vtZc",
@@ -43948,7 +47788,12 @@
     "https": true
    },
    "badness": 27,
-   "lead_score": 17
+   "lead_score": 17,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJdRGlQgLDyIAR7nAQu7WjN_E",
@@ -43991,7 +47836,12 @@
     "https": true
    },
    "badness": 25,
-   "lead_score": 15
+   "lead_score": 15,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJB9hvegDDyIARvzeyqP69cr4",
@@ -44037,7 +47887,12 @@
     "https": true
    },
    "badness": 20,
-   "lead_score": 12
+   "lead_score": 12,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJy2xY-eS_yIARe99ajxvyeqE",
@@ -44072,6 +47927,11 @@
    },
    "badness": 70,
    "lead_score": 44,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "nogakeskitchen.com",
@@ -44155,7 +48015,12 @@
     "https": true
    },
    "badness": 22,
-   "lead_score": 13
+   "lead_score": 13,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJZUjGa4HHyIARI01H6FMFNWk",
@@ -44198,6 +48063,11 @@
    },
    "badness": 58,
    "lead_score": 35,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "javatree.com",
@@ -44280,7 +48150,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 10
+   "lead_score": 10,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJwSopE9nDyIARU03r9sthqgA",
@@ -44323,7 +48198,12 @@
     "https": true
    },
    "badness": 15,
-   "lead_score": 9
+   "lead_score": 9,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJidcXofTFyIAR-bCuDQLqh_c",
@@ -44369,7 +48249,12 @@
     "https": true
    },
    "badness": 26,
-   "lead_score": 16
+   "lead_score": 16,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   },
   {
    "id": "ChIJNxbIrkHHyIARrkGvsdlAzIQ",
@@ -44413,7 +48298,12 @@
     "https": true
    },
    "badness": 16,
-   "lead_score": 10
+   "lead_score": 10,
+   "size": "medium",
+   "suggested": {
+    "setup": 1000,
+    "monthly": 129
+   }
   },
   {
    "id": "ChIJx8gtPkvHyIARKrQXp_Bf0XE",
@@ -44447,6 +48337,11 @@
    },
    "badness": 100,
    "lead_score": 65,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   },
    "domains": [
     {
      "domain": "kananiscafe.com",
@@ -44535,7 +48430,12 @@
     "https": true
    },
    "badness": 1,
-   "lead_score": 1
+   "lead_score": 1,
+   "size": "small",
+   "suggested": {
+    "setup": 500,
+    "monthly": 79
+   }
   }
  ]
 }
