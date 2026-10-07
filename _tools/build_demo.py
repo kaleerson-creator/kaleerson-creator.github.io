@@ -669,7 +669,7 @@ def main():
               'any': {'none', 'social', 'broken', 'ordering-only', 'free-builder', 'site', 'unchecked'}}[args.only]
         # skip "no website" listings that probably have one (their name .com is registered)
         # only leads checked by hand as having no site or a weak one
-        leads = [l for l in load_leads(args.area) if l['site']['status'] in ok and not l['site'].get('maybe')
+        leads = [l for l in load_leads(args.area) if l['site']['status'] in ok
                  and l.get('checked', {}).get('verdict') in ('no_site', 'social_only', 'ordering_page_only', 'weak_site')][:args.top]
         for lead in leads:
             d = place_details(lead['id'])

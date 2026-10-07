@@ -1976,5 +1976,2136 @@
   "first_verdict": "no_site",
   "name": "Fortuna Ristorante Italiano",
   "checked_on": "2026-10-07"
+ },
+ "ChIJLxeTYauUyIARV4Pdux78N1M": {
+  "id": "ChIJLxeTYauUyIARV4Pdux78N1M",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [],
+  "evidence": [
+   "https://wafflescafe.vegas/",
+   "http://wafflescafe.us",
+   "http://wafflescafe.com"
+  ],
+  "missing": [],
+  "notes": "Ask first: wafflescafe.vegas exists for the Aliante store only; this Durango store may be a different owner. I found no site for the Durango location: wafflescafe.vegas lists only the Aliante store (6885 N Aliante Pkwy, 702-655-7878, its own Facebook page), wafflescafe.us is an old 2016 Weebly/Square setup that no longer serves a site (error 1001 and no SSL), wafflescafe.com is held by a domain investor and times out, and about 17 other variants do not exist. WebSearch's budget was used up, so these checks were direct domain fetches, DNS and RDAP lookups, with no search engine. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "Waffles Cafe",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJrYDkTdUqyYAR6qTetNWoXmc": {
+  "id": "ChIJrYDkTdUqyYAR6qTetNWoXmc",
+  "verdict": "weak_site",
+  "official_url": "https://www.vinnyspizzeriabc.com/",
+  "uses": [
+   "Squarespace"
+  ],
+  "missing": [
+   "menu",
+   "hours",
+   "working links"
+  ],
+  "notes": "Vinny's own domain vinnyspizzeriabc.com (registered 2025, matches their Facebook handle) now shows a Squarespace 'Website Expired' page, and the older vinnysbcpizzeria.com redirects to spam, so the only working presence is Facebook.",
+  "evidence": [
+   "https://www.vinnyspizzeriabc.com/",
+   "http://vinnysbcpizzeria.com/",
+   "https://www.yelp.com/biz/vinnys-pizzeria-boulder-city-2"
+  ],
+  "name": "Vinny's Pizzeria",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJX49uUEjHyIARwlixHXRmgYw": {
+  "id": "ChIJX49uUEjHyIARwlixHXRmgYw",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [],
+  "evidence": [
+   "https://themagicnoodle.com/",
+   "https://www.themagicnoodlelv.com/lander",
+   "https://www.magicnoodlelv.com/lander"
+  ],
+  "missing": [],
+  "notes": "themagicnoodle.com says 'This is not the official website' and lists only Fort Apache; magicnoodlelv.com, themagicnoodlelv.com and magicnoodlelasvegas.com (registered at GoDaddy in 2022 and renewed in 2026, likely the owner's) all show the GoDaddy parking lander; themagicnoodle.net sits behind a Cloudflare challenge and follows the same Namecheap/Cloudflare pattern as the community site; magicnoodle.com is an unconfigured WP Engine domain. WebSearch's budget was used up, so I checked domains directly. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "The Magic Noodle",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJnaA7R73byIARuzUOnKkKypk": {
+  "id": "ChIJnaA7R73byIARuzUOnKkKypk",
+  "verdict": "weak_site",
+  "official_url": "https://www.gorditasbetancourt.com/",
+  "uses": [],
+  "missing": [
+   "working links",
+   "menu",
+   "hours"
+  ],
+  "notes": "Search engines indexed gorditasbetancourt.com as the restaurant's own site (4130 S Sandhill Rd, family story, hours), but the domain (registered May 2026) currently fails DNS resolution and does not load at all.",
+  "evidence": [
+   "https://www.gorditasbetancourt.com/",
+   "https://www.facebook.com/p/Gorditas-Betancourt-100067179355340/",
+   "https://lasvegasweekly.com/dining/2023/nov/16/gorditas-betancourt-offers-authentic-taste-of-home/"
+  ],
+  "name": "Gorditas Betancourt",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJVzBecMHHyIAR4pKT5GCQOjY": {
+  "id": "ChIJVzBecMHHyIAR4pKT5GCQOjY",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [],
+  "evidence": [
+   "http://coanhkitchen.com",
+   "https://rdap.verisign.com/com/v1/domain/coanhkitchen.com",
+   "http://coanh.com"
+  ],
+  "missing": [],
+  "notes": "coanhkitchen.com was re-registered in January 2026 and is now an Above.com 'domain may be for sale' parking page; coanh.com is a 2017 Bluehost domain that does not load and cannot be tied to the restaurant; about 20 other variants (.net, .us, .co, lv/vegas suffixes, 'the' prefix, .kitchen) do not exist. WebSearch's budget was used up, so I checked domains directly. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "Cô Anh",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJsXl1wjfHyIARt1lNpVtfMx0": {
+  "id": "ChIJsXl1wjfHyIARt1lNpVtfMx0",
+  "verdict": "weak_site",
+  "official_url": "https://www.bigdanxiantaste.com/",
+  "uses": [],
+  "missing": [
+   "ordering",
+   "photos"
+  ],
+  "notes": "bigdanxiantaste.com is a templated white-label ordering site on their own domain with address, phone, hours and a priced menu, but online ordering shows 'temporarily not available' and the site uses generic stock images.",
+  "evidence": [
+   "https://www.bigdanxiantaste.com/",
+   "https://www.bigdanxiantaste.com/s7mps6jl/big-dan-xian-taste-las-vegas-89103/order-online",
+   "https://www.beyondmenu.com/53164/las-vegas/big-dan-shanxi-taste-las-vegas-89103.aspx"
+  ],
+  "name": "Big Dan XI-AN Taste",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJK5Ejjni_yIARBFtM_nqqKCs": {
+  "id": "ChIJK5Ejjni_yIARBFtM_nqqKCs",
+  "verdict": "weak_site",
+  "official_url": "https://babybirdscafelv.com/",
+  "uses": [],
+  "missing": [
+   "menu",
+   "ordering"
+  ],
+  "notes": "babybirdscafelv.com (built Jul 2026 by an outside designer) matches the address, phone and hours, but it is a one-page 'full website coming soon' preview with no menu and some photos hotlinked from Yelp (babybirdscafe.com is an unrelated domain listed for sale).",
+  "evidence": [
+   "https://babybirdscafelv.com/",
+   "https://babybirdscafelv.com/contact",
+   "https://babybirdscafe.com/"
+  ],
+  "name": "Baby Birds Cafe",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJKQyVkS4ryYARVeoHoFwDxDQ": {
+  "id": "ChIJKQyVkS4ryYARVeoHoFwDxDQ",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [
+   "DoorDash"
+  ],
+  "evidence": [
+   "http://bcdamtacos.com",
+   "https://rdap.verisign.com/com/v1/domain/bcdamtacos.com"
+  ],
+  "missing": [],
+  "notes": "bcdamtacos.com (registered February 2025 at Network Solutions with default domain.com nameservers) serves only a parked ad-feed page, and every other variant I tried (.net/.org/.co/.us, damtacos, bouldercitydamtacos, square.site) does not exist, so Facebook stays the only official presence. WebSearch's budget was used up, so I checked domains directly. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "BC Dam Tacos",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ1-0jchTRyIARlrIsB6G9kOA": {
+  "id": "ChIJ1-0jchTRyIARlrIsB6G9kOA",
+  "verdict": "weak_site",
+  "official_url": "http://elysrestaurantlv.com/",
+  "uses": [],
+  "missing": [
+   "mobile layout",
+   "ordering"
+  ],
+  "notes": "elysrestaurantlv.com is Ely's multi-location site and lists 2855 N Green Valley Pkwy with 725.205.9794, but it is a dated Serif WebPlus page fixed at 800px wide, its menus and hours are images, it shows a placeholder 000.000.0000 phone and it has no online ordering.",
+  "evidence": [
+   "http://elysrestaurantlv.com/",
+   "http://elysrestaurantlv.com/contactus.html",
+   "http://elysrestaurantlv.com/greenvalleymenug.html"
+  ],
+  "name": "Elys Breakfast restaurant & Burgers",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJQdPoHADFyIARUINAz5EG674": {
+  "id": "ChIJQdPoHADFyIARUINAz5EG674",
+  "verdict": "weak_site",
+  "official_url": "https://chinosmexicankitchen.com/",
+  "uses": [
+   "GoDaddy"
+  ],
+  "missing": [
+   "menu",
+   "hours",
+   "ordering"
+  ],
+  "notes": "chinosmexicankitchen.com is a bare GoDaddy Airo page naming its Lone Mountain and Pecos locations, but it has no real menu, hours, addresses, phone or working order link, and the domain's registration expires around Oct 6, 2026.",
+  "evidence": [
+   "https://chinosmexicankitchen.com/",
+   "https://atmosfy.io/listing/111130/nevada/las-vegas/chino-s-mexican-kitchen"
+  ],
+  "name": "Chino’s Mexican Kitchen",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ4XOWTTXFyIARgCGviHKNSTE": {
+  "id": "ChIJ4XOWTTXFyIARgCGviHKNSTE",
+  "verdict": "good_site",
+  "official_url": "https://backtothe80scafe.com/",
+  "uses": [
+   "WordPress",
+   "Toast"
+  ],
+  "notes": "Back to the 80s Cafe has its own maintained WordPress site with address, phone, hours, a September 2026 menu PDF and Toast online ordering.",
+  "evidence": [
+   "https://backtothe80scafe.com/"
+  ],
+  "name": "Back to the 80s Cafe & More Las Vegas",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJzTH-tALHyIARgD1rBqBt4n4": {
+  "id": "ChIJzTH-tALHyIARgD1rBqBt4n4",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [
+   "DoorDash"
+  ],
+  "evidence": [
+   "https://jinjugomtang.com/",
+   "https://rdap.verisign.com/com/v1/domain/jinjugomtang.com"
+  ],
+  "missing": [],
+  "notes": "jinjugomtang.com (registered through Squarespace on 2026-08-07, with Google Workspace email set up) shows only the default Squarespace 'We're under construction' page with no restaurant details, so there is no usable site yet, though the owner may be building one; all other variants do not exist. WebSearch's budget was used up, so I checked domains directly. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "JINJU GOMTANG",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJJehDyzXbyIART3iVJQbD38Q": {
+  "id": "ChIJJehDyzXbyIART3iVJQbD38Q",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [
+   "DoorDash"
+  ],
+  "evidence": [
+   "https://rdap.verisign.com/com/v1/domain/susysrestaurant.com"
+  ],
+  "missing": [],
+  "notes": "susysrestaurant.com is a 2006 registration parked on Afternic nameservers (for sale), and about 25 other variants (lv/vegas suffixes, .net/.us/.co/.org, susyrestaurant, pupuseria and mexican variants, square.site) do not exist, so the Facebook page stays the only official presence. WebSearch's budget was used up, so I checked domains directly. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "Susy's Restaurant",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJGSgNlEfdyIAR29_MUyE5rlU": {
+  "id": "ChIJGSgNlEfdyIAR29_MUyE5rlU",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [
+   "DoorDash"
+  ],
+  "evidence": [
+   "http://milindonayarit.com",
+   "https://rdap.verisign.com/com/v1/domain/milindonayarit.com",
+   "https://rdap.verisign.com/com/v1/domain/milindonayaritrestaurant.com"
+  ],
+  "missing": [],
+  "notes": "milindonayarit.com (registered 2010 at GoDaddy) returns a bare 403 from an empty cPanel host with a self-signed certificate and nothing tying it to the N Nellis location; milindonayaritrestaurant.com (2013) and mariscosmilindonayarit.com (2026) do not resolve; every other variant does not exist. The first checker also saw an order.online storefront, which could support ordering_page_only. WebSearch's budget was used up, so I checked domains directly. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "Mi Lindo Nayarit",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJh-NebXXDyIARFt5YRbVdRf4": {
+  "id": "ChIJh-NebXXDyIARFt5YRbVdRf4",
+  "verdict": "good_site",
+  "official_url": "https://www.evelpie.com/",
+  "uses": [
+   "BentoBox",
+   "Toast",
+   "Resy",
+   "DoorDash"
+  ],
+  "notes": "Evel Pie has a maintained BentoBox site with menu, a location page with hours and address, online ordering through order.online, Toast gift cards and catering.",
+  "evidence": [
+   "https://www.evelpie.com/",
+   "https://www.evelpie.com/location/evel-pie/"
+  ],
+  "name": "Evel Pie",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJDx5IqxG_yIARADJky9w_0N8": {
+  "id": "ChIJDx5IqxG_yIARADJky9w_0N8",
+  "verdict": "good_site",
+  "official_url": "https://alsolito.com/",
+  "uses": [
+   "WordPress",
+   "OpenTable",
+   "Toast"
+  ],
+  "notes": "Al Solito Posto has a current WordPress site with menu, hours, its Tivoli Village address, OpenTable reservations, to-go ordering and gift cards.",
+  "evidence": [
+   "https://alsolito.com/"
+  ],
+  "name": "Al Solito Posto",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJB8hWVlfbyIAROMTy3GqUyVE": {
+  "id": "ChIJB8hWVlfbyIAROMTy3GqUyVE",
+  "verdict": "weak_site",
+  "official_url": "http://elbirotazolasvegas.com/",
+  "uses": [
+   "Toast"
+  ],
+  "missing": [
+   "mobile layout"
+  ],
+  "notes": "elbirotazolasvegas.com has the address, phone, daily 9am-7pm hours, an image menu and a Toast ordering link, but it is an outdated Serif WebPlus site fixed at 800px wide with almost all text in images.",
+  "evidence": [
+   "http://elbirotazolasvegas.com/",
+   "http://elbirotazolasvegas.com/elbirotazomenu.html"
+  ],
+  "name": "El Birotazo",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJEeLvEYLHyIARf2C43bJHt6A": {
+  "id": "ChIJEeLvEYLHyIARf2C43bJHt6A",
+  "verdict": "good_site",
+  "official_url": "https://partage.vegas/",
+  "uses": [
+   "OpenTable",
+   "Tripleseat"
+  ],
+  "notes": "Partage has a maintained site with tasting menus, hours, address, OpenTable booking, private dining through Tripleseat and its 2026 MICHELIN mention.",
+  "evidence": [
+   "https://partage.vegas/"
+  ],
+  "name": "Partage",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJe3qIAlzbyIARhj8iuc6PKcc": {
+  "id": "ChIJe3qIAlzbyIARhj8iuc6PKcc",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [],
+  "evidence": [
+   "http://planetproteinlv.com",
+   "https://www.planetproteinsnackbar.com/",
+   "https://planetprotein.com"
+  ],
+  "missing": [],
+  "notes": "planetproteinlv.com now shows a generic 'This domain is coming soon' placeholder on Sav.com/GiantPanda parking nameservers; planetproteinsnackbar.com (Google Cloud DNS, likely the owner's old Google Business Profile site, which Google shut down) returns Google 404 on every path; planetprotein.com and planetprotein.net are GoDaddy parking; other variants do not exist. WebSearch's budget was used up, so I checked domains directly. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "Planet Protein Snack Bar",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJkwvTeADbyIARsktfSfh_fpQ": {
+  "id": "ChIJkwvTeADbyIARsktfSfh_fpQ",
+  "verdict": "weak_site",
+  "official_url": "http://elysrestaurantlv.com/",
+  "uses": [],
+  "missing": [
+   "mobile layout",
+   "ordering"
+  ],
+  "notes": "elysrestaurantlv.com is Ely's multi-location site and lists 309 N Nellis Blvd #120 with 725.205.0182, but it is a dated fixed-width (800px) Serif WebPlus page with menus and hours in images and no online ordering.",
+  "evidence": [
+   "http://elysrestaurantlv.com/",
+   "http://elysrestaurantlv.com/contactus.html",
+   "http://elysrestaurantlv.com/nellismenu.html"
+  ],
+  "name": "Ely's Restaurant",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJy2xY-eS_yIARe99ajxvyeqE": {
+  "id": "ChIJy2xY-eS_yIARe99ajxvyeqE",
+  "verdict": "weak_site",
+  "official_url": "https://www.nogakeskitchen.org/",
+  "uses": [
+   "Square",
+   "DoorDash",
+   "Uber Eats"
+  ],
+  "missing": [
+   "photos",
+   "working links"
+  ],
+  "notes": "Nogakes Kitchen's own .org domain is a bare two-page Square Online site with the 9134 W Sahara address, hours and working online ordering with a priced menu, while its older nogakeskitchen.com points to Square but returns a 404.",
+  "evidence": [
+   "https://www.nogakeskitchen.org/",
+   "https://www.nogakeskitchen.org/s/order",
+   "http://nogakeskitchen.com/"
+  ],
+  "name": "Nogakes Kitchen",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJecplLUjCyIARLGD26_NDkjw": {
+  "id": "ChIJecplLUjCyIARLGD26_NDkjw",
+  "verdict": "good_site",
+  "official_url": "https://www.gritzcafe.com/",
+  "uses": [
+   "Wix",
+   "ChowNow",
+   "Square",
+   "DoorDash"
+  ],
+  "notes": "Gritz Cafe has a maintained Wix site with menu PDFs, hours, address, catering and ChowNow online ordering.",
+  "evidence": [
+   "https://www.gritzcafe.com/",
+   "https://www.gritzcafe.com/online-ordering"
+  ],
+  "name": "Gritz Cafe",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJQbc9sfnDyIARx0y3Zj_n9M0": {
+  "id": "ChIJQbc9sfnDyIARx0y3Zj_n9M0",
+  "verdict": "weak_site",
+  "official_url": "http://coffeepubnv.com/",
+  "uses": [
+   "DoorDash"
+  ],
+  "missing": [
+   "working links",
+   "up-to-date content",
+   "HTML menu (PDF only)",
+   "polish (template title and typos)"
+  ],
+  "notes": "Their own site has the right address, phone and hours and links a 2023 PDF menu and an order.online ordering page, but it is an unedited free Colorlib template: the browser title still reads 'Restaurant HTML Template', the nav says 'MEMU', the footer says copyright 2018, and one link (chrome_proxy.exe) returns 404.",
+  "evidence": [
+   "http://coffeepubnv.com/",
+   "http://coffeepubnv.com/CP%20Menu_2023%2009%2023.pdf"
+  ],
+  "name": "Coffee Pub",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJGyKr_qbGyIARaoi6bTTfX1A": {
+  "id": "ChIJGyKr_qbGyIARaoi6bTTfX1A",
+  "verdict": "good_site",
+  "official_url": "https://www.thegoldentiki.com/",
+  "uses": [
+   "BentoBox",
+   "Resy",
+   "Toast"
+  ],
+  "missing": [],
+  "notes": "Full BentoBox site with menus, hours and location (3939 Spring Mountain Rd, (702) 222-3196), Resy reservations, current events, press and Toast gift cards.",
+  "evidence": [
+   "https://www.thegoldentiki.com/"
+  ],
+  "name": "The Golden Tiki",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJk-Lg02LFyIARRp5bKMeMV8A": {
+  "id": "ChIJk-Lg02LFyIARRp5bKMeMV8A",
+  "verdict": "good_site",
+  "official_url": "https://tacoselgordobc.com/",
+  "uses": [
+   "WordPress"
+  ],
+  "missing": [],
+  "notes": "This is the multi-location chain's WordPress site. Its locations page lists 2560 W Sunset Rd, (702) 476-0684 with hours, and it has a full menu page; there is no online ordering on the site.",
+  "evidence": [
+   "https://tacoselgordobc.com/",
+   "https://tacoselgordobc.com/locations/",
+   "https://tacoselgordobc.com/menu/"
+  ],
+  "name": "Tacos El Gordo",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ8xjGYgDpyIARow8S0NAkWRg": {
+  "id": "ChIJ8xjGYgDpyIARow8S0NAkWRg",
+  "verdict": "good_site",
+  "official_url": "https://casaeldesayuno.com/",
+  "uses": [
+   "SkyTab"
+  ],
+  "missing": [],
+  "notes": "Their own site lists all three locations, including 2555 W Craig Rd, (702) 780-4377, open daily 7AM-3PM, with a PDF menu that loads and a working SkyTab online-ordering link for each location; it opened with WebFetch, though curl got a TLS reset through the proxy.",
+  "evidence": [
+   "https://casaeldesayuno.com/",
+   "https://online.skytab.com/8d6284f89b70e3af3eb04de2f28e04e1/order-settings"
+  ],
+  "name": "Casa El Desayuno",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJu5l4IRYryYARDeIpoXxvZEs": {
+  "id": "ChIJu5l4IRYryYARDeIpoXxvZEs",
+  "verdict": "good_site",
+  "official_url": "https://www.damroasthousebc.com/",
+  "uses": [
+   "Square"
+  ],
+  "missing": [],
+  "notes": "Square Online site that, once rendered, shows 554 Nevada Way, (702) 803-7332, daily hours of 6am-5pm, a menu with online ordering, gift cards, and an events calendar with October 2026 dates.",
+  "evidence": [
+   "https://www.damroasthousebc.com/",
+   "https://www.damroasthousebc.com/s/order"
+  ],
+  "name": "Dam Roast House & Browder Bookstore",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJxfp_xrrWyIARF-z1l__KPgs": {
+  "id": "ChIJxfp_xrrWyIARF-z1l__KPgs",
+  "verdict": "good_site",
+  "official_url": "https://www.coocooscafe.com/",
+  "uses": [
+   "Square"
+  ],
+  "missing": [],
+  "notes": "Square Online site with a full online menu and ordering, a Location & Hours page (35 E Basic Rd Ste B, (702) 568-5069) and a daily-specials page that is kept current; the site is simple.",
+  "evidence": [
+   "https://www.coocooscafe.com/",
+   "https://www.coocooscafe.com/home",
+   "https://www.coocooscafe.com/daily-special"
+  ],
+  "name": "Coo Coo's Cafe",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ3Ty-oQjOyIARi3IbACZyF70": {
+  "id": "ChIJ3Ty-oQjOyIARi3IbACZyF70",
+  "verdict": "good_site",
+  "official_url": "https://www.badowlcoffee.com/",
+  "uses": [
+   "Square"
+  ],
+  "missing": [],
+  "notes": "This Square Online site covers all locations, including 10575 S Eastern Ave #160 Henderson, (725) 326-3270, with hours, a downloadable menu and online ordering.",
+  "evidence": [
+   "https://www.badowlcoffee.com/",
+   "https://www.badowlcoffee.com/menu"
+  ],
+  "name": "Bad Owl Coffee",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJB-mRxPnJyIARpN28ELf9WfU": {
+  "id": "ChIJB-mRxPnJyIARpN28ELf9WfU",
+  "verdict": "good_site",
+  "official_url": "https://beachcafelv.com/",
+  "uses": [
+   "Proud Clients"
+  ],
+  "missing": [],
+  "notes": "The site, built on the Proud Clients platform, has a full priced menu, hours, address, phone, online ordering and a reservation form; a few template placeholders remain, such as the 'Chef's Pick 1/2/3' items.",
+  "evidence": [
+   "https://beachcafelv.com/",
+   "https://beachcafelv.com/menu/32ca77331694"
+  ],
+  "name": "Beach Cafe",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJC5cy8xLHyIAR-PfBn71oWq8": {
+  "id": "ChIJC5cy8xLHyIAR-PfBn71oWq8",
+  "verdict": "good_site",
+  "official_url": "https://www.bangkokstreetfoodlv.com/",
+  "uses": [
+   "Wix",
+   "Toast"
+  ],
+  "missing": [],
+  "notes": "Wix site with menu and lunch-special pages, hours, the 4215 Spring Mountain Rd B205 address, (702) 778-7128, and Toast online ordering.",
+  "evidence": [
+   "https://www.bangkokstreetfoodlv.com/"
+  ],
+  "name": "Bangkok Street Food",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ53f4DrnGyIARh7fuITdBPKU": {
+  "id": "ChIJ53f4DrnGyIARh7fuITdBPKU",
+  "verdict": "good_site",
+  "official_url": "https://bonitomichoacan.com/",
+  "uses": [
+   "SpotHopper",
+   "ChowNow"
+  ],
+  "missing": [],
+  "notes": "SpotHopper site with food and drink menus, ChowNow ordering, reservations, catering, address and phone; it shows breakfast and happy-hour times but not general opening hours.",
+  "evidence": [
+   "https://bonitomichoacan.com/",
+   "https://bonitomichoacan.com/food-menu"
+  ],
+  "name": "Bonito Michoacan Mexican Restaurant",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJqUsbqbrGyIARJWjniHcOLPs": {
+  "id": "ChIJqUsbqbrGyIARJWjniHcOLPs",
+  "verdict": "good_site",
+  "official_url": "http://sparrowandwolflv.com/",
+  "uses": [
+   "WordPress",
+   "OpenTable",
+   "Upserve",
+   "Tripleseat"
+  ],
+  "missing": [],
+  "notes": "WordPress site with hours, address, OpenTable reservations and menus updated in September 2026; the homepage still shows a Valentine's 2025 promotion.",
+  "evidence": [
+   "http://sparrowandwolflv.com/",
+   "http://sparrowandwolflv.com/menu/"
+  ],
+  "name": "Sparrow + Wolf",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJK3lLXxvHyIARx_t2aVVoxjc": {
+  "id": "ChIJK3lLXxvHyIARx_t2aVVoxjc",
+  "verdict": "good_site",
+  "official_url": "https://www.merakigreekgrill.com/",
+  "uses": [
+   "Wix",
+   "Toast"
+  ],
+  "missing": [],
+  "notes": "The chain's Wix site lists the Rainbow/Tropicana store (4950 S Rainbow Blvd Ste 160, 702-202-1002) with hours, and has a menu, catering and Toast online ordering.",
+  "evidence": [
+   "https://www.merakigreekgrill.com/",
+   "https://www.merakigreekgrill.com/locations"
+  ],
+  "name": "Meráki Greek Grill",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJP-Ia3be5yIARQEEEHSWz7HU": {
+  "id": "ChIJP-Ia3be5yIARQEEEHSWz7HU",
+  "verdict": "weak_site",
+  "official_url": "https://www.cafemonglv.com/",
+  "uses": [
+   "WordPress",
+   "Menusifu",
+   "MealKeyWay",
+   "FrontEats"
+  ],
+  "missing": [
+   "menu",
+   "hours",
+   "working links"
+  ],
+  "notes": "The first checker was wrong: Cafe Mong has its own site at cafemonglv.com, which shows the same address (6496 Medical Center St Ste 100) and phone (702-410-9791), but it is a bare Menusifu WordPress template with an empty /menu/ page and old hours (Mon-Sat 8-5, Sun 9-3) that conflict with the current FrontEats hours (Tue closed, 10:30 AM to 9:30/10:30 PM). Its Order Online button still points to an old MealKeyWay store, and the Google-listed cafemong.com now redirects to FrontEats ordering; WebSearch was unavailable (budget used up), so I found this by trying domains directly.",
+  "evidence": [
+   "https://www.cafemonglv.com/",
+   "https://www.cafemonglv.com/menu/",
+   "https://cafemongsunset.fronteats.com/"
+  ],
+  "challenged": true,
+  "first_verdict": "ordering_page_only",
+  "name": "Cafe Mong",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ27L7Ve3pyIARuWjtZ-vdV-Y": {
+  "id": "ChIJ27L7Ve3pyIARuWjtZ-vdV-Y",
+  "verdict": "good_site",
+  "official_url": "https://www.tacoslosbarrios.com/",
+  "uses": [
+   "Square",
+   "Cash App"
+  ],
+  "missing": [],
+  "notes": "The multi-location Square Online site has a food-truck page for MLK & Cheyenne (1570 W Cheyenne Ave, (725) 230-1015) with hours and pickup ordering, plus menus, catering and loyalty pages.",
+  "evidence": [
+   "https://www.tacoslosbarrios.com/",
+   "https://www.tacoslosbarrios.com/foodtruck"
+  ],
+  "name": "Tacos Los Barrios - FOOD TRUCK MLK & CHEYENNE",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJw7_6lt3CyIARhgQmHOr8TC4": {
+  "id": "ChIJw7_6lt3CyIARhgQmHOr8TC4",
+  "verdict": "weak_site",
+  "official_url": "http://www.laflordemichoacanlv.com/",
+  "uses": [],
+  "missing": [
+   "website disabled"
+  ],
+  "notes": "Their Google-listed site says \"This website has been disabled by its owner\". The Google-listed laflordemichoacanlv.com and laflordemichoacanicecream.com still show only a Bravenet 'This website has been disabled by its owner' page, laflordemichoacanvegas.com lists only the separate 3021 E Charleston Blvd shop (702-366-1447), laflordemichoacan.com redirects to an unrelated paleta brand (michoacana.com), and about 20 other domain and builder-subdomain variants (.net/.org/lasvegas/nlv/icecream/paleteria, square.site, wixsite, godaddysites) do not resolve or return 404; WebSearch was unavailable (budget used up) and Facebook is behind a login, so the social-only verdict rests on direct domain checks plus the first checker's Facebook/Instagram finding. Re-checked with a web search: no website of its own found.",
+  "evidence": [
+   "http://www.laflordemichoacanlv.com/",
+   "https://laflordemichoacanvegas.com/",
+   "https://michoacana.com/"
+  ],
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "La Flor De Michoacan Ice Cream",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ6Rx-ljDEyIARxAJN4WZAlyI": {
+  "id": "ChIJ6Rx-ljDEyIARxAJN4WZAlyI",
+  "verdict": "good_site",
+  "official_url": "https://www.dirtdogla.com/",
+  "uses": [
+   "Wix",
+   "Toast"
+  ],
+  "missing": [],
+  "notes": "The brand's Wix site has a Grand Bazaar Shops page (3649 S Las Vegas Blvd Ste 617, (702) 586-9300) with hours and a menu link, plus Toast ordering.",
+  "evidence": [
+   "https://www.dirtdogla.com/las-vegas",
+   "https://www.dirtdogla.com/nevada"
+  ],
+  "name": "Dirt Dog - The Strip at Grand Bazaar",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJyQhKqnPDyIARuveG20F48Z4": {
+  "id": "ChIJyQhKqnPDyIARuveG20F48Z4",
+  "verdict": "good_site",
+  "official_url": "https://winnieandethels.com/",
+  "uses": [
+   "WordPress",
+   "Toast",
+   "OpenTable"
+  ],
+  "missing": [],
+  "notes": "Full WordPress site with menu, hours & location page, Toast online ordering, OpenTable reservations and waitlist, catering and events pages, copyright 2026.",
+  "evidence": [
+   "https://winnieandethels.com/"
+  ],
+  "name": "Winnie & Ethel's Downtown Diner",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJg0E7RmvQyIARK1NMoVYnOw0": {
+  "id": "ChIJg0E7RmvQyIARK1NMoVYnOw0",
+  "verdict": "good_site",
+  "official_url": "https://chavelosrestaurant.com/",
+  "uses": [
+   "SpotHopper",
+   "DoorDash",
+   "Uber Eats",
+   "Grubhub"
+  ],
+  "missing": [],
+  "notes": "SpotHopper site with food and drink menus, hours, the 2021 W Sunset Rd address, (702) 558-3366, reservations, direct online ordering and delivery-app links.",
+  "evidence": [
+   "https://chavelosrestaurant.com/"
+  ],
+  "name": "Chavelos Mexican Bar & Grill",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ75IwFXnIyIARf94Mmuhs-RQ": {
+  "id": "ChIJ75IwFXnIyIARf94Mmuhs-RQ",
+  "verdict": "good_site",
+  "official_url": "https://www.badowlcoffee.com/",
+  "uses": [
+   "Square"
+  ],
+  "missing": [],
+  "notes": "This Square Online site lists the Southwest roastery (8035 S Rainbow Blvd #100, (725) 910-4377) with hours, and has a downloadable menu and online ordering.",
+  "evidence": [
+   "https://www.badowlcoffee.com/",
+   "https://www.badowlcoffee.com/menu"
+  ],
+  "name": "Bad Owl Coffee Roasters",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJGQrP_SO_yIARG_pQgrtqDhc": {
+  "id": "ChIJGQrP_SO_yIARG_pQgrtqDhc",
+  "verdict": "good_site",
+  "official_url": "https://www.hokkaidolv.com/",
+  "uses": [
+   "Wix",
+   "DoorDash",
+   "TableAgent"
+  ],
+  "missing": [],
+  "notes": "Basic Wix site with PDF dinner and sushi menus that load, opening hours, address and phone, TableAgent reservations and DoorDash-storefront pickup and delivery ordering.",
+  "evidence": [
+   "https://www.hokkaidolv.com/",
+   "https://www.hokkaidolv.com/menu"
+  ],
+  "name": "Hokkaido Teppanyaki Hibachi Steakhouse",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJn_HhDPvAyIARhL_H6KxFU30": {
+  "id": "ChIJn_HhDPvAyIARhL_H6KxFU30",
+  "verdict": "good_site",
+  "official_url": "https://jammsrestaurant.com/",
+  "uses": [
+   "WordPress"
+  ],
+  "missing": [],
+  "notes": "WordPress/WooCommerce site with a priced menu and on-site ordering, hours (Mon-Fri 7:30am-2pm, Sat-Sun 7am-2:30pm), address and phone.",
+  "evidence": [
+   "https://jammsrestaurant.com/",
+   "https://jammsrestaurant.com/menu/"
+  ],
+  "name": "Jamms Restaurant Breakfast and Lunch",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJBwbbNcXDyIARvtsATZxVxO4": {
+  "id": "ChIJBwbbNcXDyIARvtsATZxVxO4",
+  "verdict": "good_site",
+  "official_url": "https://finandfeathersrestaurants.com/",
+  "uses": [
+   "Toast"
+  ],
+  "missing": [],
+  "notes": "The domain frames the brand's multi-location app at finandfeathers.live, whose locations page lists the Las Vegas store (1229 S Casino Center Blvd, (725) 204-9655) with hours, menu, Toast ordering and text-message reservations.",
+  "evidence": [
+   "https://finandfeathersrestaurants.com/",
+   "https://finandfeathers.live/locations",
+   "https://finandfeathers.live/menu"
+  ],
+  "name": "Fin & Feathers Restaurants",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJOVmlRnvQyIARgRDw_3f2T6E": {
+  "id": "ChIJOVmlRnvQyIARgRDw_3f2T6E",
+  "verdict": "good_site",
+  "official_url": "https://chilecalientetym.com/",
+  "uses": [
+   "Grubhub",
+   "Yelp"
+  ],
+  "notes": "SpotHopper-built own-domain site matching the address and phone, with menu, drinks, specials, hours (Mon-Thu 10-9, Fri-Sat 9-10:30, Sun 9-9), online ordering, catering, parties and gift cards.",
+  "evidence": [
+   "https://chilecalientetym.com/"
+  ],
+  "name": "Chile Caliente Restaurante & Bar",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJCY36NjHFyIAROMxzDkAkmV0": {
+  "id": "ChIJCY36NjHFyIAROMxzDkAkmV0",
+  "verdict": "good_site",
+  "official_url": "https://www.dirtdogla.com/las-vegas-strip-bar",
+  "uses": [
+   "Wix",
+   "Toast"
+  ],
+  "notes": "Dirt Dog brand Wix site has a dedicated Las Vegas Strip bar page with the 3649 S Las Vegas Blvd Ste 618 address, daily hours and menu, plus Toast ordering; the phone listed there is (725) 204-8884, not the Google number.",
+  "evidence": [
+   "https://www.dirtdogla.com/las-vegas-strip-bar",
+   "https://www.dirtdogla.com/menu",
+   "https://www.dirtdogla.com/"
+  ],
+  "name": "Dirt Dog Bar",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJeaOsPxG_yIAR4zgkLuFE1Wo": {
+  "id": "ChIJeaOsPxG_yIAR4zgkLuFE1Wo",
+  "verdict": "good_site",
+  "official_url": "https://frankiesuptown.com/",
+  "uses": [
+   "WordPress"
+  ],
+  "notes": "Maintained WordPress site (copyright 2026) with full menus, hours (closed Mon, Tue-Sun 11:30am-midnight), address and contact, plus gift cards; large-party reservations are by contact and there is no online ordering.",
+  "evidence": [
+   "https://frankiesuptown.com/",
+   "https://frankiesuptown.com/menu/"
+  ],
+  "name": "Frankie's Uptown - A Neighborhood Bar",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJr-C9B7zRyIARGcwMTdBt6v0": {
+  "id": "ChIJr-C9B7zRyIARGcwMTdBt6v0",
+  "verdict": "weak_site",
+  "official_url": "https://www.dailysparkcoffee.com/",
+  "uses": [
+   "Square",
+   "DoorDash"
+  ],
+  "notes": "Own-domain Square Online site that is mostly an ordering store: the homepage is a single banner, the menu and pickup address (43 S Stephanie St Ste 120) appear only inside the order flow, and the site lists no hours.",
+  "evidence": [
+   "https://www.dailysparkcoffee.com/",
+   "https://www.dailysparkcoffee.com/s/order",
+   "https://order.online/store/-1292075/"
+  ],
+  "missing": [
+   "hours",
+   "location/contact info on homepage",
+   "about content",
+   "photos"
+  ],
+  "name": "Daily Spark Coffee Roasters",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJeYsUS6LByIARKtLcQaYE88Y": {
+  "id": "ChIJeYsUS6LByIARKtLcQaYE88Y",
+  "verdict": "good_site",
+  "official_url": "http://www.laokitchenlasvegas.com/",
+  "uses": [
+   "Wix",
+   "Toast"
+  ],
+  "notes": "Wix site with menu, opening hours, address, phone and email matching the listing, plus direct Toast online ordering.",
+  "evidence": [
+   "https://www.laokitchenlasvegas.com/"
+  ],
+  "name": "Lao Kitchen",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ2zHKsBDFyIARJhf6pdHyuBg": {
+  "id": "ChIJ2zHKsBDFyIARJhf6pdHyuBg",
+  "verdict": "good_site",
+  "official_url": "https://lavecindadcantina.com/",
+  "uses": [
+   "Toast"
+  ],
+  "notes": "Own site (copyright 2026) with a full priced menu page, hours, address, phone, history, blog and careers; there is no online ordering link, and Toast is used for jobs and marketing.",
+  "evidence": [
+   "https://lavecindadcantina.com/",
+   "https://lavecindadcantina.com/menu/"
+  ],
+  "name": "LA VECINDAD® CANTINA",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJK38LRv_FyIARrwofQ7byJCE": {
+  "id": "ChIJK38LRv_FyIARrwofQ7byJCE",
+  "verdict": "good_site",
+  "official_url": "http://tressocialtapas.com/",
+  "uses": [
+   "OpenTable",
+   "Yelp"
+  ],
+  "notes": "SpotHopper-built site with menu, drinks, events, hours, address, OpenTable reservations, online ordering, parties and catering.",
+  "evidence": [
+   "https://tressocialtapas.com/"
+  ],
+  "name": "TRES Social Tapas",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJZUjGa4HHyIARI01H6FMFNWk": {
+  "id": "ChIJZUjGa4HHyIARI01H6FMFNWk",
+  "verdict": "weak_site",
+  "official_url": "https://thejavatreecoffee.com/",
+  "uses": [
+   "Squarespace"
+  ],
+  "notes": "Their Google-listed site thejavatreecoffee.com is an expired Squarespace site (404). The Google-listed site thejavatreecoffee.com still returns Squarespace's 'Website Expired' page (HTTP 404). About 55 likely domains (with and without 'the', with lv/vegas/cafe/roasters, and .net/.org/.co/.coffee/.cafe/.shop/.us endings, plus Square store subdomains) either do not resolve or are parked: javatree.coffee and javatree.com are parked landers, and thejavatree.com is an unrelated 'Digital Paperie'. That leaves Instagram @javatreecafelv as the only presence found, but Instagram, Facebook and Yelp blocked automated access, so I could not check its bio link, and the shared web-search budget ran out before I could run the phone-number and address searches. Re-checked with a web search: no website of its own found.",
+  "evidence": [
+   "https://thejavatreecoffee.com/",
+   "https://www.javatree.coffee/",
+   "https://thejavatree.com/"
+  ],
+  "missing": [
+   "website expired"
+  ],
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "The Java Tree - Roasters, Cafe, and Bakery",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJo9dbUb3RyIARJ68jVkVi9Hs": {
+  "id": "ChIJo9dbUb3RyIARJ68jVkVi9Hs",
+  "verdict": "good_site",
+  "official_url": "https://www.lecafeduvegas.com/",
+  "uses": [
+   "Wix",
+   "Square"
+  ],
+  "notes": "Wix site for the two-cafe Le Cafe du Vegas group; it covers the Horizon Ridge (Le Cafe du Val) location with address, hours, phone, menu, Square online ordering, catering, loyalty and gift cards.",
+  "evidence": [
+   "https://www.lecafeduvegas.com/"
+  ],
+  "name": "Le Cafe du Val",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJERLCGarRyIARDjPWcO4JEkI": {
+  "id": "ChIJERLCGarRyIARDjPWcO4JEkI",
+  "verdict": "good_site",
+  "official_url": "https://www.faustosmexicangrill.com/",
+  "uses": [
+   "Webflow"
+  ],
+  "notes": "Multi-location Webflow site covering the 229 N Stephanie St location, with phone, hours (daily 7am-9:30pm), a full menu by category, catering and online ordering (restaurantonlineorder.com).",
+  "evidence": [
+   "https://www.faustosmexicangrill.com/",
+   "https://www.faustosmexicangrill.com/locations"
+  ],
+  "name": "Fausto's Mexican Grill",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJezgsyCvDyIARW9HPkKrdPjE": {
+  "id": "ChIJezgsyCvDyIARW9HPkKrdPjE",
+  "verdict": "good_site",
+  "official_url": "https://www.eltamalucaslv.com/",
+  "uses": [
+   "Square"
+  ],
+  "notes": "Square Online site showing hours (Tue-Sat 11-3) and the 2987 Las Vegas Blvd N Ste 9 address, with featured priced items, takeout menu, online ordering, catering, about and gallery pages.",
+  "evidence": [
+   "https://www.eltamalucaslv.com/",
+   "https://www.eltamalucaslv.com/menu"
+  ],
+  "name": "El Tamalucas",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJgTba6CzHyIARg9bPNJVWjzc": {
+  "id": "ChIJgTba6CzHyIARg9bPNJVWjzc",
+  "verdict": "good_site",
+  "official_url": "https://www.tacoslosbarrios.com/",
+  "uses": [
+   "Square"
+  ],
+  "notes": "Maintained multi-location Square Online site with a store locator listing the 4950 S Rainbow Blvd #130 location, phone and hours, plus menu, weekly specials, Square online ordering, loyalty and catering.",
+  "evidence": [
+   "https://www.tacoslosbarrios.com/"
+  ],
+  "name": "Tacos Los Barrios Restaurant",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ3a8iQr7ryIARCOS3yhqOE4Y": {
+  "id": "ChIJ3a8iQr7ryIARCOS3yhqOE4Y",
+  "verdict": "good_site",
+  "official_url": "https://www.tacoslosbarrios.com/",
+  "uses": [
+   "Square"
+  ],
+  "notes": "The same multi-location Tacos Los Barrios site lists the Craig & Rancho location (4343 N Rancho Dr Ste 100, (702) 600-4080, 9am-10pm daily) with a Rancho page, menu and Square online ordering.",
+  "evidence": [
+   "https://www.tacoslosbarrios.com/"
+  ],
+  "name": "Tacos Los Barrios - RESTAURANT Craig & Rancho",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJb_n5OY7HyIARCSA1s8WGCnE": {
+  "id": "ChIJb_n5OY7HyIARCSA1s8WGCnE",
+  "verdict": "weak_site",
+  "official_url": "http://www.sweetmonglasvegas.com/",
+  "uses": [],
+  "notes": "The Google-listed domain redirects to a FrontEats ordering page (sweetmong.fronteats.com) with hours and address; the only other site, sweetmonglv.com, is a generic POS-vendor template (Menusifu, ordering via mealkeyway) with boilerplate bubble-tea text, outdated hours and no menu.",
+  "evidence": [
+   "https://sweetmong.fronteats.com/",
+   "https://www.sweetmonglv.com/"
+  ],
+  "missing": [
+   "menu",
+   "accurate hours",
+   "original content",
+   "photos"
+  ],
+  "name": "Sweet Mong",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJaa0HOlnFyIARI__f4lRydB8": {
+  "id": "ChIJaa0HOlnFyIARI__f4lRydB8",
+  "verdict": "ordering_page_only",
+  "official_url": "https://order.toasttab.com/online/bobs-2900-e-patrick-ln-ste-9",
+  "uses": [
+   "Toast",
+   "GoDaddy"
+  ],
+  "notes": "bobseastsidedeli.com (http and www) only sends a 302 redirect, through GoDaddy-style forwarding, to the Toast online-ordering page whose address slug matches 2900 E Patrick Ln Ste 9, and the https version fails TLS. No variant domain (.net/.org/.co/.us/.menu, lv/vegas/lasvegas suffixes, a Square store) resolves to a deli site, and bobsdeli.com is an unrelated generic 'Coming Soon' page. Toast and Yelp blocked automated fetches, and the web-search budget ran out before phone-number searches could be done. Re-checked with a web search: no website of its own found.",
+  "evidence": [
+   "http://bobseastsidedeli.com/",
+   "https://order.toasttab.com/online/bobs-2900-e-patrick-ln-ste-9",
+   "https://bobsdeli.com/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "ordering_page_only",
+  "name": "Bob's East Side Deli",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJXYdjykvHyIARd9O5iyBCNcc": {
+  "id": "ChIJXYdjykvHyIARd9O5iyBCNcc",
+  "verdict": "good_site",
+  "official_url": "https://basilicolv.com/",
+  "uses": [
+   "WordPress",
+   "SpotOn"
+  ],
+  "notes": "Actively maintained WordPress site (copyright 2026, current holiday closure notice) with lunch, dinner and drink menus, hours, address, SpotOn reservations, events, catering and blog.",
+  "evidence": [
+   "https://basilicolv.com/"
+  ],
+  "name": "Basilico Ristorante Italiano",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJKYHCVhbRyIARzmB1nMmqZ08": {
+  "id": "ChIJKYHCVhbRyIARzmB1nMmqZ08",
+  "verdict": "good_site",
+  "official_url": "https://www.wfsandwiches.com/",
+  "uses": [
+   "BentoBox"
+  ],
+  "notes": "BentoBox site with the American Pacific address and phone, hours & locations, menus, online ordering, catering (ezCater) and franchising pages.",
+  "evidence": [
+   "https://www.wfsandwiches.com/"
+  ],
+  "name": "Woods Family Sandwiches",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJvcEM8IbByIARGVt0hqzMRIc": {
+  "id": "ChIJvcEM8IbByIARGVt0hqzMRIc",
+  "verdict": "good_site",
+  "official_url": "https://doanburi.com/",
+  "uses": [
+   "Toast",
+   "OpenTable"
+  ],
+  "notes": "Toast-built site 'Doanburi Sushi - Elevated Sushi in Las Vegas' with hours, the 5840 S Rainbow address, phone, menu, Toast online ordering and OpenTable reservations; Cloudflare blocked a direct fetch, so it was rendered through the r.jina.ai reader.",
+  "evidence": [
+   "https://doanburi.com/",
+   "https://toast.app/r/doanburi/order"
+  ],
+  "name": "Doanburi",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJXwwdLRzPyIARyfKwXYN_I10": {
+  "id": "ChIJXwwdLRzPyIARyfKwXYN_I10",
+  "verdict": "good_site",
+  "official_url": "https://tresamigoslv.com/",
+  "uses": [
+   "WordPress",
+   "SpotOn",
+   "DoorDash",
+   "Uber Eats",
+   "Grubhub"
+  ],
+  "notes": "The restaurant has its own live WordPress site, tresamigoslv.com, showing its address (2381 E Windmill Ln Unit 18), phone (702-202-2790), hours (Mon-Wed 9-9, Thu-Sun 8-10), menu specials, a full priced menu and pickup ordering through SpotOn, Google table booking, catering and a loyalty program; the only flaws are small (a dead JOBS link and a 2024 footer).",
+  "evidence": [
+   "https://tresamigoslv.com/",
+   "https://order.spoton.com/so-tres-amigos-mexican-grill-3115/las-vegas-nv/6002143c24b4c41ae889850a",
+   "https://tresamigoslv.com/catering/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "missing",
+  "name": "Tres Amigos Mexican Grill",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJh5Y4jr3HyIARbkw9-qCvbNY": {
+  "id": "ChIJh5Y4jr3HyIARbkw9-qCvbNY",
+  "verdict": "good_site",
+  "official_url": "https://tarusushilv.com/",
+  "uses": [
+   "Yelp Reservations",
+   "Yelp"
+  ],
+  "notes": "SpotHopper-built site with menu, drinks, specials, hours (daily 5pm-midnight), address, phone, Yelp Reservations and direct booking, parties and catering.",
+  "evidence": [
+   "https://tarusushilv.com/"
+  ],
+  "name": "TARU",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJa5CYu7PHyIARlaCuANjRVME": {
+  "id": "ChIJa5CYu7PHyIARlaCuANjRVME",
+  "verdict": "good_site",
+  "official_url": "https://www.doublezeropie.com/",
+  "uses": [
+   "BentoBox",
+   "Toast",
+   "OpenTable",
+   "DoorDash"
+  ],
+  "notes": "Well-maintained BentoBox site with full priced menus, hours, address, Toast online ordering, OpenTable reservations, private dining, gift cards and current press.",
+  "evidence": [
+   "https://www.doublezeropie.com/"
+  ],
+  "name": "Double Zero Pie & Pub",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJK8cMVjYryYARCCTYoUuaD6M": {
+  "id": "ChIJK8cMVjYryYARCCTYoUuaD6M",
+  "verdict": "good_site",
+  "official_url": "https://bouldercitystore.com/",
+  "uses": [
+   "GoDaddy",
+   "Square"
+  ],
+  "notes": "GoDaddy site with hours, the 525 Ave B address, phones, drink-menu images, Square ordering, a retail shop and current news; some GoDaddy template text remains and the footer says 2019.",
+  "evidence": [
+   "https://bouldercitystore.com/",
+   "https://sip-co-store.square.site/"
+  ],
+  "name": "Boulder City Co. Store",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJd0ErNHbRyIARgT3aH6vBiS8": {
+  "id": "ChIJd0ErNHbRyIARgT3aH6vBiS8",
+  "verdict": "good_site",
+  "official_url": "https://www.evergreencoffeelv.com/",
+  "uses": [
+   "Squarespace"
+  ],
+  "notes": "Their own Squarespace site loads and shows the 40 N Valle Verde Dr #100 address, daily 7am-4pm hours and a full menu page, but the menu has no prices, there is no phone number and I found no online ordering.",
+  "evidence": [
+   "https://www.evergreencoffeelv.com/",
+   "https://www.evergreencoffeelv.com/menu"
+  ],
+  "missing": [],
+  "name": "Evergreen Coffee",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJX7F91bnHyIARQGJFeWD848o": {
+  "id": "ChIJX7F91bnHyIARQGJFeWD848o",
+  "verdict": "good_site",
+  "official_url": "https://mgpatisserie.com/",
+  "uses": [
+   "WordPress"
+  ],
+  "notes": "Their own WordPress site matches the address and phone (702.831.1197) and has hours, a menu by category and a working WooCommerce pickup-order shop, though the footer still says 2022.",
+  "evidence": [
+   "https://mgpatisserie.com/",
+   "https://mgpatisserie.com/shop/"
+  ],
+  "missing": [],
+  "name": "Mg Patisserie and Cafe",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJa9w7X-HDyIARcU8qpx5GDUU": {
+  "id": "ChIJa9w7X-HDyIARcU8qpx5GDUU",
+  "verdict": "good_site",
+  "official_url": "https://ilovepachipachi.com/",
+  "uses": [
+   "WordPress",
+   "OpenTable"
+  ],
+  "notes": "An active site matching 211 S Las Vegas Blvd Ste 120 and 702.602.5077, with food and cocktail menus, hours, OpenTable booking, events and press from 2026.",
+  "evidence": [
+   "https://ilovepachipachi.com/"
+  ],
+  "missing": [],
+  "name": "Pachi Pachi",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJUc5VUTu_yIARskITq4x41e8": {
+  "id": "ChIJUc5VUTu_yIARskITq4x41e8",
+  "verdict": "good_site",
+  "official_url": "http://www.finecompanylv.com/",
+  "uses": [
+   "BentoBox",
+   "Toast",
+   "Uber Eats",
+   "DoorDash",
+   "Grubhub"
+  ],
+  "notes": "A complete BentoBox site matching the address and phone, with a full menu, hours, Toast online ordering, a reservation form and links to the delivery apps.",
+  "evidence": [
+   "http://www.finecompanylv.com/"
+  ],
+  "missing": [],
+  "name": "Fine Company",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJD9CdHpPXyIARsy3p0VwDQB4": {
+  "id": "ChIJD9CdHpPXyIARsy3p0VwDQB4",
+  "verdict": "closed",
+  "official_url": "",
+  "uses": [
+   "Square"
+  ],
+  "notes": "A March 2025 Review-Journal article says the Lake Las Vegas cafe closed in 2022; the Google-listed group site lecafeduvegas.com now lists only Le Cafe du Val and Le Cafe du Sud, and Wanderlog marks this location closed.",
+  "evidence": [
+   "https://neon.reviewjournal.com/?p=3309896",
+   "https://lecafeduvegas.com/",
+   "https://wanderlog.com/place/details/1439172/le-cafe-du-lac"
+  ],
+  "missing": [],
+  "name": "Le Cafe Du Lac",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJz9N4jkTZ3IARD-uqjIXO0pY": {
+  "id": "ChIJz9N4jkTZ3IARD-uqjIXO0pY",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [],
+  "evidence": [
+   "https://www.xibei.com",
+   "https://www.xibei.com.cn",
+   "https://xibei.us"
+  ],
+  "missing": [],
+  "notes": "WebSearch was unavailable because the shared search budget was used up, so I only checked domains directly: xibeieatery.com, xibeieatery.us, xibeius.com, xibeieats.com, eatxibei.com and xibeiglobal.com do not resolve, xibei.com is for sale, xibei.us and xibeiusa.com return 503 (consistent with parking), and xibei.com.cn lists no US stores, so the Instagram-only finding stands. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "XIBEI EATERY",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJa7BDtNgU6YARWmFmckjIabY": {
+  "id": "ChIJa7BDtNgU6YARWmFmckjIabY",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [],
+  "evidence": [
+   "https://spudnuts.com",
+   "https://spudnutsdonuts.com"
+  ],
+  "missing": [],
+  "notes": "WebSearch was unavailable (search budget used up); direct checks of spudnutsandbagels.com, spudnutsbagels.com, spudnutssb.com, spudnutssantabarbara.com, sbspudnuts.com and spudnutsdonutsandbagels.com found no site (no DNS), spudnuts.com redirects to a HugeDomains sale page, and spudnutsdonuts.com returns 404. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "Spudnuts and Bagels",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJLcmKvSN-24ARFQBaIMnYKrY": {
+  "id": "ChIJLcmKvSN-24ARFQBaIMnYKrY",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [],
+  "evidence": [
+   "https://pangaearestaurant.com",
+   "https://pangaeawine.com"
+  ],
+  "missing": [],
+  "notes": "WebSearch was unavailable (search budget used up); pangaeatemecula.com/.net/.co, pangaea-temecula.com, pangaeawinebar.com, pangaeawinebartemecula.com, pangaearestaurantandwinebar.com and eatpangaea.com do not resolve, pangaearestaurant.com redirects to an Atom domain-sale page, and pangaeawine.com returns 503, so I found no official site. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "Pangaea - Restaurant and Wine Bar",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJzw2vuj2t6YARyX5W9l1dB8E": {
+  "id": "ChIJzw2vuj2t6YARyX5W9l1dB8E",
+  "verdict": "weak_site",
+  "official_url": "https://tatianascoffeeandtea.com/",
+  "uses": [
+   "GoDaddy"
+  ],
+  "notes": "The domain matches their email (tatianascoffeeandtea@gmail.com), but it is only a GoDaddy 'Launching Soon' placeholder (copyright 2025) with a contact form; they also have a Facebook page.",
+  "evidence": [
+   "https://tatianascoffeeandtea.com/",
+   "https://visitventuraca.com/business/tatianas-coffee-tea/"
+  ],
+  "missing": [
+   "menu",
+   "hours",
+   "location",
+   "ordering",
+   "photos"
+  ],
+  "name": "Tatiana's Coffee & Tea",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJg7Dg28zf3IARtaMs0gBHnGI": {
+  "id": "ChIJg7Dg28zf3IARtaMs0gBHnGI",
+  "verdict": "weak_site",
+  "official_url": "https://showhotpotusa.com/",
+  "uses": [
+   "DoorDash",
+   "Uber Eats"
+  ],
+  "notes": "showhotpotusa.com is a mostly Chinese brand page with the Irvine address and phone and links out to MealKeyWay/kwickmenu ordering, but it has no hours or real menu, forces a desktop-width zoom on phones, and its listed showhotpot.com now redirects to a gambling site; a separate qMenu ordering site, showhotpotogo.com, shows hours.",
+  "evidence": [
+   "https://showhotpotusa.com/",
+   "https://showhotpotogo.com/",
+   "https://order.online/business/show-hotpot-849053"
+  ],
+  "missing": [
+   "hours",
+   "menu",
+   "mobile layout",
+   "working links"
+  ],
+  "name": "Show Hotpot秀海福麻辣烫",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ03pQAORU2YARfV5vZlmSgKs": {
+  "id": "ChIJ03pQAORU2YARfV5vZlmSgKs",
+  "verdict": "ordering_page_only",
+  "official_url": "",
+  "uses": [
+   "DoorDash"
+  ],
+  "evidence": [
+   "https://bahiamexicanrestaurant.com",
+   "https://bahiasandiego.com"
+  ],
+  "missing": [],
+  "notes": "Their old site bahiamexicanrestaurant.com no longer exists. WebSearch was unavailable (search budget used up); the old bahiamexicanrestaurant.com and bahiamexicanfood.com/.net, bahiamexicanfoodsd.com, bahiamexicanfoodsandiego.com, bahiamexican.com and bahiamexicangrill.com do not resolve, and bahiasandiego.com is GoDaddy for-sale, so the DoorDash Storefront remains the only presence. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "ordering_page_only",
+  "name": "Bahia Mexican Food | Mouthwatering Authentic Mexican Food",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ3adG5EVw3IARvISB22mQQdw": {
+  "id": "ChIJ3adG5EVw3IARvISB22mQQdw",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [
+   "DoorDash"
+  ],
+  "evidence": [
+   "https://fiestamexicanaoceanside.com",
+   "https://fiestamexicanarestaurant.com"
+  ],
+  "missing": [],
+  "notes": "WebSearch was unavailable (search budget used up); fiestamexicanaoceanside.com returns 503 on both apex and www (consistent with the parked status the first checker found), fiestamexicanarestaurant.com is an unrelated La Crosse, WI restaurant, and the .net, -ca, hyphenated and Square-site variants do not exist. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "Fiesta Mexicana - Mexican Restaurant",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJjzz4yYK4woARxSeW06SH_8o": {
+  "id": "ChIJjzz4yYK4woARxSeW06SH_8o",
+  "verdict": "ordering_page_only",
+  "official_url": "",
+  "uses": [
+   "SpotOn"
+  ],
+  "evidence": [
+   "https://mapokkakdoogee.com",
+   "https://mapola.com"
+  ],
+  "missing": [],
+  "notes": "WebSearch was unavailable (search budget used up); mapokkakdoogee.com/.net (with and without www), mapokkakdugi.com/.net, mapokkakdoogi.com and mapokkakdoogeela.com do not resolve and mapola.com returns 503, so the SpotOn ordering page remains the only presence. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "ordering_page_only",
+  "name": "Mapo Kkak Doo Gee | Korean Restaurant",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJeZT1JTdu3IARYZubAPA_8Zs": {
+  "id": "ChIJeZT1JTdu3IARYZubAPA_8Zs",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [],
+  "evidence": [
+   "https://elenascrepes.com",
+   "https://elenasfrenchcrepes.com"
+  ],
+  "missing": [],
+  "notes": "WebSearch was unavailable (search budget used up); elenascrepes.com, elenasfrenchcrepes.com, elenascrepescafe.com, elenasfrenchcrepescafe.com, elenascrepesoceanside.com, elenascrepecafe.com, elenasfrenchcrepe.com and elenas-crepes.com (and www variants) all fail to resolve, so I found no official site. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "Elena's French Crepes Cafe & Peet's Coffee",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJmWGPCQCXwoAR306EHmJ_T7k": {
+  "id": "ChIJmWGPCQCXwoAR306EHmJ_T7k",
+  "verdict": "ordering_page_only",
+  "official_url": "",
+  "uses": [
+   "Toast"
+  ],
+  "evidence": [
+   "https://lamunethaisherman.com",
+   "https://lamunethaisherman.com/takeout-and-delivery/",
+   "https://lamunethaisherman.com/reservations/"
+  ],
+  "missing": [],
+  "notes": "lamunethaisherman.com loads with matching address and phone, but it looks like a vendor-generated demo rather than the owner's site: its content comes from Google data (164 Google reviews, Maps cid link), it has no link to the restaurant's real Toast ordering, no social links and generic 'check delivery apps if available' text, and Google lists no website, so the Toast page stays the real presence (WebSearch was unavailable). Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "ordering_page_only",
+  "name": "Lamune Thai - Sherman Oaks",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ6TWlDkjGwoAR6ZZYTsPVaOs": {
+  "id": "ChIJ6TWlDkjGwoAR6ZZYTsPVaOs",
+  "verdict": "ordering_page_only",
+  "official_url": "https://kouraku.square.site/",
+  "uses": [
+   "Square"
+  ],
+  "evidence": [
+   "https://kouraku.square.site/",
+   "https://kourakula.com",
+   "https://kouraku.com"
+  ],
+  "missing": [],
+  "notes": "The only own presence is the Square Online store titled 'Japanese Cuisine Order Online Little Tokyo | Kouraku Ramen&Grill'; kouraku.com and kouraku.net are unrelated Japanese businesses, kourakula.com redirects to an unrelated writers' site, kourakuramen.com returns 503, and other variants do not resolve (WebSearch was unavailable). Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "ordering_page_only",
+  "name": "Kouraku Japanese Ramen & Grill",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJH2tM3D6u3IARu5yW6tTpRGg": {
+  "id": "ChIJH2tM3D6u3IARu5yW6tTpRGg",
+  "verdict": "good_site",
+  "official_url": "https://joeaguilarstemplodelsol.com/",
+  "uses": [
+   "DoorDash",
+   "Uber Eats"
+  ],
+  "notes": "A well-built, current bilingual site (copyright 2026) with the address, phone, hours, a 33-dish menu (no prices) and DoorDash/Uber Eats links for delivery.",
+  "evidence": [
+   "https://joeaguilarstemplodelsol.com/",
+   "https://joeaguilarstemplodelsol.com/menu/"
+  ],
+  "missing": [],
+  "name": "Joe Aguilar’s Templo Del Sol",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJOXNoJlfawoARgCp--giLesI": {
+  "id": "ChIJOXNoJlfawoARgCp--giLesI",
+  "verdict": "weak_site",
+  "official_url": "https://elruizenorgrill.com",
+  "uses": [
+   "WordPress",
+   "DoorDash"
+  ],
+  "evidence": [
+   "https://elruizenorgrill.com",
+   "https://elruizenorgrill.com/wp-json/",
+   "https://elruizenorgrill.com/robots.txt"
+  ],
+  "missing": [
+   "working links",
+   "menu",
+   "hours",
+   "ordering",
+   "photos"
+  ],
+  "notes": "The exact-name domain elruizenorgrill.com (registered 2023 and renewed 2026, per the first checker) is almost certainly the restaurant's own WordPress site, but every path including /wp-json/, /robots.txt and the sitemap returns HTTP 500, so it is broken; I could not confirm ownership from content, and NetWaiter, Facebook and DoorDash remain the working presence.",
+  "challenged": true,
+  "first_verdict": "ordering_page_only",
+  "name": "El Ruizeñor Grill",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJHXHOTZy5woARlgH3ttS0w8g": {
+  "id": "ChIJHXHOTZy5woARlgH3ttS0w8g",
+  "verdict": "weak_site",
+  "official_url": "http://industrycafejazz.com/",
+  "uses": [],
+  "notes": "The Google-listed domain is still registered (until 2027) and Wayback saved it live in January 2026, but it does not load now because its Cloudflare nameservers refuse queries.",
+  "evidence": [
+   "http://industrycafejazz.com/",
+   "https://www.timeout.com/los-angeles/restaurants/industry-cafe-jazz"
+  ],
+  "missing": [
+   "working links",
+   "menu",
+   "hours"
+  ],
+  "name": "Industry Cafe & Jazz",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJMe1gsJVT2YAR-0qefJ4DVVM": {
+  "id": "ChIJMe1gsJVT2YAR-0qefJ4DVVM",
+  "verdict": "weak_site",
+  "official_url": "http://villagecafesd.com/",
+  "uses": [
+   "Uber Eats"
+  ],
+  "notes": "The Google-listed domain (re-registered at GoDaddy in August 2025) points to a server that returns 503 with a mismatched SSL certificate, so no content loads.",
+  "evidence": [
+   "http://villagecafesd.com/",
+   "https://www.ubereats.com/store/village-cafe-11th-ave/5ZinqHUPWuKtqQSgAypHBQ/d496b054-9667-56a1-889c-d00406ef20cd/8cde481a-7706-594e-a6ee-b9cf8276f5fe"
+  ],
+  "missing": [
+   "working links",
+   "menu",
+   "hours"
+  ],
+  "name": "Village Cafe",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJgzNXZF8b24ARgQ4l6549ZSM": {
+  "id": "ChIJgzNXZF8b24ARgQ4l6549ZSM",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [],
+  "evidence": [
+   "https://cafemonamour.com"
+  ],
+  "missing": [],
+  "notes": "WebSearch was unavailable (search budget used up); cafemonamour.com is an unrelated Colombian coffee brand, cafemonamourps.com, cafemonamourpalmsprings.com/.net, monamourpalmsprings.com, monamourps.com, cafemonamour.net/.co and cafe-mon-amour.com do not resolve, and Instagram rate-limited my fetch, so the Instagram-only finding stands. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "Café Mon Amour",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJsRzXJdox3YARu9kdTcg4gNI": {
+  "id": "ChIJsRzXJdox3YARu9kdTcg4gNI",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [
+   "DoorDash",
+   "Uber Eats"
+  ],
+  "evidence": [
+   "https://chopcheese.com",
+   "https://nycchopcheese.com"
+  ],
+  "missing": [],
+  "notes": "WebSearch was unavailable (search budget used up); nycchopcheese.com/.net/.co (and www), nycchopcheeselb.com, nycchopcheeselongbeach.com, thenycchopcheese.com and chopcheeselb.com do not resolve, chopcheese.com is GoDaddy for-sale, and Instagram rate-limited my fetch, so I found no official site. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "NYC Chop Cheese",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJoc0mjCff3IARV9_DTydJYrU": {
+  "id": "ChIJoc0mjCff3IARV9_DTydJYrU",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [],
+  "notes": "Their Linktree (bio: 'serving specialty graded coffee, M-F 8am to 4pm') links only to directions, Yelp, a Yelp Top 100 article and a Korea Times article, with Instagram, Google and Yelp icons and no website. casselearth.com redirects to humintech.com, and casselearthcoffee.com/.co/.net/.us, casselearth.coffee/.co/.us/.net, cassel.coffee and casselearthcoffee.square.site do not resolve. WebSearch was out of budget (shared limit used up), so I checked domains directly and did not search the name or phone.",
+  "evidence": [
+   "https://linktr.ee/casselearthcoffee",
+   "http://casselearth.com/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "Cassel Earth Coffee",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJzT5kLxrawoARYyx6mfm5vCg": {
+  "id": "ChIJzT5kLxrawoARYyx6mfm5vCg",
+  "verdict": "weak_site",
+  "official_url": "https://sites.google.com/view/anniaskitchen",
+  "uses": [],
+  "notes": "The Google-listed site is a bare free Google Sites page marked 'under construction' with only the address, phone and hours (8am-2:30pm), plus a Menu page holding one embedded image; anniaskitchen.com now redirects to an unrelated spam Google Site.",
+  "evidence": [
+   "https://sites.google.com/view/anniaskitchen",
+   "https://sites.google.com/view/anniaskitchen/menu",
+   "https://anniaskitchen.com/"
+  ],
+  "missing": [
+   "ordering",
+   "photos",
+   "menu"
+  ],
+  "name": "Annia's Kitchen",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ1V0AFHrHwoARUDtmRwjWQaU": {
+  "id": "ChIJ1V0AFHrHwoARUDtmRwjWQaU",
+  "verdict": "ordering_page_only",
+  "official_url": "",
+  "uses": [
+   "Toast"
+  ],
+  "notes": "I found no own domain: elioswoodfirepizza.com/.net/.co/.la/.us, elioswoodfire.com, eliospizzala.com, eliosla.com, elios.la, elios.pizza, eatelios.com and the square.site/toast.site variants do not resolve. Their Linktree does not exist, and Instagram and Toast blocked my requests, so I kept the first checker's Toast ordering-page finding without re-confirming it. WebSearch was out of budget, so I did not search the name or phone.",
+  "evidence": [
+   "https://www.instagram.com/elios.wood.fire.pizza/",
+   "https://www.toasttab.com/local/order/elios-wood-fire-pizza"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "ordering_page_only",
+  "name": "Elio's Wood Fire Pizza",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ5yPkwYG4woARvAaOBV3ZA1M": {
+  "id": "ChIJ5yPkwYG4woARvAaOBV3ZA1M",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [],
+  "notes": "No own site found. jjan.com is a parked domain (server 'Parking/1.0'), jjanpocha.com is an unrelated Jjan Pocha in Moore, OK, jjan.restaurant returns 404, and jjanla.com, jjangastropub.com, jjanbar.com, jjan.la, jjankoreangastropub.com, eatjjan.com and similar do not resolve. Instagram @jjan_gastropub stays the only presence. WebSearch was out of budget, so I did not search the name or phone.",
+  "evidence": [
+   "https://jjan.com/",
+   "https://jjanpocha.com/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "쨘 JJAN Korean Gastropub",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJDfoO5ooz3YARsOQKXMc3pS8": {
+  "id": "ChIJDfoO5ooz3YARsOQKXMc3pS8",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [],
+  "notes": "bixbyjoe.com has been registered at GoDaddy since 2018 and is renewed, but it only redirects to a GoDaddy '/lander' parked page, which counts as no site. bixbyjoecoffee.com, bixbyjoe.net/.co/.coffee/.cafe/.org, bixbyjoelb.com and square.site/godaddysites variants do not resolve, so Instagram @bixby.joe and Facebook /bixbyjoelb remain the only presence. WebSearch was out of budget.",
+  "evidence": [
+   "https://bixbyjoe.com/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "Bixby Joe Coffee & Tea",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJzUSP9GFU2YARR0HXGmSiDNg": {
+  "id": "ChIJzUSP9GFU2YARR0HXGmSiDNg",
+  "verdict": "weak_site",
+  "official_url": "http://www.santoscoffeehousenp.com/",
+  "uses": [
+   "DoorDash"
+  ],
+  "notes": "The Google-listed domain is theirs (registered with GoDaddy in 2024, behind Cloudflare) but returns Cloudflare error 522 every time, meaning the site is down; their menu only shows up on DoorDash.",
+  "evidence": [
+   "http://www.santoscoffeehousenp.com/",
+   "https://sandiegoreader.com/weblogs/feast/2013/may/08/santos-coffee-house"
+  ],
+  "missing": [
+   "working links",
+   "menu",
+   "hours"
+  ],
+  "name": "Santos Coffee House",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJrfgLvYFV2YARXM6K8ctaNzM": {
+  "id": "ChIJrfgLvYFV2YARXM6K8ctaNzM",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [],
+  "notes": "None of the likely domains resolve (miotuocafe.com/.co, mioplustuo.com, miotuo.com/.cafe/.co/.net/.us, miotuosd.com, mioandtuo.com, mio-tuo.com, miotuocafe.square.site), mioetuo.com redirects to an Italian beach club, and no Linktree exists. WebSearch was out of budget, so I could not search the name or address. Re-checked with a web search: no website of its own found.",
+  "evidence": [
+   "https://mioetuo.com/",
+   "https://linktr.ee/miotuocafe"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "MIO + TUO cafe",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJiy_INzCx3IARX1YjdrFXiRs": {
+  "id": "ChIJiy_INzCx3IARX1YjdrFXiRs",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [
+   "DoorDash",
+   "Uber Eats",
+   "Wix"
+  ],
+  "notes": "There is no own domain (makisushiandcocktails.com/.net, makisushicocktails.com and makisushiriverside.com do not resolve, and makisushibar.com is for sale on HugeDomains). Their only web page is the vendor page on Riverside Food Lab's Wix site, which has the full menu, hours (Sun-Thu 11-10, Fri-Sat 11-11), Uber Eats and DoorDash Tableside ordering (foodlab.menu) and links Instagram @makisushiandcocktails. A salesperson should know about that vendor page before pitching.",
+  "evidence": [
+   "https://www.riversidefoodlab.com/maki-sushi-and-cocktails",
+   "https://foodlab.menu/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "Maki Sushi & Cocktails",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJHXHIEw7HwoARt3OUL_rouB0": {
+  "id": "ChIJHXHIEw7HwoARt3OUL_rouB0",
+  "verdict": "weak_site",
+  "official_url": "https://www.angelstijuanatacos.net/",
+  "uses": [
+   "Wix"
+  ],
+  "notes": "This is the Echo Park stand of the Angel's Tijuana Tacos chain; its brand domain angelstijuanatacos.net (registered 2025, on Wix DNS) shows a Wix 'ConnectYourDomain' 404 error, so the site is not live, angelstijuanatacos.com is a parked GoDaddy page, and Google lists only Instagram.",
+  "evidence": [
+   "https://www.angelstijuanatacos.net/",
+   "https://theinfatuation.com/los-angeles/reviews/angels-tijuana-tacos-echo-park",
+   "https://angelstijuanatacos.com/lander"
+  ],
+  "missing": [
+   "working links",
+   "menu",
+   "hours",
+   "ordering"
+  ],
+  "name": "Estillo Tijuana Angels Tacos",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ67mnfyTW3IARsSDO2RYyPa0": {
+  "id": "ChIJ67mnfyTW3IARsSDO2RYyPa0",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [
+   "DoorDash",
+   "Uber Eats"
+  ],
+  "notes": "kookoogrill.com (GoDaddy, registered 2011) and kookoogrill.net are parked GoDaddy '/lander' pages, and kookoogrill.wordpress.com is an empty, unrelated blog. kookoogrilloriginal.com was registered 2026-05-14 through Unstoppable Domains and is a templated page built from Google Places data ('a asian fusion restaurant'), not the owner's. That leaves Facebook /KooKooGrill and the delivery apps (listed by the first checker; I did not open them).",
+  "evidence": [
+   "https://kookoogrill.com/",
+   "https://kookoogrilloriginal.com/",
+   "https://kookoogrill.wordpress.com/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "Kookoo Grill - The Original Fusion Teriyaki Joint",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJn-gk9zcx3YARempjTL9_4Fs": {
+  "id": "ChIJn-gk9zcx3YARempjTL9_4Fs",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [],
+  "notes": "No site found. birdcagecoffeehouse.com/.net/.co/.org, birdcagecoffee.com/.co, birdcagecoffeelb.com, birdcagelb.com, birdcage.coffee, thebirdcagecoffeehouse.com and the square.site variants do not resolve, birdcagecafe.com is an unrelated cafe in Ireland, and no Linktree exists. WebSearch was out of budget, so I could not search the name or phone. Re-checked with a web search: no website of its own found.",
+  "evidence": [
+   "https://www.birdcagecafe.com/",
+   "https://linktr.ee/birdcagecoffeehouse"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "Birdcage Coffee House",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJJWAFtybc3IAR9KjRPPGvx1w": {
+  "id": "ChIJJWAFtybc3IAR9KjRPPGvx1w",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [
+   "DoorDash",
+   "Uber Eats"
+  ],
+  "notes": "jannysdonuts.com/.net/.co/.org, jannysdonut.com, jannydonuts.com, jannys-donuts.com, jannysdonutsirvine.com, jannysdonutshop.com and jannysdonuts.square.site do not resolve, and jannys.com belongs to Jannys Eis, an unrelated German ice-cream chain. The only presence remains DoorDash and Uber Eats (listed by the first checker; I did not open them). WebSearch was out of budget.",
+  "evidence": [
+   "https://jannys.com/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "Jannys Donuts",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJwSS3b1RV2YARE-1g2zSrcAM": {
+  "id": "ChIJwSS3b1RV2YARE-1g2zSrcAM",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [],
+  "notes": "rosemaryandthymecafe.com was registered at GoDaddy on 2026-09-08 but shows only a parked '/lander' page, which counts as no site; the owner may be preparing one. rosemaryandthyme.com is an unrelated clothing boutique, rosemarythyme.com is for sale, and the other variants (sd, hillcrest, sandiego, .cafe, .net, .co) do not resolve. WebSearch was out of budget.",
+  "evidence": [
+   "https://rosemaryandthymecafe.com/",
+   "https://rosemaryandthyme.com/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "Rosemary & Thyme Cafe",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ6WSBBzXGwoARZ--7Aek38UA": {
+  "id": "ChIJ6WSBBzXGwoARZ--7Aek38UA",
+  "verdict": "weak_site",
+  "official_url": "https://cilantrolimelosangeles.com/los-angeles",
+  "uses": [],
+  "notes": "The Google-listed domain (registered 2020) is on registrar 'clientHold' and does not resolve, so the site is offline; a separate brand menu site, eatcilantrolime.com, covers only a Westfield Topanga Social location, not this DTLA address.",
+  "evidence": [
+   "https://cilantrolimelosangeles.com/los-angeles",
+   "https://eatcilantrolime.com/",
+   "https://www.cilantrolime.com/"
+  ],
+  "missing": [
+   "working links",
+   "menu",
+   "hours",
+   "ordering"
+  ],
+  "name": "Cilantro Lime",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJB3QWewDf3IARatCxZQGCaaI": {
+  "id": "ChIJB3QWewDf3IARatCxZQGCaaI",
+  "verdict": "weak_site",
+  "official_url": "http://coffee-nature.com/",
+  "uses": [
+   "SpotHopper"
+  ],
+  "notes": "The Google-listed domain (registered 2025, hosted on SpotHopper) is broken: HTTP returns 503 and HTTPS serves another restaurant's certificate with a 404; the sister Huntington Beach shop has its own working Wix site (coffeenaturehb.com), but it does not cover Costa Mesa.",
+  "evidence": [
+   "http://coffee-nature.com/",
+   "https://www.coffeenaturehb.com/"
+  ],
+  "missing": [
+   "working links",
+   "menu",
+   "hours",
+   "ordering"
+  ],
+  "name": "Coffee Nature",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJw3Tz5A_DwoARTNSfuIYf6_E": {
+  "id": "ChIJw3Tz5A_DwoARTNSfuIYf6_E",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [],
+  "notes": "elmatadorpasadena.com was registered through DropCatch on 2026-01-27 (probably a lapsed old domain caught by someone else) and returns Cloudflare error 521. elmatador.godaddysites.com is a 'Launching Soon' page for elmatador2407.com, which is an unrelated sports-betting site, and elmatadorrestaurant.com is in Denton, TX. Other variants (.net/.co, mexicanfood, authentic) do not resolve. WebSearch was out of budget, so I did not search the name or phone.",
+  "evidence": [
+   "https://elmatadorpasadena.com/",
+   "https://elmatador.godaddysites.com/",
+   "https://elmatador2407.com/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "El Matador Authentic Mexican Food",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJK4vI-Tkq3YAROTh-HY9jI70": {
+  "id": "ChIJK4vI-Tkq3YAROTh-HY9jI70",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [],
+  "notes": "None of 14 likely domains resolve (molcasalsitas.com/.net/.co/.us/.org, molcasalsita.com, molca-salsitas.com, molcaysalsitas.com, molcasalsitasfullerton.com, molcasalsitasrestaurant.com, molcasalsitasoc.com and others), and there is no Linktree or Square site. WebSearch was out of budget, so I could not search the name or phone and this needs a recheck. Re-checked with a web search: no website of its own found.",
+  "evidence": [
+   "https://linktr.ee/molcasalsitas",
+   "https://molcasalsitas.square.site/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "Molcasalsitas",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJBcnaUsa-woARS8XE_mm_VEc": {
+  "id": "ChIJBcnaUsa-woARS8XE_mm_VEc",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [],
+  "notes": "tastydonuts.com is for sale (GoDaddy forsale lander, Afternic nameservers). tastydonuts.net (Commerce City, CO), thetastydonuts.com and tastydonuts.godaddysites.com (Chattanooga, TN) are other donut shops, and the West Hollywood-specific variants (tastydonutsandcafe, weho, la, cafe) do not resolve. WebSearch was out of budget, so this needs a recheck.",
+  "evidence": [
+   "https://tastydonuts.com/",
+   "https://www.thetastydonuts.com/",
+   "https://tastydonuts.net/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "Tasty Donuts and Cafe",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJRfW4LibDwoARjdP0iUdfTEA": {
+  "id": "ChIJRfW4LibDwoARjdP0iUdfTEA",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [],
+  "notes": "unionstreetfrenchcafe.com/.net/.co/.cafe, unionstfrenchcafe.com, unionstreetfrench.com, unionfrenchcafe.com, unionstreetcafepasadena.com, unionstreet.cafe and the square.site variant do not resolve, and unionstreetcafe.com redirects to Gordon Ramsay's Bread Street Kitchen in London. WebSearch was out of budget, so I could not search the name or phone and this needs a recheck. Re-checked with a web search: no website of its own found.",
+  "evidence": [
+   "https://unionstreetcafe.com/",
+   "https://unionstreetfrenchcafe.square.site/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "union street french café",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ418UUrpv3IARNHC9ClhCZKM": {
+  "id": "ChIJ418UUrpv3IARNHC9ClhCZKM",
+  "verdict": "good_site",
+  "official_url": "https://www.campcoffeecompany.com/",
+  "uses": [
+   "Square"
+  ],
+  "notes": "The Google-listed Square address redirects to their own domain, a Square Online site with drink and food menu pages, an Order Now shop, merchandise, hours, and the 101 N Cleveland St address and phone.",
+  "evidence": [
+   "https://campcoffeeco.square.site/",
+   "https://www.campcoffeecompany.com/"
+  ],
+  "missing": [],
+  "name": "Camp Coffee Company",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJlQ4WRDG0woARwyyI-lUCAmE": {
+  "id": "ChIJlQ4WRDG0woARwyyI-lUCAmE",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [],
+  "notes": "Google lists only Instagram @rauls_casa_sombrero. casasombrero.com sits on Efty marketplace nameservers (for sale, not theirs), and raulscasasombrero.com/.net/.co/.us/.org, rauls-casa-sombrero.com, casasombrerohawthorne.com and the square.site variant do not resolve. WebSearch was out of budget, so I did not search the name or phone.",
+  "evidence": [
+   "https://www.instagram.com/rauls_casa_sombrero/",
+   "https://casasombrero.com/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "Raul's Casa Sombrero",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJDcZb5J7HwoARnRhGcsfolCw": {
+  "id": "ChIJDcZb5J7HwoARnRhGcsfolCw",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [],
+  "notes": "Their Linktree has only press links (LA Mag, VegOut, Eater, KTLA, VoyageLA), Venmo, Twitter @littlebarnvegan, Facebook and Yelp, with no website. littlebarncoffeehouse.com/.net/.co/.org, littlebarncoffee.com, littlebarn.coffee, littlebarnvegan.com and littlebarncoffeehouse.square.site do not resolve.",
+  "evidence": [
+   "https://linktr.ee/littlebarncoffeehouse",
+   "https://www.instagram.com/littlebarncoffeehouse/"
+  ],
+  "missing": [],
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "Little Barn Coffee House",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJRUWxKEUx3YARDY7tE20gupo": {
+  "id": "ChIJRUWxKEUx3YARDY7tE20gupo",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [
+   "Uber Eats"
+  ],
+  "evidence": [
+   "https://taquerialamexicana5.com/",
+   "https://taquerialamexicana.com/"
+  ],
+  "notes": "No site found for the 125 E Anaheim St store (the shared WebSearch budget was used up, so I only tried domains and pages directly and did not use DuckDuckGo or Bing because the harness forbids working around the limit): taquerialamexicana.com redirects to HugeDomains, lamexicanataqueria.com is a parked /lander page, the .net/.org/.co/.us, numbered #1-#4 and city-suffix domains do not exist, and the sister #5 Squarespace site (taquerialamexicana5.com, 1901 E Carson St) lists only its own address, phone and email, with no other locations or Anaheim St. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "Taquería La Mexicana",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJVVVpVmiVwoARHVyv5hw5SKs": {
+  "id": "ChIJVVVpVmiVwoARHVyv5hw5SKs",
+  "verdict": "weak_site",
+  "official_url": "https://isabellas-italian-kitchen.webnode.page/",
+  "uses": [
+   "Webnode"
+  ],
+  "notes": "Its free Webnode site, linked from its Yellow Pages entry, has the right address and phone, but the Menu page has only a 2020 photo and no menu, and the home and contact pages give different hours; it also links a Facebook page.",
+  "evidence": [
+   "https://isabellas-italian-kitchen.webnode.page/",
+   "https://isabellas-italian-kitchen.webnode.page/contact/",
+   "https://www.yellowpages.com/burbank-ca/mip/isabellas-italian-kitchen-533600247"
+  ],
+  "missing": [
+   "menu",
+   "consistent hours",
+   "ordering",
+   "own domain",
+   "photos"
+  ],
+  "name": "Isabella’s Italian Kitchen",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJJZtWUsvHwoARcXuO7aoZSYM": {
+  "id": "ChIJJZtWUsvHwoARcXuO7aoZSYM",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [
+   "Grubhub"
+  ],
+  "evidence": [
+   "https://donainez.com/",
+   "https://donainezrestaurant.com/"
+  ],
+  "notes": "No official site found (the WebSearch budget was used up, so I only tried domains directly): donainez.com/.net, donainezrestaurant.com/.net/.co, restaurantdonainez.com, restaurantedonainez.com, donainezla.com, ladonainez.com, donainezmexicanrestaurant.com and donainesrestaurant.com all fail to resolve; my guessed MenuPages URL returned 404. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "Doña Inez Restaurant 🇲🇽",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJOxvF4Hog3YARdeI3hpyXaKs": {
+  "id": "ChIJOxvF4Hog3YARdeI3hpyXaKs",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [
+   "Grubhub"
+  ],
+  "evidence": [
+   "https://lacanadagrill.com/",
+   "https://www.allmenus.com/ca/costa-mesa/"
+  ],
+  "notes": "No official site found (the WebSearch budget was used up, so I only tried domains directly): lacanadagrill.com/.net/.org/.co, lacanadagrillcostamesa.com, lacanadagrillcm.com, lacanadagrilloc.com, lacanada-grill.com, thelacanadagrill.com, lacanadamexicangrill.com and lacanadagrillmexicanfood.com all fail to resolve. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "La Cañada Grill",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJcxzYmSkr3YARxfI18GL7lRY": {
+  "id": "ChIJcxzYmSkr3YARxfI18GL7lRY",
+  "verdict": "ordering_page_only",
+  "official_url": "",
+  "uses": [
+   "DoorDash"
+  ],
+  "evidence": [
+   "https://cafepatio.com/"
+  ],
+  "notes": "The only web presence is still the DoorDash Storefront (order.online) ordering page the first checker found; cafepatio.com redirects to a GoDaddy for-sale page, and cafepatio.net/.co, cafepatiofullerton.com, cafepatiokorean.com, cafepatioca.com, cafepatiooc.com and mycafepatio.com do not exist (the WebSearch budget was used up, so I only tried domains directly). Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "ordering_page_only",
+  "name": "Cafe Patio Korean | Chinese Cuisine",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJdWn8x4x_24ARWP_u03SgVtw": {
+  "id": "ChIJdWn8x4x_24ARWP_u03SgVtw",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [],
+  "evidence": [
+   "https://familiarestaurant.com/",
+   "https://familia-restaurant-grill.res-menu.com/"
+  ],
+  "notes": "No own domain found: familiarestaurant.com is a Squarespace 'under construction' page with no address or phone (registered 2021, nothing ties it to Temecula); familiarestaurantgrill.com/.net/.co, familiagrill.com/.net, familia-grill.com, familiagrilltemecula.com, familiatemecula.com and similar do not exist; the Yellow Pages link, familia-restaurant-grill.res-menu.com, sits behind a Cloudflare challenge (403, and 522 from its origin), so I could not confirm whether it is an owner-made page or an auto-generated listing, which is the one open lead (the WebSearch budget was used up). Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "Familia Restaurant Grill",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ69OVew4p3YARlxBXDh1Hegk": {
+  "id": "ChIJ69OVew4p3YARlxBXDh1Hegk",
+  "verdict": "ordering_page_only",
+  "official_url": "",
+  "uses": [
+   "Toast"
+  ],
+  "evidence": [
+   "https://marhabacafe.com/",
+   "https://order.toasttab.com/online/mar7aba-cafe-1112-n-brookhurst"
+  ],
+  "notes": "The only web presence is the Toast online-ordering page for 1112 N Brookhurst; mar7abacafe.com/.net, mar7aba.cafe, mar7abacafeanaheim.com, marhabacafeanaheim.com, mar7abaanaheim.com, mar7abacafeoc.com and marhabacafe.net do not exist, marhabacafe.com is a restaurant in Borjomi, Georgia, and the Toast pages returned 403 (the WebSearch budget was used up, so I only tried domains directly). Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "ordering_page_only",
+  "name": "Mar7aba cafe ( marhaba cafe )",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJOzYWg8Mb24ARZg8HjjB0RpM": {
+  "id": "ChIJOzYWg8Mb24ARZg8HjjB0RpM",
+  "verdict": "social_only",
+  "official_url": "",
+  "uses": [],
+  "evidence": [
+   "https://sanchospalmsprings.com/",
+   "https://calientetropics.com/",
+   "https://www.thereefpalmsprings.com"
+  ],
+  "notes": "Inside the Caliente Tropics resort: ask who runs it before pitching. Only Facebook plus a qrco.de QR page with menu images: sanchospalmsprings.com serves a parked /lander redirect, the .net/.org versions, sanchosps.com and sanchoscantinapalmsprings.com do not exist, sanchosmexican.com is a Sancho's in Boulder, CO, and the Caliente Tropics resort site at the same address lists only The Reef bar (thereefpalmsprings.com), which does not mention Sancho's (the WebSearch budget was used up, so I only tried domains directly). Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "social_only",
+  "name": "Sancho's Mexican Restaurant & Cantina",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJAX_ascLf3IARr7mzNtJ64EY": {
+  "id": "ChIJAX_ascLf3IARr7mzNtJ64EY",
+  "verdict": "weak_site",
+  "official_url": "http://www.keepitseal.com/our-bar/index.html",
+  "uses": [],
+  "notes": "Its own domain ourbaroc.com is now parked, and the only site left is a stale pre-opening page on a design agency's domain (linked from Yellow Pages) with placeholder menu text, Instagram posts from 2019-2020 and an old phone number; the web search limit ran out before this restaurant, so I found this through Yellow Pages and by trying domains directly.",
+  "evidence": [
+   "http://www.keepitseal.com/our-bar/index.html",
+   "https://ourbaroc.com/",
+   "https://www.yellowpages.com/costa-mesa-ca/mip/our-bar-562110856"
+  ],
+  "missing": [
+   "menu",
+   "own domain",
+   "ordering",
+   "current phone",
+   "photos",
+   "working links"
+  ],
+  "name": "Our Bar and Kitchen",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJC-HhK16_woARkRy2jfVvC7c": {
+  "id": "ChIJC-HhK16_woARkRy2jfVvC7c",
+  "verdict": "no_site",
+  "official_url": "",
+  "uses": [],
+  "evidence": [
+   "http://www.latazadecafe.com/",
+   "https://lataza.cafe/",
+   "https://www.facebook.com/latazadecafe"
+  ],
+  "notes": "Least certain result, because neither checker could run a web search (the shared budget was used up): latazadecafe.com is an Indonesian SBOBET gambling spam site, latazacafe.com redirects to a German cafe, lataza.cafe is an unrelated coffee shop in Gilbert, AZ, facebook.com/latazadecafe is an unrelated 'La Taza de Café Producciones', and latazadecafe.net/.org/.co/.us/.cafe/.shop, latazadecafela.com, latazala.com and latazacoffee.com do not exist; Yelp and Instagram blocked access. Re-checked with a web search: no website of its own found.",
+  "challenged": true,
+  "first_verdict": "no_site",
+  "name": "La Taza de Café",
+  "checked_on": "2026-10-07"
+ },
+ "ChIJ55ABMoaTwoAR06CzL0Xduto": {
+  "id": "ChIJ55ABMoaTwoAR06CzL0Xduto",
+  "verdict": "weak_site",
+  "official_url": "https://risenshinecafesunland.wordpress.com/",
+  "uses": [
+   "WordPress"
+  ],
+  "notes": "Its free WordPress.com subdomain site has the right address, phone, hours (Thursday left out) and a menu shown as images uploaded in September 2022, but no ordering and no updates since 2022; its old domain risenshinecafesunland.com now redirects to a gambling spam site.",
+  "evidence": [
+   "https://risenshinecafesunland.wordpress.com/",
+   "https://risenshinecafesunland.wordpress.com/menu/",
+   "https://risenshinecafesunland.com"
+  ],
+  "missing": [
+   "own domain",
+   "text menu",
+   "complete hours",
+   "ordering",
+   "recent updates"
+  ],
+  "name": "Rise N Shine Cafe",
+  "checked_on": "2026-10-07"
  }
 }
