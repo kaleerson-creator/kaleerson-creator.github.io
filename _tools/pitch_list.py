@@ -69,6 +69,9 @@ def main():
             now = f'**{LABEL[c["verdict"]]}**'
             if c.get('official_url'):
                 now += f' ({cell(c["official_url"])})'
+            warn = re.search(r'(Ask first[^.]*\.|[^.]*ask who runs it[^.]*\.)', c.get('notes', ''), re.I)
+            if warn:
+                now += f'<br>⚠ {cell(warn.group(1).strip())}'
             slug = dm.get(p['id'])
             demo = f'[open](https://kaleerson.com/demos/{slug}/)' if slug else 'not built yet'
             doms = ', '.join(d['domain'] for d in p.get('domains', []) if d.get('available'))
