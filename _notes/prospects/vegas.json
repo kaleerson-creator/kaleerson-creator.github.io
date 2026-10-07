@@ -276,10 +276,10 @@
    },
    "badness": 95,
    "lead_score": 85,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -353,10 +353,10 @@
    },
    "badness": 100,
    "lead_score": 85,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -505,10 +505,10 @@
    },
    "badness": 100,
    "lead_score": 84,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -582,10 +582,10 @@
    },
    "badness": 95,
    "lead_score": 82,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -663,10 +663,10 @@
    },
    "badness": 90,
    "lead_score": 81,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -898,10 +898,10 @@
    },
    "badness": 90,
    "lead_score": 79,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -1056,10 +1056,10 @@
    },
    "badness": 100,
    "lead_score": 79,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -1300,10 +1300,10 @@
    },
    "badness": 100,
    "lead_score": 78,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -1921,10 +1921,10 @@
    },
    "badness": 100,
    "lead_score": 70,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -2003,10 +2003,10 @@
    },
    "badness": 95,
    "lead_score": 69,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -2081,10 +2081,10 @@
    },
    "badness": 100,
    "lead_score": 69,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -2160,10 +2160,10 @@
    },
    "badness": 90,
    "lead_score": 68,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -2237,10 +2237,10 @@
    },
    "badness": 100,
    "lead_score": 68,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -2320,10 +2320,10 @@
    },
    "badness": 95,
    "lead_score": 68,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -2400,10 +2400,10 @@
    },
    "badness": 95,
    "lead_score": 67,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -2477,10 +2477,10 @@
    },
    "badness": 100,
    "lead_score": 66,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -2632,10 +2632,10 @@
    },
    "badness": 85,
    "lead_score": 65,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -2795,10 +2795,10 @@
    },
    "badness": 90,
    "lead_score": 65,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -3025,10 +3025,10 @@
    },
    "badness": 90,
    "lead_score": 62,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -3103,10 +3103,10 @@
    },
    "badness": 100,
    "lead_score": 61,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -3180,10 +3180,10 @@
    },
    "badness": 70,
    "lead_score": 59,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -3258,10 +3258,10 @@
    },
    "badness": 70,
    "lead_score": 59,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -3336,10 +3336,10 @@
    },
    "badness": 70,
    "lead_score": 58,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -3494,10 +3494,10 @@
    },
    "badness": 70,
    "lead_score": 53,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -3649,10 +3649,10 @@
    },
    "badness": 70,
    "lead_score": 52,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -3966,10 +3966,10 @@
    },
    "badness": 70,
    "lead_score": 50,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -4204,10 +4204,10 @@
    },
    "badness": 70,
    "lead_score": 47,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -4291,10 +4291,10 @@
    },
    "badness": 59,
    "lead_score": 47,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -4369,10 +4369,10 @@
    },
    "badness": 70,
    "lead_score": 46,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -4694,10 +4694,10 @@
    },
    "badness": 53,
    "lead_score": 46,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -4945,10 +4945,10 @@
    },
    "badness": 70,
    "lead_score": 45,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -6240,10 +6240,10 @@
    },
    "badness": 52,
    "lead_score": 41,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -7399,10 +7399,10 @@
    },
    "badness": 45,
    "lead_score": 38,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -7582,10 +7582,10 @@
    },
    "badness": 50,
    "lead_score": 38,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -7853,10 +7853,10 @@
    },
    "badness": 45,
    "lead_score": 37,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -7942,10 +7942,10 @@
    },
    "badness": 46,
    "lead_score": 37,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -8030,10 +8030,10 @@
    },
    "badness": 42,
    "lead_score": 36,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -8116,10 +8116,10 @@
    },
    "badness": 41,
    "lead_score": 36,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -8203,10 +8203,10 @@
    },
    "badness": 47,
    "lead_score": 36,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -8373,10 +8373,10 @@
    },
    "badness": 55,
    "lead_score": 36,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -8456,10 +8456,10 @@
    },
    "badness": 41,
    "lead_score": 35,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -8548,10 +8548,10 @@
    },
    "badness": 45,
    "lead_score": 35,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -9506,10 +9506,10 @@
    },
    "badness": 41,
    "lead_score": 32,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -10134,10 +10134,10 @@
    },
    "badness": 42,
    "lead_score": 30,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -10599,10 +10599,10 @@
    },
    "badness": 40,
    "lead_score": 28,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -10693,10 +10693,10 @@
    },
    "badness": 41,
    "lead_score": 27,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -20173,10 +20173,10 @@
    },
    "badness": 32,
    "lead_score": 28,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -20223,10 +20223,10 @@
    },
    "badness": 35,
    "lead_score": 31,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -20276,10 +20276,10 @@
    },
    "badness": 31,
    "lead_score": 27,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -20436,10 +20436,10 @@
    },
    "badness": 39,
    "lead_score": 34,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -20598,10 +20598,10 @@
    },
    "badness": 30,
    "lead_score": 27,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -20647,10 +20647,10 @@
    },
    "badness": 25,
    "lead_score": 21,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -20856,10 +20856,10 @@
    },
    "badness": 18,
    "lead_score": 16,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -21219,10 +21219,10 @@
    },
    "badness": 32,
    "lead_score": 27,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -21310,10 +21310,10 @@
    },
    "badness": 95,
    "lead_score": 85,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -21455,10 +21455,10 @@
    },
    "badness": 21,
    "lead_score": 18,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -21505,10 +21505,10 @@
    },
    "badness": 42,
    "lead_score": 36,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -21753,10 +21753,10 @@
    },
    "badness": 18,
    "lead_score": 16,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -21861,10 +21861,10 @@
    },
    "badness": 36,
    "lead_score": 31,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -21963,10 +21963,10 @@
    },
    "badness": 27,
    "lead_score": 23,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -22100,10 +22100,10 @@
    },
    "badness": 53,
    "lead_score": 46,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -22450,10 +22450,10 @@
    },
    "badness": 45,
    "lead_score": 38,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -22590,10 +22590,10 @@
    },
    "badness": 32,
    "lead_score": 28,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -22800,10 +22800,10 @@
    },
    "badness": 35,
    "lead_score": 32,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -23214,10 +23214,10 @@
    },
    "badness": 39,
    "lead_score": 33,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -23275,10 +23275,10 @@
    },
    "badness": 32,
    "lead_score": 28,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -23331,10 +23331,10 @@
    },
    "badness": 20,
    "lead_score": 17,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -23433,10 +23433,10 @@
    },
    "badness": 30,
    "lead_score": 26,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -23689,10 +23689,10 @@
    },
    "badness": 90,
    "lead_score": 81,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -23773,10 +23773,10 @@
    },
    "badness": 19,
    "lead_score": 16,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -23982,10 +23982,10 @@
    },
    "badness": 34,
    "lead_score": 29,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -24035,10 +24035,10 @@
    },
    "badness": 38,
    "lead_score": 33,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -24243,10 +24243,10 @@
    },
    "badness": 26,
    "lead_score": 22,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -24450,10 +24450,10 @@
    },
    "badness": 27,
    "lead_score": 23,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -24498,10 +24498,10 @@
    },
    "badness": 18,
    "lead_score": 15,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -24643,10 +24643,10 @@
    },
    "badness": 32,
    "lead_score": 28,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -24686,10 +24686,10 @@
    },
    "badness": 90,
    "lead_score": 79,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -24775,10 +24775,10 @@
    },
    "badness": 41,
    "lead_score": 35,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -24861,10 +24861,10 @@
    },
    "badness": 12,
    "lead_score": 10,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -25077,10 +25077,10 @@
    },
    "badness": 45,
    "lead_score": 37,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -25166,10 +25166,10 @@
    },
    "badness": 15,
    "lead_score": 12,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -25220,10 +25220,10 @@
    },
    "badness": 32,
    "lead_score": 27,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -25375,10 +25375,10 @@
    },
    "badness": 21,
    "lead_score": 18,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -25424,10 +25424,10 @@
    },
    "badness": 5,
    "lead_score": 4,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -25474,10 +25474,10 @@
    },
    "badness": 9,
    "lead_score": 8,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -25524,10 +25524,10 @@
    },
    "badness": 25,
    "lead_score": 20,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -25578,10 +25578,10 @@
    },
    "badness": 30,
    "lead_score": 24,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -25832,10 +25832,10 @@
    },
    "badness": 41,
    "lead_score": 36,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -25922,10 +25922,10 @@
    },
    "badness": 33,
    "lead_score": 27,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -25961,10 +25961,10 @@
    },
    "badness": 95,
    "lead_score": 82,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -26104,10 +26104,10 @@
    },
    "badness": 28,
    "lead_score": 23,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -26238,10 +26238,10 @@
    },
    "badness": 21,
    "lead_score": 17,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -26288,10 +26288,10 @@
    },
    "badness": 34,
    "lead_score": 28,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -26335,10 +26335,10 @@
    },
    "badness": 28,
    "lead_score": 22,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -26383,10 +26383,10 @@
    },
    "badness": 23,
    "lead_score": 19,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -26422,10 +26422,10 @@
    },
    "badness": 70,
    "lead_score": 59,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -26549,10 +26549,10 @@
    },
    "badness": 100,
    "lead_score": 85,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -26627,10 +26627,10 @@
    },
    "badness": 70,
    "lead_score": 59,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -26916,10 +26916,10 @@
    },
    "badness": 14,
    "lead_score": 11,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -26967,10 +26967,10 @@
    },
    "badness": 46,
    "lead_score": 37,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -27053,10 +27053,10 @@
    },
    "badness": 38,
    "lead_score": 30,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -27103,10 +27103,10 @@
    },
    "badness": 29,
    "lead_score": 23,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -27652,10 +27652,10 @@
    },
    "badness": 22,
    "lead_score": 19,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -27708,10 +27708,10 @@
    },
    "badness": 17,
    "lead_score": 13,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -27757,10 +27757,10 @@
    },
    "badness": 59,
    "lead_score": 47,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -27847,10 +27847,10 @@
    },
    "badness": 16,
    "lead_score": 13,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -27946,10 +27946,10 @@
    },
    "badness": 30,
    "lead_score": 24,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -28007,10 +28007,10 @@
    },
    "badness": 25,
    "lead_score": 21,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -28060,10 +28060,10 @@
    },
    "badness": 27,
    "lead_score": 22,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -28192,10 +28192,10 @@
    },
    "badness": 12,
    "lead_score": 9,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -28247,10 +28247,10 @@
    },
    "badness": 22,
    "lead_score": 17,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -28380,10 +28380,10 @@
    },
    "badness": 19,
    "lead_score": 16,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -28502,10 +28502,10 @@
    },
    "badness": 22,
    "lead_score": 17,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -28554,10 +28554,10 @@
    },
    "badness": 27,
    "lead_score": 21,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -28608,10 +28608,10 @@
    },
    "badness": 26,
    "lead_score": 21,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -28753,10 +28753,10 @@
    },
    "badness": 70,
    "lead_score": 58,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -28840,10 +28840,10 @@
    },
    "badness": 31,
    "lead_score": 25,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -28926,10 +28926,10 @@
    },
    "badness": 100,
    "lead_score": 84,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -29010,10 +29010,10 @@
    },
    "badness": 14,
    "lead_score": 11,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -29060,10 +29060,10 @@
    },
    "badness": 30,
    "lead_score": 24,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -29413,10 +29413,10 @@
    },
    "badness": 38,
    "lead_score": 31,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -29465,10 +29465,10 @@
    },
    "badness": 32,
    "lead_score": 25,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -29517,10 +29517,10 @@
    },
    "badness": 20,
    "lead_score": 16,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -29660,10 +29660,10 @@
    },
    "badness": 47,
    "lead_score": 36,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -29801,10 +29801,10 @@
    },
    "badness": 26,
    "lead_score": 22,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -29855,10 +29855,10 @@
    },
    "badness": 45,
    "lead_score": 35,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -30214,10 +30214,10 @@
    },
    "badness": 21,
    "lead_score": 16,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -30265,10 +30265,10 @@
    },
    "badness": 36,
    "lead_score": 29,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -30483,10 +30483,10 @@
    },
    "badness": 24,
    "lead_score": 19,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -30524,10 +30524,10 @@
    },
    "badness": 85,
    "lead_score": 65,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -30617,10 +30617,10 @@
    },
    "badness": 15,
    "lead_score": 12,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -30767,10 +30767,10 @@
    },
    "badness": 38,
    "lead_score": 29,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -30821,10 +30821,10 @@
    },
    "badness": 50,
    "lead_score": 38,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -30907,10 +30907,10 @@
    },
    "badness": 30,
    "lead_score": 24,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -30953,10 +30953,10 @@
    },
    "badness": 22,
    "lead_score": 18,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -31253,10 +31253,10 @@
    },
    "badness": 52,
    "lead_score": 41,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -31338,10 +31338,10 @@
    },
    "badness": 16,
    "lead_score": 12,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -31389,10 +31389,10 @@
    },
    "badness": 16,
    "lead_score": 12,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -31493,10 +31493,10 @@
    },
    "badness": 24,
    "lead_score": 19,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -32012,10 +32012,10 @@
    },
    "badness": 29,
    "lead_score": 22,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -32153,10 +32153,10 @@
    },
    "badness": 100,
    "lead_score": 79,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -32338,10 +32338,10 @@
    },
    "badness": 33,
    "lead_score": 25,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -32469,10 +32469,10 @@
    },
    "badness": 35,
    "lead_score": 26,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -32511,10 +32511,10 @@
    },
    "badness": 70,
    "lead_score": 53,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -32600,10 +32600,10 @@
    },
    "badness": 25,
    "lead_score": 20,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -32701,10 +32701,10 @@
    },
    "badness": 21,
    "lead_score": 16,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -33186,10 +33186,10 @@
    },
    "badness": 20,
    "lead_score": 15,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -33563,10 +33563,10 @@
    },
    "badness": 32,
    "lead_score": 24,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -33664,10 +33664,10 @@
    },
    "badness": 34,
    "lead_score": 25,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -33763,10 +33763,10 @@
    },
    "badness": 38,
    "lead_score": 28,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -33812,10 +33812,10 @@
    },
    "badness": 31,
    "lead_score": 25,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -33862,10 +33862,10 @@
    },
    "badness": 28,
    "lead_score": 21,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -34114,10 +34114,10 @@
    },
    "badness": 41,
    "lead_score": 32,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -34193,10 +34193,10 @@
    },
    "badness": 90,
    "lead_score": 68,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -34392,10 +34392,10 @@
    },
    "badness": 29,
    "lead_score": 21,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -34580,10 +34580,10 @@
    },
    "badness": 29,
    "lead_score": 22,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -34735,10 +34735,10 @@
    },
    "badness": 36,
    "lead_score": 28,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -34837,10 +34837,10 @@
    },
    "badness": 5,
    "lead_score": 4,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -34935,10 +34935,10 @@
    },
    "badness": 19,
    "lead_score": 15,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -35080,10 +35080,10 @@
    },
    "badness": 10,
    "lead_score": 7,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -35135,10 +35135,10 @@
    },
    "badness": 12,
    "lead_score": 9,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -35184,10 +35184,10 @@
    },
    "badness": 12,
    "lead_score": 9,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -35282,10 +35282,10 @@
    },
    "badness": 9,
    "lead_score": 7,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -35625,10 +35625,10 @@
    },
    "badness": 22,
    "lead_score": 17,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -35673,10 +35673,10 @@
    },
    "badness": 18,
    "lead_score": 14,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -35721,10 +35721,10 @@
    },
    "badness": 23,
    "lead_score": 18,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -35927,10 +35927,10 @@
    },
    "badness": 95,
    "lead_score": 69,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -36050,10 +36050,10 @@
    },
    "badness": 70,
    "lead_score": 52,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -36243,10 +36243,10 @@
    },
    "badness": 35,
    "lead_score": 26,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -36293,10 +36293,10 @@
    },
    "badness": 30,
    "lead_score": 23,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -36719,10 +36719,10 @@
    },
    "badness": 30,
    "lead_score": 22,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -36829,10 +36829,10 @@
    },
    "badness": 36,
    "lead_score": 26,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -36957,10 +36957,10 @@
    },
    "badness": 100,
    "lead_score": 78,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    },
    "domains": [
     {
@@ -37048,10 +37048,10 @@
    },
    "badness": 25,
    "lead_score": 18,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -37440,10 +37440,10 @@
    },
    "badness": 13,
    "lead_score": 10,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -37542,10 +37542,10 @@
    },
    "badness": 12,
    "lead_score": 9,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -37594,10 +37594,10 @@
    },
    "badness": 35,
    "lead_score": 26,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -37706,10 +37706,10 @@
    },
    "badness": 25,
    "lead_score": 18,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -37800,10 +37800,10 @@
    },
    "badness": 4,
    "lead_score": 3,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -37849,10 +37849,10 @@
    },
    "badness": 28,
    "lead_score": 20,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -38212,10 +38212,10 @@
    },
    "badness": 33,
    "lead_score": 23,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -38261,10 +38261,10 @@
    },
    "badness": 19,
    "lead_score": 15,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -38600,10 +38600,10 @@
    },
    "badness": 29,
    "lead_score": 22,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -38763,10 +38763,10 @@
    },
    "badness": 42,
    "lead_score": 30,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -38846,10 +38846,10 @@
    },
    "badness": 18,
    "lead_score": 13,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -38898,10 +38898,10 @@
    },
    "badness": 32,
    "lead_score": 22,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -39003,10 +39003,10 @@
    },
    "badness": 30,
    "lead_score": 21,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -39346,10 +39346,10 @@
    },
    "badness": 15,
    "lead_score": 11,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -39392,10 +39392,10 @@
    },
    "badness": 70,
    "lead_score": 50,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -39721,10 +39721,10 @@
    },
    "badness": 15,
    "lead_score": 10,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -39908,10 +39908,10 @@
    },
    "badness": 95,
    "lead_score": 67,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -40145,10 +40145,10 @@
    },
    "badness": 20,
    "lead_score": 14,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -40184,10 +40184,10 @@
    },
    "badness": 90,
    "lead_score": 65,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -40270,10 +40270,10 @@
    },
    "badness": 22,
    "lead_score": 16,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -40326,10 +40326,10 @@
    },
    "badness": 15,
    "lead_score": 10,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -40378,10 +40378,10 @@
    },
    "badness": 18,
    "lead_score": 13,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -40583,10 +40583,10 @@
    },
    "badness": 4,
    "lead_score": 3,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -40629,10 +40629,10 @@
    },
    "badness": 17,
    "lead_score": 12,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -40823,10 +40823,10 @@
    },
    "badness": 9,
    "lead_score": 6,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -41172,10 +41172,10 @@
    },
    "badness": 100,
    "lead_score": 68,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -41316,10 +41316,10 @@
    },
    "badness": 18,
    "lead_score": 12,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -41504,10 +41504,10 @@
    },
    "badness": 19,
    "lead_score": 13,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -41553,10 +41553,10 @@
    },
    "badness": 18,
    "lead_score": 13,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -41593,10 +41593,10 @@
    },
    "badness": 100,
    "lead_score": 69,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -41671,10 +41671,10 @@
    },
    "badness": 90,
    "lead_score": 62,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -41755,10 +41755,10 @@
    },
    "badness": 9,
    "lead_score": 6,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -41805,10 +41805,10 @@
    },
    "badness": 15,
    "lead_score": 10,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -42041,10 +42041,10 @@
    },
    "badness": 18,
    "lead_score": 13,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -42243,10 +42243,10 @@
    },
    "badness": 20,
    "lead_score": 14,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -42281,10 +42281,10 @@
    },
    "badness": 100,
    "lead_score": 70,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -42412,10 +42412,10 @@
    },
    "badness": 100,
    "lead_score": 66,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -42559,10 +42559,10 @@
    },
    "badness": 15,
    "lead_score": 11,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -42681,10 +42681,10 @@
    },
    "badness": 55,
    "lead_score": 36,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -42762,10 +42762,10 @@
    },
    "badness": 39,
    "lead_score": 26,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -42850,10 +42850,10 @@
    },
    "badness": 70,
    "lead_score": 47,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -43062,10 +43062,10 @@
    },
    "badness": 18,
    "lead_score": 12,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -43102,10 +43102,10 @@
    },
    "badness": 70,
    "lead_score": 46,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -43193,10 +43193,10 @@
    },
    "badness": 36,
    "lead_score": 24,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -43246,10 +43246,10 @@
    },
    "badness": 40,
    "lead_score": 28,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -43600,10 +43600,10 @@
    },
    "badness": 95,
    "lead_score": 68,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -43691,10 +43691,10 @@
    },
    "badness": 35,
    "lead_score": 25,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -43747,10 +43747,10 @@
    },
    "badness": 41,
    "lead_score": 27,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -44021,10 +44021,10 @@
    },
    "badness": 38,
    "lead_score": 25,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -44508,10 +44508,10 @@
    },
    "badness": 34,
    "lead_score": 24,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -44665,10 +44665,10 @@
    },
    "badness": 19,
    "lead_score": 14,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -44772,10 +44772,10 @@
    },
    "badness": 33,
    "lead_score": 22,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -44871,10 +44871,10 @@
    },
    "badness": 25,
    "lead_score": 17,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -45055,10 +45055,10 @@
    },
    "badness": 6,
    "lead_score": 4,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -45104,10 +45104,10 @@
    },
    "badness": 17,
    "lead_score": 12,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -45450,10 +45450,10 @@
    },
    "badness": 17,
    "lead_score": 11,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -45498,10 +45498,10 @@
    },
    "badness": 26,
    "lead_score": 17,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -45554,10 +45554,10 @@
    },
    "badness": 18,
    "lead_score": 11,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -45655,10 +45655,10 @@
    },
    "badness": 21,
    "lead_score": 14,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -45748,10 +45748,10 @@
    },
    "badness": 25,
    "lead_score": 17,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -45793,10 +45793,10 @@
    },
    "badness": 33,
    "lead_score": 21,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -45947,10 +45947,10 @@
    },
    "badness": 24,
    "lead_score": 15,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -46000,10 +46000,10 @@
    },
    "badness": 23,
    "lead_score": 16,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -46048,10 +46048,10 @@
    },
    "badness": 12,
    "lead_score": 8,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -46096,10 +46096,10 @@
    },
    "badness": 20,
    "lead_score": 13,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -46145,10 +46145,10 @@
    },
    "badness": 20,
    "lead_score": 13,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -46196,10 +46196,10 @@
    },
    "badness": 24,
    "lead_score": 16,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -46363,10 +46363,10 @@
    },
    "badness": 26,
    "lead_score": 17,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -46455,10 +46455,10 @@
    },
    "badness": 70,
    "lead_score": 45,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -46543,10 +46543,10 @@
    },
    "badness": 16,
    "lead_score": 10,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -46593,10 +46593,10 @@
    },
    "badness": 29,
    "lead_score": 19,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -46725,10 +46725,10 @@
    },
    "badness": 39,
    "lead_score": 25,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -46876,10 +46876,10 @@
    },
    "badness": 14,
    "lead_score": 9,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -46972,10 +46972,10 @@
    },
    "badness": 23,
    "lead_score": 15,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -47018,10 +47018,10 @@
    },
    "badness": 24,
    "lead_score": 15,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -47110,10 +47110,10 @@
    },
    "badness": 9,
    "lead_score": 6,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -47150,10 +47150,10 @@
    },
    "badness": 100,
    "lead_score": 61,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -47236,10 +47236,10 @@
    },
    "badness": 25,
    "lead_score": 16,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -47333,10 +47333,10 @@
    },
    "badness": 13,
    "lead_score": 8,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -47435,10 +47435,10 @@
    },
    "badness": 18,
    "lead_score": 11,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -47536,10 +47536,10 @@
    },
    "badness": 9,
    "lead_score": 6,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -47837,10 +47837,10 @@
    },
    "badness": 25,
    "lead_score": 15,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -48016,10 +48016,10 @@
    },
    "badness": 22,
    "lead_score": 13,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
@@ -48151,10 +48151,10 @@
    },
    "badness": 16,
    "lead_score": 10,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {

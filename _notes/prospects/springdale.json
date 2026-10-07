@@ -512,10 +512,10 @@
    },
    "badness": 100,
    "lead_score": 65,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -668,10 +668,10 @@
    },
    "badness": 85,
    "lead_score": 58,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -2139,10 +2139,10 @@
    },
    "badness": 15,
    "lead_score": 13,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -2292,10 +2292,10 @@
    },
    "badness": 25,
    "lead_score": 21,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -2341,10 +2341,10 @@
    },
    "badness": 37,
    "lead_score": 32,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -2439,10 +2439,10 @@
    },
    "badness": 39,
    "lead_score": 32,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -3184,10 +3184,10 @@
    },
    "badness": 19,
    "lead_score": 15,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -3287,10 +3287,10 @@
    },
    "badness": 10,
    "lead_score": 8,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -3480,10 +3480,10 @@
    },
    "badness": 26,
    "lead_score": 19,
-   "size": "large",
+   "size": "medium",
    "suggested": {
-    "setup": 1800,
-    "monthly": 199
+    "setup": 1000,
+    "monthly": 129
    }
   },
   {
@@ -3944,10 +3944,10 @@
    },
    "badness": 85,
    "lead_score": 58,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -4264,10 +4264,10 @@
    },
    "badness": 100,
    "lead_score": 65,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    },
    "domains": [
     {
@@ -4455,10 +4455,10 @@
    },
    "badness": 17,
    "lead_score": 11,
-   "size": "medium",
+   "size": "small",
    "suggested": {
-    "setup": 1000,
-    "monthly": 129
+    "setup": 500,
+    "monthly": 79
    }
   },
   {
