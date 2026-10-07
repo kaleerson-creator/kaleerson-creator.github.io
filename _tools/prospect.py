@@ -176,7 +176,8 @@ def cached(name, fn):
             return json.load(f)
     data = fn()
     # don't keep failures, so the next run retries them
-    if not (isinstance(data, dict) and ('error' in data or data.get('available', False) is None)):
+    # (a site that is truly broken is a final answer and does get kept)
+    if not (isinstance(data, dict) and (('error' in data and not data.get('final')) or data.get('available', False) is None)):
         with open(p, 'w') as f:
             json.dump(data, f)
     return data
@@ -273,7 +274,8 @@ def pagespeed(url):
                 msg = e.read().decode(errors='replace')
                 if e.code == 429 and attempt < 2:
                     time.sleep(5 * (attempt + 1)); continue
-                return {'error': {'code': e.code, 'message': msg[:300]}}
+                # 400 from Lighthouse means it reached the site and the site failed: keep that
+                return {'error': {'code': e.code, 'message': msg[:300]}, 'final': e.code == 400}
             except Exception as e:  # timeouts, resets
                 if attempt < 2:
                     time.sleep(3); continue
@@ -540,7 +542,7 @@ def size_tier(p):
     lvl = p.get('priceLevel') or ''
     quick = any(q in (p.get('primaryType') or '') for q in QUICK)
     pts = (n >= 400) + (n >= 1500) + (lvl in ('PRICE_LEVEL_EXPENSIVE', 'PRICE_LEVEL_VERY_EXPENSIVE')) \
-          + (lvl == 'PRICE_LEVEL_MODERATE' and not quick) - (quick and n < 1500)
+          - (quick and n < 1500)
     return 'small' if pts <= 0 else 'medium' if pts == 1 else 'large'
 
 def price_cell(p):
