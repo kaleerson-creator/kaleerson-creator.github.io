@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Molecules · Games</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Happy Molecules · Games">
+<meta property="og:description" content="Every atom has a rule. Connect them until everyone is happy.">
+<meta property="og:url" content="https://kaleerson.com/edu/molecules/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="Every atom has a rule. Connect them until everyone is happy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<link rel="stylesheet" href="/edu/assets/games.css?v=5">
+<style>
+.stage{position:relative}
+.mbox{position:relative;width:100%;max-width:460px}
+.legend .mol{cursor:default}
+.mol{display:block;width:100%;height:auto;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent;cursor:pointer}
+.mol .f-blue{fill:var(--sky)}.mol .f-yellow{fill:var(--butter)}.mol .f-red{fill:var(--peach)}.mol .f-green{fill:var(--moss)}.mol .f-purple{fill:var(--lilac)}
+html[data-theme=dark] .mol .f-blue{fill:#2E4F86}html[data-theme=dark] .mol .f-yellow{fill:#85741E}html[data-theme=dark] .mol .f-red{fill:#8E3E2E}html[data-theme=dark] .mol .f-green{fill:#3E6B32}html[data-theme=dark] .mol .f-purple{fill:#5B4A8F}
+.mol .shape{stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.mol .face{fill:var(--ink)}
+.mol .mouth{fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.mol .bond{stroke:var(--ink);stroke-width:4;stroke-linecap:round;opacity:.75}
+.mol .bond.hint{stroke:#d8b43a}
+.mol .ghost{stroke:var(--ink3);stroke-width:4;stroke-dasharray:6 7;stroke-linecap:round;pointer-events:none}
+.mol .sel{fill:none;stroke:var(--ink);stroke-width:3;stroke-dasharray:5 5}
+.mol .hit{fill:transparent;stroke:none}
+.mol .handle{fill:var(--card);stroke:var(--ink);stroke-width:2}
+.mol .hwrap:hover .handle{fill:var(--peach)}
+.mol .gback{fill:var(--card);opacity:.92}
+.mol .gtxt{font:700 11px var(--body);fill:var(--ink)}
+.mol .gi{stroke:var(--ink);stroke-width:1.5;stroke-linejoin:round;fill:var(--card)}
+.mol .gi.st{stroke-width:1}
+.mol .link{stroke:var(--ink);stroke-width:2;stroke-linecap:round}
+.mol .dot{fill:var(--ink)}
+.mol .slash{stroke:#D12C2C;stroke-width:2.5;stroke-linecap:round}
+html[data-theme=dark] .mol .slash{stroke:#f08a7c}
+.mol .wig{transform-box:fill-box;transform-origin:center;animation:wig .5s var(--ease)}
+@keyframes wig{0%,100%{transform:rotate(0)}30%{transform:rotate(-8deg) scale(1.06)}70%{transform:rotate(7deg) scale(1.04)}}
+.mtop{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;width:100%;max-width:460px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:999px;background:var(--paper);color:var(--ink);font-weight:600;font-size:14px;font-variant-numeric:tabular-nums}
+.pill.full{background:var(--moss)}
+.rule{min-height:44px;width:100%;max-width:460px;text-align:center;font-size:14px;color:var(--ink2);background:var(--paper);border-radius:14px;padding:10px 12px}
+.rule b{color:var(--ink)}
+.levels{display:flex;gap:6px;overflow-x:auto;max-width:100%;padding:2px;scrollbar-width:thin}
+.levels button{flex:none;min-width:36px;height:32px;border:0;border-radius:999px;background:var(--paper);color:var(--ink2);font:600 13px var(--body);cursor:pointer;padding:0 10px}
+.levels button.done{background:var(--moss);color:var(--ink)}
+.levels button[aria-pressed=true]{background:var(--ink);color:var(--on-ink)}
+.legend{display:grid;gap:6px;font-size:14px;color:var(--ink2)}
+.legend svg{width:22px;height:22px;vertical-align:middle;margin-right:6px}
+.big{font:800 56px/1 var(--display);letter-spacing:-.04em}
+</style>
+</head>
+<body data-page="games" data-sub="molecules" data-game="molecules">
+<main class="wrap">
+<div class="ghead"><div><h1>Happy Molecules</h1><p>Every atom has a rule. Use all the bonds and make everyone happy.</p></div>
+  <div class="row"><button class="btn sm ghost" id="undo" disabled>Undo (U)</button><button class="btn sm ghost" id="reset">Reset (R)</button><button class="btn sm ghost" id="hint">Hint (2 left)</button></div></div>
+<div class="glay">
+  <div class="stage">
+    <div class="mtop">
+      <div class="stats"><div><b id="lvl">1</b><span>Level</span></div><div><b id="time">0:00</b><span>Time</span></div><div><b id="best">–</b><span>Best</span></div></div>
+      <span class="pill" id="pill" aria-live="polite">Bonds 0 / 1</span>
+    </div>
+    <div class="mbox" id="mbox"><svg class="mol" id="svg" viewBox="0 0 340 300" role="img" aria-label="Molecule board"></svg></div>
+    <p class="rule" id="rulelbl">Tap an atom to read its rule.</p>
+    <div class="levels" id="levels" aria-label="Levels"></div>
+  </div>
+  <div class="side">
+    <div class="box" id="howto">
+      <h2>How to play</h2>
+      <p class="muted">Tap one atom, then another, to bond them (or drag between them). Tap the little circle on a bond to take it off. Use every bond and make every face happy.</p>
+      <div class="legend" id="legend"></div>
+      <div class="row"><button class="btn sm" id="gotit">Got it</button></div>
+    </div>
+    <div class="box" id="lb"></div>
+    <div class="row" id="howrow" hidden><button class="btn sm ghost" id="showhow">How to play</button></div>
+  </div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/edu/assets/common.js?v=5c"></script>
+<script src="/assets/site.js?v=20261009"></script>
+<script>
+const SHAPES=['circle','square','triangle','diamond','hexagon'],COLORS=['blue','yellow','red','green','purple'];
+const PLURAL={circle:'circles',square:'squares',triangle:'triangles',diamond:'diamonds',hexagon:'hexagons'};
+const $=id=>document.getElementById(id),svg=$('svg'),mbox=$('mbox');
+const NS='http://www.w3.org/2000/svg';
+const W=340,R=26;
+function rng(seed){return()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const pick=(a,r)=>a[Math.floor(r()*a.length)];
+function shuffle(a,r){for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const bkey=(a,b)=>a<b?a+'-'+b:b+'-'+a;
+const mmss=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+
+// ---- Rules. A rule is a list of clauses checked against the atom's current neighbours.
+// deg n | degMin n | shape s n | shapeMin s n | color c n | colorMin c n | noShape s | noColor c | onlyShape s | onlyColor c
+function neighbours(i,bonds,atoms){const n=[];for(const [a,b] of bonds){if(a===i)n.push(atoms[b]);else if(b===i)n.push(atoms[a])}return n}
+const count=(nb,key,val)=>nb.reduce((n,x)=>n+(x[key]===val?1:0),0);
+// {ok, over}: over = it has more of something than the rule allows (the grimace face).
+function evalRule(rule,nb){let ok=true,over=false;const d=nb.length;
+  for(const c of rule){
+    if(c.k==='deg'){if(d!==c.n)ok=false;if(d>c.n)over=true}
+    else if(c.k==='degMin'){if(d<c.n)ok=false}
+    else if(c.k==='shape'||c.k==='color'){const m=count(nb,c.k,c.k==='shape'?c.s:c.c);if(m!==c.n)ok=false;if(m>c.n)over=true}
+    else if(c.k==='shapeMin'){if(count(nb,'shape',c.s)<c.n)ok=false}
+    else if(c.k==='colorMin'){if(count(nb,'color',c.c)<c.n)ok=false}
+    else if(c.k==='noShape'){if(count(nb,'shape',c.s)>0){ok=false;over=true}}
+    else if(c.k==='noColor'){if(count(nb,'color',c.c)>0){ok=false;over=true}}
+    else if(c.k==='onlyShape'){if(nb.some(x=>x.shape!==c.s)){ok=false;over=true}}
+    else if(c.k==='onlyColor'){if(nb.some(x=>x.color!==c.c)){ok=false;over=true}}}
+  return {ok,over}}
+const satisfied=(rule,nb)=>evalRule(rule,nb).ok;
+function allHappy(atoms,rules,bonds){return atoms.every((a,i)=>satisfied(rules[i],neighbours(i,bonds,atoms)))}
+// How much of the real neighbourhood a rule pins down. partial = it does not mention every neighbour.
+function mentioned(rule,d){let deg=0,sh=0,co=0;for(const c of rule){if(c.k==='deg')deg=d;else if(c.k==='shape')sh+=c.n;else if(c.k==='color')co+=c.n}return Math.max(deg,sh,co)}
+const isPartial=(rule,d)=>mentioned(rule,d)<d;
+const isFull=(rule,d)=>rule.some(c=>c.k==='deg')&&rule.filter(c=>c.k==='shape').reduce((n,c)=>n+c.n,0)===d;
+function words(atom,rule){
+  const name=atom.color+' '+atom.shape;
+  const n=(k,one,many)=>k+' '+(k===1?one:many);
+  const parts=rule.map(c=>{switch(c.k){
+    case 'deg':return n(c.n,'connection','connections');
+    case 'degMin':return 'at least '+n(c.n,'connection','connections');
+    case 'shape':return n(c.n,c.s,PLURAL[c.s]);
+    case 'shapeMin':return 'at least '+n(c.n,c.s,PLURAL[c.s]);
+    case 'color':return n(c.n,c.c+' thing',c.c+' things');
+    case 'colorMin':return 'at least '+n(c.n,c.c+' thing',c.c+' things');
+    case 'noShape':return 'no '+PLURAL[c.s];
+    case 'noColor':return 'no '+c.c+' things';
+    case 'onlyShape':return 'only '+PLURAL[c.s]+' around it';
+    case 'onlyColor':return 'only '+c.c+' things around it'}});
+  const exactAt=rule.findIndex(c=>c.k==='deg'||c.k==='shape'||c.k==='color');
+  if(exactAt>=0)parts[exactAt]='exactly '+parts[exactAt];
+  const list=parts.length>1?parts.slice(0,-1).join(', ')+' and '+parts[parts.length-1]:parts[0];
+  return name[0].toUpperCase()+name.slice(1)+' needs '+list+'.'}
+
+// ---- Hand-written tutorial levels. b = the solution bonds.
+const A=(shape,color,rule)=>({shape,color,rule});
+const LEVELS=[
+  {atoms:[A('circle','blue',[{k:'deg',n:1}]),A('square','yellow',[{k:'deg',n:1}])],M:1,b:[[0,1]]},
+  {atoms:[A('square','blue',[{k:'shape',s:'triangle',n:2}]),A('triangle','red',[{k:'deg',n:1}]),A('triangle','red',[{k:'shape',s:'square',n:1}])],M:2,b:[[0,1],[0,2]]},
+  {atoms:[A('circle','yellow',[{k:'color',c:'blue',n:2}]),A('triangle','blue',[{k:'color',c:'yellow',n:1}]),A('square','blue',[{k:'color',c:'yellow',n:1}]),A('hexagon','red',[{k:'color',c:'blue',n:1}])],M:3,b:[[0,1],[0,2],[1,3]]},
+  {atoms:[A('square','blue',[{k:'shape',s:'triangle',n:2},{k:'color',c:'yellow',n:1}]),A('triangle','red',[{k:'deg',n:2}]),A('triangle','green',[{k:'shape',s:'square',n:1}]),A('circle','yellow',[{k:'deg',n:1}]),A('diamond','yellow',[{k:'shape',s:'triangle',n:1}])],M:4,b:[[0,1],[0,2],[0,3],[1,4]]},
+  {atoms:[A('hexagon','purple',[{k:'noShape',s:'triangle'},{k:'deg',n:2}]),A('triangle','red',[{k:'deg',n:1}]),A('circle','green',[{k:'shape',s:'hexagon',n:1}]),A('square','blue',[{k:'shape',s:'hexagon',n:1},{k:'shape',s:'triangle',n:1}])],M:3,b:[[0,2],[0,3],[3,1]]},
+  {atoms:[A('circle','blue',[{k:'shape',s:'triangle',n:2},{k:'deg',n:3}]),A('square','blue',[{k:'shape',s:'diamond',n:1},{k:'noShape',s:'triangle'}]),A('triangle','yellow',[{k:'shape',s:'circle',n:1},{k:'shape',s:'diamond',n:1}]),A('triangle','red',[{k:'deg',n:2},{k:'color',c:'blue',n:1}]),A('diamond','green',[{k:'shape',s:'triangle',n:2},{k:'color',c:'blue',n:1}])],M:6,b:[[0,1],[0,2],[0,3],[1,4],[2,4],[3,4]]}
+];
+
+// ---- Generator for level 7+: a random graph first, then every rule is read off the real neighbourhood, so the
+// hidden solution always works. Bad draws (too easy, trivially satisfied) move on to the next seed.
+function weighted(w,r){let t=0;for(const x of w)t+=x[1];let v=r()*t;for(const x of w){v-=x[1];if(v<=0)return x[0]}return w[w.length-1][0]}
+function randomGraph(N,M,r){
+  const deg=Array(N).fill(0),E=[],seen=new Set();
+  const add=(a,b)=>{E.push(a<b?[a,b]:[b,a]);seen.add(bkey(a,b));deg[a]++;deg[b]++};
+  const order=shuffle([...Array(N).keys()],r);
+  for(let i=1;i<N;i++){const c=order.slice(0,i).filter(j=>deg[j]<4);if(!c.length)return null;add(order[i],pick(c,r))}
+  let guard=0;
+  while(E.length<M&&guard++<600){const a=Math.floor(r()*N),b=Math.floor(r()*N);if(a===b||deg[a]>=4||deg[b]>=4||seen.has(bkey(a,b)))continue;add(a,b)}
+  return E.length===M?E:null}
+function makeRule(i,atoms,bonds,level,r,boardShapes,boardColors){
+  const nb=neighbours(i,bonds,atoms),d=nb.length,sc={},cc={};
+  for(const x of nb){sc[x.shape]=(sc[x.shape]||0)+1;cc[x.color]=(cc[x.color]||0)+1}
+  const nS=Object.keys(sc),nC=Object.keys(cc);
+  const fS=boardShapes.filter(s=>!sc[s]),fC=boardColors.filter(c=>!cc[c]);
+  const w=[];const add=(k,x)=>{if(x>0)w.push([k,x])};
+  add('deg',level<4?0.9:0.45);add('shape',1);add('color',0.9);
+  if(level>=4)add('combo',0.6+Math.min(1.8,(level-4)/7));
+  if(level>=5&&(fS.length||fC.length))add('forbid',0.4+Math.min(0.7,(level-5)/15));
+  if(level>=12)add('min',0.5);
+  if(level>=12&&(nS.length===1||nC.length===1))add('only',0.6);
+  const kind=weighted(w,r),C=[];
+  const shapeC=()=>{const s=pick(nS,r);return {k:'shape',s,n:sc[s]}};
+  const colorC=()=>{const c=pick(nC,r);return {k:'color',c,n:cc[c]}};
+  const degC=()=>({k:'deg',n:d});
+  const positive=c=>!/^no|^only/.test(c.k);
+  if(kind==='deg')C.push(degC());
+  else if(kind==='shape')C.push(shapeC());
+  else if(kind==='color')C.push(colorC());
+  else if(kind==='combo'){
+    const opts=[];for(const s of nS)opts.push({k:'shape',s,n:sc[s]});for(const c of nC)opts.push({k:'color',c,n:cc[c]});opts.push(degC());
+    if(level>=5&&fS.length&&r()<0.3)opts.push({k:'noShape',s:pick(fS,r)});
+    if(level>=5&&fC.length&&r()<0.3)opts.push({k:'noColor',c:pick(fC,r)});
+    shuffle(opts,r);
+    const n=Math.min(opts.length,r()<Math.min(0.7,0.15+(level-4)/14)?3:2);
+    let sel=opts.slice(0,n);
+    if(!sel.some(positive))sel=[opts.find(positive)].concat(sel.slice(0,n-1));
+    C.push(...sel)}
+  else if(kind==='forbid'){
+    const useS=fS.length&&(!fC.length||r()<0.5);
+    C.push(useS?{k:'noShape',s:pick(fS,r)}:{k:'noColor',c:pick(fC,r)});
+    if(r()<0.6){const x=r();C.push(x<0.4?degC():x<0.7?shapeC():colorC())}}
+  else if(kind==='min'){
+    const x=r();
+    if(x<0.4)C.push({k:'degMin',n:Math.max(1,d-Math.floor(r()*2))});
+    else if(x<0.7){const s=pick(nS,r);C.push({k:'shapeMin',s,n:Math.max(1,sc[s]-(r()<0.5?1:0))})}
+    else{const c=pick(nC,r);C.push({k:'colorMin',c,n:Math.max(1,cc[c]-(r()<0.5?1:0))})}
+    if(fS.length&&r()<0.4)C.push({k:'noShape',s:pick(fS,r)});
+    else if(r()<0.4)C.push(r()<0.5?shapeC():colorC())}
+  else if(kind==='only'){
+    if(nS.length===1&&(nC.length!==1||r()<0.5))C.push({k:'onlyShape',s:nS[0]});else C.push({k:'onlyColor',c:nC[0]});
+    C.push(r()<0.5?degC():{k:'degMin',n:Math.max(1,d-(r()<0.5?1:0))})}
+  // drop duplicate clauses
+  const seen=new Set();return C.filter(c=>{const k=c.k+(c.s||'')+(c.c||'');if(seen.has(k))return false;seen.add(k);return true})}
+function tryGen(level,r){
+  const N=Math.min(12,4+Math.floor(level/2)),lo=N-1,hi=Math.floor(N*1.5);
+  const frac=Math.min(1,0.25+level/50+r()*0.6),M=Math.min(hi,lo+Math.floor(frac*(hi-lo+1)));
+  const bonds=randomGraph(N,M,r);if(!bonds)return null;
+  const ks=Math.min(5,2+Math.floor(level/5)),kc=Math.min(5,2+Math.floor((level+2)/5));
+  const shapes=shuffle(SHAPES.slice(),r).slice(0,ks),colors=shuffle(COLORS.slice(),r).slice(0,kc);
+  const atoms=[];for(let i=0;i<N;i++)atoms.push({shape:pick(shapes,r),color:pick(colors,r)});
+  const bS=SHAPES.filter(s=>atoms.some(a=>a.shape===s)),bC=COLORS.filter(c=>atoms.some(a=>a.color===c));
+  const rules=atoms.map((a,i)=>makeRule(i,atoms,bonds,level,r,bS,bC));
+  if(!allHappy(atoms,rules,bonds))return null;
+  const degs=atoms.map((a,i)=>neighbours(i,bonds,atoms).length);
+  if(degs.some(d=>d<1))return null;
+  const partial=rules.filter((ru,i)=>isPartial(ru,degs[i])).length;
+  if(partial<Math.ceil(N/3))return null;
+  if(rules.every((ru,i)=>isFull(ru,degs[i])))return null;
+  if(allHappy(atoms,rules,[]))return null;
+  for(let a=0;a<N;a++)for(let b=a+1;b<N;b++)if(allHappy(atoms,rules,[[a,b]]))return null;
+  return {atoms:atoms.map((a,i)=>({shape:a.shape,color:a.color,rule:rules[i]})),M,b:bonds}}
+function generate(level){
+  for(let attempt=0;attempt<400;attempt++){const seed=1000+level+attempt*100000;const lv=tryGen(level,rng(seed));if(lv){lv.seed=seed;lv.attempt=attempt;return lv}}
+  return null}
+function levelDef(level){
+  if(level<=LEVELS.length){const t=LEVELS[level-1];return {atoms:t.atoms.map(a=>({shape:a.shape,color:a.color,rule:a.rule.map(c=>({...c}))})),M:t.M,b:t.b.map(x=>x.slice()),seed:null,attempt:0}}
+  return generate(level)}
+
+// ---- Layout: atoms sit on a ring (convex, so no bond can run through another atom). The ring order and the
+// side each rule row sits on come from a few seeded tries, so rows and bond handles do not pile up on each other.
+const segDist=(px,py,ax,ay,bx,by)=>{const dx=bx-ax,dy=by-ay,l=dx*dx+dy*dy;let t=l?((px-ax)*dx+(py-ay)*dy)/l:0;t=Math.max(0,Math.min(1,t));const x=ax+t*dx,y=ay+t*dy;return Math.hypot(px-x,py-y)};
+const rectCircle=(rc,cx,cy,r)=>{const nx=Math.max(rc.x,Math.min(cx,rc.x+rc.w)),ny=Math.max(rc.y,Math.min(cy,rc.y+rc.h));return Math.hypot(cx-nx,cy-ny)<r};
+const rectRect=(a,b)=>a.x<b.x+b.w&&b.x<a.x+a.w&&a.y<b.y+b.h&&b.y<a.y+a.h;
+function layout(N,sol,seed,rules){
+  const r=rng((seed||7)+77);
+  const Rr=N<=2?0:Math.max(62,88/(2*Math.sin(Math.PI/N)));
+  const rx=N<=2?70:Math.min(Rr,134),ry=Rr,cx=W/2,cy=ry+64,H=2*ry+128;
+  const start=N<=2?Math.PI:-Math.PI/2;
+  const slots=[];for(let i=0;i<N;i++){const a=start+i*2*Math.PI/N;slots.push([cx+rx*Math.cos(a),cy+ry*Math.sin(a)])}
+  const widths=rules.map(rowW);
+  let best=null,bestPen=Infinity;
+  for(let t=0;t<48;t++){
+    const perm=t?shuffle([...Array(N).keys()],r):[...Array(N).keys()];
+    const pos=perm.map(p=>slots[p]);let pen=0;const rows=[];
+    for(let i=0;i<N;i++){const out=pos[i][1]<cy-1;let bestR=null,bestP=Infinity;
+      for(const up of [out,!out]){const x=Math.max(4,Math.min(W-4-widths[i],pos[i][0]-widths[i]/2));
+        const rc={x,y:pos[i][1]+(up?-R-32:R+12),w:widths[i],h:20,up};let p=up===out?0:0.5;
+        for(let k=0;k<N;k++)if(k!==i&&rectCircle(rc,pos[k][0],pos[k][1],R+5))p+=3;
+        for(const o of rows)if(rectRect(rc,o))p+=2;
+        if(p<bestP){bestP=p;bestR=rc}}
+      rows.push(bestR);pen+=bestP}
+    const mids=sol.map(([a,b])=>[(pos[a][0]+pos[b][0])/2,(pos[a][1]+pos[b][1])/2]);
+    for(let i=0;i<mids.length;i++){for(let j=i+1;j<mids.length;j++)if(Math.hypot(mids[i][0]-mids[j][0],mids[i][1]-mids[j][1])<30)pen++;
+      for(let k=0;k<N;k++){if(sol[i][0]===k||sol[i][1]===k)continue;if(Math.hypot(mids[i][0]-pos[k][0],mids[i][1]-pos[k][1])<40)pen+=2;if(segDist(pos[k][0],pos[k][1],pos[sol[i][0]][0],pos[sol[i][0]][1],pos[sol[i][1]][0],pos[sol[i][1]][1])<32)pen+=3}}
+    if(pen<bestPen){bestPen=pen;best={pos,rows};if(!pen)break}}
+  return {pos:best.pos.map(([x,y],i)=>({x:Math.round(x),y:Math.round(y),rx:Math.round(best.rows[i].x),ry:Math.round(best.rows[i].y)+10})),H:Math.round(H)}}
+
+// ---- State
+let level=1,atoms=[],rules=[],solution=[],M=0,bonds=[],hist=[],hints=0,pending=null,won=false,t0=0,timer=null,lastHappy=new Set();
+let highest=G.local.get('molecules:level',0)|0;
+const HINTS=2;
+let down=null,dragging=false;
+function load(n){
+  level=n;const def=levelDef(n);
+  atoms=def.atoms.map(a=>({shape:a.shape,color:a.color}));rules=def.atoms.map(a=>a.rule);solution=def.b;M=def.M;
+  const lay=layout(atoms.length,solution,def.seed,rules);atoms.forEach((a,i)=>Object.assign(a,lay.pos[i]));
+  svg.setAttribute('viewBox','0 0 '+W+' '+lay.H);
+  bonds=[];hist=[];hints=0;pending=null;won=false;down=null;dragging=false;lastHappy=new Set();
+  document.querySelectorAll('.over').forEach(o=>o.remove());
+  G.local.set('molecules:cur',level);
+  clearInterval(timer);t0=Date.now();timer=setInterval(tick,500);tick();
+  $('rulelbl').innerHTML='Tap an atom to read its rule.';
+  draw()}
+function tick(){$('time').textContent=mmss(Math.floor((Date.now()-t0)/1000))}
+function push(){hist.push(bonds.map(b=>({a:b.a,b:b.b,hint:b.hint})));if(hist.length>60)hist.shift()}
+const has=(a,b)=>bonds.some(x=>bkey(x.a,x.b)===bkey(a,b));
+function addBond(a,b,hint){
+  if(a===b||has(a,b)||won)return false;
+  if(bonds.length>=M){G.toast('All '+M+' bonds are used. Take one off first.');return false}
+  push();bonds.push({a:Math.min(a,b),b:Math.max(a,b),hint:!!hint});after();return true}
+function removeBond(i){if(won)return;push();bonds.splice(i,1);after()}
+function undo(){if(!hist.length||won)return;bonds=hist.pop();pending=null;draw()}
+function reset(){if(won)return load(level);if(!bonds.length)return;push();bonds=[];pending=null;draw()}
+function hint(){
+  if(won)return;
+  if(hints>=HINTS)return G.toast('No hints left on this level.');
+  const missing=solution.filter(([a,b])=>!has(a,b));
+  if(!missing.length)return G.toast('Every bond from my solution is already there.');
+  if(bonds.length>=M)return G.toast('Take a bond off first, then ask again.');
+  const plain=bonds.map(x=>[x.a,x.b]);
+  // prefer a bond that does not push anyone over an exact rule
+  const nice=missing.find(([a,b])=>{const t=plain.concat([[a,b]]);return !evalRule(rules[a],neighbours(a,t,atoms)).over&&!evalRule(rules[b],neighbours(b,t,atoms)).over});
+  const [a,b]=nice||missing[0];
+  hints++;addBond(a,b,true)}
+function status(i){const r=evalRule(rules[i],neighbours(i,bonds.map(x=>[x.a,x.b]),atoms));return r.ok?'happy':r.over?'grim':'sad'}
+function after(){pending=null;draw();
+  if(!won&&bonds.length===M&&atoms.every((a,i)=>status(i)==='happy'))win()}
+
+// ---- Drawing
+const esc=G.esc;
+function shapePath(s,r){
+  if(s==='circle')return '<circle r="'+r+'"/>';
+  if(s==='square')return '<rect x="'+(-r*0.92)+'" y="'+(-r*0.92)+'" width="'+(r*1.84)+'" height="'+(r*1.84)+'" rx="'+(r*0.3)+'"/>';
+  if(s==='triangle')return '<polygon points="0,'+(-r*1.1)+' '+(r*1.08)+','+(r*0.78)+' '+(-r*1.08)+','+(r*0.78)+'"/>';
+  if(s==='diamond')return '<polygon points="0,'+(-r*1.15)+' '+(r*1.08)+',0 0,'+(r*1.15)+' '+(-r*1.08)+',0"/>';
+  if(s==='hexagon'){const q=r*1.08;return '<polygon points="'+q+',0 '+(q/2)+','+(q*0.87)+' '+(-q/2)+','+(q*0.87)+' '+(-q)+',0 '+(-q/2)+','+(-q*0.87)+' '+(q/2)+','+(-q*0.87)+'"/>'}
+  const p=[];for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,rr=i%2?r*0.45:r;p.push((rr*Math.cos(a)).toFixed(1)+','+(rr*Math.sin(a)).toFixed(1))}return '<polygon points="'+p.join(' ')+'"/>'}
+function face(st,dy){
+  const eyes='<circle class="face" cx="-7" cy="'+(dy-4)+'" r="2.7"/><circle class="face" cx="7" cy="'+(dy-4)+'" r="2.7"/>';
+  const m=st==='happy'?'<path class="mouth" d="M-8,'+(dy+4)+' q8,9 16,0"/>':st==='grim'?'<path class="mouth" d="M-9,'+(dy+6)+' l3,3 l3,-3 l3,3 l3,-3 l3,3 l3,-3"/>':'<path class="mouth" d="M-7,'+(dy+9)+' q7,-8 14,0"/>';
+  return eyes+m}
+function glyphItems(rule){return rule.map(c=>{switch(c.k){
+  case 'deg':return {t:String(c.n),i:'link'};
+  case 'degMin':return {t:c.n+'+',i:'link'};
+  case 'shape':return {t:String(c.n),i:c.s};
+  case 'shapeMin':return {t:c.n+'+',i:c.s};
+  case 'color':return {t:String(c.n),i:'star',f:c.c};
+  case 'colorMin':return {t:c.n+'+',i:'star',f:c.c};
+  case 'noShape':return {t:'',i:c.s,x:true};
+  case 'noColor':return {t:'',i:'star',f:c.c,x:true};
+  case 'onlyShape':return {t:'all',i:c.s};
+  case 'onlyColor':return {t:'all',i:'star',f:c.c}}})}
+function iconSVG(it,x,y){
+  let s='';
+  if(it.i==='link')s='<circle class="dot" cx="'+(x-5)+'" cy="'+y+'" r="2.3"/><line class="link" x1="'+(x-5)+'" y1="'+y+'" x2="'+(x+5)+'" y2="'+y+'"/><circle class="dot" cx="'+(x+5)+'" cy="'+y+'" r="2.3"/>';
+  else s='<g class="gi'+(it.i==='star'?' st f-'+it.f:'')+'" transform="translate('+x+','+y+')">'+shapePath(it.i,6.5)+'</g>';
+  if(it.x)s+='<line class="slash" x1="'+(x-7)+'" y1="'+(y+7)+'" x2="'+(x+7)+'" y2="'+(y-7)+'"/>';
+  return s}
+function rowW(rule){const items=glyphItems(rule);return items.reduce((a,it)=>a+(it.t?it.t.length*6.6+2:0)+14,0)+(items.length-1)*7+10}
+function glyphRow(rule,left,cy){
+  const items=glyphItems(rule),total=rowW(rule);
+  let x=left+5,s='<rect class="gback" x="'+left+'" y="'+(cy-10)+'" width="'+total+'" height="20" rx="6"/>';
+  items.forEach(it=>{if(it.t){s+='<text class="gtxt" x="'+x+'" y="'+(cy+4)+'">'+esc(it.t)+'</text>';x+=it.t.length*6.6+2}s+=iconSVG(it,x+7,cy);x+=14+7});
+  return {svg:s,x:left,y:cy-10,w:total,h:20}}
+function toSvg(e){const r=svg.getBoundingClientRect();const vb=svg.viewBox.baseVal;return {x:(e.clientX-r.left)*vb.width/r.width,y:(e.clientY-r.top)*vb.height/r.height}}
+const atomAt=(x,y)=>{let best=-1,bd=34;atoms.forEach((a,i)=>{const d=Math.hypot(a.x-x,a.y-y);if(d<bd){bd=d;best=i}});return best};
+function draw(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let bl='',gl='',hl='',al='';
+  const rows=atoms.map((a,i)=>glyphRow(rules[i],a.rx,a.ry));
+  const used=[];
+  bonds.forEach((b,i)=>{const p=atoms[b.a],q=atoms[b.b];
+    bl+='<line class="bond'+(b.hint?' hint':'')+'" x1="'+p.x+'" y1="'+p.y+'" x2="'+q.x+'" y2="'+q.y+'"/>';
+    let hx,hy;
+    for(const t of [0.5,0.4,0.6,0.33,0.67,0.26,0.74]){hx=p.x+(q.x-p.x)*t;hy=p.y+(q.y-p.y)*t;
+      const clash=used.some(u=>Math.hypot(u[0]-hx,u[1]-hy)<26)||atoms.some((a,k)=>k!==b.a&&k!==b.b&&Math.hypot(a.x-hx,a.y-hy)<38)||rows.some(rw=>hx>rw.x-8&&hx<rw.x+rw.w+8&&hy>rw.y-8&&hy<rw.y+rw.h+8);
+      if(!clash)break}
+    used.push([hx,hy]);
+    hl+='<g class="hwrap" data-h="'+i+'" role="button" aria-label="Remove bond '+(b.a+1)+'-'+(b.b+1)+'"><circle class="hit" cx="'+hx.toFixed(1)+'" cy="'+hy.toFixed(1)+'" r="15"/><circle class="handle" cx="'+hx.toFixed(1)+'" cy="'+hy.toFixed(1)+'" r="6.5"/><line class="link" x1="'+(hx-3).toFixed(1)+'" y1="'+hy.toFixed(1)+'" x2="'+(hx+3).toFixed(1)+'" y2="'+hy.toFixed(1)+'"/></g>'});
+  const happyNow=new Set();
+  atoms.forEach((a,i)=>{const st=status(i);if(st==='happy')happyNow.add(i);
+    const wig=st==='happy'&&!lastHappy.has(i)&&!reduce;
+    al+='<g data-atom="'+i+'" data-state="'+st+'" transform="translate('+a.x+','+a.y+')" role="button" aria-label="'+esc(a.color+' '+a.shape+', '+st)+'"><g class="'+(wig?'wig':'')+'">'+
+      '<g class="shape f-'+a.color+'">'+shapePath(a.shape,R)+'</g>'+face(st,a.shape==='triangle'?6:0)+'</g>'+
+      (pending===i?'<circle class="sel" r="34"/>':'')+'<circle class="hit" r="34"/></g>';
+    gl+=rows[i].svg});
+  lastHappy=happyNow;
+  svg.innerHTML='<g id="gbonds">'+bl+'</g><line id="ghost" class="ghost" hidden/><g id="gatoms">'+al+'</g><g id="gglyphs">'+gl+'</g><g id="ghandles">'+hl+'</g>';
+  $('lvl').textContent=level;
+  const pill=$('pill');pill.textContent='Bonds '+bonds.length+' / '+M;pill.classList.toggle('full',bonds.length===M);
+  $('undo').disabled=!hist.length||won;$('undo').textContent='Undo (U)';
+  $('hint').textContent=hints>=HINTS?'No hints left':'Hint ('+(HINTS-hints)+' left)';$('hint').disabled=hints>=HINTS||won;
+  const times=G.local.get('molecules:times',{})||{};$('best').textContent=times[level]?mmss(times[level]):'–';
+  drawLevels()}
+function drawLevels(){
+  const top=highest+1,el=$('levels');let s='';
+  for(let n=1;n<=top;n++)s+='<button data-n="'+n+'" class="'+(n<=highest?'done':'')+'" aria-pressed="'+(n===level)+'" aria-label="Level '+n+(n<=highest?' (done)':'')+'">'+n+'</button>';
+  el.innerHTML=s;const cur=el.querySelector('[aria-pressed=true]');if(cur)el.scrollLeft=Math.max(0,cur.offsetLeft-el.clientWidth/2+cur.offsetWidth/2)}
+function showRule(i){const st=status(i);const tag=st==='happy'?'happy':st==='grim'?'too many':'not yet';
+  $('rulelbl').innerHTML='<b>'+esc(words(atoms[i],rules[i]))+'</b> '+esc('· '+tag)}
+
+// ---- Pointer input: tap-tap or drag to bond, tap the handle to remove.
+svg.addEventListener('pointerdown',e=>{
+  if(won)return;e.preventDefault();
+  const h=e.target.closest('[data-h]');
+  if(h){removeBond(+h.dataset.h);down=null;return}
+  const p=toSvg(e),i=atomAt(p.x,p.y);
+  if(i<0){if(pending!==null){pending=null;draw()}down=null;return}
+  down={i,x:p.x,y:p.y,id:e.pointerId};dragging=false;showRule(i);
+  try{svg.setPointerCapture(e.pointerId)}catch(_){}
+});
+svg.addEventListener('pointermove',e=>{
+  if(!down)return;const p=toSvg(e);
+  if(!dragging&&Math.hypot(p.x-down.x,p.y-down.y)<8)return;
+  dragging=true;const g=$('ghost');if(!g)return;const a=atoms[down.i];
+  g.removeAttribute('hidden');g.setAttribute('x1',a.x);g.setAttribute('y1',a.y);g.setAttribute('x2',p.x);g.setAttribute('y2',p.y)});
+function finish(e){
+  if(!down)return;const d=down;down=null;
+  try{svg.releasePointerCapture(d.id)}catch(_){}
+  const p=toSvg(e),j=atomAt(p.x,p.y);
+  if(dragging){dragging=false;if(j>=0&&j!==d.i){if(!addBond(d.i,j))draw()}else{pending=null;draw()}return}
+  if(pending!==null&&pending!==d.i){if(!addBond(pending,d.i)){pending=null;draw()}}
+  else{pending=pending===d.i?null:d.i;draw()}}
+svg.addEventListener('pointerup',finish);
+svg.addEventListener('pointercancel',()=>{down=null;dragging=false;draw()});
+
+// ---- Win
+async function win(){
+  won=true;clearInterval(timer);const secs=Math.max(1,Math.round((Date.now()-t0)/1000));$('time').textContent=mmss(secs);
+  const times=G.local.get('molecules:times',{})||{};const nb=!times[level]||secs<times[level];if(nb){times[level]=secs;G.local.set('molecules:times',times)}
+  const isNew=level>highest;if(isNew){highest=level;G.local.set('molecules:level',highest)}
+  draw();
+  if(window.SITE&&SITE.confetti)SITE.confetti();
+  const o=document.createElement('div');o.className='over';
+  o.innerHTML='<div><span class="lbl">Level '+level+' done</span><div class="big">'+mmss(secs)+'</div><p class="muted">'+(hints?hints+(hints===1?' hint':' hints')+' used':'No hints')+(nb&&times[level]?' · best time on this level':'')+'</p><p class="muted" id="omsg">'+(isNew?'Saving…':'Already done, so your score stays at level '+highest+'.')+'</p><div class="row" style="justify-content:center"><button class="btn" id="onext">Next level (N)</button></div><div data-actions></div></div>';
+  document.querySelector('.stage').append(o);o.querySelector('#onext').onclick=()=>load(level+1);
+  const msg=o.querySelector('#omsg');
+  if(isNew)msg.innerHTML=await G.submit('molecules',Math.min(1000,highest),{hints});
+  else G.actions(o.querySelector('[data-actions]'),'molecules',highest)}
+
+// ---- Buttons, keys, levels, how-to
+$('undo').onclick=undo;$('reset').onclick=reset;$('hint').onclick=hint;
+$('levels').addEventListener('click',e=>{const b=e.target.closest('[data-n]');if(b)load(+b.dataset.n)});
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.target.matches('input,textarea'))return;
+  const k=e.key.toLowerCase();
+  if(k==='u')undo();else if(k==='r')reset();else if(k==='h')hint();
+  else if(k==='n'&&won)load(level+1);
+  else if(k==='escape'&&pending!==null){pending=null;draw()}
+  else if(k==='enter'&&won&&!e.target.matches('button,a')){const b=$('onext');if(b){e.preventDefault();b.click()}}});
+(function(){
+  const legend=[[{t:'2',i:'triangle'},'exactly 2 triangles (any color)'],[{t:'1',i:'star',f:'yellow'},'exactly 1 yellow thing (any shape)'],[{t:'3',i:'link'},'exactly 3 connections'],[{t:'',i:'square',x:true},'no squares at all'],[{t:'2+',i:'link'},'at least 2'],[{t:'all',i:'circle'},'only circles around it']];
+  $('legend').innerHTML=legend.map(([it,txt])=>'<div><svg class="mol" viewBox="-12 -12 '+(it.t?24+it.t.length*7:24)+' 24" style="width:auto;height:22px">'+(it.t?'<text class="gtxt" x="-10" y="4">'+it.t+'</text>':'')+iconSVG(it,(it.t?-10+it.t.length*6.6+9:0),0)+'</svg>'+txt+'</div>').join('');
+  const seen=!!G.local.get('molecules:seen',false);
+  $('howto').hidden=seen;$('howrow').hidden=!seen;
+  $('gotit').onclick=()=>{G.local.set('molecules:seen',true);$('howto').hidden=true;$('howrow').hidden=false};
+  $('showhow').onclick=()=>{$('howto').hidden=false;$('howrow').hidden=true};
+})();
+// For tests and curious people: a read-only snapshot of the level (the solution is only shown in the UI through Hint).
+window.MOL={get level(){return level},get atoms(){return atoms.map((a,i)=>({shape:a.shape,color:a.color,x:a.x,y:a.y,rule:rules[i].map(c=>({...c}))}))},
+  get bonds(){return bonds.map(b=>[b.a,b.b])},get M(){return M},get rules(){return rules.map(r=>r.map(c=>({...c})))},get solution(){return solution.map(b=>b.slice())},
+  get hints(){return hints},get won(){return won},
+  check(){const plain=bonds.map(b=>[b.a,b.b]);const st=atoms.map((a,i)=>status(i));return {used:plain.length,M,happy:st.every(s=>s==='happy'),states:st,win:plain.length===M&&st.every(s=>s==='happy')}},
+  generate,levelDef,evalRule,words,neighbours};
+const curSaved=G.local.get('molecules:cur',0)|0;
+const startAt=Math.max(1,Math.min(highest+1,curSaved||highest+1));
+load(startAt);
+G.boardBox($('lb'),'molecules');
+</script>
+</body>
+</html>
