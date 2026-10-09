@@ -23,7 +23,8 @@ html[data-theme=dark] .mol .f-blue{fill:#2E4F86}html[data-theme=dark] .mol .f-ye
 .mol .hwrap:hover .handle{fill:var(--peach)}
 .mol .gback{fill:var(--card);opacity:.92}
 .mol .gtxt{font:700 11px var(--body);fill:var(--ink)}
-.mol .gi{stroke:var(--ink);stroke-width:1.5;stroke-linejoin:round;fill:var(--card)}
+.mol .gi{stroke:var(--ink);stroke-width:1.5;stroke-linejoin:round}
+.mol .gi:not(.st){fill:var(--card)}
 .mol .gi.st{stroke-width:1}
 .mol .link{stroke:var(--ink);stroke-width:2;stroke-linecap:round}
 .mol .dot{fill:var(--ink)}
@@ -228,10 +229,14 @@ function layout(N,sol,seed,rules){
   for(let t=0;t<48;t++){
     const perm=t?shuffle([...Array(N).keys()],r):[...Array(N).keys()];
     const pos=perm.map(p=>slots[p]);let pen=0;const rows=[];
-    for(let i=0;i<N;i++){const out=pos[i][1]<cy-1;let bestR=null,bestP=Infinity;
-      for(const up of [out,!out]){const x=Math.max(4,Math.min(W-4-widths[i],pos[i][0]-widths[i]/2));
-        const rc={x,y:pos[i][1]+(up?-R-32:R+12),w:widths[i],h:20,up};let p=up===out?0:0.5;
-        for(let k=0;k<N;k++)if(k!==i&&rectCircle(rc,pos[k][0],pos[k][1],R+5))p+=3;
+    for(let i=0;i<N;i++){const out=pos[i][1]<cy-1,left=pos[i][0]<cx;let bestR=null,bestP=Infinity;
+      // candidates: above/below the atom (centred, then nudged sideways), then beside it on the outer side
+      const cands=[];
+      for(const up of [out,!out])for(const dx of [0,-28,28,-56,56,-84,84])cands.push({x:pos[i][0]-widths[i]/2+dx,y:pos[i][1]+(up?-R-32:R+12),p:(up===out?0:0.5)+Math.abs(dx)/80});
+      for(const l of [left,!left])cands.push({x:l?pos[i][0]-R-8-widths[i]:pos[i][0]+R+8,y:pos[i][1]-10,p:l===left?0.6:0.9});
+      for(const c of cands){const x=Math.max(4,Math.min(W-4-widths[i],c.x));
+        const rc={x,y:c.y,w:widths[i],h:20};let p=c.p;
+        for(let k=0;k<N;k++)if(rectCircle(rc,pos[k][0],pos[k][1],R+5))p+=3;
         for(const o of rows)if(rectRect(rc,o))p+=2;
         if(p<bestP){bestP=p;bestR=rc}}
       rows.push(bestR);pen+=bestP}
@@ -246,27 +251,37 @@ let level=1,atoms=[],rules=[],solution=[],M=0,bonds=[],hist=[],hints=0,pending=n
 let highest=G.local.get('molecules:level',0)|0;
 const HINTS=2;
 let down=null,dragging=false;
-function load(n){
-  level=n;const def=levelDef(n);
+function load(n,restore){
+  const def=levelDef(n);
+  if(!def){G.toast('That is every level I have for now.');return}
+  level=n;
   atoms=def.atoms.map(a=>({shape:a.shape,color:a.color}));rules=def.atoms.map(a=>a.rule);solution=def.b;M=def.M;
   const lay=layout(atoms.length,solution,def.seed,rules);atoms.forEach((a,i)=>Object.assign(a,lay.pos[i]));
   svg.setAttribute('viewBox','0 0 '+W+' '+lay.H);
   bonds=[];hist=[];hints=0;pending=null;won=false;down=null;dragging=false;lastHappy=new Set();
   document.querySelectorAll('.over').forEach(o=>o.remove());
   G.local.set('molecules:cur',level);
-  clearInterval(timer);t0=Date.now();timer=setInterval(tick,500);tick();
+  clearInterval(timer);t0=Date.now();
+  const sv=restore&&G.local.get('molecules:board',null);
+  if(sv&&sv.level===level&&Array.isArray(sv.bonds)){
+    bonds=sv.bonds.filter(b=>Array.isArray(b)&&b[0]!==b[1]&&atoms[b[0]]&&atoms[b[1]]).slice(0,M).map(b=>({a:Math.min(b[0],b[1]),b:Math.max(b[0],b[1]),hint:!!b[2]}));
+    hints=Math.min(HINTS,sv.hints|0);if(sv.t0>0&&Date.now()-sv.t0<36e5)t0=sv.t0}
+  timer=setInterval(tick,500);tick();
   $('rulelbl').innerHTML='Tap an atom to read its rule.';
   draw()}
 function tick(){$('time').textContent=mmss(Math.floor((Date.now()-t0)/1000))}
 function push(){hist.push(bonds.map(b=>({a:b.a,b:b.b,hint:b.hint})));if(hist.length>60)hist.shift()}
 const has=(a,b)=>bonds.some(x=>bkey(x.a,x.b)===bkey(a,b));
 function addBond(a,b,hint){
-  if(a===b||has(a,b)||won)return false;
+  if(a===b||won)return false;
+  if(has(a,b)){G.toast('Those two are already bonded.');return false}
   if(bonds.length>=M){G.toast('All '+M+' bonds are used. Take one off first.');return false}
   push();bonds.push({a:Math.min(a,b),b:Math.max(a,b),hint:!!hint});after();return true}
 function removeBond(i){if(won)return;push();bonds.splice(i,1);after()}
 function undo(){if(!hist.length||won)return;bonds=hist.pop();pending=null;draw()}
 function reset(){if(won)return load(level);if(!bonds.length)return;push();bonds=[];pending=null;draw()}
+// keep the board across a reload (phones drop tabs all the time)
+function save(){G.local.set('molecules:board',won?null:{level,bonds:bonds.map(b=>[b.a,b.b,b.hint?1:0]),hints,t0})}
 function hint(){
   if(won)return;
   if(hints>=HINTS)return G.toast('No hints left on this level.');
@@ -347,7 +362,7 @@ function draw(){
   $('undo').disabled=!hist.length||won;$('undo').textContent='Undo (U)';
   $('hint').textContent=hints>=HINTS?'No hints left':'Hint ('+(HINTS-hints)+' left)';$('hint').disabled=hints>=HINTS||won;
   const times=G.local.get('molecules:times',{})||{};$('best').textContent=times[level]?mmss(times[level]):'–';
-  drawLevels()}
+  save();drawLevels()}
 function drawLevels(){
   const top=highest+1,el=$('levels');let s='';
   for(let n=1;n<=top;n++)s+='<button data-n="'+n+'" class="'+(n<=highest?'done':'')+'" aria-pressed="'+(n===level)+'" aria-label="Level '+n+(n<=highest?' (done)':'')+'">'+n+'</button>';
@@ -419,5 +434,5 @@ window.MOL={get level(){return level},get atoms(){return atoms.map((a,i)=>({shap
   generate,levelDef,evalRule,words,neighbours};
 const curSaved=G.local.get('molecules:cur',0)|0;
 const startAt=Math.max(1,Math.min(highest+1,curSaved||highest+1));
-load(startAt);
+load(startAt,true);
 G.boardBox($('lb'),'molecules');
