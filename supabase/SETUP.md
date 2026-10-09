@@ -137,3 +137,4 @@ It needs one secret, set in Supabase → Edge Functions → Secrets:
 4. `forum2.sql` — forum "helpful" hearts, Top sort and pinned threads. Run after `study.sql` and `study3.sql`. The forum hides those features on its own until it runs.
 5. `snapwit2.sql` — the `top_scores` function behind the Top 10 panel on Snapwit result screens. Run after `schema.sql` and `profiles2.sql`.
 6. `study4.sql` — public deck links (`study_decks.public` and the `public_deck` function). Run after `study3.sql`.
+7. `games4.sql` — adds Happy Molecules to the leaderboards (it includes everything games3.sql does, so run it instead of games3.sql if you have not run that yet).

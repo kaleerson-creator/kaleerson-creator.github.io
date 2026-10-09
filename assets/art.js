@@ -80,6 +80,7 @@
       rect(8, 92, 12, 4, 2, 'var(--ink)') + rect(24, 92, 12, 4, 2, 'var(--ink)') + rect(40, 92, 12, 4, 2, 'var(--ink3)'),
     simon: path('M60 60V14A46 46 0 0 1 106 60z', G) + path('M60 60h46a46 46 0 0 1-46 46z', R) + path('M60 60v46A46 46 0 0 1 14 60z', Y) + path('M60 60H14A46 46 0 0 1 60 14z', B) + circ(60, 60, 16),
     connect: rect(8, 18, 104, 92, 12, B) + (function () { var s = '', M = [['c', 'c', 'c', 'c'], ['c', 'c', R, 'c'], ['c', R, Y, 'c'], [R, Y, Y, R]]; for (var r = 0; r < 4; r++) for (var c = 0; c < 4; c++) s += circ(24 + c * 24, 34 + r * 21, 8, M[r][c] === 'c' ? 'var(--card)' : M[r][c]); return s; })(),
+    molecules: path('M46 30L68 56M68 56L94 36M68 56L90 90', 'none') + rect(30, 14, 32, 32, 8, B) + path('M94 18l16 30H78z', R) + circ(68, 56, 20, Y) + circ(61, 52, 2.5, '#141613') + circ(75, 52, 2.5, '#141613') + path('M60 62q8 7 16 0', 'none') + circ(92, 92, 11),
     // ── quick tools ──
     bell: circ(60, 12, 5, 'var(--ink)') + path('M60 16c-18 0-30 14-30 32v20L20 84h80L90 68V48c0-18-12-32-30-32z', Y) + path('M48 90a12 12 0 0 0 24 0', 'var(--ink)') + path('M14 36a30 30 0 0 1 8-20M106 36a30 30 0 0 0-8-20', 'none'),
     countdown: rect(26, 6, 68, 10, 4) + rect(26, 104, 68, 10, 4) + path('M34 16h52v8L68 52v16l18 28v8H34v-8l18-28V52L34 24z') + path('M44 24h32l-16 20z', Y) + path('M48 94l12-16 12 16z', Y) + path('M60 56v12', 'none'),

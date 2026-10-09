@@ -136,8 +136,8 @@ html[data-theme=dark] .today .blob:not(.b2){background:#ffffff18}
   </div>
 </main>
 
-<script src="/assets/content.js?v=20261010"></script>
-<script src="/assets/site.js?v=20261009"></script>
+<script src="/assets/content.js?v=20261011"></script>
+<script src="/assets/site.js?v=20261011"></script>
 <script>
 const C=window.CONTENT,S=window.SITE;
 document.querySelectorAll('.arrow:empty').forEach(a=>a.outerHTML=S.arrow);
@@ -157,7 +157,7 @@ function daily(key){const s=ls('g:streak:'+key)||{};const done=TODAY.includes(s.
 document.getElementById('dailies').innerHTML=[['word','Daily Word','/edu/word/'],['daily','Daily Challenge','/edu/daily/']].map(([k,n,h])=>{const d=daily(k);return `<a class="chip${d.done?' live':''}" href="${h}">${n} · ${d.done?'done':'not yet'}${d.count?` <span class="fire">🔥 ${d.count}</span>`:''}</a>`}).join('');
 
 // random game
-const GAMES=['2048','snake','minesweeper','sudoku','typing','trivia','letters','word','daily','math','reaction','memory','blocks','breakout','flap','hangman','simon','connect'];
+const GAMES=['2048','snake','minesweeper','sudoku','typing','trivia','letters','word','daily','math','reaction','memory','blocks','breakout','flap','hangman','simon','connect','molecules'];
 document.getElementById('rnd').addEventListener('click',()=>{location.href='/edu/'+GAMES[Math.floor(Math.random()*GAMES.length)]+'/'});
 
 // tools: the big ones (quick tools get their own pill list below). Rows stay even for 4–6 tools.

@@ -2,6 +2,10 @@
 
 Last updated: Oct 5, 2026 (overnight build). Folders starting with `_` aren't published, so this note only lives in the repo.
 
+## Happy Molecules (Oct 9)
+
+- [ ] **Run `supabase/games4.sql`** in the SQL editor so Happy Molecules (kaleerson.com/edu/molecules) gets a leaderboard; it also covers everything games3.sql did. Until then the game still saves your level on the device.
+
 ## New tonight (Oct 5) — what to check when you wake up
 
 The branch `claude/wonderful-franklin-4jhg18` has everything below. Merge it on GitHub (open a pull request from that branch into `main`) and GitHub Pages publishes it.

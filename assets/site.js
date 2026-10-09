@@ -76,7 +76,7 @@
 
   // Pictures for the clickable boxes (elements with data-art="…"); see /assets/art.js.
   var art = document.createElement('script');
-  art.src = '/assets/art.js?v=3';
+  art.src = '/assets/art.js?v=4';
   art.defer = true;
   document.head.append(art);
 
@@ -171,6 +171,7 @@
     ['Hangman', '/edu/hangman/', G, 'words guess'],
     ['Simon', '/edu/simon/', G, 'sequence memory colors'],
     ['Connect Four', '/edu/connect/', G, 'four in a row vs ai'],
+    ['Happy Molecules', '/edu/molecules/', G, 'puzzle atoms bonds rules logic'],
     ['Bell Schedule', '/bell/', T, 'period minutes until bell pvhs school'],
     ['Countdown', '/countdown/', T, 'days until date event'],
     ['GPA & Grades', '/gpa/', T, 'grade calculator final weighted'],
