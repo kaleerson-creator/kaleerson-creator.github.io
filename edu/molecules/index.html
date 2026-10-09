@@ -177,10 +177,13 @@ function makeRule(i,atoms,bonds,level,r,boardShapes,boardColors){
   const nb=neighbours(i,bonds,atoms),d=nb.length,sc={},cc={};
   for(const x of nb){sc[x.shape]=(sc[x.shape]||0)+1;cc[x.color]=(cc[x.color]||0)+1}
   const nS=Object.keys(sc),nC=Object.keys(cc);
-  const fS=boardShapes.filter(s=>!sc[s]),fC=boardColors.filter(c=>!cc[c]);
+  // forbids only name things that some OTHER atom has (forbidding your own shape when nobody else has it says nothing)
+  const fS=boardShapes.filter(s=>!sc[s]&&atoms.some((o,j)=>j!==i&&o.shape===s)),fC=boardColors.filter(c=>!cc[c]&&atoms.some((o,j)=>j!==i&&o.color===c));
   const w=[];const add=(k,x)=>{if(x>0)w.push([k,x])};
-  add('deg',level<4?0.9:0.45);add('shape',1);add('color',0.9);
-  if(level>=4)add('combo',0.6+Math.min(1.8,(level-4)/7));
+  // single-clause rules fade out as combos take over, so later boards pin most neighbourhoods down
+  const single=level<7?1:Math.max(0.35,1-(level-6)/12);
+  add('deg',level<4?0.9:0.45);add('shape',single);add('color',0.9*single);
+  if(level>=4)add('combo',0.6+Math.min(3,(level-4)/4));
   if(level>=5&&(fS.length||fC.length))add('forbid',0.4+Math.min(0.7,(level-5)/15));
   if(level>=12)add('min',0.5);
   if(level>=12&&(nS.length===1||nC.length===1))add('only',0.6);
@@ -197,14 +200,16 @@ function makeRule(i,atoms,bonds,level,r,boardShapes,boardColors){
     if(level>=5&&fS.length&&r()<0.3)opts.push({k:'noShape',s:pick(fS,r)});
     if(level>=5&&fC.length&&r()<0.3)opts.push({k:'noColor',c:pick(fC,r)});
     shuffle(opts,r);
-    const n=Math.min(opts.length,r()<Math.min(0.7,0.15+(level-4)/14)?3:2);
+    const n=Math.min(opts.length,r()<Math.min(0.8,0.15+(level-4)/10)?3:2);
     let sel=opts.slice(0,n);
     if(!sel.some(positive))sel=[opts.find(positive)].concat(sel.slice(0,n-1));
+    // from level 7 most combos say how many connections there are in total
+    if(level>=7&&r()<0.65&&!sel.some(c=>c.k==='deg'))sel[sel.length-1]=degC();
     C.push(...sel)}
   else if(kind==='forbid'){
     const useS=fS.length&&(!fC.length||r()<0.5);
     C.push(useS?{k:'noShape',s:pick(fS,r)}:{k:'noColor',c:pick(fC,r)});
-    if(r()<0.6){const x=r();C.push(x<0.4?degC():x<0.7?shapeC():colorC())}}
+    if(r()<0.75){const x=r();C.push(x<0.5?degC():x<0.75?shapeC():colorC())}}
   else if(kind==='min'){
     const x=r();
     if(x<0.4)C.push({k:'degMin',n:Math.max(1,d-Math.floor(r()*2))});
@@ -216,10 +221,40 @@ function makeRule(i,atoms,bonds,level,r,boardShapes,boardColors){
     if(nS.length===1&&(nC.length!==1||r()<0.5))C.push({k:'onlyShape',s:nS[0]});else C.push({k:'onlyColor',c:nC[0]});
     C.push(r()<0.5?degC():{k:'degMin',n:Math.max(1,d-(r()<0.5?1:0))})}
   // drop duplicate clauses
-  const seen=new Set();return C.filter(c=>{const k=c.k+(c.s||'')+(c.c||'');if(seen.has(k))return false;seen.add(k);return true})}
+  // drop duplicate clauses ('at least 1 triangle' next to 'exactly 2 triangles' counts as one)
+  const seen=new Set();return C.filter(c=>{const k=c.k.replace('Min','')+(c.s||'')+(c.c||'');if(seen.has(k))return false;seen.add(k);return true})}
+// Counts the boards with exactly M bonds that make everyone happy, giving up past `cap` solutions or `budget` steps
+// (-1 then). Atom i decides its bonds to atoms j>i in turn, so a rule is fully checked once its row is done, and
+// an atom that can no longer get what it needs from the atoms still undecided prunes the branch early.
+function countSolutions(atoms,rules,M,cap,budget){
+  const N=atoms.length,nb=atoms.map(()=>[]);let used=0,found=0,steps=0;
+  const fits=(rule,x)=>!rule.some(c=>(c.k==='noShape'&&x.shape===c.s)||(c.k==='noColor'&&x.color===c.c)||(c.k==='onlyShape'&&x.shape!==c.s)||(c.k==='onlyColor'&&x.color!==c.c));
+  // the fewest extra bonds atom i still needs, picking only from atoms >= from; -1 when its rule can no longer be met
+  const needs=(i,from)=>{const rule=rules[i],cur=nb[i],av=[];for(let m=from;m<N;m++)if(m!==i&&fits(rule,atoms[m]))av.push(atoms[m]);
+    let dn=0,sn=0,cn=0,top=Infinity;
+    for(const c of rule){
+      if(c.k==='deg'){dn=Math.max(dn,c.n-cur.length);top=c.n-cur.length}
+      else if(c.k==='degMin')dn=Math.max(dn,c.n-cur.length);
+      else if(c.k==='shape'||c.k==='shapeMin'){const m=c.n-count(cur,'shape',c.s);if(m>count(av,'shape',c.s))return -1;sn+=Math.max(0,m)}
+      else if(c.k==='color'||c.k==='colorMin'){const m=c.n-count(cur,'color',c.c);if(m>count(av,'color',c.c))return -1;cn+=Math.max(0,m)}}
+    const n=Math.max(dn,sn,cn);return n>av.length||n>top?-1:n};
+  function row(i){
+    if(i===N){if(used===M)found++;return}
+    let need=0;for(let k=i;k<N;k++){const n=needs(k,i);if(n<0)return;need+=n}
+    if(need>2*(M-used))return;
+    cell(i,i+1,(N-1-i)*(N-2-i)/2)}
+  function cell(i,j,after){
+    if(found>cap||++steps>budget)return;
+    if(j===N){if(satisfied(rules[i],nb[i])&&used+after>=M)row(i+1);return}
+    if(needs(i,j)<0)return;
+    if(used<M){nb[i].push(atoms[j]);nb[j].push(atoms[i]);used++;
+      if(!evalRule(rules[i],nb[i]).over&&!evalRule(rules[j],nb[j]).over)cell(i,j+1,after);
+      nb[i].pop();nb[j].pop();used--}
+    if(used+after+N-j-1>=M&&needs(j,i+1)>=0)cell(i,j+1,after)}
+  row(0);return steps>budget?-1:found}
 function tryGen(level,r){
-  const N=Math.min(12,4+Math.floor(level/2)),lo=N-1,hi=Math.floor(N*1.5);
-  const frac=Math.min(1,0.25+level/50+r()*0.6),M=Math.min(hi,lo+Math.floor(frac*(hi-lo+1)));
+  const N=Math.min(10,4+Math.floor(level/2)),lo=N-1,hi=Math.floor(N*1.5);
+  const frac=Math.min(1,0.1+level/40+r()*0.5),M=Math.min(hi,lo+Math.floor(frac*(hi-lo+1)));
   const bonds=randomGraph(N,M,r);if(!bonds)return null;
   const ks=Math.min(5,2+Math.floor(level/5)),kc=Math.min(5,2+Math.floor((level+2)/5));
   const shapes=shuffle(SHAPES.slice(),r).slice(0,ks),colors=shuffle(COLORS.slice(),r).slice(0,kc);
@@ -230,14 +265,19 @@ function tryGen(level,r){
   const degs=atoms.map((a,i)=>neighbours(i,bonds,atoms).length);
   if(degs.some(d=>d<1))return null;
   const partial=rules.filter((ru,i)=>isPartial(ru,degs[i])).length;
-  if(partial<Math.ceil(N/3))return null;
-  if(rules.every((ru,i)=>isFull(ru,degs[i])))return null;
+  if(partial<1||partial>Math.ceil(N/2))return null;
   if(allHappy(atoms,rules,[]))return null;
   for(let a=0;a<N;a++)for(let b=a+1;b<N;b++)if(allHappy(atoms,rules,[[a,b]]))return null;
-  return {atoms:atoms.map((a,i)=>({shape:a.shape,color:a.color,rule:rules[i]})),M,b:bonds}}
+  // a real puzzle has only a few answers: loose boards (or ones too big to count) move on to the next seed
+  const sols=countSolutions(atoms,rules,M,solCap(level),40000);
+  return {atoms:atoms.map((a,i)=>({shape:a.shape,color:a.color,rule:rules[i]})),M,b:bonds,sols}}
+const solCap=level=>level<10?2:level<16?4:8;
 function generate(level){
-  for(let attempt=0;attempt<400;attempt++){const seed=1000+level+attempt*100000;const lv=tryGen(level,rng(seed));if(lv){lv.seed=seed;lv.attempt=attempt;return lv}}
-  return null}
+  let spare=null;
+  for(let attempt=0;attempt<400;attempt++){const seed=1000+level+attempt*100000;const lv=tryGen(level,rng(seed));if(!lv)continue;lv.seed=seed;lv.attempt=attempt;
+    if(lv.sols>=0&&lv.sols<=solCap(level))return lv;
+    if(!spare||(lv.sols>=0&&(spare.sols<0||lv.sols<spare.sols)))spare=lv}
+  return spare||(level>7?generate(level-1):null)}
 function levelDef(level){
   if(level<=LEVELS.length){const t=LEVELS[level-1];return {atoms:t.atoms.map(a=>({shape:a.shape,color:a.color,rule:a.rule.map(c=>({...c}))})),M:t.M,b:t.b.map(x=>x.slice()),seed:null,attempt:0}}
   return generate(level)}
