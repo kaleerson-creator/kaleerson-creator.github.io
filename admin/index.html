@@ -284,7 +284,7 @@ td{padding:9px 8px;border-top:1px solid var(--line);vertical-align:middle}
 <script src="/config.js?v=20261001"></script>
 <script src="/lib/sb.js?v=20261001"></script>
 <script src="/lib/vault-md.js?v=20261002"></script>
-<script src="/assets/site.js?v=20261009"></script>
+<script src="/assets/site.js?v=20261011"></script>
 <script>
 const $=id=>document.getElementById(id);
 const E=VaultMD.esc;
@@ -550,7 +550,7 @@ $('reqtable').addEventListener('click',async e=>{
 });
 
 /* GAMES */
-const GNAMES={daily:'Daily Challenge',word:'Daily Word','2048':'2048',snake:'Snake',minesweeper:'Minesweeper',sudoku:'Sudoku',typing:'Typing',trivia:'Trivia',letters:'Letter Rush',math:'Speed Math',reaction:'Reaction Time',memory:'Memory Match',blocks:'Blocks',breakout:'Breakout',flap:'Flap',hangman:'Hangman',simon:'Simon',connect:'Connect Four'};
+const GNAMES={daily:'Daily Challenge',word:'Daily Word','2048':'2048',snake:'Snake',minesweeper:'Minesweeper',sudoku:'Sudoku',typing:'Typing',trivia:'Trivia',letters:'Letter Rush',math:'Speed Math',reaction:'Reaction Time',memory:'Memory Match',blocks:'Blocks',breakout:'Breakout',flap:'Flap',hangman:'Hangman',simon:'Simon',connect:'Connect Four',molecules:'Happy Molecules'};
 const GLOW=['minesweeper','sudoku','word','reaction','memory'];
 $('gsel').innerHTML=Object.entries(GNAMES).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
 async function loadGames(){

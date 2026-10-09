@@ -30,6 +30,8 @@ window.CONTENT = {
     { name: 'Stopwatch',     art: 'stopwatch', href: '/stopwatch/', color: 'moss',   tag: 'Timer',   note: 'Laps and splits, keeps running in the background', open: true, quick: true }
   ],
   updates: [
+    { date: '2026-10', tag: 'Launch', title: 'Happy Molecules', href: '/edu/molecules/',
+      body: 'A puzzle game. Every atom has a rule about who it is bonded to. Use every bond and make all of them happy to finish the level. Levels keep getting harder.' },
     { date: '2026-10', tag: 'Launch', title: 'Play online: Battleship and Rock Paper Scissors', href: '/edu/play/',
       body: 'Two new room games next to tic-tac-toe, Connect Four, the trivia race and Letter Rush. Every room now has reactions, a chat line, an invite link with a QR code and a Rematch button.' },
     { date: '2026-10', tag: 'Launch', title: 'Nine new games', href: '/edu/',

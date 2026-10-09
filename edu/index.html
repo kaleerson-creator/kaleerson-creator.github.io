@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20261008">
-<link rel="stylesheet" href="/edu/assets/games.css?v=5">
+<link rel="stylesheet" href="/edu/assets/games.css?v=6">
 <style>
 .hero{position:relative;isolation:isolate;padding:36px 0 26px}
 .hero h1{font-size:clamp(52px,10vw,112px)}
@@ -71,6 +71,7 @@
   <a class="b butter" href="/edu/hangman/"><span class="art" data-art="hangman"></span><h2>Hangman</h2><div class="foot"><span class="muted" data-best="hangman">Guess the word, one letter at a time.</span><span class="go">→</span></div></a>
   <a class="b moss" href="/edu/simon/"><span class="art" data-art="simon"></span><h2>Simon</h2><div class="foot"><span class="muted" data-best="simon">Repeat the pattern as it grows.</span><span class="go">→</span></div></a>
   <a class="b peach" href="/edu/connect/"><span class="art" data-art="connect"></span><h2>Connect Four</h2><div class="foot"><span class="muted" data-best="connect">Four in a row against the computer.</span><span class="go">→</span></div></a>
+  <a class="b sky" href="/edu/molecules/"><span class="art" data-art="molecules"></span><h2>Happy Molecules</h2><div class="foot"><span class="muted" data-best="molecules">Every atom has a rule. Make them all happy.</span><span class="go">→</span></div></a>
   <a class="b lilac" href="/edu/trivia/"><span class="art" data-art="trivia"></span><h2>Trivia</h2><div class="foot"><span class="muted" data-best="trivia">Ten quick questions.</span><span class="go">→</span></div></a>
   <a class="b w2" href="/edu/typing/"><span class="art" data-art="typing"></span><h2>Typing Test</h2><div class="foot"><span class="muted" data-best="typing">How fast can you type?</span><span class="go">→</span></div></a>
   <a class="b sky w2" href="/edu/letters/"><span class="art" data-art="letters"></span><h2>Letter Rush</h2><div class="foot"><span class="muted" data-best="letters">Make words from 7 letters in 90 seconds.</span><span class="go">→</span></div></a>
@@ -79,8 +80,8 @@
 </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/edu/assets/common.js?v=5c"></script>
-<script src="/assets/site.js?v=20261009"></script>
+<script src="/edu/assets/common.js?v=6c"></script>
+<script src="/assets/site.js?v=20261011"></script>
 <script>
 document.querySelectorAll('[data-best]').forEach(el=>{const g=el.dataset.best,b=G.local.get('best:'+g,null);if(b!==null)el.textContent='Your best: '+G.fmt(g,b)});
 const today=new Date().toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'});

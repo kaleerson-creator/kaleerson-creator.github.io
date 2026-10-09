@@ -65,7 +65,8 @@
     hangman: function (s) { return s + (s == 1 ? ' word' : ' words'); },
     simon: function (s) { return s + (s == 1 ? ' step' : ' steps'); },
     connect: function (s) { return s + (s == 1 ? ' win' : ' wins'); },
-    flap: function (s) { return s + (s == 1 ? ' pipe' : ' pipes'); }
+    flap: function (s) { return s + (s == 1 ? ' pipe' : ' pipes'); },
+    molecules: function (s) { return 'Level ' + s; }
   };
   // Network errors from supabase-js come back as raw "TypeError: Failed to fetch"; say something human instead.
   var errText = function (e, fallback) { var m = (e && e.message) || ''; return /fetch|network|load failed|timeout/i.test(m) || !m ? fallback : m; };
