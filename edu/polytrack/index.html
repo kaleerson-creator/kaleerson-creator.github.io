@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PolyTrack · Kale's Games</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PolyTrack · Kale&#x27;s Games">
+<meta property="og:description" content="PolyTrack, the low-poly racing game by Kodub. Loops, jumps and every millisecond counts. Play it free in your browser.">
+<meta property="og:url" content="https://kaleerson.com/edu/polytrack/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="PolyTrack, the low-poly racing game by Kodub. Loops, jumps and every millisecond counts. Play it free in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<link rel="stylesheet" href="/edu/assets/games.css?v=6">
+<style>
+.pt{width:100%;max-width:960px;display:grid;gap:12px}
+.hero{position:relative;overflow:hidden;border-radius:22px;min-height:300px;display:grid;align-content:end;padding:28px;color:#fff;background:
+  radial-gradient(circle at 30% 20%,#4f8a4a66,transparent 40%),radial-gradient(circle at 80% 80%,#3B6FE066,transparent 45%),#1b1f1a;isolation:isolate}
+.hero h2{font:800 clamp(40px,9vw,88px)/.95 var(--display);letter-spacing:-.05em;color:#fff}
+.hero p{color:#cfd6cb;margin-top:10px;font-weight:600;font-size:15px;max-width:48ch}
+.hero .road{position:absolute;left:-10%;right:-10%;top:18%;height:22%;background:#2b3a23;transform:rotate(-7deg);border-top:4px dashed #cfd6cb55;border-bottom:6px solid #141613;z-index:-1}
+.hero .loop{position:absolute;right:12%;top:6%;width:120px;height:120px;border:14px solid #2b3a23;border-radius:50%;border-color:#2b3a23 #2b3a23 transparent #2b3a23;z-index:-1}
+.play{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));width:100%}
+.play a{display:grid;gap:4px;padding:18px 20px;border-radius:18px;background:var(--paper);text-decoration:none;color:var(--ink)}
+.play a.main{background:var(--ink);color:var(--on-ink)}
+.play a b{font:800 20px/1.1 var(--display);letter-spacing:-.02em}
+.play a span{font-size:13px;opacity:.75}
+.credit{display:grid;gap:6px;font-size:14px;color:var(--ink2);width:100%}
+.credit a{text-decoration:underline}
+.credit b{color:var(--ink)}
+.keys{display:flex;gap:6px;flex-wrap:wrap}
+.keys span{padding:6px 10px;border-radius:10px;background:var(--paper);font-weight:600;font-size:13px}
+@media (max-width:600px){.hero{min-height:240px;padding:20px}.hero .loop{width:80px;height:80px;border-width:10px}}
+</style>
+</head>
+<body data-page="games" data-sub="polytrack" data-game="polytrack">
+<main class="wrap">
+<div class="ghead"><div><h1>PolyTrack</h1><p>A low-poly racing game by Kodub. Loops, jumps, and every millisecond counts.</p></div></div>
+<div class="stage">
+  <div class="pt">
+    <div class="hero"><span class="road"></span><span class="loop"></span><div><h2>PolyTrack</h2><p>Race against the clock on tracks full of loops and jumps, then build your own in the editor and share it with a code. Free, in the browser.</p></div></div>
+    <div class="play">
+      <a class="main" href="https://www.kodub.com/apps/polytrack" target="_blank" rel="noopener"><b>Play on kodub.com ↗</b><span>The official web version. Opens in a new tab.</span></a>
+      <a href="https://kodub.itch.io/polytrack" target="_blank" rel="noopener"><b>itch.io ↗</b><span>Play there, or download for Windows, Mac and Linux.</span></a>
+      <a href="https://play.google.com/store/search?q=polytrack%20kodub&c=apps" target="_blank" rel="noopener"><b>Android ↗</b><span>On Google Play.</span></a>
+    </div>
+    <div class="keys" aria-label="Controls"><span>W A S D or arrows to drive</span><span>Esc for the menu</span><span>Works best with a keyboard</span></div>
+    <div class="credit">
+      <span><b>PolyTrack</b> is made by <a href="https://kodub.itch.io/" target="_blank" rel="noopener">Kodub</a>. It isn't my game, and Kodub's terms don't allow it to be embedded on other sites, so the buttons above open the real thing.</span>
+      <span>Nothing from PolyTrack is saved to your kaleerson.com account. Your times and tracks live in the game itself.</span>
+    </div>
+  </div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/edu/assets/common.js?v=6c"></script>
+<script src="/assets/site.js?v=20261015"></script>
+<script>
+// Nothing to run: this page only links out to the official game.
+</script>
+</body>
+</html>

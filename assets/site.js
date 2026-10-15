@@ -76,7 +76,7 @@
 
   // Pictures for the clickable boxes (elements with data-art="…"); see /assets/art.js.
   var art = document.createElement('script');
-  art.src = '/assets/art.js?v=4';
+  art.src = '/assets/art.js?v=5';
   art.defer = true;
   document.head.append(art);
 
@@ -172,6 +172,7 @@
     ['Simon', '/edu/simon/', G, 'sequence memory colors'],
     ['Connect Four', '/edu/connect/', G, 'four in a row vs ai'],
     ['Happy Molecules', '/edu/molecules/', G, 'puzzle atoms bonds rules logic'],
+    ['PolyTrack', '/edu/polytrack/', G, 'racing cars track kodub itch'],
     ['Bell Schedule', '/bell/', T, 'period minutes until bell pvhs school'],
     ['Countdown', '/countdown/', T, 'days until date event'],
     ['GPA & Grades', '/gpa/', T, 'grade calculator final weighted'],
