@@ -174,6 +174,8 @@
     ['Happy Molecules', '/edu/molecules/', G, 'puzzle atoms bonds rules logic'],
     ['PolyTrack', '/edu/polytrack/', G, 'racing cars track kodub itch'],
     // 3d:start
+    ['HexGL', '/edu/hexgl/', G, '3d racing hover ship webgl neon track laps'],
+    ['T-Rex Run 3D', '/edu/dino3d/', G, '3d dinosaur dino chrome runner jump cactus trex offline'],
     // 3d:end
     ['Bell Schedule', '/bell/', T, 'period minutes until bell pvhs school'],
     ['Countdown', '/countdown/', T, 'days until date event'],

@@ -1,0 +1,18 @@
+{
+  "title": "T-Rex Run 3D",
+  "tagline": "The Chrome dinosaur game, rebuilt in 3D.",
+  "blurb": "It's the no-internet dinosaur from Chrome, rebuilt in voxel 3D with cacti, scorpions and pterodactyls. Press Space to start, jump the cacti, duck under the birds and see how far you get.",
+  "desc": "T-Rex Run 3D by Priler: the Chrome offline dinosaur game rebuilt in voxel 3D. Jump cacti and duck pterodactyls, free in your browser.",
+  "author": "Abraham Tugalov (Priler)",
+  "authorUrl": "https://github.com/Priler",
+  "repo": "https://github.com/Priler/dino3d",
+  "license": "GPL-3.0",
+  "entry": "low.html",
+  "extraCredit": "The start screen is a parody of Chrome's Russian offline page: «Начать игру» means Start game, and Space works too.",
+  "controls": ["Space / ↑ jump", "↓ / Ctrl duck", "Space starts a run"],
+  "touch": false,
+  "sizeMb": 6,
+  "color": "peach",
+  "tags": "dinosaur dino chrome runner jump cactus trex offline",
+  "order": 60
+}
