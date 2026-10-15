@@ -1,4 +1,4 @@
-# Self-hosted 3D games. Each entry in _edu-src/games3d.json gets:
+# Self-hosted 3D games. Each _edu-src/games3d/<slug>.json entry gets:
 #   - a wrapper page _edu-src/g3d-<slug>.page  (built by _edu-src/build.py into edu/<slug>/index.html)
 #   - a tile on the games hub (between the 3d markers in _edu-src/index.page)
 #   - a row in the command palette (between the 3d markers in assets/site.js)
@@ -7,7 +7,13 @@
 import json, os, re, html
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 os.chdir(ROOT)
-REG = json.load(open('_edu-src/games3d.json'))
+# One JSON object per game in _edu-src/games3d/<slug>.json (keeps additions conflict-free); sorted by "order" then title.
+REG = []
+for f in sorted(os.listdir('_edu-src/games3d')):
+    if f.endswith('.json'):
+        g = json.load(open(os.path.join('_edu-src/games3d', f)))
+        g.setdefault('slug', f[:-5]); REG.append(g)
+REG.sort(key=lambda g: (g.get('order', 50), g['title'].lower()))
 e = lambda v: html.escape(str(v), quote=True)
 
 PAGE = '''@@ meta
