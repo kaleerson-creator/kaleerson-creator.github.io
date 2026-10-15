@@ -1,0 +1,21 @@
+{
+  "title": "Truck Town",
+  "tagline": "Drive three kinds of truck around a tiny town.",
+  "blurb": "You pick a minivan, a semi with a trailer, or a tow truck, then drive around a small town with ramps and a turbo button. I keep it here because it is the quickest way I know to feel real vehicle physics in a browser.",
+  "desc": "Truck Town, the Godot Engine vehicle-physics demo: drive a minivan, a semi-truck, or a tow truck around a low-poly town. Hosted on kaleerson.com.",
+  "author": "the Godot Engine contributors",
+  "authorUrl": "https://github.com/godotengine/godot-demo-projects",
+  "repo": "https://github.com/godotengine/godot-demo-projects/tree/master/3d/truck_town",
+  "license": "MIT",
+  "licenseFile": "LICENSE.md",
+  "entry": "index.html",
+  "controls": ["W / ↑ accelerate", "S / ↓ / Space brake & reverse", "A / ← and D / → steer", "Shift turbo", "C camera", "M time of day", "H horn", "L headlights", "Esc menu"],
+  "touch": true,
+  "sizeMb": 50,
+  "color": "peach",
+  "art": "game3d",
+  "aspect": "16/9",
+  "tags": "truck town godot driving trucks vehicle physics",
+  "order": 40,
+  "extraCredit": "It is a Godot 4 web export, so it needs a browser with WebGL 2 (any recent Chrome, Edge, Firefox, or Safari). On a phone it steers itself forward: touch the left or right edge to turn and the middle to brake."
+}

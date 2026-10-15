@@ -1,0 +1,39 @@
+Truck Town
+==========
+Title:     Truck Town (Godot Engine demo project, web export)
+Author:    Godot Engine contributors - https://github.com/godotengine/godot-demo-projects
+Source:    https://github.com/godotengine/godot-demo-projects, project folder 3d/truck_town/
+           Project README: https://github.com/godotengine/godot-demo-projects/blob/master/3d/truck_town/README.md
+           Live upstream copy of this same export: https://godotengine.github.io/godot-demo-projects/3d/truck_town/
+Upstream:  web export from branch gh-pages, commit 2828de5c104d98702dc7831dbc266550e6a25406 (2026-10-08,
+           "Deploying to gh-pages from @ godotengine/godot-demo-projects@b761b4cd5718a7118f2c95eb55f181d0a5f004f1"),
+           folder 3d/truck_town/. Exported with Godot Engine v4.7.1.stable.official, threads disabled.
+           Project sources: branch master, commit b761b4cd5718a7118f2c95eb55f181d0a5f004f1.
+License:   MIT - see LICENSE.md in this folder (copied verbatim from the repository root on master,
+           commit b761b4cd5718a7118f2c95eb55f181d0a5f004f1).
+Copied:    2026-10-15 into kaleerson.com /edu/3d/trucktown/
+
+Files copied, byte for byte, from gh-pages 3d/truck_town/:
+  index.html, index.js, index.pck (sha256 d3702cecfcf941b62cef346e62092efdf89af38eec22d4cd09d064df941df78c),
+  index.audio.worklet.js, index.audio.position.worklet.js,
+  index.png (splash), index.icon.png, index.apple-touch-icon.png
+index.wasm: in the upstream folder this is a symlink to ../../index.wasm (one engine binary shared by
+  every demo at the branch root). This folder holds a real copy of that file:
+  39,513,091 bytes, sha256 35116f68540ac41acf7d71ea457added91b5e960a9cca3e2acc72918eaf01277.
+LICENSE.md: from branch master (gh-pages carries no license file).
+
+Changes made to the game
+------------------------
+None. Every file is unmodified upstream; the only addition is this ATTRIBUTION.txt.
+index.html references only files in this folder (index.js, index.png, index.icon.png,
+index.apple-touch-icon.png); index.js loads index.wasm, index.pck and the two audio worklets from
+the same folder. There are no CDN, font, analytics or other third-party requests.
+The export sets GODOT_THREADS_ENABLED = false and ships no index.worker.js, so it does not need
+SharedArrayBuffer or Cross-Origin-Opener/Embedder-Policy headers (index.js only mentions
+SharedArrayBuffer inside the threads-only feature check, which is skipped). Requires WebGL 2.
+
+Asset credits (from the upstream README)
+----------------------------------------
+Ambient sounds: "Sunrise" by nyoz, "Day" by pawsound, "Sunset" by roisin.gleeson,
+"Night" by DidntGoToFilmSchool (freesound.org).
+Models: "tree low-poly" by Ricardo Sanchez and "Lowpoly lamp" by RitiWox (sketchfab.com).
