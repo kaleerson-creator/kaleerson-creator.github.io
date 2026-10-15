@@ -43,3 +43,5 @@ Notes
 - Keyboard only: Space or Arrow Up jumps (and starts a game), Arrow Down or Ctrl ducks. There are no touch
   handlers in build.min.js apart from the click on the start / restart buttons.
 - High scores are kept in the browser's localStorage; nothing is sent anywhere.
+
+- kaleerson.com: translated the six Russian UI strings in index.html and low.html to English (GAME OVER, Start game, and the parody "No internet" screen). No other change.

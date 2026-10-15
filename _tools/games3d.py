@@ -38,6 +38,7 @@ game: g3d-{slug}
 .credit{{display:grid;gap:6px;font-size:14px;color:var(--ink2);width:100%}}
 .credit a{{text-decoration:underline}}.credit b{{color:var(--ink)}}
 .focus{{display:none;font-size:13px;color:var(--ink2)}}
+html.g3lock{{overflow:hidden}}
 .started .focus{{display:block}}
 @media (max-width:600px){{.frame{{aspect-ratio:auto;height:64vh;min-height:320px}}}}
 @@ body
@@ -51,7 +52,7 @@ game: g3d-{slug}
       <div class="keys" aria-label="Controls">{keys}</div>
       <div class="row"><button class="btn sm ghost" id="reload" hidden>Restart</button><button class="btn sm" id="full" hidden>Fullscreen</button></div>
     </div>
-    <p class="focus">If the keys do nothing, click inside the game once.</p>
+    <p class="focus">If the keys do nothing, click inside the game once. Click outside it to scroll the page again.</p>
     <div class="credit">
       <span><b>{title}</b> is by <a href="{author_url}" target="_blank" rel="noopener">{author}</a> and is shared under the {license} license (<a href="/edu/3d/{slug}/{license_file}" target="_blank">read it</a>). I host a copy here so it works on school Wi-Fi; the original is at <a href="{repo}" target="_blank" rel="noopener">{repo_host}</a>.</span>
       <span>Nothing from this game is saved to your kaleerson.com account.{extra_credit}</span>
@@ -65,10 +66,15 @@ let game=null;
 function start(){{
   if(game)return;
   game=document.createElement('iframe');
-  game.src=SRC;game.title={title_js};game.setAttribute('allowfullscreen','');game.allow='autoplay; fullscreen; gamepad; pointer-lock';
+  game.src=SRC;game.title={title_js};game.allow='autoplay; fullscreen; gamepad';
   frame.append(game);cover.remove();full.hidden=false;reload.hidden=false;g3.classList.add('started');
+  try{{frame.scrollIntoView({{block:'center',behavior:'smooth'}})}}catch(e){{}}
   setTimeout(()=>{{try{{game.focus()}}catch(e){{}}}},300);
 }}
+// Arrow keys inside the game would also scroll this page; lock page scrolling while the game has focus.
+window.addEventListener('blur',()=>{{setTimeout(()=>{{if(game&&document.activeElement===game)document.documentElement.classList.add('g3lock')}},0)}});
+window.addEventListener('focus',()=>{{document.documentElement.classList.remove('g3lock')}});
+document.addEventListener('pointerdown',ev=>{{if(!frame.contains(ev.target))document.documentElement.classList.remove('g3lock')}});
 cover.addEventListener('click',start);
 cover.addEventListener('keydown',ev=>{{if(ev.key==='Enter'||ev.key===' '){{ev.preventDefault();start()}}}});
 reload.addEventListener('click',()=>{{if(game){{game.src=SRC}}}});
@@ -90,8 +96,14 @@ for g in REG:
     if not os.path.isfile(os.path.join('edu', '3d', slug, g.get('entry', 'index.html'))):
         raise SystemExit(f'missing build: edu/3d/{slug}/{g.get("entry", "index.html")}')
     lic_file = g.get('licenseFile', 'LICENSE')
-    if not os.path.isfile(os.path.join('edu', '3d', slug, lic_file)):
+    lic_path = os.path.join('edu', '3d', slug, lic_file)
+    if not os.path.isfile(lic_path):
         raise SystemExit(f'missing license file: edu/3d/{slug}/{lic_file}')
+    if not lic_file.lower().endswith(('.txt', '.md')):
+        # GitHub Pages serves extensionless files as downloads; link a .txt copy instead
+        txt = lic_file + '.txt'
+        open(os.path.join('edu', '3d', slug, txt), 'wb').write(open(lic_path, 'rb').read())
+        lic_file = txt
     glow1, glow2 = GLOW.get(g.get('color', 'sky'), GLOW['sky'])
     keys = ''.join(f'<span>{e(k)}</span>' for k in g.get('controls', []))
     size = g.get('sizeMb')

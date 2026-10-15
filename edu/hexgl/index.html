@@ -43,6 +43,7 @@
 .credit{display:grid;gap:6px;font-size:14px;color:var(--ink2);width:100%}
 .credit a{text-decoration:underline}.credit b{color:var(--ink)}
 .focus{display:none;font-size:13px;color:var(--ink2)}
+html.g3lock{overflow:hidden}
 .started .focus{display:block}
 @media (max-width:600px){.frame{aspect-ratio:auto;height:64vh;min-height:320px}}
 </style>
@@ -59,9 +60,9 @@
       <div class="keys" aria-label="Controls"><span>↑ thrust</span><span>← → steer</span><span>A / D air brakes</span><span>↓ brake</span><span>Touch: left half steers, hold the right half to go</span></div>
       <div class="row"><button class="btn sm ghost" id="reload" hidden>Restart</button><button class="btn sm" id="full" hidden>Fullscreen</button></div>
     </div>
-    <p class="focus">If the keys do nothing, click inside the game once.</p>
+    <p class="focus">If the keys do nothing, click inside the game once. Click outside it to scroll the page again.</p>
     <div class="credit">
-      <span><b>HexGL</b> is by <a href="https://github.com/BKcore" target="_blank" rel="noopener">Thibaut Despoulain (BKcore)</a> and is shared under the MIT license (<a href="/edu/3d/hexgl/LICENSE" target="_blank">read it</a>). I host a copy here so it works on school Wi-Fi; the original is at <a href="https://github.com/BKcore/HexGL" target="_blank" rel="noopener">github.com</a>.</span>
+      <span><b>HexGL</b> is by <a href="https://github.com/BKcore" target="_blank" rel="noopener">Thibaut Despoulain (BKcore)</a> and is shared under the MIT license (<a href="/edu/3d/hexgl/LICENSE.txt" target="_blank">read it</a>). I host a copy here so it works on school Wi-Fi; the original is at <a href="https://github.com/BKcore/HexGL" target="_blank" rel="noopener">github.com</a>.</span>
       <span>Nothing from this game is saved to your kaleerson.com account. A few of its source files carry the author&#x27;s older CC BY-NC 3.0 header, so this page has no ads and never will.</span>
     </div>
   </div>
@@ -77,10 +78,15 @@ let game=null;
 function start(){
   if(game)return;
   game=document.createElement('iframe');
-  game.src=SRC;game.title="HexGL";game.setAttribute('allowfullscreen','');game.allow='autoplay; fullscreen; gamepad; pointer-lock';
+  game.src=SRC;game.title="HexGL";game.allow='autoplay; fullscreen; gamepad';
   frame.append(game);cover.remove();full.hidden=false;reload.hidden=false;g3.classList.add('started');
+  try{frame.scrollIntoView({block:'center',behavior:'smooth'})}catch(e){}
   setTimeout(()=>{try{game.focus()}catch(e){}},300);
 }
+// Arrow keys inside the game would also scroll this page; lock page scrolling while the game has focus.
+window.addEventListener('blur',()=>{setTimeout(()=>{if(game&&document.activeElement===game)document.documentElement.classList.add('g3lock')},0)});
+window.addEventListener('focus',()=>{document.documentElement.classList.remove('g3lock')});
+document.addEventListener('pointerdown',ev=>{if(!frame.contains(ev.target))document.documentElement.classList.remove('g3lock')});
 cover.addEventListener('click',start);
 cover.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();start()}});
 reload.addEventListener('click',()=>{if(game){game.src=SRC}});

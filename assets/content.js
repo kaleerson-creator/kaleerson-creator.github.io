@@ -30,6 +30,8 @@ window.CONTENT = {
     { name: 'Stopwatch',     art: 'stopwatch', href: '/stopwatch/', color: 'moss',   tag: 'Timer',   note: 'Laps and splits, keeps running in the background', open: true, quick: true }
   ],
   updates: [
+    { date: '2026-10', tag: 'Launch', title: 'Nine 3D games', href: '/edu/',
+      body: 'Real 3D in the browser, hosted right here so they work on school Wi-Fi: HexGL racing, Sketchbook (drive, fly, roam), Space Pirates dogfights, TuxRacer sledding, Truck Town, a 3D T-Rex run, and three tiny instant ones. All free, open-source games with credit to their makers.' },
     { date: '2026-10', tag: 'Product', title: 'PolyTrack in the games area', href: '/edu/polytrack/',
       body: 'Kodub\'s low-poly racing game now has a spot in Games with links to play it free on kodub.com, itch.io or Android. Not mine, just a great game.' },
     { date: '2026-10', tag: 'Launch', title: 'Happy Molecules', href: '/edu/molecules/',

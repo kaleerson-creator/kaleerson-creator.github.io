@@ -31,3 +31,5 @@ The minified bundle was deliberately not edited. If those requests are blocked o
 example on a filtered school network) the panel falls back to the browser's default fonts and the
 game itself is unaffected - this was verified with the font hosts blocked. Everything else
 (scripts, models, textures) is loaded from this folder on kaleerson.com.
+
+- kaleerson.com: added a Content-Security-Policy meta tag to index.html so the page only loads from its own origin (the bundle appends Google Fonts links at start-up; they are now blocked and the panel uses fallback fonts). No other change.
