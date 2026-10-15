@@ -1,68 +1,44 @@
 @@ meta
 dir: polytrack
 title: PolyTrack · Kale's Games
-desc: PolyTrack, the low-poly racing game by Kodub, playable right here through itch.io. Loops, jumps and every millisecond counts.
+desc: PolyTrack, the low-poly racing game by Kodub. Loops, jumps and every millisecond counts. Play it free in your browser.
 page: polytrack
 game: polytrack
 @@ css
 .pt{width:100%;max-width:960px;display:grid;gap:12px}
-.frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:#1b1f1a;isolation:isolate}
-.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#1b1f1a}
-.frame:fullscreen{border-radius:0;background:#000}
-.frame:fullscreen iframe{background:#000}
-.cover{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;color:#fff;background:
-  radial-gradient(circle at 30% 20%,#4f8a4a55,transparent 40%),radial-gradient(circle at 80% 80%,#3B6FE055,transparent 45%),#1b1f1a;cursor:pointer}
-.cover h2{font:800 clamp(32px,8vw,64px)/1 var(--display);letter-spacing:-.04em;color:#fff}
-.cover p{color:#cfd6cb;margin-top:10px;font-weight:600;font-size:15px}
-.cover .road{position:absolute;left:-10%;right:-10%;bottom:12%;height:22%;background:#2b3a23;transform:rotate(-6deg);border-top:4px dashed #cfd6cb55;border-bottom:6px solid #141613;z-index:-1}
-.cover .go{display:inline-block;margin-top:18px;background:#fff;color:#141613;font-weight:700;padding:14px 26px;border-radius:999px;font-size:16px}
-.cover:hover .go,.cover:focus-visible .go{transform:translateY(-1px)}
-.ptbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;width:100%}
-.ptbar .row{gap:8px}
+.hero{position:relative;overflow:hidden;border-radius:22px;min-height:300px;display:grid;align-content:end;padding:28px;color:#fff;background:
+  radial-gradient(circle at 30% 20%,#4f8a4a66,transparent 40%),radial-gradient(circle at 80% 80%,#3B6FE066,transparent 45%),#1b1f1a;isolation:isolate}
+.hero h2{font:800 clamp(40px,9vw,88px)/.95 var(--display);letter-spacing:-.05em;color:#fff}
+.hero p{color:#cfd6cb;margin-top:10px;font-weight:600;font-size:15px;max-width:48ch}
+.hero .road{position:absolute;left:-10%;right:-10%;top:18%;height:22%;background:#2b3a23;transform:rotate(-7deg);border-top:4px dashed #cfd6cb55;border-bottom:6px solid #141613;z-index:-1}
+.hero .loop{position:absolute;right:12%;top:6%;width:120px;height:120px;border:14px solid #2b3a23;border-radius:50%;border-color:#2b3a23 #2b3a23 transparent #2b3a23;z-index:-1}
+.play{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));width:100%}
+.play a{display:grid;gap:4px;padding:18px 20px;border-radius:18px;background:var(--paper);text-decoration:none;color:var(--ink)}
+.play a.main{background:var(--ink);color:var(--on-ink)}
+.play a b{font:800 20px/1.1 var(--display);letter-spacing:-.02em}
+.play a span{font-size:13px;opacity:.75}
 .credit{display:grid;gap:6px;font-size:14px;color:var(--ink2);width:100%}
 .credit a{text-decoration:underline}
 .credit b{color:var(--ink)}
 .keys{display:flex;gap:6px;flex-wrap:wrap}
 .keys span{padding:6px 10px;border-radius:10px;background:var(--paper);font-weight:600;font-size:13px}
-@media (max-width:600px){.frame{aspect-ratio:auto;height:62vh;min-height:300px}}
-@media (prefers-reduced-motion:reduce){.cover .go{transition:none}}
+@media (max-width:600px){.hero{min-height:240px;padding:20px}.hero .loop{width:80px;height:80px;border-width:10px}}
 @@ body
-<div class="ghead"><div><h1>PolyTrack</h1><p>A low-poly racing game by Kodub. Loops, jumps, and every millisecond counts.</p></div><a class="btn sm ghost" href="https://kodub.itch.io/polytrack" target="_blank" rel="noopener">Open on itch.io ↗</a></div>
+<div class="ghead"><div><h1>PolyTrack</h1><p>A low-poly racing game by Kodub. Loops, jumps, and every millisecond counts.</p></div></div>
 <div class="stage">
   <div class="pt">
-    <div class="frame" id="frame">
-      <div class="cover" id="cover" role="button" tabindex="0" aria-label="Play PolyTrack"><span class="road"></span><div><h2>PolyTrack</h2><p>Loads from itch.io. Best with a keyboard.</p><span class="go">Play</span></div></div>
+    <div class="hero"><span class="road"></span><span class="loop"></span><div><h2>PolyTrack</h2><p>Race against the clock on tracks full of loops and jumps, then build your own in the editor and share it with a code. Free, in the browser.</p></div></div>
+    <div class="play">
+      <a class="main" href="https://www.kodub.com/apps/polytrack" target="_blank" rel="noopener"><b>Play on kodub.com ↗</b><span>The official web version. Opens in a new tab.</span></a>
+      <a href="https://kodub.itch.io/polytrack" target="_blank" rel="noopener"><b>itch.io ↗</b><span>Play there, or download for Windows, Mac and Linux.</span></a>
+      <a href="https://play.google.com/store/search?q=polytrack%20kodub&c=apps" target="_blank" rel="noopener"><b>Android ↗</b><span>On Google Play.</span></a>
     </div>
-    <div class="ptbar">
-      <div class="keys" aria-label="Controls"><span>W A S D or arrows to drive</span><span>Esc for the menu</span></div>
-      <div class="row"><button class="btn sm ghost" id="reload" hidden>Restart</button><button class="btn sm" id="full" hidden>Fullscreen</button></div>
-    </div>
+    <div class="keys" aria-label="Controls"><span>W A S D or arrows to drive</span><span>Esc for the menu</span><span>Works best with a keyboard</span></div>
     <div class="credit">
-      <span><b>PolyTrack</b> is made by <a href="https://kodub.itch.io/" target="_blank" rel="noopener">Kodub</a> and runs here through itch.io's embed. It isn't my game. If you like it, <a href="https://kodub.itch.io/polytrack" target="_blank" rel="noopener">support it on itch.io</a>, where you can also download it for Windows, Mac, Linux and Android.</span>
-      <span>Nothing from this game is saved to your kaleerson.com account. If the box above stays blank, your network is probably blocking itch.io: <a href="https://kodub.itch.io/polytrack" target="_blank" rel="noopener">open it there</a> instead.</span>
+      <span><b>PolyTrack</b> is made by <a href="https://kodub.itch.io/" target="_blank" rel="noopener">Kodub</a>. It isn't my game, and Kodub's terms don't allow it to be embedded on other sites, so the buttons above open the real thing.</span>
+      <span>Nothing from PolyTrack is saved to your kaleerson.com account. Your times and tracks live in the game itself.</span>
     </div>
   </div>
 </div>
 @@ js
-const SRC='https://itch.io/embed-upload/19260993?color=1b1f1a';
-const frame=document.getElementById('frame'),cover=document.getElementById('cover'),full=document.getElementById('full'),reload=document.getElementById('reload');
-let game=null;
-function start(){
-  if(game)return;
-  game=document.createElement('iframe');
-  game.src=SRC;game.title='PolyTrack by Kodub';game.setAttribute('allowfullscreen','');game.allow='autoplay; fullscreen; gamepad';game.loading='eager';
-  frame.append(game);cover.remove();full.hidden=false;reload.hidden=false;
-  setTimeout(()=>{try{game.focus()}catch(e){}},300);
-}
-cover.addEventListener('click',start);
-cover.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();start()}});
-reload.addEventListener('click',()=>{if(game){game.src=SRC}});
-const canFull=!!(frame.requestFullscreen||frame.webkitRequestFullscreen);
-if(!canFull)full.textContent='Open on itch.io for fullscreen';
-full.addEventListener('click',()=>{
-  if(!canFull){window.open('https://kodub.itch.io/polytrack','_blank','noopener');return}
-  const el=document.fullscreenElement||document.webkitFullscreenElement;
-  if(el){(document.exitFullscreen||document.webkitExitFullscreen).call(document)}
-  else{(frame.requestFullscreen||frame.webkitRequestFullscreen).call(frame).catch(()=>{})}
-});
-document.addEventListener('fullscreenchange',()=>{full.textContent=document.fullscreenElement?'Exit fullscreen':'Fullscreen'});
+// Nothing to run: this page only links out to the official game.

@@ -31,7 +31,7 @@ window.CONTENT = {
   ],
   updates: [
     { date: '2026-10', tag: 'Product', title: 'PolyTrack in the games area', href: '/edu/polytrack/',
-      body: 'Kodub\'s low-poly racing game, playable on the site through itch.io. Not mine, just a great game. Best with a keyboard.' },
+      body: 'Kodub\'s low-poly racing game now has a spot in Games with links to play it free on kodub.com, itch.io or Android. Not mine, just a great game.' },
     { date: '2026-10', tag: 'Launch', title: 'Happy Molecules', href: '/edu/molecules/',
       body: 'A puzzle game. Every atom has a rule about who it is bonded to. Use every bond and make all of them happy to finish the level. Levels keep getting harder.' },
     { date: '2026-10', tag: 'Launch', title: 'Play online: Battleship and Rock Paper Scissors', href: '/edu/play/',
