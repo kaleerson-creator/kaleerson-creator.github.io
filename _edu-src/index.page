@@ -32,6 +32,8 @@ page: home
   <a class="b peach w2" href="/edu/daily/"><span class="art" data-art="daily"></span><span class="lbl">Daily · same for everyone</span><h2>Daily Challenge</h2><span class="muted" id="dstat">10 trivia questions, one try. Beat your friends today.</span><div class="foot"><span class="muted streak" id="dstreak"></span><span class="go">→</span></div></a>
   <a class="b sky w2" href="/edu/play/"><span class="art" data-art="play"></span><span class="lbl">Online</span><h2>Play friends</h2><span class="muted">Tic-tac-toe, Connect Four, a trivia race and Letter Rush. Share a 4-letter code.</span><div class="foot"><span></span><span class="go">→</span></div></a>
   <!-- 3d:start -->
+  <a class="b lilac w2" href="/edu/spacepirates/"><span class="art" data-art="game3d"></span><span class="lbl">3D · by the Babylon.js team</span><h2>Space Pirates</h2><div class="foot"><span class="muted">Space dogfights in a starfighter you fly with the mouse.</span><span class="go">→</span></div></a>
+  <a class="b sky w2" href="/edu/tuxracer/"><span class="art" data-art="game3d"></span><span class="lbl">3D · by Jan Ebbe</span><h2>TuxRacer.js</h2><div class="foot"><span class="muted">Tux the penguin belly-slides down a mountain grabbing fish.</span><span class="go">→</span></div></a>
   <!-- 3d:end -->
   <a class="b butter" href="/edu/2048/"><span class="art" data-art="2048"></span><h2>2048</h2><div class="foot"><span class="muted" data-best="2048">Slide and merge to 2048.</span><span class="go">→</span></div></a>
   <a class="b moss" href="/edu/snake/"><span class="art" data-art="snake"></span><h2>Snake</h2><div class="foot"><span class="muted" data-best="snake">Eat apples. Don't hit yourself.</span><span class="go">→</span></div></a>
