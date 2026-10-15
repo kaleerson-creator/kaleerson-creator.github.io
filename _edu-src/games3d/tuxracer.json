@@ -1,0 +1,24 @@
+{
+ "title": "TuxRacer.js",
+ "tagline": "Tux the penguin belly-slides down a mountain grabbing fish.",
+ "blurb": "Steer Tux down the hill, grab as many fish as you can and try not to fly off a cliff. It's the old Tux Racer game rebuilt for the browser, and it starts the second it loads.",
+ "desc": "TuxRacer.js by Jan Ebbe: the classic Tux Racer penguin sledding game rebuilt for the browser. Arrow keys or WASD, touch joystick on phones. Hosted on kaleerson.com.",
+ "author": "Jan Ebbe",
+ "authorUrl": "https://github.com/ebbejan",
+ "repo": "https://github.com/ebbejan/tux-racer-js",
+ "license": "GPL-2.0",
+ "licenseFile": "LICENSE",
+ "controls": [
+  "← → or A/D: steer",
+  "↑ or W: paddle (speed up)",
+  "↓ or S: brake",
+  "Phone: drag the joystick"
+ ],
+ "touch": true,
+ "sizeMb": 10,
+ "color": "sky",
+ "tags": "penguin snow ski sled race tux linux downhill fish",
+ "order": 50,
+ "extraCredit": "It's a remake of Extreme Tux Racer, so the courses, music and art come from that team too.",
+ "art": "tuxracer"
+}

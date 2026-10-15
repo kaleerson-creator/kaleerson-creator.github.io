@@ -1,0 +1,23 @@
+{
+ "title": "Underrun",
+ "tagline": "Top-down shooter in a dark station. Reboot the systems, blast the drones.",
+ "blurb": "You get dropped into a station that went dark and have to reboot every system while robot spiders and sentries hunt you down. It's three levels, quick and tense, with a moody pixel look I really like.",
+ "desc": "Underrun, a top-down WebGL shooter by Dominic Szablewski. Reboot the station's systems while robots hunt you. Free in your browser.",
+ "author": "Dominic Szablewski",
+ "authorUrl": "https://phoboslab.org",
+ "repo": "https://github.com/phoboslab/underrun",
+ "license": "MIT",
+ "licenseFile": "LICENSE.md",
+ "controls": [
+  "W A S D or arrows to move",
+  "Mouse to aim",
+  "Click and hold to shoot"
+ ],
+ "touch": false,
+ "sizeMb": 0.1,
+ "color": "peach",
+ "tags": "underrun shooter robots top-down pixel station webgl js13k phoboslab",
+ "order": 80,
+ "extraCredit": "The music runs on the Sonant-X synth, which is shared under the zlib license.",
+ "art": "underrun"
+}

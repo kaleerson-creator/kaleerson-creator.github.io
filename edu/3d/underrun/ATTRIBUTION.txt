@@ -1,0 +1,25 @@
+Underrun
+========
+Title:    UNDERRUN (js13kGames 2018 entry)
+Author:   Dominic Szablewski, phoboslab.org (https://phoboslab.org/underrun/)
+Source:   https://github.com/phoboslab/underrun  (branch master)
+Upstream: commit f933e29152d7fc1ca61d4b3eaa8b29551d7d7a62, 2018-10-12
+License:  MIT (see LICENSE.md in this folder, copied verbatim from the repository).
+          The bundled synth source/sonantx-reduced.js is a modified Sonant-X
+          (Copyright (c) 2014 Nicolas Vanhoren, 2011 Marcus Geelnard, 2008-2009 Jake Taylor),
+          zlib license; its license text is kept in the header of that file.
+
+What is in this folder
+----------------------
+index.html  = upstream index-debug.html, unchanged apart from the file name. This is the
+              unminified build that loads the scripts below directly, so no build step
+              (build.sh / shrinkit.js) is needed.
+source/*.js = upstream source/ folder (18 scripts), unchanged.
+m/*.png     = upstream m/ folder (3 level maps + the texture atlas), unchanged.
+
+Changes made for kaleerson.com
+------------------------------
+1. index-debug.html was renamed to index.html.
+2. Not copied: build/, build.sh, shrinkit.js, package.json, README.md, and
+   source/html-template.html (the template used only by the minifying build script).
+No code was edited. The game makes no network requests beyond its own files.

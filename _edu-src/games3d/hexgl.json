@@ -1,0 +1,24 @@
+{
+ "title": "HexGL",
+ "tagline": "Hover-ship racing through a neon city. Three laps, don't clip the walls.",
+ "blurb": "This is my favorite kind of racing game: a hover ship, a neon city track and a timer. Hold the up arrow to go, steer with the arrows, and use A and D to air-brake through the tight corners.",
+ "desc": "HexGL, the free WebGL hover-racing game by Thibaut Despoulain. Race three laps through a neon city in your browser.",
+ "author": "Thibaut Despoulain (BKcore)",
+ "authorUrl": "https://github.com/BKcore",
+ "repo": "https://github.com/BKcore/HexGL",
+ "license": "MIT",
+ "extraCredit": "A few of its source files carry the author's older CC BY-NC 3.0 header, so this page has no ads and never will.",
+ "controls": [
+  "↑ thrust",
+  "← → steer",
+  "A / D air brakes",
+  "↓ brake",
+  "Touch: left half steers, hold the right half to go"
+ ],
+ "touch": true,
+ "sizeMb": 12,
+ "color": "sky",
+ "tags": "racing hover ship webgl neon track laps",
+ "order": 10,
+ "art": "hexgl"
+}
