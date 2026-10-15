@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>_INVADERS · Kale's Games</title>
+<!-- meta -->
+<script>try{var t=localStorage.getItem("theme");if(!/^\/(snapwit|ldtimer|card)\//.test(location.pathname)){if(t!=="light"&&(t==="dark"||matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.theme="dark"}var a=localStorage.getItem("accent");if(/^(moss|sky|peach|butter|lilac)$/.test(a))document.documentElement.dataset.accent=a}catch(e){}</script>
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#EEF0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Kale Erson">
+<meta property="og:type" content="website">
+<meta property="og:title" content="_INVADERS · Kale&#x27;s Games">
+<meta property="og:description" content="_INVADERS, a first-person Space Invaders in WebGL by Andy K. S. Wong. Endless waves of aliens, free in your browser.">
+<meta property="og:url" content="https://kaleerson.com/edu/invaders/">
+<meta property="og:image" content="https://kaleerson.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /meta -->
+<meta name="description" content="_INVADERS, a first-person Space Invaders in WebGL by Andy K. S. Wong. Endless waves of aliens, free in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<link rel="stylesheet" href="/edu/assets/games.css?v=6">
+<style>
+.g3{width:100%;max-width:1100px;display:grid;gap:12px}
+.frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:#0f1210;isolation:isolate}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#0f1210}
+.frame:fullscreen{border-radius:0;background:#000}
+.cover{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;color:#fff;cursor:pointer;background:radial-gradient(circle at 25% 25%,#8E6BE866,transparent 45%),radial-gradient(circle at 80% 75%,#3B6FE044,transparent 45%),#0f1210}
+.cover h2{font:800 clamp(34px,8vw,72px)/.95 var(--display);letter-spacing:-.04em;color:#fff}
+.cover p{color:#cfd6cb;margin-top:10px;font-weight:600;font-size:15px;max-width:46ch}
+.cover .go{display:inline-block;margin-top:18px;background:#fff;color:#141613;font-weight:700;padding:14px 28px;border-radius:999px;font-size:16px}
+.cover small{display:block;margin-top:14px;color:#9aa397;font-size:12px}
+.g3bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;width:100%}
+.keys{display:flex;gap:6px;flex-wrap:wrap}
+.keys span{padding:6px 10px;border-radius:10px;background:var(--paper);font-weight:600;font-size:13px}
+.credit{display:grid;gap:6px;font-size:14px;color:var(--ink2);width:100%}
+.credit a{text-decoration:underline}.credit b{color:var(--ink)}
+.focus{display:none;font-size:13px;color:var(--ink2)}
+.started .focus{display:block}
+@media (max-width:600px){.frame{aspect-ratio:auto;height:64vh;min-height:320px}}
+</style>
+</head>
+<body data-page="games" data-sub="invaders" data-game="g3d-invaders">
+<main class="wrap">
+<div class="ghead"><div><h1>_INVADERS</h1><p>Space Invaders in first person. Endless waves, one blaster.</p></div><a class="btn sm ghost" href="https://github.com/andykswong/_INVADERS" target="_blank" rel="noopener">Source &amp; license ↗</a></div>
+<div class="stage">
+  <div class="g3" id="g3">
+    <div class="frame" id="frame">
+      <div class="cover" id="cover" role="button" tabindex="0" aria-label="Play _INVADERS"><div><h2>_INVADERS</h2><p>Waves of blocky aliens fly straight at you and you blast them before they land. Beginner mode is on by default, so you get an extra life while you learn the controls.</p><span class="go">Play</span><small>About 0.1 MB to load the first time. Works with touch.</small></div></div>
+    </div>
+    <div class="g3bar">
+      <div class="keys" aria-label="Controls"><span>W A S D or arrows to move</span><span>Mouse to look around</span><span>Click, Enter or E to shoot</span><span>Touch: left half moves, right half looks, A fires</span></div>
+      <div class="row"><button class="btn sm ghost" id="reload" hidden>Restart</button><button class="btn sm" id="full" hidden>Fullscreen</button></div>
+    </div>
+    <p class="focus">If the keys do nothing, click inside the game once.</p>
+    <div class="credit">
+      <span><b>_INVADERS</b> is by <a href="https://github.com/andykswong" target="_blank" rel="noopener">Andy K. S. Wong</a> and is shared under the MIT license (<a href="/edu/3d/invaders/LICENSE" target="_blank">read it</a>). I host a copy here so it works on school Wi-Fi; the original is at <a href="https://github.com/andykswong/_INVADERS" target="_blank" rel="noopener">github.com</a>.</span>
+      <span>Nothing from this game is saved to your kaleerson.com account. Co-op mode and the screenshot button are switched off in this copy because they need outside servers.</span>
+    </div>
+  </div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/edu/assets/common.js?v=6c"></script>
+<script src="/assets/site.js?v=20261015"></script>
+<script>
+const SRC='/edu/3d/invaders/index.html';
+const frame=document.getElementById('frame'),cover=document.getElementById('cover'),full=document.getElementById('full'),reload=document.getElementById('reload'),g3=document.getElementById('g3');
+let game=null;
+function start(){
+  if(game)return;
+  game=document.createElement('iframe');
+  game.src=SRC;game.title="_INVADERS";game.setAttribute('allowfullscreen','');game.allow='autoplay; fullscreen; gamepad; pointer-lock';
+  frame.append(game);cover.remove();full.hidden=false;reload.hidden=false;g3.classList.add('started');
+  setTimeout(()=>{try{game.focus()}catch(e){}},300);
+}
+cover.addEventListener('click',start);
+cover.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();start()}});
+reload.addEventListener('click',()=>{if(game){game.src=SRC}});
+const canFull=!!(frame.requestFullscreen||frame.webkitRequestFullscreen);
+if(!canFull)full.hidden=true;
+full.addEventListener('click',()=>{
+  const el=document.fullscreenElement||document.webkitFullscreenElement;
+  if(el){(document.exitFullscreen||document.webkitExitFullscreen).call(document)}
+  else{(frame.requestFullscreen||frame.webkitRequestFullscreen).call(frame).catch(()=>{});setTimeout(()=>{try{game&&game.focus()}catch(e){}},200)}
+});
+document.addEventListener('fullscreenchange',()=>{full.textContent=document.fullscreenElement?'Exit fullscreen':'Fullscreen'});
+</script>
+</body>
+</html>

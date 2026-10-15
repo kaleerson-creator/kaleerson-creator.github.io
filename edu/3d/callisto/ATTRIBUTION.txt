@@ -1,0 +1,20 @@
+The Adventures of Captain Callisto
+==================================
+Title:    The Adventures of Captain Callisto (js13kGames 2021 entry)
+Author:   Cody Ebberson (https://github.com/codyebberson)
+Source:   https://github.com/codyebberson/js13k-callisto  (branch master)
+Upstream: commit 43651f9a6b273b60f3cb382b93334fb8e7cbc348, 2022-05-01
+Build:    the repository has no checked-in build output; index.html here is the published
+          contest build downloaded on 2026-10-15 from
+          https://play.js13kgames.com/the-adventures-of-captain-callisto/ (37,395 bytes,
+          one self-contained page with an inline script, no external assets).
+License:  MIT (see LICENSE in this folder, copied verbatim from the repository)
+
+What is in this folder
+----------------------
+index.html  = the published build, byte-for-byte unchanged.
+
+Changes made for kaleerson.com
+------------------------------
+None. The page references no other files and no other hosts; it only uses localStorage
+(same origin) to remember progress and the music setting.

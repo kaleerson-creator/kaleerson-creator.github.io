@@ -1,0 +1,33 @@
+_INVADERS
+=========
+Title:    _INVADERS (js13kGames 2021 entry)
+Author:   Andy K. S. Wong (https://github.com/andykswong)
+Source:   https://github.com/andykswong/_INVADERS  (branch master)
+Upstream: commit 2b5ce9c9cdbfcf4f23b7207185e1213061ccd915, 2021-09-12
+License:  MIT (see LICENSE in this folder, copied verbatim from the repository)
+
+What is in this folder
+----------------------
+index.html  = upstream public/index.html (the complete single-file build), with the
+              changes listed below. Nothing else from the repository is needed to play.
+
+Changes made for kaleerson.com (so the game only talks to its own origin)
+-------------------------------------------------------------------------
+1. Removed <meta name="monetization" content="$ilp.uphold.com/..."> (Web Monetization
+   payment pointer; the COIL WEAPON unlock it enabled stays hidden as in a normal browser).
+2. Removed <script src="/socket.io/socket.io.js"></script>. It loaded the socket.io client
+   for the co-op signalling server (public/server.js), which is not run here. The game
+   already handles window.io being undefined (it switches to "serverless" mode).
+3. Added the hidden attribute to the CO-OP button on the start menu (<a hidden>CO-OP</a>),
+   so the co-op screen cannot be opened. Co-op needs the signalling server and a public
+   STUN server, neither of which this site provides. Single player is unchanged.
+4. Screenshot upload removed: the camera button (<p id="r">) now has the hidden attribute,
+   the upload function Cs() was replaced by an empty function, and its two triggers
+   (me.addEventListener("click",Cs) and the "p" keypress listener) were removed. Upstream
+   this uploaded the canvas to https://api.nft.storage/upload and opened the result on
+   https://cloudflare-ipfs.com/ipfs/. The nft.storage API token (JWT) that upstream
+   embedded in the page for that upload (variable q) was removed as well.
+5. Removed the Google STUN server URL (variable R, stun:stun*.l.google.com:19302) and
+   passed an empty iceServers list to RTCPeerConnection. This code is only reachable from
+   the hidden co-op screen.
+All other code, art, audio and the local-storage high score are unchanged.
