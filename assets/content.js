@@ -14,7 +14,7 @@ window.CONTENT = {
     { name: 'Snapwit', art: 'snapwit',  href: '/snapwit/', color: 'peach', tag: '30 games',       note: 'Reaction, memory and party games' },
     { name: 'LD Timer', art: 'ldtimer', href: '/ldtimer/', color: 'sky',   tag: 'Debate',          note: 'Lincoln-Douglas round timer' },
     { name: 'Speech & Debate', art: 'debate', href: '/debate/', color: 'butter', tag: 'Debate',       note: 'PF, Policy, Congress and speech timers, flow, topics' },
-    { name: 'Games', art: 'games', href: '/edu/', color: 'moss', tag: 'Play', note: 'Daily Word, 2048, Snake, Blocks, Breakout, trivia and online rooms', open: true },
+    { name: 'Games', art: 'games', href: '/edu/', color: 'moss', tag: 'Play', note: '3D racing, flying and space fights, plus Daily Word, 2048, Blocks and online rooms', open: true },
     { name: 'PVHS Study', art: 'study', href: '/study/', color: 'lilac', tag: 'Study',           note: 'Palo Verde HS study site', status: 'live' },
     // quick tools: no account needed, work offline
     { name: 'Bell Schedule', art: 'bell',      href: '/bell/',      color: 'sky',    tag: 'School',  note: 'Current period and minutes until the bell at Palo Verde', open: true, quick: true },
