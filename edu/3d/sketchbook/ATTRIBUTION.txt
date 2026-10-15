@@ -1,0 +1,33 @@
+Sketchbook
+==========
+Title:     Sketchbook (web-based third-person sandbox: run, drive cars, fly a plane and a helicopter)
+Author:    swift502 (Jan Blaha) - https://github.com/swift502
+Source:    https://github.com/swift502/Sketchbook  (branch: master)
+Upstream:  commit 62f4b7986fd1ce1e4f91daba89ef032c20a6ce55, 2024-10-10 ("Update README.md").
+           The author archived the repository on 2023-02-20; this is the final published build.
+License:   MIT - see the file LICENSE in this folder (copied verbatim from the repository root).
+Copied:    2026-10-15 into kaleerson.com /edu/3d/sketchbook/
+
+Files copied, byte for byte, from the upstream repository:
+  index.html
+  build/sketchbook.min.js                     (sha256 45c963c7e6a2432420670c7994d0caec716b30a6fee63b5bf3f20a44f5ca38e6)
+  build/assets/world.glb                      (sha256 2f38a76c0c954ff30d06aeca8bc0f0555cdfd70b5cc665f98514017008524e58)
+  build/assets/boxman.glb, car.glb, airplane.glb, heli.glb
+  LICENSE
+Not copied: build/types/ (TypeScript declarations only), src/, tools/, favicon.ico, package and
+webpack config files. No source maps exist upstream and none are shipped here.
+
+Changes made to the game
+------------------------
+None. index.html, the bundle and the models are unmodified upstream files; the only
+additions to this folder are this ATTRIBUTION.txt file.
+
+Known external request (left in on purpose)
+-------------------------------------------
+build/sketchbook.min.js appends three <link rel="stylesheet"> tags to the page head at start-up
+that point at Google Fonts (fonts.googleapis.com: "Alfa Slab One", "Solway", "Cutive Mono"; the
+returned stylesheet then references fonts.gstatic.com). They only style the in-game text panel.
+The minified bundle was deliberately not edited. If those requests are blocked or fail (for
+example on a filtered school network) the panel falls back to the browser's default fonts and the
+game itself is unaffected - this was verified with the font hosts blocked. Everything else
+(scripts, models, textures) is loaded from this folder on kaleerson.com.
