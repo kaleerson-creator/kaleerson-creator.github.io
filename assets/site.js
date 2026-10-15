@@ -174,8 +174,8 @@
     ['Happy Molecules', '/edu/molecules/', G, 'puzzle atoms bonds rules logic'],
     ['PolyTrack', '/edu/polytrack/', G, 'racing cars track kodub itch'],
     // 3d:start
-    ['Sketchbook', '/edu/sketchbook/', G, '3d sketchbook island sandbox car plane helicopter three.js'],
-    ['Truck Town', '/edu/trucktown/', G, '3d truck town godot driving trucks vehicle physics'],
+    ['Space Pirates', '/edu/spacepirates/', G, '3d space ship shooter dogfight fly babylon pirates'],
+    ['TuxRacer.js', '/edu/tuxracer/', G, '3d penguin snow ski sled race tux linux downhill fish'],
     // 3d:end
     ['Bell Schedule', '/bell/', T, 'period minutes until bell pvhs school'],
     ['Countdown', '/countdown/', T, 'days until date event'],

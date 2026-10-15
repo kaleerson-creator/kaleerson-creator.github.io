@@ -15,7 +15,7 @@ DEFAULT_DESC = {
 os.chdir(ROOT)
 files = sorted(glob.glob('**/index.html', recursive=True)) + (['404.html'] if os.path.exists('404.html') else [])
 for f in files:
-    if f.startswith(('design/', 'demos/', '_', 'edu/3d/')):  # edu/3d/ holds vendored games, left untouched
+    if f.startswith(('design/', 'demos/', '_', 'edu/3d/')):  # edu/3d/ holds third-party game builds, kept as shipped
         continue
     s = open(f).read()
     m = re.search(r'<title>(.*?)</title>', s)

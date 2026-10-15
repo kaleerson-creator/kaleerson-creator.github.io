@@ -1,0 +1,28 @@
+TuxRacer.js
+===========
+Title:    TuxRacer.js - a browser port / rewrite of Extreme Tux Racer (itself based on Tux Racer)
+Author:   Jan Ebbe (ebbejan) - https://github.com/ebbejan
+          Original Tux Racer / Extreme Tux Racer authors, music and graphics credits are listed in the
+          upstream README.md: https://github.com/ebbejan/tux-racer-js#credits
+Source:   https://github.com/ebbejan/tux-racer-js  (branch: main)
+Commit:   8d2a6aea698db0a199ca39f3f4d754a134105bc8  "Merge pull request #2 from md2perpe/patch-1"  (2025-06-21)
+License:  GNU General Public License, version 2 (GPL-2.0). The upstream LICENSE file is copied here
+          verbatim. The GPL covers the code and the Extreme Tux Racer courses, art, music and sounds.
+          Corresponding source for this build: the repository and commit above. This folder is an
+          unmodified build of that source, so the complete source is available at that link.
+Authors' hosted version: https://0x00eb.itch.io/tux-racer
+This copy:               https://kaleerson.com/edu/3d/tuxracer/  (loaded in an iframe by https://kaleerson.com/edu/tuxracer/)
+
+Build (Node v22.22.0, npm 10.9.4; done in a scratch clone outside this repository)
+-----------------------------------------------------------------------------------
+  git clone --depth 1 https://github.com/ebbejan/tux-racer-js      # HEAD = 8d2a6aea698db0a199ca39f3f4d754a134105bc8
+  npm install
+  npm run build          # = tsc && vite build   (vite.config.js sets base './', so all paths are relative)  -> dist/
+  cp -r dist/.   <this folder>/        (index.html + assets/: one JS bundle, one CSS file, webp/ogg game data)
+  cp LICENSE     <this folder>/LICENSE
+
+Every change compared with upstream
+-----------------------------------
+  None to the code, build output or assets. The only additions are this ATTRIBUTION.txt and the copied
+  LICENSE. The production Vite build emits no source maps (none to delete). The game references no
+  external hosts; a headless run of this copy confirmed that only same-origin requests are made.

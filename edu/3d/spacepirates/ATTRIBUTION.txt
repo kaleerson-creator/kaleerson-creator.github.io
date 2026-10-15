@@ -1,0 +1,48 @@
+Space Pirates
+=============
+Title:    Space Pirates (a Babylon.js demo game)
+Author:   the Babylon.js team (Microsoft / Babylon.js contributors) - https://www.babylonjs.com/
+Source:   https://github.com/BabylonJS/SpacePirates  (default branch: master)
+Commit:   8abceefbda9176be192e74ceb7030f5bd31d7ea5  "disable context menu on canvas"  (2022-05-10)
+License:  Apache License 2.0. Upstream keeps it in licence.md; it is copied here verbatim as LICENSE.
+Authors' live demo: https://spacepirates.babylonjs.com/
+This copy:          https://kaleerson.com/edu/3d/spacepirates/  (loaded in an iframe by https://kaleerson.com/edu/spacepirates/)
+
+Build (Node v22.22.0, npm 10.9.4; done in a scratch checkout outside this repository)
+--------------------------------------------------------------------------------------
+  git clone https://github.com/BabylonJS/SpacePirates
+  git checkout 8abceefbda9176be192e74ceb7030f5bd31d7ea5
+  # apply source edits 1 and 2 listed below
+  npm install        # root postinstall runs npm-recursive-install for app_package/ and test_package/
+  npm run build      # = tsc -p app_package  &&  webpack --config test_package/webpack.build.config.js  -> docs/
+  cp docs/index.html docs/bundle.js            <this folder>/
+  cp -r test_package/public/assets             <this folder>/assets      (unmodified, 74 files, ~32 MB)
+  cp licence.md                                <this folder>/LICENSE
+
+Every change compared with upstream
+-----------------------------------
+  1. test_package/src/index.js: removed the Adobe Typekit web-font loader IIFE (it injected
+     https://use.typekit.net/njr1oia.js at start-up, which in turn called p.typekit.net). The game
+     draws its UI with Babylon GUI and system fonts, so nothing visible changes; this copy makes no
+     third-party requests at all.
+  2. app_package/src/playgroundRunner.ts (line 28): options.assetsHostUrl was
+     window.location.href.split('?')[0]; it is now '.'. Upstream's value only works when the page is
+     served as the site root; served as /edu/3d/spacepirates/index.html it produced
+     ".../index.html/assets/..." URLs. With '.' every asset resolves relative to index.html.
+  3. app_package/src/Playground/GuiFramework.ts (13 lines: the menu button, bottom bar and text panel
+     images) and app_package/src/Playground/HUD.ts (4 lines: stats panel, health, speed and reload
+     icons): the string literals "/assets/UI/<name>.svg" became "assets/UI/<name>.svg". These were
+     passed straight to Babylon GUI Image / Button.CreateImageButton, so upstream requested them from
+     the site root (404 under /edu/3d/spacepirates/); relative paths resolve next to index.html.
+  4. licence.md copied as LICENSE (same bytes).
+  5. This ATTRIBUTION.txt added.
+  Nothing else was touched: index.html and bundle.js are exactly what the production webpack build
+  emitted (it produces no source maps), and assets/ is a byte-for-byte copy of test_package/public/assets.
+
+Notes
+-----
+  bundle.js is the Babylon.js 5.3 engine plus the game. The engine source contains string constants
+  pointing at babylonjs.com / unpkg.com / github.com (Draco, KTX2, Basis and meshopt decoders, WebXR
+  controller profiles, the inspector, a Babylon Native font). None of those code paths are used by this
+  game (its glTF files use no compression extensions and it never starts WebXR or the inspector), and a
+  headless run of this copy confirmed that only same-origin requests are made.
