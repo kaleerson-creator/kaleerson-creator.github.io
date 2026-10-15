@@ -173,6 +173,8 @@
     ['Connect Four', '/edu/connect/', G, 'four in a row vs ai'],
     ['Happy Molecules', '/edu/molecules/', G, 'puzzle atoms bonds rules logic'],
     ['PolyTrack', '/edu/polytrack/', G, 'racing cars track kodub itch'],
+    // 3d:start
+    // 3d:end
     ['Bell Schedule', '/bell/', T, 'period minutes until bell pvhs school'],
     ['Countdown', '/countdown/', T, 'days until date event'],
     ['GPA & Grades', '/gpa/', T, 'grade calculator final weighted'],
