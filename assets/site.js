@@ -174,6 +174,9 @@
     ['Happy Molecules', '/edu/molecules/', G, 'puzzle atoms bonds rules logic'],
     ['PolyTrack', '/edu/polytrack/', G, 'racing cars track kodub itch'],
     // 3d:start
+    ['_INVADERS', '/edu/invaders/', G, '3d invaders space aliens shooter first person webgl js13k'],
+    ['Underrun', '/edu/underrun/', G, '3d underrun shooter robots top-down pixel station webgl js13k phoboslab'],
+    ['The Adventures of Captain Callisto', '/edu/callisto/', G, '3d callisto platformer space astronaut stars jetpack jump webgl js13k'],
     // 3d:end
     ['Bell Schedule', '/bell/', T, 'period minutes until bell pvhs school'],
     ['Countdown', '/countdown/', T, 'days until date event'],
