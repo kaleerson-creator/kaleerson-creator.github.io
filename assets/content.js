@@ -30,6 +30,8 @@ window.CONTENT = {
     { name: 'Stopwatch',     art: 'stopwatch', href: '/stopwatch/', color: 'moss',   tag: 'Timer',   note: 'Laps and splits, keeps running in the background', open: true, quick: true }
   ],
   updates: [
+    { date: '2026-10', tag: 'Product', title: 'PolyTrack in the games area', href: '/edu/polytrack/',
+      body: 'Kodub\'s low-poly racing game, playable on the site through itch.io. Not mine, just a great game. Best with a keyboard.' },
     { date: '2026-10', tag: 'Launch', title: 'Happy Molecules', href: '/edu/molecules/',
       body: 'A puzzle game. Every atom has a rule about who it is bonded to. Use every bond and make all of them happy to finish the level. Levels keep getting harder.' },
     { date: '2026-10', tag: 'Launch', title: 'Play online: Battleship and Rock Paper Scissors', href: '/edu/play/',
