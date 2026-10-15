@@ -1,0 +1,60 @@
+HexGL
+=====
+
+Title:      HexGL, the HTML5 futuristic racing game
+Author:     Thibaut Despoulain (BKcore), with contributors townxelliot and mahesh.kk
+            (ship model by Charnel, track texture by Nobiax; see audio/LICENSE for the sound credits)
+Source:     https://github.com/BKcore/HexGL  (branch master)
+Upstream:   commit 6addc95a2fce3bf05f4d751823cc054c61a16d68, dated 2021-03-21
+License:    MIT (see LICENSE in this folder, copied verbatim). The README states "Unless specified in the file,
+            HexGL's code and resources are now licensed under the MIT License." Nine files under bkcore/hexgl/
+            (CameraChase.js, Gameplay.js, HUD.js, HexGL.js, RaceData.js, ShipControls.js, ShipEffects.js,
+            tracks/Cityscape.js and the not-shipped Ladder.js) still carry the author's older header
+            "Creative Commons Attribution-NonCommercial 3.0 Unported". We keep the author credit on the page
+            and on this copy, and the page that embeds the game carries no ads and is not monetised.
+            Sound files: see audio/LICENSE (CC BY 3.0 / public domain, as listed there).
+
+This copy is hosted at https://kaleerson.com/edu/3d/hexgl/ and embedded by https://kaleerson.com/edu/hexgl/
+so it works on school networks. It makes requests only to its own origin.
+
+Changes made to the upstream files
+----------------------------------
+1. index.html: removed the Google Analytics snippet (account UA-26274524-4, which loaded ga.js from
+   google-analytics.com).
+2. index.html: removed the <meta property="og:url">, <meta property="og:image"> and <meta property="fb:admins">
+   tags, which pointed at http://hexgl.bkcore.com and a Facebook admin id.
+3. index.html: the two favicon <link> tags now point at the local favicon.png instead of
+   http://hexgl.bkcore.com/favicon.png.
+4. bkcore/hexgl/HexGL.js, displayResults(): removed the six lines that assigned twitter.com / facebook.com share
+   URLs (containing http://hexgl.bkcore.com) to the #finish-twitter and #finish-fb elements, and left a one-line
+   comment in their place. This code is unreachable in this build (the function returns early because
+   index.html passes the #step-5 "gameover" element, and those two elements do not exist in index.html), so the
+   game plays exactly as before.
+No other file was modified.
+
+Files from the repository that were NOT copied (not needed at runtime)
+----------------------------------------------------------------------
+- package.zip, package.webapp, manifest.webapp (Firefox OS manifest pointing at a missing index-mobile.html),
+  cache.appcache, .htaccess, launch.coffee, README.md, .gitignore
+- textures/ and textures.full/: only the files tracks/Cityscape.js loads are shipped. Quality LOW and MID load the
+  diffuse maps from textures/, HIGH and VERY HIGH (the default) load diffuse + normal + specular maps from
+  textures.full/; the normal/specular files in textures/ are never loaded, so they were left out
+- bkcore.coffee/: the *.coffee sources, tests.html and threejs/ (only the compiled .js files that index.html loads
+  are shipped: controllers/TouchController.js, controllers/OrientationController.js,
+  controllers/GamepadController.js, Timer.js, ImageData.js, Utils.js)
+- bkcore/hexgl/Ladder.js and bkcore/threejs/Preloader.js (not loaded by index.html)
+- libs/Editor.html, libs/Editor_files/, libs/Three.r53.js and the postprocessing passes index.html does not load
+  (DotScreenPass, FilmPass, SavePass, TexturePass)
+- css/mobile*.jpg and css/touchcontroller.css (not referenced by index.html or any script)
+- textures/checker.png, textures/particles/damage.png and the duplicate "* - Copie.png" files
+- geometries/tracks/edge/ (not referenced by the Cityscape track)
+- replays/ (the game reads replays from localStorage, not from this folder)
+
+Notes
+-----
+- launch.js keeps the author's fallback: if WebGL is unavailable, the Start button reads "WebGL is not supported!"
+  and clicking it opens http://get.webgl.org/. libs/Detector.js (loaded, unused) has the same help links.
+  Neither makes a request on its own.
+- The "LEAP MOTION CONTROLLER" option connects to the Leap service on the player's own machine
+  (ws://localhost:6437) only if the player selects it in the menu.
+- Best times and the last replay are stored in the browser's localStorage, nothing is sent anywhere.
