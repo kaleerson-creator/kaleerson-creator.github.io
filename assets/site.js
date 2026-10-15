@@ -76,7 +76,7 @@
 
   // Pictures for the clickable boxes (elements with data-art="…"); see /assets/art.js.
   var art = document.createElement('script');
-  art.src = '/assets/art.js?v=5';
+  art.src = '/assets/art.js?v=6';
   art.defer = true;
   document.head.append(art);
 

@@ -1,17 +1,23 @@
 {
-  "title": "_INVADERS",
-  "tagline": "Space Invaders in first person. Endless waves, one blaster.",
-  "blurb": "Waves of blocky aliens fly straight at you and you blast them before they land. Beginner mode is on by default, so you get an extra life while you learn the controls.",
-  "desc": "_INVADERS, a first-person Space Invaders in WebGL by Andy K. S. Wong. Endless waves of aliens, free in your browser.",
-  "author": "Andy K. S. Wong",
-  "authorUrl": "https://github.com/andykswong",
-  "repo": "https://github.com/andykswong/_INVADERS",
-  "license": "MIT",
-  "controls": ["W A S D or arrows to move", "Mouse to look around", "Click, Enter or E to shoot", "Touch: left half moves, right half looks, A fires"],
-  "touch": true,
-  "sizeMb": 0.1,
-  "color": "lilac",
-  "tags": "invaders space aliens shooter first person webgl js13k",
-  "order": 70,
-  "extraCredit": "Co-op mode and the screenshot button are switched off in this copy because they need outside servers."
+ "title": "_INVADERS",
+ "tagline": "Space Invaders in first person. Endless waves, one blaster.",
+ "blurb": "Waves of blocky aliens fly straight at you and you blast them before they land. Beginner mode is on by default, so you get an extra life while you learn the controls.",
+ "desc": "_INVADERS, a first-person Space Invaders in WebGL by Andy K. S. Wong. Endless waves of aliens, free in your browser.",
+ "author": "Andy K. S. Wong",
+ "authorUrl": "https://github.com/andykswong",
+ "repo": "https://github.com/andykswong/_INVADERS",
+ "license": "MIT",
+ "controls": [
+  "W A S D or arrows to move",
+  "Mouse to look around",
+  "Click, Enter or E to shoot",
+  "Touch: left half moves, right half looks, A fires"
+ ],
+ "touch": true,
+ "sizeMb": 0.1,
+ "color": "lilac",
+ "tags": "invaders space aliens shooter first person webgl js13k",
+ "order": 70,
+ "extraCredit": "Co-op mode and the screenshot button are switched off in this copy because they need outside servers.",
+ "art": "invaders"
 }
