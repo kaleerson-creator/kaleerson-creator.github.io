@@ -76,7 +76,7 @@
 
   // Pictures for the clickable boxes (elements with data-art="…"); see /assets/art.js.
   var art = document.createElement('script');
-  art.src = '/assets/art.js?v=5';
+  art.src = '/assets/art.js?v=6';
   art.defer = true;
   document.head.append(art);
 
@@ -173,6 +173,17 @@
     ['Connect Four', '/edu/connect/', G, 'four in a row vs ai'],
     ['Happy Molecules', '/edu/molecules/', G, 'puzzle atoms bonds rules logic'],
     ['PolyTrack', '/edu/polytrack/', G, 'racing cars track kodub itch'],
+    // 3d:start
+    ['HexGL', '/edu/hexgl/', G, '3d racing hover ship webgl neon track laps'],
+    ['Sketchbook', '/edu/sketchbook/', G, '3d sketchbook island sandbox car plane helicopter three.js'],
+    ['Space Pirates', '/edu/spacepirates/', G, '3d space ship shooter dogfight fly babylon pirates'],
+    ['Truck Town', '/edu/trucktown/', G, '3d truck town godot driving trucks vehicle physics'],
+    ['TuxRacer.js', '/edu/tuxracer/', G, '3d penguin snow ski sled race tux linux downhill fish'],
+    ['T-Rex Run 3D', '/edu/dino3d/', G, '3d dinosaur dino chrome runner jump cactus trex offline'],
+    ['_INVADERS', '/edu/invaders/', G, '3d invaders space aliens shooter first person webgl js13k'],
+    ['Underrun', '/edu/underrun/', G, '3d underrun shooter robots top-down pixel station webgl js13k phoboslab'],
+    ['The Adventures of Captain Callisto', '/edu/callisto/', G, '3d callisto platformer space astronaut stars jetpack jump webgl js13k'],
+    // 3d:end
     ['Bell Schedule', '/bell/', T, 'period minutes until bell pvhs school'],
     ['Countdown', '/countdown/', T, 'days until date event'],
     ['GPA & Grades', '/gpa/', T, 'grade calculator final weighted'],

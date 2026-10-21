@@ -1,0 +1,25 @@
+{
+ "title": "Space Pirates",
+ "tagline": "Space dogfights in a starfighter you fly with the mouse.",
+ "blurb": "You fly a little starfighter around a planet and shoot down the raiders before they shoot you. It's two clicks from loading to fighting, which is why I like it.",
+ "desc": "Space Pirates, the Babylon.js team's open-source 3D space dogfight game. Steer with the mouse, fire cannons and missiles, hit the afterburner. Hosted on kaleerson.com.",
+ "author": "the Babylon.js team",
+ "authorUrl": "https://www.babylonjs.com/",
+ "repo": "https://github.com/BabylonJS/SpacePirates",
+ "license": "Apache 2.0",
+ "licenseFile": "LICENSE",
+ "controls": [
+  "Mouse: steer",
+  "Left click: cannons",
+  "Right click: missiles",
+  "W: afterburner",
+  "S: brake",
+  "Q: turn around"
+ ],
+ "touch": false,
+ "sizeMb": 36,
+ "color": "lilac",
+ "tags": "space ship shooter dogfight fly babylon pirates",
+ "order": 30,
+ "art": "spacepirates"
+}

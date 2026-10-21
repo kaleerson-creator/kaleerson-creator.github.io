@@ -14,7 +14,7 @@ window.CONTENT = {
     { name: 'Snapwit', art: 'snapwit',  href: '/snapwit/', color: 'peach', tag: '30 games',       note: 'Reaction, memory and party games' },
     { name: 'LD Timer', art: 'ldtimer', href: '/ldtimer/', color: 'sky',   tag: 'Debate',          note: 'Lincoln-Douglas round timer' },
     { name: 'Speech & Debate', art: 'debate', href: '/debate/', color: 'butter', tag: 'Debate',       note: 'PF, Policy, Congress and speech timers, flow, topics' },
-    { name: 'Games', art: 'games', href: '/edu/', color: 'moss', tag: 'Play', note: 'Daily Word, 2048, Snake, Blocks, Breakout, trivia and online rooms', open: true },
+    { name: 'Games', art: 'games', href: '/edu/', color: 'moss', tag: 'Play', note: '3D racing, flying and space fights, plus Daily Word, 2048, Blocks and online rooms', open: true },
     { name: 'PVHS Study', art: 'study', href: '/study/', color: 'lilac', tag: 'Study',           note: 'Palo Verde HS study site', status: 'live' },
     // quick tools: no account needed, work offline
     { name: 'Bell Schedule', art: 'bell',      href: '/bell/',      color: 'sky',    tag: 'School',  note: 'Current period and minutes until the bell at Palo Verde', open: true, quick: true },
@@ -30,6 +30,8 @@ window.CONTENT = {
     { name: 'Stopwatch',     art: 'stopwatch', href: '/stopwatch/', color: 'moss',   tag: 'Timer',   note: 'Laps and splits, keeps running in the background', open: true, quick: true }
   ],
   updates: [
+    { date: '2026-10', tag: 'Launch', title: 'Nine 3D games', href: '/edu/',
+      body: 'Real 3D in the browser, hosted right here so they work on school Wi-Fi: HexGL racing, Sketchbook (drive, fly, roam), Space Pirates dogfights, TuxRacer sledding, Truck Town, a 3D T-Rex run, and three tiny instant ones. All free, open-source games with credit to their makers.' },
     { date: '2026-10', tag: 'Product', title: 'PolyTrack in the games area', href: '/edu/polytrack/',
       body: 'Kodub\'s low-poly racing game now has a spot in Games with links to play it free on kodub.com, itch.io or Android. Not mine, just a great game.' },
     { date: '2026-10', tag: 'Launch', title: 'Happy Molecules', href: '/edu/molecules/',

@@ -32,6 +32,8 @@ HEAD = '''<!DOCTYPE html>
 </body>
 </html>
 '''
+import subprocess
+subprocess.run(['python3', os.path.join(SRC, '..', '_tools', 'games3d.py')], check=True)
 V = '6'
 for f in sorted(glob.glob(os.path.join(SRC, '*.page'))):
     parts = dict(re.findall(r'^@@ (\w+)\n(.*?)(?=^@@ |\Z)', open(f).read(), re.S | re.M))

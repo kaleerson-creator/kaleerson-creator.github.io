@@ -3,7 +3,7 @@
 // - /assets/, /edu/assets/ and /edu/<game>/: cached copy first, refreshed in the background.
 // - Never caches account, admin, join or contact pages, or anything from Supabase.
 // Bump VERSION whenever the precache list or the strategy changes; old caches are deleted on activate.
-var VERSION = 'kale-v2';
+var VERSION = 'kale-v3';
 var PRECACHE = ['/', '/edu/', '/404.html', '/assets/site.css', '/assets/site.js', '/assets/art.js', '/assets/content.js', '/edu/assets/common.js', '/edu/assets/games.css'];
 
 self.addEventListener('install', function (e) {
@@ -33,7 +33,7 @@ self.addEventListener('fetch', function (e) {
   var url;
   try { url = new URL(req.url); } catch (err) { return; }
   if (url.origin !== self.location.origin) return;            // supabase, fonts, CDNs: not ours
-  if (/\.supabase\.co/.test(url.hostname) || NEVER.test(url.pathname)) return;
+  if (/\.supabase\.co/.test(url.hostname) || NEVER.test(url.pathname) || /^\/edu\/3d\//.test(url.pathname)) return;
   var path = url.pathname;
   var isNav = req.mode === 'navigate' || (req.headers.get('accept') || '').indexOf('text/html') >= 0;
 

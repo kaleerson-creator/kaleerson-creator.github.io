@@ -1,0 +1,47 @@
+T-Rex Run 3D (dino3d)
+=====================
+
+Title:      T-Rex Run 3D
+Author:     Abraham Tugalov (Priler), (C) 2020
+            Uses three.js (MIT), vox.js by daishihmr (MIT), howler.js (MIT), three-nebula (MIT) and
+            visibly.js by Addy Osmani (MIT); models made in MagicaVoxel.
+Source:     https://github.com/Priler/dino3d  (branch master; the repository root is the built game)
+Upstream:   commit 5b0a0903d0f5c1cd7c4a7dd325d06b175a0b3d3b, dated 2026-07-09
+License:    GNU General Public License v3.0 (see LICENSE in this folder, copied verbatim)
+
+This copy is hosted at https://kaleerson.com/edu/3d/dino3d/ and embedded by https://kaleerson.com/edu/dino3d/
+so it works on school networks. It makes requests only to its own origin. The modified source is this folder;
+the changes are listed below as the GPL asks.
+
+Entry page: low.html (the author's recommended version, no shadows / antialiasing, lighter on school laptops).
+index.html is the same game with the "high" quality config and is shipped too.
+
+Changes made to the upstream files
+----------------------------------
+1. js/config-high.js and js/config-low.js: "base_path" changed from "/dino3d/" to "./" so sounds, voxel models and
+   textures load relative to the page instead of from the site root.
+2. libs/nebula/three-nebula.js: removed the trailing "//# sourceMappingURL=three-nebula.js.map" comment (the map
+   file is not shipped).
+No other file was modified. The interface text (a parody of Chrome's Russian "no internet" page) is unchanged.
+
+Files from the repository that were NOT copied (not needed at runtime)
+----------------------------------------------------------------------
+- package.json, package-lock.json, gulpfile.js, .github/, .gitignore, README.md
+- js/build.js and js/src/ (unminified sources of js/build.min.js, which is what the pages load)
+- css/style.css and css/style.scss (sources of css/style.min.css)
+- libs/: everything the two pages do not load: dat.gui/, stats/, howler/howler.js, howler.core.min.js,
+  howler.spatial.min.js, vox/vox.js, three/three.js, three/three.module.js, three/loaders/GLTFLoader.js,
+  three/math/, and every postprocessing pass and shader except EffectComposer, RenderPass, ShaderPass, SAOPass,
+  CopyShader, ConvolutionShader, SAOShader, DepthLimitedBlurShader and UnpackDepthRGBAShader
+- sound/: only the five files build.min.js plays are shipped (Jump24.wav, Pickup_Coin103.wav, Powerup33.wav,
+  Randomize62.wav, ingame/Reloaded Games - Music.ogg); the unreferenced .wav/.mp3 files were left out
+- media/bg.jpg and media/_repeat.png, textures/ground_face.jpg and textures/ground_top.psd
+- objects/_cactus.vox, objects/ground.vox and objects/t-rex/_old/ (not loaded by build.min.js)
+
+Notes
+-----
+- Keyboard only: Space or Arrow Up jumps (and starts a game), Arrow Down or Ctrl ducks. There are no touch
+  handlers in build.min.js apart from the click on the start / restart buttons.
+- High scores are kept in the browser's localStorage; nothing is sent anywhere.
+
+- kaleerson.com: translated the six Russian UI strings in index.html and low.html to English (GAME OVER, Start game, and the parody "No internet" screen). No other change.

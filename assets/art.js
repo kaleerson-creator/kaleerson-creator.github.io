@@ -82,6 +82,27 @@
     connect: rect(8, 18, 104, 92, 12, B) + (function () { var s = '', M = [['c', 'c', 'c', 'c'], ['c', 'c', R, 'c'], ['c', R, Y, 'c'], [R, Y, Y, R]]; for (var r = 0; r < 4; r++) for (var c = 0; c < 4; c++) s += circ(24 + c * 24, 34 + r * 21, 8, M[r][c] === 'c' ? 'var(--card)' : M[r][c]); return s; })(),
     molecules: path('M46 30L68 56M68 56L94 36M68 56L90 90', 'none') + rect(30, 14, 32, 32, 8, B) + path('M94 18l16 30H78z', R) + circ(68, 56, 20, Y) + circ(61, 52, 2.5, '#141613') + circ(75, 52, 2.5, '#141613') + path('M60 62q8 7 16 0', 'none') + circ(92, 92, 11),
     polytrack: path('M6 92C30 92 30 40 60 40s30 52 54 52', 'none') + path('M60 40a16 16 0 1 0 0-32a16 16 0 0 0 0 32', 'none') + path('M20 86l10-14h22l10 14z', R) + rect(14, 84, 44, 12, 4, R) + circ(24, 98, 6, '#141613') + circ(48, 98, 6, '#141613') + path('M86 66l6-8h12l6 8z', B) + rect(82, 66, 30, 9, 3, B) + circ(89, 77, 4, '#141613') + circ(105, 77, 4, '#141613'),
+    game3d: path('M60 14l44 24v44l-44 24-44-24V38z', B) + path('M60 14v48M16 38l44 24 44-24', 'none') + path('M60 62l44-24v44l-44 24z', '#2451C9') + path('M60 62l-44-24v44l44 24z', '#7FA3F0') + path('M6 70h8M4 82h12M8 94h6', 'none') + circ(98, 22, 6, Y),
+    // ── 3D games (self-hosted, /edu/3d/) ──
+    hexgl: path('M12 112L46 30h28l34 82z', P) + path('M44 52h32M38 66h44', 'none').replace('stroke-width="3"', 'stroke-width="4"').replace('var(--ink)', '#4FE3F6') +
+      path('M20 102l16-22h48l16 22z', B) + path('M44 80a16 13 0 0 1 32 0z', '#2451C9') + circ(37, 93, 5.5, '#4FE3F6') + circ(83, 93, 5.5, '#4FE3F6'),
+    sketchbook: path('M10 92c0-8 22-14 50-14s50 6 50 14v8c0 10-22 16-50 16S10 110 10 100z', G) + rect(40, 44, 28, 16, 5, R) + rect(30, 56, 48, 20, 6, R) + circ(42, 78, 7, '#141613') + circ(66, 78, 7, '#141613') +
+      path('M62 34H98l8-4-8-4H68l-4-10h-8l4 10h2z', Y) + path('M76 34l-6 10h14l6-10z', Y) + path('M106 24v12', 'none'),
+    spacepirates: circ(86, 36, 26, O) + path('M52 40a34 9 0 1 0 68 0a34 9 0 1 0-68 0', 'none') + circ(16, 22, 3, Y) + circ(40, 12, 2.5, Y) + circ(106, 86, 3, Y) +
+      rect(29, 32, 6, 16, 3, R) + rect(47, 32, 6, 16, 3, R) + path('M41 58l26 46H54l-13-10-13 10H15z', B) + circ(41, 80, 6, Y),
+    tuxracer: path('M-4 44L124 94v30H-4z', '#F4F7FA') + circ(16, 34, 4, '#F4F7FA') + circ(7, 46, 3, '#F4F7FA') + '<g transform="rotate(22 60 56)">' + path('M28 56a32 15 0 1 0 64 0a32 15 0 1 0-64 0', '#141613') +
+      path('M36 60a24 9 0 1 0 48 0a24 9 0 1 0-48 0', '#fff') + path('M30 52l-14-4 4 8z', O) + circ(82, 50, 4, '#fff') + circ(83, 50, 1.6, '#141613').replace(S, 'stroke="none"') + path('M88 52l20 6-20 7z', Y) + '</g>',
+    trucktown: rect(8, 26, 52, 28, 5, R) + rect(10, 50, 100, 30, 8, R) + path('M58 50V30a6 6 0 0 1 6-6h24l16 26z', R) + path('M66 30h18l10 18H66z') +
+      circ(36, 88, 17, '#141613') + circ(36, 88, 6) + circ(88, 88, 17, '#141613') + circ(88, 88, 6) + circ(106, 64, 4, Y),
+    dino3d: path('M4 110h112', 'none') + path('M26 104a22 5 0 1 0 44 0a22 5 0 1 0-44 0', 'var(--ink3)').replace(S, 'stroke="none" opacity=".5"') +
+      path('M86 110V66h12v44zM72 76h14v12H72zM98 72h14v12H98z', G) + path('M50 20h32v20H66v8h8v6h-8v16h-8v10h-8v-4h-8V62H30v-8H18v-8h24v-6h8z', G) + rect(72, 25, 6, 6, 1, 'var(--card)'),
+    invaders: (function () { var M = ['..X.....X..', '...X...X...', '..XXXXXXX..', '.XX.XXX.XX.', 'XXXXXXXXXXX', 'X.XXXXXXX.X', 'X.X.....X.X', '...XX.XX...'], d = '';
+      for (var r = 0; r < 8; r++) for (var c = 0; c < 11; c++) if (M[r][c] === 'X') d += 'M' + (21 + c * 7) + ' ' + (8 + r * 7) + 'h7v7h-7z';
+      return path(d, G) + path(d, G).replace(S, 'stroke="none"') + rect(57, 70, 6, 12, 3, R) + path('M42 110V98h8v-6h6v-6h8v6h6v6h8v12z'); })(),
+    underrun: rect(-4, -4, 34, 128, 2, 'var(--ink3)') + rect(90, -4, 34, 128, 2, 'var(--ink3)') + rect(30, -4, 60, 128, 2, 'var(--card)') + path('M30 24h60M30 104h60', 'none').replace('var(--ink)', 'var(--line)') +
+      path('M46 6L60 54 74 6z', 'rgba(229,72,77,.3)').replace(S, 'stroke="none"') + rect(30, 54, 16, 22, 5, '#2451C9') + rect(74, 54, 16, 22, 5, '#2451C9') + circ(60, 64, 20, B) + circ(60, 54, 6, R),
+    callisto: path('M-4 124V100c14-14 34-20 58-12s38-8 70 8v28z', P) + circ(34, 108, 5, '#6E4FC9') + circ(92, 110, 3, '#6E4FC9') + path('M48 86v12h10V86zM62 86v12h10V86z') + rect(42, 58, 36, 30, 12) +
+      circ(60, 40, 20) + rect(48, 32, 24, 16, 8, '#141613') + path('M18 18v14M11 25h14M98 12v10M93 17h10', 'none') + circ(104, 56, 3, Y),
     // ── quick tools ──
     bell: circ(60, 12, 5, 'var(--ink)') + path('M60 16c-18 0-30 14-30 32v20L20 84h80L90 68V48c0-18-12-32-30-32z', Y) + path('M48 90a12 12 0 0 0 24 0', 'var(--ink)') + path('M14 36a30 30 0 0 1 8-20M106 36a30 30 0 0 0-8-20', 'none'),
     countdown: rect(26, 6, 68, 10, 4) + rect(26, 104, 68, 10, 4) + path('M34 16h52v8L68 52v16l18 28v8H34v-8l18-28V52L34 24z') + path('M44 24h32l-16 20z', Y) + path('M48 94l12-16 12 16z', Y) + path('M60 56v12', 'none'),
